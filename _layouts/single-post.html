@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0" />
+
+    {% include css.html %}
+  </head>
+  <body>
+    <div class="container site">
+      <div class="hidden-xs hidden-sm">
+        {% include header.html %}
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 masthead">
+          <div>
+            <a class="logo" href="{{ site.baseurl }}/"></a>
+          </div>
+        </div>
+
+        <div class="post col-md-9">
+          {% if page.cover %}
+            <div class="cover-image">
+              <div class="post-label grey-bg col-md-8">
+                <span class="date"><a href="{{ site.baseurl }}/">openFDA &rsaquo;</a></span>
+                <h1><a href="{{ site.baseurl }}/{{ post.url }}">{{ page.title }}</a></h1>
+              </div>
+            </div>
+          {% else %}
+            <div class="highlight grey-bg padded-bottom">
+              <span class="date"><a href="{{ site.baseurl }}/">openFDA &rsaquo;</a></span>
+              <h1><a href="{{ site.baseurl }}/{{ post.url }}">{{ page.title }}</a></h1>
+            </div>
+          {% endif %}
+
+          <span class="date">{{ page.date | date_to_long_string }}</span>
+          {{ content }}
+        </div>
+      </div>
+
+      <div class="hidden-md hidden-lg">
+        {% include header.html %}
+      </div>
+
+      {% include footer.html %}
+    </div>
+  </body>
+</html>

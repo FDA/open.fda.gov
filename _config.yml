@@ -1,0 +1,5 @@
+name: openFDA Blog
+markdown: redcarpet
+pygments: true
+baseurl: /openfda-blog
+permalink: /blog/:title
