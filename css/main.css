@@ -15,9 +15,6 @@ body {
   font-size: 1.69em;
   line-height: 1.26;
 }
-.twitter-timeline {
-  font-family: "Open Sans";
-}
 .site {
   min-width: 320px;
 }
@@ -41,6 +38,29 @@ a:hover {
 }
 a: visited {
   color: ##7051B9;
+}
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'openfda';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  position: relative;
+  top: 0.15em;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class^="icon-"]:hover, [class*=" icon-"]:hover {
+  text-decoration: none;
+}
+a.link-icon:hover {
+  text-decoration: none;
+}
+a.link-icon span:hover {
+  text-decoration: underline;
 }
 
 .title {
