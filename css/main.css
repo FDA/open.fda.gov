@@ -1,12 +1,21 @@
+/*
+/*
+/*
+/*
+/* Off-site fonts. */
+
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,700);
+
+/*
+/*
+/*
+/*
+/* Layout aids. */
 
 * {
   margin: 0;
   padding: 0;
 }
-/*html, body {
-  height: 100%;
-}*/
 body {
   background-color: #fff;
   color: #555;
@@ -18,6 +27,19 @@ body {
 .site {
   min-width: 320px;
 }
+.content-width {
+  width: 100%;
+}
+.padded-bottom {
+  padding-bottom: 9ex;
+}
+
+/*
+/*
+/*
+/*
+/* Basic type, list, and graphic styles. */
+
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
   font-weight: 300;
@@ -39,8 +61,19 @@ a:hover {
 a: visited {
   color: ##7051B9;
 }
-
-.title {
+.list-horizontal {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.list-horizontal > li {
+  position: relative;
+  display: block;
+}
+.list-horizontal > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px 10px 0;
 }
 .date {
   color: #999;
@@ -50,19 +83,34 @@ a: visited {
   color: #666;
   font-size: .7em;
 }
+.cover-image {
+  background-repeat: no-repeat;
+  height: 25ex;
+  margin: 0 -15px;
+}
+.post-label {
+  padding: 1ex 15px 1ex 15px;
+}
+.highlight {
+  display: block;
+  margin: 0 -15px;
+  padding: 1ex 15px 1ex 15px;
+}
+.line {
+  padding-bottom: 2ex;
+  border-bottom: 1px solid #999;
+}
+.line-light {
+  padding-bottom: .5ex;
+  border-bottom: 1px solid #dadada;
+  margin-bottom: 3ex;
+}
 
-.posts {
-  list-style-type: none;
-  margin-bottom: 2em;
-}
-.posts li {
-  line-height: 1.75em;
-}
-.posts span {
-  color: #aaa;
-  font-family: Monaco, "Courier New", monospace;
-  font-size: 80%;
-}
+/*
+/*
+/*
+/*
+/* Header, logo, footer, and other common elements. */
 
 .header {
   font-size: .7em;
@@ -72,49 +120,50 @@ a: visited {
   padding-bottom: 2px;
   border-bottom: 1px solid #dadada;
 }
-
 .logo {
   display: block;
   background-repeat: no-repeat;
   background-size: contain;
-  margin-bottom: 3.0em;
+  margin-bottom: 3em;
 }
 .logo-fda {
   margin-bottom: .5em;
 }
 .masthead {
   padding-top: 5.2ex;
-  padding-bottom: 2.0ex;
+  padding-bottom: 2ex;
 }
-.line {
-  padding-bottom: 2.0ex;
-  border-bottom: 1px solid #999;
+.footer {
+  font-size: .7em;
+  color: #666;
+  margin-top: 2em;
+  overflow: hidden;
 }
-.line-light {
-  padding-bottom: .5ex;
-  border-bottom: 1px solid #dadada;
+.footer a {
+  color: #00539B;
+}
+.nav-footer > li {
+  float: left;
+  margin-top: -4px;
+}
+.nav-footer > li + li {
+  margin-left: 2px;
+}
+.footer .rss {
+  margin-top: 1.1em;
+  margin-right: -.2em;
+  float: right;
+}
+.footer .rss img {
+  border: 0;
 }
 
-.content-width {
-  width: 100%;
-}
+/*
+/*
+/*
+/*
+/* Colors for text and block elements. */
 
-.cover-image {
-  background-repeat: no-repeat;
-  height: 25ex;
-  margin: 0 -15px;
-}
-.post-label {
-  padding: 1.0ex 15px 1.0ex 15px;
-}
-.highlight {
-  display: block;
-  margin: 0 -15px;
-  padding: 1.0ex 15px 1.0ex 15px;
-}
-.padded-bottom {
-  padding-bottom: 9.0ex;
-}
 .white {
   color: #fff;
 }
@@ -147,26 +196,15 @@ a: visited {
   background: #ff5545;
 }
 .grey-bg {
-  color: #777;
   background: #f4f4f4;
 }
 .light-bg {
   background: #eaeaea;
 }
 
-.excerpt {
-  border-bottom: 1px solid #dadada;
-  padding-bottom: 2px;
-  margin-bottom: 7.0ex;
-}
-.excerpts h2 {
-  font-size: .7em;
-}
-.excerpts h3 {
-  margin-bottom: 0;
-}
-
-
+/*
+/*
+/*
 /*
 /* OpenFDA icon font and icons. */
 
@@ -206,150 +244,42 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
   content: "\e602";
 }
 
+/*
+/*
+/*
+/*
+/* Post styles (Jekyll). */
 
+.posts {
+  list-style-type: none;
+  margin-bottom: 2em;
+}
+.posts li {
+  line-height: 1.75em;
+}
+.posts span {
+  color: #aaa;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 80%;
+}
+.excerpt {
+  border-bottom: 1px solid #dadada;
+  padding-bottom: 2px;
+  margin-bottom: 7ex;
+}
+.excerpts h2 {
+  font-size: .7em;
+}
+.excerpts h3 {
+  margin-bottom: 0;
+}
 .meta {
   color: #aaa;
 }
-
-.footer {
-  font-size: .7em;
-  color: #666;
-  margin-top: 2em;
-  overflow: hidden;
-}
-.footer a {
-  color: #00539B;
-}
-.list-horizontal {
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-}
-.list-horizontal > li {
-  position: relative;
-  display: block;
-}
-.list-horizontal > li > a {
-  position: relative;
-  display: block;
-  padding: 10px 15px 10px 0;
-}
-.nav-footer > li {
-  float: left;
-  margin-top: -4px;
-}
-.nav-footer > li + li {
-  margin-left: 2px;
-}
-
-.footer .rss {
-  margin-top: 1.1em;
-  margin-right: -.2em;
-  float: right;
-}
-.footer .rss img {
-  border: 0;
-}
-
-
-
-
-
-
-
-/* Responsive media queries. */
-
-/* MOBILE PORTRAIT 480px */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
-	body {
-    padding: 0;
-  }
-  .site {
-    margin: 0 auto;
-	}
-  .cover-image {
-    height: 30ex`;
-    background-size: 100% auto;
-  }
-}
-
-
-/* SMALL TABLET 600px */
-
-@media only screen and (min-width: 37.5em) {
-	body {
-    padding-bottom: 13.5em;
-	}
-}
-
-
-/* DESKTOP STYLES 640px */
-
-@media only screen and (min-width: 40em) {
-	body {
-    padding-bottom: 12em;
-	}
-}
-
-@media screen and (min-width: 4.5em) and (min-height: 50em) {
-}
-
-@media screen and (min-width: 4.5em) and (min-height: 32.5em) {
-
-	/* LAYOUT */
-  .main-content {
-    width: 66%;
-    float: right;
-    margin-bottom: 7.5em;
-    margin-top: 7em;
-    margin-left: 2%;
-	}
-
-	header {
-    position: fixed;
-	}
-}
-
-
-
-/* TABLET/NETBOOK 744px */
-@media only screen and (min-width: 46.5em) {
-}
-
-/* LANDSCAPE TABLET/NETBOOK/LAPTOP (1024PX) */
-@media only screen and (min-width: 64em) {
-}
-
-/* DESKTOP */
-@media only screen and (min-width: 80em) {
-}
-
-/*    W I D E S C R E E N    */
-/* Increased body size for legibility */
-@media only screen and (min-width: 87.5em) {
-	body {
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* Posts
-/*
-/*****************************************************************************/
-
 .post {
   border-bottom: 1px solid #dadada;
-  padding-bottom: 7.0ex;
-  margin-bottom: 7.0ex;
+  padding-bottom: 7ex;
+  margin-bottom: 7ex;
 }
 .post img {
   max-width: 100%;
@@ -370,8 +300,6 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
 .post pre code {
   border: none;
 }
-/* terminal */
-
 .post pre.terminal {
   border: 1px solid #000;
   background-color: #333;
@@ -379,4 +307,51 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
 }
 .post pre.terminal code {
   background-color: #333;
+}
+
+/*
+/*
+/*
+/*
+/* Responsive design thresholds. */
+
+/* Mobile portrait ~480px */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+  .site {
+    margin: 0 auto;
+  }
+  .cover-image {
+    height: 30ex`;
+    background-size: 100% auto;
+  }
+}
+/* Small tablet ~600px */
+@media only screen and (min-width: 37.5em) {
+  body {
+  }
+  .cover-image {
+    height: 30ex`;
+    background-size: 100% auto;
+  }
+}
+/* Desktop ~640px */
+@media only screen and (min-width: 40em) {
+  body {
+  }
+  .cover-image {
+    height: 30ex`;
+    background-size: 100% auto;
+  }
+}
+/* Tablet/notebook ~744px */
+@media only screen and (min-width: 46.5em) {
+}
+/* Tablet landscape/notebook/laptop ~1024px */
+@media only screen and (min-width: 64em) {
+}
+/* Larger desktop */
+@media only screen and (min-width: 80em) {
 }
