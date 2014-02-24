@@ -82,11 +82,14 @@ a: visited {
 }
 .cover-image {
   background-repeat: no-repeat;
-  height: 25ex;
+  height: 36ex;
   margin: 0 -15px;
 }
 .post-label {
   padding: 1ex 15px 1ex 15px;
+}
+.cover-image > .post-label.grey-bg {
+  opacity: 0.95;
 }
 .blocklight {
   display: block;
