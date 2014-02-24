@@ -55,8 +55,12 @@ a:hover {
   color: #068cff;
   text-decoration: underline;
 }
-a: visited {
-  color: ##7051B9;
+a.white {
+  color #fff;
+  cursor: pointer;
+}
+a.white:hover {
+  color: #fff !important;
 }
 .list-horizontal {
   padding-left: 0;
@@ -81,6 +85,9 @@ div.date {
 }
 .slight {
   color: #666;
+  font-size: .7em;
+}
+.text-small {
   font-size: .7em;
 }
 .cover-image {
@@ -389,10 +396,13 @@ ul.social .pinterest a:before {
     margin: 0 auto;
   }
   .header {
-    margin-top: 2ex;
+    margin-top: 3ex;
   }
   .logo {
     margin-bottom: 0;
+  }
+  .logo-fda {
+    margin-bottom: 2ex;
   }
   .padded-bottom {
     padding-bottom: 5ex;
@@ -405,6 +415,9 @@ ul.social .pinterest a:before {
 /* Small devices ≥ 768px */
 @media only screen and (min-width: 768px) {
   body {
+  }
+  .header {
+    margin-top: 3ex;
   }
   .logo {
     margin-bottom: 0;
