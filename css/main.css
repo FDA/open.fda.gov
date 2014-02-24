@@ -339,6 +339,9 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
   .logo {
     margin-bottom: 0;
   }
+  .padded-bottom {
+    padding-bottom: 5ex;
+  }
   .cover-image {
     height: 30ex`;
     background-size: 100% auto;
