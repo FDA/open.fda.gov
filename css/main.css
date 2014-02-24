@@ -355,7 +355,7 @@ ul.social li {
   margin-right: 2em;
 }
 ul.social li > a {
-  margin-left: .25em;
+  margin-left: .5em;
 }
 ul.social li > a:before {
   content: "";
