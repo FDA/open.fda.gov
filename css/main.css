@@ -4,9 +4,9 @@
   margin: 0;
   padding: 0;
 }
-html, body {
+/*html, body {
   height: 100%;
-}
+}*/
 body {
   background-color: #fff;
   color: #555;
@@ -39,39 +39,16 @@ a:hover {
 a: visited {
   color: ##7051B9;
 }
-[class^="icon-"], [class*=" icon-"] {
-  font-family: 'openfda';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  position: relative;
-  top: 0.15em;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-[class^="icon-"]:hover, [class*=" icon-"]:hover {
-  text-decoration: none;
-}
-a.link-icon:hover {
-  text-decoration: none;
-}
-a.link-icon span:hover {
-  text-decoration: underline;
-}
 
 .title {
 }
 .date {
   color: #999;
-  font-size: 0.7em;
+  font-size: .7em;
 }
 .slight {
   color: #666;
-  font-size: 0.7em;
+  font-size: .7em;
 }
 
 .posts {
@@ -88,7 +65,7 @@ a.link-icon span:hover {
 }
 
 .header {
-  font-size: 0.7em;
+  font-size: .7em;
   color: #666;
   margin-top: 4ex;
   margin-bottom: 7ex;
@@ -102,6 +79,9 @@ a.link-icon span:hover {
   background-size: contain;
   margin-bottom: 3.0em;
 }
+.logo-fda {
+  margin-bottom: .5em;
+}
 .masthead {
   padding-top: 5.2ex;
   padding-bottom: 2.0ex;
@@ -111,7 +91,7 @@ a.link-icon span:hover {
   border-bottom: 1px solid #999;
 }
 .line-light {
-  padding-bottom: 0.5ex;
+  padding-bottom: .5ex;
   border-bottom: 1px solid #dadada;
 }
 
@@ -128,6 +108,7 @@ a.link-icon span:hover {
   padding: 1.0ex 15px 1.0ex 15px;
 }
 .highlight {
+  display: block;
   margin: 0 -15px;
   padding: 1.0ex 15px 1.0ex 15px;
 }
@@ -169,6 +150,9 @@ a.link-icon span:hover {
   color: #777;
   background: #f4f4f4;
 }
+.light-bg {
+  background: #eaeaea;
+}
 
 .excerpt {
   border-bottom: 1px solid #dadada;
@@ -176,14 +160,51 @@ a.link-icon span:hover {
   margin-bottom: 7.0ex;
 }
 .excerpts h2 {
-  font-size: 0.7em;
+  font-size: .7em;
 }
 .excerpts h3 {
   margin-bottom: 0;
 }
 
 
+/*
+/* OpenFDA icon font and icons. */
 
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'openfda';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  position: relative;
+  top: .15em;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class^="icon-"]:hover, [class*=" icon-"]:hover {
+  text-decoration: none;
+}
+a.link-icon {
+  text-decoration: none;
+}
+a.link-icon span:hover {
+  text-decoration: underline;
+}
+a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
+  text-decoration: none !important;
+}
+.icon-twitter:before {
+  content: "\e600";
+}
+.icon-github:before {
+  content: "\e601";
+}
+.icon-mail:before {
+  content: "\e602";
+}
 
 
 .meta {
@@ -191,7 +212,7 @@ a.link-icon span:hover {
 }
 
 .footer {
-  font-size: 0.7em;
+  font-size: .7em;
   color: #666;
   margin-top: 2em;
   overflow: hidden;
@@ -270,10 +291,10 @@ a.link-icon span:hover {
 	}
 }
 
-@media screen and (min-width: 40.5em) and (min-height: 50em) {
+@media screen and (min-width: 4.5em) and (min-height: 50em) {
 }
 
-@media screen and (min-width: 40.5em) and (min-height: 32.5em) {
+@media screen and (min-width: 4.5em) and (min-height: 32.5em) {
 
 	/* LAYOUT */
   .main-content {
