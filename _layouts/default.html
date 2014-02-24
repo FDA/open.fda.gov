@@ -12,9 +12,7 @@
   </head>
   <body>
     <div class="container site">
-      <div class="hidden-xs hidden-sm">
-        {% include header.html %}
-      </div>
+      {% include header.html %}
 
       <div class="row">
         <div class="col-md-9">
@@ -47,7 +45,7 @@
         </div>
 
         <div class="col-sm-12 col-md-3">
-          <div class="line-light">
+          <div class="line-light spaced-bottom">
             <h2><span class="icon-mail"></span> <span>Sign up for updates</span></h2>
     				<div id="contact-form" class="slight">
               <label for="email" class="sr-only">Email address</label>
@@ -55,20 +53,18 @@
     				  <button class="btn btn-default" id="listserv-signup">Sign up</button>
             </div>
           </div>
-          <div class="line-light">
-            <h2><a href="#" class="link-icon"><span class="icon-github"></span> <span>fda/openfda</span></a></h2>
+          <div class="line-light spaced-bottom">
+            <h2><a href="#" class="link-icon"><span class="icon-github"></span> <span>fda/openfda</span></a> on GitHub</h2>
             <span class="slight">Lorem ipsum dolor emet.</span>
           </div>
-          <div class="line-light">
-            <h2><a href="http://twitter.com/openfda" class="link-icon"><span class="icon-twitter"></span> <span>@openFDA</span></a></h2>
-            <span class="slight">Veritas #openfda ipsum dolor.</span>
+          <div class="line-light spaced-bottom">
+            <h2><a href="http://twitter.com/openfda" class="link-icon"><span class="icon-twitter"></span> <span>@openFDA</span></a> on Twitter</h2>
+            <span class="slight">Veritas <a href="https://twitter.com/search?q=%23openfda">#openfda</a> ipsum dolor.</span>
           </div>
         </div>
       </div>
 
-      <div class="hidden-md hidden-lg" style="margin-top: -1ex">
-        {% include header.html %}
-      </div>
+      {% include header-small.html %}
 
       {% include footer.html %}
     </div>

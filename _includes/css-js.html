@@ -1,5 +1,31 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
+<script type="text/javascript">
+  function popUpWindow(url, width, height) {
+    newWindow = window.open(url, "name", 'width=' + width + ',height=' + height);
+    if (window.focus) {
+      newwindow.focus()
+    }
+    return false;
+  }
+
+  function popUpGooglePlus(location) {
+    newWindow = window.open('https://plus.google.com/share?url=' + location, "name", 'width=512,height=512');
+    if (window.focus) {
+      newwindow.focus()
+    }
+    return false;
+  }
+
+  function popUpLinkedIn(location, title) {
+    newWindow = window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + location + '&title=' + title, "name", 'width=512,height=512');
+    if (window.focus) {
+      newwindow.focus()
+    }
+    return false;
+  }
+</script>
+
 <link href="{{ site.baseurl }}/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
 <link rel="stylesheet" href="{{ site.baseurl }}/css/syntax.css">
@@ -7,6 +33,14 @@
 <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
 
 <style type="text/css">
+  
+  /*
+  /*
+  /*
+  /*
+  /* Styles here require access to the site.baseurl through Jekyll's templating engine.
+  /* For instance, local fonts, images, etc. */
+
   @font-face {
     font-family: 'openfda';
     src:url('{{ site.baseurl }}/fonts/openfda.eot?-3wnx8q');
@@ -39,5 +73,25 @@
   }
   .cover-image {
     background-image: url('{{ site.baseurl }}/images/{{ page.cover }}');
+  }
+
+  /*
+  /*
+  /*
+  /*
+  /* Social/sharing. */
+
+  ul.social a:before {
+    background: url("{{ site.baseurl }}/images/l_socialSprites.png") no-repeat 0 -20px;
+    background-size: 100px 40px;
+  }
+  @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+  only screen and (-moz-min-device-pixel-ratio: 1.5),
+  only screen and (-o-min-device-pixel-ratio: 3/2),
+  only screen and (min-device-pixel-ratio: 1.5) {
+    ul.social a {
+      background-image: url("{{ site.baseurl }}/images/l_socialSprites@2x.png");
+      background-size: 20px 20px;
+    }
   }
 </style>

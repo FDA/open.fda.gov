@@ -10,9 +10,7 @@
   </head>
   <body>
     <div class="container site">
-      <div class="hidden-xs hidden-sm">
-        {% include header.html %}
-      </div>
+      {% include header.html %}
 
       <div class="row">
         <div class="col-md-3 masthead">
@@ -21,10 +19,10 @@
           </div>
         </div>
 
-        <div class="post col-md-9">
+        <div class="post line-light col-md-9">
           {% if page.cover %}
             <div class="cover-image">
-              <div class="post-label grey-bg col-md-12">
+              <div class="post-label grey-bg">
                 <span class="date"><a href="{{ site.baseurl }}/">openFDA blog &rsaquo;</a></span>
                 <h1>{{ page.title }}</h1>
               </div>
@@ -35,15 +33,17 @@
               <h1>{{ page.title }}</h1>
             </div>
           {% endif %}
-
-          <span class="date">{{ page.date | date_to_long_string }}</span>
+          
+          <div class="date">{{ page.date | date_to_long_string }}</div>
+          
           {{ content }}
-        </div>
-      </div>
 
-      <div class="hidden-md hidden-lg">
-        {% include header.html %}
+          {% include social.html %}
+        </div>
+        
       </div>
+      
+      {% include header-small.html %}
 
       {% include footer.html %}
     </div>

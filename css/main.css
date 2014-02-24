@@ -72,6 +72,9 @@ a: visited {
   display: block;
   padding: 10px 15px 10px 0;
 }
+div.date {
+  margin-top: .5ex;
+}
 .date {
   color: #999;
   font-size: .7em;
@@ -106,6 +109,9 @@ a: visited {
 }
 .padded-bottom {
   padding-bottom: 9ex;
+}
+.spaced-bottom {
+  margin-bottom: 4ex;
 }
 
 /*
@@ -159,9 +165,12 @@ a: visited {
 .footer .rss img {
   border: 0;
 }
+#contact-form {
+  margin-top: 1.5ex;
+}
 #contact-form > * {
   font-size: 12px;
-  margin-bottom: .5ex;
+  margin-bottom: 1ex;
 }
 
 /*
@@ -283,9 +292,10 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
   color: #aaa;
 }
 .post {
-  border-bottom: 1px solid #dadada;
-  padding-bottom: 7ex;
   margin-bottom: 7ex;
+}
+.post-content {
+  padding-bottom: 7ex;
 }
 .post h1 {
   color: #111;
@@ -322,6 +332,51 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
 /*
 /*
 /*
+/* Social/sharing except images, which are inlined in the css-js include. */
+
+ul.social {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+ul.social li {
+  color: #777;
+  font-size: .7em;
+  display: block;
+  float: left;
+  margin-right: 2em;
+}
+ul.social li > a {
+  margin-left: .25em;
+}
+ul.social li > a:before {
+  content: "";
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-top: -2px;
+}
+ul.social .facebook a:before {
+  background-position: 0 -20px;
+}
+ul.social .twitter a:before {
+  background-position: -20px -20px;
+}
+ul.social .googleplus a:before {
+  background-position: -40px -20px;
+}
+ul.social .linkedin a:before {
+  background-position: -60px -20px;
+}
+ul.social .pinterest a:before {
+  background-position: -80px -20px;
+}
+
+/*
+/*
+/*
+/*
 /* Responsive design thresholds.
 /* Compatible with Bootstrap 3.0, so unfortunately sticking with px. */
 
@@ -334,7 +389,7 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
     margin: 0 auto;
   }
   .header {
-    margin-top: 0;
+    margin-top: 2ex;
   }
   .logo {
     margin-bottom: 0;
@@ -353,6 +408,9 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
   }
   .logo {
     margin-bottom: 0;
+  }
+  .logo-fda {
+    margin-bottom: 2ex;
   }
   .cover-image {
     height: 30ex`;

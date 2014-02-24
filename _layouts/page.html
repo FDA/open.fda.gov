@@ -10,9 +10,7 @@
   </head>
   <body>
     <div class="container site">
-      <div class="hidden-xs hidden-sm">
-        {% include header.html %}
-      </div>
+      {% include header.html %}
 
       <div class="row">
         <div class="col-md-3 masthead">
@@ -39,10 +37,8 @@
         </div>
       </div>
 
-      <div class="hidden-md hidden-lg">
-        {% include header.html %}
-      </div>
-
+      {% include header-small.html %}
+      
       {% include footer.html %}
     </div>
   </body>
