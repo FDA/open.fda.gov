@@ -159,9 +159,6 @@ a: visited {
 .footer .rss img {
   border: 0;
 }
-#contact-form {
-  text-align: right;
-}
 #contact-form > * {
   font-size: 12px;
   margin-bottom: .5ex;
