@@ -46,8 +46,14 @@
 
         <div class="col-sm-12 col-md-3">
           <div class="line-light">
-            <h2><a href="#" class="link-icon"><span class="icon-mail"></span> <span>open@fda.hhs.gov</span></a></h2>
-            <span class="slight">Consectitur veridis quo.</span>
+            <h2><span class="icon-mail"></span> <span>Sign up for Updates</span></h2>
+            <span id="contact-form" class="slight">
+				<div class="form-group">
+					<label for="email">Email address</label>
+					<input type="email" class="form-control" id="email" placeholder="Enter email">
+				</div>
+				<button class="btn btn-default" id="listserv-signup">Submit</button>
+            </span>
           </div>
           <div class="line-light">
             <h2><a href="#" class="link-icon"><span class="icon-github"></span> <span>fda/openfda</span></a></h2>
@@ -69,5 +75,28 @@
 
       {% include footer.html %}
     </div>
+	<!-- jQuery -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script>
+		$("button#listserv-signup").click(function() {
+			var email = $("input#email").val();
+			$.ajax({
+				type: "POST",
+				crossDomain: true,
+				url: "http://dbaxqhkdmfkhz.cloudfront.net/https://list.nih.gov/cgi-bin/wa.exe",
+				headers: ['origin', 'x-requested-with'],
+				beforeSend: function() {
+				    $('span#contact-form').html('Loading...');
+				  },
+				data: { SUBED2: "OPENFDA", A: "1", p: email, s: email, L: "OPENFDA", b: "Subscribe (OPENFDA)" }
+			})
+			.done(function() {
+				$( "span#contact-form" ).html("Thanks for your interest! You will soon receive an email from our listserv. Click the link inside to confirm your registration.");
+			})
+			.fail(function() {
+				$( "span#contact-form" ).html("There was an issue automatically signing you up for our listserv. Please go <a href='https://list.nih.gov/cgi-bin/wa.exe?SUBED1=openfda'>here</a> to sign up manually.");
+			})
+		});
+		</script>
   </body>
 </html>
