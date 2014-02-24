@@ -6,7 +6,7 @@
     <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0" />
 
-    {% include css.html %}
+    {% include css-js.html %}
   </head>
   <body>
     <div class="container site">
@@ -46,14 +46,14 @@
 
         <div class="col-sm-12 col-md-3">
           <div class="line-light">
-            <h2><span class="icon-mail"></span> <span>Sign up for Updates</span></h2>
-            <span id="contact-form" class="slight">
-				<div class="form-group">
-					<label for="email">Email address</label>
-					<input type="email" class="form-control" id="email" placeholder="Enter email">
-				</div>
-				<button class="btn btn-default" id="listserv-signup">Submit</button>
-            </span>
+            <h2><span class="icon-mail"></span> <span>Sign up for updates</span></h2>
+    				<form class="form-inline">
+              <div id="contact-form" class="slight" style="padding-bottom: 0.5ex">
+      					<label for="email" class="sr-only">Email address</label>
+      					<input type="email" class="form-control input-sm" id="email" placeholder="Email address">
+      				  <button class="btn btn-sm btn-default" id="listserv-signup">Sign up</button>
+              </div>
+            </form>
           </div>
           <div class="line-light">
             <h2><a href="#" class="link-icon"><span class="icon-github"></span> <span>fda/openfda</span></a></h2>
@@ -75,28 +75,27 @@
 
       {% include footer.html %}
     </div>
-	<!-- jQuery -->
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
 		<script>
-		$("button#listserv-signup").click(function() {
-			var email = $("input#email").val();
-			$.ajax({
-				type: "POST",
-				crossDomain: true,
-				url: "http://dbaxqhkdmfkhz.cloudfront.net/https://list.nih.gov/cgi-bin/wa.exe",
-				headers: ['origin', 'x-requested-with'],
-				beforeSend: function() {
-				    $('span#contact-form').html('Loading...');
-				  },
-				data: { SUBED2: "OPENFDA", A: "1", p: email, s: email, L: "OPENFDA", b: "Subscribe (OPENFDA)" }
-			})
-			.done(function() {
-				$( "span#contact-form" ).html("Thanks for your interest! You will soon receive an email from our listserv. Click the link inside to confirm your registration.");
-			})
-			.fail(function() {
-				$( "span#contact-form" ).html("There was an issue automatically signing you up for our listserv. Please go <a href='https://list.nih.gov/cgi-bin/wa.exe?SUBED1=openfda'>here</a> to sign up manually.");
-			})
-		});
+  		$("button#listserv-signup").click(function() {
+  			var email = $("input#email").val();
+  			$.ajax({
+  				type: "POST",
+  				crossDomain: true,
+  				url: "http://dbaxqhkdmfkhz.cloudfront.net/https://list.nih.gov/cgi-bin/wa.exe",
+  				headers: ['origin', 'x-requested-with'],
+  				beforeSend: function() {
+  				    $("div#contact-form").html('One moment. Signing you up...');
+  				  },
+  				data: { SUBED2: "OPENFDA", A: "1", p: email, s: email, L: "OPENFDA", b: "Subscribe (OPENFDA)" }
+  			})
+  			.done(function() {
+  				$("div#contact-form").html("Thanks for your interest in openFDA. You'll receive an automated email with a link to confirm your subscription.");
+  			})
+  			.fail(function() {
+  				$("div#contact-form").html("We ran into a technical problem signing you up from this page. Please <a href='https://list.nih.gov/cgi-bin/wa.exe?SUBED1=openfda'>sign up at the NIH web site.</a>");
+  			})
+  		});
 		</script>
   </body>
 </html>
