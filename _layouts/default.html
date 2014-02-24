@@ -47,13 +47,11 @@
         <div class="col-sm-12 col-md-3">
           <div class="line-light">
             <h2><span class="icon-mail"></span> <span>Sign up for updates</span></h2>
-    				<form class="form-inline">
-              <div id="contact-form" class="slight" style="padding-bottom: 0.5ex">
-      					<label for="email" class="sr-only">Email address</label>
-      					<input type="email" class="form-control input-sm" id="email" placeholder="Email address">
-      				  <button class="btn btn-sm btn-default" id="listserv-signup">Sign up</button>
-              </div>
-            </form>
+    				<div id="contact-form" class="slight">
+              <label for="email" class="sr-only">Email address</label>
+    					<input type="email" class="form-control" id="email" placeholder="Email address">
+    				  <button class="btn btn-default" id="listserv-signup">Sign up</button>
+            </div>
           </div>
           <div class="line-light">
             <h2><a href="#" class="link-icon"><span class="icon-github"></span> <span>fda/openfda</span></a></h2>
@@ -69,7 +67,7 @@
         </div>
       </div>
 
-      <div class="hidden-md hidden-lg">
+      <div class="hidden-md hidden-lg" style="margin-top: -1ex">
         {% include header.html %}
       </div>
 

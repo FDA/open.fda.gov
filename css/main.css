@@ -30,9 +30,6 @@ body {
 .content-width {
   width: 100%;
 }
-.padded-bottom {
-  padding-bottom: 9ex;
-}
 
 /*
 /*
@@ -103,7 +100,9 @@ a: visited {
 .line-light {
   padding-bottom: .5ex;
   border-bottom: 1px solid #dadada;
-  margin-bottom: 3ex;
+}
+.padded-bottom {
+  padding-bottom: 9ex;
 }
 
 /*
@@ -156,6 +155,13 @@ a: visited {
 }
 .footer .rss img {
   border: 0;
+}
+#contact-form {
+  text-align: right;
+}
+#contact-form > * {
+  font-size: 12px;
+  margin-bottom: .5ex;
 }
 
 /*
@@ -313,45 +319,47 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
 /*
 /*
 /*
-/* Responsive design thresholds. */
+/* Responsive design thresholds.
+/* Compatible with Bootstrap 3.0, so unfortunately sticking with px. */
 
-/* Mobile portrait ~480px */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+/* Extra small devices > 767px */
+@media only screen and (min-width: 320px) and (max-width: 767px) {
   body {
     padding: 0;
   }
   .site {
     margin: 0 auto;
   }
+  .header {
+    margin-top: 0;
+  }
+  .logo {
+    margin-bottom: 0;
+  }
   .cover-image {
     height: 30ex`;
     background-size: 100% auto;
   }
 }
-/* Small tablet ~600px */
-@media only screen and (min-width: 37.5em) {
+/* Small devices ≥ 768px */
+@media only screen and (min-width: 768px) {
   body {
   }
+  .logo {
+    margin-bottom: 0;
+  }
   .cover-image {
     height: 30ex`;
     background-size: 100% auto;
   }
 }
-/* Desktop ~640px */
-@media only screen and (min-width: 40em) {
+/* Medium devices ≥ 992px */
+@media only screen and (min-width: 992px) {
   body {
   }
-  .cover-image {
-    height: 30ex`;
-    background-size: 100% auto;
+}
+/* Medium devices ≥ 1200px */
+@media only screen and (min-width: 1200px) {
+  body {
   }
-}
-/* Tablet/notebook ~744px */
-@media only screen and (min-width: 46.5em) {
-}
-/* Tablet landscape/notebook/laptop ~1024px */
-@media only screen and (min-width: 64em) {
-}
-/* Larger desktop */
-@media only screen and (min-width: 80em) {
 }
