@@ -257,7 +257,7 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
 /*
 /*
 /*
-/* Post styles (Jekyll). */
+/* Post index and post styles (initially form Jekyll). */
 
 .posts {
   list-style-type: none;
@@ -289,6 +289,9 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
   border-bottom: 1px solid #dadada;
   padding-bottom: 7ex;
   margin-bottom: 7ex;
+}
+.post h1 {
+  color: #111;
 }
 .post img {
   max-width: 100%;
