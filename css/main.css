@@ -297,6 +297,8 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
   font-size: .7em;
 }
 .excerpts h3 {
+  font-size: 1.34em;
+  line-height: 1.23;
   margin-bottom: 0;
 }
 .meta {
