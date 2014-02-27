@@ -99,7 +99,7 @@ div.date {
   padding: 1ex 15px 1ex 15px;
 }
 .cover-image > .post-label.grey-bg {
-  opacity: 0.95;
+  opacity: .95;
 }
 .blocklight {
   display: block;
@@ -340,6 +340,18 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
 }
 .post pre.terminal code {
   background-color: #333;
+}
+.byline {
+  color: #999;
+  margin-top: 3ex;
+}
+.author {
+  margin-top: 4ex;
+  font-size: .7em;
+}
+.author-mug {
+  float: left;
+  margin-right: 1em;
 }
 
 /*
