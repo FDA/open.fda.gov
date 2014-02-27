@@ -33,16 +33,26 @@
               <h1>{{ page.title }}</h1>
             </div>
           {% endif %}
-
-          <div class="date">{{ page.date | date_to_long_string }}</div>
+          <div class="byline">
+            <span class="date">
+              {% if page.author %}
+                By {{ page.author }} | {{ page.date | date_to_long_string }}
+              {% else %}
+                {{ page.date | date_to_long_string }}
+              {% endif %}
+            </span>
+          </div>
 
           <div class="post-content">
             {{ content }}
+
+            {% include author.html %}
           </div>
 
           {% include social.html %}
         </div>
       </div>
+
       <div class="row">
         <div class="col-md-9 col-md-offset-3">
           {% include disqus.html %}
@@ -50,7 +60,6 @@
       </div>
 
       {% include header-small.html %}
-
       {% include footer.html %}
     </div>
 
