@@ -424,13 +424,16 @@ ul.social .pinterest a:before {
     margin: 0 auto;
   }
   .header {
-    margin-top: 0;
+    margin-top: 9ex;
   }
   .logo {
     margin-bottom: 0;
   }
   .logo-fda {
     margin-bottom: 2ex;
+  }
+  .sidebar {
+    margin-top: 5ex;
   }
   .padded-bottom {
     padding-bottom: 5ex;
@@ -470,6 +473,9 @@ ul.social .pinterest a:before {
 /* Medium devices ≥ 992px */
 @media only screen and (min-width: 992px) {
   body {
+  }
+  .header {
+    margin-top: 6ex;
   }
 }
 /* Medium devices ≥ 1200px */
