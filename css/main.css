@@ -108,11 +108,11 @@ div.date {
 }
 .line {
   padding-bottom: 2ex;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #e5e5e5;
 }
 .line-light {
   padding-bottom: .5ex;
-  border-bottom: 1px solid #dadada;
+  border-bottom: 1px solid #e5e5e5;
 }
 .padded-bottom {
   padding-bottom: 9ex;
@@ -147,6 +147,9 @@ div.date {
 .masthead {
   padding-top: 5.2ex;
   padding-bottom: 2ex;
+}
+.sidebar {
+  line-height: 1.0;
 }
 .footer {
   font-size: .7em;
