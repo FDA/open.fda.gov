@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
 
 <style type="text/css">
-  
+
   /*
   /*
   /*
@@ -72,7 +72,13 @@
     }
   }
   .cover-image {
-    background-image: url('{{ site.baseurl }}/images/{{ page.cover }}');
+    background-image: url('{{ site.baseurl }}/images/blog/{{ page.cover }}');
+  }
+  .author-image {
+    background-image: url('{{ site.baseurl }}/images/blog/{{ page.author_image }}');
+    display: inline-block;
+    width: 80px;
+    height: 80px;
   }
 
   /*
