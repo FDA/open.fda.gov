@@ -14,8 +14,10 @@
 
       <div class="row">
         <div class="col-md-3 masthead">
-          <div>
+          <div class="slight">
             <a class="logo" href="{{ site.baseurl }}/"></a>
+            <a href="{{ site.baseurl }}/about/">About openFDA</a><br />
+            <a href="http://twitter.com/openfda">@openFDA</a>
           </div>
         </div>
 
@@ -23,13 +25,11 @@
           {% if page.cover %}
             <div class="cover-image">
               <div class="post-label grey-bg">
-                <span class="date"><a href="{{ site.baseurl }}/">openFDA blog &rsaquo;</a></span>
                 <h1>{{ page.title }}</h1>
               </div>
             </div>
           {% else %}
             <div class="blocklight grey-bg padded-bottom">
-              <span class="date"><a href="{{ site.baseurl }}/">openFDA blog &rsaquo;</a></span>
               <h1>{{ page.title }}</h1>
             </div>
           {% endif %}
