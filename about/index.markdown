@@ -1,6 +1,6 @@
 ---
-layout: page
-title: About
+layout:       page
+title:        About
 ---
 
 openFDA is an exciting new initiative in the Food and Drug Administration’s Office of Informatics and Technology Innovation spearheaded by FDA’s Chief Informatics Officer. openFDA will offer easy access to FDA public data and highlight projects using these data in both the public and private sector to further regulatory or scientific missions, educate the public, and save lives.
