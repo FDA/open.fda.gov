@@ -424,7 +424,7 @@ ul.social .pinterest a:before {
     margin: 0 auto;
   }
   .header {
-    margin-top: 3ex;
+    margin-top: 0;
   }
   .logo {
     margin-bottom: 0;
@@ -436,8 +436,14 @@ ul.social .pinterest a:before {
     padding-bottom: 5ex;
   }
   .cover-image {
-    height: 30ex`;
+    height: 20ex`;
     background-size: 100% auto;
+  }
+  .post {
+    margin-bottom: 0;
+  }
+  .post-content {
+    padding-bottom: 6ex;
   }
 }
 /* Small devices ≥ 768px */
@@ -445,7 +451,7 @@ ul.social .pinterest a:before {
   body {
   }
   .header {
-    margin-top: 3ex;
+    margin-top: 0;
   }
   .logo {
     margin-bottom: 0;
@@ -454,8 +460,11 @@ ul.social .pinterest a:before {
     margin-bottom: 2ex;
   }
   .cover-image {
-    height: 30ex`;
+    height: 20ex`;
     background-size: 100% auto;
+  }
+  .post {
+    margin-bottom: 0;
   }
 }
 /* Medium devices ≥ 992px */
