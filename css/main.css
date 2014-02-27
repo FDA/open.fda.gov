@@ -341,6 +341,15 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
 /*
 /*
 /*
+/* Disqus. */
+#disqus_thread {
+  margin-bottom: 12ex;
+}
+
+/*
+/*
+/*
+/*
 /* Social/sharing except images, which are inlined in the css-js include. */
 
 ul.social {
