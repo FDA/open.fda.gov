@@ -36,7 +36,7 @@
                   <h3 class="title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
                   <span class="date">{{ post.author }} | {{ post.date | date_to_long_string }}</span>
                   {% if post.cover %}
-                    <p><a href="{{ site.baseurl }}{{ post.url }}"><img class="content-width" src="{{ site.baseurl }}/images/{{ post.cover }}" alt="Cover image for blog post" /></a></p>
+                    <p><a href="{{ site.baseurl }}{{ post.url }}"><img class="content-width" src="{{ site.baseurl }}/images/blog/{{ post.cover }}" alt="Cover image for blog post" /></a></p>
                   {% endif %}
                   <p>{{ post.excerpt }}</p>
                   <span class="date"><a href="{{ site.baseurl }}{{ post.url }}">Read more</a></span>
