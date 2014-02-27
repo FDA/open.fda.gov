@@ -86,6 +86,7 @@ div.date {
 .slight {
   color: #666;
   font-size: .7em;
+  line-height: 1.45;
 }
 .text-small {
   font-size: .7em;
@@ -98,6 +99,9 @@ div.date {
 }
 .post-label {
   padding: 1ex 15px 1ex 15px;
+}
+.post h1 {
+  margin-top: 3.35ex;
 }
 .cover-image > .post-label.grey-bg {
   opacity: .95;
@@ -140,13 +144,13 @@ div.date {
   display: block;
   background-repeat: no-repeat;
   background-size: contain;
-  margin-bottom: 3em;
+  margin-bottom: 8.7ex;
 }
 .logo-fda {
   margin-bottom: .5em;
 }
 .masthead {
-  padding-top: 5.3ex;
+  padding-top: 5.2ex;
   padding-bottom: 2ex;
 }
 .sidebar {
@@ -428,7 +432,7 @@ ul.social .pinterest a:before {
     margin-top: 9ex;
   }
   .logo {
-    margin-bottom: 0;
+    margin-bottom: 2ex;
   }
   .logo-fda {
     margin-bottom: 2ex;
@@ -455,9 +459,6 @@ ul.social .pinterest a:before {
   }
   .header {
     margin-top: 0;
-  }
-  .logo {
-    margin-bottom: 0;
   }
   .logo-fda {
     margin-bottom: 2ex;
