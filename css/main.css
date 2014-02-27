@@ -18,7 +18,7 @@
 }
 body {
   background-color: #fff;
-  color: #555;
+  color: #222;
   font-family: "Open Sans";
   font-weight: 300;
   font-size: 1.69em;
@@ -288,6 +288,7 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
   border-bottom: 1px solid #dadada;
   padding-bottom: 2px;
   margin-bottom: 7ex;
+  line-height: 1.38;
 }
 .excerpts h2 {
   font-size: .7em;
@@ -300,6 +301,7 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
 }
 .post {
   margin-bottom: 7ex;
+  line-height: 1.38;
 }
 .post-content {
   padding-bottom: 7ex;
