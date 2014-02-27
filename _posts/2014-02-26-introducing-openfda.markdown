@@ -1,10 +1,10 @@
 ---
-layout: post
-title:  "Introducing openFDA"
-author: Taha Kass-Hout
+layout:       post
+title:        "Introducing openFDA"
+author:       Taha Kass-Hout
 author_email: taha.kass-hout@fda.hhs.gov
-date:   2014-02-26
-cover:  "p_blog_introducing_openFDA.jpg"
+date:         2014-02-26
+cover:        "p_blog_introducing_openFDA.jpg"
 ---
 
 Welcome to the new home of openFDA! We are incredibly excited to see so much interest in our work and hope that this site can be a valuable resource to those wishing to use public FDA data in both the public and private sector to further regulatory or scientific missions, educate the public, and save lives.
@@ -13,5 +13,4 @@ Through openFDA, developers will have easy access to high-value FDA public data 
 
 openFDA is one part of the larger Office of Informatics and Technology Innovation roadmap. As part of my role as FDA’s Chief Health Informatics Officer, I’m working to lead efforts to move FDA in to a cutting edge technology organization. You’ll be hearing more about our other initiatives, including Cloud Computing, High Performance Computing, and mobile-first deployment in the near future.
 
-As we work towards a release of openFDA we’ll begin to share more about our work and how you can get involved. In the meantime, I suggest you sign up for our listserv to get the latest updates on the project. You can also reach our team at open@fda.hhs.gov if there is a unique partnership opportunity or other collaboration you wish to discuss.
-
+As we work towards a release of openFDA we’ll begin to share more about our work and how you can get involved. In the meantime, I suggest you sign up for our listserv ([on our home page]({{ site.baseurl }}/)) to get the latest updates on the project. You can also reach our team at [open@fda.hhs.gov](mailto:open@fda.hhs.gov) if there is a unique partnership opportunity or other collaboration you wish to discuss.
