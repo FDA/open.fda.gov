@@ -34,7 +34,12 @@
               {% for post in site.posts %}
                 <div class="excerpt">
                   <h3 class="title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-                  <span class="date">{{ post.author }} | {{ post.date | date_to_long_string }}</span>
+                  <span class="date">
+                    {% if post.author %}
+                      By {{ post.author }} |
+                    {% endif % %}
+                    {{ post.date | date_to_long_string }}
+                  </span>
                   {% if post.cover %}
                     <p><a href="{{ site.baseurl }}{{ post.url }}"><img class="content-width" src="{{ site.baseurl }}/images/blog/{{ post.cover }}" alt="Cover image for blog post" /></a></p>
                   {% endif %}
