@@ -34,9 +34,9 @@
               {% for post in site.posts %}
                 <div class="excerpt">
                   <h3 class="title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-                  <span class="date">{{ post.date | date_to_long_string }}</span>
+                  <span class="date">{{ post.author }} | {{ post.date | date_to_long_string }}</span>
                   {% if post.cover %}
-                    <p><img class="content-width" src="{{ site.baseurl }}/images/{{ post.cover }}" /></p>
+                    <p><a href="{{ site.baseurl }}{{ post.url }}"><img class="content-width" src="{{ site.baseurl }}/images/{{ post.cover }}" alt="Cover image for blog post" /></a></p>
                   {% endif %}
                   <p>{{ post.excerpt }}</p>
                   <span class="date"><a href="{{ site.baseurl }}{{ post.url }}">Read more</a></span>
@@ -56,8 +56,8 @@
             </div>
           </div>
           <div class="sidebar line-light spaced-bottom">
-            <h2><a href="http://fda.github.io/openfda-blog" class="link-icon"><span class="icon-github"></span> <span>fda/openfda-blog</span></a> on GitHub</h2>
-            <span class="slight">We're hosting this blog on GitHub, and will use it to manage and open source our API code.</span>
+            <h2><a href="http://github.com/fda" class="link-icon"><span class="icon-github"></span> <span>FDA on GitHub</span></a></h2>
+            <span class="slight">We're hosting <a href="http://github.com/fda/openfda-blog">this blog on GitHub,</a> and we'll use it for openFDA API code too.</span>
           </div>
           <div class="line-light">
             <h2><a href="sidebar http://twitter.com/openfda" class="link-icon"><span class="icon-twitter"></span> <span>@openFDA</span></a> on Twitter</h2>
