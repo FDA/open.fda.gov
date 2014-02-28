@@ -3,7 +3,7 @@ layout:         post
 date:           2014-02-27
 title:          "Introducing openFDA"
 author:         "Taha Kass-Hout"
-author_bio:     "Dr. Taha Kass-Hout is the Chief Health Informatics Officer and Chief Technology Officer (acting) of FDA."
+author_bio:     "Dr. Taha Kass-Hout is the Chief Health Informatics Officer of FDA."
 author_email:   "taha.kass-hout@fda.hhs.gov"
 author_twitter: "DrTaha_FDA"
 author_image:   "p_author_tahakasshout.jpg"
