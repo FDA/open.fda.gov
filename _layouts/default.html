@@ -43,8 +43,10 @@
                   {% if post.cover %}
                     <p><a href="{{ site.baseurl }}{{ post.url }}"><img class="content-width" src="{{ site.baseurl }}/images/blog/{{ post.cover }}" alt="Cover image for blog post" /></a></p>
                   {% endif %}
-                  <p>{{ post.excerpt }}</p>
-                  <span class="date"><a href="{{ site.baseurl }}{{ post.url }}">Read more</a></span>
+                  <div class="excerpt-content">
+                    {{ post.excerpt }}
+                  </div>
+                  <span class="slight"><a href="{{ site.baseurl }}{{ post.url }}">Read more</a></span>
                 </div>
               {% endfor %}
             </div>

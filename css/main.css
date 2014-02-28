@@ -4,7 +4,7 @@
 /*
 /* Off-site fonts. */
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic700italic,300,400,700);
 
 /*
 /*
@@ -15,13 +15,15 @@
 * {
   margin: 0;
   padding: 0;
+/*  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;*/
 }
 body {
   background-color: #fff;
-  color: #222;
+  color: #3a3a3a;
   font-family: "Open Sans";
   font-weight: 300;
-  font-size: 1.69em;
+  font-size: 17.5px;
   line-height: 1.26;
 }
 .site {
@@ -150,7 +152,7 @@ div.date {
   margin-bottom: .5em;
 }
 .masthead {
-  padding-top: 5.1ex;
+  padding-top: 4.8ex;
   padding-bottom: 2ex;
 }
 ul.nav-mini {
@@ -310,7 +312,10 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
   border-bottom: 1px solid #dadada;
   padding-bottom: 2px;
   margin-bottom: 7ex;
-  line-height: 1.38;
+  line-height: 1.37;
+}
+.excerpt-content {
+  font-weight: 400;
 }
 .excerpts h2 {
   font-size: .7em;
@@ -325,9 +330,10 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
 }
 .post {
   margin-bottom: 7ex;
-  line-height: 1.38;
+  line-height: 1.37;
 }
 .post-content {
+  font-weight: 400;
   padding-bottom: 7ex;
 }
 .post h1 {
@@ -366,6 +372,7 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
 }
 .author {
   margin-top: 4ex;
+  font-weight: 300;
   font-size: .7em;
 }
 .author-mug {
