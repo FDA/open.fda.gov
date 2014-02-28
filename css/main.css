@@ -150,8 +150,22 @@ div.date {
   margin-bottom: .5em;
 }
 .masthead {
-  padding-top: 5.2ex;
+  padding-top: 5.1ex;
   padding-bottom: 2ex;
+}
+ul.nav-mini {
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.nav-mini li:before {
+  content: "›";
+  position: relative;
+  left: -5px;
+}
+ul.nav-mini li {
+  text-indent: -2px;
 }
 .sidebar {
   line-height: 1.0;
@@ -433,6 +447,9 @@ ul.social .pinterest a:before {
   }
   .logo {
     margin-bottom: 2ex;
+  }
+  ul.nav-mini {
+    /*float: left;*/
   }
   .logo-fda {
     margin-bottom: 2ex;
