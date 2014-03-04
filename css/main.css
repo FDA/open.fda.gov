@@ -144,9 +144,7 @@ div.date {
 }
 .logo {
   display: block;
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-bottom: 8.7ex;
+  margin-bottom: 25px;
 }
 .logo-fda {
   margin-bottom: .5em;
