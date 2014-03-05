@@ -150,7 +150,7 @@ div.date {
   margin-bottom: .5em;
 }
 .masthead {
-  padding-top: 4.8ex;
+  padding-top: 1.7ex;
   padding-bottom: 2ex;
 }
 ul.nav-mini {
@@ -333,6 +333,13 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
 .post-content {
   font-weight: 400;
   padding-bottom: 7ex;
+}
+}
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  font-weight: 400;
 }
 .post h1 {
   color: #111;
