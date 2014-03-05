@@ -339,7 +339,7 @@ a [class^="icon-"]:hover, a [class*=" icon-"]:hover {
 .post-content h2,
 .post-content h3,
 .post-content h4 {
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 .post h1 {
   color: #111;
