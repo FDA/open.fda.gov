@@ -257,4 +257,8 @@ UNII stands for [Unique Ingredient Identifier.](http://www.fda.gov/forindustry/d
 : **string**
 : The RxNorm Concept Unique Identifier. RxCUI is a unique number that describes a semantic concept about the drug product, including its ingredients, strength, and dose forms.
 
+## Downloads
+
+OpenFDA uses public FDA datasets, but processes the data further before supplying it through the API. During our beta, we are investigating the best ways to offer direct downloads of data provided by the API. 
+
 </section>

@@ -60,6 +60,10 @@ An adverse event is submitted to the FDA to report any undesirable experience as
 
 Adverse event reports use the [ICH E2b/M2 version 2.1 standard.](http://estri.ich.org/e2br22/ICH_ICSR_Specification_V2-3.pdf) OpenFDA annotates the original records with [special fields.](#openfda-fields)
 
+### Data downloads
+
+FDA releases [quarterly updates to FAERS data.](http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/ucm082193.htm) OpenFDA uses these extracts, but processes the data further before supplying them through the API. During our beta, we are investigating the best ways to offer direct downloads of data provided by the API. 
+
 ### Who reports adverse events?
 
 Reporting of adverse events by healthcare professionals and consumers is voluntary in the United States. FDA receives some adverse event reports directly from healthcare professionals (such as physicians, pharmacists, nurses and others) and consumers (such as patients, family members, lawyers and others). Healthcare professionals and consumers may also report adverse events to the products’ manufacturers. If a manufacturer receives an adverse event report, it is normally required to send the report to FDA.
@@ -805,6 +809,7 @@ patient: {
 : For all fields in `openfda`, see the [API Basics]({{ site.baseurl }}/api/reference/#openfda-fields) reference guide.
 
 ##### openFDA fields
+
 Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.
 OpenFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other drug information. Drug products that appear in drug adverse event records are joined to the NDC dataset first on brand name, and if there is no brand name, on generic name. If that is succesful, further links are established to other datasets. **The linked data is listed as an `openfda` annotation in the `patient.drug` section of a result.**
 Roughly 86% of adverse event records have at least one `openfda` section. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if the drug name is misspelled. Some drug products will have `openfda` sections, while others will never, if there was no match during the harmonization process.
