@@ -16,7 +16,7 @@ js:
   - '/static/js/min/api-demo.min.js'
 ---
 
-We're incredibly excited by today's launch of openFDA, and in particular around the first publicaly available dataset that has been published, [FDA's drug adverse reaction and medication error reports]({{ site.baseurl }}/drug/event/). The dataset is huge, covering nearly 4 million records from 2004 to 2013. The openFDA team has put a ton of work in to creating a great developer experience around this dataset, and we hope you find it a valuable tool in creating application that help preserve and protect the public health.
+We're incredibly excited by today's launch of openFDA, and in particular around the first publicly available dataset that has been published, [FDA's drug adverse reaction and medication error reports]({{ site.baseurl }}/drug/event/). The dataset is huge, covering nearly 4 million records from 2004 to 2013. The openFDA team has put a ton of work in to creating a great developer experience around this dataset, and we hope you find it a valuable tool in creating application that help preserve and protect the public health.
 
 With such a large and complicated dataset, it's inevitable that things can be a bit overwhelming. Here's ten important things to consider that can hopefully help you use openFDA's first dataset more effectively:
 
