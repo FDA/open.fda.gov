@@ -11,9 +11,9 @@ js:
   - '/static/bower_components/d3/d3.min.js'
   - '/static/bower_components/c3/c3.min.js'
   - '/static/bower_components/jquery-autosize/jquery.autosize.min.js'
-  - '/static/js/min/jquery-cookie.min.js'
-  - '/static/js/min/api-scripts.min.js'
-  - '/static/js/min/api-demo.min.js'
+  - '/static/js/min/jquery-cookie.js'
+  - '/static/js/min/api-scripts.js'
+  - '/static/js/min/api-demo.js'
 ---
 
 We're incredibly excited by today's launch of openFDA, and in particular around the first publicly available dataset that has been published, [FDA's drug adverse reaction and medication error reports]({{ site.baseurl }}/drug/event/). The dataset is huge, covering nearly 4 million records from 2004 to 2013. The openFDA team has put a ton of work in to creating a great developer experience around this dataset, and we hope you find it a valuable tool in creating application that help preserve and protect the public health.
