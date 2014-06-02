@@ -2,12 +2,7 @@
 layout:         post
 date:           2014-03-04
 title:          "Introducing openFDA"
-author:         "Taha Kass-Hout"
-author_bio:     "Dr. Taha Kass-Hout is the Chief Health Informatics Officer of FDA."
-author_email:   "taha@fda.hhs.gov"
-author_twitter: "DrTaha_FDA"
-author_image:   "p_author_tahakasshout.jpg"
-cover:          "p_blog_introducing_openFDA.jpg"
+author:         "taha@fda.hhs.gov"
 ---
 
 Welcome to the new home of openFDA! We are incredibly excited to see so much interest in our work and hope that this site can be a valuable resource to those wishing to use public FDA data in both the public and private sector to spur innovation, further regulatory or scientific missions, educate the public, and save lives.

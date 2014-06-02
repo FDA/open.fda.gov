@@ -1,0 +1,11 @@
+- name: Taha Kass-Hout
+  bio: "Dr. Taha Kass-Hout is the Chief Health Informatics Officer of FDA"
+  email: taha@fda.hhs.gov
+  image: tahakasshout.jpg
+  twitter: DrTaha_FDA
+
+- name: Sean Herron
+  bio: "Sean Herron is a <a href='http://www.whitehouse.gov/innovationfellows'>Presidential Innovation Fellow</a> serving at FDA"
+  email: sean.herron@fda.hhs.gov
+  image: seanherron.png
+  twitter: seanherron

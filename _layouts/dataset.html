@@ -1,0 +1,50 @@
+---
+layout: default
+---
+<div class="content-heading dataset {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
+  <div class="content-heading-text">
+    <div class="content-heading-title">
+      Dataset
+    </div>
+    <h1>{{ page.title }} ({{ page.title_long }})</h1>
+  </div>
+</div>
+
+<section class="dataset-summary">
+  <div class="dataset-endpoints">
+    <div>
+      <h3>Provides data to&nbsp;</h3>
+    </div>
+    {% for endpoint in page.endpoints %}
+    <div class="endpoint-summary">
+      <h3><a href="{{ endpoint.docs }}">{{ endpoint.endpoint }}</a></h3>
+      <small>{{ endpoint.kind }}</small>                  
+    </div>
+    {% endfor %}
+    <div>
+      {{ content }}
+    </div>
+  </div>
+  <div class="dataset-vitals">
+    <div class="dataset-vital">
+    <small class="slight">Provider</small><br>
+    <strong><a href="{{ page.provider_url }}">{{ page.provider_name }}</a></strong>
+    </div>
+    <div class="dataset-vital">
+      <small class="slight">Update frequency</small><br>
+      <strong>{{ page.update_frequency }}</strong>
+    </div>
+    <div class="dataset-vital">
+      <small class="slight">Time period</small><br>
+      <strong>{{ page.time_period }}</strong>
+    </div>
+    <div class="dataset-vital">
+      <small class="slight">Number of records</small><br>
+      <strong>{{ page.record_count }}</strong>
+    </div>
+    <div class="dataset-vital">
+      <small class="slight">License</small><br>
+      <strong>{{ page.license }}</strong>
+    </div>
+  </div>
+</section>

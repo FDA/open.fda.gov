@@ -1,0 +1,27 @@
+---
+name: CSS Images File
+---
+
+.logo {
+  background: url('{{ site.baseurl }}/assets/img/l_openFDA.png');
+  width: 189px;
+  height: 34px;
+  display: block;
+}
+.logo-fda {
+  background: url('{{ site.baseurl }}/assets/img/l_FDA.png');
+  width: 62px;
+  height: 25px;
+  display: block;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .logo {
+    background-image: url('{{ site.baseurl }}/assets/img/l_openFDA@2x.png');
+    background-size: 189px 34px;
+  }
+  .logo-fda {
+    background-image: url('{{ site.baseurl }}/assets/img/l_FDA@2x.png');
+    background-size: 62px 25px;
+  }
+}

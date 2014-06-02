@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<header class="content-heading light {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
+  <div class="content-heading-text">
+    <div class="content-heading-title">
+      &nbsp;
+    </div>
+    <h1>{{ page.title }}</h1>
+  </div>
+</header>
+<div class="article-list">
+  {% for post in site.posts %}
+  <article>
+    <header><h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+      <div class="article-meta">By {{ post.author }} | {{ post.date | date_to_string }}</div>
+    </header>
+    {{ post.excerpt }}
+    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more</a>
+  </article>
+  {% endfor %}
+</div>

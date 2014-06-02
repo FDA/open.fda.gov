@@ -1,109 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0" />
-    <title>{{ page.title }}</title>
-    <meta name="robots" content="noindex,nocrawl" />
-    <meta name="description" content="A research project with open APIs, raw data, examples, and a developer community for a collection of FDA public datasets." />
-
-    {% include css-js.html %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} | {{ site.name }}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href="{{ site.baseurl }}/static/css/style.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->         
   </head>
   <body>
-    <div class="container site">
-      {% include header.html %}
-
-      <div class="row">
-        <div class="col-md-9">
-          <div class="row line">
-            <div class="col-md-4 masthead">
-              <h1><a class="logo" href="{{ site.baseurl }}/" title="openFDA">openFDA</a></h1>
-              <div class="slight">
-              <ul class="nav-mini">
-                <li><a href="{{ site.baseurl }}/about/">About openFDA</a><br /></li>
-                <li><a href="http://twitter.com/openfda">@openFDA</a></li>
-              </ul>
-            </div>
-            </div>
-            <div class="col-md-8">
-              <div class="blocklight blue-bg padded-bottom">
-                &nbsp;
-                <h1>A research project to provide open APIs, raw data downloads, documentation and examples, and a developer community for an important collection of FDA public datasets.</h1>
-                <a href="{{ site.baseurl }}/about/" class="white text-small">More about openFDA &raquo;</a>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="excerpts col-md-8 col-md-offset-4">
-              <h2 class="sr-only">Blog posts</h2>
-              {% for post in site.posts %}
-                <div class="excerpt">
-                  <h3 class="title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
-                  <span class="date">
-                    {% if post.author %}
-                      By {{ post.author }} |
-                    {% endif % %}
-                    {{ post.date | date_to_long_string }}
-                  </span>
-                  {% if post.cover %}
-                    <p><a href="{{ site.baseurl }}{{ post.url }}"><img class="content-width" src="{{ site.baseurl }}/images/blog/{{ post.cover }}" alt="Cover image for blog post" /></a></p>
-                  {% endif %}
-                  <div class="excerpt-content">
-                    {{ post.excerpt }}
-                  </div>
-                  <span class="slight"><a href="{{ site.baseurl }}{{ post.url }}">Read more</a></span>
-                </div>
-              {% endfor %}
-            </div>
-          </div>
+    {% include beta.html %}
+    <div class="container">
+    <div class="site-wrapper">
+    <header role="banner" class="site-header">
+      <h1><a href="{{ site.baseurl }}/index.html" class="logo"></a></h1>
+      <nav role="navigation" class="site-navigation main-nav">
+        <ul>
+          <li><a href="{{ site.baseurl }}/about/">About</a></li>
+          <li><a href="{{ site.baseurl }}/updates/">Updates</a></li>
+          <li><a href="https://twitter.com/openfda" target="_blank">@openFDA</a> on Twitter</li>
+          <li class="nav-section">API Information
+            <ul>
+              <li><a href="{{ site.baseurl }}/api/reference/">API Basics</a></li>
+              <li><a href="{{ site.baseurl}}/terms/">Terms of Service</a></li>
+            </ul>
+          </li>
+          <li class="nav-section">API Endpoints
+            <ul>
+              <li><a href="{{ site.baseurl }}/drug/event/">Drugs</a></li>
+            </ul>
+          </li>
+           <li class="nav-section">Getting Help
+            <ul>
+              <li><a href="https://opendata.stackexchange.com/questions/ask?tags=openFDA" target="_blank">Ask questions</a> on StackExchange</li>
+              <li><a href="http://github.com/FDA/" target="_blank">Report bugs</a> on GitHub</li>
+              <li><a href="mailto:open@fda.hhs.gov">Send us feedback</a> by email</li>
+            </ul> 
+          </li>
+        </ul>
+      </nav>
+      {% if page.url contains "reference" %}
+      <nav class="site-navigation reference-nav">
+        <ul id="reference-nav-ul"></ul>
+      </nav>
+      {% endif %}
+    </header>
+    
+    <div class="site-body">
+      <div class="site-body-heading">
+        {% for section in site.data.site-body-headings %}
+        <div class="site-body-heading-section {{ section.class }}">
+          <div class="site-body-heading-section-title">{{ section.title }}</div>
+          <div class="site-body-heading-section-subtitle">{{ section.subtitle }}</div>
+          <div class="site-body-heading-section-description">{{ section.description }}</div>
         </div>
-
-        <div class="col-sm-12 col-md-3">
-          <div class="sidebar line-light spaced-bottom">
-            <h2 style="margin-top: -.2ex"><span class="icon-mail"></span> <span>Sign up for updates</span></h2>
-    				<div id="contact-form" class="form-inline slight">
-              <label for="email" class="sr-only">Email address</label>
-    					<input type="email" class="form-control input-sm" id="email" placeholder="Email address">
-    				  <button class="btn btn-default btn-sm" id="listserv-signup">Sign up</button>
-            </div>
-          </div>
-          <div class="sidebar line-light spaced-bottom">
-            <h2><a href="http://github.com/fda" class="link-icon"><span class="icon-github"></span> <span>FDA on GitHub</span></a></h2>
-            <span class="slight">We're hosting <a href="http://github.com/fda/openfda-blog">this blog on GitHub,</a> and we'll use it for openFDA API code too.</span>
-          </div>
-					<div class="sidebar line-light">
-						<h2><a href="http://twitter.com/openFDA" class="link-icon"><span class="icon-twitter"></span> <span>@openFDA</span></a> on Twitter</h2>
-						<span class="slight">Use hashtag <a href="https://twitter.com/search?q=%23openfda">#openFDA</a> to join the openFDA community!</span>
-					</div>
+        {% endfor %}
+      </div>
+      
+      <div class="site-body-content">
+        {{ content }}
+      </div>
+      
+      <div class="site-body-heading footer">
+        {% for section in site.data.site-body-headings %}
+        <div class="site-body-heading-section {{ section.class }}">
+          <div class="site-body-heading-section-title">{{ section.title }}</div>
+          <div class="site-body-heading-section-subtitle">{{ section.subtitle }}</div>
+          <div class="site-body-heading-section-description">{{ section.description }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      
+    </div>
+    </div>
+    </div>
+    <footer role="contentInfo" class="site-footer">
+      <div class="site-footer-section">
+        <div class="site-footer-aside">
+          <a href="http://www.fda.gov" title="FDA Home Page" class="logo-fda"></a>
+        </div>
+        <div class="site-footer-main site-links">
+          <ul>
+            <li><a href="http://www.fda.gov/" target="_blank" title="FDA Home Page">FDA Home</a></li>
+            <li><a href="http://www.fda.gov/AboutFDA/AboutThisWebsite/Accessibility/default.htm" target="_blank"  title="Accessibility">Accessibility</a></li>
+            <li><a href="http://www.fda.gov/AboutFDA/WorkingatFDA/default.htm" target="_blank"  title="Careers">Careers</a></li>
+            <li><a href="http://www.fda.gov/AboutFDA/Transparency/Basics/default.htm" target="_blank"  title="FDA Basics">FDA Basics</a></li>
+            <li><a href="http://www.fda.gov/RegulatoryInformation/FOI/default.htm" target="_blank"  title="Freedom of Information Act">FOIA</a></li>
+            <li><a href="http://www.fda.gov/AboutFDA/WorkingatFDA/NoFearAct/default.htm" target="_blank"  title="No Fear Act">No Fear Act</a></li>
+            <li><a href="http://www.fda.gov/SiteMap/default.htm" target="_blank"  title="Site Map">Site Map</a></li>
+            <li><a href="http://www.fda.gov/AboutFDA/Transparency/default.htm" target="_blank"  title="Transparency">Transparency</a></li>
+            <li><a href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/default.htm" target="_blank"  title="Website Policies">Website Policies</a></li>
+            <li><a href="{{ site.baseurl }}/terms" title="openFDA Terms of Service">openFDA Terms of Service</a></li>
+          </ul>
         </div>
       </div>
-
-      {% include header-small.html %}
-
-      {% include footer.html %}
-    </div>
-
-		<script>
-  		$("button#listserv-signup").click(function() {
-  			var email = $("input#email").val();
-  			$.ajax({
-  				type: "POST",
-  				crossDomain: true,
-  				url: "https://dbaxqhkdmfkhz.cloudfront.net/https://list.nih.gov/cgi-bin/wa.exe",
-  				headers: ['origin', 'x-requested-with'],
-  				beforeSend: function() {
-  				    $("div#contact-form").html('One moment. Signing you up...');
-  				  },
-  				data: { SUBED2: "OPENFDA", A: "1", p: email, s: email, L: "OPENFDA", b: "Subscribe (OPENFDA)" }
-  			})
-  			.done(function() {
-  				$("div#contact-form").html("Thanks for your interest in openFDA. You'll receive an automated email with a link to confirm your subscription.");
-  			})
-  			.fail(function() {
-  				$("div#contact-form").html("We ran into a technical problem signing you up from this page. Please <a href='https://list.nih.gov/cgi-bin/wa.exe?SUBED1=openfda'>sign up at the NIH web site.</a>");
-  			})
-  		});
-		</script>
+      <div class="site-footer-section">
+        <div class="site-footer-aside fda-contact slight">
+          <address>
+            <strong>U.S. Food and Drug Administration</strong><br>
+            10903 New Hampshire Avenue<br>
+            Silver Spring, MD 20993<br>
+            <span class="icon-phone" aria-hidden="true"></span> 1-888-INFO-FDA (1-888-463-6332)<br>
+            <span class="icon-envelope-alt" aria-hidden="true"></span> <a href="http://www.fda.gov/AboutFDA/ContactFDA/default.htm" title="Contact FDA"> Contact FDA</a>
+          </address>
+        </div>
+        <div class="site-footer-main disclaimer slight">
+          <p>Some links on this website may direct you to non-FDA locations. FDA does not endorse or guarantee the integrity of information on these external sites.</p>
+        </div>
+      </div>
+    </footer>
+    {% include warning-modal.html %}
+    {% if page.js %}
+    {% for js in page.js %}
+    <script src="{{ site.baseurl }}{{ js }}"></script>
+    {% endfor %}
+    {% endif %}
+    <script>
+    var _gaq=[['_setAccount','UA-22737364-16'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src='//www.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
   </body>
 </html>

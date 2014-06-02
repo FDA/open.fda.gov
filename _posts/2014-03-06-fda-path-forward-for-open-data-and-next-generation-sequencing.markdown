@@ -2,11 +2,7 @@
 layout:         post
 date:           2014-03-06
 title:          "FDA's Path Forward for Open Data and Next Generation Sequencing"
-author:         "Taha Kass-Hout"
-author_bio:     "Dr. Taha Kass-Hout is the Chief Health Informatics Officer of FDA."
 author_email:   "taha@fda.hhs.gov"
-author_twitter: "DrTaha_FDA"
-author_image:   "p_author_tahakasshout.jpg"
 ---
 
 FDA has established an Office of Informatics and Technology Innovation (OITI) under the Chief Health Informatics Officer (CHIO) in order to spur technology innovation.  The following presentation highlight two exciting initiatives within OITI:

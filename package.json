@@ -1,0 +1,21 @@
+{
+  "name": "openFDA",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-less": "^0.11.0",
+    "grunt-contrib-watch": "~0.6.1"
+  },
+  "dependencies": {
+    "grunt-contrib-less": "^0.11.0",
+    "grunt-contrib-watch": "^0.4.4",
+    "grunt-minified": "0.0.6"
+  }
+}

@@ -1,0 +1,47 @@
+{::nomarkdown}
+<h2>Getting started with openFDA</h2>
+<div class="getting-started" id="getting-started">
+  <div class="step">
+    <div class="step-content">
+      <div class="step-number">1</div>
+      <h3>Get your API key</h3>
+      <form id="api-key-form" class="form-inline slight">
+        <div class="form-group">
+          <label for="email" class="sr-only">Email address</label>
+          <input class="form-control input-sm" id="email" placeholder="Email address" style="margin-bottom: 5px;" type="email">
+        </div>
+        <button class="btn btn-default btn-sm" id="api-key-signup" style="margin-bottom: 15px;">Get API key</button>
+      </form>
+      <p class="disclaimer">We require API keys above a <a href="{{ site.baseurl }}/api/reference/#authentication">certain number of requests</a> to manage load on the system, promote equitable access, and prevent abuse.</p>
+      <p class="disclaimer">Signing up for an API key means you agree to our <a href="{{ site.baseurl }}/terms/">terms of service</a>.</p>
+    </div>
+  </div>
+  <div class="step middle">
+    <div class="step-content">
+      <div class="step-number">2</div>
+      <h3>Learn the basics</h3>
+      <p>OpenFDA may be different from other APIs you've worked with. Here are two tips.</p>
+      <p>
+        To search (which returns individual records):
+        <blockquote><strong>search=</strong>field<strong style="font-size:1.2em">:</strong>term</blockquote>
+      </p>
+      <p>
+        To count the number of records matching values of a string field, combine a search with:
+        <blockquote><strong>&amp;count=</strong>field<strong>.exact</strong></blockquote>
+      </p>
+      <p>The API has powerful features, including date counting. Learn more on the <a href="{{ site.baseurl }}/api/reference/#query-syntax">openFDA API basics page.</a>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-content">
+      <div class="step-number">3</div>
+      <h3>Learn this endpoint</h3>
+      <p>This page has interactive queries and documentation about this endpoint. The <a href="reference/">endpoint reference</a> has a detailed field-by-field listing.</p>
+      <p>We encourage questions and feedback in places where other developers can benefit from the discussion.</p>
+      <blockquote><a href="http://stackexchange.com/search?q=openfda">Ask questions on StackExchange</a> (tag with <em>openfda</em>)</blockquote>
+      <blockquote><a href="http://github.com/FDA/">Log bugs or suggest improvements</a> to openFDA on GitHub</blockquote>
+    </div>
+  </div>
+
+</div>
+{:/}

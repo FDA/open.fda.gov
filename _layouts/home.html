@@ -1,0 +1,65 @@
+---
+layout: default
+js: 
+  - '/static/bower_components/jquery/dist/jquery.min.js'
+  - '/static/bower_components/d3/d3.min.js'
+  - '/static/bower_components/c3/c3.min.js'
+  - '/static/js/min/api-home-demo.js'
+  - '/static/js/min/update-signup.js'
+---
+<div class="homepage">
+  <div class="homepage-header">
+    <div class="welcome-message">
+      <div class="welcome-text">
+        <h1>Introducing openFDA</h1>
+        <p class="tagline">More than <a href="{{ site.baseurl }}/drug/event">3 million adverse drug event reports</a> at your fingertips.</p>
+        <a href="{{ site.baseurl }}/drug/event" style="text-decoration: none">
+          <div id="api-home-demo">
+            <span id="title" class="out"></span>
+            <div id="chart"></div>
+          </div>
+        </a>
+        <br />
+      </div>
+    </div>
+    <div>
+      openFDA provides open APIs, raw data downloads, documentation and examples, and a developer community for an important collection of FDA public datasets.<br />
+      <a href="{{ site.baseurl }}/about">About openFDA <i class="fa fa-angle-double-right"></i></a>
+    </div>
+  </div>
+  <div class="homepage-content">
+    <div class="article-list">
+      {% for post in site.posts limit:2 %}
+      <article>
+        <header><h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+          <div class="article-meta">By {% for author in site.data.authors %}{% if post.author == author.email %}{{ author.name }}{% endif %}{% endfor %} | {{ post.date | date_to_string }}</div>
+        </header>
+        {{ post.excerpt }}
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more</a>
+      </article>
+      {% endfor %}
+      <div class="text-right">
+      <a href="{{ site.baseurl }}/updates/">See all Updates</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="homepage-aside">  
+    <div class="activity">
+      <h2><i class="fa fa-envelope"></i> Sign up for updates</h2>
+      <div id="contact-form" class="form-inline slight">
+        <label for="email" class="sr-only">Email address</label>
+        <input type="email" class="form-control input-sm" id="email" placeholder="Email address">
+        <button class="btn btn-default btn-sm" id="listserv-signup">Sign up</button>
+      </div>
+    </div>
+    <div class="activity">
+      <h2><i class="fa fa-github"></i> FDA on GitHub</a></h2>
+      Our code is on <a href="https://github.com/FDA" target="_blank">GitHub</a>, and you can log bugs and feature requests there.
+    </div>
+    <div class="activity">
+      <h2><i class="fa fa-twitter"></i> <a href="https://twitter.com/openFDA" target="_blank">@openFDA</a> on Twitter</h2>
+      Use hashtag <a href="https://twitter.com/search?q=%23openfda" target="_blank">#openFDA</a> to join the openFDA community!
+    </div>
+  </div>
+</div>

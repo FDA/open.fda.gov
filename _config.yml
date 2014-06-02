@@ -1,5 +1,13 @@
-name: openFDA Blog
-markdown: redcarpet
+name: openFDA
+
+markdown: kramdown
+kramdown:
+  use_coderay: true
+  coderay_line_numbers: nil
+  parse_block_html: true
+  
 pygments: true
-baseurl:
-permalink: /blog/:title/
+baseurl: /openfda-private-beta
+permalink: /update/:title/
+
+welcome_message: "A research project to provide open APIs, raw data downloads, documentation and examples, and a developer community for an important collection of FDA public datasets."

@@ -1,0 +1,15 @@
+- title: Open Data
+  class: open-data
+  subtitle: "Easier and better access to FDA data."
+  description: "Developer-focused APIs, raw data, and documentation for a curated set of high value public FDA datasets."
+  
+- title: Open source
+  class: open-source
+  subtitle: "Code and documentation."
+  description: "Open source code and documentation, shared on <a href='https://github.com/fda' target='_blank'>GitHub</a>."
+  
+- title: Open community
+  class: open-community
+  subtitle: "Share examples, apps, and stories."
+  description: "Developers, researchers, and FDA in one shared community. Join us on <a href='https://github.com/FDA' target='_blank'>GitHub</a>, <a href='http://opendata.stackexchange.com/search?q=openFDA' target='_blank'>StackExchange</a>, and <a href='https://github.com/openFDA' target='_blank'>Twitter</a>."
+  

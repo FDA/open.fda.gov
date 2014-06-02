@@ -1,52 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{{ page.title }}</title>
-    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0" />
-
-    {% include css-js.html %}
-  </head>
-  <body>
-    <div class="container site">
-      {% include header.html %}
-
-      <div class="row">
-        <div class="col-md-3 masthead">
-            <h1><a class="logo" href="{{ site.baseurl }}/" title="openFDA">openFDA</a></h1>
-            <div class="slight">
-            <ul class="nav-mini">
-              <li><a href="{{ site.baseurl }}/about/">About openFDA</a><br /></li>
-              <li><a href="http://twitter.com/openfda">@openFDA</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="post line-light col-md-9">
-          {% if page.cover %}
-            <div class="cover-image">
-              <div class="post-label grey-bg">
-                <h1>{{ page.title }}</h1>
-              </div>
-            </div>
-          {% else %}
-            <div class="blocklight grey-bg padded-bottom">
-              <h1>{{ page.title }}</h1>
-            </div>
-          {% endif %}
-
-          <div class="post-content">
-            {{ content }}
-          </div>
-
-          {% include social.html %}
-        </div>
-      </div>
-
-      {% include header-small.html %}
-
-      {% include footer.html %}
+---
+layout: default
+---
+<div class="content-heading light {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
+  <div class="content-heading-text">
+    <div class="content-heading-title">
+      &nbsp;
     </div>
-  </body>
-</html>
+    <h1>{{ page.title }}</h1>
+  </div>
+</div>
+
+{{ content }}
