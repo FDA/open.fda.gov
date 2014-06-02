@@ -27,22 +27,21 @@ js:
   - '/static/js/min/jquery-cookie.min.js'
   - '/static/js/min/api-scripts.min.js'
 ---
-{::nomarkdown}
+
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
-  <div class="content-heading-text">
-    <div class="content-heading-title">
-      <a href="{{ site.baseurl }}/drug/event/">API Endpoints and Examples</a> | API Reference
-    </div>
-    <h1>Drugs API Reference</h1>
-  </div>
+<div class="content-heading-text">
+<div class="content-heading-title">
+<a href="{{ site.baseurl }}/drug/event/">API Endpoints and Examples</a> | API Reference
+</div>
+<h1>Drugs API Reference</h1>
+</div>
 </section>
 
 <div class="row tabs">
-  <div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
-  <div class="col-sm-4 tab"><h2>Product labels <span style="font-size: 9px">Coming soon</span></h2></div>
-  <div class="col-sm-4 tab"><h2>Recalls <span style="font-size: 9px">Coming soon</span></h2></div>
+<div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
+<div class="col-sm-4 tab"><h2>Product labels <span style="font-size: 9px">Coming soon</span></h2></div>
+<div class="col-sm-4 tab"><h2>Recalls <span style="font-size: 9px">Coming soon</span></h2></div>
 </div>
-{:/}
 
 
 <section id="reference">
@@ -803,7 +802,7 @@ patient: {
 
 `openfda`
 : **Dictionary**
-: For all fields in `openfda`, see the [API Basics](https://fda.github.io/openfda-private-beta/api/reference/#openfda-fields) reference guide.
+: For all fields in `openfda`, see the [API Basics]({{ site.baseurl }}/api/reference/#openfda-fields) reference guide.
 
 ##### openFDA fields
 Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.
