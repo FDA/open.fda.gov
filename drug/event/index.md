@@ -12,7 +12,6 @@ endpoints:
       - name: API Reference
         url: /drug/reference/
 ---
-{::nomarkdown}
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
     <div class="content-heading-title">
@@ -27,7 +26,6 @@ endpoints:
   <div class="col-sm-4 tab"><h2>Product labels <span style="font-size: 9px">Coming soon</span></h2></div>
   <div class="col-sm-4 tab"><h2>Recalls <span style="font-size: 9px">Coming soon</span></h2></div>
 </div>
-{:/}
 
 <section id="endpoint">
 
