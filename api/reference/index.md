@@ -6,9 +6,9 @@ js:
   - '/static/bower_components/bootstrap/js/modal.js'
   - '/static/bower_components/bootstrap/js/affix.js'
   - '/static/bower_components/bootstrap/js/tab.js'
-  - '/static/bower_components/jquery-autosize/jquery.autosize.min.js'
-  - '/static/js/min/jquery-cookie.min.js'
-  - '/static/js/min/api-scripts.min.js'
+  - '/static/bower_components/jquery-autosize/jquery.autosize.js'
+  - '/static/js/min/jquery-cookie.js'
+  - '/static/js/min/api-scripts.js'
 ---
 {::nomarkdown}
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="{% if page.cover %}background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');{% endif %}">
