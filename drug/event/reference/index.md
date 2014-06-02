@@ -24,8 +24,8 @@ js:
   - '/static/bower_components/d3/d3.min.js'
   - '/static/bower_components/c3/c3.min.js'
   - '/static/bower_components/jquery-autosize/jquery.autosize.min.js'
-  - '/static/js/min/jquery-cookie.min.js'
-  - '/static/js/min/api-scripts.min.js'
+  - '/static/js/min/jquery-cookie.js'
+  - '/static/js/min/api-scripts.js'
 ---
 
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
