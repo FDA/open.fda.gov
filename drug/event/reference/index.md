@@ -811,10 +811,14 @@ patient: {
 ##### openFDA fields
 
 Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.
-OpenFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other drug information. Drug products that appear in drug adverse event records are joined to the NDC dataset first on brand name, and if there is no brand name, on generic name. If that is succesful, further links are established to other datasets. **The linked data is listed as an `openfda` annotation in the `patient.drug` section of a result.**
+
+OpenFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other drug information. Drug products that appear in FAERS records are joined to the NDC dataset first on brand name, and if there is no brand name, on generic name. If that is succesful, further links are established to other datasets. **The linked data is listed as an `openfda` annotation in the `patient.drug` section of a result.**
+
 Roughly 86% of adverse event records have at least one `openfda` section. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if the drug name is misspelled. Some drug products will have `openfda` sections, while others will never, if there was no match during the harmonization process.
+
 {% include panel.html type="warning" title="Important note about <strong>openfda</strong> fields" text="A single drug product listed in an adverse event report may have multiple associated manufacturer names, NDCs, and SPLs in a corresponding <strong>openfda</strong> section. That is because the drug may have multiple manufacturers, packagers, dosage forms, etc. Their inclusion in the <strong>openfda</strong> section does not mean that they had any connection to the adverse event. The ordering of data in <strong>openfda</strong> fields is not significant." %}
-For more information on `openFDA` fields, see the [openFDA API basics page.]({{ site.baseurl }}/api/reference)
+
+For more information on `openFDA` fields, see the [openFDA API basics page.]({{ site.baseurl }}/api/reference/)
 
 
 ##### Patient reaction data
@@ -834,18 +838,6 @@ For more information on `openFDA` fields, see the [openFDA API basics page.]({{ 
 : `5` = fatal
 : `6` = unknown
 
-
-### openFDA fields
-
-Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.
-
-OpenFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other drug information. Drug products that appear in FAERS records are joined to the NDC dataset first on brand name, and if there is no brand name, on generic name. If that is succesful, further links are established to other datasets. **The linked data is listed as an `openfda` annotation in the `patient.drug` section of a result.**
-
-Roughly 86% of adverse event records have at least one `openfda` section. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if the drug name is misspelled. Some drug products will have `openfda` sections, while others will never, if there was no match during the harmonization process.
-
-{% include panel.html type="warning" title="Important note about <strong>openfda</strong> fields" text="A single drug product listed in an adverse event report may have multiple associated manufacturer names, NDCs, and SPLs in a corresponding <strong>openfda</strong> section. That is because the drug may have multiple manufacturers, packagers, dosage forms, etc. Their inclusion in the <strong>openfda</strong> section does not mean that they had any connection to the adverse event. The ordering of data in <strong>openfda</strong> fields is not significant." %}
-
-For more information on `openFDA` fields, see the [openFDA API basics page.]({{ site.baseurl }}/api/reference/)
 
 ## Datasets
 
