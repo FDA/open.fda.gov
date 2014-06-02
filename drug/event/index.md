@@ -59,7 +59,7 @@ See the <a href="reference/">comprehensive field-by-field reference</a> for more
 
 `https://api.fda.gov/drug/event.json?`
 
-You can search for adverse events by <a href="{{ site.baseurl }}/drug/reference/#drug-adverse-events">fields specific to the `drug/event.json` endpoint</a>. You can also search by other drug identifiers, such as pharmacologic class, NDC (National Drug Code), or even UPC. These identifiers are annotations, not part of the original adverse event report. They are easily identified in <a href="{{ site.baseurl }}/drug/reference/#openfda-fields">`openfda` sections</a> of API returns.
+You can search for adverse events by <a href="{{ site.baseurl }}/api/reference/#drug-adverse-events">fields specific to the `drug/event.json` endpoint</a>. You can also search by other drug identifiers, such as pharmacologic class, NDC (National Drug Code), or even UPC. These identifiers are annotations, not part of the original adverse event report. They are easily identified in <a href="{{ site.baseurl }}/api/reference/#openfda-fields">`openfda` sections</a> of API returns.
 
 <div class="api-explorer" style="margin-top: 7ex">
 <div class="query">
@@ -105,7 +105,7 @@ Double quotation marks `" "` surround phrases that must match exactly. The plus 
 
 The suffix **.exact** is required by openFDA to count the unique full phrases in the field **patient.reaction.reactionmeddrapt**. Without it, the API will count each word in that field individually—**difficulty sleeping** would be counted as separate values, **difficulty** *and* **sleeping**.
 
-See the [patient reaction reference](reference/#patient-reaction-data) for more about patient reactions in adverse event records. 
+See the [patient reaction reference](reference/#patient-reaction-data) for more about patient reactions in adverse event records.
 </div>
 <!-- <svg class="chart"></svg> -->
 </div>
