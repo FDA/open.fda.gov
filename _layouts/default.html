@@ -11,7 +11,7 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->         
+    <![endif]-->
   </head>
   <body>
     {% include beta.html %}
@@ -38,9 +38,9 @@
            <li class="nav-section">Getting Help
             <ul>
               <li><a href="https://opendata.stackexchange.com/questions/ask?tags=openFDA" target="_blank">Ask questions</a> on StackExchange</li>
-              <li><a href="http://github.com/FDA/" target="_blank">Report bugs</a> on GitHub</li>
+              <li><a href="https://github.com/FDA/openfda/issues" target="_blank">Report bugs</a> on GitHub</li>
               <li><a href="mailto:open@fda.hhs.gov">Send us feedback</a> by email</li>
-            </ul> 
+            </ul>
           </li>
         </ul>
       </nav>
@@ -50,7 +50,7 @@
       </nav>
       {% endif %}
     </header>
-    
+
     <div class="site-body">
       <div class="site-body-heading">
         {% for section in site.data.site-body-headings %}
@@ -61,11 +61,11 @@
         </div>
         {% endfor %}
       </div>
-      
+
       <div class="site-body-content">
         {{ content }}
       </div>
-      
+
       <div class="site-body-heading footer">
         {% for section in site.data.site-body-headings %}
         <div class="site-body-heading-section {{ section.class }}">
@@ -75,7 +75,7 @@
         </div>
         {% endfor %}
       </div>
-      
+
     </div>
     </div>
     </div>
