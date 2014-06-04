@@ -1,11 +1,12 @@
 name: openFDA
+url: https://open.fda.gov
 
 markdown: kramdown
 kramdown:
   use_coderay: true
   coderay_line_numbers: nil
   parse_block_html: true
-  
+
 pygments: true
 baseurl: /openfda-private-beta
 permalink: /update/:title/
