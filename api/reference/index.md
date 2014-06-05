@@ -70,7 +70,7 @@ The table below shows our standard API limits.
 | Authentication method | Per minute limit | Per day limit |
 |-|-|-|
 | No API Key | 40 requests per minute *(per IP Address)* | 1000 requests per day *(per IP Address)* |
-| API Key | 120 requests per minute *(per key)* | 60000 requests per day *(per key)* |
+| API Key | 240 requests per minute *(per key)* | 120000 requests per day *(per key)* |
 {: class="table table-code"}
 
 If you anticipate usage above the limits provided by an API key, please [contact us](mailto:open@fda.hhs.gov). We'll work with you to figure out a good solution to your requirements.
