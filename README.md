@@ -17,5 +17,4 @@ This repository contains the main open.fda.gov website
 
 * Jekyll 1.x/2.x
 * Grunt 0.4.x
-
-
+* Python 2.x (because of [pygments](https://github.com/tmm1/pygments.rb) syntax highlighting)
