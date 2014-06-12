@@ -1,5 +1,4 @@
-open.fda.gov
-=======
+# open.fda.gov
 
 openFDA is a research project to provide open APIs, raw data downloads, documentation and examples, and a developer community for an important collection of FDA public datasets.
 
@@ -7,11 +6,38 @@ openFDA is a research project to provide open APIs, raw data downloads, document
 
 # Contents
 
-This repository contains the main open.fda.gov website
+This repository contains the main open.fda.gov website:
 
 * A [Jekyll](http://jekyllrb.com/) static site
-
 * [Grunt](http://gruntjs.com/) is used for building CSS (from LESS) and minified JS
+
+# Running the site
+
+Install Jekyll and Grunt:
+
+```bash
+gem install jekyll
+npm install -g grunt-cli
+```
+
+Get Grunt watching for any changes to assets:
+
+```bash
+grunt
+```
+
+Get the site running at `http://localhost:4000` with:
+
+```
+jekyll serve --baseurl=""
+```
+
+(Optional) You can also manually recompile assets at any time by running:
+
+```bash
+grunt less
+grunt minified
+```
 
 # Prerequisites
 
