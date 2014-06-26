@@ -459,7 +459,7 @@ Drug Monitoring
 : **Dictionary**
 : Information on the organization receiving the report.
 
-`receivertype.receivertype`
+`receiver.receivertype`
 : **String**
 : The name of the organization receiving the report.
 : `1` = Pharmaceutical Company
@@ -638,6 +638,11 @@ patient: {
 `patient.drug.drugcumulativedosagenumb`
 : **String**
 : The cumulative dose taken until the first reaction was experienced.
+
+`patient.drug.drugcumulativedosageunit`
+: **String**
+: The unit for `drugcumulativedosagenumb`
+
 : `001` = kg kilogram(s)
 : `002` = G gram(s)
 : `003` = Mg milligram(s)
@@ -662,26 +667,26 @@ patient: {
 : `812` = As Necessary
 : `813` = Total
 
-`drugintervaldosageunitnumb`
+`patient.drug.drugintervaldosageunitnumb`
 : **String**
 : Number of units in `patient.drug.drugintervaldosagedefinition`
 
-`drugrecurreadministration`
+`patient.drug.drugrecurreadministration`
 : **String**
 : Value for if the reaction occured on a readministration of the drug.
 : `1` = Yes
 : `2` = No
 : `3` = Unknown
 
-`drugseparatedosagenumb`
+`patient.drug.drugseparatedosagenumb`
 : **String*
 : The number of separate dosages
 
-`drugstructuredosagenumb`
+`patient.drug.drugstructuredosagenumb`
 : **String**
 : The number of doses
 
-`drugstructuredosageunit`
+`patient.drug.drugstructuredosageunit`
 : **String**
 : The unit for `drugstructuredosagenumb`
 : `001` = kg kilogram(s)
