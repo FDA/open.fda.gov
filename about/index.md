@@ -42,9 +42,11 @@ The team also wishes to thank the following individuals for their contributions 
 - Steven Hubbard
 - Erie Meyer
 - Nick Muerdter
+- Joe Neubauer
 - Brian Norris
 - John Quinn
 - Mark Silverberg
+- Zhiheng (Roy) Xu
 
 ## How can I join in?
 

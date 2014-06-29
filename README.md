@@ -13,11 +13,13 @@ This repository contains the main open.fda.gov website:
 
 # Running the site
 
-Install Jekyll and Grunt:
+Install Bundler, Jekyll and Grunt:
 
 ```bash
-gem install jekyll
 npm install -g grunt-cli
+gem install bundler
+cd /path/to/this/repo
+bundle install
 ```
 
 Get Grunt watching for any changes to assets:
@@ -29,7 +31,7 @@ grunt
 Get the site running at `http://localhost:4000` with:
 
 ```
-jekyll serve --baseurl=""
+bundle exec jekyll serve
 ```
 
 (Optional) You can also manually recompile assets at any time by running:
@@ -41,6 +43,5 @@ grunt minified
 
 # Prerequisites
 
-* Jekyll 1.x/2.x
-* Grunt 0.4.x
-* Python 2.x (because of [pygments](https://github.com/tmm1/pygments.rb) syntax highlighting)
+* Node 0.10.*
+* Python 2.* (because of [pygments](https://github.com/tmm1/pygments.rb) syntax highlighting)
