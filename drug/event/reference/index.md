@@ -62,7 +62,9 @@ Adverse event reports use the [ICH E2b/M2 version 2.1 standard.](http://estri.ic
 
 ### Data downloads
 
-FDA releases [quarterly updates to FAERS data.](http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/ucm082193.htm) OpenFDA uses these extracts, but processes the data further before supplying them through the API. During our beta, we are investigating the best ways to offer direct downloads of data provided by the API. 
+FDA releases [quarterly updates to FAERS data.](http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/ucm082193.htm) OpenFDA uses these extracts, but processes the data further before supplying them through the API. During our beta testing, we are investigating the best ways to offer direct downloads of data provided by the API.
+
+There are no plans for the OpenFDA initiative to change the FAERS release protocols. At this time it is anticipated that FAERS downloads will continue to be available from the same site on the same quarterly schedule. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical production use and is in beta testing. While the FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated.
 
 ### Who reports adverse events?
 
@@ -284,7 +286,7 @@ Each adverse event report consists of these major sections:
 - **Patient Information:** Details on the patient who experienced the event, such as age, weight, sex, etc.
 - **Drugs:** Information on the drugs taken while the event was experienced
 - **Ractions:** Information on the reactions experienced by the patient
- 
+
 ### Field reference
 
 #### Header
@@ -591,7 +593,7 @@ patient: {
 : `802` = Month
 : `803` = Week
 : `804` = Day
-: `805` = Hour 
+: `805` = Hour
 
 `patient.patientsex`
 : **String**
@@ -659,7 +661,7 @@ patient: {
 : `802` = Month
 : `803` = Week
 : `804` = Day
-: `805` = Hour 
+: `805` = Hour
 : `806` = Minute
 : `807` = Trimester
 : `810` = Cyclical
@@ -803,7 +805,7 @@ patient: {
 : `802` = Month
 : `803` = Week
 : `804` = Day
-: `805` = Hour 
+: `805` = Hour
 : `806` = Minute
 
 `patient.drug.medicinalproduct`
