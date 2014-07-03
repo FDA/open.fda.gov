@@ -86,7 +86,7 @@ Perhaps the most innovative part of openFDA is the extensive work we've done to 
 - `nui` Numeric Unique Identifier
 - `pharm_class_moa` Pharmacologic Class Mechanism of Action
 - `package_ndc` Packaging [National Drug Code](http://www.fda.gov/Drugs/InformationOnDrugs/ucm142438.htm)
-- `parm_class_epc` FDA Established Pharmacologic Class
+- `pharm_class_epc` FDA Established Pharmacologic Class
 - `generic_name`
 - `application_number` [New Drug Application Number](http://www.fda.gov/Drugs/DevelopmentApprovalProcess/HowDrugsareDevelopedandApproved/ApprovalApplications/NewDrugApplicationNDA/default.htm)
 
