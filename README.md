@@ -31,7 +31,7 @@ grunt
 Get the site running at `http://localhost:4000` with:
 
 ```
-bundle exec jekyll serve
+bundle exec jekyll serve --watch
 ```
 
 (Optional) You can also manually recompile assets at any time by running:
