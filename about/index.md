@@ -3,7 +3,7 @@ layout:       page
 title:        About
 ---
 
-OpenFDA is an exciting new initiative in the [Food and Drug Administration’s](http://www.fda.gov/) Office of Informatics and Technology Innovation spearheaded by FDA’s <a href="http://www.fda.gov/AboutFDA/CentersOffices/ucm349836.htm">Chief Health Informatics Officer</a>. OpenFDA offers easy access to FDA public data and highlight projects using these data in both the public and private sector to further regulatory or scientific missions, educate the public, and save lives.
+OpenFDA is an exciting new initiative in the [Food and Drug Administration’s](http://www.fda.gov/) Office of Informatics and Technology Innovation (OITI) spearheaded by FDA’s [Chief Health Informatics Officer (CHIO), Dr. Taha Kass-Hout.](http://www.fda.gov/AboutFDA/CentersOffices/ucm349836.htm) OpenFDA offers easy access to FDA public data and highlights projects using these data in both the public and private sector to further regulatory or scientific missions, educate the public, and save lives.
 
 ## What does it do?
 
@@ -20,7 +20,7 @@ We're currently focused on working on datasets in the following areas:
 We'll be releasing a number of updates and additional datasets throughout the upcoming months.
 
 ## Who made openFDA?
-OpenFDA is an initiative in the Office of Informatics and Technology Innovation at the Food and Drug Administration. The core project team consisted of the following individuals, in alphabetical order:
+OpenFDA is an initiative in the Office of Informatics and Technology Innovation (OITI) at the Food and Drug Administration led by the Chief Health Informatics Officer (CHIO), Dr. Taha Kass-Hout. The core project team consisted of the following individuals, in alphabetical order:
 
 - Adam Baker
 - Sharon Campbell
