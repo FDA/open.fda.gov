@@ -65,7 +65,11 @@ Signing up for an API key means you agree to our [terms of service.]({{site.base
 </div>
 {:/}
 
-The table below shows our standard API limits.
+Your API key should be passed to the API as the value of the `api_key` parameter. Include it before other parameters, such as the `search` parameter. For example:
+
+    https://api.fda.gov/drug/event.json?api_key=yourAPIKeyHere&search= …
+
+<br />The table below shows our standard API limits.
 
 | Authentication method | Per minute limit | Per day limit |
 |-|-|-|
@@ -76,6 +80,7 @@ The table below shows our standard API limits.
 If you anticipate usage above the limits provided by an API key, please [contact us](mailto:open@fda.hhs.gov). We'll work with you to figure out a good solution to your requirements.
 
 ### HTTPS Access
+
 We encourage you to use `https://api.fda.gov` for all queries to ensure secure communication. We use [Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication) to support SSL. As [not all clients support SNI](https://en.wikipedia.org/wiki/Server_Name_Indication#No_support), we do not enforce HTTPS access. If your application does not support SNI, you can use `http://api.fda.gov`. 
 
 ### Query parameters
