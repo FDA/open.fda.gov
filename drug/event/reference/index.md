@@ -600,6 +600,7 @@ patient: {
 `patient.patientsex`
 : **String**
 : The sex of the patient.
+: `0` = Unknown
 : `1` = Male
 : `2` = Female
 
