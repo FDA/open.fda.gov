@@ -21,7 +21,7 @@ function numberToCommaSeparated(number) {
 //
 function determineChartContent(data) {
   var queryCount = $(selectedTab).find("#query-count").val();
-  
+
   if (queryCount.indexOf("primarysource.reportercountry") >= 0) {
     return "primarysource.reportercountry";
   }
@@ -34,13 +34,23 @@ function determineChartContent(data) {
   else if (queryCount.indexOf("patient.patientsex") >= 0) {
     return "patient.patientsex";
   }
+  else if (queryCount.indexOf("classification") >= 0) {
+    return "classification";
+  }
+  else if (queryCount.indexOf("classification") >= 0) {
+    return "classification";
+  }
+  else if (queryCount.indexOf("voluntary_mandated") >= 0) {
+    return "voluntary_mandated";
+  }
   else if ( queryCount.indexOf("receivedate") >= 0 ||
             queryCount.indexOf("drugstartdate") >= 0 ||
             queryCount.indexOf("drugenddate") >= 0 ||
             queryCount.indexOf("patient.patientdeath.patientdeathdate") >= 0 ||
             queryCount.indexOf("receiptdate") >= 0 ||
             queryCount.indexOf("receivedate") >= 0 ||
-            queryCount.indexOf("transmissiondate") >= 0
+            queryCount.indexOf("transmissiondate") >= 0 ||
+            queryCount.indexOf("report_date") >= 0
           ) {
     return "date";
   }
@@ -320,6 +330,22 @@ function drawChartWithData(data) {
     iterateThroughValues(data, processingLogic, 'donut');
     generateDonutChart(dataValuesForChart);
   }
+  else if (chartContent === "classification") {
+    data = data.slice(0, 3);
+    var processingLogic = function(k, v) {
+      return v;
+    };
+    iterateThroughValues(data, processingLogic, 'donut');
+    generateDonutChart(dataValuesForChart);
+  }
+  else if (chartContent === "voluntary_mandated") {
+    data = data.slice(0, 2);
+    var processingLogic = function(k, v) {
+      return v;
+    };
+    iterateThroughValues(data, processingLogic, 'donut');
+    generateDonutChart(dataValuesForChart);
+  }
   else {
     console.log("Not countable");
   }
@@ -362,7 +388,8 @@ function runQueries(queryStringForTotalMatching, queryString) {
 // and pass on to a function that calls the openFDA API.
 //
 function constructAndExecuteQuery() {
-  var queryString = "https://api.fda.gov/drug/event.json?";     // Query string begins with endpoint,
+  // var queryString = "https://api.fda.gov/drug/event.json?";     // Query string begins with endpoint,
+  var queryString = endpoint;
   var querySearch = $(selectedTab).find("#query-search").val(); // then SEARCH= parameter,
   var queryCount  = $(selectedTab).find("#query-count").val();  // then COUNT= parameter.
   var queryStringForTotalMatching = queryString;
@@ -373,7 +400,7 @@ function constructAndExecuteQuery() {
   // to draw the chart.
   // 
   querySearch != "" && (queryStringForTotalMatching += "search=" + querySearch);
-  querySearch == "" && (queryStringForTotalMatching = queryString + "search=_exists_:receivedate&limit=1");
+  querySearch == "" && (queryStringForTotalMatching = queryString + "search=" + countTerm + "&limit=1");
   
   // Construct the full query string, including contents of the search and count fields.
   querySearch != "" && (queryString += "search=" + querySearch);
@@ -396,7 +423,7 @@ $(document).ready(function() {
   // _exists_:receivedate is a query that should match 100% of records,
   // which is why it's used to get that number.
   //
-  $.getJSON('https://api.fda.gov/drug/event.json?search=_exists_:receivedate', function(data) {
+  $.getJSON(endpoint + 'search=' + countTerm, function(data) {
     maxNumberOfRecords = data.meta.results.total;
   });
 

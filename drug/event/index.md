@@ -1,5 +1,5 @@
 ---
-title: Drug adverse events
+title: Drugs - Adverse events
 layout: api
 endpoints:
   - endpoint: /drug/event/
@@ -7,16 +7,14 @@ endpoints:
     description: 'Adverse events.'
     status: active
     docs:
-      - name: Adverse Event Introduction
-        url: /drug/#drug-adverse-events
-      - name: API Reference
-        url: /drug/reference/
+      - name: API reference
+        url: /drug/event/reference/
 ---
 {::nomarkdown}
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
     <div class="content-heading-title">
-      API Endpoints and Examples | <a href="{{ site.baseurl }}/drug/event/reference/">API Reference</a>
+      Data and examples | <a href="{{ site.baseurl }}/drug/event/reference/">API reference</a>
     </div>
     <h1>Drugs</h1>
   </div>
@@ -25,13 +23,13 @@ endpoints:
 <div class="row tabs">
   <div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
   <div class="col-sm-4 tab"><h2>Product labels <span style="font-size: 9px">Coming soon</span></h2></div>
-  <div class="col-sm-4 tab"><h2>Recalls <span style="font-size: 9px">Coming soon</span></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement">Enforcement reports</a></h2></div>
 </div>
 {:/}
 
 <section id="endpoint">
 
-{% include api-demo.html %}
+{% include api-demo-drug-adverse-events.html %}
 
 {% include getting-started.html %}
 

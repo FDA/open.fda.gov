@@ -28,8 +28,8 @@ js:
 OpenFDA is an [Elasticsearch-based](http://www.elasticsearch.org/) [API](http://apievangelist.com/index.html) that serves [Food and Drug Administration](http://www.fda.gov/) publically accessible data about three *nouns:*
 
  - Drugs
- - Devices *(coming soon)*
- - Foods *(coming soon)*
+ - Devices
+ - Foods
 
 All three have several *endpoints,* each of which serves unique data. Every query to the API must go through one endpoint.
 
@@ -44,6 +44,10 @@ The API returns results as [JSON](http://www.json.org/) by default. The JSON obj
 | `meta` | Metadata about the query, including a disclaimer, link to data license, last-updated date, and total matching records, if applicable. |
 | `results` | List of matching results, dependent on which endpoint was queried. |
 {: class="table"}
+
+### Downloads
+
+OpenFDA uses public FDA datasets, but processes the data further before supplying it through the API. During our beta, we are investigating the best ways to offer direct downloads of data provided by the API.
 
 ### Authentication
 
@@ -79,7 +83,7 @@ Your API key should be passed to the API as the value of the `api_key` parameter
 
 If you anticipate usage above the limits provided by an API key, please [contact us](mailto:open@fda.hhs.gov). We'll work with you to figure out a good solution to your requirements.
 
-### HTTPS Access
+### HTTPS requests
 
 We encourage you to use `https://api.fda.gov` for all queries to ensure secure communication. We use [Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication) to support SSL. As [not all clients support SNI](https://en.wikipedia.org/wiki/Server_Name_Indication#No_support), we do not enforce HTTPS access. If your application does not support SNI, you can use `http://api.fda.gov`. 
 
@@ -205,53 +209,83 @@ Drug products are identified and reported using a unique, three-segment number, 
 Several NDC dataset fields are used to annotate records in openFDA.
 
 `application_number`
-: **string**
+: **array of strings**
 : This corresponds to the NDA, ANDA, or BLA number reported by the labeler for products which have the corresponding Marketing Category designated. If the designated Marketing Category is OTC Monograph Final or OTC Monograph Not Final, then the application number will be the CFR citation corresponding to the appropriate Monograph (e.g. “part 341”). For unapproved drugs, this field will be null.
 
 `brand_name`
-: **string**
+: **array of strings**
 : The brand or trade name of the product.
 
 `dosage_form`
-: **string**
+: **array of strings**
 : The [dosage form](http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162038.htm) of the drug product.
 
 `generic_name`
-: **string**
+: **array of strings**
 : The generic name of the drug product.
 
 `manufacturer_name`
-: **string**
+: **array of strings**
 : Name of company corresponding to the labeler code segment of the NDC.
 
+`is_original_packager`
+: **boolean**
+: Documentation forthcoming.
+
 `product_ndc`
-: **string**
+: **array of strings**
 : The labeler manufacturer code and product code segments of the NDC number, separated by a hyphen.
 
 `product_type`
-: **string**
+: **array of strings**
 : The [type of drug product.](http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162063.htm)
 
 `route`
-: **string**
+: **array of strings**
 : The [route of administration](http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162034.htm) of the drug product.
 
 `substance_name`
-: **string**
+: **array of strings**
 : The list of active ingredients of a drug product.
 
 ### SPL
 
 SPL stands for the [Structured Product Labeling](http://www.fda.gov/forindustry/datastandards/structuredproductlabeling/default.htm) standard approved by Health Level Seven (HL7) and adopted by FDA as a mechanism for exchanging product and facility information. Drug products have associated labels that confirm to the SPL format.
 
-To come.
+`spl_id`
+: **array of strings**
+: A unique identifier for a particular version of a Structured Product Label for a product. Also referred to as the document ID.
+
+`spl_set_id`
+: **array of strings**
+: A unique identifier for the Structured Product Label for a product, which is stable across versions of the label.
+
+`pharm_class_moa`
+: **array of strings**
+: Mechanism of action. Molecular, subcellular, or cellular level functional activity of a drug product's pharmacologic class. 
+
+`pharm_class_cs`
+: **array of strings**
+: Chemical structure. Chemical structure classification of a pharmacologic class.
+
+`pharm_class_pe`
+: **array of strings**
+: Physiologic effect. Tissue, organ, or organ system level functional activity of a pharmacologic class.
+
+`pharm_class_epc`
+: **array of strings**
+: Established pharmacologic class. A pharmacologic class associated with an approved indication of an active moiety that the FDA has determined to be scientifically valid and clinically meaningful.
+
+`upc`
+: **array of strings**
+: Documentation forthcoming.
 
 ### UNII
 
 UNII stands for [Unique Ingredient Identifier.](http://www.fda.gov/forindustry/datastandards/substanceregistrationsystem-uniqueingredientidentifierunii/default.htm) The overall purpose of the joint FDA/USP Substance Registration System (SRS) is to support health information technology initiatives by generating unique ingredient identifiers (UNIIs) for substances in drugs, biologics, foods, and devices. The UNII is a non- proprietary, free, unique, unambiguous, non semantic, alphanumeric identifier based on a substance’s molecular structure and/or descriptive information.
 
 `unii`
-: **string**
+: **array of strings**
 : The Unique Ingredient Identifier of the drug.
 
 ### RxNorm
@@ -259,11 +293,7 @@ UNII stands for [Unique Ingredient Identifier.](http://www.fda.gov/forindustry/d
 [RxNorm](http://www.nlm.nih.gov/research/umls/rxnorm/overview.html) is a normalized naming system for generic and branded drugs; and a tool for supporting semantic interoperation between drug terminologies and pharmacy knowledge base systems. The [National Library of Medicine](http://www.nlm.nih.gov/) (NLM) produces RxNorm.
 
 `rxcui`
-: **string**
+: **array of strings**
 : The RxNorm Concept Unique Identifier. RxCUI is a unique number that describes a semantic concept about the drug product, including its ingredients, strength, and dose forms.
-
-## Downloads
-
-OpenFDA uses public FDA datasets, but processes the data further before supplying it through the API. During our beta, we are investigating the best ways to offer direct downloads of data provided by the API. 
 
 </section>
