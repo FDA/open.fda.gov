@@ -1,17 +1,11 @@
 ---
-title: Drugs API reference - adverse events
+title: Drugs API reference - Adverse Events
 layout: default
-cover-image: d_events.jpg
 endpoints:
   - endpoint: /drug/event/
     name:  Drug adverse events
-    description: 'Adverse events.'
+    description: 'Drug adverse events.'
     status: active
-    docs:
-      - name: Adverse Event Examples
-        url: /drug/event/examples
-      - name: API Reference
-        url: /drug/event/reference
 datasets:
   - dataset: FAERS
     url: "/data/faers/"
@@ -31,16 +25,16 @@ js:
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
 <div class="content-heading-text">
 <div class="content-heading-title">
-<a href="{{ site.baseurl }}/drug/event/">API Endpoints and Examples</a> | API Reference
+<a href="{{ site.baseurl }}/drug/event/">Data and examples</a> | API reference
 </div>
-<h1>Drugs API Reference</h1>
+<h1>Drugs API reference</h1>
 </div>
 </section>
 
 <div class="row tabs">
 <div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
 <div class="col-sm-4 tab"><h2>Product labels <span style="font-size: 9px">Coming soon</span></h2></div>
-<div class="col-sm-4 tab"><h2>Recalls <span style="font-size: 9px">Coming soon</span></h2></div>
+<div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement/reference/">Enforcement reports</a></h2></div>
 </div>
 
 
@@ -54,7 +48,7 @@ The openFDA drug adverse event API returns data from the <a href="{{ site.baseur
 
 An adverse event is submitted to the FDA to report any undesirable experience associated with the use of a medical product in a patient. For drugs, this includes serious drug side effects, product use errors, product quality problems, and therapeutic failures for prescription or over-the-counter medicines and medicines administered to hospital patients or at outpatient infusion centers.
 
-{% include panel.html type="warning" title="Important note about FAERS data" text="FAERS data does have limitations. There is no certainty that the reported event (adverse event or medication error) was actually due to the product. FDA does not require that a causal relationship between a product and event be proven, and reports do not always contain enough detail to properly evaluate an event.<br /><br />Further, FDA does not receive reports for every adverse event or medication error that occurs with a product. Many factors can influence whether or not an event will be reported, such as the time a product has been marketed and publicity about an event.<br /><br />Submission of a safety report does not constitute an admission that medical personnel, user facility, importer, distributor, manufacturer or product caused or contributed to the event. The information in these reports has not been scientifically or otherwise verified as to a cause and effect relationship and cannot be used to estimate the incidence of these events." %}
+{% include panel.html type="warning" title="Disclaimer" text="FAERS data does have limitations. There is no certainty that the reported event (adverse event or medication error) was actually due to the product. FDA does not require that a causal relationship between a product and event be proven, and reports do not always contain enough detail to properly evaluate an event.<br /><br />Further, FDA does not receive reports for every adverse event or medication error that occurs with a product. Many factors can influence whether or not an event will be reported, such as the time a product has been marketed and publicity about an event.<br /><br />Submission of a safety report does not constitute an admission that medical personnel, user facility, importer, distributor, manufacturer or product caused or contributed to the event. The information in these reports has not been scientifically or otherwise verified as to a cause and effect relationship and cannot be used to estimate the incidence of these events." %}
 
 In 2012, FDA changed from the Adverse Event Reporting System (AERS) to the FDA Adverse Event Reporting System (FAERS). There was a minor shift in terms as part of this transition. If you are using data from before December 2012, you should be aware of this shift.
 
@@ -84,7 +78,7 @@ Adverse events are collected through a series of *safety reports.* Each is ident
 
 ## Anatomy of a response
 
-Here's an example API return from OpenFDA. This particular response features one result. The return is split into two high-level sections: `meta` and `results`. Note that this record is not real.
+Here's an example API return from openFDA. This particular response features one result. The return is split into two high-level sections: `meta` and `results`. Note that this record is not real.
 
 {% highlight javascript %}
 {
@@ -251,32 +245,32 @@ The `meta` section provides a number of important details about the results give
 {% endhighlight %}
 
 `disclaimer`
-: **String**
-: {:.data-description} Important details about the openFDA beta and limitations of the dataset.
+: **string**
+: Important details about the openFDA beta and limitations of the dataset.
 
 `license`
-: **String**
-: {:.data-description} A link to a web page providing information on the licensing terms of data within openFDA.
+: **string**
+: A link to a web page providing information on the licensing terms of data within openFDA.
 
 `last_updated`
-: **String**
-: {:.data-description} The last date when openFDA was updated. Note that this does not correspond to the last report date in the system. Rather, it is the last time openFDA received a system or data update.
+: **string**
+: The last date when openFDA was updated. Note that this does not correspond to the last report date in the system. Rather, it is the last time openFDA received a system or data update.
 
 `results`
 : **Dictionary**
-: {:.data-description} A dictionary of details about the results section.
+: A dictionary of details about the results section.
 
 `results.skip`
 : **Integer**
-: {:.data-description} The offset of the results, as provided by the `skip` parameter in the URL.
+: The offset of the results, as provided by the `skip` parameter in the URL.
 
 `results.limit`
 : **Integer**
-: {:.data-description} The number of results out of the total number of returns that are provided, as provided by the `limit` parameter in the URL.
+: The number of results out of the total number of returns that are provided, as provided by the `limit` parameter in the URL.
 
 `results.total`
 : **Integer**
-: {:.data-description} The total number of results fitting the search criteria.
+: The total number of results fitting the search criteria.
 
 #### Results section
 
@@ -334,80 +328,80 @@ General information about the adverse event.
 {% endhighlight %}
 
 `safetyreportid`
-: **String**
-: {:.data-description} The 8-digit Safety Report ID number. The first 7 digits (before the hyphen) identify the individual report and the last digit (after the hyphen) is a checksum.
+: **string**
+: The 8-digit Safety Report ID number. The first 7 digits (before the hyphen) identify the individual report and the last digit (after the hyphen) is a checksum.
 
 `safetyreportversion`
-: **String**
-: {:.data-description} The version number of the `safetyreportid`. Multiple versions of the same report may exist, it is generally best to only count the latest report and disregard others. OpenFDA will only return the latest version of a report.
+: **string**
+: The version number of the `safetyreportid`. Multiple versions of the same report may exist, it is generally best to only count the latest report and disregard others. OpenFDA will only return the latest version of a report.
 
 `receivedate`
-: **String**
-: {:.data-description} Date that the report was *first* received by FDA. If this report has multiple versions, this will be the date the first version was received by FDA.
+: **string**
+: Date that the report was *first* received by FDA. If this report has multiple versions, this will be the date the first version was received by FDA.
 
 `receivedateformat`
-: **String**
-: {:.data-description} Identifies the encoding format of the `receivedate` field. Always set to `102` (YYYYMMDD).
+: **string**
+: Identifies the encoding format of the `receivedate` field. Always set to `102` (YYYYMMDD).
 
 `receiptdate`
-: **String**
-: {:.data-description} Date that *most recent information* in the report was received by FDA.
+: **string**
+: Date that *most recent information* in the report was received by FDA.
 
 `receiptdateformat`
-: **String**
-: {:.data-description} Identifies the encoding format of the `receiptdate` field. Always set to `102` (YYYYMMDD).
+: **string**
+: Identifies the encoding format of the `receiptdate` field. Always set to `102` (YYYYMMDD).
 
 `serious`
-: **String**
+: **string**
 : `1` = The adverse event resulted in death, a life threatening condition, hospitalization, disability, congenital anomali, or other serious condition.
 : `2` = The adverse event did not result in any of the above.
 
 `seriousnesscongenitalanomali`
-: **String**
+: **string**
 : This value is `1` if the adverse event resulted in a congenital anomali, and absent otherwise.
 
 `seriousnessdeath`
-: **String**
+: **string**
 : This value is `1` if the adverse event resulted in death, and absent otherwise.
 
 `seriousnessdisabling`
-: **String**
+: **string**
 : This value is `1` if the adverse event resulted in disability, and absent otherwise.
 
 `seriousnesshospitalization`
-: **String**
+: **string**
 : This value is `1` if the adverse event resulted in a hospitalization, and absent otherwise.
 
 `seriousnesslifethreatening`
-: **String**
+: **string**
 : This value is `1` if the adverse event resulted in a life threatening condition, and absent otherwise.
 
 `seriousnessother`
-: **String**
+: **string**
 : This value is `1` if the adverse event resulted in some other serious condition, and absent otherwise.
 
 `transmissiondate`
-: **String**
+: **string**
 : Date that the record was created. This may be earlier than the date the record was received by the FDA.
 
 `transmissiondateformat`
-: **String**
+: **string**
 : Identifies the encoding format of the `transmissiondate` field. Always set to `102` (YYYYMMDD).
 
 `duplicate`
-: **String**
+: **string**
 : This value is `1` if the report has had previous versions submitted. OpenFDA only shows the most recent version.
 
 `companynumb`
-: **String**
+: **string**
 : Identifier for the company providing the report. This is self-assigned.
 
 `occurcountry`
-: **String**
+: **string**
 : The name of the country where the event occured.
 
 `primarysourcecountry`
-: **String**
+: **string**
 : The country of the reporter of the event.
 
 `primarysource`
@@ -415,7 +409,7 @@ General information about the adverse event.
 : Information about the source provider of the adverse event.
 
 `primarysource.qualification`
-: **String**
+: **string**
 : An encoded value for the category of individual submitting the report.
 : `1` = Physician
 : `2` = Pharmacist
@@ -424,7 +418,7 @@ General information about the adverse event.
 : `5` = Consumer or non-health professional
 
 `primarysource.reportercountry`
-: **String**
+: **string**
 : The name of the country from which the report was submitted.
 
 `reportduplicate`
@@ -432,11 +426,11 @@ General information about the adverse event.
 : If a report is a duplicate or more recent version than a previously submitted report, this field will provide additional details on source provider.
 
 `reportduplicate.duplicatesource`
-: **String**
+: **string**
 : The name of the organization providing the duplicate.
 
 `reportduplicate.duplicatenumb`
-: **String**
+: **string**
 : The case identifier for the duplicate.
 
 `sender`
@@ -444,7 +438,7 @@ General information about the adverse event.
 : Information on the organization sending the report.
 
 `sender.sendertype`
-: **String**
+: **string**
 : The name of the organization sending the report. Because FDA is providing these reports to you, it will always appear as `2`.
 : `1` = Pharmaceutical Company
 : `2` = Regulatory Authority
@@ -456,7 +450,7 @@ Drug Monitoring
 : `6` = Other
 
 `sender.senderorganization`
-: **String**
+: **string**
 : The name of the organization sending the report. Because FDA is providing these reports to you, it will always appear as `FDA-Public Use`.
 
 `receiver`
@@ -464,7 +458,7 @@ Drug Monitoring
 : Information on the organization receiving the report.
 
 `receiver.receivertype`
-: **String**
+: **string**
 : The name of the organization receiving the report.
 : `1` = Pharmaceutical Company
 : `2` = Regulatory Authority
@@ -476,7 +470,7 @@ Drug Monitoring
 : `6` = Other
 
 `receiver.receiverorganization`
-: **String**
+: **string**
 : The name of the organization receiving the report.
 
 
@@ -584,11 +578,11 @@ patient: {
 {% endhighlight %}
 
 `patient.patientonsetage`
-: **String**
+: **string**
 : The age of the patient when the event first occured.
 
 `patient.patientonsetageunit`
-: **String**
+: **string**
 : The unit of measurement for the `patient.patientonsetage` field.
 : `800` = Decade
 : `801` = Year
@@ -598,13 +592,13 @@ patient: {
 : `805` = Hour
 
 `patient.patientsex`
-: **String**
+: **string**
 : The sex of the patient.
 : `1` = Male
 : `2` = Female
 
 `patient.patientweight`
-: **String**
+: **string**
 : The weight of the patient expressed in kilograms.
 
 `patient.patientdeath`
@@ -612,11 +606,11 @@ patient: {
 : If the patient died, this section contains information about the death.
 
 `patient.patientdeath.patientdeathdate`
-: **String**
+: **string**
 : Date that the patient died.
 
 `patient.patientdeath.patientdeathdateformat`
-: **String**
+: **string**
 : Identifies the encoding format of the `tient.patientdeath.patientdeathdate` field. Always set to `102` (YYYYMMDD).
 
 ##### Patient Drug Data
@@ -626,7 +620,7 @@ patient: {
 : The drugs taken by the patient at the time of the event.
 
 `patient.drug.actiondrug`
-: **String**
+: **string**
 : Actions taken with the drug
 : `1` = Drug withdrawnw
 : `2` = Dose reduced
@@ -636,15 +630,15 @@ patient: {
 : `6` = Not applicable
 
 `patient.drug.drugadditional`
-: **String**
+: **string**
 : Additional details about the circumstances behind taking the drug.
 
 `patient.drug.drugcumulativedosagenumb`
-: **String**
+: **string**
 : The cumulative dose taken until the first reaction was experienced.
 
 `patient.drug.drugcumulativedosageunit`
-: **String**
+: **string**
 : The unit for `drugcumulativedosagenumb`
 
 : `001` = kg kilogram(s)
@@ -653,11 +647,11 @@ patient: {
 : `004` = μg microgram(s)
 
 `patient.drug.drugdosageform`
-: **String**
+: **string**
 : The form through which the drug was taken.
 
 `patient.drug.drugintervaldosagedefinition`
-: **String**
+: **string**
 : The unit for the interval in `patient.drug.drugintervaldosageunitnumb`.
 : `801` = Year
 : `802` = Month
@@ -672,11 +666,11 @@ patient: {
 : `813` = Total
 
 `patient.drug.drugintervaldosageunitnumb`
-: **String**
+: **string**
 : Number of units in `patient.drug.drugintervaldosagedefinition`
 
 `patient.drug.drugrecurreadministration`
-: **String**
+: **string**
 : Value for if the reaction occured on a readministration of the drug.
 : `1` = Yes
 : `2` = No
@@ -687,11 +681,11 @@ patient: {
 : The number of separate dosages
 
 `patient.drug.drugstructuredosagenumb`
-: **String**
+: **string**
 : The number of doses
 
 `patient.drug.drugstructuredosageunit`
-: **String**
+: **string**
 : The unit for `drugstructuredosagenumb`
 : `001` = kg kilogram(s)
 : `002` = G gram(s)
@@ -813,11 +807,11 @@ patient: {
 `patient.drug.medicinalproduct`
 : Valid Trade name of the product
 
+##### openFDA fields
+
 `openfda`
 : **Dictionary**
 : For all fields in `openfda`, see the [API Basics]({{ site.baseurl }}/api/reference/#openfda-fields) reference guide.
-
-##### openFDA fields
 
 Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.
 
@@ -826,8 +820,6 @@ OpenFDA features harmonization of drug identifiers, to make it easier to connect
 Roughly 86% of adverse event records have at least one `openfda` section. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if the drug name is misspelled. Some drug products will have `openfda` sections, while others will never, if there was no match during the harmonization process.
 
 {% include panel.html type="warning" title="Important note about <strong>openfda</strong> fields" text="A single drug product listed in an adverse event report may have multiple associated manufacturer names, NDCs, and SPLs in a corresponding <strong>openfda</strong> section. That is because the drug may have multiple manufacturers, packagers, dosage forms, etc. Their inclusion in the <strong>openfda</strong> section does not mean that they had any connection to the adverse event. The ordering of data in <strong>openfda</strong> fields is not significant." %}
-
-For more information on `openFDA` fields, see the [openFDA API basics page.]({{ site.baseurl }}/api/reference/)
 
 
 ##### Patient reaction data
@@ -850,7 +842,7 @@ For more information on `openFDA` fields, see the [openFDA API basics page.]({{ 
 
 ## Datasets
 
-These datasets provide drug information for **Drugs** requests.
+The following datasets provide data for this endpoint.
 
 {% include api-reference/datasets.html datasets=page.datasets %}
 

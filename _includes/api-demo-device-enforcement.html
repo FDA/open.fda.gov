@@ -1,0 +1,252 @@
+{::nomarkdown}
+<script type="text/javascript">
+  var endpoint = 'https://api.fda.gov/device/enforcement.json?';
+  var countTerm = '_exists_:report_date';
+</script>
+
+<div id="api-demo-no-svg" class="api-demo" style="display:none">
+  <h2>This browser doesn't support our interactive query tool and explorer.</h2>
+  <p>Download and install the latest version of a standards-compliant browser like <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox,</a> <a href="https://www.google.com/chrome">Chrome,</a> or the latest version of <a href="http://www.microsoft.com/InternetExplorer">Internet Explorer.</a></p>
+  <img src="{{ site.baseurl }}/assets/img/p_queryTool.png" alt="Image of interactive query tool." />
+</div>
+
+<div id="api-demo" class="api-demo">
+  <div>
+    <ul class="nav nav-pills api-demo-tabs">
+      <li><span>Example queries:</span></li>
+      <li class="active"><a href="#reports" data-toggle="pill">Enforcement reports over time</a></li>
+      <li><a href="#voluntary-reports" data-toggle="pill">Who initiates?</a></li>
+      <li><a href="#seriousness" data-toggle="pill">Seriousness</a></li>
+    </ul>
+  </div>
+  
+  <div class="tab-content">
+
+    <!-- STORY SPONTANEOUS REPORTS -->
+    <div class="tab-pane fade in active" id="reports">
+      
+      <!-- Description -->
+      <div class="row">
+        <div class="col-sm-12 description">
+          <h2>Device recall enforcement reports since 2004</h2>
+          <p>This is the openFDA API endpoint for all device product recalls monitored by the FDA. When an FDA-regulated product is either defective or potentially harmful, recalling that product—removing it from the market or correcting the problem—is the most effective means for protecting the public.</p>
+          <p>Recalls are almost always voluntary, meaning a company discovers a problem and recalls a product on its own. Other times a company recalls a product after FDA raises concerns. Only in rare cases will FDA request or order a recall. But in every case, FDA's role is to oversee a company's strategy, classify the recalled products according to the level of hazard involved, and assess the adequacy of the recall. Recall information is posted in the Enforcement Reports once the products are classified.</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="row">
+        <div class="col-sm-3">
+          
+          <!-- Radio buttons -->
+          <div class="api-query-control">
+            <h4>Filter</h4>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="reports-all" value="" checked />
+                All device product enforcement reports
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="reports-heart-valve" value='reason_for_recall:"catheter"' />
+                Recalls mentioning &quot;catheter&quot;
+              </label>
+            </div>
+
+            <!-- Coverage chart -->
+            <div class="chart coverage">  
+              <h4 id="result-count"></h4>
+              <div id="chart-coverage"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart results col-sm-9">
+          <div id="chart"></div>
+        </div>
+      </div>
+
+      <!-- Query fields -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>What API query produced these results?</h3>
+          <pre id="query-endpoint">https://api.fda.gov/device/enforcement.json</pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Search -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
+          <textarea id="query-search" class="query-textarea form-control"></textarea>
+        </div>
+
+        <!-- Count -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">count=</a> parameter</div>
+          <textarea id="query-count" class="query-textarea form-control">report_date</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2 col-sm-offset-10">
+            <button id="query-button" class="form-control btn btn-primary">Run query</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END STORY -->
+
+
+    <!-- STORY VOLUNTARY REPORTS -->
+    <div class="tab-pane fade in" id="voluntary-reports">
+      
+      <!-- Description -->
+      <div class="row">
+        <div class="col-sm-12 description">
+          <h2>The vast majority of device recalls are voluntary</h2>
+          <p>Manufacturers and/or distributors may initiate a recall at any time to fulfill their responsibility to protect the public health from products that present a risk of injury or gross deception, or are otherwise defective. Firms may also initiate a recall following notification of a problem by FDA or a state agency, in response to a formal request by FDA, or as ordered by FDA.</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="row">
+        <div class="col-sm-3">
+          
+          <!-- Radio buttons -->
+          <div class="api-query-control">
+            <h4>Filter</h4>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="voluntary-reports-all" value="" />
+                All device product enforcement reports
+              </label>
+            </div>
+
+            <!-- Coverage chart -->
+            <div class="chart coverage">  
+              <h4 id="result-count"></h4>
+              <div id="chart-coverage"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart results col-sm-9">
+          <div id="chart"></div>
+        </div>
+      </div>
+
+      <!-- Query fields -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>What API query produced these results?</h3>
+          <pre id="query-endpoint">https://api.fda.gov/device/enforcement.json</pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Search -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
+          <textarea id="query-search" class="query-textarea form-control"></textarea>
+        </div>
+
+        <!-- Count -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">count=</a> parameter</div>
+          <textarea id="query-count" class="query-textarea form-control">voluntary_mandated.exact</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2 col-sm-offset-10">
+            <button id="query-button" class="form-control btn btn-primary">Run query</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END STORY -->
+
+
+    <!-- STORY CLASS/SERIOUSNESS CLASSES -->
+    <div class="tab-pane fade in" id="seriousness">
+      
+      <!-- Description -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>Msot device product recalls are Class II</h2>
+          <p>Recalls are classified into three categories: Class I, a dangerous or defective product that predictably could cause serious health problems or death, Class II, meaning that the product might cause a temporary health problem, or pose only a slight threat of a serious nature, and Class III, a product that is unlikely to cause any adverse health reaction, but that violates FDA labeling or manufacturing laws.</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="row">
+        <div class="col-sm-3">
+          
+          <!-- Radio buttons -->
+          <div class="api-query-control">
+            <h4>Filter</h4>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="classes-all" value="" />
+                All device product enforcement reports
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="classes-heart-valve" value='reason_for_recall:"catheter"' />
+                Reports mentioning &quot;catheter&quot;
+              </label>
+            </div>
+
+            <!-- Coverage chart -->
+            <div class="chart coverage">
+              <h4 id="result-count"></h4> 
+              <div id="chart-coverage"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart results col-sm-9">
+          <div id="chart"></div>
+        </div>
+      </div>
+
+      <!-- Query fields -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>What API query produced these results?</h3>
+          <pre id="query-endpoint">https://api.fda.gov/device/enforcement.json</pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Search -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
+          <textarea id="query-search" class="query-textarea form-control"></textarea>
+        </div>
+
+        <!-- Count -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">count=</a> parameter</div>
+          <textarea id="query-count" class="query-textarea form-control">classification.exact</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2 col-sm-offset-10">
+            <button id="query-button" class="form-control btn btn-primary">Run query</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END STORY -->
+
+  </div>  
+</div>
+{:/}
