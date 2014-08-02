@@ -23,18 +23,18 @@ js:
 ---
 
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
-  <div class="content-heading-text">
-  <div class="content-heading-title">
-  <a href="{{ site.baseurl }}/drug/event/">Data and examples</a> | API reference
-  </div>
-  <h1>Drugs API reference</h1>
-  </div>
+<div class="content-heading-text">
+<div class="content-heading-title">
+<a href="{{ site.baseurl }}/drug/event/">Data and examples</a> | API reference
+</div>
+<h1>Drugs API reference</h1>
+</div>
 </section>
 
 <div class="row tabs">
-  <div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
-  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label/reference/">Product labels</a></h2></div>
-  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement/reference/">Enforcement reports</a></h2></div>
+<div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
+<div class="col-sm-4 tab"><h2>Product labels <span style="font-size: 9px">Coming soon</span></h2></div>
+<div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement/reference/">Enforcement reports</a></h2></div>
 </div>
 
 

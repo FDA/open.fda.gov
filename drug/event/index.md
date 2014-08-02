@@ -22,14 +22,14 @@ endpoints:
 
 <div class="row tabs">
   <div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
-  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label">Product labels</a></h2></div>
+  <div class="col-sm-4 tab"><h2>Product labels <span style="font-size: 9px">Coming soon</span></h2></div>
   <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement">Enforcement reports</a></h2></div>
 </div>
 {:/}
 
 <section id="endpoint">
 
-{% include api-demo-drug-event.html %}
+{% include api-demo-drug-adverse-events.html %}
 
 {% include getting-started.html %}
 
