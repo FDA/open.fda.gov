@@ -1,20 +1,20 @@
 ---
-title: Drugs - Recall enforcement reports
+title: Drugs - Product labels
 layout: api
 endpoints:
-  - endpoint: /drug/enforcement/
-    name:  Drug enforcement reports
-    description: 'Drug product recall enforcement reports.'
+  - endpoint: /drug/label/
+    name:  Drug product labels
+    description: 'Drug product labels.'
     status: active
     docs:
       - name: API reference
-        url: /drug/enforcement/reference/
+        url: /drug/label/reference/
 ---
 {::nomarkdown}
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
     <div class="content-heading-title">
-      Data and examples | <a href="{{ site.baseurl }}/drug/enforcement/reference/">API reference</a>
+      Data and examples | <a href="{{ site.baseurl }}/drug/label/reference/">API reference</a>
     </div>
     <h1>Drugs</h1>
   </div>
@@ -22,8 +22,8 @@ endpoints:
 
 <div class="row tabs">
   <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/event/">Adverse events</a></h2></div>
-  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label">Product labels</a></h2></div>
-  <div class="col-sm-4 tab selected"><h2><a href="#">Enforcement reports</a></h2></div>
+  <div class="col-sm-4 tab selected"><h2><a href="#">Product labels</a></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement/">Enforcement reports</a></h2></div>
 </div>
 {:/}
 

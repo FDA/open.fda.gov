@@ -1,15 +1,15 @@
 ---
-title: Drugs API reference - Recall enforcement reports
+title: Drugs API reference - Product labels
 layout: default
 endpoints:
-  - endpoint: /drug/enforcement/
-    name:  Drug enforcement reports
-    description: 'Drug product recall enforcement reports.'
+  - endpoint: /drug/label/
+    name: Drug product labels
+    description: 'Drug product labels.'
     status: active
 datasets:
-  - dataset: RES
-    url: "/data/res/"
-    kind: Recall enforcement reports.
+  - dataset: SPL
+    url: "/data/spl/"
+    kind: Structured product labels.
 js:
   - '/static/bower_components/jquery/dist/jquery.min.js'
   - '/static/bower_components/bootstrap/js/modal.js'
@@ -25,7 +25,7 @@ js:
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
   <div class="content-heading-title">
-  <a href="{{ site.baseurl }}/drug/enforcement/">Data and examples</a> | API reference
+  <a href="{{ site.baseurl }}/drug/label/">Data and examples</a> | API reference
   </div>
   <h1>Drugs API reference</h1>
   </div>
@@ -33,16 +33,16 @@ js:
 
 <div class="row tabs">
   <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/event/reference/">Adverse events</a></h2></div>
-  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label/reference/">Product labels</a></h2></div>
-  <div class="col-sm-4 tab selected"><h2><a href="#">Enforcement reports</a></h2></div>
+  <div class="col-sm-4 tab selected"><h2><a href="#">Product labels</a></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement/reference/">Enforcement reports</a></h2></div>
 </div>
 
 
 <section id="reference">
 
-## About enforcement reports
+## About drug product labels
 
-    https://api.fda.gov/drug/enforcement
+    https://api.fda.gov/drug/label
 
 The openFDA drug enforcement reports API returns data from the <a href="{{ site.baseurl }}/data/res/">FDA Recall Enterprise System (RES)</a>, a database that contains information on recall event information submitted to FDA. Currently, this data covers publically releasable records from 2004-present. The data is updated weekly.
 
@@ -58,7 +58,7 @@ FDA releases [weekly enforcement reports.](http://www.fda.gov/%20Safety/Recalls/
 
 There are no plans for the OpenFDA initiative to change the RES release protocols. At this time it is anticipated that RES downloads will continue to be available from the same site on the same weekly schedule. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical or production use and is in beta testing. While the FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated.
 
-### What are enforcement reports?
+### What are structured product labels?
 
 An enforcement report contains information on actions taken in connection with FDA regulatory activities. The data served by this API endpoint includes enforcement reports about drug product recalls.
 
