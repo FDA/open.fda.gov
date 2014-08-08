@@ -33,7 +33,7 @@ js:
 
 <div class="row tabs">
 <div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
-<div class="col-sm-4 tab"><h2>Product labels <span style="font-size: 9px">Coming soon</span></h2></div>
+<div class="col-sm-4 tab"><h2>Labels <span style="font-size: 9px">Coming soon</span></h2></div>
 <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement/reference/">Enforcement reports</a></h2></div>
 </div>
 
