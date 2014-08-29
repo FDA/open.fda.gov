@@ -1,0 +1,10 @@
+{::nomarkdown}
+<div class="api-datasets">
+{% for dataset in include.datasets %}
+  <div class="api-dataset">
+    <a href="{{ site.baseurl }}{{ dataset.url }}">{{ dataset.dataset }}</a><br />
+    {{ dataset.kind }}
+  </div>
+{% endfor %}
+</div>
+{:/}

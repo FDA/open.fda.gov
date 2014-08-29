@@ -1,78 +1,3 @@
-// API query d3 chart function for examples with &count=
-//
-function drawBarChart(data, chartElement) {
-
-    data = data.slice(1,11);
-    
-    var termFn = function(key) { return key.term; },
-        countFn = function(key) { return key.count; };
-
-    var margin = {top: 20, right: 5, bottom: 0, left: 3},
-        width = 270 - margin.left - margin.right,
-        barHeight = 30,
-        chart = d3.select(chartElement),
-        clearChart = function() { chart.selectAll("g").remove(); };
-
-    var refreshChart = function() {
-        chart = d3.select(chartElement)
-                .attr("width", width + margin.right + margin.left)
-                .attr("height", barHeight * data.length + margin.top)
-            .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        var x = d3.scale.linear()
-            .domain([0, d3.max(data, function(d) { return countFn(d); })])
-            .rangeRound([0, width]);
-
-        var bar = chart.selectAll("g").data(data);
-        
-        var xAxis = d3.svg.axis()
-            .scale(x)
-            .ticks(3)
-            .outerTickSize(0)
-            .orient("top");
-            
-        bar.enter()
-            .append("g")
-            .attr("opacity", 1e-6)
-            .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; })
-            .transition()
-            .attr("opacity", 1);
-
-        chart.append("g")
-            .attr("class", "x axis")
-            .attr("transform", "translate(0," + 0 + ")")
-            .call(xAxis);
-
-        bar.append("rect")
-            .attr("width", 0)
-            .transition()
-            .attr("width", function(d) { return x(countFn(d)); })
-            .attr("height", barHeight - 25);
-
-        bar.append("text")
-            // .attr("x", function(d) { return x(countFn(d)) - 5; }) // End of line with 5px padding
-            .attr("x", 0)
-            .attr("y", barHeight - 17)
-            .attr("dy", ".35em")
-            .text(function(d) { return termFn(d) + " (" + countFn(d) + ")"; });
-    };
-
-    clearChart();
-    refreshChart();
-}
-
-function parseResultForChart(json, button) {
-  // TODO: Add logic to decide whether and what type of chart to draw.
-  //       For now, this just checks whether the chart element exists and draws a chart.
-  var chartElement = $(button).parents("div.api-explorer").find(".query").find("svg.chart");
-
-  if (chartElement[0]) {
-    $(chartElement[0]).show();
-    drawBarChart(json, chartElement[0]);
-  }
-}
-
 // Create anchors for each h2 through h6 on the page.
 //
 function createAnchorsFromHeadings() {
@@ -166,7 +91,34 @@ $(document).ready(function() {
     }
   });
 
-  // Process API queries.
+  // Update API status.
+  //
+  if ($('#api-status-updated').length > 0) {
+    var dateUpdated, dateLatest;
+    var endpoint = $('#api-status-updated').find("#endpoint").html();
+    var count = $('#api-status-updated').find("#count").html();
+
+    $.getJSON(endpoint + 'count=' + count)
+    .success(function(data) {
+      if(data.results) {
+        var dateWithDashes = data.results[data.results.length - 1].time.replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3");
+        dateUpdated = 'Updated ' + data.meta.last_updated;
+        dateLatest = 'Data current through ' + dateWithDashes;
+        $('#api-status-updated').find("#date-updated").text('API OK | ' + dateUpdated + ' | ');
+        $('#api-status-updated').find("#date-latest").text(dateLatest);
+      }
+      else {
+        var errorMessage = "This API is down right now.";
+        $('#api-status-updated').find("#date-updated").text(errorMessage);
+      }
+    })
+    .error(function() {
+      var errorMessage = "This API is down right now.";
+      $('#api-status-updated').find("#date-updated").text(errorMessage);
+    });
+  }
+
+  // Process API queries in interactive query explorer.
   //
   $(".api-explorer button.go").click(function () {
     var e = $(this).parents(".api-explorer-form").find(".api-explorer-query").val(),

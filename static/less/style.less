@@ -5,7 +5,7 @@
 @import "./../font-awesome/less/font-awesome";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 
-// Some General Site Styles
+// Widely used styles and variables
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -18,51 +18,56 @@ body {
 }
 
 @fda-blue: rgb(0, 83, 155);
+@grey-xxl: #f8f8f8;
 @grey-xl: #f4f4f4;
 @grey-l: #eaeaea;
 @grey-m: #dadada;
 @grey-d: #d1d1d1;
 @fda-border: 1px solid @grey-m;
 @link-color: #2994ff; // #0087f5;
-@console-dark: #20202f;
-
+@console-dark: rgba(32,32,47,1); // #20202f;
+@console-dark-translucent: rgba(32,32,47,.9); // #20202f;
 @main-break: @screen-md-min;
 
 .site-wrapper {
   .make-row();
   @media (min-width: @main-break) {
-    // margin-top: 50px;
   }
 }
-
 .main-info {
   font-size: 13px;
   line-height: 17.55px;
   letter-spacing: -0.166667px;
 }
 
+// Headings
+
 h2 {
   margin-top: 6ex;
-  margin-bottom: 2ex;
+  margin-bottom: 1.75ex;
 }
 h3 {
-  font-size: 26px;
-  margin-top: 6ex;
-  margin-bottom: 2ex;
+  font-size: 29px;
+  margin-top: 7ex;
+  margin-bottom: 1.75ex;
 }
 h4 {
   font-size: 26px;
-  font-style: italic;
-  margin-top: 6ex;
-  margin-bottom: 2ex;
+  margin-top: 7ex;
+  margin-bottom: 1.75ex;
 }
 h5 {
   font-size: 23px;
-  margin-top: 6ex;
-  margin-bottom: 2ex;
+  margin-top: 7ex;
+  margin-bottom: 1.75ex;
+}
+h6 {
+  font-size: 21px;
+  margin-top: 7ex;
+  margin-bottom: 1.75ex;
 }
 
-// Automagic header anchor links.
+// Automagic header anchor links
 
 h2:hover .header-link,
 h3:hover .header-link,
@@ -74,7 +79,7 @@ h6:hover .header-link {
 .header-link {
   position: relative;
   left: .25em;
-  margin-top: -1px;
+  margin-top: -2px;
   opacity: 0;
   -webkit-transition: opacity .1s ease-in-out .05s;
   -moz-transition: opacity .1s ease-in-out .05s;
@@ -82,8 +87,8 @@ h6:hover .header-link {
   transition: opacity .1s ease-in-out .05s;
 }
 .header-link i {
-  color: #999;
-  font-size: .7em;
+  color: #484848;
+  font-size: .65em;
 }
 
 p {
@@ -99,23 +104,37 @@ a {
   }
 }
 
+// Reference definition lists
+
 dl {
+
   dt {
-    border-top: 1px solid @grey-l;
+    border-top: 1px solid @grey-xl;
     font-weight: 300;
-    padding-top: 1ex;
-    &:last-child {
-      border-bottom: 1px solid @grey-l;
+    padding-top: .2ex;
+    padding-bottom: .5ex;
+
+    code {
+      color: #d14;
     }
   }
   dd {
-    margin-left: 40%;
+    margin-left: 35%;
+    margin-bottom: .25ex;
+
+    code {
+      color: #444;
+    }
+    
     ~ dt {
-      margin-top: 1ex;
+      margin-top: 7ex;
     }
     strong {
-      color: #999;
+      color: #777;
       font-weight: normal;
+    }
+    @media (max-width: @screen-md-min) {
+      margin-left: 0;
     }
   }
 }
@@ -211,7 +230,7 @@ a.feedback {
 }
 
 .slight {
-  color: #666;
+  color: #888;
   font-size: 14px;
   line-height: 1.45;
 }
@@ -227,7 +246,8 @@ a.feedback {
     text-align: center;
   }
   @media (min-width: @main-break) {
-    margin-top: 36.6ex;
+    margin-top: 30.6ex;
+    
     h1 {
       text-align: left;
       margin-bottom: 20px;
@@ -272,6 +292,7 @@ a.feedback {
     color: rgb(170, 170, 170);
     @media (min-width: @main-break) {
       padding-top: 15px;
+      
       ul ul ul {
         display: block;
       }
@@ -292,9 +313,15 @@ a.feedback {
     }
     &.active ul {
       display: block;
-      font-size: 16px;
+      font-size: 17.5px;
+      
       li {
         margin-top: 10px;
+
+        &.nav-section {
+          border-top: 1px solid @grey-l;
+          margin-top: 20px;
+        }
       }
     }
   }
@@ -302,17 +329,16 @@ a.feedback {
 
 .nav-toggle {
   position: absolute;
-  top: -25px;
-  left: 15px;
+  top: -.5ex;
+  right: 15px;
   min-width: 27px;
   min-height: 22px;
 }
-
 .icon-bar {
   display: block;
   width: 20px;
   height: 2px;
-  background: #B3B3B3;
+  background: #cacaca;
   margin-bottom: 4px;
   &:first-child {
     margin-top: 4px;
@@ -426,21 +452,21 @@ a.feedback {
   h1 {
     color: #444;
     line-height: 1.2;
+    font-size: 37px;
   }
   .content-heading-title {
     margin-top: 30px;
     font-size: 17.5px;
   }
-  .content-heading-title ~ h1 {
-    margin-top: 56px;
+  .content-heading-title {
+    ~ h1 {
+      margin-top: 57px;
+    }
   }
   .content-heading-text {
     width: 100%;
     background: @grey-xl;
     padding: 15px;
-  }
-  &.cover {
-    min-height: 400px;
   }
   &.api {
     margin-bottom: 0;
@@ -451,8 +477,10 @@ a.feedback {
     .content-heading-text {
       width: 100%;
       background: @console-dark;
+
       a {
         color: #00a1ff;
+        
         &.active {
           color: #ffffff;
         }
@@ -463,10 +491,21 @@ a.feedback {
 
     h1 {
       color: #fff;
+
+      span {
+        opacity: .5;
+        font-size: 17.5px;
+      }
     }
     .content-heading-text {
-      background: #0b5a52;
-      line-height: 17.5px;
+      background: #444;
+    }
+  }
+  &.cover {
+    min-height: 262px;
+
+    .content-heading-text {
+      background: @console-dark-translucent;
     }
   }
 }
@@ -474,6 +513,7 @@ a.feedback {
 // Footer
 .site-footer {
   .container();
+  
   .site-footer-section {
     .make-row();
     margin-top: 28px;
@@ -483,16 +523,23 @@ a.feedback {
     &:last-child {
     }
   }
+  
   .site-footer-main {
     .make-md-column(9);
   }
   .site-footer-aside {
     .make-md-column(3);
+
+    .logo-fda {
+      margin-bottom: 2ex;
+    }
   }
+  
   .site-links ul {
     .list-inline();
+    
     a {
-      color: #00539B;
+      color: @fda-blue;
     }
   }
 }
@@ -538,16 +585,16 @@ a.feedback {
   background-repeat: no-repeat;
   background-position: right bottom;
   min-height: 300px;
-  padding: 8.9ex 15px 0 15px;
+  padding: 13.3ex 30px 0 15px;
   margin-left: -15px;
   margin-right: -15px;
   margin-bottom: 3ex;
   cursor: pointer;
 
-  -webkit-transition: background: .3s .05s;
-  -moz-transition: background     .3s .05s;
-  -ms-transition: background      .3s .05s;
-  transition: background          .3s .05s;
+  -webkit-transition: background: .2s .05s;
+  -moz-transition: background     .2s .05s;
+  -ms-transition: background      .2s .05s;
+  transition: background          .2s .05s;
 
   &:hover {
     background: #0a2e62;
@@ -684,30 +731,29 @@ article.post-page {
   }
   .author-info {
     border-top: @fda-border;
-    border-bottom: @fda-border;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
     .make-row();
     .author-image {
-      .make-sm-column(3);
+      .make-sm-column(2);
       img {
-        width: 95%;
+        width: 100%;
       }
     }
+    &:last-child {
+      border-bottom: @fda-border;
+    }
     .author-description {
+      bottom: 0;
+      font-size: 14px;
+
       .make-sm-column(9);
       span {
         display: block;
       }
       .author-name {
-        margin-top: 25px;
         font-weight: 700;
-      }
-      .author-bio {
-        font-style: italic;
-      }
-      .author-contact {
-        font-size: @font-size-small;
       }
     }
   }
@@ -717,7 +763,7 @@ article.post-page {
 
 .tabs {
   margin-top: 15px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 
   .tab {
     color: #aaa;
@@ -738,10 +784,17 @@ article.post-page {
 
     &.selected {
       background: #fff;
+      border-top: 1px solid #eaeaea;
       border-bottom: #fff;
 
       a {
+        cursor: pointer;
+        margin-bottom: 1px;
         color: @fda-blue;
+
+        &:hover {
+          text-decoration: none;
+        }
       }
     }
   }
@@ -794,23 +847,19 @@ article.post-page {
 
     .radio {
       margin-bottom: 5px;
-      // padding: 0;
       line-height: 19px;
     }
   }
-
   .api-query-parameter {
     font-size: 14px;
     color: #999;
     padding-left: 12px;
     margin-bottom: 3px;
   }
-
   pre {
     font-size: 12px;
     margin-top: 1ex;
   }
-
   .c3-tooltip {
     opacity: 1 !important;
 
@@ -885,7 +934,6 @@ article.post-page {
 }
 
 .api-demo-tabs {
-  margin: 2.5ex 0 0 0;
 
   li {
     font-size: 14px;
@@ -918,6 +966,25 @@ article.post-page {
       background: @fda-blue;
       text-decoration: none;
     }
+  }
+}
+
+// API status and data update.
+
+#api-status-updated {
+  font-size: 14px;
+  margin-top: 1.5ex;
+  margin-bottom: 7ex;
+  padding-bottom: .25ex;
+  border-bottom: 1px solid @grey-l;
+
+  .title {
+    color: #888;
+  }
+  .right {
+    color: #888;
+    display: inline-block;
+    float: right;
   }
 }
 
@@ -1010,50 +1077,78 @@ article.post-page {
   }
 }
 
+// Reference-specific styles
+
 #reference {
 
   h2:first-child {
-    margin-top: 60px;
+    margin-top: 5.5ex;
+  }
+  h2 {
+    margin-top: 9ex;
+    padding-bottom: .2ex;
+    border-bottom: 1px solid #777;
   }
   pre {
     margin-top: 4ex;
-    margin-bottom: 2ex;
+    margin-bottom: 3ex;
   }
   table {
     margin-top: 4ex;
-    margin-bottom: 8ex;
+    margin-bottom: 9ex;
   }
   .getting-started {
+    margin-bottom: 5ex;
+  }
+  p {
+    margin-bottom: 2ex;
+  }
+  ul {
+    margin-bottom: 4ex;
+  }
+  .highlight {
     margin-bottom: 5ex;
   }
 }
 
 // Datasets
 .api-dataset {
-  display: block;
-  margin: 15px -15px 0 -15px;
-  padding: 15px;
-  border: 1px solid #eaeaea;
+  padding-bottom: .15ex;
+  border-bottom: 1px solid @grey-l;
+
+  a {
+    font-size: 1.4em;
+  }
 }
 
 .dataset-summary {
-  margin-top: 5ex;
+  margin-top: 3ex;
   margin-bottom: 5ex;
+  
   .make-row();
   .dataset-endpoints {
-    .make-md-column(9);
-    h3 {
-      margin-top: 20px;
-      margin-bottom: 15px;
+    .make-md-column(8);
+    
+    > h2 {
+      margin-top: 5px;
+    }
+    .endpoint-summary {
+      color: #777;
+      margin-bottom: 30px;
     }
   }
   .dataset-vitals {
-    .make-md-column(3);
-    background-color: #fafafa;
+    .make-md-column(4);
+    
     .dataset-vital {
-      margin-bottom: 4px;
+      margin-bottom: 30px;
+      padding-bottom: .15ex;
+      border-bottom: 1px solid @grey-l;
     }
   }
+}
+.footnotes {
+  margin-top: 7ex;
 }
 
 // API Explorer
@@ -1064,6 +1159,9 @@ article.post-page {
   .make-row();
   @media (min-width: @screen-sm-min) {
     display: table;
+  }
+  @media (max-width: @main-break) {
+    margin-top: 7ex;
   }
 
   .query {
@@ -1105,14 +1203,15 @@ article.post-page {
     border-top: 1px solid #777;
     background: @console-dark;
     height: 100%;
+    vertical-align: top;
     padding-top: 10px;
+    padding-bottom: 10px;
     .make-sm-column(7);
+    
     @media (min-width: @screen-sm-min) {
       float:none !important;
       display: table-cell;
     }
-    vertical-align: top;
-    padding-bottom: 10px;
   }
   .return {
     white-space: pre-wrap;

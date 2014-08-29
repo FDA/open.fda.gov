@@ -1,6 +1,7 @@
 ---
 title: Devices API reference - Recall enforcement reports
 layout: default
+cover: p_knee.jpg
 endpoints:
   - endpoint: /device/enforcement/
     name:  Device enforcement reports
@@ -25,23 +26,25 @@ js:
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
 <div class="content-heading-text">
 <div class="content-heading-title">
-<a href="{{ site.baseurl }}/device/enforcement/">Data and examples</a> | API reference
+<a href="{{ site.baseurl }}/device/enforcement/">Getting started</a> | Reference
 </div>
 <h1>Devices API reference</h1>
 </div>
 </section>
 
 <div class="row tabs">
-<div class="col-sm-6 tab"><h2>Adverse events <span style="font-size: 9px">Coming soon</span></h2></div>
-<div class="col-sm-6 tab selected"><h2><a href="#">Enforcement reports</a></h2></div>
+  <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/event/reference">Adverse events</a></h2></div>
+  <div class="col-sm-6 tab selected"><h2><a href="#">Enforcement reports</a></h2></div>
 </div>
 
 
 <section id="reference">
 
-## About enforcement reports
+## About
 
     https://api.fda.gov/device/enforcement
+
+{% include api-status-updated.html endpoint="https://api.fda.gov/device/enforcement.json?" count="report_date" %}
 
 The openFDA device enforcement reports API returns data from the <a href="{{ site.baseurl }}/data/res/">FDA Recall Enterprise System (RES)</a>, a database that contains information on recall event information submitted to FDA. Currently, this data covers publically releasable records from 2004-present. The data is updated weekly.
 
@@ -51,12 +54,6 @@ The procedures followed to input recall information into RES when FDA learns of 
 
 When necessary, the FDA will make corrections or changes to recall information previously disclosed in a past Enforcement Report for various reasons. For instance, the firm may discover that the initial recall should be expanded to include more batches or lots of the same recalled product than formerly reported. For more information about corrections or changes implemented, please refer to the Enforcement Report’s [Changes to Past Enforcement Reports" page.](http://www.fda.gov/Safety/Recalls/EnforcementReports/ucm345487.htm)
 
-### Data downloads
-
-FDA releases [weekly enforcement reports.](http://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm) OpenFDA uses these enforcement reports, but processes the data further before supplying them through the API. During our beta testing, we are investigating the best ways to offer direct downloads of data provided by the API.
-
-There are no plans for the OpenFDA initiative to change the RES release protocols. At this time it is anticipated that RES downloads will continue to be available from the same site on the same weekly schedule. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical or production use and is in beta testing. While the FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated.
-
 ### What are enforcement reports?
 
 An enforcement report contains information on actions taken in connection with FDA regulatory activities. The data served by this API endpoint includes enforcement reports about device product recalls.
@@ -65,106 +62,28 @@ Whereas not all recalls are announced in the media or on [FDA's Recalls press re
 
 Manufacturers and/or distributors may initiate a recall at any time to fulfill their responsibility to protect the public health from products that present a risk of injury or gross deception, or are otherwise defective. Firms may also initiate a recall following notification of a problem by FDA or a state agency, in response to a formal request by FDA, or as ordered by FDA.
 
-## Anatomy of a response
+### Data downloads
 
-Here's an example API return from openFDA. This particular response features one result. The return is split into two high-level sections: `meta` and `results`. Note that this record is not real.
+FDA releases [weekly enforcement reports.](http://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm) OpenFDA uses these enforcement reports, but processes the data further before supplying them through the API. During our beta testing, we are investigating the best ways to offer direct downloads of data provided by the API.
 
-{% highlight javascript %}
-{
-  "meta": {
-    "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
-    "license": "http://open.fda.gov/license",
-    "last_updated": "2014-05-29",
-    "results": {
-      "skip": 0,
-      "limit": 1,
-      "total": 6
-    }
-  },
-  "results": [
-    {
-      "reason_for_recall": "One lot of the 010-55-030, 6.5 mm Cancellous Bone Screw was recalled because a product complaint identified a mislabeling of the device.  Although the package label indicates Size 30mm, the screw dimension is actually 25mm.",
-      "status": "Ongoing",
-      "distribution_pattern": "Nationwide Distribution including AR, CA, FL, ID, OK, PA, TX, and UT.",
-      "product_quantity": "18 devices",
-      "recall_initiation_date": "20120716",
-      "state": "TX",
-      "event_id": "62561",
-      "product_type": "Devices",
-      "product_description": "djo surgical Screw 6.5 mm, Sz 25mm, low profile.\n\nProduct is intended for the fixation of the acetabular shell or fracture repair",
-      "country": "US",
-      "city": "Austin",
-      "recalling_firm": "Encore Medical, Lp",
-      "report_date": "20120815",
-      "voluntary_mandated": "Voluntary: Firm Initiated",
-      "classification": "Class II",
-      "code_info": "Lot 007A1037, Ref 010-55-25.",
-      "openfda": {},
-      "initial_firm_notification": "Letter"
-    }
-  ]
-}
-{% endhighlight %}
+There are no plans for the openFDA initiative to change the RES release protocols. At this time it is anticipated that RES downloads will continue to be available from the same site on the same weekly schedule. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical or production use and is in beta testing. While FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated.
 
-#### Meta section
+{% include api-anatomy.html %}
 
-The `meta` section provides a number of important details about the results provided by the API endpoint.
-
-{% highlight javascript %}
-"meta": {
-  "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
-  "license": "http://open.fda.gov/license",
-  "last_updated": "2014-05-29",
-  "results": {
-    "skip": 0,
-    "limit": 1,
-    "total": 6
-  }
-}
-{% endhighlight %}
-
-`disclaimer`
-: **string**
-: {:.data-description} Important details about the openFDA beta and limitations of the dataset.
-
-`license`
-: **string**
-: {:.data-description} A link to a web page providing information on the licensing terms of data within openFDA.
-
-`last_updated`
-: **string**
-: {:.data-description} The last date when openFDA was updated. Note that this does not correspond to the last report date in the system. Rather, it is the last time openFDA received a system or data update.
-
-`results`
-: **Dictionary**
-: {:.data-description} A dictionary of details about the results section.
-
-`results.skip`
-: **Integer**
-: {:.data-description} The offset of the results, as provided by the `skip` parameter in the URL.
-
-`results.limit`
-: **Integer**
-: {:.data-description} The number of results out of the total number of returns that are provided, as provided by the `limit` parameter in the URL.
-
-`results.total`
-: **Integer**
-: {:.data-description} The total number of results fitting the search criteria.
-
-#### Results section
+### Results
 
 For non-`count` queries, the `results` section includes matching enforcement report records returned by the API, each of which has a set of fields describing the device product recall.
 
 The data format of RES enforcement reports changed in June 2012. In openFDA API results, reports from before that time do not contain the following fields:
 
- - `event-id`
+ - `event_id`
  - `status`
  - `city`
  - `state`
  - `country`
- - `voluntary-mandated`
- - `initial-firm-notification`
- - `recall-initiation-date`
+ - `voluntary_mandated`
+ - `initial_firm_notification`
+ - `recall_initiation-date`
 
 ### Field reference
 
@@ -289,6 +208,6 @@ Device product recall enforcement reports will always have an empty `openfda` se
 
 The following datasets provide data for this endpoint.
 
-{% include api-reference/datasets.html datasets=page.datasets %}
+{% include api-reference-datasets.html datasets=page.datasets %}
 
 </section>

@@ -109,8 +109,8 @@ function renderDemoChart(number) {
     });
   }
   else if (number === 2) {
-    $.when($.getJSON('https://api.fda.gov/drug/event.json?&count=patient.drug.drugindication.exact', function(data) {
-      processDataForCount(data.results.slice(0,5), function() {
+    $.when($.getJSON('https://api.fda.gov/drug/event.json?&count=patient.drug.openfda.pharm_class_epc.exact', function(data) {
+      processDataForCount(data.results.slice(0,8), function() {
         return;
       });
     }))
@@ -162,7 +162,7 @@ function renderDemoChart(number) {
   }
   else if (number === 3) {
     $.when($.getJSON('https://api.fda.gov/drug/event.json?search=patient.patientsex:2+AND+patient.patientonsetage:[55+TO+90]&count=patient.drug.drugindication.exact', function(data) {
-      processDataForCount(data.results.slice(0,5), function() {
+      processDataForCount(data.results.slice(0,8), function() {
         return;
       });
     }))
@@ -270,35 +270,7 @@ function renderDemoChart(number) {
       });
     });
   }
-  // else if (number === 5) {
-  //   $.when($.getJSON('https://api.fda.gov/drug/event.json?&count=primarysource.qualification', function(data) {
-  //     processDataForPrimarySource(data.results.slice(0,5), function() {
-  //       return;
-  //     });
-  //   }))
-  //   .then(function() {
-  //     $('#title').text('Who reports adverse drug events?');
-  //     $('#title').addClass('in').removeClass('out');
-  //     var chart = c3.generate({
-  //       bindto: selectedChart,
-  //       data: {
-  //         columns: dataValuesForChart,
-  //         type : 'donut'
-  //       },
-  //       color: {
-  //         pattern: ['#5a859d', '#476c92', '#375587', '#293d7c', '#1e2871']
-  //       },
-  //       labels: true,
-  //       size: {
-  //         height: 300
-  //       },
-  //       legend: {
-  //         show: true,
-  //         position: 'right'
-  //       }
-  //     });
-  //   });
-  // }
+  
 }
 
 $(document).ready(function() {

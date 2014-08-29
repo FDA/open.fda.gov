@@ -6,45 +6,52 @@ layout: default
     <div class="content-heading-title">
       Dataset
     </div>
-    <h1>{{ page.title }} ({{ page.title_long }})</h1>
+    <h1>{{ page.title }} {% if page.title_long %}<span>{{ page.title_long }}</span>{% endif %}</h1>
   </div>
 </div>
 
 <section class="dataset-summary">
-  <div class="dataset-endpoints">
-    <div>
-      <h3>Provides data to&nbsp;</h3>
-    </div>
+  <section class="dataset-endpoints">
+    <h2>Provides data to</h2>
     {% for endpoint in page.endpoints %}
-    <div class="endpoint-summary">
-      <h3><a href="{{ endpoint.docs }}">{{ endpoint.endpoint }}</a></h3>
-      <small>{{ endpoint.kind }}</small>                  
-    </div>
+      <p class="endpoint-summary">
+        <a href="{{ endpoint.docs }}">{{ endpoint.endpoint }}</a><br />
+        {{ endpoint.kind }}
+      </p>
     {% endfor %}
-    <div>
+    <section>
       {{ content }}
-    </div>
-  </div>
-  <div class="dataset-vitals">
+    </section>
+  </section>
+
+  <section class="dataset-vitals">
     <div class="dataset-vital">
-    <small class="slight">Provider</small><br>
-    <strong><a href="{{ page.provider_url }}">{{ page.provider_name }}</a></strong>
+      <small class="slight">Provider</small><br>
+      <a href="{{ page.provider_url }}">{{ page.provider_name }}</a>
     </div>
-    <div class="dataset-vital">
-      <small class="slight">Update frequency</small><br>
-      <strong>{{ page.update_frequency }}</strong>
-    </div>
-    <div class="dataset-vital">
-      <small class="slight">Time period</small><br>
-      <strong>{{ page.time_period }}</strong>
-    </div>
-    <div class="dataset-vital">
-      <small class="slight">Number of records</small><br>
-      <strong>{{ page.record_count }}</strong>
-    </div>
-    <div class="dataset-vital">
-      <small class="slight">License</small><br>
-      <strong>{{ page.license }}</strong>
-    </div>
-  </div>
+    {% if page.update_frequency %}
+      <div class="dataset-vital">
+        <small class="slight">Update frequency</small><br>
+        {{ page.update_frequency }}
+      </div>
+    {% endif %}
+    {% if page.time_period %}
+      <div class="dataset-vital">
+        <small class="slight">Time period</small><br>
+        {{ page.time_period }}
+      </div>
+    {% endif %}
+    {% if page.record_count %}
+      <div class="dataset-vital">
+        <small class="slight">Number of records</small><br>
+        {{ page.record_count }}
+      </div>
+    {% endif %}
+    {% if page.license %}
+      <div class="dataset-vital">
+        <small class="slight">License</small><br>
+        {{ page.license }}
+      </div>
+    {% endif %}
+  </section>
 </section>

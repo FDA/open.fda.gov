@@ -2,8 +2,10 @@
 layout:         post
 date:           2014-08-08 14:30:00
 title:          "OpenFDA Provides Ready Access to Recall Data"
-author:         "taha@fda.hhs.gov"
+authors:        
+  - "taha@fda.hhs.gov"
 ---
+
 Every year, hundreds of human and animal foods, drugs, and medical devices are recalled from the market by manufacturers. These products may be labeled incorrectly or might pose health or safety issues. Most recalls are voluntary; in some cases they may be ordered by the U.S. Food and Drug Administration. Recalls are reported to the FDA, and compiled into its Recall Enterprise System, or RES. Every week, the FDA releases an enforcement report that catalogues these recalls. And now, for the first time, there is an Application Programming Interface (API) that offers developers and researchers direct access to all of the [drug,](http://open.fda.gov/drug/enforcement/) [device,](http://open.fda.gov/device/enforcement/) and [food enforcement reports,](http://open.fda.gov/food/enforcement/) dating back to 2004.
 
 The recalls in this dataset provide an illuminating window into both the safety of individual products and the safety of the marketplace at large. Recent reports have included such recalls as certain food [products](http://www.accessdata.fda.gov/scripts/enforcement/enforce_rpt-Product-Tabs.cfm?action=select&recall_number=V-075-2014&w=06252014&lang=eng) (for not containing the vitamins listed on the label), [a soba noodle salad](http://www.accessdata.fda.gov/scripts/enforcement/enforce_rpt-Product-Tabs.cfm?action=select&recall_number=F-2033-2014&w=06252014&lang=eng) (for containing unlisted soy ingredients), and a pain reliever  (for not following laboratory testing requirements).

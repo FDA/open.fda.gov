@@ -2,17 +2,15 @@
 layout:         post
 date:           2014-06-02 08:30:00
 title:          "OpenFDA: Innovative Initiative Opens Door to Wealth of FDA’s Publicly Available Data "
-author:         "taha@fda.hhs.gov"
+authors:         
+  - "taha@fda.hhs.gov"
 ---
 
-
 Today, I am pleased to announce the launch of [openFDA](https://open.fda.gov/), a new initiative from our Office of Informatics and Technology Innovation (OITI). OpenFDA is specifically designed to make it easier for developers, researchers, and the public to access and use the many large, important, health data sets collected by the agency.
-
 
 These publicly available data sets, once successfully integrated and analyzed, can provide knowledge and insights that cannot be gained from any other single source.
 
 Consider the 3 million plus reports of drug adverse reactions or medication errors submitted to FAERS, the FDA Adverse Event Reporting System (previously AERS), since 2004.  
-
 Researchers, scientists, software developers, and other technically-focused individuals in both the private and public sectors have always been invited to mine that publicly available data set - and others - to educate consumers, which in turn can further our regulatory or scientific missions, and ultimately, save lives. 
 
 But obtaining this information hasn’t always been easy. 

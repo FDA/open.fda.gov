@@ -7,7 +7,7 @@ kramdown:
   coderay_line_numbers: nil
   parse_block_html: true
 
-pygments: true
+highlighter: pygments
 permalink: /update/:title/
 baseurl: ""
 

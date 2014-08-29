@@ -7,19 +7,18 @@ OpenFDA is an exciting new initiative in the [Food and Drug Administration’s](
 
 ## What does it do?
 
-OpenFDA provides APIs and raw download access to a number of high-value structured datasets, including adverse events and recall enforcement reports. The platform is currently in public beta.
+OpenFDA provides APIs and is investigating raw download access to a number of high-value structured datasets, including adverse events, drug product labeling, and recall enforcement reports. The platform is currently in public beta.
 
 In the future, openFDA will provide a platform for public challenges issued by the FDA and a place for the community to interact with each other and FDA domain experts with the goal of spurring innovation around FDA data.
 
-We're currently focused on working on datasets in the following areas:
+We're currently focused on datasets in the following areas:
 
-- **Adverse Events**: FDA’s publically available drug adverse event reports, a database that contains millions of adverse event and medication error reports submitted to FDA covering all regulated drugs.
-- **Recalls**: Enforcement report data, containing information gathered from public notices about certain recalls of FDA-regulated products.
-- **Documentation** *(coming soon)*: Structured Product Labeling Data, containing detailed product label information on many FDA-regulated products
-
-We'll be releasing a number of updates and additional datasets throughout the upcoming months.
+- **Adverse events.** FDA’s publically available drug adverse event and medication error reports, and medical device adverse event reports.   
+- **Recalls.** Enforcement report data, containing information gathered from public notices about certain recalls of FDA-regulated products.
+- **Documentation.** Structured Product Labeling data for FDA-regulated human drug products.
 
 ## Who made openFDA?
+
 OpenFDA is an initiative in the Office of Informatics and Technology Innovation (OITI) at the Food and Drug Administration led by the Chief Health Informatics Officer (CHIO), Dr. Taha Kass-Hout, MD, MS. The core project team consisted of the following individuals, in alphabetical order:
 
 - Adam Baker
@@ -50,4 +49,4 @@ The team also wishes to thank the following individuals for their contributions 
 
 ## How can I join in?
 
-The best place to start is on the [API Basics]({{site.baseurl}}/api/reference/) page. It provides a great introduction to openFDA and how you can begin developing using the platform. We're also active on [GitHub](https://github.com/fda), [Twitter](https://twitter.com/openFDA), and [StackExchange](http://stackexchange.com/search?q=openfda). If there is a unique partnership opportunity or other collaboration you wish to discuss, you can email us at [open@fda.hhs.gov](mailto:open@fda.hhs.gov).
+The best place to start is on the [API basics]({{site.baseurl}}/api/reference/) page. It provides a great introduction to openFDA and how you can begin developing using the platform. We're also active on [GitHub](https://github.com/fda), [Twitter](https://twitter.com/openFDA), and [StackExchange](http://stackexchange.com/search?q=openfda). If there is a unique partnership opportunity or other collaboration you wish to discuss, you can email us at [open@fda.hhs.gov](mailto:open@fda.hhs.gov).

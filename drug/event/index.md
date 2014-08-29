@@ -1,6 +1,7 @@
 ---
 title: Drugs - Adverse events
 layout: api
+cover: p_chemist.jpg
 endpoints:
   - endpoint: /drug/event/
     name:  Drug adverse events
@@ -14,7 +15,7 @@ endpoints:
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
     <div class="content-heading-title">
-      Data and examples | <a href="{{ site.baseurl }}/drug/event/reference/">API reference</a>
+      Getting started | <a href="{{ site.baseurl }}/drug/event/reference/">Reference</a>
     </div>
     <h1>Drugs</h1>
   </div>
@@ -22,24 +23,22 @@ endpoints:
 
 <div class="row tabs">
   <div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
-  <div class="col-sm-4 tab"><h2>Labels <span style="font-size: 9px">Coming soon</span></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label">Labeling</a></h2></div>
   <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement">Enforcement reports</a></h2></div>
 </div>
 {:/}
 
 <section id="endpoint">
 
-{% include api-demo-drug-adverse-events.html %}
+{% include api-demo-drug-event.html %}
 
-{% include getting-started.html %}
-
-## Introduction
+## About drug adverse events
 
 The U.S. Food and Drug Administration (FDA) regulates over-the-counter and prescription drugs in the United States, including biological therapeutics and generic drugs. This work covers more than just medicines. For example, fluoride toothpaste, antiperspirants, dandruff shampoos and sunscreens are all considered drugs.
 
 An adverse event is submitted to the FDA to report any undesirable experience associated with the use of a medical product in a patient. For drugs, this includes serious drug side effects, product use errors, product quality problems, and therapeutic failures for prescription or over-the-counter medicines and medicines administered to hospital patients or at outpatient infusion centers.
 
-### About adverse event reports
+### Adverse event reports
 
 This highly simplified schematic illustrates the general nature of an adverse event report. A report may list several drug products, as well as several patient reactions. **When a report lists multiple drugs and multiple reactions, there is no way to conclude from the data therein that a given drug is responsible for a given reaction.**
 
@@ -49,20 +48,23 @@ Any number of the drugs may be marked as *suspect* if thought to be responsible 
 
 Reports contain varying levels of detail about the drug products involved, indications for use, route of administration, and dose.
 
-### Reference
+{% include getting-started.html %}
 
-See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of adverse event reports.
+## Reference
 
-### How to query the endpoint
+See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of drug adverse event reports.
 
-`https://api.fda.gov/drug/event.json?`
+## How to query the API
 
-You can search for adverse events by <a href="{{ site.baseurl }}/api/reference/#drug-adverse-events">fields specific to the `drug/event.json` endpoint</a>. You can also search by other drug identifiers, such as pharmacologic class, NDC (National Drug Code), or even UPC. These identifiers are annotations, not part of the original adverse event report. They are easily identified in <a href="{{ site.baseurl }}/api/reference/#openfda-fields">`openfda` sections</a> of API returns.
+    https://api.fda.gov/drug/event.json?
+
+You can search for adverse events by <a href="reference/">fields specific to the `drug/event.json` endpoint</a>. You can also search by other drug identifiers, such as pharmacologic class, NDC (National Drug Code), or even UPC. These identifiers are annotations, not part of the original adverse event report. They are easily identified in <a href="{{ site.baseurl }}/api/reference/#openfda-fields">`openfda` sections</a> of API returns.
 
 <div class="api-explorer" style="margin-top: 7ex">
 <div class="query">
 <h4 class="query-title">One adverse event report</h4>
-<div class="query-description">This query searches for all records in a certain date range, and asks for a single one.
+<div class="query-description">
+This query searches for all records in a certain date range, and asks for a single one.
 
  - **search** for all records with **receivedate** between *Jan 01, 2004 and Dec 31, 2008*.
  - **limit** to 1 record.
@@ -78,7 +80,8 @@ See the [header fields reference](reference/#header) for more about **receivedat
 <div class="api-explorer">
 <div class="query">
 <h4 class="query-title">One adverse event report with a drug from a certain pharmacologic class</h4>
-<div class="query-description">This query searches records listing a drug of a certain pharmacologic class, and returns a single record.
+<div class="query-description">
+This query searches records listing a drug of a certain pharmacologic class, and returns a single record.
 
  - **search** for all records where **patient.drug.openfda.pharm_class_epc** (pharmacologic class) contains *nonsteroidal anti-inflammatory drug*.
  - **limit** to 1 record.
@@ -96,7 +99,8 @@ Double quotation marks `" "` surround phrases that must match exactly. The plus 
 <div class="api-explorer">
 <div class="query">
 <h4 class="query-title">Count of patient reactions</h4>
-<div class="query-description">This query is similar to the prior one, but returns a count of the 1000 most frequently reported patient reactions. Multiple drugs in the records may match this class, and the drugs from this class may not be those which caused the associated adverse patient reactions.
+<div class="query-description">
+This query is similar to the prior one, but returns a count of the 1000 most frequently reported patient reactions. Multiple drugs in the records may match this class, and the drugs from this class may not be those which caused the associated adverse patient reactions.
 
  - **search** for all records where **patient.drug.openfda.pharm_class_epc** (pharmacologic class) contains *nonsteroidal anti-inflammatory drug*.
  - **count** the field **patient.reaction.reactionmeddrapt.exact** (patient reactions).

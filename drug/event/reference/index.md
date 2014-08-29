@@ -1,6 +1,7 @@
 ---
 title: Drugs API reference - Adverse Events
 layout: default
+cover: p_chemist.jpg
 endpoints:
   - endpoint: /drug/event/
     name:  Drug adverse events
@@ -23,48 +24,38 @@ js:
 ---
 
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
-<div class="content-heading-text">
-<div class="content-heading-title">
-<a href="{{ site.baseurl }}/drug/event/">Data and examples</a> | API reference
-</div>
-<h1>Drugs API reference</h1>
-</div>
+  <div class="content-heading-text">
+  <div class="content-heading-title">
+  <a href="{{ site.baseurl }}/drug/event/">Getting started</a> | Reference
+  </div>
+  <h1>Drugs API reference</h1>
+  </div>
 </section>
 
 <div class="row tabs">
-<div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
-<div class="col-sm-4 tab"><h2>Labels <span style="font-size: 9px">Coming soon</span></h2></div>
-<div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement/reference/">Enforcement reports</a></h2></div>
+  <div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label/reference/">Labeling</a></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement/reference/">Enforcement reports</a></h2></div>
 </div>
 
 
 <section id="reference">
 
-## About adverse events
+## About
 
     https://api.fda.gov/drug/event
+
+{% include api-status-updated.html endpoint="https://api.fda.gov/drug/event.json?" count="receivedate" %}
 
 The openFDA drug adverse event API returns data from the <a href="{{ site.baseurl }}/data/faers/">FDA Adverse Event Reporting System (FAERS)</a>, a database that contains information on adverse event and medication error reports submitted to FDA. Currently, this data covers publically releasable records submitted to the FDA from 2004-2013. The data is updated quarterly.
 
 An adverse event is submitted to the FDA to report any undesirable experience associated with the use of a medical product in a patient. For drugs, this includes serious drug side effects, product use errors, product quality problems, and therapeutic failures for prescription or over-the-counter medicines and medicines administered to hospital patients or at outpatient infusion centers.
 
+Reporting of adverse events by healthcare professionals and consumers is voluntary in the United States. FDA receives some adverse event reports directly from healthcare professionals (such as physicians, pharmacists, nurses and others) and consumers (such as patients, family members, lawyers and others). Healthcare professionals and consumers may also report adverse events to the products’ manufacturers. If a manufacturer receives an adverse event report, it is normally required to send the report to FDA.
+
 {% include panel.html type="warning" title="Disclaimer" text="FAERS data does have limitations. There is no certainty that the reported event (adverse event or medication error) was actually due to the product. FDA does not require that a causal relationship between a product and event be proven, and reports do not always contain enough detail to properly evaluate an event.<br /><br />Further, FDA does not receive reports for every adverse event or medication error that occurs with a product. Many factors can influence whether or not an event will be reported, such as the time a product has been marketed and publicity about an event.<br /><br />Submission of a safety report does not constitute an admission that medical personnel, user facility, importer, distributor, manufacturer or product caused or contributed to the event. The information in these reports has not been scientifically or otherwise verified as to a cause and effect relationship and cannot be used to estimate the incidence of these events." %}
 
 In 2012, FDA changed from the Adverse Event Reporting System (AERS) to the FDA Adverse Event Reporting System (FAERS). There was a minor shift in terms as part of this transition. If you are using data from before December 2012, you should be aware of this shift.
-
-### Format
-
-Adverse event reports use the [ICH E2b/M2 version 2.1 standard.](http://estri.ich.org/e2br22/ICH_ICSR_Specification_V2-3.pdf) OpenFDA annotates the original records with [special fields.](#openfda-fields)
-
-### Data downloads
-
-FDA releases [quarterly updates to FAERS data.](http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/ucm082193.htm) OpenFDA uses these extracts, but processes the data further before supplying them through the API. During our beta testing, we are investigating the best ways to offer direct downloads of data provided by the API.
-
-There are no plans for the OpenFDA initiative to change the FAERS release protocols. At this time it is anticipated that FAERS downloads will continue to be available from the same site on the same quarterly schedule. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical production use and is in beta testing. While the FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated.
-
-### Who reports adverse events?
-
-Reporting of adverse events by healthcare professionals and consumers is voluntary in the United States. FDA receives some adverse event reports directly from healthcare professionals (such as physicians, pharmacists, nurses and others) and consumers (such as patients, family members, lawyers and others). Healthcare professionals and consumers may also report adverse events to the products’ manufacturers. If a manufacturer receives an adverse event report, it is normally required to send the report to FDA.
 
 ### Responsible use of the data
 
@@ -76,203 +67,19 @@ Additionally, it is important to remember that adverse event reports represent a
 
 Adverse events are collected through a series of *safety reports.* Each is identified by a 8-digit string (for instance, `6176304-1`). The first 7 digits (before the hyphen) identify the individual report, and the last digit (after the hyphen) is a checksum. Rather than updating individual records in FAERS, subsequent updates are submitted in seperate reports.
 
-## Anatomy of a response
+### Format
 
-Here's an example API return from openFDA. This particular response features one result. The return is split into two high-level sections: `meta` and `results`. Note that this record is not real.
+Adverse event reports use the [ICH E2b/M2 version 2.1 standard.](http://estri.ich.org/e2br22/ICH_ICSR_Specification_V2-3.pdf) OpenFDA annotates the original records with [special fields.](#openfda-fields)
 
-{% highlight javascript %}
-{
-  "meta": {
-    "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
-    "license": "http://open.fda.gov/license",
-    "last_updated": "2014-05-29",
-    "results": {
-      "skip": 0,
-      "limit": 1,
-      "total": 111964
-    }
-  },
-  "results": [
-    "safetyreport": "1234567-8",
-    "safetyreportversion": "17",
-    "receivedate": "20041025",
-    "receivedateformat": "102",
-    "receiptdate": "20040224",
-    "receiptdateformat": "102",
-    "serious": "1",
-    "seriousnesscongenitalanomali": "1",
-    "seriousnessdeath": "1",
-    "seriousnessdisabling": "1"
-    "seriousnesshospitalization": "1",
-    "seriousnesslifethreatening": "1",
-    "seriousnessother": "1",
-    "transmissiondate": "1",
-    "transmissiondateformat": "1",
-    "duplicate": "1",
-    "companynumb": "200501050",
-    "occurcountry": "US",
-    "primarysourcecountry": "US",
-    "primarysource": {
-      "qualification": "1",
-      "reportercountry": "UNITED STATES"
-    },
-    "reportduplicate": {
-      "duplicatesource": "NOVARTIS",
-      "duplicatenumb": "PHEH2006US00792"
-    },
-    "sender": {
-      "sendertype": "2",
-      "senderorganization": "FDA-Public Use"
-    },
-    "receiver": {
-      "receivertype": "6",
-      "receiverorganization": "FDA"
-    },
-    "patient": {
-      "patientonsetage": "",
-      "patientonsetageunit": "",
-      "patientsex": "",
-      "patientweight": "",
-      "patientdeath": {
-        "patientdeathdate": "20030401",
-        "patientdeathdateformat": "102"
-      },
-      "drug": [
-        {
-          "actiondrug": "1",
-          "drugadditional": "1",
-          "drugcumulativedosagenumb": "4100",
-          "drugcumulativedosageunit": "003",
-          "drugdosageform": "Tablet",
-          "drugintervaldosagedefinition": "804",
-          "drugintervaldosageunitnumb": "1",
-          "drugrecurreadministration": "3",
-          "drugseparatedosagenumb": "1",
-          "drugstructuredosagenumb": "600",
-          "drugstructuredosageunit": "003",
-          "drugadministrationroute": "048",
-          "drugauthorizationnumb": "021223",
-          "drugbatchnumb": "020113A",
-          "drugcharacterization": "1",
-          "drugdoseagetext": "3.5 MG/KG, 1 IN 1 AS NECESSARY, INTRAVENOUS DRIP",
-          "drugenddate": "20020920",
-          "drugenddateformat": "102",
-          "drugindication": "RHEUMATOID ARTHRITIS",
-          "drugstartdate": "20020903",
-          "drugstartdateformat": "102",
-          "drugtreatmentduration": "1",
-          "drugtreatmentdurationunit": "804",
-          "medicinalproduct": "ASCORBIC ACID",
-          "openfda": {
-            "spl_id": [
-              "f67ce1df-27ea-4c67-a8a3-daf3fb3b9a92",
-              "72133842-ac3f-4a39-a825-38e01930a0a7"
-            ],
-            "product_ndc": [
-              "0389-0486",
-              "67457-118",
-              "67457-303"
-            ],
-            "route": [
-              "INTRAMUSCULAR",
-              "INTRAVENOUS",
-              "SUBCUTANEOUS"
-            ],
-            "substance_name": [
-              "ASCORBIC ACID"
-            ],
-            "rxcui": [
-              "308395"
-            ],
-            "spl_set_id": [
-              "a6c36a36-28ee-4a1b-86fe-98ef94064b68",
-              "d05200cb-cf29-4bc7-bf0c-b42ab2d20958"
-            ],
-            "package_ndc": [
-              "67457-118-50",
-              "0389-0486-50",
-              "67457-303-50"
-            ],
-            "product_type": [
-              "HUMAN PRESCRIPTION DRUG"
-            ],
-            "generic_name": [
-              "ASCORBIC ACID"
-            ],
-            "manufacturer_name": [
-              "The Torrance Company",
-              "Mylan Institutional LLC"
-            ],
-            "brand_name": [
-              "ASCORBIC ACID"
-            ]
-          }
-        }
-      ],
-      "reaction": [
-        {
-          "reactionmeddrapt": "Osteonecrosis of jaw",
-          "reactionmeddraversionpt": "16.1",
-          "reactionoutcome": "6"
-        },
-        {
-          "reactionmeddrapt": "HYPERTENSION"
-        },
-        {
-          "reactionmeddrapt": "POLYTRAUMATISM"
-        }
-      ]
-    }
-  ]
-}
-{% endhighlight %}
+### Data downloads
 
-#### Meta section
+FDA releases [quarterly updates to FAERS data.](http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/ucm082193.htm) OpenFDA uses these extracts, but processes the data further before supplying them through the API. During our beta period, we are investigating the best ways to offer direct downloads of data provided by the API.
 
-The `meta` section provides a number of important details about the results given by the API endpoint.
+There are no plans for the openFDA initiative to change the FAERS release protocols. At this time it is anticipated that FAERS downloads will continue to be available from the same site on the same quarterly schedule. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical production use and is in beta testing. While FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated.
 
-{% highlight javascript %}
-"meta": {
-  "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
-  "license": "http://open.fda.gov/license",
-  "last_updated": "2014-05-29",
-  "results": {
-    "skip": 0,
-    "limit": 1,
-    "total": 111964
-  }
-}
-{% endhighlight %}
+{% include api-anatomy.html %}
 
-`disclaimer`
-: **string**
-: Important details about the openFDA beta and limitations of the dataset.
-
-`license`
-: **string**
-: A link to a web page providing information on the licensing terms of data within openFDA.
-
-`last_updated`
-: **string**
-: The last date when openFDA was updated. Note that this does not correspond to the last report date in the system. Rather, it is the last time openFDA received a system or data update.
-
-`results`
-: **Dictionary**
-: A dictionary of details about the results section.
-
-`results.skip`
-: **Integer**
-: The offset of the results, as provided by the `skip` parameter in the URL.
-
-`results.limit`
-: **Integer**
-: The number of results out of the total number of returns that are provided, as provided by the `limit` parameter in the URL.
-
-`results.total`
-: **Integer**
-: The total number of results fitting the search criteria.
-
-#### Results section
+### Results
 
 For non-`count` queries, the `results` section includes matching adverse event reports returned by the API.
 
@@ -283,9 +90,9 @@ Each adverse event report consists of these major sections:
 - **Drugs:** Information on the drugs taken while the event was experienced
 - **Ractions:** Information on the reactions experienced by the patient
 
-### Field reference
+## Field-by-field reference
 
-#### Header
+### Header
 
 General information about the adverse event.
 
@@ -398,14 +205,14 @@ General information about the adverse event.
 
 `occurcountry`
 : **string**
-: The name of the country where the event occured.
+: The name of the country where the event occurred.
 
 `primarysourcecountry`
 : **string**
 : The country of the reporter of the event.
 
 `primarysource`
-: **Dictionary**
+: **list**
 : Information about the source provider of the adverse event.
 
 `primarysource.qualification`
@@ -422,7 +229,7 @@ General information about the adverse event.
 : The name of the country from which the report was submitted.
 
 `reportduplicate`
-: **Dictionary**
+: **list**
 : If a report is a duplicate or more recent version than a previously submitted report, this field will provide additional details on source provider.
 
 `reportduplicate.duplicatesource`
@@ -434,7 +241,7 @@ General information about the adverse event.
 : The case identifier for the duplicate.
 
 `sender`
-: **Dictionary**
+: **list**
 : Information on the organization sending the report.
 
 `sender.sendertype`
@@ -454,7 +261,7 @@ Drug Monitoring
 : The name of the organization sending the report. Because FDA is providing these reports to you, it will always appear as `FDA-Public Use`.
 
 `receiver`
-: **Dictionary**
+: **list**
 : Information on the organization receiving the report.
 
 `receiver.receivertype`
@@ -464,17 +271,14 @@ Drug Monitoring
 : `2` = Regulatory Authority
 : `3` = Health Professional
 : `4` = Regional Pharmacovigilance Center
-: `5` = WHO Collaborating
-Center for International
-Drug Monitoring
+: `5` = WHO Collaborating Center for International Drug Monitoring
 : `6` = Other
 
 `receiver.receiverorganization`
 : **string**
 : The name of the organization receiving the report.
 
-
-#### Patient
+### Patient
 
 Information about the patient in the adverse event report.
 
@@ -603,7 +407,7 @@ patient: {
 : The weight of the patient expressed in kilograms.
 
 `patient.patientdeath`
-: **Dictionary**
+: **list**
 : If the patient died, this section contains information about the death.
 
 `patient.patientdeath.patientdeathdate`
@@ -614,25 +418,27 @@ patient: {
 : **string**
 : Identifies the encoding format of the `tient.patientdeath.patientdeathdate` field. Always set to `102` (YYYYMMDD).
 
-##### Patient Drug Data
+#### Drugs
+
+This section contains information about the drugs listed in the adverse event report.
 
 `patient.drug`
-: **Array of dictionaries**
-: The drugs taken by the patient at the time of the event.
+: **list of objects**
+: Drugs known to be taken by the patient at the time of the adverse event.
 
 `patient.drug.actiondrug`
 : **string**
 : Actions taken with the drug
-: `1` = Drug withdrawnw
+: `1` = Drug withdrawn
 : `2` = Dose reduced
 : `3` = Dose increased
 : `4` = Dose not changed
-; `5` = Unknown
+: `5` = Unknown
 : `6` = Not applicable
 
 `patient.drug.drugadditional`
 : **string**
-: Additional details about the circumstances behind taking the drug.
+: Additional details about the circumstances surrounding the patient's use of the drug.
 
 `patient.drug.drugcumulativedosagenumb`
 : **string**
@@ -649,7 +455,7 @@ patient: {
 
 `patient.drug.drugdosageform`
 : **string**
-: The form through which the drug was taken.
+: The drug's dosage form.
 
 `patient.drug.drugintervaldosagedefinition`
 : **string**
@@ -672,18 +478,18 @@ patient: {
 
 `patient.drug.drugrecurreadministration`
 : **string**
-: Value for if the reaction occured on a readministration of the drug.
+: Whether the reaction occured on a readministration of the drug.
 : `1` = Yes
 : `2` = No
 : `3` = Unknown
 
 `patient.drug.drugseparatedosagenumb`
-: **String*
-: The number of separate dosages
+: **string**
+: The number of separate dosages.
 
 `patient.drug.drugstructuredosagenumb`
 : **string**
-: The number of doses
+: The number of doses.
 
 `patient.drug.drugstructuredosageunit`
 : **string**
@@ -764,10 +570,10 @@ patient: {
 : `067` = Vaginal
 
 `patient.drug.drugauthorizationnumb`
-: The Authorization or Application number of the drug
+: Drug authorization or application number.
 
 `patient.drug.drugbatchnumb`
-: Lot Number of the product
+: Drug product lot number.
 
 `patient.drug.drugcharacterization`
 : Reported role of the drug in the adverse event.
@@ -808,22 +614,21 @@ patient: {
 `patient.drug.medicinalproduct`
 : Valid Trade name of the product
 
-##### openFDA fields
+#### openFDA fields
 
 `openfda`
-: **Dictionary**
+: **list**
 : For all fields in `openfda`, see the [API Basics]({{ site.baseurl }}/api/reference/#openfda-fields) reference guide.
 
 Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.
 
-OpenFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other drug information. Drug products that appear in FAERS records are joined to the NDC dataset first on brand name, and if there is no brand name, on generic name. If that is succesful, further links are established to other datasets. **The linked data is listed as an `openfda` annotation in the `patient.drug` section of a result.**
+OpenFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other drug information. Drug products that appear in FAERS records are joined to the NDC dataset first on brand name, and if there is no brand name, on generic name. If that is succesful, further links are established to other datasets. The linked data is listed as an `openfda` annotation in the `patient.drug` section of a result.
 
 Roughly 86% of adverse event records have at least one `openfda` section. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if the drug name is misspelled. Some drug products will have `openfda` sections, while others will never, if there was no match during the harmonization process.
 
-{% include panel.html type="warning" title="Important note about <strong>openfda</strong> fields" text="A single drug product listed in an adverse event report may have multiple associated manufacturer names, NDCs, and SPLs in a corresponding <strong>openfda</strong> section. That is because the drug may have multiple manufacturers, packagers, dosage forms, etc. Their inclusion in the <strong>openfda</strong> section does not mean that they had any connection to the adverse event. The ordering of data in <strong>openfda</strong> fields is not significant." %}
+{% include panel.html type="warning" title="Important note about <code>openfda</code> fields" text="A single drug product listed in an adverse event report may have multiple associated manufacturer names, NDCs, and SPLs in a corresponding <code>openfda</code> section. That is because the drug may have multiple manufacturers, packagers, dosage forms, etc. Their inclusion in the <code>openfda</code> section does not mean that they had any connection to the adverse event. The ordering of data in <code>openfda</code> fields is not significant." %}
 
-
-##### Patient reaction data
+#### Reactions
 
 `patient.reaction.reactionmeddrapt`
 : [MedDRA](http://www.meddra.org/) term(s) for the reaction(s). Note that these terms are encoded in British English. For instance, "diarrhea" is recorded as "diarrohea."
@@ -832,19 +637,18 @@ Roughly 86% of adverse event records have at least one `openfda` section. Becaus
 : The [MedDRA](http://www.meddra.org/) version that `patient.reaction.reactionmeddrapt` uses.
 
 `patient.reaction.reactionoutcome`
-: Outcome of the reaction/event at the time of last observation
-: `1` = recovered/resolved
-: `2` = recovering/resolving
-: `3` = not recovered/not resolved
-: `4` = recovered/resolved with sequelae
-: `5` = fatal
-: `6` = unknown
-
+: Outcome of the reaction or event at the time of last observation.
+: `1` = Recovered/resolved.
+: `2` = Recovering/resolving.
+: `3` = Not recovered/not resolved.
+: `4` = Recovered/resolved with sequelae.
+: `5` = Fatal.
+: `6` = Unknown.
 
 ## Datasets
 
 The following datasets provide data for this endpoint.
 
-{% include api-reference/datasets.html datasets=page.datasets %}
+{% include api-reference-datasets.html datasets=page.datasets %}
 
 </section>
