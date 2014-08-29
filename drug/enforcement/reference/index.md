@@ -1,6 +1,7 @@
 ---
 title: Drugs API reference - Recall enforcement reports
 layout: default
+cover: p_chemist.jpg
 endpoints:
   - endpoint: /drug/enforcement/
     name:  Drug enforcement reports
@@ -23,26 +24,28 @@ js:
 ---
 
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
-<div class="content-heading-text">
-<div class="content-heading-title">
-<a href="{{ site.baseurl }}/drug/enforcement/">Data and examples</a> | API reference
-</div>
-<h1>Drugs API reference</h1>
-</div>
+  <div class="content-heading-text">
+  <div class="content-heading-title">
+  <a href="{{ site.baseurl }}/drug/enforcement/">Getting started</a> | Reference
+  </div>
+  <h1>Drugs API reference</h1>
+  </div>
 </section>
 
 <div class="row tabs">
-<div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/event/reference/">Adverse events</a></h2></div>
-<div class="col-sm-4 tab"><h2>Labels <span style="font-size: 9px">Coming soon</span></h2></div>
-<div class="col-sm-4 tab selected"><h2><a href="#">Enforcement reports</a></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/event/reference/">Adverse events</a></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label/reference/">Labeling</a></h2></div>
+  <div class="col-sm-4 tab selected"><h2><a href="#">Enforcement reports</a></h2></div>
 </div>
 
 
 <section id="reference">
 
-## About enforcement reports
+## About
 
     https://api.fda.gov/drug/enforcement
+
+{% include api-status-updated.html endpoint="https://api.fda.gov/drug/enforcement.json?" count="report_date" %}
 
 The openFDA drug enforcement reports API returns data from the <a href="{{ site.baseurl }}/data/res/">FDA Recall Enterprise System (RES)</a>, a database that contains information on recall event information submitted to FDA. Currently, this data covers publically releasable records from 2004-present. The data is updated weekly.
 
@@ -52,12 +55,6 @@ The procedures followed to input recall information into RES when FDA learns of 
 
 When necessary, the FDA will make corrections or changes to recall information previously disclosed in a past Enforcement Report for various reasons. For instance, the firm may discover that the initial recall should be expanded to include more batches or lots of the same recalled product than formerly reported. For more information about corrections or changes implemented, please refer to the Enforcement Report’s [Changes to Past Enforcement Reports" page.](http://www.fda.gov/Safety/Recalls/EnforcementReports/ucm345487.htm)
 
-### Data downloads
-
-FDA releases [weekly enforcement reports.](http://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm) OpenFDA uses these enforcement reports, but processes the data further before supplying them through the API. During our beta testing, we are investigating the best ways to offer direct downloads of data provided by the API.
-
-There are no plans for the OpenFDA initiative to change the RES release protocols. At this time it is anticipated that RES downloads will continue to be available from the same site on the same weekly schedule. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical or production use and is in beta testing. While the FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated.
-
 ### What are enforcement reports?
 
 An enforcement report contains information on actions taken in connection with FDA regulatory activities. The data served by this API endpoint includes enforcement reports about drug product recalls.
@@ -66,93 +63,15 @@ Whereas not all recalls are announced in the media or on [FDA's Recalls press re
 
 Manufacturers and/or distributors may initiate a recall at any time to fulfill their responsibility to protect the public health from products that present a risk of injury or gross deception, or are otherwise defective. Firms may also initiate a recall following notification of a problem by FDA or a state agency, in response to a formal request by FDA, or as ordered by FDA.
 
-## Anatomy of a response
+### Data downloads
 
-Here's an example API return from openFDA. This particular response features one result. The return is split into two high-level sections: `meta` and `results`. Note that this record is not real.
+FDA releases [weekly enforcement reports.](http://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm) OpenFDA uses these enforcement reports, but processes the data further before supplying them through the API. During our beta testing, we are investigating the best ways to offer direct downloads of data provided by the API.
 
-{% highlight javascript %}
-{
-  "meta": {
-    "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
-    "license": "http://open.fda.gov/license",
-    "last_updated": "2014-05-29",
-    "results": {
-      "skip": 0,
-      "limit": 1,
-      "total": 6
-    }
-  },
-  "results": [
-    {
-      "reason_for_recall": "Labeling: Incorrect or Missing Lot and/or Expiration date; The Lot and/or Expiration date on the tube may not be legible in this lot..",
-      "status": "Ongoing",
-      "distribution_pattern": "Nationwide and Puerto Rico, and Panama.\nMilitary distribution made.",
-      "product_quantity": "99,660  tubes",
-      "recall_initiation_date": "2013-02-19",
-      "state": "NE",
-      "event_id": "64372",
-      "product_type": "Drugs",
-      "product_description": "Target Up & Up, athlete's foot cream, full prescription strength, terbinafine hydrochloride 1% antifungal, 30 g (1 oz), compare to active ingredient in Lamisil, NDC 0067-6382-30 & UPC code: 300676382302 (Novartis) Target NDC 1167-3401-04, Distributed by Target Corp., Minneapolis, MN.",
-      "country": "US",
-      "city": "Lincoln",
-      "recalling_firm": "Novartis Consumer Health",
-      "report_date": "2013-06-12",
-      "voluntary_mandated": "Voluntary: Firm Initiated",
-      "classification": "Class III",
-      "code_info": "Lot numbers and exp dates:  10108716  31-Mar-2013, \n10111510  30-Apr-2013, 10113801  31-May-2013, 10113839  30-Apr-2013, 10115616  31-Aug-2013",
-      "openfda": {},
-      "initial_firm_notification": "Letter"
-    }
-  ]
-}
-{% endhighlight %}
+There are no plans for the openFDA initiative to change the RES release protocols. At this time it is anticipated that RES downloads will continue to be available from the same site on the same weekly schedule. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical or production use and is in beta testing. While FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated.
 
-#### Meta section
+{% include api-anatomy.html %}
 
-The `meta` section provides a number of important details about the results provided by the API endpoint.
-
-{% highlight javascript %}
-"meta": {
-  "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
-  "license": "http://open.fda.gov/license",
-  "last_updated": "2014-05-29",
-  "results": {
-    "skip": 0,
-    "limit": 1,
-    "total": 6
-  }
-}
-{% endhighlight %}
-
-`disclaimer`
-: **string**
-: {:.data-description} Important details about the openFDA beta and limitations of the dataset.
-
-`license`
-: **string**
-: {:.data-description} A link to a web page providing information on the licensing terms of data within openFDA.
-
-`last_updated`
-: **string**
-: {:.data-description} The last date when openFDA was updated. Note that this does not correspond to the last report date in the system. Rather, it is the last time openFDA received a system or data update.
-
-`results`
-: **Dictionary**
-: {:.data-description} A dictionary of details about the results section.
-
-`results.skip`
-: **Integer**
-: {:.data-description} The offset of the results, as provided by the `skip` parameter in the URL.
-
-`results.limit`
-: **Integer**
-: {:.data-description} The number of results out of the total number of returns that are provided, as provided by the `limit` parameter in the URL.
-
-`results.total`
-: **Integer**
-: {:.data-description} The total number of results fitting the search criteria.
-
-#### Results section
+### Results
 
 For non-`count` queries, the `results` section includes matching enforcement report records returned by the API.
 
@@ -163,18 +82,18 @@ Each enforcement report record consists of two sets of fields:
 
 The data format of RES enforcement reports changed in June 2012. In openFDA API results, reports from before that time do not contain the following fields:
 
- - `event-id`
+ - `event_id`
  - `status`
  - `city`
  - `state`
  - `country`
- - `voluntary-mandated`
- - `initial-firm-notification`
- - `recall-initiation-date`
+ - `voluntary_mandated`
+ - `initial_firm_notification`
+ - `recall_initiation_date`
 
-### Field reference
+## Field reference
 
-#### Enforcement report data
+### Enforcement report
 
 {% highlight javascript %}
 "results": [
@@ -240,15 +159,15 @@ The data format of RES enforcement reports changed in June 2012. In openFDA API 
 
 `voluntary_mandated`
 : **string**
-: Describes who initiated the recall. Recalls are almost always voluntary, meaning initiated by a firm. A recall is deemed voluntary when the firm voluntarily removes or corrects marketed products or FDA requests the marketed products be removed or corrected. A recall is mandated when the firm was ordered by the FDA to remove or correct the marketed products, under section 518(e) of the FD&C Act, National Childhood Vaccine Injury Act of 1986, 21 CFR 1271.440, Infant Formula Act of 1980 and its 1986 amendments, or the Food Safety Modernization Act (FSMA).
+: Describes who initiated the recall. Recalls are almost always voluntary, meaning initiated by a firm. A recall is deemed voluntary when the firm voluntarily removes or corrects marketed products or the FDA requests the marketed products be removed or corrected. A recall is mandated when the firm was ordered by the FDA to remove or correct the marketed products, under section 518(e) of the FD&C Act, National Childhood Vaccine Injury Act of 1986, 21 CFR 1271.440, Infant Formula Act of 1980 and its 1986 amendments, or the Food Safety Modernization Act (FSMA).
 
 `report_date`
-: **string**
-: The date (YYYYMMDD) that FDA issued the enforcement report for the product recall.
+: **string date *YYYYmmdd***
+: Date that the FDA issued the enforcement report for the product recall.
 
 `recall_initiation_date`
-: **string**
-: The date (YYYYMMDD) that the firm first began notifying the public or their consignees of the recall.
+: **string date *YYYYmmdd***
+: Date that the firm first began notifying the public or their consignees of the recall.
 
 `initial_firm_notification`
 : **string**
@@ -269,7 +188,7 @@ The data format of RES enforcement reports changed in June 2012. In openFDA API 
 : `Devices` = The recalled product is a device product.
 : `Food` = The recalled product is a food product.
 
-#### Geographic data
+### Geographic data
 
 `city`
 : **string**
@@ -283,7 +202,7 @@ The data format of RES enforcement reports changed in June 2012. In openFDA API 
 : **string**
 : The country in which the recalling firm is located.
 
-#### openFDA fields
+### openFDA fields
 
 `openfda`
 : **dictionary**
@@ -299,6 +218,6 @@ Roughly half of enforcement reports have an `openfda` section. Because the harmo
 
 The following datasets provide data for this endpoint.
 
-{% include api-reference/datasets.html datasets=page.datasets %}
+{% include api-reference-datasets.html datasets=page.datasets %}
 
 </section>

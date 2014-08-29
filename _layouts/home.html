@@ -11,8 +11,8 @@ js:
   <div class="homepage-header">
     <div class="welcome-message">
       <div class="welcome-text">
-        <h1>Introducing openFDA</h1>
-        <p class="tagline">Making public FDA datasets more accessible.</p>
+        <h1>Making public FDA datasets more accessible</h1>
+        <p class="tagline"></p>
         <a href="{{ site.baseurl }}/drug/event" style="text-decoration: none">
           <div id="api-home-demo">
             <span id="title" class="out"></span>
@@ -29,7 +29,7 @@ js:
   </div>
   <div class="homepage-content">
     <div class="article-list">
-      {% for post in site.posts limit:2 %}
+      {% for post in site.posts limit:3 %}
       <article>
         <header><h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
           <div class="article-meta">By {% for author in site.data.authors %}{% if post.author == author.email %}{{ author.name }}{% endif %}{% endfor %} | {{ post.date | date_to_string }}</div>
@@ -39,7 +39,7 @@ js:
       </article>
       {% endfor %}
       <div class="text-right">
-      <a href="{{ site.baseurl }}/updates/">See all Updates</a>
+      <a href="{{ site.baseurl }}/updates/">More updates</a>
       </div>
     </div>
   </div>
@@ -55,7 +55,7 @@ js:
     </div>
     <div class="activity">
       <h2><i class="fa fa-github"></i> FDA on GitHub</a></h2>
-      Our code is on <a href="https://github.com/FDA" target="_blank">GitHub</a>, and you can log bugs and feature requests there.
+      Our code is on <a href="https://github.com/FDA" target="_blank">GitHub</a>. Log bugs and feature requests there.
     </div>
     <div class="activity">
       <h2><i class="fa fa-twitter"></i> <a href="https://twitter.com/openFDA" target="_blank">@openFDA</a> on Twitter</h2>

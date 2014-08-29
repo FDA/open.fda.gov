@@ -3,13 +3,13 @@ layout:             dataset
 cover:              
 title:              RES
 title_long:         FDA Recall Enterprise System
-slug:               faers
+slug:               res
 source_url:         http://www.fda.gov/ICECI/ComplianceManuals/RegulatoryProceduresManual/ucm177308.htm
 provider_name:      FDA
 provider_url:       http://www.fda.gov/
 update_frequency:   Weekly
-time_period:        2004-present
-record_count:       ~21k
+time_period:        ~2004-present
+record_count:       ~20k
 license:            Public Domain (<a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0</a>)
 description:        The FDA Adverse Event Reporting System (FAERS) is a database that contains information on adverse event and medication error reports submitted to FDA.
 download_url:       http://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm
@@ -38,5 +38,4 @@ Manufacturers and/or distributors may initiate a recall at any time to fulfill t
 
 ## Downloads
 
-FDA releases [weekly enforcement reports.](http://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm) OpenFDA uses these enforcement reports, but processes the data further before supplying them through the API. 
-
+See the [RES site]({{ page.source_url }}) for download information.

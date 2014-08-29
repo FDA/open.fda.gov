@@ -1,6 +1,7 @@
 ---
 title: Drugs - Recall enforcement reports
 layout: api
+cover: p_chemist.jpg
 endpoints:
   - endpoint: /drug/enforcement/
     name:  Drug enforcement reports
@@ -14,7 +15,7 @@ endpoints:
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
     <div class="content-heading-title">
-      Data and examples | <a href="{{ site.baseurl }}/drug/enforcement/reference/">API reference</a>
+      Getting started | <a href="{{ site.baseurl }}/drug/enforcement/reference/">Reference</a>
     </div>
     <h1>Drugs</h1>
   </div>
@@ -22,7 +23,7 @@ endpoints:
 
 <div class="row tabs">
   <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/event/">Adverse events</a></h2></div>
-  <div class="col-sm-4 tab"><h2>Labels <span style="font-size: 9px">Coming soon</span></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label">Labeling</a></h2></div>
   <div class="col-sm-4 tab selected"><h2><a href="#">Enforcement reports</a></h2></div>
 </div>
 {:/}
@@ -31,16 +32,13 @@ endpoints:
 
 {% include api-demo-drug-enforcement.html %}
 
-{% include getting-started.html %}
-
-## Introduction
+## About drug recalls and enforcement reports
 
 Recalls are an appropriate alternative method for removing or correcting marketed consumer products, their labeling, and/or promotional literature that violate the laws administered by the Food and Drug Administration (FDA). Recalls afford equal consumer protection but generally are more efficient and timely than formal administrative or civil actions, especially when the product has been widely distributed.
 
 Manufacturers and/or distributors may initiate a recall at any time to fulfill their responsibility to protect the public health from products that present a risk of injury or gross deception, or are otherwise defective. Firms may also initiate a recall following notification of a problem by FDA or a state agency, in response to a formal request by FDA, or as ordered by FDA.
 
-
-### About enforcement reports
+### Enforcement reports
 
 An enforcement report contains information on actions taken in connection with FDA regulatory activities. The data served by this API endpoint includes enforcement reports about drug product recalls.
 
@@ -48,13 +46,15 @@ This API should not be used as a method to collect data to issue alerts to the p
 
 Whereas not all recalls are announced in the media or on our recall press release page all FDA-monitored recalls go into FDA's Enforcement Report once they are classified according to the level of hazard involved.  For more information, see [FDA 101: Product Recalls from First Alert to Effectiveness Checks.](http://www.fda.gov/ForConsumers/ConsumerUpdates/ucm049070.htm)
 
-### Reference
+{% include getting-started.html %}
+
+## Reference
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of enforcement reports.
 
-### How to query the endpoint
+## How to query the API
 
-`https://api.fda.gov/drug/enforcement.json?`
+    https://api.fda.gov/drug/enforcement.json?
 
 You can search for drug recall enforcement reports by <a href="reference/">fields specific to the `drug/enforcement.json` endpoint</a>. You can also search by other drug identifiers, such as pharmacologic class, NDC (National Drug Code), or even UPC. These identifiers are annotations, not part of the original enforcement report. They are easily identified in the <a href="{{ site.baseurl }}/api/reference/#openfda-fields">`openfda` section</a> of API results.
 

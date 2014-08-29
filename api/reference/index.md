@@ -1,6 +1,7 @@
 ---
 title: API basics
 layout: default
+cover: p_computer.jpg
 js:
   - '/static/bower_components/jquery/dist/jquery.min.js'
   - '/static/bower_components/bootstrap/js/modal.js'
@@ -25,11 +26,11 @@ js:
 
 ## About the API
 
-OpenFDA is an [Elasticsearch-based](http://www.elasticsearch.org/) [API](http://apievangelist.com/index.html) that serves [Food and Drug Administration](http://www.fda.gov/) publically accessible data about three *nouns:*
+OpenFDA is an [Elasticsearch-based](http://www.elasticsearch.org/) [API](http://apievangelist.com/index.html) that serves public [FDA](http://www.fda.gov/) data about three *nouns:*
 
- - Drugs
- - Devices
- - Foods
+ - [Drugs]({{ site.baseurl }}/drug/event/)
+ - [Devices]({{ site.baseurl }}/device/event/)
+ - [Foods]({{ site.baseurl }}/food/enforcement/)
 
 All three have several *endpoints,* each of which serves unique data. Every query to the API must go through one endpoint.
 

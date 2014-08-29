@@ -1,0 +1,395 @@
+{::nomarkdown}
+<script type="text/javascript">
+  var endpoint = 'https://api.fda.gov/device/event.json?';
+  var countTerm = '_exists_:date_received';
+</script>
+
+<div id="api-demo-no-svg" class="api-demo" style="display:none">
+  <h2>This browser doesn't support our interactive query tool and explorer.</h2>
+  <p>Download and install the latest version of a standards-compliant browser like <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox,</a> <a href="https://www.google.com/chrome">Chrome,</a> or the latest version of <a href="http://www.microsoft.com/InternetExplorer">Internet Explorer.</a></p>
+  <img src="{{ site.baseurl }}/assets/img/p_queryTool.png" alt="Image of interactive query tool." />
+</div>
+
+<div id="api-demo" class="api-demo">
+  <div>
+    <ul class="nav nav-pills api-demo-tabs">
+      <li><span>Learn about</span></li>
+      <li class="active"><a href="#spontaneous" data-toggle="pill">Reports over time</a></li>
+      <li><a href="#device-types" data-toggle="pill">Devices</a></li>
+      <li><a href="#issues" data-toggle="pill">Types of events</a></li>
+      <li><a href="#geo" data-toggle="pill">Countries of manufacture</a></li>
+    </ul>
+  </div>
+  
+  <div class="tab-content">
+
+    <!-- STORY SPONTANEOUS REPORTS -->
+    <div class="tab-pane fade in active" id="spontaneous">
+      
+      <!-- Description -->
+      <div class="row">
+        <div class="col-sm-12 description">
+          <h2>Device adverse event reports over time</h2>
+          <p>This is the openFDA API endpoint for medical device adverse event reports. An adverse event report is submitted to the FDA to report serious injuries, deaths, malfunctions, and other undesirable effects associated with the use of medical devices. Increases in the number of reports may be due to greater use of medical devices, more awareness of reporting, news, enforcement actions, and other phenomena.</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="row">
+        <div class="col-sm-3">
+          
+          <!-- Radio buttons -->
+          <div class="api-query-control">
+            <h4>Filter</h4>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="spontaneous-all" value="date_received:[19910101+TO+20150101]" checked />
+                Reports since 1991
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="spontaneous-company-no" value="date_received:[19910101+TO+20150101]+AND+source_type:consumer" />
+                Reported by consumers
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="spontaneous-x-ray" value="date_received:[19910101+TO+20150101]+AND+device.generic_name:x-ray" />
+                Reported device's generic name includes <em>x-ray</em>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="spontaneous-literature" value="date_received:[19910101+TO+20150101]+AND+source_type:literature" />
+                Report originated in medical literature
+              </label>
+            </div>
+            
+
+            <!-- Coverage chart -->
+            <div class="chart coverage">  
+              <h4 id="result-count"></h4>
+              <div id="chart-coverage"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart results col-sm-9">
+          <div id="chart"></div>
+        </div>
+      </div>
+
+      <!-- Query fields -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>What API query produced these results?</h3>
+          <pre id="query-endpoint">https://api.fda.gov/device/event.json?</pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Search -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
+          <textarea id="query-search" class="query-textarea form-control">date_received:[19910101+TO+20150101]</textarea>
+        </div>
+
+        <!-- Count -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">count=</a> parameter</div>
+          <textarea id="query-count" class="query-textarea form-control">date_received</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2 col-sm-offset-10">
+            <button id="query-button" class="form-control btn btn-primary">Run query</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END STORY -->
+
+    <!-- STORY DEVICE TYPES -->
+    <div class="tab-pane fade in" id="device-types">
+      
+      <!-- Description -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>What device types are reported?</h2>
+          <p>There are many ways to name and describe a medical device. In adverse event reports, devices are described using a <em>generic name</em> and also coded according to <a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/ucm051668.htm">FDA regulations.</a></p>
+          <p>As you might expect, the nature of the medical device involved in an adverse event report varies with context such as the location or seriousness of the report. The chart below shows frequently reported device types, using their reported generic name.</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="row">
+        <div class="col-sm-3">
+          
+          <!-- Radio buttons -->
+          <div class="api-query-control">
+            <h4>Filter</h4>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="device-types-all" value="" />
+                All adverse event reports
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="device-types-home" value='event_location.exact:HOME+event_location:patient' />
+                Reported location of event is <em>patient's home</em>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="device-types-home" value='event_location:"hospital"' />
+                Reported location of event is <em>hospital</em>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="device-types-injury" value='event_type:injury' />
+                Reported event type is <em>injury</em>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="device-types-death" value='event_type:death' />
+                Reported event type is <em>death</em>
+              </label>
+            </div>
+
+            <!-- Coverage chart -->
+            <div class="chart coverage">
+              <h4 id="result-count"></h4> 
+              <div id="chart-coverage"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart results col-sm-9">
+          <div id="chart"></div>
+        </div>
+      </div>
+
+      <!-- Query fields -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>What API query produced these results?</h3>
+          <pre id="query-endpoint">https://api.fda.gov/device/event.json?</pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Search -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
+          <textarea id="query-search" class="query-textarea form-control"></textarea>
+        </div>
+
+        <!-- Count -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">count=</a> parameter</div>
+          <textarea id="query-count" class="query-textarea form-control">device.generic_name.exact</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2 col-sm-offset-10">
+            <button id="query-button" class="form-control btn btn-primary">Run query</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END STORY -->
+
+    <!-- STORY ISSUES -->
+    <div class="tab-pane fade in" id="issues">
+      
+      <!-- Description -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>What adverse events are frequently reported?</h2>
+          <p>Most adverse event reports describe medical device malfunctions and defects, and many report serious injuries or deaths. Exploring the context of device use and type of device reveals patterns in the seriousness of the reported events.</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="row">
+        <div class="col-sm-3">
+          
+          <!-- Radio buttons -->
+          <div class="api-query-control">
+            <h4>Filter</h4>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="issues-all" value="" />
+                All adverse event reports
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="issues-home" value='event_location:"hospital"' />
+                Reported location of event is <em>hospital</em>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="issues-hospital-beds" value='device.generic_name:"hospital+bed"' />
+                Generic name includes <em>hospital bed</em>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="issues-hip-replacement" value='device.generic_name:"hip+replacement"' />
+                Generic name includes <em>hip replacement</em>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="issues-hip-replacement" value='device.generic_name:"replacement+heart+valve"' />
+                Generic name includes <em>replacement heart valve</em>
+              </label>
+            </div>
+
+            <!-- Coverage chart -->
+            <div class="chart coverage">
+              <h4 id="result-count"></h4> 
+              <div id="chart-coverage"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart results col-sm-9">
+          <div id="chart"></div>
+        </div>
+      </div>
+
+      <!-- Query fields -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>What API query produced these results?</h3>
+          <pre id="query-endpoint">https://api.fda.gov/device/event.json?</pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Search -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
+          <textarea id="query-search" class="query-textarea form-control"></textarea>
+        </div>
+
+        <!-- Count -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">count=</a> parameter</div>
+          <textarea id="query-count" class="query-textarea form-control">event_type.exact</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2 col-sm-offset-10">
+            <button id="query-button" class="form-control btn btn-primary">Run query</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END STORY -->
+
+
+
+    <!-- STORY GEO -->
+    <div class="tab-pane fade in" id="geo">
+      
+      <!-- Description -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>Where are reported medical devices manufactured?</h2>
+          <p>Most reports are about devices manufactured in the United States, with some significant exceptions, such as <em>hip replacement</em> devices.</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="row">
+        <div class="col-sm-3">
+          
+          <!-- Radio buttons -->
+          <div class="api-query-control">
+            <h4>Filter</h4>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="issues-all" value="" />
+                All adverse event reports
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="issues-hospital-beds" value='device.generic_name:"hospital+bed"' />
+                Generic name includes <em>hospital bed</em>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="issues-hip-replacement" value='device.generic_name:"hip+replacement"' />
+                Generic name includes <em>hip replacement</em>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="issues-hip-replacement" value='device.generic_name:"replacement+heart+valve"' />
+                Generic name includes <em>replacement heart valve</em>
+              </label>
+            </div>
+
+            <!-- Coverage chart -->
+            <div class="chart coverage">
+              <h4 id="result-count"></h4> 
+              <div id="chart-coverage"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart results col-sm-9">
+          <div id="chart"></div>
+        </div>
+      </div>
+
+      <!-- Query fields -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h3>What API query produced these results?</h3>
+          <pre id="query-endpoint">https://api.fda.gov/device/event.json?</pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Search -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
+          <textarea id="query-search" class="query-textarea form-control"></textarea>
+        </div>
+
+        <!-- Count -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">count=</a> parameter</div>
+          <textarea id="query-count" class="query-textarea form-control">device.manufacturer_d_country.exact</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2 col-sm-offset-10">
+            <button id="query-button" class="form-control btn btn-primary">Run query</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END STORY -->
+  </div>  
+</div>
+{:/}
