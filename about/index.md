@@ -13,39 +13,59 @@ In the future, openFDA will provide a platform for public challenges issued by t
 
 We're currently focused on datasets in the following areas:
 
-- **Adverse events.** FDA’s publically available drug adverse event and medication error reports, and medical device adverse event reports.   
+- **Adverse events.** FDA’s publically available drug adverse event and medication error reports, and medical device adverse event reports.
 - **Recalls.** Enforcement report data, containing information gathered from public notices about certain recalls of FDA-regulated products.
-- **Documentation.** Structured Product Labeling data for FDA-regulated human drug products.
+- **Labeling.** Structured Product Labeling (SPL) data for FDA-regulated human prescription drug, OTC drug and biological product labeling.
 
 ## Who made openFDA?
 
 OpenFDA is an initiative in the Office of Informatics and Technology Innovation (OITI) at the Food and Drug Administration led by the Chief Health Informatics Officer (CHIO), Dr. Taha Kass-Hout, MD, MS. The core project team consisted of the following individuals, in alphabetical order:
 
-- Adam Baker
-- Sharon Campbell
-- Andrea Fischer
-- Thomas Goetz
-- Sean Herron
+- Adam Baker*
+- Thomas Goetz*
+- Steven Hubbard
 - Taha Kass-Hout
-- Matt Mohebbi
-- Hans Nelsen
-- Russell Power
+- Matt Mohebbi*
+- Hans Nelsen*
+- Russell Power*
+- Kelemework Yimam
+
+*_Contractor to OITI_
 
 The team also wishes to thank the following individuals for their contributions to the effort:
 
 - Gray Brooks
+- Yulia Borodina
+- Roselie Bright
+- Eric Brodsky
+- Sharon Campbell
+- Isaac Chang
+- Ricky Cokely
+- Mildred Cooper
 - Suranjan De
+- Andrea Fischer
 - Janet Gentry
 - Amber Griffin
 - Marni Hall
-- Steven Hubbard
-- Erie Meyer
-- Nick Muerdter
+- Margaret Hamburg
+- Walter Harris
+- Angelique Hebert
+- Sean Herron
+- Milan Kubic
+- Joshua Lehman
+- Randy Levin
+- Alan McClelland
 - Joe Neubauer
 - Brian Norris
+- Rosie Owens
 - John Quinn
 - Mark Silverberg
+- Jeff Shuren
+- Jeff Ventura
+- Bradford Wintermute
+- Sean Wybenga
 - Zhiheng (Roy) Xu
+- Carolyn Yancey
 
 ## How can I join in?
 
