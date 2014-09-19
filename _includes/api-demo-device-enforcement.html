@@ -19,25 +19,26 @@
       <li><a href="#seriousness" data-toggle="pill">Seriousness</a></li>
     </ul>
   </div>
-  
+
   <div class="tab-content">
 
     <!-- STORY SPONTANEOUS REPORTS -->
     <div class="tab-pane fade in active" id="reports">
-      
+
       <!-- Description -->
       <div class="row">
         <div class="col-sm-12 description">
           <h2>Device recall enforcement reports since 2004</h2>
           <p>This is the openFDA API endpoint for all device product recalls monitored by the FDA. When an FDA-regulated product is either defective or potentially harmful, recalling that product—removing it from the market or correcting the problem—is the most effective means for protecting the public.</p>
           <p>Recalls are almost always voluntary, meaning a company discovers a problem and recalls a product on its own. Other times a company recalls a product after FDA raises concerns. Only in rare cases will FDA request or order a recall. But in every case, FDA's role is to oversee a company's strategy, classify the recalled products according to the level of hazard involved, and assess the adequacy of the recall. Recall information is posted in the Enforcement Reports once the products are classified.</p>
+          <p>Important note: The data prior to mid-2012 is incomplete and has not been validated with internal FDA data. This dataset, like all datasets at openFDA, is a work in progress.</p>
         </div>
       </div>
 
       <!-- Chart -->
       <div class="row">
         <div class="col-sm-3">
-          
+
           <!-- Radio buttons -->
           <div class="api-query-control">
             <h4>Filter</h4>
@@ -55,7 +56,7 @@
             </div>
 
             <!-- Coverage chart -->
-            <div class="chart coverage">  
+            <div class="chart coverage">
               <h4 id="result-count"></h4>
               <div id="chart-coverage"></div>
             </div>
@@ -102,7 +103,7 @@
 
     <!-- STORY VOLUNTARY REPORTS -->
     <div class="tab-pane fade in" id="voluntary-reports">
-      
+
       <!-- Description -->
       <div class="row">
         <div class="col-sm-12 description">
@@ -114,7 +115,7 @@
       <!-- Chart -->
       <div class="row">
         <div class="col-sm-3">
-          
+
           <!-- Radio buttons -->
           <div class="api-query-control">
             <h4>Filter</h4>
@@ -126,7 +127,7 @@
             </div>
 
             <!-- Coverage chart -->
-            <div class="chart coverage">  
+            <div class="chart coverage">
               <h4 id="result-count"></h4>
               <div id="chart-coverage"></div>
             </div>
@@ -173,11 +174,11 @@
 
     <!-- STORY CLASS/SERIOUSNESS CLASSES -->
     <div class="tab-pane fade in" id="seriousness">
-      
+
       <!-- Description -->
       <div class="row">
         <div class="col-sm-12">
-          <h2>Msot device product recalls are Class II</h2>
+          <h2>Most device product recalls are Class II</h2>
           <p>Recalls are classified into three categories: Class I, a dangerous or defective product that predictably could cause serious health problems or death, Class II, meaning that the product might cause a temporary health problem, or pose only a slight threat of a serious nature, and Class III, a product that is unlikely to cause any adverse health reaction, but that violates FDA labeling or manufacturing laws.</p>
         </div>
       </div>
@@ -185,7 +186,7 @@
       <!-- Chart -->
       <div class="row">
         <div class="col-sm-3">
-          
+
           <!-- Radio buttons -->
           <div class="api-query-control">
             <h4>Filter</h4>
@@ -204,7 +205,7 @@
 
             <!-- Coverage chart -->
             <div class="chart coverage">
-              <h4 id="result-count"></h4> 
+              <h4 id="result-count"></h4>
               <div id="chart-coverage"></div>
             </div>
           </div>
@@ -247,6 +248,6 @@
     </div>
     <!-- END STORY -->
 
-  </div>  
+  </div>
 </div>
 {:/}
