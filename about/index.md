@@ -3,7 +3,11 @@ layout:       page
 title:        About
 ---
 
-OpenFDA is an exciting new initiative in the [Food and Drug Administration’s](http://www.fda.gov/) Office of Informatics and Technology Innovation (OITI) spearheaded by FDA’s [Chief Health Informatics Officer (CHIO), Dr. Taha Kass-Hout, MD, MS.](http://www.fda.gov/AboutFDA/CentersOffices/ucm349836.htm) OpenFDA offers easy access to FDA public data and highlights projects using these data in both the public and private sector to further regulatory or scientific missions, educate the public, and save lives.
+OpenFDA is the first innovation created by Taha Kass-Hout, MD, MS, upon joining FDA as the first Chief Health Information Officer in March 2013. The goal of the project is to create easy access to public data, to create a new level of openness and accountability, to ensure the privacy and security of public FDA data, and ultimately to educate the public and save lives. The concept was to index high-value public-access data, format and document that data in developer and consumer-friendly standards, and make that data available via a public-access portal that enables developers to quickly and easily use it in applications. Dr. Kass-Hout launched the project by obtaining a Presidential Innovation Fellow to focus on policy and programmatic issues in July 2013. In August 2013, a research and development contract was awarded to [Iodine, Inc.](http://www.iodine.com/) to build the site under BAA contract number HHSF223201400128C. The public cloud environment was determined in September 2013, and Dr. Kass-Hout's team solicited agency and user input into policies, first priority datasets, and desirable technical characteristics of openFDA. In December 2013 FDA established the Office of Informatics and Technology Innovation (OITI) under Dr. Kass-Hout’s leadership. All the project milestones were met despite the government shutdown.
+
+OpenFDA launched in Beta mode on June 2, 2014, at [https://open.fda.gov](https://open.fda.gov). It features an open user community for sharing open source code, examples, and ideas. By September 2014, medical device reports, enforcement reports, and drug adverse event reports were available, and every mention of a drug in those reports was automatically augmented with full data from various drug datasets, including codes and label information. In addition, there were over 4.5 million data calls, over 40,000 visitors to openFDA from all over the world, dozens of press articles, and several websites that use openFDA in their own public offerings.
+
+During Fiscal Year 2015, additional datasets and harmonization will be added.
 
 ## What does it do?
 
@@ -19,7 +23,7 @@ We're currently focused on datasets in the following areas:
 
 ## Who made openFDA?
 
-OpenFDA is an initiative in the Office of Informatics and Technology Innovation (OITI) at the Food and Drug Administration led by the Chief Health Informatics Officer (CHIO), Dr. Taha Kass-Hout, MD, MS. The core project team consisted of the following individuals, in alphabetical order:
+OpenFDA is an initiative in the Office of Informatics and Technology Innovation (OITI) at the Food and Drug Administration led by the Chief Health Informatics Officer (CHIO), Dr. Taha Kass-Hout, MD, MS. The core project team consist of the following individuals, in alphabetical order:
 
 - Adam Baker*
 - Thomas Goetz*
