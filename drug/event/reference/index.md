@@ -136,7 +136,7 @@ General information about the adverse event.
 
 `safetyreportid`
 : **string**
-: The 8-digit Safety Report ID number, also known as the case report number or case ID. The first 7 digits (before the hyphen) identify an individual report and the last digit (after the hyphen) is a checksum. This field can be used identify or find a specific adverse event report.
+: The 8-digit Safety Report ID number, also known as the case report number or case ID. The first 7 digits (before the hyphen) identify an individual report and the last digit (after the hyphen) is a checksum. This field can be used to identify or find a specific adverse event report.
 
 `safetyreportversion`
 : **string**
