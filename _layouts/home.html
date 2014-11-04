@@ -27,19 +27,32 @@ js:
       <a href="{{ site.baseurl }}/about">About openFDA <i class="fa fa-angle-double-right"></i></a>
     </div>
   </div>
+  
   <div class="homepage-content">
     <div class="article-list">
       {% for post in site.posts limit:3 %}
-      <article>
-        <header><h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-          <div class="article-meta">By {% for author in site.data.authors %}{% if post.author == author.email %}{{ author.name }}{% endif %}{% endfor %} | {{ post.date | date_to_string }}</div>
-        </header>
-        {{ post.excerpt }}
-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more</a>
-      </article>
+        <article>
+          <header><h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+            <div class="article-meta">
+              {% for author in site.data.authors %}
+                {% if post.authors contains author.name %}
+                  {{ author.name }} | 
+                {% endif %}
+              {% endfor %}
+              {{ post.date | date_to_string }}
+            </div>
+          </header>
+          {% if post.summary %}
+            <p>{{ post.summary }}</p>
+          {% else %}
+            {{ post.excerpt }}
+          {% endif %}
+          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more</a>
+        </article>
       {% endfor %}
+
       <div class="text-right">
-      <a href="{{ site.baseurl }}/updates/">More updates</a>
+        <a href="{{ site.baseurl }}/updates/">More updates</a>
       </div>
     </div>
   </div>

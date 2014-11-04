@@ -1,10 +1,10 @@
 ---
 layout:         post
 date:           2014-08-19 14:30:00
-title:          "Providing Easy Access to Medical Device Reports Submitted to FDA since the Early 1990s"
+title:          "Providing easy access to medical device reports submitted to FDA since the early 1990s"
 authors:
-  - "taha@fda.hhs.gov"
-  - "jeff.shuren@fda.hhs.gov"
+  - "Taha Kass-Hout"
+  - "Jeffrey Shuren"
 ---
 
 In addition to food and drugs, FDA has regulatory oversight of tens of thousands of medical devices ranging from bandages and prosthetics to heart valves and robotics. These products are used by millions of Americans, and they are essential, well-performing tools of modern healthcare, but occasionally they present a safety issue due to risks not identified in prior studies, a malfunction, a problem with manufacturing, or misuse. 

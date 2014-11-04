@@ -1,16 +1,26 @@
-- name: Taha Kass-Hout
-  bio: "Dr. Taha Kass-Hout is the Chief Health Informatics Officer of FDA"
-  email: taha@fda.hhs.gov
-  image: tahakasshout.jpg
-  twitter: DrTaha_FDA
+# Update post authors
+#
+# - Manually keep this list sorted alphabetically by first name
+# - Obligatory fields: 'name' (key)
 
-- name: Sean Herron
+- name: "Jeffrey Shuren"
+  fullname: "Jeffrey E. Shuren, MD, JD"
+  bio: "Dr. Jeffrey Shuren is Director of FDA's Center for Devices and Radiological Health"
+  email: jeff.shuren@fda.hhs.gov
+  image: jeffreyshuren.jpg
+
+- name: "Sean Herron"
   bio: "Sean Herron is a <a href='http://www.whitehouse.gov/innovationfellows'>Presidential Innovation Fellow</a> serving at FDA"
   email: sean.herron@fda.hhs.gov
   image: seanherron.png
   twitter: seanherron
 
-- name: Jeffrey Shuren
-  bio: "Dr. Jeffrey Shuren is Director of FDA's Center for Devices and Radiological Health"
-  email: jeff.shuren@fda.hhs.gov
-  image: jeffreyshuren.jpg
+- name: "Taha Kass-Hout"
+  fullname: "Taha A. Kass-Hout, MD, MS"
+  bio: "Dr. Taha Kass-Hout is the Chief Health Informatics Officer of FDA"
+  email: taha@fda.hhs.gov
+  image: tahakasshout.jpg
+  twitter: DrTaha_FDA
+
+- name: "Zhiheng Xu"
+  fullname: "Zhiheng Xu, PhD"
