@@ -13,9 +13,20 @@ layout: default
   {% for post in site.posts %}
   <article>
     <header><h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-      <div class="article-meta">{% for author in site.data.authors %}{% if post.authors contains author.email %}{{ author.name }} | {% endif %}{% endfor %}{{ post.date | date_to_string }}</div>
+      <div class="article-meta">
+        {% for author in site.data.authors %}
+          {% if post.authors contains author.name %}
+            {{ author.name }} | 
+          {% endif %}
+        {% endfor %}
+        {{ post.date | date_to_string }}
+      </div>
     </header>
-    {{ post.excerpt }}
+    {% if post.summary %}
+      <p>{{ post.summary }}</p>
+    {% else %}
+      {{ post.excerpt }}
+    {% endif %}
     <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read more</a>
   </article>
   {% endfor %}

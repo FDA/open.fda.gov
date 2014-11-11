@@ -1,9 +1,9 @@
 ---
 layout:         post
 date:           2014-08-18 14:30:00
-title:          "Providing Easy Public Access to Prescription Drug, Over-the-Counter Drug, and Biological Product Labeling"
+title:          "Providing easy public access to prescription drug, over-the-counter drug, and biological product labeling"
 authors:        
-  - "taha@fda.hhs.gov"
+  - "Taha Kass-Hout"
 ---
 
 Every prescription drug (including biological drug products) approved by FDA for human use comes with FDA-approved labeling.  The labeling contains information necessary to inform healthcare providers about the safe and effective use of the drug for its approved use(s). Once a prescription drug is approved, the labeling may be updated as new information becomes available, including, for example, new approved uses, new dosing recommendations, and new safety information. Thus, the approved labeling is a “living document” that changes over time to reflect increased knowledge about the safety and effectiveness of the drug.

@@ -1,9 +1,9 @@
 ---
 layout:         post
 date:           2014-06-02 08:30:00
-title:          "OpenFDA: Innovative Initiative Opens Door to Wealth of FDA’s Publicly Available Data "
+title:          "OpenFDA: Innovative initiative opens door to wealth of FDA’s publicly available data"
 authors:         
-  - "taha@fda.hhs.gov"
+  - "Taha Kass-Hout"
 ---
 
 Today, I am pleased to announce the launch of [openFDA](https://open.fda.gov/), a new initiative from our Office of Informatics and Technology Innovation (OITI). OpenFDA is specifically designed to make it easier for developers, researchers, and the public to access and use the many large, important, health data sets collected by the agency.

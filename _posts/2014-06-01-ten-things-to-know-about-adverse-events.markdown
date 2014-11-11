@@ -1,9 +1,9 @@
 ---
 layout:         post
 date:           2014-06-02 07:30:00
-title:          "Ten Things to Know About Drug Adverse Events"
+title:          "Ten things to know about drug adverse events"
 authors:
-  - "sean.herron@fda.hhs.gov"
+  - "Sean Herron"
 js:
   - '/static/bower_components/jquery/dist/jquery.min.js'
   - '/static/bower_components/bootstrap/js/modal.js'

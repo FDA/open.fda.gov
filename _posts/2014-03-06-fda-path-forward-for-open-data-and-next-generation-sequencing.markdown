@@ -1,9 +1,9 @@
 ---
 layout:         post
 date:           2014-03-06
-title:          "FDA's Path Forward for Open Data and Next Generation Sequencing"
+title:          "FDA's path forward for open data and Next Generation Sequencing"
 authors:        
-  - "taha@fda.hhs.gov"
+  - "Taha Kass-Hout"
 ---
 
 FDA has established an Office of Informatics and Technology Innovation (OITI) under the Chief Health Informatics Officer (CHIO) in order to spur technology innovation.  The following presentation highlight two exciting initiatives within OITI:
