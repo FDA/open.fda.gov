@@ -2,35 +2,33 @@
 title: Drugs - Labeling
 layout: api
 cover: p_chemist.jpg
-endpoints:
-  - endpoint: /drug/label/
-    name:  Drug product labeling
-    description: 'Drug product labeling.'
-    status: active
-    docs:
-      - name: API reference
-        url: /drug/label/reference/
+endpoint: /drug/label
+name: Drug product labeling
+docs:
+  - name: API reference
+    url: /drug/label/reference/
 ---
 {::nomarkdown}
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
     <div class="content-heading-title">
-      Getting started | <a href="{{ site.baseurl }}/drug/label/reference/">Reference</a>
+      Drugs
     </div>
-    <h1>Drugs</h1>
+    <h1><span class="faded">api.fda.gov</span>{{ page.endpoint }}</h1>
+    <a href="{{ site.baseurl }}{{ page.endpoint }}/reference/" class="api-nav">API field reference »</a>
   </div>
 </section>
 
 <div class="row tabs">
   <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/event/">Adverse events</a></h2></div>
-  <div class="col-sm-4 tab selected"><h2><a href="#">Labeling</a></h2></div>
+  <div class="col-sm-4 tab selected"><h2><a href="{{ site.baseurl }}/drug/label/">Labeling</a></h2></div>
   <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement/">Enforcement reports</a></h2></div>
 </div>
 {:/}
 
-<section id="endpoint">
-
 {% include api-demo-drug-label.html %}
+
+<section id="endpoint">
 
 ## About drug product labeling
 
@@ -44,7 +42,7 @@ The openFDA drug product labels API returns data from these submissions for both
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of openFDA drug product label records.
 
-## How to query the API
+## How to search this endpoint
 
     https://api.fda.gov/drug/label.json?
 

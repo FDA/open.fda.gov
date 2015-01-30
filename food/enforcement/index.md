@@ -2,33 +2,31 @@
 title: Foods - Recall enforcement reports
 layout: api
 cover: p_fruit.jpg
-endpoints:
-  - endpoint: /food/enforcement/
-    name:  Food enforcement reports
-    description: 'Food product recall enforcement reports.'
-    status: active
-    docs:
-      - name: API reference
-        url: /food/enforcement/reference/
+endpoint: /food/enforcement
+name: Food enforcement reports
+docs:
+  - name: API reference
+    url: /food/enforcement/reference/
 ---
 {::nomarkdown}
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
     <div class="content-heading-title">
-      Getting started | <a href="{{ site.baseurl }}/food/enforcement/reference/">Reference</a>
+      Foods
     </div>
-    <h1>Foods</h1>
+    <h1><span class="faded">api.fda.gov</span>{{ page.endpoint }}</h1>
+    <a href="{{ site.baseurl }}{{ page.endpoint }}/reference/" class="api-nav">API field reference »</a>
   </div>
 </section>
 
 <div class="row tabs">
-  <div class="col-sm-12 tab selected"><h2><a href="#">Enforcement reports</a></h2></div>
+  <div class="col-sm-12 tab selected"><h2><a href="{{ site.baseurl }}/food/enforcement/">Enforcement reports</a></h2></div>
 </div>
 {:/}
 
-<section id="endpoint">
-
 {% include api-demo-food-enforcement.html %}
+
+<section class="reference">
 
 ## About food recalls and enforcement reports
 
@@ -50,7 +48,7 @@ Whereas not all recalls are announced in the media or on our recall press releas
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of enforcement reports.
 
-## How to query the API
+## How to search this endpoint
 
     https://api.fda.gov/food/enforcement.json?
 

@@ -2,35 +2,33 @@
 title: Drugs - Recall enforcement reports
 layout: api
 cover: p_chemist.jpg
-endpoints:
-  - endpoint: /drug/enforcement/
-    name:  Drug enforcement reports
-    description: 'Drug product recall enforcement reports.'
-    status: active
-    docs:
-      - name: API reference
-        url: /drug/enforcement/reference/
+endpoint: /drug/enforcement
+name: Drug enforcement reports
+docs:
+  - name: API reference
+    url: /drug/enforcement/reference/
 ---
 {::nomarkdown}
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
     <div class="content-heading-title">
-      Getting started | <a href="{{ site.baseurl }}/drug/enforcement/reference/">Reference</a>
+      Drugs
     </div>
-    <h1>Drugs</h1>
+    <h1><span class="faded">api.fda.gov</span>{{ page.endpoint }}</h1>
+    <a href="{{ site.baseurl }}{{ page.endpoint }}/reference/" class="api-nav">API field reference »</a>
   </div>
 </section>
 
 <div class="row tabs">
   <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/event/">Adverse events</a></h2></div>
   <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label">Labeling</a></h2></div>
-  <div class="col-sm-4 tab selected"><h2><a href="#">Enforcement reports</a></h2></div>
+  <div class="col-sm-4 tab selected"><h2><a href="{{ site.baseurl }}/drug/enforcement/">Enforcement reports</a></h2></div>
 </div>
 {:/}
 
-<section id="endpoint">
-
 {% include api-demo-drug-enforcement.html %}
+
+<section class="reference">
 
 ## About drug recalls and enforcement reports
 
@@ -52,7 +50,7 @@ Whereas not all recalls are announced in the media or on our recall press releas
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of enforcement reports.
 
-## How to query the API
+## How to search this endpoint
 
     https://api.fda.gov/drug/enforcement.json?
 
