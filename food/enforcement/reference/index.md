@@ -2,17 +2,15 @@
 title: Foods API reference - Recall enforcement reports
 layout: default
 cover: p_fruit.jpg
-endpoints:
-  - endpoint: /food/enforcement/
-    name:  Food enforcement reports
-    description: 'Food product recall enforcement reports.'
-    status: active
+endpoint: /food/enforcement
+name: Food enforcement reports
 datasets:
   - dataset: RES
-    url: "/data/res/"
+    url: /data/res/
     kind: Recall enforcement reports.
 js:
   - '/static/bower_components/jquery/dist/jquery.min.js'
+  - '/static/js/min/jquery-xdomainrequest.js'
   - '/static/bower_components/bootstrap/js/modal.js'
   - '/static/bower_components/bootstrap/js/affix.js'
   - '/static/bower_components/bootstrap/js/tab.js'
@@ -22,22 +20,22 @@ js:
   - '/static/js/min/jquery-cookie.js'
   - '/static/js/min/api-scripts.js'
 ---
-
+{::nomarkdown}
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
-<div class="content-heading-text">
-<div class="content-heading-title">
-<a href="{{ site.baseurl }}/food/enforcement/">Getting started</a> | Reference
-</div>
-<h1>Foods API reference</h1>
-</div>
+  <div class="content-heading-text">
+    <div class="content-heading-title">
+      Foods
+    </div>
+    <h1><span class="faded">api.fda.gov</span>{{ page.endpoint }} <span class="faded">API field reference</span></h1>
+  </div>
 </section>
 
 <div class="row tabs">
-<div class="col-sm-12 tab selected"><h2><a href="#">Enforcement reports</a></h2></div>
+  <div class="col-sm-12 tab selected"><h2><a href="{{ site.baseurl }}/food/enforcement/">Enforcement reports</a></h2></div>
 </div>
+{:/}
 
-
-<section id="reference">
+<section class="reference">
 
 ## About
 

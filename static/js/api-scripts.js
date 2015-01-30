@@ -1,5 +1,7 @@
+// Scripts that run on API docs-related pages
+
 // Create anchors for each h2 through h6 on the page.
-//
+
 function createAnchorsFromHeadings() {
   return $("h2, h3, h4, h5, h6").each(function(i, el) {
     var $el, icon, id;
@@ -17,7 +19,7 @@ function createNavigationSidebarFromHeadings() {
     var navigationItems = "",
         depth = null;
 
-    $('#reference :header').not('.noindex').each(function() {
+    $('.reference :header').not('.noindex').each(function() {
       var heading = $(this),
           headingTag = this.tagName,
           headingDepth = headingTag.substr(1,1),
@@ -59,6 +61,8 @@ function createNavigationSidebarFromHeadings() {
   }
 }
 
+// JSON prettyprint
+
 if (!library) { var library = {}; }
 library.json = {
   replacer: function (e, t, n, r, i) {
@@ -76,13 +80,21 @@ library.json = {
   }
 };
 
+// Document ready
+
 $(document).ready(function() {
+  
+  // Create navigation sidebar on API docs pages
+
   createNavigationSidebarFromHeadings();
   createAnchorsFromHeadings();
+
+  // Attach autosize event handler to text areas
+
   $('textarea').autosize();
 
-  // Affix navigation sidebar when user scrolls.
-  //
+  // Affix navigation sidebar when user scrolls
+
   $('.reference-nav').affix({
     offset: {
       top: function () {
@@ -91,8 +103,8 @@ $(document).ready(function() {
     }
   });
 
-  // Update API status.
-  //
+  // Update API status on endpoint reference pages
+
   if ($('#api-status-updated').length > 0) {
     var dateUpdated, dateLatest;
     var endpoint = $('#api-status-updated').find("#endpoint").html();
@@ -118,13 +130,104 @@ $(document).ready(function() {
     });
   }
 
-  // Process API queries in interactive query explorer.
-  //
+  // Update API status on open.fda.gov/api/status
+
+  if ($('.api-status').length > 0) {
+
+    $.getJSON('//api.fda.gov/status')
+    .done(function(data) {
+      
+      var statuses = {};
+      for (item in data) {
+        if (data[item].endpoint == 'recall') {
+          statuses['/drug/enforcement.json'] = {
+            status: data[item].status,
+            last_updated: data[item].last_updated
+          };
+          statuses['/device/enforcement.json'] = {
+            status: data[item].status,
+            last_updated: data[item].last_updated
+          };
+          statuses['/food/enforcement.json'] = {
+            status: data[item].status,
+            last_updated: data[item].last_updated
+          };
+        }
+        else if (data[item].endpoint == 'drugevent') {
+          statuses['/drug/event.json'] = {
+            status: data[item].status,
+            last_updated: data[item].last_updated
+          };
+        }
+        else if (data[item].endpoint == 'druglabel') {
+          statuses['/drug/label.json'] = {
+            status: data[item].status,
+            last_updated: data[item].last_updated
+          };
+        }
+        else if (data[item].endpoint == 'deviceevent') {
+          statuses['/device/event.json'] = {
+            status: data[item].status,
+            last_updated: data[item].last_updated
+          };
+        }
+      }
+      
+      $('.api-status').each(function(index) {
+        var status = this;
+        var endpoint = $(status).data('endpoint');
+
+        if (statuses[endpoint]) {
+          if (statuses[endpoint].status == 'GREEN') {
+            $(status).find('.status').text('OK');
+            $(status).find('.updated').text(statuses[endpoint].last_updated);
+
+            $(status).find('.metric').addClass('visible');
+            $(status).addClass('green');
+          }
+          else if (statuses[endpoint].status == 'YELLOW') {
+            $(status).find('.status').text('Slow');
+            $(status).find('.updated').text(statuses[endpoint].last_updated);
+
+            $(status).find('.metric').addClass('visible');
+            $(status).addClass('yellow');
+          }
+          else if (statuses[endpoint].status == 'RED') {
+            $(status).find('.status').text('Down');
+            $(status).find('.updated').text(statuses[endpoint].last_updated);
+
+            $(status).find('.metric').addClass('visible');
+            $(status).addClass('red');
+          }
+        }
+        else {
+          $(status).find('.status').text('No information available');
+          $(status).find('.updated').text('—');
+
+          $(status).find('.metric').addClass('visible');
+        }
+      });
+    })
+    .fail(function() {
+      $('.api-status').each(function(index) {
+        var status = this;
+        var endpoint = $(status).data('endpoint');
+
+        $(status).find('.status').text('API status server not responding');
+        $(status).find('.updated').text('—');
+
+        $(status).find('.metric').addClass('visible');
+      });
+    });
+  }
+
+  // Process API queries in interactive query explorer
+
   $(".api-explorer button.go").click(function () {
     var e = $(this).parents(".api-explorer-form").find(".api-explorer-query").val(),
       t = $(this).parents("div.api-explorer").find(".return"),
       button = $(this);
-    $(t).find(".response pre").html("Loading request...");
+    $(t).find(".response pre").html("Loading...");
     $.getJSON(e, function (json) {
       // parseResultForChart(json, button);
       $(t).find(".response pre").html(library.json.prettyPrint(json));
@@ -138,21 +241,21 @@ $(document).ready(function() {
         $(this).parent().find('.response-close').remove();
       });
     }).fail(function () {
-      $(t).find(".response pre").html("The API response was an error. Bummer. Check the syntax and give it another try.");
+      $(t).find(".response pre").html("The API response was an error. Check the syntax and give it another try.");
     });
   });
 
-  // Handle keypresses in API query textareas.
-  //
+  // Handle keypresses in API query textareas
+
   $(".api-explorer-query").keypress(function(e) {
     var code = (e.keyCode ? e.keyCode : e.which),
         button = $(this).parents("div.api-explorer").find("button.go");
     
-    // Handle space character (don't allow it).
+    // Handle space character (don't allow it)
     if (code === 32) {
       e.preventDefault();
     }
-    // Handle return keypress.
+    // Handle return keypress
     else if (code === 13) {
       e.preventDefault();
       $(button).trigger('click');
