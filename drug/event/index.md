@@ -2,35 +2,33 @@
 title: Drugs - Adverse events
 layout: api
 cover: p_chemist.jpg
-endpoints:
-  - endpoint: /drug/event/
-    name:  Drug adverse events
-    description: 'Adverse events.'
-    status: active
-    docs:
-      - name: API reference
-        url: /drug/event/reference/
+endpoint: /drug/event
+name: Drug adverse events
+docs:
+  - name: API reference
+    url: /drug/event/reference/
 ---
 {::nomarkdown}
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
     <div class="content-heading-title">
-      Getting started | <a href="{{ site.baseurl }}/drug/event/reference/">Reference</a>
+      Drugs
     </div>
-    <h1>Drugs</h1>
+    <h1><span class="faded">api.fda.gov</span>{{ page.endpoint }}</h1>
+    <a href="{{ site.baseurl }}{{ page.endpoint }}/reference/" class="api-nav">API field reference »</a>
   </div>
 </section>
 
 <div class="row tabs">
-  <div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
-  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label">Labeling</a></h2></div>
-  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement">Enforcement reports</a></h2></div>
+  <div class="col-sm-4 tab selected"><h2><a href="{{ site.baseurl }}/drug/event/">Adverse events</a></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label/">Labeling</a></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement/">Enforcement reports</a></h2></div>
 </div>
 {:/}
 
-<section id="endpoint">
-
 {% include api-demo-drug-event.html %}
+
+<section class="reference">
 
 ## About drug adverse events
 
@@ -40,7 +38,7 @@ An adverse event is submitted to the FDA to report any undesirable experience as
 
 ### Adverse event reports
 
-This highly simplified schematic illustrates the general nature of an adverse event report. A report may list several drug products, as well as several patient reactions. **When a report lists multiple drugs and multiple reactions, there is no way to conclude from the data therein that a given drug is responsible for a given reaction.**
+This highly simplified schematic illustrates the general nature of an adverse event report. A report may list several drug products, as well as several patient reactions. No individual drug is connected to any individual reaction. **When a report lists multiple drugs and multiple reactions, there is no way to conclude from the data therein that a given drug is responsible for a given reaction.**
 
 {% include drug-adverse-event.html %}
 
@@ -54,7 +52,7 @@ Reports contain varying levels of detail about the drug products involved, indic
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of drug adverse event reports.
 
-## How to query the API
+## How to search this endpoint
 
     https://api.fda.gov/drug/event.json?
 

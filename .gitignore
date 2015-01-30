@@ -14,3 +14,5 @@ coverage
 .ruby-version
 .sass-cache
 *.log
+node_modules/
+static/js/min

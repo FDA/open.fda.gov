@@ -2,34 +2,32 @@
 title: Devices - Adverse event reports
 layout: api
 cover: p_knee.jpg
-endpoints:
-  - endpoint: /device/event/
-    name:  Device adverse event reports
-    description: 'Device adverse event reports.'
-    status: active
-    docs:
-      - name: API reference
-        url: /device/event/reference/
+endpoint: /device/event
+name: Device adverse event reports
+docs:
+  - name: API reference
+    url: /device/event/reference/
 ---
 {::nomarkdown}
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
     <div class="content-heading-title">
-      Getting started | <a href="{{ site.baseurl }}/device/event/reference/">Reference</a>
+      Devices
     </div>
-    <h1>Devices</h1>
+    <h1><span class="faded">api.fda.gov</span>{{ page.endpoint }}</h1>
+    <a href="{{ site.baseurl }}{{ page.endpoint }}/reference/" class="api-nav">API field reference »</a>
   </div>
 </section>
 
 <div class="row tabs">
-  <div class="col-sm-6 tab selected"><h2><a href="#">Adverse events</a></h2></div>
+  <div class="col-sm-6 tab selected"><h2><a href="{{ site.baseurl }}/device/event/">Adverse events</a></h2></div>
   <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/enforcement/">Enforcement reports</a></h2></div>
 </div>
 {:/}
 
-<section id="endpoint">
-
 {% include api-demo-device-event.html %}
+
+<section class="reference">
 
 ## About device adverse events
 
@@ -51,7 +49,7 @@ See the <a href="{{ site.baseurl }}/data/maude/">MAUDE dataset page</a> for more
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of device adverse event reports.
 
-## How to query the API
+## How to search this endpoint
 
     https://api.fda.gov/device/event.json?
 

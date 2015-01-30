@@ -2,34 +2,32 @@
 title: Devices - Recall enforcement reports
 layout: api
 cover: p_knee.jpg
-endpoints:
-  - endpoint: /device/enforcement/
-    name:  Device enforcement reports
-    description: 'Device product recall enforcement reports.'
-    status: active
-    docs:
-      - name: API reference
-        url: /device/enforcement/reference/
+endpoint: /device/enforcement
+name:  Device enforcement reports
+docs:
+  - name: API reference
+    url: /device/enforcement/reference/
 ---
 {::nomarkdown}
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
     <div class="content-heading-title">
-      Getting started | <a href="{{ site.baseurl }}/device/enforcement/reference/">Reference</a>
+      Devices
     </div>
-    <h1>Devices</h1>
+    <h1><span class="faded">api.fda.gov</span>{{ page.endpoint }}</h1>
+    <a href="{{ site.baseurl }}{{ page.endpoint }}/reference/" class="api-nav">API field reference »</a>
   </div>
 </section>
 
 <div class="row tabs">
   <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/event/">Adverse events</a></h2></div>
-  <div class="col-sm-6 tab selected"><h2><a href="#">Enforcement reports</a></h2></div>
+  <div class="col-sm-6 tab selected"><h2><a href="{{ site.baseurl }}/device/enforcement/">Enforcement reports</a></h2></div>
 </div>
 {:/}
 
-<section id="endpoint">
-
 {% include api-demo-device-enforcement.html %}
+
+<section class="reference">
 
 ## About device recalls and enforcement reports
 
@@ -51,7 +49,7 @@ Whereas not all recalls are announced in the media or on our recall press releas
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of enforcement reports.
 
-## How to query the API
+## How to search this endpoint
 
     https://api.fda.gov/device/enforcement.json?
 

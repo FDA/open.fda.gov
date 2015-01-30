@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
+    <title>{{ page.title }} | {{ site.name }}</title>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }} | {{ site.name }}</title>
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <link href="{{ site.baseurl }}/static/css/style.css" rel="stylesheet">
-
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} &raquo; Feed" href="{{ site.baseurl }}/feed/" />
 
     <!--[if lt IE 9]>
@@ -21,53 +22,28 @@
   <body>
     {% include beta.html %}
     <div class="container">
-    <div class="site-wrapper">
-    <header role="banner" class="site-header">
-      <h1><a href="{{ site.baseurl }}/index.html" class="logo"></a></h1>
-      <nav role="navigation" class="site-navigation main-nav">
-        <ul>
-          <li><a href="{{ site.baseurl }}/about/">About</a></li>
-          <li><a href="{{ site.baseurl }}/updates/">Updates</a></li>
-          <li><a href="https://twitter.com/openfda" target="_blank">@openFDA</a> Twitter</li>
-          <li class="nav-section">
-            <ul>
-              <li><a href="{{ site.baseurl }}/api/reference/">API basics</a></li>
-              <li><a href="{{ site.baseurl }}/drug/event/">Drugs</a></li>
-              <li><a href="{{ site.baseurl }}/device/event/">Devices</a></li>
-              <li><a href="{{ site.baseurl }}/food/enforcement/">Foods</a></li>
-            </ul>
-          </li>
-          <li class="nav-section">
-            <ul>
-              <li><a href="https://opendata.stackexchange.com/questions/ask?tags=openFDA" target="_blank">Ask questions</a> on StackExchange</li>
-              <li><a href="https://github.com/FDA/openfda/issues" target="_blank">Report bugs</a> on GitHub</li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      {% if page.url contains "reference" %}
-      <nav class="site-navigation reference-nav">
-        <ul id="reference-nav-ul"></ul>
-      </nav>
-      {% endif %}
-    </header>
+      <div class="site-wrapper">
+        <header role="banner" class="site-header">
+          <h1><a href="{{ site.baseurl }}/index.html" class="logo"></a></h1>
+          {% include nav.html %}
+          
+          {% if page.url contains "reference" %}
+            <nav class="site-navigation reference-nav">
+              <ul id="reference-nav-ul"></ul>
+            </nav>
+          {% endif %}
+        </header>
 
-    <div class="site-body">
-      <div class="site-body-heading">
-        {% for section in site.data.site-body-headings %}
-        <div class="site-body-heading-section {{ section.class }}">
-          <span class="site-body-heading-section-title">{{ section.title }}</span> <span class="site-body-heading-section-subtitle">{{ section.subtitle }}</span> <span class="site-body-heading-section-description">{{ section.description }}</span>
+        <div class="site-body">
+          {% include community.html %}
+
+          <div class="site-body-content">
+            {{ content }}
+          </div>
         </div>
-        {% endfor %}
       </div>
+    </div>
 
-      <div class="site-body-content">
-        {{ content }}
-      </div>
-
-    </div>
-    </div>
-    </div>
     <footer role="contentInfo" class="site-footer">
       <div class="site-footer-section">
         <div class="site-footer-aside">

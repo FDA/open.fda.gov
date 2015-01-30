@@ -22,7 +22,7 @@ It’s very important to note that the labeling for prescription drugs is propos
 
 As a research and development project, openFDA is a work in progress (Beta phase), and we are eager to learn from the developer and research communities what possible uses these data might have. We are also interested in hearing from the community about other publicly available FDA datasets for which an API might prove useful.
 
-We are actively involved in the openFDA communities on [GitHub](http://github.com/FDA/openfda) and [StackExchange](https://opendata.stackexchange.com/questions/tagged/openfda), and encourage people interested in the project to participate in those communities. In addition to providing access to datasets, openFDA encourages innovative use of the agency’s publicly available data by highlighting potential data applications, and providing a place for community interaction with one another and with FDA domain experts.
+We are actively involved in the openFDA communities on [GitHub](http://github.com/FDA/openfda) {% include external-link.html %} and [StackExchange](https://opendata.stackexchange.com/questions/tagged/openfda) {% include external-link.html %}, and encourage people interested in the project to participate in those communities. In addition to providing access to datasets, openFDA encourages innovative use of the agency’s publicly available data by highlighting potential data applications, and providing a place for community interaction with one another and with FDA domain experts.
 
 Over time, we hope that openFDA can become an important resource where developers, researchers, and the public at large will learn about the medications and other FDA-regulated products that protect and promote the health of Americans.
 
