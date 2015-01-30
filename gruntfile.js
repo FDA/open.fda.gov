@@ -1,3 +1,5 @@
+var autoprefixer = require('autoprefixer');
+
 module.exports = function(grunt) {
   grunt.initConfig({
     less: {
@@ -25,6 +27,14 @@ module.exports = function(grunt) {
         allinone: false
       }
     },
+    postcss: {
+      options: {
+        processors: [
+          autoprefixer({ browsers: ['last 2 version'] }).postcss
+        ]
+      },
+      dist: { src: 'css/*.css' }
+    },
     watch: {
       styles: {
         // Which files to watch (all .less files recursively in the less directory)
@@ -46,6 +56,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-minified');
 

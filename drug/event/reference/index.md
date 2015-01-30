@@ -2,17 +2,15 @@
 title: Drugs API reference - Adverse Events
 layout: default
 cover: p_chemist.jpg
-endpoints:
-  - endpoint: /drug/event/
-    name:  Drug adverse events
-    description: 'Drug adverse events.'
-    status: active
+endpoint: /drug/event
+name: Drug adverse events
 datasets:
   - dataset: FAERS
-    url: "/data/faers/"
+    url: /data/faers/
     kind: Drug adverse event reports.
 js:
   - '/static/bower_components/jquery/dist/jquery.min.js'
+  - '/static/js/min/jquery-xdomainrequest.js'
   - '/static/bower_components/bootstrap/js/modal.js'
   - '/static/bower_components/bootstrap/js/affix.js'
   - '/static/bower_components/bootstrap/js/tab.js'
@@ -22,24 +20,24 @@ js:
   - '/static/js/min/jquery-cookie.js'
   - '/static/js/min/api-scripts.js'
 ---
-
+{::nomarkdown}
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
   <div class="content-heading-text">
-  <div class="content-heading-title">
-  <a href="{{ site.baseurl }}/drug/event/">Getting started</a> | Reference
-  </div>
-  <h1>Drugs API reference</h1>
+    <div class="content-heading-title">
+      Drugs
+    </div>
+    <h1><span class="faded">api.fda.gov</span>{{ page.endpoint }} <span class="faded">API field reference</span></h1>
   </div>
 </section>
 
 <div class="row tabs">
-  <div class="col-sm-4 tab selected"><h2><a href="#">Adverse events</a></h2></div>
-  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label/reference/">Labeling</a></h2></div>
-  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement/reference/">Enforcement reports</a></h2></div>
+  <div class="col-sm-4 tab selected"><h2><a href="{{ site.baseurl }}/drug/event/">Adverse events</a></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/label/">Labeling</a></h2></div>
+  <div class="col-sm-4 tab"><h2><a href="{{ site.baseurl }}/drug/enforcement/">Enforcement reports</a></h2></div>
 </div>
+{:/}
 
-
-<section id="reference">
+<section class="reference">
 
 ## About
 
@@ -631,10 +629,10 @@ Roughly 86% of adverse event records have at least one `openfda` section. Becaus
 #### Reactions
 
 `patient.reaction.reactionmeddrapt`
-: [MedDRA](http://www.meddra.org/) term(s) for the reaction(s). Note that these terms are encoded in British English. For instance, "diarrhea" is recorded as "diarrohea."
+: [MedDRA](http://www.meddra.org/) {% include external-link.html %} term(s) for the reaction(s). Note that these terms are encoded in British English. For instance, "diarrhea" is recorded as "diarrohea."
 
 `patient.reaction.reactionmeddraversionpt`
-: The [MedDRA](http://www.meddra.org/) version that `patient.reaction.reactionmeddrapt` uses.
+: The [MedDRA](http://www.meddra.org/) {% include external-link.html %} version that `patient.reaction.reactionmeddrapt` uses.
 
 `patient.reaction.reactionoutcome`
 : Outcome of the reaction or event at the time of last observation.

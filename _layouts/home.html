@@ -1,33 +1,73 @@
 ---
 layout: default
+cover: p_binders.jpg
 js: 
   - '/static/bower_components/jquery/dist/jquery.min.js'
-  - '/static/bower_components/d3/d3.min.js'
-  - '/static/bower_components/c3/c3.min.js'
-  - '/static/js/min/api-home-demo.js'
+  - '/static/js/min/jquery-xdomainrequest.js'
   - '/static/js/min/update-signup.js'
 ---
-<div class="homepage">
-  <div class="homepage-header">
-    <div class="welcome-message">
-      <div class="welcome-text">
-        <h1>Making public FDA datasets more accessible</h1>
-        <p class="tagline"></p>
-        <a href="{{ site.baseurl }}/drug/event" style="text-decoration: none">
-          <div id="api-home-demo">
-            <span id="title" class="out"></span>
-            <div id="chart"></div>
-          </div>
-        </a>
-        <br />
+<section class="content-heading home api {% if page.cover %}cover{% endif %}" style="background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');">
+  <div class="content-heading-text">
+    <div class="content-heading-title">
+      &nbsp;
+    </div>
+    <h1>
+      Open-source APIs for FDA <strong>drug</strong>, <strong>device</strong>, and <strong>food</strong> data
+    </h1>
+    <p><a href="{{ site.baseurl }}/about">About openFDA <i class="fa fa-angle-double-right"></i></a></p>
+    
+    <section class="pointers">
+      <div>
+        <h2>Drugs</h2>
+        <ul>
+          <li>
+            <a href="{{ site.baseurl }}/drug/event">Adverse events</a><br />
+            <a href="https://api.fda.gov/drug/event.json" class="api-link">api.fda.gov/drug/event</a>
+          </li>
+          <li>
+            <a href="{{ site.baseurl }}/drug/label">Labeling</a><br />
+            <a href="https://api.fda.gov/drug/label.json" class="api-link">api.fda.gov/drug/label</a>
+          </li>
+          <li>
+            <a href="{{ site.baseurl }}/drug/enforcement">Enforcement reports</a><br />
+            <a href="https://api.fda.gov/drug/enforcement.json" class="api-link">api.fda.gov/drug/enforcement</a>
+          </li>
+        </ul>
       </div>
+      <div>
+        <h2>Devices</h2>
+        <ul>
+          <li>
+            <a href="{{ site.baseurl }}/device/event">Adverse events</a><br />
+            <a href="https://api.fda.gov/device/event.json" class="api-link">api.fda.gov/device/event</a>
+          </li>
+          <li>
+            <a href="{{ site.baseurl }}/device/enforcement">Enforcement reports</a><br />
+            <a href="https://api.fda.gov/device/enforcement.json" class="api-link">api.fda.gov/device/enforcement</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2>Foods</h2>
+        <ul>
+          <li>
+            <a href="{{ site.baseurl }}/food/enforcement">Enforcement reports</a><br />
+            <a href="https://api.fda.gov/food/enforcement.json" class="api-link">api.fda.gov/food/enforcement</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!--
+    <div id="api-home-demo">
+      <span id="title" class="out"></span>
+      <div id="chart"></div>
     </div>
-    <div>
-      openFDA provides open APIs, raw data downloads, documentation and examples, and a developer community for an important collection of FDA public datasets.<br />
-      <a href="{{ site.baseurl }}/about">About openFDA <i class="fa fa-angle-double-right"></i></a>
-    </div>
+    -->
   </div>
-  
+</section>
+
+<div class="homepage">
   <div class="homepage-content">
     <div class="article-list">
       {% for post in site.posts limit:3 %}
@@ -51,28 +91,40 @@ js:
         </article>
       {% endfor %}
 
-      <div class="text-right">
-        <a href="{{ site.baseurl }}/updates/">More updates</a>
-      </div>
+      <a href="{{ site.baseurl }}/updates/">More updates</a>
     </div>
   </div>
   
-  <div class="homepage-aside">  
-    <div class="activity">
-      <h2><i class="fa fa-envelope"></i> Sign up for updates</h2>
-      <div id="contact-form" class="form-inline slight">
-        <label for="email" class="sr-only">Email address</label>
-        <input type="email" class="form-control input-sm" id="email" placeholder="Email address">
-        <button class="btn btn-default btn-sm" id="listserv-signup">Sign up</button>
-      </div>
-    </div>
-    <div class="activity">
-      <h2><i class="fa fa-github"></i> FDA on GitHub</a></h2>
-      Our code is on <a href="https://github.com/FDA" target="_blank">GitHub</a>. Log bugs and feature requests there.
-    </div>
-    <div class="activity">
-      <h2><i class="fa fa-twitter"></i> <a href="https://twitter.com/openFDA" target="_blank">@openFDA</a> on Twitter</h2>
-      Use hashtag <a href="https://twitter.com/search?q=%23openfda" target="_blank">#openFDA</a> to join the openFDA community!
-    </div>
+  <div class="homepage-sidebar">  
+    <section>
+      <a href="https://github.com/FDA" target="_blank">
+        <h2><i class="fa fa-github"></i>Open source on GitHub {% include external-link.html %}</h2>
+      </a>
+      <span>Log bugs, contribute, or fork openFDA</span>
+    </section>
+    <section>
+      <a href="https://opendata.stackexchange.com/questions/tagged/openfda" target="_blank">
+        <h2><i class="fa fa-stack-exchange"></i>Q&amp;A on StackExchange {% include external-link.html %}</h2>
+      </a>
+      <span>Ask questions and get support</span>
+    </section>
+    <section>
+      <a href="https://twitter.com/openFDA" target="_blank">
+        <h2><i class="fa fa-twitter"></i>@openFDA on Twitter {% include external-link.html %}</h2>
+      </a>
+      <span>Keep up to date on <a href="https://twitter.com/search?q=%23openfda" target="_blank">#openFDA</a> {% include external-link.html %}</span>
+    </section>
+    <section>
+      <h2><i class="fa fa-envelope"></i>Get email updates</h2>
+      <form id="contact-form" class="form-inline">
+        <div class="input-group">
+          <label for="email" class="sr-only">Email address</label>
+          <input type="email" class="form-control input-sm" id="email" placeholder="Email address">
+          <span class="input-group-btn">
+            <button class="btn btn-default btn-sm" id="listserv-signup">Sign up</button>
+          </span>
+        </div>
+      </form>
+    </section>
   </div>
 </div>

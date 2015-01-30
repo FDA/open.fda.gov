@@ -4,6 +4,7 @@ layout: default
 cover: p_computer.jpg
 js:
   - '/static/bower_components/jquery/dist/jquery.min.js'
+  - '/static/js/min/jquery-xdomainrequest.js'
   - '/static/bower_components/bootstrap/js/modal.js'
   - '/static/bower_components/bootstrap/js/affix.js'
   - '/static/bower_components/bootstrap/js/tab.js'
@@ -15,30 +16,35 @@ js:
 <section class="content-heading api {% if page.cover %}cover{% endif %}" style="{% if page.cover %}background-image:url('{{ site.baseurl }}/assets/img/{{ page.cover }}');{% endif %}">
   <div class="content-heading-text">
     <div class="content-heading-title">
-      &nbsp;
+      API
     </div>
-    <h1>{{ page.title }}</h1>
+    <h1>Getting started with openFDA</h1>
   </div>
 </section>
+
+<div class="row tabs">
+  <div class="col-sm-6 tab selected"><h2><a>Basics</a></h2></div>
+  <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/api/status">Status</a></h2></div>
+</div>
 {:/}
 
-<section id="reference">
+<section class="reference">
 
 ## About the API
 
-OpenFDA is an [Elasticsearch-based](http://www.elasticsearch.org/) [API](http://apievangelist.com/index.html) that serves public [FDA](http://www.fda.gov/) data about three *nouns:*
+OpenFDA is an [Elasticsearch-based](http://www.elasticsearch.org/) {% include external-link.html %} [API](http://apievangelist.com/index.html) {% include external-link.html %} that serves public [FDA](http://www.fda.gov/) data about three *nouns:*
 
  - [Drugs]({{ site.baseurl }}/drug/event/)
  - [Devices]({{ site.baseurl }}/device/event/)
  - [Foods]({{ site.baseurl }}/food/enforcement/)
 
-All three have several *endpoints,* each of which serves unique data. Every query to the API must go through one endpoint.
+Each of these has one or more *endpoints,* which serve unique data—such as data about recall enforcement reports, or about adverse events. Every query to the API must go through one endpoint for one kind of data.
 
 OpenFDA is a beta research project and not for clinical or production use. As all data within the system is publically available, openFDA does not contain data with Personally Identifiable Information or other sensitive information.
 
 ### Result format
 
-The API returns results as [JSON](http://www.json.org/) by default. The JSON object has two sections:
+The API returns results as [JSON](http://www.json.org/) {% include external-link.html %} by default. The JSON object has two sections:
 
 | Section | Description |
 |-|-|
@@ -50,31 +56,13 @@ The API returns results as [JSON](http://www.json.org/) by default. The JSON obj
 
 OpenFDA uses public FDA datasets, but processes the data further before supplying it through the API. During our beta, we are investigating the best ways to offer direct downloads of data provided by the API.
 
+[More information about openFDA datasets and downloads »]({{ site.baseurl }}/data/)
+
 ### Authentication
 
 An API key is required to make calls to the openFDA API. The key is free of charge. Your use of the API may be subject to certain limitations on access, calls, or use. These limitations are designed to manage load on the system, promote equitable access, and prevent abuse.
 
-Signing up for an API key means you agree to our [terms of service.]({{site.baseurl}}/terms/)
-
-{::nomarkdown}
-<div class="getting-started" id="getting-started">
-  <div class="step-content">
-      <form id="api-key-form" class="form-inline slight">
-        <div class="form-group">
-          <label for="email" class="sr-only">Email address</label>
-          <input class="form-control input-sm" id="email" placeholder="Email address" type="email">
-        </div>
-        <button class="btn btn-default btn-sm" id="api-key-signup">Get API key</button>
-      </form>
-    </div>
-</div>
-{:/}
-
-Your API key should be passed to the API as the value of the `api_key` parameter. Include it before other parameters, such as the `search` parameter. For example:
-
-    https://api.fda.gov/drug/event.json?api_key=yourAPIKeyHere&search= …
-
-<br />The table below shows our standard API limits.
+The table below shows our standard API limits.
 
 | Authentication method | Per minute limit | Per day limit |
 |-|-|-|
@@ -82,11 +70,33 @@ Your API key should be passed to the API as the value of the `api_key` parameter
 | API Key | 240 requests per minute *(per key)* | 120000 requests per day *(per key)* |
 {: class="table table-code"}
 
-If you anticipate usage above the limits provided by an API key, please [contact us](mailto:open@fda.hhs.gov). We'll work with you to figure out a good solution to your requirements.
+If you anticipate usage above the limits provided by an API key, please [contact us](mailto:open@fda.hhs.gov). We'll work with you to figure out a good solution to your requirements. Signing up for an API key means you agree to our [terms of service.]({{site.baseurl}}/terms/)
+
+#### Your API key
+
+Your API key should be passed to the API as the value of the `api_key` parameter. Include it before other parameters, such as the `search` parameter. For example:
+
+    https://api.fda.gov/drug/event.json?api_key=yourAPIKeyHere&search=...
+
+{::nomarkdown}
+<div class="getting-started" id="getting-started">
+  <form id="api-key-form" class="form-inline" style="width: 50%; margin: 0 auto 2ex auto;">
+    <div class="input-group">
+      <label for="email" class="sr-only">Email address</label>
+      <input class="form-control input-sm" id="email" placeholder="Email address" type="email">
+      <span class="input-group-btn">
+        <button class="btn btn-default btn-sm" id="api-key-signup">Get API key</button>
+      </span>
+    </div>
+  </form>
+</div>
+{:/}
+
+
 
 ### HTTPS requests
 
-We encourage you to use `https://api.fda.gov` for all queries to ensure secure communication. We use [Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication) to support SSL. As [not all clients support SNI](https://en.wikipedia.org/wiki/Server_Name_Indication#No_support), we do not enforce HTTPS access. If your application does not support SNI, you can use `http://api.fda.gov`. 
+We encourage you to use `https://api.fda.gov` for all queries to ensure secure communication. We use [Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication) {% include external-link.html %} to support SSL. As [not all clients support SNI](https://en.wikipedia.org/wiki/Server_Name_Indication#No_support) {% include external-link.html %}, we do not enforce HTTPS access. If your application does not support SNI, you can use `http://api.fda.gov`. 
 
 ### Query parameters
 
