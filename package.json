@@ -11,11 +11,15 @@
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-less": "^0.11.0",
-    "grunt-contrib-watch": "~0.6.1"
+    "grunt-contrib-watch": "~0.6.1",
+    "autoprefixer": "^5.0.0",
+    "grunt-postcss": "^0.3.0"
   },
   "dependencies": {
     "grunt-contrib-less": "^0.11.0",
     "grunt-contrib-watch": "^0.4.4",
-    "grunt-minified": "0.0.6"
+    "grunt-minified": "0.0.6",
+    "autoprefixer": "^5.0.0",
+    "grunt-postcss": "^0.3.0"
   }
 }

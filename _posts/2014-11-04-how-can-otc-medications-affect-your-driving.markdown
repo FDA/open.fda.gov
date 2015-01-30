@@ -21,7 +21,7 @@ A recent FDA consumer update cautions the public that some over-the-counter (OTC
 
 Products that could make it dangerous to drive include prescription drugs for anxiety, some antidepressants, products containing codeine, some cold remedies and allergy products, tranquilizers, sleeping pills, pain relievers, diet pills, "stay awake" drugs, and other medications with stimulants (e.g. caffeine, ephedrine, pseudoephedrine).[^3] Products that contain stimulants may cause excitability or drowsiness. Also, never combine medication and alcohol while driving.
 
-To further illustrate the trend between OTC medicines and driving, we identified the above adverse reactions which could impact driving in openFDA data[^4] through [researchae.com](http://researchae.com/) search tools for OTC medicines with any of these active ingredients:[^5]
+To further illustrate the trend between OTC medicines and driving, we identified the above adverse reactions which could impact driving in openFDA data[^4] through [researchae.com](http://researchae.com/) {% include external-link.html %} search tools for OTC medicines with any of these active ingredients:[^5]
 
  - Brompheniramine
  - Cetirizine
@@ -110,10 +110,10 @@ Knowing how your individual medications—or any combination of them—affect yo
 
 [^4]: OpenFDA, [https://open.fda.gov/](https://open.fda.gov/)
 
-[^5]: Reseachae.com search tools, [http://www.researchae.com/](http://www.researchae.com/drugevent?from_date=2004-01-01&to_date=2014-10-20&from_age=&to_age=&search=&country=GLOBALLY&patientsex=&manufacturername=&drugbrandname=&druggenericname=Brompheniramine%2BCetirizine%2BChlorcyclizine%2BChlorpheniramine%2BCodeine%2BDexbrompheniramine%2BDexchlorpheniramine%2BDextromethorphan%2BDimenhydrinate%2BDiphenhydramine%2BDoxylamine%2BLoperamide%2BMeclizine%2BNaproxen%2BPhenindamine%2BPheniramine&medicinalproduct=&reactionmeddrapt=sleepiness%2Bblurred%2Bvision%2Bdizziness%2Bslowed%2Bmovement%2Bfainting%2Bfocus%2Battention%2Bnausea%2Bsyncope%2Bdyspneoa&drugclass=&drugindication=&indsubmit=&productndc=&safetyreportid=)
+[^5]: Reseachae.com search tools, [http://www.researchae.com/](http://www.researchae.com/drugevent?from_date=2004-01-01&to_date=2014-10-20&from_age=&to_age=&search=&country=GLOBALLY&patientsex=&manufacturername=&drugbrandname=&druggenericname=Brompheniramine%2BCetirizine%2BChlorcyclizine%2BChlorpheniramine%2BCodeine%2BDexbrompheniramine%2BDexchlorpheniramine%2BDextromethorphan%2BDimenhydrinate%2BDiphenhydramine%2BDoxylamine%2BLoperamide%2BMeclizine%2BNaproxen%2BPhenindamine%2BPheniramine&medicinalproduct=&reactionmeddrapt=sleepiness%2Bblurred%2Bvision%2Bdizziness%2Bslowed%2Bmovement%2Bfainting%2Bfocus%2Battention%2Bnausea%2Bsyncope%2Bdyspneoa&drugclass=&drugindication=&indsubmit=&productndc=&safetyreportid=) {% include external-link.html %}
 
-[^6]: Kass-Hout, T.A., Xu, Z., McMurray, P., Park, S., Buckeridge, D., Brownstein, J., Finelli, L., Groseclose, S.L. [Application of change point analysis to daily influenza-like-illness (ILI) emergency department visits.](http://www.ncbi.nlm.nih.gov/pubmed/22759619) Journal of American Medical Informatics Association, 2012. doi:10.1136/amiajnl-2011-000793.
+[^6]: Kass-Hout, T.A., Xu, Z., McMurray, P., Park, S., Buckeridge, D., Brownstein, J., Finelli, L., Groseclose, S.L. [Application of change point analysis to daily influenza-like-illness (ILI) emergency department visits.](http://www.ncbi.nlm.nih.gov/pubmed/22759619) {% include external-link.html %} Journal of American Medical Informatics Association, 2012. doi:10.1136/amiajnl-2011-000793.
 
-[^7]: McAdams M, Staffa J, Dal pan G. [Estimating the extent of reporting to FDA: a case study of statin-associated rhabdomyolysis.](http://www.ncbi.nlm.nih.gov/pubmed/18175291) Pharmacoepidemiol Drug Safety. 2008 Mar,17(3): 229-39.  
+[^7]: McAdams M, Staffa J, Dal pan G. [Estimating the extent of reporting to FDA: a case study of statin-associated rhabdomyolysis.](http://www.ncbi.nlm.nih.gov/pubmed/18175291) {% include external-link.html %} Pharmacoepidemiol Drug Safety. 2008 Mar,17(3): 229-39.  
 
-[^8]: Dasgupta N, Mandl KD, Brownstein JS. [Breaking the news or fueling the epidemic? Temporal association between news media report volume and opioid-related mortality.](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0007758) PLoS One. 2009;4(11):e7758. doi:10.1371/journal.pone.0007758.
+[^8]: Dasgupta N, Mandl KD, Brownstein JS. [Breaking the news or fueling the epidemic? Temporal association between news media report volume and opioid-related mortality.](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0007758) {% include external-link.html %} PLoS One. 2009;4(11):e7758. doi:10.1371/journal.pone.0007758.

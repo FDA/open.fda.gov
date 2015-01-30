@@ -10,48 +10,52 @@ layout: default
   </div>
 </div>
 
-<section class="dataset-summary">
-  <section class="dataset-endpoints">
-    <h2>Provides data to</h2>
-    {% for endpoint in page.endpoints %}
-      <p class="endpoint-summary">
-        <a href="{{ endpoint.docs }}">{{ endpoint.endpoint }}</a><br />
-        {{ endpoint.kind }}
-      </p>
-    {% endfor %}
-    <section>
-      {{ content }}
+<div class="dataset">
+  <section class="dataset-summary">
+    <section class="dataset-endpoints">
+      <section>
+        <h2>Provides data to</h2>
+        {% for endpoint in page.endpoints %}
+          <p class="endpoint-summary">
+            <a href="{{ endpoint.docs }}">{{ endpoint.endpoint }}</a><br />
+            {{ endpoint.kind }}
+          </p>
+        {% endfor %}
+      </section>
+      <section>
+        {{ content }}
+      </section>
+    </section>
+
+    <section class="dataset-vitals">
+      <div class="dataset-vital">
+        <small class="slight">Provider</small><br>
+        <a href="{{ page.provider_url }}">{{ page.provider_name }}</a>
+      </div>
+      {% if page.update_frequency %}
+        <div class="dataset-vital">
+          <small class="slight">Update frequency</small><br>
+          {{ page.update_frequency }}
+        </div>
+      {% endif %}
+      {% if page.time_period %}
+        <div class="dataset-vital">
+          <small class="slight">Time period</small><br>
+          {{ page.time_period }}
+        </div>
+      {% endif %}
+      {% if page.record_count %}
+        <div class="dataset-vital">
+          <small class="slight">Number of records</small><br>
+          {{ page.record_count }}
+        </div>
+      {% endif %}
+      {% if page.license %}
+        <div class="dataset-vital">
+          <small class="slight">License</small><br>
+          {{ page.license }}
+        </div>
+      {% endif %}
     </section>
   </section>
-
-  <section class="dataset-vitals">
-    <div class="dataset-vital">
-      <small class="slight">Provider</small><br>
-      <a href="{{ page.provider_url }}">{{ page.provider_name }}</a>
-    </div>
-    {% if page.update_frequency %}
-      <div class="dataset-vital">
-        <small class="slight">Update frequency</small><br>
-        {{ page.update_frequency }}
-      </div>
-    {% endif %}
-    {% if page.time_period %}
-      <div class="dataset-vital">
-        <small class="slight">Time period</small><br>
-        {{ page.time_period }}
-      </div>
-    {% endif %}
-    {% if page.record_count %}
-      <div class="dataset-vital">
-        <small class="slight">Number of records</small><br>
-        {{ page.record_count }}
-      </div>
-    {% endif %}
-    {% if page.license %}
-      <div class="dataset-vital">
-        <small class="slight">License</small><br>
-        {{ page.license }}
-      </div>
-    {% endif %}
-  </section>
-</section>
+</div>
