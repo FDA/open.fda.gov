@@ -155,6 +155,98 @@
                 "009:10"
             ],
             "contactPoint": {
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
+            },
+            "description": "This system is a searchable repository of food code interpretations.  There are no exportable data sets.  All reports are in PDF format.  ",
+            "distribution": [
+            {
+            }
+            ],
+            "identifier": "TBD by HHS",
+            "keyword": [
+                "food",
+                "code",
+                "interpretations"
+            ],
+            "modified": "2015-01-01",
+            "programCode": [
+                "009:001"
+            ],
+            "publisher": {
+                "name": "      Center for Food Safety and Applied Nutrition",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
+            },
+            "title": "Food Code Reference System"
+        },
+        {
+            "accessLevel": "public",
+            "bureauCode": [
+                "009:10"
+            ],
+            "contactPoint": {
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
+            },
+            "description": "This system shares public data that can be downloaded.  ",
+            "distribution": [
+            {
+            }
+            ],
+            "identifier": "8DFE05EA-9FA0-4DB8-B803-D3AA70564592",
+            "keyword": [
+                "Web Modules"
+            ],
+            "modified": "2014-09-12",
+            "programCode": [
+                "009:001"
+            ],
+            "publisher": {
+                "name": "      Center for Food Safety and Applied Nutrition",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
+            },
+            "title": "CFSAN Web Modules"
+        },
+        {
+            "accessLevel": "public",
+            "bureauCode": [
+                "009:10"
+            ],
+            "contactPoint": {
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
+            },
+            "description": "This system supports the Information Center's Help Desk capabilities, and reports can be exported.  ",
+            "distribution": [
+            {
+            }
+            ],
+            "identifier": "A6EEDE4E-01A2-4167-A196-87066F135C34",
+            "keyword": [
+                "Information Center; Foods Help Desk"
+            ],
+            "modified": "2014-12-01",
+            "programCode": [
+                "009:001"
+            ],
+            "publisher": {
+                "name": "      Center for Food Safety and Applied Nutrition",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
+            },
+            "title": "CFSAN Knowledge Management System [is this salesforce?]"
+        },
+        {
+            "accessLevel": "public",
+            "bureauCode": [
+                "009:10"
+            ],
+            "contactPoint": {
                 "fn": "openFDA",
                 "hasEmail": "mailto:open@fda.hhs.gov"
             },
@@ -222,6 +314,136 @@
             },
             "title": "MedWatch Safety Alerts for Human Medical Products",
             "landingPage": "http://www.fda.gov/Safety/MedWatch/SafetyInformation/SafetyAlertsforHumanMedicalProducts/default.htm"
+        },
+        {
+            "accessLevel": "public",
+            "bureauCode": [
+                "009:10"
+            ],
+            "contactPoint": {
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
+            },
+            "description": "Public access  allowing for public search of the FDA Adverse Events Database",
+            "distribution": [
+            {
+                "downloadURL": "http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/ucm082193",
+                "mediaType": "text/xml",
+                "accessURL": "http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/ucm082193",
+                "downloadURL": "http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/ucm082193",
+                "format": "XML"
+            }
+            ],
+            "identifier": "901A022F-A9B2-4B0A-9A33-0F3D353DF3FD",
+            "keyword": [
+                "FAERS"
+            ],
+            "modified": "2014-12-31",
+            "programCode": [
+                "009:002"
+            ],
+            "publisher": {
+                "name": "OSE CDER",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
+            },
+            "title": "Public Search for Adverse Events (FOIA)"
+        },
+        {
+            "accessLevel": "public",
+            "bureauCode": [
+                "009:10"
+            ],
+            "contactPoint": {
+                "fn": "Robert Reinwald",
+                "hasEmail": "mailto:Robert.Reinwald@fda.hhs.gov"
+            },
+            "description": "The Approved Drug Products with Therapeutic Equivalence (Orange Book or OB) is a list of drugs approved under Section 505 of the Federal Food, Drug and Cosmetic Act and provides consumers timely updates on these products. In addition to these products (fo",
+            "distribution": [
+            {
+            }
+            ],
+            "identifier": "5E4326F3-B3EC-40C7-B5B9-1115F3394E94",
+            "keyword": [
+                "Orange Book",
+                "Approved Drug Products with Therapuetic Equivalence Evaluations"
+            ],
+            "modified": "2014-01-08",
+            "programCode": [
+                "009:002"
+            ],
+            "publisher": {
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
+            },
+            "title": "Orange Book"
+        },
+        {
+            "accessLevel": "public",
+            "bureauCode": [
+                "009:10"
+            ],
+            "contactPoint": {
+                "fn": "Rajan, Velayudhan",
+                "hasEmail": "mailto:Velayudhan.Rajan@fda.hhs.gov"
+            },
+            "description": "The Global Unique Device Identification Database (GUDID) contains key device identification information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). Unique device identification is a system being established by the",
+            "distribution": [
+            {
+            }
+            ],
+            "identifier": "C37E5FDF-6717-4AB3-8585-1808C7BF3B3B",
+            "keyword": [
+                "cdrh",
+                "udi",
+                "gudid"
+            ],
+            "modified": "2014-02-04",
+            "programCode": [
+                "009:005"
+            ],
+            "publisher": {
+                "name": "      Center for Devices and Radiological Health",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
+            },
+            "title": "GUDID Download"
+        },
+        {
+            "accessLevel": "public",
+            "bureauCode": [
+                "009:10"
+            ],
+            "contactPoint": {
+                "fn": "Danny Hsu",
+                "hasEmail": "mailto:danny.hsu@fda.hhs.gov"
+            },
+            "description": "Harmful and Potentially Harmful Constituents",
+            "distribution": [
+            {
+            }
+            ],
+            "identifier": "96E5B59F-286A-4127-A6E1-82EBA4981EFF",
+            "keyword": [
+                "HPHC",
+                "Harmful",
+                "Constituents"
+            ],
+            "modified": "2015-02-03",
+            "programCode": [
+                "009:007"
+            ],
+            "publisher": {
+                "name": "    Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
+            },
+            "title": "Harmful and Potentially Harmful Constituents"
         },
         {
             "accessLevel": "public",
@@ -602,42 +824,6 @@
                 "fn": "openFDA",
                 "hasEmail": "mailto:open@fda.hhs.gov"
             },
-            "description": "Listing of Resolved Drug Shortages provided to FDA by manufacturers",
-            "distribution": [
-            {
-                "downloadURL": "http://www.fda.gov/Drugs/DrugSafety/DrugShortages/ucm050793.htm",
-                "mediaType": "application/unknown",
-                "accessURL": "http://www.fda.gov/Drugs/DrugSafety/DrugShortages/ucm050793.htm",
-                "downloadURL": "http://www.fda.gov/Drugs/DrugSafety/DrugShortages/ucm050793.htm",
-                "format": "application/unknown"
-            }
-            ],
-            "identifier": "abeb805d-b337-4e96-af8c-84ba96a8aa19",
-            "keyword": [
-                "cder"
-            ],
-            "modified": "2013-11-06",
-            "programCode": [
-                "009:002"
-            ],
-            "publisher": {
-                "name": "Center for Drug Evaluation and Research",
-                "subOrganizationOf": {
-                    "name": "U.S. Food and Drug Administration"
-                }
-            },
-            "title": "Resolved Drug Shortages",
-            "landingPage": "http://www.fda.gov/Drugs/DrugSafety/DrugShortages/ucm050793.htm"
-        },
-        {
-            "accessLevel": "public",
-            "bureauCode": [
-                "009:10"
-            ],
-            "contactPoint": {
-                "fn": "openFDA",
-                "hasEmail": "mailto:open@fda.hhs.gov"
-            },
             "description": "Companies are required under Section 506C of the Federal Food, Drug, and Cosmetic Act (FD&C Act) (as amended by the Food and Drug Administration Safety and Innovation Act) to notify FDA of a permanent discontinuance of certain drug products, six months in advance, or if that is not possible, as soon as practicable. These drugs include those that are life-supporting, life-sustaining or for use in the prevention or treatment of a debilitating disease or condition, including any such drug used in emergency medical care or during surgery). The discontinuations provided below reflect information received from manufacturers, and are for informational purposes only.",
             "distribution": [
             {
@@ -674,7 +860,7 @@
                 "fn": "openFDA",
                 "hasEmail": "mailto:open@fda.hhs.gov"
             },
-            "description": "Listing of Current Drug Shortages provided to FDA by manufacturers",
+            "description": "Information provided to FDA by manufacturers about current drugs in shortage, resolved shortages, and discontinuations of specific drug products.",
             "distribution": [
             {
                 "downloadURL": "http://www.accessdata.fda.gov/scripts/drugshortages/default.cfm",
@@ -699,7 +885,7 @@
                     "name": "U.S. Food and Drug Administration"
                 }
             },
-            "title": "Current Drug Shortages Index",
+            "title": "Current and Resolved Drug Shortages and Discontinuations Reported to FDA",
             "landingPage": "http://www.accessdata.fda.gov/scripts/drugshortages/default.cfm"
         },
         {
@@ -851,7 +1037,7 @@
             ],
             "modified": "2010-10-01",
             "programCode": [
-                "009:000"
+                "009:001"
             ],
             "publisher": {
                 "name": "U.S. Food and Drug Administration"
@@ -936,7 +1122,7 @@
                 "safety",
                 "updates"
             ],
-            "modified": "2012-05-30T22:10:34.725180",
+            "modified": "2012-05-30",
             "programCode": [
                 "009:000"
             ],
@@ -1146,7 +1332,7 @@
                 "salmonella",
                 "snack bars"
             ],
-            "modified": "2012-05-30T22:09:00.354043",
+            "modified": "2012-05-30",
             "programCode": [
                 "009:000"
             ],
@@ -2159,6 +2345,40 @@
                 "009:10"
             ],
             "contactPoint": {
+                "fn": "Diane Schmit",
+                "hasEmail": "mailto:diane.schmit@fda.hhs.gov"
+            },
+            "description": "CFSAN Thesaurus in CFSAN TMS",
+            "distribution": [
+            {
+            }
+            ],
+            "identifier": "8835EE4F-F12F-49EB-A01E-F5C2DABF678C",
+            "keyword": [
+                "CFSAN Thesaurus",
+                "STARI",
+                "scientific",
+                "technical and regulatory information",
+                "TMS"
+            ],
+            "modified": "2015-02-05",
+            "programCode": [
+                "009:001"
+            ],
+            "publisher": {
+                "name": "      Center for Food Safety and Applied Nutrition",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
+            },
+            "title": "Business Objects, CFSAN TMS Thesaurus Universe"
+        },
+        {
+            "accessLevel": "public",
+            "bureauCode": [
+                "009:10"
+            ],
+            "contactPoint": {
                 "fn": "John Quinn",
                 "hasEmail": "mailto:john.quinn@fda.hhs.gov"
             },
@@ -2306,7 +2526,7 @@
                 "fn": "openFDA",
                 "hasEmail": "mailto:open@fda.hhs.gov"
             },
-            "description": "Disclosure of reporting citations provide the public with a rationale for the Agency‚Äôs enforcement actions and will also help to inform public and industry decision-making, allowing them to make more informed marketplace choices and help to encourage compliance.",
+            "description": "Disclosure of reporting citations provide the public with a rationale for the Agencyís enforcement actions and will also help to inform public and industry decision-making, allowing them to make more informed marketplace choices and help to encourage compliance.",
             "distribution": [
             {
                 "downloadURL": "http://www.fda.gov/ICECI/EnforcementActions/ucm346077.htm",
@@ -2381,7 +2601,7 @@
                 "fn": "openFDA",
                 "hasEmail": "mailto:open@fda.hhs.gov"
             },
-            "description": "On November 16, 1988, the President of the United States signed into law the Generic Animal Drug and Patent Restoration Act (GADPTRA). Among its major provisions, the Act extends eligibility for submission of Abbreviated New Animal Drug Applications (ANADAs) to all animal drug products approved for safety and effectiveness under the Federal Food, Drug, and Cosmetic Act. The Act also requires that each sponsor of an approved animal drug product submit to the FDA certain information regarding patents held for the animal drug or its method of use. The Act requires that this information, as well as a list of all animal drug products approved for safety and effectiveness, be made available to the public. This list must be updated monthly under the provisions of the Act. This publication, which is known as the ‚ÄúGreen Book‚Äù, was first published in January of 1989. Updates have been added monthly since then. The list is published in its entirety each January. ",
+            "description": "On November 16, 1988, the President of the United States signed into law the Generic Animal Drug and Patent Restoration Act (GADPTRA). Among its major provisions, the Act extends eligibility for submission of Abbreviated New Animal Drug Applications (ANADAs) to all animal drug products approved for safety and effectiveness under the Federal Food, Drug, and Cosmetic Act. The Act also requires that each sponsor of an approved animal drug product submit to the FDA certain information regarding patents held for the animal drug or its method of use. The Act requires that this information, as well as a list of all animal drug products approved for safety and effectiveness, be made available to the public. This list must be updated monthly under the provisions of the Act. This publication, which is known as the ìGreen Bookî, was first published in January of 1989. Updates have been added monthly since then. The list is published in its entirety each January. ",
             "distribution": [
             {
                 "downloadURL": "http://www.accessdata.fda.gov/scripts/animaldrugsatfda/index.cfm",
@@ -2611,7 +2831,7 @@
                 "fn": "openFDA",
                 "hasEmail": "mailto:open@fda.hhs.gov"
             },
-            "description": "The Drug Listing Act of 1972 requires registered drug establishments to provide the Food and Drug Administration (FDA) with a current list of all drugs manufactured, prepared, propagated, compounded, or processed by it for commercial distribution. (See Section 510 of the Federal Food, Drug, and Cosmetic Act (Act) (21 U.S.C. ¬ß 360)). Drug products are identified and reported using a unique, three-segment number, called the National Drug Code (NDC), which serves as a universal product identifier for drugs. FDA publishes the listed NDC numbers and the information submitted as part of the listing information in the NDC Directory which is updated daily.",
+            "description": "The Drug Listing Act of 1972 requires registered drug establishments to provide the Food and Drug Administration (FDA) with a current list of all drugs manufactured, prepared, propagated, compounded, or processed by it for commercial distribution. (See Section 510 of the Federal Food, Drug, and Cosmetic Act (Act) (21 U.S.C. ß 360)). Drug products are identified and reported using a unique, three-segment number, called the National Drug Code (NDC), which serves as a universal product identifier for drugs. FDA publishes the listed NDC numbers and the information submitted as part of the listing information in the NDC Directory which is updated daily.",
             "distribution": [
             {
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/DevelopmentApprovalProcess/UCM070838.zip",

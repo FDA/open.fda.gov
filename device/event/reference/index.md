@@ -418,7 +418,7 @@ Each device has its own fields for identification of the manufacturer.
 
 `device.manufacturer_d_country`
 : **string**
-: Device manufacturer two-letter country code.
+: Device manufacturer two-letter country code. *Note: For medical device adverse event reports, comparing country codes with city names in the same record demonstrates widespread use of conflicting codes.  Caution should be exercised when interpreting country code data in device records.*
 
 `device.manufacturer_d_zip_code`
 : **string**
@@ -675,7 +675,7 @@ User facilities/importers (distributors) include the suspect device manufacturer
 
 `manufacturer_country`
 : **string**
-: Suspect medical device manufacturer two-letter country code.
+: Suspect medical device manufacturer two-letter country code. *Note: For medical device adverse event reports, comparing country codes with city names in the same record demonstrates widespread use of conflicting codes.  Caution should be exercised when interpreting country code data in device records.*
 
 `manufacturer_postal_code`
 : **string**
@@ -788,13 +788,13 @@ For reports submitted by a device manufacturer, these fields contain identificat
 
 `manufacturer_contact_country`
 : **string**
-: Manufacturer contact person two-letter country code.
+: Manufacturer contact person two-letter country code. *Note: For medical device adverse event reports, comparing country codes with city names in the same record demonstrates widespread use of conflicting codes.  Caution should be exercised when interpreting country code data in device records.*
 
 **Contact person phone number**
 
 `manufacturer_contact_pcountry`
 : **string**
-: Manufacturer contact person phone number country code.
+: Manufacturer contact person phone number country code. *Note: For medical device adverse event reports, comparing country codes with city names in the same record demonstrates widespread use of conflicting codes.  Caution should be exercised when interpreting country code data in device records.*
 
 `manufacturer_contact_area_code`
 : **string**
@@ -856,7 +856,7 @@ For reports submitted by a device manufacturer, these fields contain identificat
 
 `manufacturer_g1_country`
 : **string**
-: Manufacturer two-letter country code.
+: Manufacturer two-letter country code. *Note: For medical device adverse event reports, comparing country codes with city names in the same record demonstrates widespread use of conflicting codes.  Caution should be exercised when interpreting country code data in device records.*
 
 #### By any manufacturer
 
@@ -895,7 +895,7 @@ This information is ordinarily provided by all manufacturers.
 
 `manufacturer_link_flag_`
 : **string**
-: Indicates whether a user facility/importer-submitted (distributor-submitted) report has had subsequent manufacturer-submitted reports. If so, the distributor information (address, etc.) will also be present and this field will contain `Y`. 
+: Indicates whether a user facility/importer-submitted (distributor-submitted) report has had subsequent manufacturer-submitted reports. If so, the distributor information (address, etc.) will also be present and this field will contain `Y`.
 : `Y` = There are subsequent manufacturer-submitted reports.
 : `N` = There are no subsequent manufacturer-submitted reports.
 
