@@ -86,7 +86,7 @@ Each adverse event report consists of these major sections:
 - **Header:** General information about the adverse event
 - **Patient Information:** Details on the patient who experienced the event, such as age, weight, sex, etc.
 - **Drugs:** Information on the drugs taken while the event was experienced
-- **Ractions:** Information on the reactions experienced by the patient
+- **Reactions:** Information on the reactions experienced by the patient
 
 ## Field-by-field reference
 
