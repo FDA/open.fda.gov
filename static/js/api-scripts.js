@@ -1,7 +1,17 @@
 // Scripts that run on API docs-related pages
 
-// Create anchors for each h2 through h6 on the page.
+var kIndexToEnpdoint = {
+  'recall': [ '/device/enforcement.json', '/drug/enforcement.json', '/food/enforcement.json' ],
+  'devicerecall': [ '/device/recall.json' ],
+  'drugevent': ['/drug/event.json'],
+  'druglabel': ['/drug/label.json'],
+  'deviceevent': ['/device/event.json'],
+  'devicepma': ['/device/pma.json'],
+  'deviceclass': ['/device/classification.json'],
+  'deviceclearance': ['/device/510k.json'],
+};
 
+// Create anchors for each h2 through h6 on the page.
 function createAnchorsFromHeadings() {
   return $("h2, h3, h4, h5, h6").each(function(i, el) {
     var $el, icon, id;
@@ -138,38 +148,17 @@ $(document).ready(function() {
     .done(function(data) {
       
       var statuses = {};
-      for (item in data) {
-        if (data[item].endpoint == 'recall') {
-          statuses['/drug/enforcement.json'] = {
-            status: data[item].status,
-            last_updated: data[item].last_updated
-          };
-          statuses['/device/enforcement.json'] = {
-            status: data[item].status,
-            last_updated: data[item].last_updated
-          };
-          statuses['/food/enforcement.json'] = {
-            status: data[item].status,
-            last_updated: data[item].last_updated
-          };
+      for (key in data) {
+        var item = data[key]; 
+        var endpoints = kIndexToEnpdoint[item.endpoint];
+        if (!endpoints) {
+          continue;
         }
-        else if (data[item].endpoint == 'drugevent') {
-          statuses['/drug/event.json'] = {
-            status: data[item].status,
-            last_updated: data[item].last_updated
-          };
-        }
-        else if (data[item].endpoint == 'druglabel') {
-          statuses['/drug/label.json'] = {
-            status: data[item].status,
-            last_updated: data[item].last_updated
-          };
-        }
-        else if (data[item].endpoint == 'deviceevent') {
-          statuses['/device/event.json'] = {
-            status: data[item].status,
-            last_updated: data[item].last_updated
-          };
+        for (var i = 0; i < endpoints.length; ++i) {
+          statuses[endpoints[i]] = {
+            status: item.status,
+            last_updated: item.last_updated
+          }
         }
       }
       

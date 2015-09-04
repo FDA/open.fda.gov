@@ -1,0 +1,203 @@
+{::nomarkdown}
+<script type="text/javascript">
+  var endpoint = '{{ site.apiurl }}{{ include.endpoint }}.json?';
+  var countTerm = '_exists_:registration_number';
+</script>
+
+<div id="api-demo-no-svg" class="api-demo" style="display:none">
+  <h2>This browser doesn't support our interactive query tool and explorer.</h2>
+  <p>Download and install the latest version of a standards-compliant browser like <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox,</a> <a href="https://www.google.com/chrome">Chrome,</a> or the latest version of <a href="http://www.microsoft.com/InternetExplorer">Internet Explorer.</a></p>
+  <img src="{{ site.baseurl }}/assets/img/p_queryTool.png" alt="Image of interactive query tool." />
+</div>
+
+<div id="api-demo" class="api-demo">
+  <div>
+    <ul class="nav nav-pills api-demo-tabs">
+      <li><span>Explore the data</span></li>
+      <li class="active"><a href="#product-code" data-toggle="pill">By product code</a></li>
+      <li><a href="#registrationlisting" data-toggle="pill">By country</a></li>
+    </ul>
+  </div>
+
+  <div class="tab-content">
+
+    <!-- STORY REGISTRATIONS AND LISTINGS BY COUNTRY -->
+    <div class="tab-pane fade in" id="registrationlisting">
+
+      <!-- Description -->
+      <div class="row">
+        <div class="col-sm-12 description">
+          <h2>Device registrations and listings by country</h2>
+          <p>The country code on the postal delivery address of owner operator listed on the registration.</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="row">
+        <div class="col-sm-3">
+
+          <!-- Radio buttons -->
+          <div class="api-query-control">
+            <h4>Filter</h4>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="registrationlisting-all" value="" checked />
+                All registrations and listings
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="registrationlisting-no-us" value="registration.iso_country_code:(NOT US)" />
+                All registrations and listings not in <em>US</em>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="registrationlisting-product-code" value="products.product_code:HQY" />
+                <em>Sunglasses (Non-Prescription Including Photosensitive)</em>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="registrationlisting-establishment-type" value="establishment_type:Manufacture Medical Device" />
+                Establishment type equals <em>Manufacture Medical Device</em>
+              </label>
+            </div>
+
+
+            <!-- Coverage chart -->
+            <div class="chart coverage">
+              <h4 id="result-count"></h4>
+              <div id="chart-coverage"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart results col-sm-9">
+          <div id="chart"></div>
+        </div>
+      </div>
+
+      <!-- Query fields -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="what-query">What API query produced these results?</h3>
+          <pre id="query-endpoint">{{ site.apiurl }}/device/registrationlisting.json?</pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Search -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
+          <textarea id="query-search" class="query-textarea form-control"></textarea>
+        </div>
+
+        <!-- Count -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">count=</a> parameter</div>
+          <textarea id="query-count" class="query-textarea form-control">registration.owner_operator.contact_address.iso_country_code</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2 col-sm-offset-10">
+            <button id="query-button" class="form-control btn btn-primary">Run query</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END STORY -->
+
+    <!-- STORY REGISTRATION AND LISTING BY PRODUCT CODE -->
+    <div class="tab-pane fade in active" id="product-code">
+
+      <!-- Description -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>Device registrations and listings by product code</h2>
+          <p>The name and product code identify the generic category of a device for FDA assigned to a device is based upon the medical device product classification designated under 21 CFR Parts 862-892.</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="row">
+        <div class="col-sm-3">
+
+          <!-- Radio buttons -->
+          <div class="api-query-control">
+            <h4>Filter</h4>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="product-code" value="" checked />
+                All registrations and listings
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="product-code-home" value='device_name:implant' />
+                Devices with the word <em>implant</em> in the name
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="product-code-home" value='proprietary_name:pump' />
+                Proprietary name includes the term <em>pump</em>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="product-code-class" value='products.openfda.device_class:(1 OR 2)' />
+                Device class <em>I</em> or <em>II</em>
+              </label>
+            </div>
+
+            <!-- Coverage chart -->
+            <div class="chart coverage">
+              <h4 id="result-count"></h4>
+              <div id="chart-coverage"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart results col-sm-9">
+          <div id="chart"></div>
+        </div>
+      </div>
+
+      <!-- Query fields -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="what-query">What API query produced these results?</h3>
+          <pre id="query-endpoint">{{ site.apiurl }}{{ page.endpoint}}.json?</pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Search -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
+          <textarea id="query-search" class="query-textarea form-control"></textarea>
+        </div>
+
+        <!-- Count -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">count=</a> parameter</div>
+          <textarea id="query-count" class="query-textarea form-control">product_code</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2 col-sm-offset-10">
+            <button id="query-button" class="form-control btn btn-primary">Run query</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END STORY -->
+
+  </div>
+</div>
+{:/}

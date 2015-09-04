@@ -10,3 +10,4 @@ kramdown:
 highlighter: pygments
 permalink: /update/:title/
 baseurl: ""
+apiurl: https://api.fda.gov

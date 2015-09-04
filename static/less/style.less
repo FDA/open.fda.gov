@@ -36,7 +36,7 @@ body {
 
 a {
   color: @color-link;
-  
+
   &:hover {
     color: @color-link;
   }
@@ -62,7 +62,7 @@ a {
       background: @color-grey-xxl;
       padding: .5ex 15px .5ex 15px;
       margin: 0 -15px;
-      
+
       i {
         margin-right: .3em;
       }
@@ -163,7 +163,7 @@ h6:hover .header-link {
 }
 
 p {
-  
+
   &.deck {
     font-size: 24px;
     line-height: 32px;
@@ -174,10 +174,10 @@ table {
   .table;
   font-size: 14px;
   margin-bottom: 5ex;
-  
+
   thead {
     background-color: #F2F2F2;
-    
+
     th {
       border-bottom-width: 0 !important;
       color: #777;
@@ -245,10 +245,10 @@ ul {
 .beta-notice {
   .container();
   font-size: @font-size-small;
-  
+
   .beta-notice-content {
     .make-row();
-    
+
     > div {
       .make-sm-column(12);
       border-top: none;
@@ -259,7 +259,7 @@ ul {
 
       strong {
         font-weight: bolder;
-        
+
         i {
           color: rgb(255, 165, 0);
           margin-right: .3em;
@@ -284,7 +284,7 @@ ul {
 
 .site-header {
   .make-md-column(3);
-  
+
   img {
     max-width: 100%;
   }
@@ -293,14 +293,14 @@ ul {
   }
   @media (min-width: @main-break) {
     margin-top: 28.6ex;
-    
+
     h1 {
       text-align: left;
       margin-bottom: 20px;
     }
     h1 a {
       color: #00539B;
-      
+
       &:hover {
         text-decoration: none;
         color: #068Cff;
@@ -312,7 +312,7 @@ ul {
 // Left nav
 
 .site-navigation {
-  
+
   ul {
     .list-unstyled();
     color: @color-grey-xd;
@@ -321,7 +321,7 @@ ul {
       color: @color-grey-xd;
 
       &.nav-section {
-        
+
         @media (min-width: @main-break) {
           padding-top: 15px;
         }
@@ -338,7 +338,7 @@ ul {
         }
         &:before {
           visibility: hidden;
-        } 
+        }
       }
     }
     .columnize {
@@ -352,7 +352,7 @@ ul {
     }
     a {
       color: @color-link;
-      
+
       &:hover {
         text-decoration: underline;
       }
@@ -363,13 +363,13 @@ ul {
 // Mobile nav
 
 .main-nav.mobile-enabled {
-  
+
   .nav-toggle {
     display: none;
   }
-  
+
   @media (max-width: @main-break) {
-    
+
     ul {
       display: none;
     }
@@ -383,7 +383,7 @@ ul {
       ul {
         display: block;
         font-size: 17.5px;
-        
+
         li {
           padding: .75ex 0;
 
@@ -429,10 +429,10 @@ ul {
   margin-right: -30px;
   max-height: 50px;
   overflow: hidden;
-  
+
   > section {
     .make-sm-column(4);
-    
+
     &.open-data {
       color: @color-fda-blue;
     }
@@ -539,7 +539,7 @@ ul {
 
       a {
         color: #00a1ff;
-        
+
         &.active {
           color: #ffffff;
         }
@@ -576,14 +576,14 @@ ul {
   .container();
   margin-top: 9ex;
   margin-bottom: 3ex;
-  
+
   .site-footer-section {
     .make-row();
     margin-top: 30px;
-    
+
     &:first-child {
       padding-top: 30px;
-      
+
       @media (max-width: @screen-sm-min) {
         border-top: 1px solid @color-grey-m;
       }
@@ -603,7 +603,7 @@ ul {
   }
   .site-links ul {
     .list-inline();
-    
+
     a {
       color: @color-fda-blue;
     }
@@ -613,12 +613,12 @@ ul {
 // Homepage specific
 
 .content-heading.home {
-  
+
   .content-heading-text {
     padding-bottom: 0;
   }
   &.home {
-    
+
     h1 {
       font-weight: lighter;
 
@@ -687,7 +687,7 @@ ul {
     bottom: 0;
     padding-top: 4.5ex;
 
-    section {   
+    section {
       margin-left: -15px;
       margin-right: -15px;
       margin-bottom: 5.5ex;
@@ -696,7 +696,7 @@ ul {
       @media (max-width: @main-break) {
         margin-bottom: 0;
       }
-      
+
       &:first-child {
         padding-top: 0;
       }
@@ -809,7 +809,7 @@ ul {
 .article-list {
   font-size: 18px;
   color: @color-grey-xxxd;
-  
+
   article {
     border-bottom: @border-grey;
     margin-bottom: 10px;
@@ -845,7 +845,7 @@ article.post-page {
       margin-bottom: 5ex;
     }
   }
-  
+
   .article-meta {
     color: rgb(153, 153, 153);
     font-size: 12px;
@@ -903,7 +903,7 @@ article.post-page {
 
     &.selected {
       background: @color-link;
-      
+
       a {
         cursor: pointer;
         margin-bottom: 1px;
@@ -915,12 +915,15 @@ article.post-page {
       }
     }
   }
-  .tab ~ .tab {
+  .tab + .tab {
     border-left: 15px solid white;
 
     @media (max-width: @screen-sm-min) {
       border: none;
     }
+  }
+  div.tab.col-sm-6 + div.tab.col-sm-6:nth-of-type(odd) {
+    border-left: none;
   }
 }
 
@@ -1023,11 +1026,11 @@ article.post-page {
 .dataset-summary {
   margin-top: 3ex;
   margin-bottom: 5ex;
-  
+
   .make-row();
   .dataset-endpoints {
     .make-md-column(8);
-    
+
     > h2 {
       margin-top: 5px;
     }
@@ -1038,7 +1041,7 @@ article.post-page {
   }
   .dataset-vitals {
     .make-md-column(4);
-    
+
     .dataset-vital {
       margin-bottom: 30px;
       padding-bottom: .15ex;

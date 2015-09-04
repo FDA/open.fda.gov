@@ -1,0 +1,201 @@
+{::nomarkdown}
+<script type="text/javascript">
+  var endpoint = '{{ site.apiurl }}{{ include.endpoint }}.json?';
+  var countTerm = '_exists_:product_code';
+</script>
+
+<div id="api-demo-no-svg" class="api-demo" style="display:none">
+  <h2>This browser doesn't support our interactive query tool and explorer.</h2>
+  <p>Download and install the latest version of a standards-compliant browser like <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox,</a> <a href="https://www.google.com/chrome">Chrome,</a> or the latest version of <a href="http://www.microsoft.com/InternetExplorer">Internet Explorer.</a></p>
+  <img src="{{ site.baseurl }}/assets/img/p_queryTool.png" alt="Image of interactive query tool." />
+</div>
+
+<div id="api-demo" class="api-demo">
+  <div>
+    <ul class="nav nav-pills api-demo-tabs">
+      <li><span>Explore the data</span></li>
+      <li class="active"><a href="#medical-specialties" data-toggle="pill">By medical specialty</a></li>
+      <li><a href="#classification" data-toggle="pill">Regulation numbers</a></li>
+    </ul>
+  </div>
+
+  <div class="tab-content">
+
+    <!-- STORY CLASSIFICATION REGULATION REPORTS -->
+    <div class="tab-pane fade in" id="classification">
+
+      <!-- Description -->
+      <div class="row">
+        <div class="col-sm-12 description">
+          <h2>Device classifications by regulation numbers</h2>
+          <p>Each device has a 7-digit number associated with it, e.g. <a href="http://www.ecfr.gov/cgi-bin/text-idx?SID=aa9e943fbab96dade45ed7e2a203271e&mc=true&node=se21.8.880_12920&rgn=div8">880.2920</a> - Clinical Mercury Thermometer. The regulation will, among other things, specify how to identify the device and under which classification the device should fall.</p>
+          <p><a href="http://www.ecfr.gov/cgi-bin/text-idx?SID=f5e72c39f47ecb6121143e01ae6a2428&mc=true&tpl=/ecfrbrowse/Title21/21cfrv8_02.tpl#0">Here</a> is a link to the most up-to-date version of CFR Title 21, parts 800-1299, which is where medical device regulation is spelled out.</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="row">
+        <div class="col-sm-3">
+
+          <!-- Radio buttons -->
+          <div class="api-query-control">
+            <h4>Filter</h4>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="classification-all" value="" checked />
+                All Classifications
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="classification-life_sustain_support_flag" value="life_sustain_support_flag:Y" />
+                Indicated as providing life sustaining support
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="classification-x-ray" value="implant_flag:N" />
+                Indicated as a non-implant
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="classification-literature" value="third_party_flag:N" />
+                Third Party Flag set to <em>N</em>
+              </label>
+            </div>
+
+
+            <!-- Coverage chart -->
+            <div class="chart coverage">
+              <h4 id="result-count"></h4>
+              <div id="chart-coverage"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart results col-sm-9">
+          <div id="chart"></div>
+        </div>
+      </div>
+
+      <!-- Query fields -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="what-query">What API query produced these results?</h3>
+          <pre id="query-endpoint">{{ site.apiurl }}/device/classification.json?</pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Search -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
+          <textarea id="query-search" class="query-textarea form-control"></textarea>
+        </div>
+
+        <!-- Count -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">count=</a> parameter</div>
+          <textarea id="query-count" class="query-textarea form-control">regulation_number</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2 col-sm-offset-10">
+            <button id="query-button" class="form-control btn btn-primary">Run query</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END STORY -->
+
+    <!-- STORY CLASSIFICATION MEDICAL SPECIALTY -->
+    <div class="tab-pane fade in active" id="medical-specialties">
+
+      <!-- Description -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>Device classifications by medical specialty</h2>
+          <p>Most medical devices can be classified by finding the matching description of the device in Title 21 of the Code of Federal Regulations (CFR), Parts 862-892.</p>
+
+          <p>FDA has classified and described over 1,700 distinct types of devices and organized them in the CFR into 16 medical specialty "panels" such as Cardiovascular devices or Ear, Nose, and Throat devices. These panels are found in Parts 862 through 892 in the CFR. For each of the devices classified by the FDA the CFR gives a general description including the intended use, the class to which the device belongs (i.e., Class I, II, or III), and information about marketing requirements. Your device should meet the definition in a classification regulation contained in 21 CFR 862-892.
+</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="row">
+        <div class="col-sm-3">
+
+          <!-- Radio buttons -->
+          <div class="api-query-control">
+            <h4>Filter</h4>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="medical-specialties" value="" checked />
+                All device classifications
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="medical-specialties-home" value='device_name:implant' />
+                Devices with the word <em>implant</em> in the name
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="api-query-options-search" id="medical-specialties-class" value='device_class:(1 OR 2)' />
+                Device class <em>I</em> or <em>II</em>
+              </label>
+            </div>
+
+            <!-- Coverage chart -->
+            <div class="chart coverage">
+              <h4 id="result-count"></h4>
+              <div id="chart-coverage"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart results col-sm-9">
+          <div id="chart"></div>
+        </div>
+      </div>
+
+      <!-- Query fields -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="what-query">What API query produced these results?</h3>
+          <pre id="query-endpoint">{{ site.apiurl }}/device/classification.json?</pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Search -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
+          <textarea id="query-search" class="query-textarea form-control"></textarea>
+        </div>
+
+        <!-- Count -->
+        <div class="col-sm-6">
+          <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">count=</a> parameter</div>
+          <textarea id="query-count" class="query-textarea form-control">medical_specialty_description</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2 col-sm-offset-10">
+            <button id="query-button" class="form-control btn btn-primary">Run query</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END STORY -->
+
+  </div>
+</div>
+{:/}

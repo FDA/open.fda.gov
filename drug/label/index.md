@@ -32,7 +32,7 @@ docs:
 
 ## About drug product labeling
 
-Drug manufacturers and distributors submit documentation about their products to FDA in the <a href="http://labels.fda.gov/">Structured Product Labeling (SPL)</a> format. The approved labeling is a &quot;living document&quot; that changes over time to reflect increased knowledge about the safety and effectiveness of the drug.
+Drug manufacturers and distributors submit documentation about their products to FDA in the <a href="http://labels.fda.gov/">Structured Product Labeling (SPL)</a> format. The labeling is a &quot;living document&quot; that changes over time to reflect increased knowledge about the safety and effectiveness of the drug.
 
 The openFDA drug product labels API returns data from these submissions for both prescription and over-the-counter (OTC) drugs. The labels are broken into sections, such as <em>indications for use</em> (prescription drugs) or <em>purpose</em> (OTC drugs), <em>adverse reactions,</em> and so forth. There is considerable variation between drug products in terms of these sections and their contents, since the information required for safe and effective use varies with the unique characteristics of each drug product.
 
@@ -85,7 +85,7 @@ The `_exists_` search modifier lets you search for records that contain a specif
 <div class="api-explorer">
 <div class="query">
 <h4 class="query-title">Count of drug labeling, by product type</h4>
-<div class="query-description">There are more labeling records for over-the-counter (OTC) drugs than prescription drugs. 
+<div class="query-description">There are more labeling records for over-the-counter (OTC) drugs than prescription drugs.
 
  - **count** the field **openfda.product_type** (product type).
 

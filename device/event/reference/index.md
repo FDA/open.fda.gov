@@ -33,6 +33,11 @@ js:
 <div class="row tabs">
   <div class="col-sm-6 tab selected"><h2><a href="{{ site.baseurl }}/device/event/">Adverse events</a></h2></div>
   <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/enforcement/">Enforcement reports</a></h2></div>
+  <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/classification/">Device Classification</a></h2></div>
+  <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/510k/">510(k)</a></h2></div>
+  <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/pma/">PMA</a></h2></div>
+  <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/registrationlisting/">Registrations and listings</a></h2></div>
+  <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/recall/">Recalls</a></h2></div>
 </div>
 {:/}
 
@@ -898,6 +903,34 @@ This information is ordinarily provided by all manufacturers.
 : Indicates whether a user facility/importer-submitted (distributor-submitted) report has had subsequent manufacturer-submitted reports. If so, the distributor information (address, etc.) will also be present and this field will contain `Y`.
 : `Y` = There are subsequent manufacturer-submitted reports.
 : `N` = There are no subsequent manufacturer-submitted reports.
+
+### Openfda
+
+`device_name`
+: **string**
+: This is the proprietary name, or trade name, of the cleared device
+
+`medical_specialty_description`
+: **string**
+: Regulation Medical Specialty is assigned based on the regulation (e.g. 21 CFR Part 888 is Orthopedic Devices) which is why Class 3 devices lack the “Regulation Medical Specialty” field.
+
+`device_class`
+: **string**
+: A risk based classification system for all medical devices ((Federal Food, Drug, and Cosmetic Act, section 513):
+: `1` = `Class I (low to moderate risk): general controls`
+: `2` =  `Class II (moderate to high risk): general controls and special controls`
+: `3` = `Class III (high risk): general controls and Premarket Approval (PMA)`
+: `U` = `Unclassified`
+: `N` = `Not classified`
+: `F` = `HDE`
+: Additional information can be found [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/default.htm).
+
+`regulation_number`
+: **string**
+: The classification regulation in the Code of Federal Regulations (CFR) under which the device is identified, described, and formally classified (Code of Federal regulations Title 21, 862.00 through 892.00).  The classification regulation covers various aspects of design, clinical evaluation, manufacturing, packaging, labeling, and postmarket surveillance of the specific medical device.
+: [CFR database](http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/cfrsearch.cfm)
+: This field must be queried with the exact regulation number. There is no partial search.
+
 
 ## Datasets
 

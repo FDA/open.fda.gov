@@ -20,11 +20,16 @@
         {% endif %}
 
         {% if page.url contains "/device/" %}
-          <li class="active"><a href="{{ site.baseurl }}/device/event/">Devices</a></li>    
+          <li class="active"><a href="{{ site.baseurl }}/device/event/">Devices</a></li>
           <li>
             <ul class="submenu">
               <li><a href="{{ site.baseurl }}/device/event">Adverse events</a> | <a href="{{ site.baseurl }}/device/event/reference">Reference</a></li>
               <li><a href="{{ site.baseurl }}/device/enforcement">Enforcement reports</a> | <a href="{{ site.baseurl }}/device/enforcement/reference">Reference</a></li>
+              <li><a href="{{ site.baseurl }}/device/classification">Device classification</a> | <a href="{{ site.baseurl }}/device/classification/reference">Reference</a></li>
+              <li><a href="{{ site.baseurl }}/device/510k">510(k)</a> | <a href="{{ site.baseurl }}/device/510k/reference">Reference</a></li>
+              <li><a href="{{ site.baseurl }}/device/pma">PMA</a> | <a href="{{ site.baseurl }}/device/pma/reference">Reference</a></li>
+              <li><a href="{{ site.baseurl }}/device/registrationlisting">Regsitration and listings</a> | <a href="{{ site.baseurl }}/device/registrationlisting/reference">Reference</a></li>
+              <li><a href="{{ site.baseurl }}/device/recall">Recall</a> | <a href="{{ site.baseurl }}/device/recall/reference">Reference</a></li>
             </ul>
           </li>
         {% else %}
@@ -32,7 +37,7 @@
         {% endif %}
 
         {% if page.url contains "/food/" %}
-          <li><a href="{{ site.baseurl }}/food/enforcement/">Foods</a></li>    
+          <li><a href="{{ site.baseurl }}/food/enforcement/">Foods</a></li>
           <li>
             <ul class="submenu">
               <li><a href="{{ site.baseurl }}/food/enforcement">Enforcement reports</a> | <a href="{{ site.baseurl }}/food/enforcement/reference">Reference</a></li>
