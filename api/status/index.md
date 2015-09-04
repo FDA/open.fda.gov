@@ -41,6 +41,10 @@ js:
 <section class="statuses">
 {% include api-status.html endpoint="/device/event.json" name="Devices › Adverse events" %}
 {% include api-status.html endpoint="/device/enforcement.json" name="Devices › Enforcement reports" %}
+{% include api-status.html endpoint="/device/classification.json" name="Devices › Classification" %}
+{% include api-status.html endpoint="/device/510k.json" name="Devices › 510(k)" %}
+{% include api-status.html endpoint="/device/pma.json" name="Devices › PMA" %}
+{% include api-status.html endpoint="/device/recall.json" name="Devices › Recalls" %}
 </section>
 
 ## Foods

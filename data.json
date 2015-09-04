@@ -1,5 +1,6 @@
 {
     "conformsTo": "https://project-open-data.cio.gov/v1.1/schema",
+    "as_of_date": "Tuesday, August 18, 2015",
     "dataset": [
         {
             "accessLevel": "public",
@@ -155,26 +156,32 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "FDA Enterprise Data Inventory",
-                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
+                "fn": "Glenda R. Lewis",
+                "hasEmail": "mailto:retailfoodprotectionteam@fda.hhs.gov"
             },
-            "description": "This system is a searchable repository of food code interpretations.  There are no exportable data sets.  All reports are in PDF format.  ",
+            "description": "The Food Code Reference System (FCRS) is a searchable database that provides access to FDA’s interpretative positions and responses to questions related to the FDA Food Code.  Users of the FCRS can search the database using dropdown menus, keywords and date. This system is a searchable repository of food code interpretations.  There are no exportable data sets.  All reports are in PDF format.",
             "distribution": [
             {
+                "description": "This system is a searchable repository of food code interpretations.  There are no exportable data sets.  All reports are in PDF format.  ",
+                "mediaType": "text/html",
+                "accessURL": "http://www.accessdata.fda.gov/scripts/fcrs/"
             }
             ],
-            "identifier": "TBD by HHS",
+            "identifier": "9B9C0AD1-73D2-4280-A1DE-45D15DDB7386",
             "keyword": [
-                "food",
-                "code",
-                "interpretations"
+                "Food Code Reference System",
+                "FCRS",
+                "FDA Food Code",
+                "Food Code",
+                "FDA retail food interpretations",
+                "Food Code interpretations"
             ],
             "modified": "2015-01-01",
             "programCode": [
                 "009:001"
             ],
             "publisher": {
-                "name": "      Center for Food Safety and Applied Nutrition",
+                "name": "Center for Food Safety and Applied Nutrition",
                 "subOrganizationOf": {
                     "name": "U.S. Food and Drug Administration"
                 }
@@ -193,6 +200,9 @@
             "description": "This system shares public data that can be downloaded.  ",
             "distribution": [
             {
+                "description": "This system shares public data that can be downloaded.  ",
+                "mediaType": "text/html",
+                "accessURL": "http://www.accessdata.fda.gov/scripts/fdcc/"
             }
             ],
             "identifier": "8DFE05EA-9FA0-4DB8-B803-D3AA70564592",
@@ -204,7 +214,7 @@
                 "009:001"
             ],
             "publisher": {
-                "name": "      Center for Food Safety and Applied Nutrition",
+                "name": "Center for Food Safety and Applied Nutrition",
                 "subOrganizationOf": {
                     "name": "U.S. Food and Drug Administration"
                 }
@@ -223,6 +233,7 @@
             "description": "This system supports the Information Center's Help Desk capabilities, and reports can be exported.  ",
             "distribution": [
             {
+                "description": "This system supports the Information Center's Help Desk capabilities, and reports can be exported.  "
             }
             ],
             "identifier": "A6EEDE4E-01A2-4167-A196-87066F135C34",
@@ -234,12 +245,12 @@
                 "009:001"
             ],
             "publisher": {
-                "name": "      Center for Food Safety and Applied Nutrition",
+                "name": "Center for Food Safety and Applied Nutrition",
                 "subOrganizationOf": {
                     "name": "U.S. Food and Drug Administration"
                 }
             },
-            "title": "CFSAN Knowledge Management System [is this salesforce?]"
+            "title": "CFSAN Knowledge Management System"
         },
         {
             "accessLevel": "public",
@@ -327,6 +338,7 @@
             "description": "Public access  allowing for public search of the FDA Adverse Events Database",
             "distribution": [
             {
+                "description": "Public access  allowing for public search of the FDA Adverse Events Database",
                 "downloadURL": "http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/ucm082193",
                 "mediaType": "text/xml",
                 "accessURL": "http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/ucm082193",
@@ -343,7 +355,7 @@
                 "009:002"
             ],
             "publisher": {
-                "name": "OSE CDER",
+                "name": "Center for Drug Evaluation and Research",
                 "subOrganizationOf": {
                     "name": "U.S. Food and Drug Administration"
                 }
@@ -362,6 +374,9 @@
             "description": "The Approved Drug Products with Therapeutic Equivalence (Orange Book or OB) is a list of drugs approved under Section 505 of the Federal Food, Drug and Cosmetic Act and provides consumers timely updates on these products. In addition to these products (fo",
             "distribution": [
             {
+                "description": "The Approved Drug Products with Therapeutic Equivalence (Orange Book or OB) is a list of drugs approved under Section 505 of the Federal Food, Drug and Cosmetic Act and provides consumers timely updates on these products. In addition to these products (fo",
+                "mediaType": "text/html",
+                "accessURL": "http://www.accessdata.fda.gov/scripts/cder/ob/"
             }
             ],
             "identifier": "5E4326F3-B3EC-40C7-B5B9-1115F3394E94",
@@ -393,6 +408,9 @@
             "description": "The Global Unique Device Identification Database (GUDID) contains key device identification information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). Unique device identification is a system being established by the",
             "distribution": [
             {
+                "description": "The Global Unique Device Identification Database (GUDID) contains key device identification information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). Unique device identification is a system being established by the",
+                "mediaType": "text/html",
+                "accessURL": "http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/GlobalUDIDatabaseGUDID/default.htm"
             }
             ],
             "identifier": "C37E5FDF-6717-4AB3-8585-1808C7BF3B3B",
@@ -406,7 +424,7 @@
                 "009:005"
             ],
             "publisher": {
-                "name": "      Center for Devices and Radiological Health",
+                "name": "Center for Devices and Radiological Health",
                 "subOrganizationOf": {
                     "name": "U.S. Food and Drug Administration"
                 }
@@ -422,9 +440,15 @@
                 "fn": "Danny Hsu",
                 "hasEmail": "mailto:danny.hsu@fda.hhs.gov"
             },
-            "description": "Harmful and Potentially Harmful Constituents",
+            "description": "The FDA shall publish in a format that is understandable and not misleading to a lay person, and place on public display, a list of 93 harmful and potentially harmful constituents in each tobacco product and smoke established under section 904(e) of the TCA.  CTP has determined the best means to display the data is web-based on FDA.GOV.  The HPHC back-end database and template for industry will be created in a future release of eSubmissions.  The scope of this project is to: Phase 1 (Current POP): 1) build a website to support the display of the HPHC constituents, 2) allow the user to access educational information about the health effects of the chemicals; Phase 2 (next POP):  1) allow users of the website to perform a search by brand and sub-brand, 2) display a report on the HPHCs contained in that tobacco product, and 3) create an admin module to allow for an import of HPHC data via an Excel spreadsheet and to update the list of constituents.",
             "distribution": [
             {
+                "description": "Website is still under development, not yet published to the public.  
+
+Pre-Production L is: 
+http://accessdata-preprod.fda.gov/scripts/hphc/",
+                "mediaType": "text/html",
+                "accessURL": "http://www.fda.gov/TobaccoProducts/GuidanceComplianceRegulatoryInformation/ucm297786.htm"
             }
             ],
             "identifier": "96E5B59F-286A-4127-A6E1-82EBA4981EFF",
@@ -438,7 +462,7 @@
                 "009:007"
             ],
             "publisher": {
-                "name": "    Food and Drug Administration",
+                "name": "Food and Drug Administration",
                 "subOrganizationOf": {
                     "name": "U.S. Food and Drug Administration"
                 }
@@ -493,16 +517,18 @@
             "description": "Provides information to the public on postmarket requirements and commitments. The phrase postmarket requirements and commitments refers to studies and clinical trials that sponsors conduct after approval to gather additional information about a product's safety, efficacy, or optimal use. Some of the studies and clinical trials may be required; others may be studies or clinical trials a sponsor has committed to conduct.",
             "distribution": [
             {
-                "downloadURL": "http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Post-marketingPhaseIVCommitments/ucm070777.htm",
-                "mediaType": "text/html",
+                "downloadURL": "http://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Post-marketingPhaseIVCommitments/UCM070783.zip",
+                "mediaType": "application/zip",
                 "accessURL": "http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Post-marketingPhaseIVCommitments/ucm070777.htm",
-                "downloadURL": "http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Post-marketingPhaseIVCommitments/ucm070777.htm",
-                "format": "Interactive on-screen"
+                "downloadURL": "http://www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/Post-marketingPhaseIVCommitments/UCM070783.zip",
+                "format": "Zip"
             }
             ],
             "identifier": "bf085673-ae08-4807-8ca7-aeb36dde83ed",
             "keyword": [
-                "cder"
+                "cder",
+                "postmarket",
+                "commitments"
             ],
             "modified": "2011-02-10",
             "programCode": [
@@ -529,16 +555,17 @@
             "description": "According to 21 CFR 210.3(b)(8), an inactive ingredient is any component of a drug product other than the active ingredient. Only inactive ingredients in the final dosage forms of drug products are in this database.",
             "distribution": [
             {
-                "downloadURL": "http://www.fda.gov/Drugs/InformationOnDrugs/ucm113978.htm",
+                "downloadURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM080154.zip",
                 "mediaType": "application/zip",
                 "accessURL": "http://www.fda.gov/Drugs/InformationOnDrugs/ucm113978.htm",
-                "downloadURL": "http://www.fda.gov/Drugs/InformationOnDrugs/ucm113978.htm",
+                "downloadURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM080154.zip",
                 "format": "Zip"
             }
             ],
             "identifier": "61f4a54b-daf5-4eb0-82fa-30dc89cd9699",
             "keyword": [
-                "cder"
+                "cder",
+                "inactive ingredient"
             ],
             "modified": "2013-01-02",
             "programCode": [
@@ -560,8 +587,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "openFDA",
-                "hasEmail": "mailto:open@fda.hhs.gov"
+                "fn": "CDER OSE Tracking",
+                "hasEmail": "mailto:cderosetracking@fda.hhs.gov"
             },
             "description": "The FDA Adverse Event Reporting System (FAERS) is a database that contains information on adverse event and medication error reports submitted to FDA. The database is designed to support the FDA's post-marketing safety surveillance program for drug and therapeutic biologic products.",
             "distribution": [
@@ -575,7 +602,11 @@
             ],
             "identifier": "c696c4f7-6de9-45db-988a-7195c2ade1d0",
             "keyword": [
-                "cder"
+                "CDER",
+                "Drugs",
+                "FAERS",
+                "Adverse Event",
+                "Reporting System"
             ],
             "modified": "2013-08-16",
             "programCode": [
@@ -596,15 +627,15 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "openFDA",
-                "hasEmail": "mailto:open@fda.hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Information about FDA-approved brand name and generic prescription and over-the-counter human drugs and biological therapeutic products. Drugs@FDA includes most of the drug products approved since 1939. The majority of patient information, labels, approval letters, reviews, and other information are available for drug products approved since 1998.",
             "distribution": [
             {
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM054599.zip",
                 "mediaType": "application/zip",
-                "accessURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM054599.zip",
+                "accessURL": "http://www.accessdata.fda.gov/scripts/cder/drugsatfda/index.cfm",
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM054599.zip",
                 "format": "ZIP"
             }
@@ -642,7 +673,7 @@
             {
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM197817.zip",
                 "mediaType": "application/zip",
-                "accessURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM197817.zip",
+                "accessURL": "http://www.fda.gov/Drugs/InformationOnDrugs/ucm135778.htm",
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM197817.zip",
                 "format": "ZIP"
             }
@@ -650,7 +681,9 @@
             "accrualPeriodicity": "R/P3M",
             "identifier": "fa27e8ba-4b3c-4a2d-bb29-19eecffa0847",
             "keyword": [
-                "cder"
+                "cder",
+                "establishments",
+                "registration"
             ],
             "modified": "R/P3M",
             "programCode": [
@@ -687,7 +720,8 @@
             "accrualPeriodicity": "R/P3M",
             "identifier": "3f2b8dee-6c80-4230-8f8a-3f7c83920d42",
             "keyword": [
-                "cder"
+                "cder",
+                "dissolution"
             ],
             "modified": "R/P3M",
             "programCode": [
@@ -719,7 +753,7 @@
             {
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM111343.zip",
                 "mediaType": "application/zip",
-                "accessURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM111343.zip",
+                "accessURL": "http://www.fda.gov/Drugs/InformationOnDrugs/ucm135198.htm",
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM111343.zip",
                 "format": "Zipped TXT"
             }
@@ -727,7 +761,8 @@
             "accrualPeriodicity": "R/P3M",
             "identifier": "9dcfa54e-3b0c-40c8-b2fe-754820bed30f",
             "keyword": [
-                "cder"
+                "cder",
+                "clinical investigator"
             ],
             "modified": "R/P3M",
             "programCode": [
@@ -800,7 +835,8 @@
             ],
             "identifier": "6c697267-fe17-4c66-8c6d-da38ab9b723b",
             "keyword": [
-                "cder"
+                "cder",
+                "REMS"
             ],
             "modified": "2013-11-12",
             "programCode": [
@@ -836,7 +872,8 @@
             ],
             "identifier": "6e72c239-0510-49f4-8404-d3d7d50351ec",
             "keyword": [
-                "cder"
+                "cder",
+                "discontinued drugs"
             ],
             "modified": "2013-09-26",
             "programCode": [
@@ -857,8 +894,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "openFDA",
-                "hasEmail": "mailto:open@fda.hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Information provided to FDA by manufacturers about current drugs in shortage, resolved shortages, and discontinuations of specific drug products.",
             "distribution": [
@@ -875,7 +912,7 @@
             "keyword": [
                 "cder"
             ],
-            "modified": "R/P1W",
+            "modified": "R/P1D",
             "programCode": [
                 "009:002"
             ],
@@ -1009,8 +1046,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "On September 22, 2010, Abbott issued a voluntary recall of certain Similac powdered infant formula after identifying a common warehouse beetle (both larvae and adults) in the finished product at their Sturgis, Michigan plant. The company immediately put all product manufactured at the Michigan plant on hold and ceased manufacturing at that location. FDA has advised against consumption of the recalled product and urged consumers to follow the manufacturer's instructions for reporting and returning the formula.",
             "temporal": "2010-01-01/2010-12-31",
@@ -1040,7 +1077,10 @@
                 "009:001"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Abbott Infant Formula Recall",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm227485.htm"
@@ -1051,8 +1091,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "This list is intended to alert consumers about Web sites that are or were illegally marketing unapproved, uncleared, or unauthorized products in relation to the 2009 H1N1 Flu Virus (sometimes referred to as the 'swine flu' virus).",
             "temporal": "2009-01-01/2009-12-31",
@@ -1097,8 +1137,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "This feed provides new health and safety updates related to FDA approved products",
             "distribution": [
@@ -1127,7 +1167,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "Health Information Updates",
             "landingPage": "http://www.fda.gov/AboutFDA/ContactFDA/StayInformed/RSSFeeds/Consumers/rss.xml"
@@ -1138,8 +1181,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Contains data for FDA pet food recalls since January 1, 2006.",
             "distribution": [
@@ -1166,7 +1209,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Pet Food Recalls",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm225435.htm"
@@ -1177,8 +1223,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "This file contains the data elements used for searching the FDA Online Data Repository including proprietary name, active ingredients, marketing application number or regulatory citation, National Drug Code, and company name.",
             "distribution": [
@@ -1204,7 +1250,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Drug Label Data",
             "landingPage": "http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm240580.htm"
@@ -1215,8 +1264,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Contains data for FDA peanut product recalls since January 2009.",
             "distribution": [
@@ -1244,7 +1293,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Peanut Product Recalls",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm225439.htm"
@@ -1255,8 +1307,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Contains data for FDA recalls from 2009 through the present.",
             "distribution": [
@@ -1287,7 +1339,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "All FDA Recalls",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm225433.htm"
@@ -1298,8 +1353,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "The FDA Peanut-Containing Product Recall widget allows you to browse the Food and Drug Administration (FDA) database of peanut butter and peanut-containing products subject to recall. This database makes it easier for you to determine whether any of the products you have at home are subject to recent recalls, and will be updated as new information becomes available.",
             "distribution": [
@@ -1337,7 +1392,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Peanut-Containing Product Recall",
             "landingPage": "http://www.cdc.gov/Widgets/"
@@ -1348,8 +1406,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "This feed describes all new items that are being recalled by the FDA.",
             "distribution": [
@@ -1376,7 +1434,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "Food and Drug Administration--Recalls",
             "landingPage": "http://www.fda.gov/AboutFDA/ContactFDA/StayInformed/RSSFeeds/Recalls/rss.xml"
@@ -1417,51 +1478,6 @@
             },
             "title": "Food Recalls",
             "landingPage": "http://www.fda.gov/DataSets/Recalls/Food/Food.xml"
-        },
-        {
-            "accessLevel": "public",
-            "bureauCode": [
-                "009:10"
-            ],
-            "contactPoint": {
-                "fn": "openFDA",
-                "hasEmail": "mailto:open@fda.hhs.gov"
-            },
-            "description": "This list is intended to alert consumers about Web sites that are or were illegally marketing unapproved, uncleared, or unauthorized products in relation to the 2009 H1N1 Flu Virus (sometimes referred to as the swine flu virus). ",
-            "distribution": [
-            {
-                "downloadURL": "http://www.accessdata.fda.gov/scripts/h1n1flu/FraudulentH1N1ProductsList2009.xml",
-                "mediaType": "application/xml",
-                "accessURL": "http://www.accessdata.fda.gov/scripts/h1n1flu/FraudulentH1N1ProductsList2009.xml",
-                "downloadURL": "http://www.accessdata.fda.gov/scripts/h1n1flu/FraudulentH1N1ProductsList2009.xml",
-                "format": "XML"
-            }
-            ],
-            "accrualPeriodicity": "irregular",
-            "identifier": "5cea50ee-5d67-4fee-bbf6-1db8bb8de327",
-            "keyword": [
-                "community health",
-                "h1n1",
-                "health",
-                "influenza",
-                "market",
-                "notifications",
-                "recalls",
-                "safety",
-                "ora"
-            ],
-            "modified": "1900-01-01",
-            "programCode": [
-                "009:002"
-            ],
-            "publisher": {
-                "name": "Office of Regulatory Affairs",
-                "subOrganizationOf": {
-                    "name": "U.S. Food and Drug Administration"
-                }
-            },
-            "title": "Fraudulent 2009 H1N1 Influenza Products",
-            "landingPage": "http://www.accessdata.fda.gov/scripts/h1n1flu/FraudulentH1N1ProductsList2009.xml"
         },
         {
             "accessLevel": "public",
@@ -2270,8 +2286,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "The Adverse Event Reporting System (AERS) is a computerized information database designed to support the FDA's post-marketing safety surveillance program for all approved drug and therapeutic biologic products. The FDA uses AERS to monitor for new adverse events and medication errors that might occur with these marketed products. Reporting of adverse events from the point of care is voluntary in the United States. FDA receives some adverse event and medication error reports directly from health care professionals (such as physicians, pharmacists, nurses and others) and consumers (such as patients, family members, lawyers and others). Healthcare professionals and consumers may also report these events to the products' manufacturers. If a manufacturer receives an adverse event report, it is required to send the report to FDA as specified by regulations.  The files listed on this page contain raw data extracted from the AERS database for the indicated time ranges and are not cumulative. Users of these files need to be familiar with creation of relational databases using applications such as ORACLE, Microsoft Office Access, MySQL and IBM DB2 or the use of ASCII files with SAS analytic tools. A simple search of AERS data cannot be performed with these files by persons who are not familiar with creation of relational databases.",
             "temporal": "2004-01-01/2012-12-31",
@@ -2294,7 +2310,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "Adverse Event Reporting System (AERS)",
             "landingPage": "http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/default.htm"
@@ -2305,8 +2324,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "This list is intended to alert consumers about Web sites that are or were illegally marketing unapproved, uncleared, or unauthorized products in relation to the 2009 H1N1 Flu Virus (sometimes referred to as the 'swine flu' virus).",
             "temporal": "2009-01-01/2009-12-31",
@@ -2334,7 +2353,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "Fraudulent 2009 H1N1 Influenza Products Widget",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm225441.htm"
@@ -2345,47 +2367,15 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Diane Schmit",
-                "hasEmail": "mailto:diane.schmit@fda.hhs.gov"
-            },
-            "description": "CFSAN Thesaurus in CFSAN TMS",
-            "distribution": [
-            {
-            }
-            ],
-            "identifier": "8835EE4F-F12F-49EB-A01E-F5C2DABF678C",
-            "keyword": [
-                "CFSAN Thesaurus",
-                "STARI",
-                "scientific",
-                "technical and regulatory information",
-                "TMS"
-            ],
-            "modified": "2015-02-05",
-            "programCode": [
-                "009:001"
-            ],
-            "publisher": {
-                "name": "      Center for Food Safety and Applied Nutrition",
-                "subOrganizationOf": {
-                    "name": "U.S. Food and Drug Administration"
-                }
-            },
-            "title": "Business Objects, CFSAN TMS Thesaurus Universe"
-        },
-        {
-            "accessLevel": "public",
-            "bureauCode": [
-                "009:10"
-            ],
-            "contactPoint": {
                 "fn": "John Quinn",
                 "hasEmail": "mailto:john.quinn@fda.hhs.gov"
             },
-            "description": "POCA is a software that produces a data set used internally to assess the  safety, and feasibility of proposed proprietary drug names.  The public (specfically industry) has access to the tool but not to the internally run data queries/sets.",
+            "description": "POCA is a software that produces a data set used internally to assess the  safety, and feasibility of proposed proprietary drug names.  FDA product name safety evaluators have access to an internal version of the POCA system behind the FDA firewall.   Source code to develop external non-FDA instances of POCA are available at  
+http://www.fda.gov/Drugs/ResourcesForYou/Industry/ucm400127.htm",
             "distribution": [
             {
-                "mediaType": "text/html",
+                "mediaType": "application/pdf",
+                "accessURL": "http://www.fda.gov/Drugs/ResourcesForYou/Industry/ucm400127.htm",
                 "format": "Interactive on-line"
             }
             ],
@@ -2401,7 +2391,10 @@
                 "009:002"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "POCA -Phonetic Orthographic Computer Algorithm"
         },
@@ -2717,19 +2710,20 @@
                 "fn": "openFDA",
                 "hasEmail": "mailto:open@fda.hhs.gov"
             },
-            "description": "The publication Approved Drug Products with Therapeutic Equivalence Evaluations (the List, commonly known as the Orange Book) identifies drug products approved on the basis of safety and effectiveness by the Food and Drug Administration (FDA) under the Federal Food, Drug, and Cosmetic Act (the Act). (For more information, see the Orange Book Preface.)",
+            "description": "This contains information that identifies clinical investigators, contract research organizations, and institutional review boards involved in the conduct of Investigational New Drug (IND) studies with human investigational drugs and therapeutic biologics.",
             "distribution": [
             {
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM135169.zip",
                 "mediaType": "application/zip",
-                "accessURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM135169.zip",
+                "accessURL": "http://www.fda.gov/Drugs/InformationOnDrugs/ucm135162.htm",
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM135169.zip",
                 "format": "Zipped TXT"
             }
             ],
             "identifier": "8d346d8d-33c7-47f8-890d-a4ced16e45dd",
             "keyword": [
-                "cder"
+                "cder",
+                "BMIS"
             ],
             "modified": "2013-08-29",
             "programCode": [
@@ -2758,14 +2752,15 @@
             {
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM163762.zip",
                 "mediaType": "application/zip",
-                "accessURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM163762.zip",
+                "accessURL": "http://www.fda.gov/Drugs/InformationOnDrugs/ucm129662.htm",
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/InformationOnDrugs/UCM163762.zip",
                 "format": "Zipped TXT"
             }
             ],
             "identifier": "c7b84420-8e01-44eb-92de-c5e7f975ab28",
             "keyword": [
-                "cder"
+                "cder",
+                "orange book"
             ],
             "modified": "2013-10-31",
             "programCode": [
@@ -2836,14 +2831,15 @@
             {
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/DevelopmentApprovalProcess/UCM070838.zip",
                 "mediaType": "application/zip",
-                "accessURL": "http://www.fda.gov/downloads/Drugs/DevelopmentApprovalProcess/UCM070838.zip",
+                "accessURL": "http://www.fda.gov/Drugs/InformationOnDrugs/ucm142438.htm",
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/DevelopmentApprovalProcess/UCM070838.zip",
                 "format": "ZIP"
             }
             ],
             "identifier": "2b7ec03d-67dc-4544-b1d6-b9aa02f693c6",
             "keyword": [
-                "cder"
+                "cder",
+                "NDC"
             ],
             "modified": "2013-11-14",
             "programCode": [
@@ -3022,8 +3018,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Contains data for FDA pistachio product recalls since March 2009.",
             "distribution": [
@@ -3050,7 +3046,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Pistachio Product Recalls Widget",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm225438.htm"
@@ -3061,8 +3060,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Contains data for FDA Hydrolyzed Vegetable Protein (HVP) Containing Products recalls since February, 2010.",
             "distribution": [
@@ -3089,7 +3088,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Hydrolyzed Vegetable Protein (HVP) Containing Products Recalls Widget",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm225437.htm"
@@ -3100,8 +3102,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Contains data for FDA peanut product recalls since January 2009.",
             "distribution": [
@@ -3128,7 +3130,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Peanut Product Recalls Widget",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm225439.htm"
@@ -3139,8 +3144,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Contains data for FDA pet food recalls since January 1, 2006.",
             "distribution": [
@@ -3166,7 +3171,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Pet Health and Safety Widget",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm225435.htm"
@@ -3177,50 +3185,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
-            },
-            "description": "The drug labels and other drug-specific information on this Web site represent the most recent drug label information companies have submitted to the Food and Drug Administration (FDA).",
-            "distribution": [
-            {
-                "downloadURL": "http://labels.fda.gov",
-                "mediaType": "application/zip",
-                "accessURL": "http://dailymed.nlm.nih.gov/dailymed/downloadLabels.cfm",
-                "downloadURL": "http://labels.fda.gov",
-                "format": "ZIP"
-            }
-            ],
-            "identifier": "24a5dadc-ab38-45c6-82bc-ba2c45ff4e17",
-            "keyword": [
-                "community health",
-                "drug",
-                "fda",
-                "label",
-                "label repository",
-                "labels fda gov",
-                "labeling"
-            ],
-            "modified": "2013-11-26",
-            "programCode": [
-                "009:000"
-            ],
-            "publisher": {
-                "name": "Office of the Commissioner",
-                "subOrganizationOf": {
-                    "name": "U.S. Food and Drug Administration"
-                }
-            },
-            "title": "FDA Online Label Repository",
-            "landingPage": "http://labels.fda.gov/"
-        },
-        {
-            "accessLevel": "public",
-            "bureauCode": [
-                "009:10"
-            ],
-            "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Contains data for the FDA Plainview Milk Cooperative Ingredient Recall since June 2009.",
             "distribution": [
@@ -3248,7 +3214,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Plainview Milk Cooperative Ingredient Recall",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm225440.htm"
@@ -3259,8 +3228,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Contains data for FDA pistachio product recalls since March 2009.",
             "distribution": [
@@ -3288,7 +3257,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Pistachio Product Recalls",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm225438.htm"
@@ -3299,8 +3271,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Contains data for FDA shell egg recalls.",
             "temporal": "2010-01-01/2010-12-31",
@@ -3328,7 +3300,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Shell Egg Recalls",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm225434.htm"
@@ -3339,8 +3314,8 @@
                 "009:10"
             ],
             "contactPoint": {
-                "fn": "Health Data Initiative",
-                "hasEmail": "mailto:Healthdata@hhs.gov"
+                "fn": "FDA Enterprise Data Inventory",
+                "hasEmail": "mailto:FDA_Enterprise_Data_Inventory@fda.hhs.gov"
             },
             "description": "Contains data for FDA Hydrolyzed Vegetable Protein (HVP) Containing Products recalls since February, 2010.",
             "distribution": [
@@ -3368,7 +3343,10 @@
                 "009:000"
             ],
             "publisher": {
-                "name": "U.S. Food and Drug Administration"
+                "name": "Food and Drug Administration",
+                "subOrganizationOf": {
+                    "name": "U.S. Food and Drug Administration"
+                }
             },
             "title": "FDA Hydrolyzed Vegetable Protein (HVP) Containing Products Recalls",
             "landingPage": "http://www.fda.gov/AboutFDA/Transparency/OpenGovernment/ucm225437.htm"

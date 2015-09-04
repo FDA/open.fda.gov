@@ -22,6 +22,11 @@ docs:
 <div class="row tabs">
   <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/event/">Adverse events</a></h2></div>
   <div class="col-sm-6 tab selected"><h2><a href="{{ site.baseurl }}/device/enforcement/">Enforcement reports</a></h2></div>
+  <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/classification/">Device Classification</a></h2></div>
+  <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/510k/">510(k)</a></h2></div>
+  <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/pma/">PMA</a></h2></div>
+  <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/registrationlisting/">Registrations and listings</a></h2></div>
+  <div class="col-sm-6 tab"><h2><a href="{{ site.baseurl }}/device/recall/">Recalls</a></h2></div>
 </div>
 {:/}
 
@@ -90,7 +95,7 @@ Double quotation marks `" "` surround phrases that must match exactly. The plus 
 <div class="api-explorer">
 <div class="query">
 <h4 class="query-title">Count of voluntary vs. mandated enforcement reports</h4>
-<div class="query-description">The vast majority of recalls are firm-initiated. This query searches the endpoint for all records, and tells the API to count how many enforcement reports were for voluntary vs. FDA-mandated recalls. 
+<div class="query-description">The vast majority of recalls are firm-initiated. This query searches the endpoint for all records, and tells the API to count how many enforcement reports were for voluntary vs. FDA-mandated recalls.
 
  - **count** the field **voluntary_mandated.exact** (type of recall).
 
