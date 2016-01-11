@@ -80,11 +80,11 @@ Reports may involve more than one device, and more than one patient. *Each* devi
   - Here the sequence number is in the field `mdr_text.patient_sequence_number`.
   - Even in reports that did not involve any patient, the general device problem description is still associated with a "patient" with `patient_sequence_number` `1`.
 
-### Data downloads
+### Downloads
 
-Medical device adverse event reports in MAUDE are current as of the end of the previous month. OpenFDA uses these adverse event reports, but processes the data further before supplying them through the API. During our beta testing, we are investigating the best ways to offer direct downloads of data provided by the API.
+Medical device adverse event reports in MAUDE are current as of the end of the previous month. OpenFDA uses these adverse event reports, but processes the data further before supplying them through the API. There are no plans for the openFDA initiative to change the MAUDE data release protocols. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical or production use and is in beta testing. While FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated.
 
-There are no plans for the openFDA initiative to change the MAUDE data release protocols. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical or production use and is in beta testing. While FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated.
+{% include api-download.html endpoint="device.event" %}
 
 {% include api-anatomy.html %}
 

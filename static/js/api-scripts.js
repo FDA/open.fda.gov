@@ -71,6 +71,128 @@ function createNavigationSidebarFromHeadings() {
   }
 }
 
+function updateDownloadAreas() {
+
+  var getLinkHtml = function(partition) {
+    var linkHtml =  "<a href='" + partition.file + "'>" +
+                      "<i class='fa fa-file-o' style='margin-right: 5px; font-size: .94em'></i>" +
+                      partition.display_name +
+                    "</a> " +
+                    "<span class='slight'>" + partition.size_mb + " MB </span><br />";
+    return linkHtml;
+  };
+
+  $('.api-download').each(function(index) {
+    var downloadArea = this;
+    var endpointString = $(downloadArea).data('endpoint');
+    var endpointParts = endpointString.split('.');
+
+    $.getJSON('https://api.fda.gov/download.json')
+    .done(function(data) {
+      var endpointDownloads = data.results[endpointParts[0]][endpointParts[1]];
+      var endpointPartitions = endpointDownloads.partitions ? endpointDownloads.partitions : [];
+      var endpointDateUpdated = endpointDownloads.export_date ? endpointDownloads.export_date : '';
+
+      // If there were no partitions found (no files to download)
+      if (endpointPartitions.length == 0) {
+        $(downloadArea).find('.description').append(
+          "<p>" +
+            "The list of data files for this endpoint could not be found. The most likely cause is a problem with the openFDA server. Try again in a few minutes." +
+          "</p>"
+        );
+      }
+
+      // Append the download last-updated date, which is an empty string if no data were found
+      $(downloadArea).find('.single').append(
+        "<p class='light'>Download data last updated " + endpointDateUpdated + ".</p>"
+      );
+
+      // If there are a lot of partitions (files)
+      if (endpointPartitions.length > 10) {
+        // Hide the partitions div, which would otherwise take up a lot of space.
+        // A 'show downloads' button will be appended to the download description,
+        // which the user can click to see all the partitions.
+        $(downloadArea).find('.partitions').css({ "display": "none" });
+        $(downloadArea).find('.description').append(
+          "<p>This endpoint’s data may be downloaded in zipped JSON files. The results are represented in the same format as API calls to this endpoint. For more information about openFDA downloads, see the <a href='/api/reference/#downloads'>API basics</a>.</p>" +
+          "<p><a class='api-download-show' style='cursor: pointer' data-endpoint='" + endpointString + "'>" +
+            "Show data files (" + endpointPartitions.length + ")" +
+          "</a></p>"
+        );
+
+        // Divide this long list of partitions up into useful chunks. (By display name.)
+        // We only divide when partition display names begin with a number (e.g. YYYY) or the term 'All'.
+        var isDisplayNameAUsefulDivider = function(displayName) {
+          if (!isNaN(parseInt(displayName.slice(0,1)))) {
+            return true;
+          }
+          if (displayName.slice(0,3) == 'All') {
+            return true;
+          }
+          return false;
+        };
+
+        var firstDisplayName = endpointPartitions[0].display_name;
+
+        if (isDisplayNameAUsefulDivider(firstDisplayName)) {
+          var divider;
+          $.each(endpointPartitions, function(i, partition) {
+            var linkHtml =  getLinkHtml(partition);
+            // Use the first part of the display name as a category/divider.
+            var displayNameFirstPart = partition.display_name.split(' ')[0];
+
+            // Special case to catch 'All'
+            if (displayNameFirstPart.slice(0,3) == 'All') {
+              displayNameFirstPart = 'All';
+            }
+            if (divider !== displayNameFirstPart) {
+              divider = displayNameFirstPart;
+              if (divider == 'All') {
+                $('.partitions').append(
+                  "<div class='col-sm-4' id='partition-" + divider + "'>" +
+                    "<h3>All other data</h3>" +
+                    "<p class='slight'>Records that fell outside the categories here, such as earlier or later dates or those with potential data errors.</p>" +
+                  "</div>"
+                );
+              }
+              else {
+                $('.partitions').append(
+                  "<div class='col-sm-4' id='partition-" + divider + "'>" +
+                    "<h3>" + divider + "</h3>" +
+                  "</div>"
+                );
+              }
+            }
+            $('#partition-' + divider).append(linkHtml);
+          });
+        }
+        else {
+          $.each(endpointPartitions, function(i, partition) {
+            var linkHtml =  getLinkHtml(partition);
+            $(downloadArea).find('.single').append(linkHtml);
+          });
+        }
+      }
+      else {
+        $(downloadArea).find('.description').append(
+          "<p>This endpoint’s data may be downloaded in zipped JSON files. The results are represented in the same format as API calls to this endpoint. For more information about openFDA downloads, see the <a href='/api/reference/#downloads'>API basics</a>.</p></p>"
+        );
+        $.each(endpointPartitions, function(i, partition) {
+          var linkHtml =  getLinkHtml(partition);
+          $(downloadArea).find('.single').append(linkHtml);
+        });
+      }
+    })
+    .fail(function() {
+      $(downloadArea).find('.description').append(
+        "<p>" +
+          "The list of data files for this endpoint could not be found. The most likely cause is a problem with the openFDA server. Try again in a few minutes." +
+        "</p>"
+      );
+    });
+  });
+}
+
 // JSON prettyprint
 
 if (!library) { var library = {}; }
@@ -93,7 +215,7 @@ library.json = {
 // Document ready
 
 $(document).ready(function() {
-  
+
   // Create navigation sidebar on API docs pages
 
   createNavigationSidebarFromHeadings();
@@ -140,16 +262,29 @@ $(document).ready(function() {
     });
   }
 
+  // Create download sections
+
+  if ($('.api-download').length > 0) {
+    updateDownloadAreas();
+  }
+
+  // Handle "show downloads" clicks
+
+  $('body').on('click', '.api-download-show', function () {
+    var endpoint = $(this).data('endpoint');
+    $(this).css({ "display": "none" });
+    $(".api-download[data-endpoint='" + endpoint + "'] .partitions").css({ "display": "block" });
+  });
+
   // Update API status on open.fda.gov/api/status
 
   if ($('.api-status').length > 0) {
 
     $.getJSON('//api.fda.gov/status')
     .done(function(data) {
-      
       var statuses = {};
       for (key in data) {
-        var item = data[key]; 
+        var item = data[key];
         var endpoints = kIndexToEnpdoint[item.endpoint];
         if (!endpoints) {
           continue;
@@ -161,7 +296,7 @@ $(document).ready(function() {
           }
         }
       }
-      
+
       $('.api-status').each(function(index) {
         var status = this;
         var endpoint = $(status).data('endpoint');
@@ -239,7 +374,7 @@ $(document).ready(function() {
   $(".api-explorer-query").keypress(function(e) {
     var code = (e.keyCode ? e.keyCode : e.which),
         button = $(this).parents("div.api-explorer").find("button.go");
-    
+
     // Handle space character (don't allow it)
     if (code === 32) {
       e.preventDefault();

@@ -71,8 +71,6 @@ function getEndpointMap(dataElement) {
 function determineChartContent(data) {
   var queryCount = $(selectedTab).find("#query-count").val();
   var endpointMap = getEndpointMap(selectedEndpoint);
-  console.log(endpointMap);
-  console.log(queryCount)
 
   // Adding a high level router for this logic
   // All of the device APIs will go through the router. The rest of the APIs
@@ -531,9 +529,6 @@ function drawChartWithData(data) {
     iterateThroughValues(data, processingLogic, 'bar');
     generateBarChart(dataValuesForChart, dataLabelsForChart);
   }
-  else {
-    console.log("Not countable");
-  }
 }
 
 // Make the actual openFDA API calls, and do things with the data.
@@ -546,7 +541,6 @@ function runQueries(queryStringForTotalMatching, queryString) {
     drawChartWithData(data.results);
   })
   .fail(function() {
-    console.log('fails');
     $(selectedTab).find('#query-endpoint').popover({
       trigger: 'manual',
       container: 'body',

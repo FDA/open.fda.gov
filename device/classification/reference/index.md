@@ -49,8 +49,11 @@ js:
 
 {% include api-status-updated.html endpoint="https://api.fda.gov/device/classification.json?" count="product_code" %}
 
-
 <!-- TODO(hansnelsen): Add back disclaimer once copy is finalized -->
+
+### Downloads
+
+{% include api-download.html endpoint="device.classification" %}
 
 ### How records are organized
 Example:

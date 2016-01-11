@@ -43,5 +43,5 @@ grunt minified
 
 # Prerequisites
 
-* Node 0.10.*
+* Node 0.12.*
 * Python 2.* (because of [pygments](https://github.com/tmm1/pygments.rb) syntax highlighting)

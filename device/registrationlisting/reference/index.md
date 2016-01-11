@@ -51,6 +51,10 @@ js:
 
 {% include panel.html type="warning" title="Disclaimer" text="Registration and listing data are submitted and maintained by medical device companies that are required to identify their places of business and the devices they produce or process at those places of business. These data are generally not reviewed by FDA for accuracy or completeness and the appearance of these data on the FDA web site and on open.fda.gov does not infer FDA approval of either the products or the facilities.When using the Product data, keep in mind that the definition of 'product' can be variable, based on whether the device requires some form of premarket approval or notification, or can be marketed without any premarket review by FDA. You may want to identify the number of products by the number of proprietary names associated with a given data set rather than the number of product rows returned. However, as noted, the data provided by these APIs may or may not be complete as most of them have not been verified by FDA." %}
 
+### Downloads
+
+{% include api-download.html endpoint="device.registrationlisting" %}
+
 
 ### How records are organized
 Example:

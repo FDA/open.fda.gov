@@ -43,31 +43,31 @@
             <h4>Filter</h4>
             <div class="radio">
               <label>
-                <input type="radio" name="api-query-options-search" id="reports-all" value="effective_time:[20090601+TO+20140731]" checked />
+                <input type="radio" name="api-query-options-search" id="reports-all" value="effective_time:[20090601+TO+20150731]" checked />
                 All drug labeling submissions
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="api-query-options-search" id="reports-otc" value="effective_time:[20090601+TO+20140731]+AND+openfda.product_type:otc" />
+                <input type="radio" name="api-query-options-search" id="reports-otc" value="effective_time:[20090601+TO+20150731]+AND+openfda.product_type:otc" />
                 Over-the-counter drug labeling
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="api-query-options-search" id="reports-rx" value="effective_time:[20090601+TO+20140731]+AND+openfda.product_type:prescription" />
+                <input type="radio" name="api-query-options-search" id="reports-rx" value="effective_time:[20090601+TO+20150731]+AND+openfda.product_type:prescription" />
                 Prescription drug labeling
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="api-query-options-search" id="reports-lactose" value="effective_time:[20090601+TO+20140731]+AND+inactive_ingredient:lactose" />
+                <input type="radio" name="api-query-options-search" id="reports-lactose" value="effective_time:[20090601+TO+20150731]+AND+inactive_ingredient:lactose" />
                 Lactose is an inactive ingredient
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="api-query-options-search" id="reports-lactose" value="effective_time:[20090601+TO+20140731]+AND+_exists_:boxed_warning" />
+                <input type="radio" name="api-query-options-search" id="reports-lactose" value="effective_time:[20090601+TO+20150731]+AND+_exists_:boxed_warning" />
                 Labeling has a <a href="http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfCFR/CFRSearch.cfm?fr=201.57">Boxed Warning</a>
               </label>
             </div>
@@ -90,7 +90,7 @@
       <div class="row">
         <div class="col-sm-12">
           <h3 class="what-query">What API query produced these results?</h3>
-          <pre id="query-endpoint">https://api.fda.gov/drug/label.json?search=effective_time:[20090601+TO+20140731]</pre>
+          <pre id="query-endpoint">https://api.fda.gov/drug/label.json?search=effective_time:[20090601+TO+20150731]</pre>
         </div>
       </div>
 
@@ -98,7 +98,7 @@
         <!-- Search -->
         <div class="col-sm-6">
           <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
-          <textarea id="query-search" class="query-textarea form-control">effective_time:[20090601+TO+20140731]</textarea>
+          <textarea id="query-search" class="query-textarea form-control">effective_time:[20090601+TO+20150731]</textarea>
         </div>
 
         <!-- Count -->

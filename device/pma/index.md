@@ -50,6 +50,10 @@ Class III devices are those that support or sustain human life, are of substanti
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of device pre-market approval.
 
+## Downloads
+
+{% include api-download.html endpoint="device.pma" %}
+
 ## How to search this endpoint
 
     {{ site.apiurl }}{{ page.endpoint }}.json?

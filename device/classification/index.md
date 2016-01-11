@@ -51,6 +51,10 @@ The U.S. Food and Drug Administration (FDA) regulates medical devices in the Uni
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of device classifications.
 
+## Downloads
+
+{% include api-download.html endpoint="device.classification" %}
+
 ## How to search this endpoint
 
     {{ site.apiurl }}{{ page.endpoint }}.json?

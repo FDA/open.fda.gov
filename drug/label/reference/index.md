@@ -55,11 +55,11 @@ Drug manufacturers and distributors submit documentation about their products to
 
 The openFDA drug product labeling API returns data from these submissions for both prescription and over-the-counter (OTC) drugs. The labeling is broken into sections, such as <em>indications for use</em> (prescription drugs) or <em>purpose</em> (OTC drugs), <em>adverse reactions,</em> and so forth. There is considerable variation between drug products, since the information required for safe and effective use varies with the unique characteristics of each drug product.
 
-### Data downloads
-
-During our beta period, we are investigating the best ways to offer direct downloads of data provided by the API.
+### Downloads
 
 There are no plans for the openFDA initiative to change the SPL release protocols. At this time it is anticipated that SPL data will continue to be available from the same site on the same schedule. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical or production use and is in beta testing. While FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated.
+
+{% include api-download.html endpoint="drug.label" %}
 
 {% include api-anatomy.html %}
 

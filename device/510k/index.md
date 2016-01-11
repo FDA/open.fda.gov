@@ -52,6 +52,10 @@ For additional information, see <a href="http://www.fda.gov/MedicalDevices/Devic
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of a device 510(k).
 
+## Downloads
+
+{% include api-download.html endpoint="device.510k" %}
+
 ## How to search this endpoint
 
     {{ site.apiurl }}{{ page.endpoint }}.json?

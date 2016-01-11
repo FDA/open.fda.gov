@@ -47,6 +47,10 @@ For additional information, see [here](http://www.fda.gov/MedicalDevices/Safety/
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of device recalls.
 
+## Downloads
+
+{% include api-download.html endpoint="device.recall" %}
+
 ## How to search this endpoint
 
     {{ site.apiurl }}{{ page.endpoint }}.json?

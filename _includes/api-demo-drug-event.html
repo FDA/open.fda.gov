@@ -21,12 +21,12 @@
       <li><a href="#reactions" data-toggle="pill">Reported reactions</a></li>
     </ul>
   </div>
-  
+
   <div class="tab-content">
 
     <!-- STORY SPONTANEOUS REPORTS -->
     <div class="tab-pane fade in active" id="spontaneous">
-      
+
       <!-- Description -->
       <div class="row">
         <div class="col-sm-12 description">
@@ -39,7 +39,7 @@
       <!-- Chart -->
       <div class="row">
         <div class="col-sm-3">
-          
+
           <!-- Radio buttons -->
           <div class="api-query-control">
             <h4>Filter</h4>
@@ -51,25 +51,25 @@
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="api-query-options-search" id="spontaneous-company-yes" value="receivedate:[20040101+TO+20150101]+AND+_exists_:companynumb" />
+                <input type="radio" name="api-query-options-search" id="spontaneous-company-yes" value="receivedate:[20040101+TO+20160101]+AND+_exists_:companynumb" />
                 Reported through manufacturers
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="api-query-options-search" id="spontaneous-company-no" value="receivedate:[20040101+TO+20150101]+AND+_missing_:companynumb" />
+                <input type="radio" name="api-query-options-search" id="spontaneous-company-no" value="receivedate:[20040101+TO+20160101]+AND+_missing_:companynumb" />
                 Reported directly by public
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="api-query-options-search" id="spontaneous-hypertension" value="receivedate:[20040101+TO+20150101]+AND+patient.drug.drugindication:hypertension" />
+                <input type="radio" name="api-query-options-search" id="spontaneous-hypertension" value="receivedate:[20040101+TO+20160101]+AND+patient.drug.drugindication:hypertension" />
                 Where indication for drug use was hypertension
               </label>
             </div>
 
             <!-- Coverage chart -->
-            <div class="chart coverage">  
+            <div class="chart coverage">
               <h4 id="result-count"></h4>
               <div id="chart-coverage"></div>
             </div>
@@ -94,7 +94,7 @@
         <!-- Search -->
         <div class="col-sm-6">
           <div class="api-query-parameter"><a href="{{site.baseurl}}/api/reference/#query-syntax">search=</a> parameter</div>
-          <textarea id="query-search" class="query-textarea form-control">receivedate:[20040101+TO+20150101]</textarea>
+          <textarea id="query-search" class="query-textarea form-control">receivedate:[20040101+TO+20160101]</textarea>
         </div>
 
         <!-- Count -->
@@ -116,7 +116,7 @@
 
     <!-- STORY WHO REPORTS -->
     <div class="tab-pane fade in" id="who-reports">
-      
+
       <!-- Description -->
       <div class="row">
         <div class="col-sm-12 description">
@@ -128,7 +128,7 @@
       <!-- Chart -->
       <div class="row">
         <div class="col-sm-3">
-          
+
           <!-- Radio buttons -->
           <div class="api-query-control">
             <h4>Filter</h4>
@@ -152,7 +152,7 @@
             </div>
 
             <!-- Coverage chart -->
-            <div class="chart coverage">  
+            <div class="chart coverage">
               <h4 id="result-count"></h4>
               <div id="chart-coverage"></div>
             </div>
@@ -199,7 +199,7 @@
 
     <!-- STORY DRUG CLASSES -->
     <div class="tab-pane fade in" id="classes">
-      
+
       <!-- Description -->
       <div class="row">
         <div class="col-sm-12">
@@ -211,7 +211,7 @@
       <!-- Chart -->
       <div class="row">
         <div class="col-sm-3">
-          
+
           <!-- Radio buttons -->
           <div class="api-query-control">
             <h4>Filter</h4>
@@ -236,7 +236,7 @@
 
             <!-- Coverage chart -->
             <div class="chart coverage">
-              <h4 id="result-count"></h4> 
+              <h4 id="result-count"></h4>
               <div id="chart-coverage"></div>
             </div>
           </div>
@@ -282,7 +282,7 @@
 
     <!-- STORY INDICATIONS FOR USE -->
     <div class="tab-pane fade in" id="indications">
-      
+
       <!-- Description -->
       <div class="row">
         <div class="col-sm-12">
@@ -294,7 +294,7 @@
       <!-- Chart -->
       <div class="row">
         <div class="col-sm-3">
-          
+
           <!-- Radio buttons -->
           <div class="api-query-control">
             <h4>Filter</h4>
@@ -349,7 +349,7 @@
 
             <!-- Coverage chart -->
             <div class="chart coverage">
-              <h4 id="result-count"></h4> 
+              <h4 id="result-count"></h4>
               <div id="chart-coverage"></div>
             </div>
           </div>
@@ -395,7 +395,7 @@
 
     <!-- STORY REACTIONS -->
     <div class="tab-pane fade in" id="reactions">
-      
+
       <!-- Description -->
       <div class="row">
         <div class="col-sm-12">
@@ -408,7 +408,7 @@
       <!-- Chart -->
       <div class="row">
         <div class="col-sm-3">
-          
+
           <!-- Radio buttons -->
           <div class="api-query-control">
             <h4>Filter</h4>
@@ -457,7 +457,7 @@
 
             <!-- Coverage chart -->
             <div class="chart coverage">
-              <h4 id="result-count"></h4> 
+              <h4 id="result-count"></h4>
               <div id="chart-coverage"></div>
             </div>
           </div>
@@ -499,6 +499,6 @@
       </div>
     </div>
     <!-- END STORY -->
-  </div>  
+  </div>
 </div>
 {:/}
