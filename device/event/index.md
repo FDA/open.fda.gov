@@ -54,6 +54,10 @@ See the <a href="{{ site.baseurl }}/data/maude/">MAUDE dataset page</a> for more
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of device adverse event reports.
 
+## Downloads
+
+{% include api-download.html endpoint="device.event" %}
+
 ## How to search this endpoint
 
     https://api.fda.gov/device/event.json?

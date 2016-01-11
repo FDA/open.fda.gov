@@ -28,7 +28,7 @@ docs:
 
 {% include api-demo-drug-label.html %}
 
-<section id="endpoint">
+<section class="reference">
 
 ## About drug product labeling
 
@@ -41,6 +41,10 @@ The openFDA drug product labels API returns data from these submissions for both
 ## Reference
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of openFDA drug product label records.
+
+## Downloads
+
+{% include api-download.html endpoint="drug.label" %}
 
 ## How to search this endpoint
 

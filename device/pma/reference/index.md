@@ -55,6 +55,10 @@ js:
 
 <!-- TODO(hansnelsen): Add back disclaimer once copy is finalized -->
 
+### Downloads
+
+{% include api-download.html endpoint="device.pma" %}
+
 ### How records are organized
 Example:
 {% highlight javascript %}

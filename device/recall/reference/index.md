@@ -49,6 +49,10 @@ js:
 
 {% include api-status-updated.html endpoint="https://api.fda.gov/device/recall.json?" count="product_code" %}
 
+### Downloads
+
+{% include api-download.html endpoint="device.recall" %}
+
 <!-- TODO(hansnelsen): Add back disclaimer once copy is finalized -->
 <!-- TODO(hansnelsen): Add dataset page once it is ready -->
 

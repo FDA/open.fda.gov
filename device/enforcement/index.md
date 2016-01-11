@@ -54,6 +54,10 @@ Whereas not all recalls are announced in the media or on our recall press releas
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of enforcement reports.
 
+## Downloads
+
+{% include api-download.html endpoint="device.enforcement" %}
+
 ## How to search this endpoint
 
     https://api.fda.gov/device/enforcement.json?

@@ -54,9 +54,95 @@ The API returns results as [JSON](http://www.json.org/) {% include external-link
 
 ### Downloads
 
-OpenFDA uses public FDA datasets, but processes the data further before supplying it through the API. During our beta, we are investigating the best ways to offer direct downloads of data provided by the API.
+OpenFDA is designed primarily for real-time queries. However, some applications may require all the data served by an endpoint, or exceed the [query limits](#authentication) or result limit (5000 records per query) in place to promote equitable access and manage load on the system.
 
-[More information about openFDA datasets and downloads »]({{ site.baseurl }}/data/)
+Because [openFDA is open source and its source code is available on GitHub](http://github.com/FDA/openfda/), you can create your own instance of openFDA without these limits and run it on your own server. You can also download the data for any openFDA endpoint, in exactly the same JSON format that query results follow, and build your own custom application that uses these JSON files. Because the format is exactly the same as API query results, you can reuse existing code that you’ve written for applications that process openFDA data. There are two things you should know about these downloads.
+
+ - **Downloads are broken into parts.** Some endpoints have millions of records. For those endpoints, the data are broken up into many small parts. So while some endpoints have all their data available in a single file, others have dozens of files. Each file is a zipped JSON file.
+ - **To keep your downloaded data up to date, you need to re-download the data every time it is updated.** Every time an endpoint is updated (which happens on a regular basis), it is possible that every record has changed, due to corrections or enhancements. That means that you cannot simply download "new" files to keep your downloaded version up to date. You need to download all available data files for the endpoint of interest.
+
+#### How to download data
+
+There are three ways to download data from openFDA.
+
+ - **Download manually.** There’s a downloads section on each endpoint’s openFDA page—for example, [drug adverse event downloads]({{ site.baseurl }}/drug/event/#downloads). There you can download a sampling of the data, or all of it, one file at a time.
+ - **Write code to download the data automatically.** Use a special API query (see below) to get a list of all the current data files for each endpoint. The data files are hosted at [http://download.open.fda.gov/](http://download.open.fda.gov/).
+ - **Synchronize with the openFDA S3 bucket.** Both current and old (archived) data files are available at **s3://download.open.api.gov**, in subdirectories by date (e.g. **s3://download.open.fda.gov/2015-12-19/**). This is the only place that old data files are hosted.
+
+#### Download API query
+
+[https://api.fda.gov/download.json](https://api.fda.gov/download.json)
+
+This special query returns a result that is a listing of all the data files available for each endpoint. The following example shows a snippet of that result, with a small sample of the files available for the `device/event` endpoint.
+
+{% highlight javascript %}
+"meta": {
+  "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+  "license": "http://open.fda.gov/license",
+  "last_updated": "2015-12-19"
+},
+"results": {
+  "device": {
+    "event": {
+      "total_records": 33128,
+      "export_date": "2015-12-19",
+      "partitions": [
+        ...
+        {
+          "size_mb": "0.56",
+          "records": 795,
+          "display_name": "2012 q2 (all)",
+          "file": "http://download.open.fda.gov/device/event/2012q2/device-event-0001-of-0001.json.zip"
+        },
+        {
+          "size_mb": "0.58",
+          "records": 825,
+          "display_name": "2012 q3 (all)",
+          "file": "http://download.open.fda.gov/device/event/2012q3/device-event-0001-of-0001.json.zip"
+        },
+        ...
+      ]
+    }
+  }
+}
+{% endhighlight %}
+
+`meta`
+: **object**
+: This section contains a disclaimer and license information. The field `last_updated` indicates when the data files were exported.
+
+`results`
+: **object**
+: This section has an object for each of the three openFDA *nouns* (`drug`, `device`, and `food`), and each of those has a child object for each endpoint. For example, for the `device/event` endpoint, there is a `results.device.event` object.
+
+The following fields are present for each **endpoint**—e.g. `results.device.event`.
+
+`total_records`
+: **integer**
+: The total number of records in the endpoint.
+
+`export_date`
+: **string**
+: The date when the data files for this endpoint were exported.
+
+`partitions`
+: **list of objects**
+: The list of data files available for this endpoint. Each object in this list represents a single data file. Some endpoints have just one item in this list, but others have dozens of items.
+
+The following fields are present for each object in the `partitions` list. Remember that each object represents a single file available for download.
+
+`size_mb`
+: **string**
+: The size of the file, in megabytes (MB).
+
+`records`
+: **integer**
+: The number of records in this file.
+
+`file`
+: **string**
+: A URL at which the file can be accessed, by HTTP.
+
 
 ### Authentication
 
@@ -96,7 +182,7 @@ Your API key should be passed to the API as the value of the `api_key` parameter
 
 ### HTTPS requests
 
-We encourage you to use `https://api.fda.gov` for all queries to ensure secure communication. We use [Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication) {% include external-link.html %} to support SSL. As [not all clients support SNI](https://en.wikipedia.org/wiki/Server_Name_Indication#No_support) {% include external-link.html %}, we do not enforce HTTPS access. If your application does not support SNI, you can use `http://api.fda.gov`. 
+We encourage you to use `https://api.fda.gov` for all queries to ensure secure communication. We use [Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication) {% include external-link.html %} to support SSL. As [not all clients support SNI](https://en.wikipedia.org/wiki/Server_Name_Indication#No_support) {% include external-link.html %}, we do not enforce HTTPS access. If your application does not support SNI, you can use `http://api.fda.gov`.
 
 ### Query parameters
 
@@ -273,7 +359,7 @@ SPL stands for the [Structured Product Labeling](http://www.fda.gov/forindustry/
 
 `pharm_class_moa`
 : **array of strings**
-: Mechanism of action. Molecular, subcellular, or cellular level functional activity of a drug product's pharmacologic class. 
+: Mechanism of action. Molecular, subcellular, or cellular level functional activity of a drug product's pharmacologic class.
 
 `pharm_class_cs`
 : **array of strings**

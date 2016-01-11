@@ -1,7 +1,7 @@
 ---
 layout: default
 cover: p_binders.jpg
-js: 
+js:
   - '/static/bower_components/jquery/dist/jquery.min.js'
   - '/static/js/min/jquery-xdomainrequest.js'
   - '/static/js/min/update-signup.js'
@@ -15,7 +15,7 @@ js:
       Open-source APIs for FDA <strong>drug</strong>, <strong>device</strong>, and <strong>food</strong> data
     </h1>
     <p><a href="{{ site.baseurl }}/about">About openFDA <i class="fa fa-angle-double-right"></i></a></p>
-    
+
     <section class="pointers">
       <div>
         <h2>Drugs</h2>
@@ -57,13 +57,6 @@ js:
         </ul>
       </div>
     </section>
-
-    <!--
-    <div id="api-home-demo">
-      <span id="title" class="out"></span>
-      <div id="chart"></div>
-    </div>
-    -->
   </div>
 </section>
 
@@ -76,7 +69,7 @@ js:
             <div class="article-meta">
               {% for author in site.data.authors %}
                 {% if post.authors contains author.name %}
-                  {{ author.name }} | 
+                  {{ author.name }} |
                 {% endif %}
               {% endfor %}
               {{ post.date | date_to_string }}
@@ -94,8 +87,8 @@ js:
       <a href="{{ site.baseurl }}/updates/">More updates</a>
     </div>
   </div>
-  
-  <div class="homepage-sidebar">  
+
+  <div class="homepage-sidebar">
     <section>
       <a href="https://github.com/FDA" target="_blank">
         <h2><i class="fa fa-github"></i>Open source on GitHub {% include external-link.html %}</h2>

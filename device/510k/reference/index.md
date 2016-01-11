@@ -51,6 +51,9 @@ js:
 
 <!-- TODO(hansnelsen): Add back disclaimer once copy is finalized -->
 
+### Downloads
+
+{% include api-download.html endpoint="device.510k" %}
 
 ### How records are organized
 

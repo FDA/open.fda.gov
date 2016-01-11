@@ -443,10 +443,7 @@
             "description": "The FDA shall publish in a format that is understandable and not misleading to a lay person, and place on public display, a list of 93 harmful and potentially harmful constituents in each tobacco product and smoke established under section 904(e) of the TCA.  CTP has determined the best means to display the data is web-based on FDA.GOV.  The HPHC back-end database and template for industry will be created in a future release of eSubmissions.  The scope of this project is to: Phase 1 (Current POP): 1) build a website to support the display of the HPHC constituents, 2) allow the user to access educational information about the health effects of the chemicals; Phase 2 (next POP):  1) allow users of the website to perform a search by brand and sub-brand, 2) display a report on the HPHCs contained in that tobacco product, and 3) create an admin module to allow for an import of HPHC data via an Excel spreadsheet and to update the list of constituents.",
             "distribution": [
             {
-                "description": "Website is still under development, not yet published to the public.  
-
-Pre-Production L is: 
-http://accessdata-preprod.fda.gov/scripts/hphc/",
+                "description": "Website is still under development, not yet published to the public. Pre-Production L is: http://accessdata-preprod.fda.gov/scripts/hphc/",
                 "mediaType": "text/html",
                 "accessURL": "http://www.fda.gov/TobaccoProducts/GuidanceComplianceRegulatoryInformation/ucm297786.htm"
             }
@@ -2370,8 +2367,7 @@ http://accessdata-preprod.fda.gov/scripts/hphc/",
                 "fn": "John Quinn",
                 "hasEmail": "mailto:john.quinn@fda.hhs.gov"
             },
-            "description": "POCA is a software that produces a data set used internally to assess the  safety, and feasibility of proposed proprietary drug names.  FDA product name safety evaluators have access to an internal version of the POCA system behind the FDA firewall.   Source code to develop external non-FDA instances of POCA are available at  
-http://www.fda.gov/Drugs/ResourcesForYou/Industry/ucm400127.htm",
+            "description": "POCA is a software that produces a data set used internally to assess the  safety, and feasibility of proposed proprietary drug names.  FDA product name safety evaluators have access to an internal version of the POCA system behind the FDA firewall.   Source code to develop external non-FDA instances of POCA are available at http://www.fda.gov/Drugs/ResourcesForYou/Industry/ucm400127.htm",
             "distribution": [
             {
                 "mediaType": "application/pdf",

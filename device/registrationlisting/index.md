@@ -48,6 +48,10 @@ For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceR
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of device registrations and listings.
 
+## Downloads
+
+{% include api-download.html endpoint="device.registrationlisting" %}
+
 ## How to search this endpoint
 
     {{ site.apiurl }}{{ page.endpoint }}.json?

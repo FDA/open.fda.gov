@@ -52,6 +52,10 @@ Reports contain varying levels of detail about the drug products involved, indic
 
 See the <a href="reference/">comprehensive field-by-field reference</a> for more detail about the structure and contents of drug adverse event reports.
 
+## Downloads
+
+{% include api-download.html endpoint="drug.event" %}
+
 ## How to search this endpoint
 
     https://api.fda.gov/drug/event.json?
