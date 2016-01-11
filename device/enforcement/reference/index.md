@@ -86,7 +86,7 @@ The data format of RES enforcement reports changed in June 2012. In openFDA API 
  - `country`
  - `voluntary_mandated`
  - `initial_firm_notification`
- - `recall_initiation-date`
+ - `recall_initiation_date`
 
 ### Field reference
 

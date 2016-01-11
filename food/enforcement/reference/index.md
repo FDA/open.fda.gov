@@ -80,7 +80,7 @@ The data format of RES enforcement reports changed in June 2012. In openFDA API 
  - `country`
  - `voluntary_mandated`
  - `initial_firm_notification`
- - `recall_initiation-date`
+ - `recall_initiation_date`
 
 ## Field-by-field reference
 
@@ -124,13 +124,13 @@ The data format of RES enforcement reports changed in June 2012. In openFDA API 
 `status`
 : **string**
 : `On-Going` = A recall which is currently in progress.
-: `Completed` = The recall action reaches the point at which the firm has actually retrieved and impounded all outstanding product that could reasonably be expected to be recovered, or has completed all product corrections. 
+: `Completed` = The recall action reaches the point at which the firm has actually retrieved and impounded all outstanding product that could reasonably be expected to be recovered, or has completed all product corrections.
 : `Terminated` = FDA has determined that all reasonable efforts have been made to remove or correct the violative product in accordance with the recall strategy, and proper disposition has been made according to the degree of hazard.
-: `Pending` = Actions that have been determined to be recalls, but that remain in the process of being classified. 
+: `Pending` = Actions that have been determined to be recalls, but that remain in the process of being classified.
 
 `distribution_pattern`
 : **string**
-: General area of initial distribution such as, “Distributors in 6 states: NY, VA, TX, GA, FL and MA; the Virgin Islands; Canada and Japan”. The term “nationwide” is defined to mean the fifty states or a significant portion.  Note that subsequent distribution by the consignees to other parties may not be included. 
+: General area of initial distribution such as, “Distributors in 6 states: NY, VA, TX, GA, FL and MA; the Virgin Islands; Canada and Japan”. The term “nationwide” is defined to mean the fifty states or a significant portion.  Note that subsequent distribution by the consignees to other parties may not be included.
 
 `product_description`
 : **string**

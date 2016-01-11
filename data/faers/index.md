@@ -8,8 +8,8 @@ source_url:         http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInforma
 provider_name:      FDA
 provider_url:       http://www.fda.gov/
 update_frequency:   Quarterly
-time_period:        Q1 2004-Q2 2015
-record_count:       ~5.5M records
+time_period:        Q1 2004-Q3 2015
+record_count:       ~5.9M records
 license:            Public Domain (<a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0</a>)
 description:        The FDA Adverse Event Reporting System (FAERS) is a database that contains information on adverse event and medication error reports submitted to FDA.
 download_url:       http://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/ucm082193.htm
