@@ -182,7 +182,7 @@ Your API key should be passed to the API as the value of the `api_key` parameter
 
 ### HTTPS requests
 
-We encourage you to use `https://api.fda.gov` for all queries to ensure secure communication. We use [Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication) {% include external-link.html %} to support SSL. As [not all clients support SNI](https://en.wikipedia.org/wiki/Server_Name_Indication#No_support) {% include external-link.html %}, we do not enforce HTTPS access. If your application does not support SNI, you can use `http://api.fda.gov`.
+We require you to use `https://api.fda.gov` for all queries to ensure secure communication.
 
 ### Query parameters
 
