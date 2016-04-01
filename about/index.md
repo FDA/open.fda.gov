@@ -3,32 +3,32 @@ layout:       page
 title:        About
 ---
 
-OpenFDA is the first innovation created by [Taha Kass-Hout, MD, MS](http://www.fda.gov/AboutFDA/CentersOffices/ucm349836.htm), upon joining [FDA](http://www.fda.gov/) as the first Chief Health Information Officer in March 2013. The goal of the project is to create easy access to public data, to create a new level of openness and accountability, to ensure the privacy and security of public FDA data, and ultimately to educate the public and save lives. The concept was to index high-value public-access data, format and document that data in developer and consumer-friendly standards, and make that data available via a public-access portal that enables developers to quickly and easily use it in applications. Dr. Kass-Hout launched the project by obtaining a Presidential Innovation Fellow to focus on policy and programmatic issues in July 2013. In August 2013, a research and development contract was awarded to [Iodine, Inc.](http://www.iodine.com/) {% include external-link.html %} to build the site under BAA contract number HHSF223201400128C. The public cloud environment was determined in September 2013, and Dr. Kass-Hout's team solicited agency and user input into policies, first priority datasets, and desirable technical characteristics of openFDA. In December 2013 FDA established the Office of Informatics and Technology Innovation (OITI) under Dr. Kass-Hout’s leadership. All the project milestones were met despite the government shutdown.
+OpenFDA is the first innovation created by [Taha Kass-Hout, MD, MS](http://www.fda.gov/AboutFDA/CentersOffices/ucm349836.htm), upon joining [FDA](http://www.fda.gov/) as the first Chief Health Information Officer in March 2013. The goal of the project is to create easy access to public data, to create a new level of openness and accountability, to ensure the privacy and security of public FDA data, and ultimately to educate the public and save lives. The concept was to index high-value, high priority and scalable public-access data, format and document that data in developer and consumer-friendly standards, and make that data available via a public-access portal that enables developers to quickly and easily use it in applications. Dr. Kass-Hout launched the project by obtaining a Presidential Innovation Fellow to focus on policy and programmatic issues in July 2013. The public cloud environment was determined in September 2013, and Dr. Kass-Hout's team solicited agency and user input into policies, first priority datasets, and desirable technical characteristics of openFDA. All the project milestones were met despite the government shutdown.
 
-OpenFDA launched in Beta mode on June 2, 2014, at [https://open.fda.gov](https://open.fda.gov). It features an open user community for sharing open source code, examples, and ideas. By September 2014, medical device reports, enforcement reports, and drug adverse event reports were available, and every mention of a drug in those reports was automatically augmented with full data from various drug datasets, including codes and label information. In addition, there were over 42 million API data calls, over 40,000 visitors to openFDA from all over the world, dozens of press articles, and several websites that use openFDA in their own public offerings.
+OpenFDA launched in Beta mode on June 2, 2014, at [https://open.fda.gov](https://open.fda.gov). It features an open user community for sharing open source code, examples, and ideas. By September 2014, medical device reports, enforcement reports, and drug adverse event reports were available, and every mention of a drug in those reports was automatically augmented with full data from various drug datasets, including codes and label information.
+
+Since its launch, several new datasets have been added to openFDA.  For more information about the new datasets, please review the openFDA Updates webpage accessible via this hyperlink: [https://open.fda.gov/updates/](https://open.fda.gov/updates/). Also, since its launch, openFDA has been visited by tens of thousands of entities from around the globe and is used by several websites.
 
 ## What does it do?
 
-OpenFDA provides APIs and is investigating raw download access to a number of high-value structured datasets, including adverse events, drug product labeling, and recall enforcement reports. The platform is currently in public beta.
+OpenFDA provides APIs and [raw download access](https://open.fda.gov/update/openfda-now-allows-direct-downloads-of-data/) to a number of high-value, high priority and scalable structured datasets, including adverse events, drug product labeling, and recall enforcement reports. The platform is currently in public beta.
 
-In the future, openFDA will provide a platform for public challenges issued by the FDA and a place for the community to interact with each other and FDA domain experts with the goal of spurring innovation around FDA data.
+In May 2015, FDA announced the first openFDA challenge to the developer community.  For more details regarding that challenge, please see this webpage: [https://open.fda.gov/update/an-open-challenge-to-tap-public-data/](https://open.fda.gov/update/an-open-challenge-to-tap-public-data/).
 
 ## Who made openFDA?
 
-OpenFDA is an initiative in the Office of Informatics and Technology Innovation (OITI) at the Food and Drug Administration led by the Chief Health Informatics Officer (CHIO), Dr. Taha Kass-Hout, MD, MS. The core project team consists of the following individuals, in alphabetical order:
+OpenFDA is an initiative in the Office of Health Informatics (OHI) at the Food and Drug Administration led by the Chief Health Informatics Officer (CHIO), Dr. Taha Kass-Hout, MD, MS. The core project team consists of the following individuals, in alphabetical order:
 
 - Adam Baker*
 - Thomas Goetz*
 - Letria Hall
 - Taha Kass-Hout
-- Peggy Leizear
 - Jonathan Levine
 - Matt Mohebbi*
 - Hans Nelsen*
 - Lonnie Smith
-- Russell Power*
 
-*_Contractor to OITI_
+*_Contractor to OHI_
 
 The team also wishes to thank the following individuals for their contributions to the effort:
 
@@ -36,6 +36,7 @@ The team also wishes to thank the following individuals for their contributions 
 - Yulia Borodina
 - Roselie Bright
 - Eric Brodsky
+- Robert Califf
 - Sharon Campbell
 - Isaac Chang
 - Ricky Cokely
@@ -52,6 +53,7 @@ The team also wishes to thank the following individuals for their contributions 
 - Steven Hubbard
 - Milan Kubic
 - Joshua Lehman
+- Peggy Leizear
 - Randy Levin
 - Alan McClelland
 - Joe Neubauer

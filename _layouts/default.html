@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    
+
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <link href="{{ site.baseurl }}/static/css/style.css" rel="stylesheet">
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} &raquo; Feed" href="{{ site.baseurl }}/feed/" />
@@ -24,9 +24,10 @@
     <div class="container">
       <div class="site-wrapper">
         <header role="banner" class="site-header">
+          <h1><a href="http://www.fda.gov" class="logo-fda"></a></h1>
           <h1><a href="{{ site.baseurl }}/index.html" class="logo"></a></h1>
           {% include nav.html %}
-          
+
           {% if page.url contains "reference" %}
             <nav class="site-navigation reference-nav">
               <ul id="reference-nav-ul"></ul>
