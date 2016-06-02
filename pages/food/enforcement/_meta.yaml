@@ -1,0 +1,10 @@
+type: endpoint
+documentTitle: openFDA › Foods › Recall enforcement reports API
+label: Food recall enforcement reports
+title: Food recall enforcement reports
+description: "Recalls are an appropriate alternative method for removing or correcting marketed consumer products, their labeling, and/or promotional literature that violate the laws administered by the Food and Drug Administration (FDA)."
+datasets:
+  - RES
+path: /food/enforcement
+start: 20090101
+dateConstraintKey: termination_date

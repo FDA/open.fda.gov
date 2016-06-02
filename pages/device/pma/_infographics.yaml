@@ -1,0 +1,38 @@
+- title: "Device PMA by advisory committee"
+  short: "By advisory committee"
+  description:
+    - "The advisory committee equates to the review division within CDRH in which the PMA would be reviewed, if it were reviewed today; this is derived from the product code and is always same as the “Review Panel” field in the Device Classification database."
+  countParam: "advisory_committee_description.exact"
+  filters:
+    - title: "All Device PMA by advisory committee"
+      searchParam: ""
+    - title: "Generic name contians implant"
+      searchParam: "generic_name:IMPLANT"
+    - title: "Decision code equals Approved"
+      searchParam: "decision_code:APPR"
+    - title: "Device class III"
+      searchParam: "openfda.device_class:3"
+  filterByDate: false
+  type: Bar
+- title: "Device PMA approval by state"
+  short: "By state"
+  description:
+    - "The state listed on the postal delivery address of the applicant."
+  countParam: "state"
+  filters:
+    - title: "All PMA"
+      searchParam: ""
+    - title: "PMA with generic name containing implant"
+      searchParam: "generic_name:IMPLANT"
+    - title: "Advisory committee set to Anesthesiology"
+      searchParam: "advisory_committee:AN"
+    - title: "Device class equals 3"
+      searchParam: "openfda.device_class:3"
+  filterByDate: false
+  type: Bar
+
+
+
+
+
+

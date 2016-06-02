@@ -1,0 +1,48 @@
+- "## About"
+- "downloads"
+- "### How records are organized"
+- "Example:"
+- example: record
+- "## Anatomy of a response"
+- "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."
+- example: anatomy
+- "### Meta"
+- "For non-`count` queries, the `meta` section includes a disclaimer, a link to the openFDA data license, and information about the results that follow."
+- example: meta
+- fields:
+  - meta.disclaimer
+  - meta.license
+  - meta.last_updated
+  - meta.results.skip
+  - meta.results.limit
+  - meta.results.total
+- "### Results"
+- "For non-`count` queries, the `results` section includes matching adverse event reports returned by the API."
+- "## Field-by-field reference"
+- fields:
+  - k_number
+  - clearance_type
+  - zip_code
+  - decision_code
+  - decision_description
+  - statement_or_summary
+  - date_received
+  - third_party_flag
+  - state
+  - address_1
+  - address_2
+  - contact
+  - country_code
+  - city
+  - review_advisory_committee
+  - advisory_committee
+  - advisory_committee_description
+  - device_name
+  - device_name
+  - product_code
+  - postal_code
+  - applicant
+  - decision_date
+- "## Openfda"
+- fields:
+  - openfda

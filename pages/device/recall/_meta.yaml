@@ -1,0 +1,9 @@
+type: endpoint
+documentTitle: openFDA › Device › Recalls API
+label: Device recalls
+title: Device recalls
+description: A recall is an action taken to address a problem with a medical device that violates FDA law.
+datasets:
+  - MAUDE
+path: /device/recall
+start: 20030101

@@ -1,0 +1,6 @@
+documentTitle: openFDA › API basics
+crumbs:
+  - API basics
+label: Learn
+title: API basics
+description: "openFDA is a powerful ElasticSearch-based API that may be different from other APIs you’ve used. Here you can learn about the query syntax, including your API key, and other tips for searching any of the openFDA endpoints."

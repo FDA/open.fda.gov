@@ -1,0 +1,90 @@
+- url: 'http://openfda.shinyapps.io/dash/'
+  noun: Drugs
+  title: 'Dashboard of drug adverse event reports'
+  description:
+    - 'This app brings together multiple UI elements—including charts and word clouds—to explore the whole space of adverse event reports. Concomitatnt drugs, common indications, and the nature of event reports can all be explored for the entire dataset or for custom searches.'
+- url: 'https://openfda.shinyapps.io/RR_D/'
+  noun: Drugs
+  title: 'PRR Drug'
+  description:
+    - 'This app uses the proportional reporting ratio (PRR) to show how common given adverse reactions are for a certain drug, compared with all other drugs. It can guide inquiry into the adverse reactions more likely to be associated with a given drug.'
+- url: 'https://openfda.shinyapps.io/RR_E/'
+  noun: Drugs
+  title: 'PRR Event'
+  description:
+    - 'This app uses the proportional reporting ratio (PRR) to show which drugs are more likely to be associated with a particular adverse reaction, compared with all other drugs. It can guide inquiry into drugs most likely to be associated with a given reaction.'
+- url: 'https://openfda.shinyapps.io/dynprr/'
+  noun: Drugs
+  title: 'Dynamic PRR'
+  description:
+    - 'This app uses the proportional reporting ratio (PRR) to show how much more commonly associated a particular reaction is with a particular drug, over time, compared with other drugs.'
+- url: 'https://openfda.shinyapps.io/ChangePoint/'
+  noun: Drugs
+  title: 'Change point analysis for adverse event reports'
+  description:
+    - 'This app shows changes over time in the average number of reports for particular drug and adverse reaction combinations. It can guide inquiry into increased or decreased adverse event reports, of particular reactions, or of particular drugs being reported.'
+- url: 'https://openfda.shinyapps.io/reportview/'
+  noun: Drugs
+  title: 'Drug adverse event report browser'
+  description:
+    - 'This app is an interface that supports paging through adverse event reports one at a time, with report fields presented in easy to read tables.'
+- url: 'https://openfda.shinyapps.io/labelview/'
+  noun: Drugs
+  title: 'Drug product labeling browser'
+  description:
+    - 'This app is an interface that supports paging through drug product labeling one at a time, with labeling fields presented in easy to read tables.'
+- url: 'https://openfda.shinyapps.io/LRTest/'
+  noun: Drugs
+  title: 'Likelihood ratio test for drug'
+  description:
+    - 'This app uses a statistical method to estimate the likelihood that a particular adverse event is a signal for a particular drug, with an adjustable statistical certainty threshold, based on the observed reporting rate of that event for the drug.'
+- url: 'https://openfda.shinyapps.io/LRTest_E/'
+  noun: Drugs
+  title: 'Likelihood ratio test for event'
+  description:
+    - 'This app uses a statistical method to estimate the likelihood that a particular drug is a signal for a particular adverse event, with an adjustable statistical certainty threshold, based on the observed reporting rate of that event for the drugs.'
+- url: 'https://openfda.shinyapps.io/drugenforceview/'
+  noun: Drugs
+  title: 'Drug enforcement report browser'
+  description:
+    - 'This app is an interface that supports paging through drug recall enforcement reports one at a time, with report fields presented in easy to read tables.'
+- url: 'https://openfda.shinyapps.io/devicereports/'
+  noun: Devices
+  title: 'Device adverse event report browser'
+  description:
+    - 'This app is an interface that supports paging through medical device adverse event reports one at a time, with report fields presented in easy to read tables.'
+- url: 'https://openfda.shinyapps.io/deviceenforceview/'
+  noun: Devices
+  title: 'Device enforcement report browser'
+  description:
+    - 'This app is an interface that supports paging through medical device recall enforcement reports one at a time, with report fields presented in easy to read tables.'
+- url: 'https://openfda.shinyapps.io/deviceclassview/'
+  noun: Devices
+  title: 'Device classification browser'
+  description:
+    - 'This app is an interface that supports paging through medical device classification records one at a time, with report fields presented in easy to read tables.'
+- url: 'https://openfda.shinyapps.io/510kview/'
+  noun: Devices
+  title: 'Device 510(k) browser'
+  description:
+    - 'This app is an interface that supports paging through medical device 510(k) clearance records one at a time, with report fields presented in easy to read tables.'
+- url: 'https://openfda.shinyapps.io/PMAview/'
+  noun: Devices
+  title: 'Device PMA browser'
+  description:
+    - 'This app is an interface that supports paging through medical device premarket authorization records one at a time, with report fields presented in easy to read tables.'
+- url: 'https://openfda.shinyapps.io/devicereglist/'
+  noun: Devices
+  title: 'Device registration & listing browser'
+  description:
+    - 'This app is an interface that supports paging through medical device manufacturer registration and listing records one at a time, with report fields presented in easy to read tables.'
+- url: 'https://openfda.shinyapps.io/devicerecallview/'
+  noun: Devices
+  title: 'Device recall browser'
+  description:
+    - 'This app is an interface that supports paging through medical device recall records one at a time, with report fields presented in easy to read tables.'
+- url: 'https://openfda.shinyapps.io/deviceenforceview/'
+  noun: Foods
+  title: 'Food enforcement report browser'
+  description:
+    - 'This app is an interface that supports paging through food product recall enforcement reports one at a time, with report fields presented in easy to read tables.'

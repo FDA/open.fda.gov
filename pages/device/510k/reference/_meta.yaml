@@ -1,0 +1,9 @@
+type: endpoint
+documentTitle: openFDA › Device › 510(k) reference guide
+name: Device 510(k) reference
+description: A 510(k) is a premarket submission made to FDA to demonstrate that the device to be marketed is at least as safe and effective, that is, substantially equivalent, to a legally marketed device that is not subject to PMA.
+datasets:
+  - 510k
+label: Device 510(k)
+path: /device/510k/reference
+status: device510k

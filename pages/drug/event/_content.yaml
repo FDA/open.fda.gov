@@ -1,0 +1,15 @@
+- "## About drug adverse events"
+- "The U.S. Food and Drug Administration (FDA) regulates over-the-counter and prescription drugs in the United States, including biological therapeutics and generic drugs. This work covers more than just medicines. For example, fluoride toothpaste, antiperspirants, dandruff shampoos and sunscreens are all considered drugs."
+- "An adverse event is submitted to the FDA to report any undesirable experience associated with the use of a medical product in a patient. For drugs, this includes serious drug side effects, product use errors, product quality problems, and therapeutic failures for prescription or over-the-counter medicines and medicines administered to hospital patients or at outpatient infusion centers."
+- "### Adverse event reports"
+- "This highly simplified schematic illustrates the general nature of an adverse event report. A report may list several drug products, as well as several patient reactions. No individual drug is connected to any individual reaction. **When a report lists multiple drugs and multiple reactions, there is no way to conclude from the data therein that a given drug is responsible for a given reaction.**"
+- "image"
+- "Any number of the drugs may be marked as *suspect* if thought to be responsible for one or more of the reactions, but that information is not validated. *Concomitant* drugs are those which are not suspected of causing one or more of the reactions. Many drug products appear frequently in adverse event reports simply because they are commonly taken by many people in the population, not because they are responsible for more adverse events."
+- "Reports contain varying levels of detail about the drug products involved, indications for use, route of administration, and dose."
+- "getting-started"
+- "downloads"
+- "### How to search this endpoint"
+- "Make API calls to `https://api.fda.gov/drug/event.json` using search parameters for [fields specific to the drug adverse events endpoint.](/drug/event/reference/)"
+- queryExplorer: oneReport
+- queryExplorer: pharmacologic
+- queryExplorer: reaction

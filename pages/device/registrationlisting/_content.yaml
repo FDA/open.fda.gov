@@ -1,0 +1,12 @@
+- "## About device registrations and listings"
+- "The registration and listing dataset contains the location of medical device establishments and the devices manufactured at those establishments. Owners or operators of places of business (also called establishments or facilities) that are involved in the production and distribution of medical devices intended for use in the United States are required to register annually with the FDA. This process is known as establishment registration. Most foreign and domestic establishments that are required to register with the FDA are also required to list the devices that are made there for commercial distribution."
+- "For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/RegistrationandListing/default.htm)."
+- "getting-started"
+- "### Reference"
+- "See the [comprehensive field-by-field reference](/device/registrationlisting/reference/) for more detail about the structure and contents of device registrations and listings."
+- "downloads"
+- "### How to search this endpoint"
+- "Make API calls to `https://api.fda.gov/device/registrationlisting.json` using search parameters for [fields specific to the device registrations and listings endpoint.](/device/registrationlisting/reference/)"
+- queryExplorer: oneReport
+- queryExplorer: regulationNumber
+- queryExplorer: topClasses

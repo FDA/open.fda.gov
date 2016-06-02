@@ -1,0 +1,53 @@
+- title: "Device adverse event reports over time"
+  short: "Reports over time"
+  description:
+    - "This is the openFDA API endpoint for medical device adverse event reports. An adverse event report is submitted to the FDA to report serious injuries, deaths, malfunctions, and other undesirable effects associated with the use of medical devices. Increases in the number of reports may be due to greater use of medical devices, more awareness of reporting, news, enforcement actions, and other phenomena."
+  countParam: "date_received"
+  filters:
+    - title: "Reports since 1991"
+      searchParam: ""
+    - title: "Reported by consumers"
+      searchParam: "source_type:consumer"
+    - title: "Reported device's generic name includes x-ray"
+      searchParam: "device.generic_name:x-ray"
+    - title: "Report originated in medical literature"
+      searchParam: "source_type:literature"
+  filterByDate: true
+  type: Line
+- title: "What device types are reported?"
+  short: "Devices"
+  description:
+    - "There are many ways to name and describe a medical device. In adverse event reports, devices are described using a generic name and also coded according to FDA [regulations](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/ucm051668.htm)."
+    - "As you might expect, the nature of the medical device involved in an adverse event report varies with context such as the location or seriousness of the report. The chart below shows frequently reported device types, using their reported generic name."
+  countParam: "device.generic_name.exact"
+  filters:
+    - title: "All adverse event reports"
+      searchParam: ""
+    - title: "Reported location of event is patient's home"
+      searchParam: "event_location.exact:HOME+event_location:patient"
+    - title: "Reported location of event is hospital"
+      searchParam: "event_location:hospital"
+    - title: "Reported event type is injury"
+      searchParam: "event_type:injury"
+    - title: "Reported event type is death"
+      searchParam: "event_type:death"
+  filterByDate: true
+  type: Bar
+- title: "What adverse events are frequently reported?"
+  short: "Types of events"
+  description:
+    - "Most adverse event reports describe medical device malfunctions and defects, and many report serious injuries or deaths. Exploring the context of device use and type of device reveals patterns in the seriousness of the reported events."
+  countParam: "event_type.exact"
+  filters:
+    - title: "All adverse event reports"
+      searchParam: ""
+    - title: "Reported location of event is hospital"
+      searchParam: "event_location:hospital"
+    - title: "Generic name includes hospital bed"
+      searchParam: device.generic_name:"hospital+bed"
+    - title: "Generic name includes hip replacement"
+      searchParam: device.generic_name:"hip+replacement"
+    - title: "Generic name includes replacement heart valve"
+      searchParam: device.generic_name:"replacement+heart+valve"
+  filterByDate: true
+  type: Bar

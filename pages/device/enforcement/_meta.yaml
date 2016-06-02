@@ -1,0 +1,10 @@
+documentTitle: openFDA › Devices › Recall enforcement reports API
+label: Device recall enforcement reports
+title: Device recall enforcement reports
+description: "Recalls are an appropriate alternative method for removing or correcting marketed consumer products, their labeling, and/or promotional literature that violate the laws administered by the Food and Drug Administration (FDA)."
+datasets:
+  - RES
+path: /device/enforcement
+start: 20090101
+type: endpoint
+dateConstraintKey: termination_date

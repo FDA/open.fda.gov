@@ -1,0 +1,27 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › SPL'
+crumbs:
+  - openFDA
+  - Datasets
+  - SPL
+title: 'Structured Product Labeling'
+description: 'Structured Product Labeling (SPL) is a document markup standard approved by Health Level Seven (HL7) and adopted by FDA as a mechanism for exchanging product and facility information.'
+source:
+  name: 'SPL'
+  nameLong: 'Structured Product Labeling'
+  link: 'http://www.fda.gov/forindustry/datastandards/structuredproductlabeling/default.htm'
+  linkDownload: 'http://www.fda.gov/forindustry/datastandards/structuredproductlabeling/'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+time:
+  start: '2009'
+  current:
+  delay:
+  frequency: 'Weekly'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - "Drug manufacturers and distributors submit documentation about their products to FDA. Labeling contains a summary of the essential scientific information needed for the safe and effective use of the drug. Structured Product Labeling (SPL) is a document markup standard approved by Health Level Seven (HL7) and adopted by FDA as a mechanism for exchanging product and facility information."
+  - "The openFDA drug product labeling API returns data from these submissions for both prescription and over-the-counter (OTC) drugs. The labeling is broken into sections, such as indications for use (prescription drugs) or purpose (OTC drugs), adverse reactions, and so forth. There is considerable variation between drug products, since the information required for safe and effective use varies with the unique characteristics of each drug product."

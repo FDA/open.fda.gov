@@ -1,0 +1,149 @@
+{
+  "header": {
+    "adverse_event_flag": "N",
+    "date_manufacturer_received": "20120508",
+    "date_of_event": "20120402",
+    "date_received": "20120426",
+    "date_report": "20120402",
+    "device_date_of_manufacturer": "05/01/2011",
+    "distributor_address_1": "",
+    "distributor_address_2": "",
+    "distributor_city": "",
+    "distributor_name": "",
+    "distributor_state": "",
+    "distributor_zip_code": "",
+    "distributor_zip_code_ext": "",
+    "event_key": "",
+    "event_location": "",
+    "event_type": "Malfunction",
+    "health_professional": "Y",
+    "initial_report_to_fda": "No answer provided",
+    "manufacturer_address_1": "ABBOTT VASCULAR",
+    "manufacturer_address_2": "26531 YNEZ ROAD",
+    "manufacturer_city": "TEMECULA",
+    "manufacturer_contact_address_1": "ABBOTT VASCULAR",
+    "manufacturer_contact_address_2": "26531 YNEZ ROAD",
+    "manufacturer_contact_area_code": "951",
+    "manufacturer_contact_city": "TEMECULA",
+    "manufacturer_contact_country": "US",
+    "manufacturer_contact_exchange": "951",
+    "manufacturer_contact_extension": "",
+    "manufacturer_contact_f_name": "CONNIE",
+    "manufacturer_contact_l_name": "SPECK",
+    "manufacturer_contact_pcity": "95191439",
+    "manufacturer_contact_pcountry": "",
+    "manufacturer_contact_phone_number": "9519",
+    "manufacturer_contact_plocal": "9519143996",
+    "manufacturer_contact_postal_code": "925914628",
+    "manufacturer_contact_state": "CA",
+    "manufacturer_contact_t_name": "",
+    "manufacturer_contact_zip_code": "92591",
+    "manufacturer_contact_zip_ext": "4628",
+    "manufacturer_country": "US",
+    "manufacturer_g1_address_1": "ABBOTT VASCULAR",
+    "manufacturer_g1_address_2": "26531 YNEZ ROAD",
+    "manufacturer_g1_city": "TEMECULA",
+    "manufacturer_g1_country": "US",
+    "manufacturer_g1_name": "CLONMEL, IRELAND REG# 9616693",
+    "manufacturer_g1_postal_code": "92591 4628",
+    "manufacturer_g1_state": "CA",
+    "manufacturer_g1_zip_code": "92591",
+    "manufacturer_g1_zip_code_ext": "462",
+    "manufacturer_link_flag": "Y",
+    "manufacturer_name": "AV-TEMECULA-CT",
+    "manufacturer_postal_code": "92591 4628",
+    "manufacturer_state": "CA",
+    "manufacturer_zip_code": "92591",
+    "manufacturer_zip_code_ext": "462",
+    "mdr_report_key": "2549344",
+    "number_devices_in_event": "",
+    "number_patients_in_event": "",
+    "previous_use_code": "I",
+    "product_problem_flag": "Y",
+    "remedial_action": [
+      "Other"
+    ],
+    "removal_correction_number": "",
+    "report_number": "2024168-2012-02668",
+    "report_source_code": "Manufacturer report",
+    "report_to_fda": "",
+    "report_to_manufacturer": "",
+    "reporter_occupation_code": "HEALTH PROFESSIONAL",
+    "reprocessed_and_reused_flag": "N",
+    "single_use_flag": "Y",
+    "source_type": [
+      "Foreign",
+      "Health Professional",
+      "Company representation"
+    ],
+    "type_of_report": [
+      "Initial submission",
+      "Followup"
+    ]
+    },
+    "device": [
+      {
+        "brand_name": "XIENCE V EVEROLIMUS ELUTING CORONARY STENT SYSTEM",
+        "catalog_number": "1009541-28",
+        "date_received": "20120426",
+        "date_removed_flag": "",
+        "date_returned_to_manufacturer": "20120502",
+        "device_age_text": "DA",
+        "device_availability": "Device was returned to manufacturer",
+        "device_evaluated_by_manufacturer": "R",
+        "device_event_key": "",
+        "device_operator": "HEALTH PROFESSIONAL",
+        "device_report_product_code": "NIQ",
+        "device_sequence_number": " 1.0",
+        "expiration_date_of_device": "20130516",
+        "generic_name": "DRUG ELUTING CORONARY STENT SYSTEM",
+        "implant_flag": "",
+        "lot_number": "1050441",
+        "manufacturer_d_address_1": "ABBOTT VASCULAR",
+        "manufacturer_d_address_2": "26531 YNEZ ROAD",
+        "manufacturer_d_city": "TEMECULA",
+        "manufacturer_d_country": "US",
+        "manufacturer_d_name": "AV-TEMECULA-CT",
+        "manufacturer_d_postal_code": "92591 4628",
+        "manufacturer_d_state": "CA",
+        "manufacturer_d_zip_code": "92591",
+        "manufacturer_d_zip_code_ext": "462",
+        "model_number": "",
+        "openfda": {
+          "device_class": "3",
+          "device_name": "Coronary Drug-Eluting Stent",
+          "medical_specialty_description": "Unknown",
+          "regulation_number": ""
+        },
+        "other_id_number": ""
+      }
+    ],
+    "mdr_text": [
+      {
+        "mdr_text_key": "2690736",
+        "patient_sequence_number": "1",
+        "text": "IT WAS REPORTED THAT AFTER PRE-DILATATION, THE 3.0 X 28 MM XIENCE V WAS ADVANCED BUT COULD NOT CROSS THE MODERATELY CALCIFIED, MILDLY TORTUOUS, CONCENTRIC, DE NOVO, AND 90% STENOSED LESION. THE DEVICE WAS REMOVED WITH RESISTANCE AND THE DISTAL STENT STRUT WAS NOTED TO BE FLARED. A NON-ABBOTT DEVICE WAS ADVANCED AND RESISTANCE WAS FELT, BUT WAS ABLE TO CROSS THE LESION. THERE WERE NO PATIENT EFFECTS REPORTED. THERE WAS NO REPORTED CLINICALLY SIGNIFICANT DELAY IN THE PROCEDURE. NO ADDITIONAL INFORMATION WAS PROVIDED.",
+        "text_type_code": "Description of Event or Problem"
+      },
+      {
+        "mdr_text_key": "9964619",
+        "patient_sequence_number": "1",
+        "text": "(B)(4). THE DEVICE IS EXPECTED TO BE RETURNED FOR EVALUATION. IT HAS NOT YET BEEN RECEIVED. A FOLLOW UP REPORT WILL BE SUBMITTED WITH ALL ADDITIONAL RELEVANT INFORMATION.",
+        "text_type_code": "Additional Manufacturer Narrative"
+      },
+      {
+        "mdr_text_key": "20967394",
+        "patient_sequence_number": "1",
+        "text": "(B)(4). EVALUATION SUMMARY: THE DEVICE WAS RETURNED FOR EVALUATION. THE STENT DAMAGE WAS CONFIRMED. THE FAILURE TO CROSS AND RESISTANCE DURING REMOVAL COULD NOT BE REPLICATED IN A TESTING ENVIRONMENT AS IT WAS BASED ON OPERATIONAL CIRCUMSTANCES. BASED ON VISUAL AND DIMENSIONAL ANALYSIS OF THE RETURNED DEVICE, THERE IS NO INDICATION OF A PRODUCT DEFICIENCY. A REVIEW OF THE LOT HISTORY RECORD REVEALED NO NON-CONFORMANCES THAT WOULD HAVE CONTRIBUTED TO THE REPORTED EVENT. THE RESULTS OF THE QUERY OF SIMILAR INCIDENTS IN THE COMPLAINT HANDLING DATABASE FOR THIS LOT DID NOT INDICATE A MANUFACTURING ISSUE. BASED ON THE INFORMATION REVIEWED, THERE IS NO INDICATION OF A PRODUCT DEFICIENCY.",
+        "text_type_code": "Additional Manufacturer Narrative"
+      }
+    ],
+    "patient": [
+      {
+        "date_received": "20120426",
+        "patient_sequence_number": "1",
+        "sequence_number_outcome": [],
+        "sequence_number_treatment": "GUIDE WIRE: SION"
+      }
+    ]
+  }

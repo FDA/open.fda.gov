@@ -1,0 +1,112 @@
+- "## About"
+- "The openFDA drug adverse event API returns data from the [FDA Adverse Event Reporting System (FAERS)](/data/faers/), a database that contains information on adverse event and medication error reports submitted to FDA. Currently, this data covers publically releasable records submitted to the FDA from 2004-2013. The data is updated quarterly."
+- "An adverse event is submitted to the FDA to report any undesirable experience associated with the use of a medical product in a patient. For drugs, this includes serious drug side effects, product use errors, product quality problems, and therapeutic failures for prescription or over-the-counter medicines and medicines administered to hospital patients or at outpatient infusion centers."
+- "Reporting of adverse events by healthcare professionals and consumers is voluntary in the United States. FDA receives some adverse event reports directly from healthcare professionals (such as physicians, pharmacists, nurses and others) and consumers (such as patients, family members, lawyers and others). Healthcare professionals and consumers may also report adverse events to the products’ manufacturers. If a manufacturer receives an adverse event report, it is normally required to send the report to FDA."
+- disclaimer:
+  - "FAERS data does have limitations. There is no certainty that the reported event (adverse event or medication error) was actually due to the product. FDA does not require that a causal relationship between a product and event be proven, and reports do not always contain enough detail to properly evaluate an event."
+  - "Further, FDA does not receive reports for every adverse event or medication error that occurs with a product. Many factors can influence whether or not an event will be reported, such as the time a product has been marketed and publicity about an event."
+  - "Submission of a safety report does not constitute an admission that medical personnel, user facility, importer, distributor, manufacturer or product caused or contributed to the event. The information in these reports has not been scientifically or otherwise verified as to a cause and effect relationship and cannot be used to estimate the incidence of these events."
+- "In 2012, FDA changed from the Adverse Event Reporting System (AERS) to the FDA Adverse Event Reporting System (FAERS). There was a minor shift in terms as part of this transition. If you are using data from before December 2012, you should be aware of this shift."
+- "### Responsible use of the data"
+- "Adverse event reports submitted to FDA do not undergo extensive validation or verification. Therefore, **a causal relationship cannot be established between product and reactions listed in a report.** While a suspected relationship *may* exist, it is not medically validated and should not be the sole source of information for clinical decision making or other assumptions about the safety or efficacy of a product."
+- "Additionally, it is important to remember that adverse event reports represent a small percentage of total usage numbers of a product. Common products may have a higher number of adverse events due to the higher total number of people using the product. In recent years the FDA has undertaken efforts to increase collection of adverse events. Increases in the total number of adverse events is likely caused by improved reporting."
+- "### How adverse events are organized"
+- "Adverse events are collected through a series of *safety reports.* Each is identified by a 8-digit string (for instance, `6176304-1`). The first 7 digits (before the hyphen) identify the individual report, and the last digit (after the hyphen) is a checksum. Rather than updating individual records in FAERS, subsequent updates are submitted in seperate reports."
+- "### Format"
+- "Adverse event reports use the [ICH E2b/M2 version 2.1 standard.](http://estri.ich.org/e2br22/ICH_ICSR_Specification_V2-3.pdf) OpenFDA annotates the original records with [special fields.](#openfda-fields)"
+- "downloads"
+- "FDA releases quarterly updates to FAERS data. OpenFDA uses these extracts, but processes the data further before supplying them through the API. There are no plans for the openFDA initiative to change the FAERS release protocols. At this time it is anticipated that FAERS downloads will continue to be available from the same site on the same quarterly schedule. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical production use and is in beta testing. While FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated."
+- "### Results"
+- "For non-`count` queries, the `results` section includes matching adverse event reports returned by the API."
+- "Each adverse event report consists of these major sections:"
+- ul:
+  - "**Header:** General information about the adverse event"
+  - "**Patient Information:** Details on the patient who experienced the event, such as age, weight, sex, etc."
+  - "**Drugs:** Information on the drugs taken while the event was experienced"
+  - "**Reactions:** Information on the reactions experienced by the patient"
+- "## Field-by-field reference"
+- "### Header"
+- "General information about the adverse event."
+- example: header
+- fields:
+  - safetyreportid
+  - safetyreportversion
+  - receivedate
+  - receivedateformat
+  - receiptdate
+  - receiptdateformat
+  - serious
+  - seriousnessdeath
+  - seriousnessdisabling
+  - seriousnesshospitalization
+  - seriousnesslifethreatening
+  - seriousnessother
+  - transmissiondate
+  - transmissiondateformat
+  - duplicate
+  - companynumb
+  - occurcountry
+  - primarysourcecountry
+  - primarysource
+  - primarysource.qualification
+  - primarysource.reportercountry
+  - reportduplicate
+  - reportduplicate.duplicatesource
+  - reportduplicate.duplicatenumb
+  - sender
+  - sender
+  - sender.sendertype
+  - sender.senderorganization
+  - receiver
+- "### Patient"
+- "Information about the patient in the adverse event report."
+- example: patient
+- fields:
+  - patient.patientonsetage
+  - patient.patientonsetageunit
+  - patient.patientsex
+  - patient.patientweight
+  - patient.patientdeath
+  - patient.patientdeath.patientdeathdate
+  - patient.patientdeath.patientdeathdateformat
+- "#### Drugs"
+- "This section contains information about the drugs listed in the adverse event report."
+- fields:
+  - patient.drug.actiondrug
+  - patient.drug.drugadditional
+  - patient.drug.drugcumulativedosagenumb
+  - patient.drug.drugcumulativedosageunit
+  - patient.drug.drugdosageform
+  - patient.drug.drugintervaldosagedefinition
+  - patient.drug.drugintervaldosageunitnumb
+  - patient.drug.drugrecurreadministration
+  - patient.drug.drugseparatedosagenumb
+  - patient.drug.drugstructuredosagenumb
+  - patient.drug.drugstructuredosageunit
+  - patient.drug.drugadministrationroute
+  - patient.drug.drugauthorizationnumb
+  - patient.drug.drugbatchnumb
+  - patient.drug.drugcharacterization
+  - patient.drug.drugdosagetext
+  - patient.drug.drugenddate
+  - patient.drug.drugenddateformat
+  - patient.drug.drugindication
+  - patient.drug.drugstartdate
+  - patient.drug.drugstartdateformat
+  - patient.drug.drugtreatmentduration
+  - patient.drug.drugtreatmentdurationunit
+  - patient.drug.medicinalproduct
+- "#### openFDA fields"
+- "Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets."
+- "OpenFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other drug information. Drug products that appear in FAERS records are joined to the NDC dataset first on brand name, and if there is no brand name, on generic name. If that is succesful, further links are established to other datasets. The linked data is listed as an `openfda` annotation in the `patient.drug` section of a result."
+- "Roughly 86% of adverse event records have at least one `openfda` section. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if the drug name is misspelled. Some drug products will have `openfda` sections, while others will never, if there was no match during the harmonization process."
+- fields:
+  - patient.drug.openfda
+- disclaimer:
+  - "A single drug product listed in an adverse event report may have multiple associated manufacturer names, NDCs, and SPLs in a corresponding `openfda` section. That is because the drug may have multiple manufacturers, packagers, dosage forms, etc. Their inclusion in the `openfda` section does not mean that they had any connection to the adverse event. The ordering of data in `openfda` fields is not significant."
+- "#### Reactions"
+- fields:
+  - patient.reaction.reactionmeddrapt
+  - patient.reaction.reactionmeddraversionpt
+  - patient.reaction.reactionoutcome
+- "datasets"

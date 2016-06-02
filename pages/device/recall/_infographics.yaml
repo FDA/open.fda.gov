@@ -1,0 +1,16 @@
+- title: "Device recalls by product codes"
+  short: "By product code"
+  description:
+    - "The name and product code identify the generic category of a device for FDA assigned to a device is based upon the medical device product classification designated under 21 CFR Parts 862-892."
+  countParam: "product_code"
+  filters:
+    - title: "All recalls"
+      searchParam: ""
+    - title: "Root cause description *Device Design*"
+      searchParam: "root_cause_description.exact:Device+Design"
+    - title: "Device class equal to *III*"
+      searchParam: "openfda.device_class:3"
+    - title: "Regulation number *888.4540*"
+      searchParam: "openfda.regulation_number:888.4540"
+  filterByDate: true
+  type: Line

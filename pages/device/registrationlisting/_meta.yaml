@@ -1,0 +1,8 @@
+type: endpoint
+documentTitle: openFDA › Device › Registrations and listings API
+label: Device Registrations and listings
+title: Device Registrations and listings
+description: TK
+datasets:
+path: /device/registrationlisting
+start:

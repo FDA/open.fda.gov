@@ -1,4 +1,0 @@
----
-layout: updates
-title: Updates
----

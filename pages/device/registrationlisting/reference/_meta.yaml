@@ -1,0 +1,9 @@
+type: endpoint
+documentTitle: openFDA › Device › Adverse events reference guide
+name: Device adverse events reference
+description: An adverse event is submitted to the FDA to report any undesirable experience associated with the use of a device, including serious device side effects, product use errors, product quality problems, and therapeutic failures.
+datasets:
+  - MAUDE
+label: Device adverse events
+path: /device/event/reference
+status: deviceevent

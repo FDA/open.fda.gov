@@ -1,0 +1,28 @@
+- "## About"
+- "downloads"
+- "## How records are organized"
+- example: header
+- example: openfda
+- "## Results"
+- "For non-`count` queries, the `results` section includes matching device classification records returned by the API."
+- "## Field-by-field reference"
+- fields:
+  - regulation_number
+  - life_sustain_support_flag
+  - definition
+  - review_code
+  - submission_type_id
+  - third_party_flag
+  - implant_flag
+  - medical_specialty
+  - medical_specialty_description
+  - device_class
+  - device_name
+  - product_code
+  - review_panel
+  - unclassified_reason
+  - gmp_exempt_flag
+- "### Openfda"
+- "The openfda section of each document is determined by looking at the product_code value."
+- fields:
+  - openfda
