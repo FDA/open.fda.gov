@@ -10,7 +10,15 @@ This repository contains the main open.fda.gov website.
 
 ## Running the site
 
-`npm run gatsby develop`
+`npm run dev`
+
+## Running the site in Docker
+First you have to build the docker image using:
+`docker build -t open.fda.gov .`
+
+Any time after that you can run it using: `docker run -d -P open.fda.gov`
+
+The website will be available on port 3000 at docker-machine IP (e.g: `http://0.0.0.0:3000/`)
 
 ## Description of project structure
 
