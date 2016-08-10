@@ -18,15 +18,13 @@ In May 2015, FDA announced the first openFDA challenge to the developer communit
 
 ## Who made openFDA?
 
-OpenFDA is an initiative in the Office of Health Informatics (OHI) at the Food and Drug Administration led by the Chief Health Informatics Officer (CHIO), Dr. Taha Kass-Hout, MD, MS. The core project team consists of the following individuals, in alphabetical order:
+OpenFDA is an initiative in the Office of Health Informatics (OHI) at the Food and Drug Administration. The core project team consists of the following individuals, in alphabetical order:
 
-- Adam Baker*
-- Thomas Goetz*
 - Letria Hall
-- Taha Kass-Hout
-- Jonathan Levine
-- Matt Mohebbi*
-- Hans Nelsen*
+- Biju Joseph*
+- Denis Krylov*
+- Patrick McConnell*
+- Edmond Mulaire*
 - Lonnie Smith
 
 *_Contractor to OHI_
@@ -52,10 +50,12 @@ The team also wishes to thank the following individuals for their contributions 
 - Angelique Hebert
 - Sean Herron
 - Steven Hubbard
+- Taha Kass-Hout
 - Milan Kubic
 - Joshua Lehman
 - Peggy Leizear
 - Randy Levin
+- Jonathan Levine
 - Alan McClelland
 - Joe Neubauer
 - Brian Norris
