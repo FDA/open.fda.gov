@@ -29,7 +29,7 @@ OpenFDA is an initiative in the Office of Health Informatics (OHI) at the Food a
 
 *_Contractor to OHI_
 
-The team also wishes to thank the following individuals for their contributions to the effort:
+The team also wishes to thank the following individuals and groups for their contributions to the effort:
 
 - Gray Brooks
 - Yulia Borodina
@@ -50,6 +50,7 @@ The team also wishes to thank the following individuals for their contributions 
 - Angelique Hebert
 - Sean Herron
 - Steven Hubbard
+- Iodine, Inc. (_Previous Contractor_)
 - Taha Kass-Hout
 - Milan Kubic
 - Joshua Lehman
