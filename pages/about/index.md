@@ -50,6 +50,7 @@ The team also wishes to thank the following individuals for their contributions 
 - Angelique Hebert
 - Sean Herron
 - Steven Hubbard
+- Iodine, Inc. (_Previous Contractor_)
 - Taha Kass-Hout
 - Milan Kubic
 - Joshua Lehman
