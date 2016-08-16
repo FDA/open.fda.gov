@@ -12,7 +12,7 @@ Since its launch, several new datasets have been added to openFDA.  For more inf
 
 ## What does it do?
 
-OpenFDA provides APIs and [raw download access](https://open.fda.gov/update/openfda-now-allows-direct-downloads-of-data/) to a number of high-value, high priority and scalable structured datasets, including adverse events, drug product labeling, and recall enforcement reports. The platform is currently in public beta.
+OpenFDA provides APIs and [raw download access](https://open.fda.gov/update/openfda-now-allows-direct-downloads-of-data/) to a number of high-value, high priority and scalable structured datasets, including adverse events, drug product labeling, and recall enforcement reports.
 
 In May 2015, FDA announced the first openFDA challenge to the developer community.  For more details regarding that challenge, please see this webpage: [https://open.fda.gov/update/an-open-challenge-to-tap-public-data/](https://open.fda.gov/update/an-open-challenge-to-tap-public-data/).
 
