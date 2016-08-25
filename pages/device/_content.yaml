@@ -26,3 +26,7 @@
   title: Device recall enforcement reports
   description:
     - "Medical device product recall enforcement reports."
+- url: /device/udi/
+  title: Unique Device Identifier
+  description:
+    - "Replace this description UDI-1"

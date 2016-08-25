@@ -1,0 +1,9 @@
+type: endpoint
+documentTitle: openFDA › Device › UDI
+label: Unique Device Identifier
+title: Unique Device Identifier
+description: UDI-6 Lorem ipsum dolor sit amet, dolor phasellus ultricies laoreet turpis euismod neque. Praesent nec tincidunt lacus dolor, tortor sem quam fusce dolor fringilla, scelerisque neque. Lectus nulla elit est integer.
+endpoint: device/udi
+datasets:
+path: /device/udi
+start:

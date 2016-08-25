@@ -1,0 +1,38 @@
+- "## About"
+- "[General information about UDI](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/UDIBasics/default.htm) that contains seemly everything that needs to be known about UDI."
+- "`UDI` is Purus mauris integer maecenas sit, ut hendrerit placerat urna amet. Dolor lacus, wisi justo sed taciti ligula habitasse. Nascetur aptent, nec id non eget tristique."
+- "downloads"
+- "## How records are organized"
+- example: header
+- example: openfda
+- "## Results"
+- "For non-`count` queries, the `results` section includes matching device uniquie identifiers records returned by the API."
+- "## Field-by-field reference"
+- fields:
+  - advisory_committee
+  - advisory_committee_description
+  - ao_statement
+  - generic_name
+  - supplement_number
+  - supplement_reason
+  - supplement_type
+  - trade_name
+  - decision_date
+  - fed_reg_notice_date
+  - date_received
+  - decision_code
+  - product_code
+  - pma_number
+  - docket_number
+  - expedited_review_flag
+  - applicant
+  - street_1
+  - street_2
+  - city
+  - state
+  - zip
+  - zip_ext
+- "### Openfda"
+- "The openfda section of each document is determined initially by looking at the product_code value."
+- fields:
+  - openfda

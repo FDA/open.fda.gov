@@ -1,0 +1,42 @@
+- title: "UDI Listing by Brand Name"
+  short: "By Brand Name"
+  description:
+    - "A three-letter identifier assigned to a device category. Assignment is based upon the medical device classfication designated under 21 CFR Parts 862-892, and the technology and intended use of the device. Occasionally these codes are changed over time."
+  countParam: "state"
+  filters:
+    - title: "All PMA"
+      searchParam: ""
+    - title: "Should I give something UDI-12"
+      searchParam: ""
+  filterByDate: false
+  type: Bar
+- title: "UDI Listing by Company Name"
+  short: "By Company Name"
+  description:
+    - "A three-letter identifier assigned to a device category. Assignment is based upon the medical device classfication designated under 21 CFR Parts 862-892, and the technology and intended use of the device. Occasionally these codes are changed over time."
+  countParam: "state"
+  filters:
+    - title: "All UDI"
+      searchParam: ""
+    - title: "What else I should give UDI-13"
+      searchParam: ""
+  filterByDate: false
+  type: Bar
+- title: "UDI Listing by Product Code"
+  short: "By product code"
+  description:
+    - "A three-letter identifier assigned to a device category. Assignment is based upon the medical device classfication designated under 21 CFR Parts 862-892, and the technology and intended use of the device. Occasionally these codes are changed over time."
+  countParam: "products.product_code"
+  filters:
+    - title: "All UDI"
+      searchParam: ""
+    - title: "By Medical Speciality associtated with product_code"
+      searchParam: ""
+  filterByDate: false
+  type: Bar
+
+
+
+
+
+

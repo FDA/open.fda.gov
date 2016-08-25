@@ -1,0 +1,18 @@
+oneCompanyMed:
+  title: Report involving company name that contain "Med".
+  description:
+    - This query searches for records matching a certain search term.
+    - See the [reference](/device/udi/reference/) for more fields you can use to narrow searches.
+  params:
+    - search for all records with `udi.company_name` that contains `med`.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/device/udi.json?search=udi.company_name:med&limit=1'
+oneBrandMed:
+  title: Report involving brand name that contain "Med".
+  description:
+    - This query searches for records matching a certain search term.
+    - See the [reference](/device/udi/reference/) for more fields you can use to narrow searches.
+  params:
+    - search for all records with `udi.brand_name` that contains `med`.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/device/udi.json?search=udi.brand_name=:med&limit=1'
