@@ -771,7 +771,7 @@ properties:
   recent_major_changes:
     area: "some prescription"
     items:
-      description: "A list of the section(s) of the that contain substantive changes that have been approved by FDA in the product labeling. The headings and subheadings, if appropriate, affected by the change are listed together with each section’s identifying number and the month and year on which the change was incorporated in the labeling."
+      description: "A list of the section(s) that contain substantive changes that have been approved by FDA in the product labeling. The headings and subheadings, if appropriate, affected by the change are listed together with each section’s identifying number and the month and year on which the change was incorporated in the labeling."
       format:
       is_exact: false
       possible_values:
