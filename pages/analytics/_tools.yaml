@@ -2,7 +2,7 @@
   noun: Drugs
   title: 'Dashboard of drug adverse event reports'
   description:
-    - 'This app brings together multiple UI elements—including charts and word clouds—to explore the whole space of adverse event reports. Concomitatnt drugs, common indications, and the nature of event reports can all be explored for the entire dataset or for custom searches.'
+    - 'This app brings together multiple UI elements—including charts and word clouds—to explore the whole space of adverse event reports. Concomitant drugs, common indications, and the nature of event reports can all be explored for the entire dataset or for custom searches.'
 - url: 'https://openfda.shinyapps.io/RR_D/'
   noun: Drugs
   title: 'PRR Drug'
