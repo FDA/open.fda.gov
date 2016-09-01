@@ -1,91 +1,151 @@
 properties:
-  advisory_committee:
-    description: "This equates to the review division within CDRH in which the PMA would be reviewed, if it were reviewed today; this is derived from the procode and is always same as the “Review Panel” field in the Device Classification database (e.g. GU)."
-    format:
-    is_exact: false
-    possible_values:
-      type: one_of
-      value:
-        'AN': "Anesthesiology"
-        'CV': "Cardiovascular"
-        'CH': "Clinical Chemistry"
-        'DE': "Dental"
-        'EN': "Ear, Nose, Throat"
-        'GU': "Gastroenterology, Urology"
-        'HO': "General Hospital"
-        'HE': "Hematology"
-        'IM': "Immunology"
-        'MI': "Microbiology"
-        'NE': "Neurology"
-        'OB': "Obstetrics/Gynecology"
-        'OP': "Ophthalmic"
-        'OR': "Orthopedic"
-        'PA': "Pathology"
-        'PM': "Physical Medicine"
-        'RA': "Radiology"
-        'SU': "General, Plastic Surgery"
-        'TX': "Clinical Toxicology"
-    type: string
-  advisory_committee_description:
-    description: "Full spelling of the Advisory committee abbreviation (e.g. gastroenterology)."
-    format:
-    is_exact: true
-    possible_values:
-    type: string
-  ao_statement:
-    description: "Approval order statement: a brief description of the reason for the supplement/application approval by FDA."
+  brand_name:
+    description: "The Proprietary/Trade/Brand name of the medical device as used in device labeling or in the catalog. This information may 1) be on a label attached to a durable device, 2) be on a package of a disposable device, or 3) appear in labeling materials of an implantable device.  The brand name is the name that is typically registered with USPTO and have the ® and/or TM symbol."
     format:
     is_exact: false
     possible_values:
     type: string
-  applicant:
-    description: "The manufacturer of record or third party who submits a PMA submission for clearance (also known as sponsor)."
+  catalog_number:
+    description: "The catalog, reference, or product number found on the device label or accompanying packaging to identify a particular product."
     format:
     is_exact: true
     possible_values:
     type: string
-  city:
-    description: "City of record of the applicant."
-    format:
-    is_exact: true
-    possible_values:
-    type: string
-  date_received:
-    description: "Date that the FDA Document Control Center received the submission."
+  commercial_distribution_end_date:
+    description: "ProvideText"
     format: date
     is_exact: false
     possible_values:
-    type: string
-  decision_code:
-    description: "A four digit code reflecting the final decision for a PMA submission."
+    type: date
+  commercial_distribution_status:
+    description: "Indicates whether the device is in commercial distribution as defined under 21 CFR 807.3(b)."
     format:
-    is_exact: false
+    is_exact: true
     possible_values:
       type: one_of
       value:
-        'APPR': "Approval: PMA has been approved."
-        'WTDR': "Withdrawal: PMA has been withdrawn."
-        'DENY': "Denial: PMA has been denied."
-        'LE30': "30 day notice acceptance (decision made in ≤30 days)."
-        'APRL': "Reclassification after approval."
-        'APWD': "Withdrawal after approval."
-        'GT30': "No decision made in 30 days."
-        'APCV': "Conversion after approval.      "
+        'AN': "In Commercial Distribution (ProvideValue)"
+        'CV': "Not in Commercial Distribution (ProvideValue)"
     type: string
-  decision_date:
-    description: "This is the date that FDA rendered a decision on the status of a PMA submission (i.e. clearance)."
-    format: date
-    is_exact: false
-    possible_values:
-    type: string
-  docket_number:
-    description: "The assigned posted docket number in the Federal Register."
+  company_name:
+    description: "Company name associated with the labeler DUNS Number entered in the DI Record."
     format:
     is_exact: false
     possible_values:
     type: string
-  expedited_review_flag:
-    description: "Flag indicating that the approval review process was expidited."
+  customer_contacts:
+    items:
+      properties:
+        email:
+          description: "ProvideText"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        ext:
+          description: "ProvideText"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        phone:
+          description: "ProvideText"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+      type: object
+    type: array
+  device_count_in_base_package:
+    description: "Number of medical devices in the base package."
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  device_description:
+    description: "Additional relevant information about the device that is not already captured as a distinct GUDID data attribute."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  device_sizes:
+    items:
+      properties:
+        text:
+          description: "Additional undefined device size not represented in the GUDID Size Type LOV."
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        type:
+          description: "Dimension type for the clinically relevant measurement of the medical device."
+          format:
+          is_exact: true
+          possible_values:
+            type: one_of
+            value:
+              'AN': "Circumference (ProvideValue)"
+              'BN': "Depth; Device Size Text, specify; (ProvideValue)"
+              'CN': "Catheter Gauge (ProvideValue)"
+              'DN': "Outer Diameter (ProvideValue)"
+              'Dz': "Height (ProvideValue)"
+              'FN': "Length (ProvideValue)"
+              'GN': "Lumen/Inner Diameter (ProvideValue)"
+              'HN': "Needle Gauge (ProvideValue)"
+              'IN': "Total Volume (ProvideValue)"
+              'JN': "Width (ProvideValue)"
+              'KN': "Weight (ProvideValue)"
+              'LN': "Pressure (ProvideValue)"
+              'MN': "Pore Size (ProvideValue)"
+              'NN': "Area/Surface Area (ProvideValue)"
+              'ON': "Angle (ProvideValue)"
+          type: string
+        unit:
+          description: "The unit of measure associated with each clinically relevant size."
+          format:
+          is_exact: false
+          possible_values:
+            type: one_of
+            value:
+              'AN': "Centimeter (ProvideValue)"
+              'BV': "Meter (ProvideValue)"
+              'CV': "[fur_us] (ProvideValue)"
+              'DV': "millibar (ProvideValue)"
+              'EV': "etc ?? (ProvideValue)"
+          type: string
+        value:
+          description: "Numeric value for the clinically relevant size measurement of the medical device."
+          format: double
+          is_exact: false
+          possible_values:
+          type: string
+      type: object
+    type: array
+  fei_numbers:
+    description: "Number assigned by FDA during Registration and Listing to all devices in commercial distribution, regardless of pre-market authorization requirements per 21 CFR 807.28(f)."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  gmdn_terms:
+    items:
+      properties:
+        definition:
+          description: "Definition of the common device type associated with the GMDN Preferred Term Code/FDA PT Code."
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        name:
+          description: "Name of the common device type associated with the GMDN Preferred Term Code/FDA PT Code."
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+      type: object
+    type: array
+  has_donation_id_number:
+    description: "The Donation Identification Number is applicable to devices that are also regulated as HCT/Ps and is a number that is assigned to each donation.This number/code is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeleing, distribution and use to be determined."
     format:
     is_exact: false
     possible_values:
@@ -93,150 +153,372 @@ properties:
       value:
         'Y': "Yes"
         'N': "No"
-    type: string
-  fed_reg_notice_date:
-    description: "Documentation forthcoming."
-    format: date
+    type: boolean
+  has_expiration_date:
+    description: "The date by which the label of a device states the device must or should be used. This date is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeleing, distribution and use to be determined."
+    format:
     is_exact: false
     possible_values:
-    type: string
-  generic_name:
-    description: "Common or generic name as specified in the submission. Not to be confused with the official device nomenclature name related to the product code."
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  has_lot_or_batch_number:
+    description: "The number assigned to one or more device(s) that consist of a single type, model, class, size, composition, or software version that are manufactured under essentially the same conditions and that are intended to have uniform characteristics and quality within specified limits. This number is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeleing, distribution and use to be determined."
     format:
-    is_exact: true
+    is_exact: false
     possible_values:
-    type: string
-  openfda:
-    properties:
-      device_class:
-        description: "A risk based classification system for all medical devices ((Federal Food, Drug, and Cosmetic Act, section 513)"
-        format:
-        is_exact: false
-        possible_values:
-          type: one_of
-          value:
-            '1': "Class I (low to moderate risk): general controls"
-            '2': "Class II (moderate to high risk): general controls and special controls"
-            '3': "Class III (high risk): general controls and Premarket Approval (PMA)"
-            'U': "Unclassified"
-            'N': "Not classified"
-            'F': "HDE"
-        type: string
-      device_name:
-        description: "This is the proprietary name, or trade name, of the cleared device."
-        format:
-        is_exact: true
-        possible_values:
-        type: string
-      fei_number:
-        items:
-          description: "Facility identifier assigned to facility by the FDA Office of Regulatory Affairs."
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  has_manufacturing_date:
+    description: "The date on which a device is manufactured.This date is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeleing, distribution and use to be determined."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  has_serial_number:
+    description: "The number that allows for the identification of a device, indicating its position within a series. This number is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeleing, distribution and use to be determined."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  identifiers:
+    items:
+      properties:
+        id:
+          description: "ProvideText"
           format:
           is_exact: false
           possible_values:
           type: string
-        type: array
-      medical_specialty_description:
-        description: "Regulation Medical Specialty is assigned based on the regulation (e.g. 21 CFR Part 888 is Orthopedic Devices) which is why Class 3 devices lack the “Regulation Medical Specialty” field."
-        format:
-        is_exact: true
-        possible_values:
-        type: string
-      registration_number:
-        items:
-          description: "Facility identifier assigned to facility by the FDA Office of Regulatory Affairs."
-          format:
-          is_exact: false
-          possible_values:
-          type: string
-        type: array
-      regulation_number:
-        items:
-          description: "The classification regulation in the Code of Federal Regulations (CFR) under which the device is identified, described, and formally classified (Code of Federal regulations Title 21, 862.00 through 892.00). The classification regulation covers various aspects of design, clinical evaluation, manufacturing, packaging, labeling, and postmarket surveillance of the specific medical device."
+        issuing_agency:
+          description: "Organization accredited by FDA to operate a system for the issuance of UDIs.  GS1; HIBCC; ICCBBA"
           format:
           is_exact: true
           possible_values:
-            type: reference
+            type: one_of
             value:
-              name: "CFR database"
-              link: "http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/cfrsearch.cfm"
+              'GS1': "GS1"
+              'ICCBBA': "ICCBBA"
+              'HIBCC': "HIBCC"
+              'NDC/NHRIC': "NDC/NHRIC"
           type: string
-        type: array
-    type: object
-  pma_number:
-    description: "FDA-assigned premarket application number, including leading letters. Leading letter “D” indicates Product Development Protocol type of Premarket Approval. Leading letters “BP” indicates Premarket Approval by Center for Biologics Evaluation and Research. Leading letter “H” indicates Humanitarian Device Exemption approval. Leading letter “N” indicates New Drug Application. Early PMAs were approved as NDAs. Leading letter “P” indicates Premarket Approval."
+        package_discontinue_date:
+          description: "Indicates the date this particular package configuration is discontinued by the labeler."
+          format: date
+          is_exact: false
+          possible_values:
+          type: date
+        package_status:
+          description: "Indicates whether the package is in commercial distribution as defined under 21 CFR 807.3(b)."
+          format:
+          is_exact: true
+          possible_values:
+            type: one_of
+            value:
+              'AN': "In Commercial Distribution (ProvideValue)"
+              'CV': "Not in Commercial Distribution (ProvideValue)"
+          type: string
+        quantity_per_package:
+          description: "The number of packages with the same Primary DI or Package DI within a given packaging configuration."
+          format:
+          is_exact: false
+          possible_values:
+          type: integer
+        type:
+          description: "ProvideText"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        unit_of_use_id:
+          description: "ProvideText"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+      type: object
+    type: array
+  is_combination_product:
+    description: "Indicates that the product is comprised of two or more regulated products that are physically, chemically, or otherwise combined or mixed and produced as a single entity; packaged together as a single package; or packaged separately for the intended use together as defined under 21 CFR 3.2(e).  At least one of the products in the combination product must be a device in this case."
     format:
     is_exact: false
     possible_values:
-    type: string
-  product_code:
-    description: "A three-letter identifier assigned to a device category. Assignment is based upon the medical device classification designated under 21 CFR Parts 862-892, and the technology and intended use of the device. Occasionally these codes are changed over time."
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  is_direct_marking_exempt:
+    description: "The device is exempt from Direct Marking requirements under 21 CFR 801.45."
     format:
     is_exact: false
     possible_values:
-    type: string
-  state:
-    description: "Portion of address that designates the state of the applicant."
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  is_hct_p:
+    description: "Indicates that the product contains or consists of human cells or tissues that are intended for implantation, transplantation, infusion, or transfer into a human recipient as defined under 21 CFR 1271.3."
     format:
     is_exact: false
     possible_values:
-    type: string
-  street_1:
-    description: "Delivery address of the applicant."
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  is_kit:
+    description: "Indicates that the device is a convenience, combination, in vitro diagnostic (IVD), or medical procedure kit.  Kits are a collection of products, including medical devices, that are packaged together to achieve a common intended use and is being distributed as a medical device."
     format:
     is_exact: false
     possible_values:
-    type: string
-  street_2:
-    description: "Delivery address of the applicant."
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  is_labeled_as_no_nrl:
+    description: "Indicates that natural rubber latex was not used as materials in the manufacture of the medical product and container and the device labeling contains this information.  Only applicable to devices not subject to the requirements under 21 CFR 801.437.  Not all medical products that are NOT made with natural rubber latex will be marked."
     format:
     is_exact: false
     possible_values:
-    type: string
-  supplement_number:
-    description: "FDA assigned supplement number."
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  is_labeled_as_nrl:
+    description: "Biju"
     format:
     is_exact: false
     possible_values:
-    type: string
-  supplement_reason:
-    description: "General description for the reason for the supplement or application."
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  is_otc:
+    description: "ProvideText"
     format:
     is_exact: false
     possible_values:
-    type: string
-  supplement_type:
-    description: "[Link to general criteria used for PMA regulation](http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?CFRPart=814). The “PMA regulation” (21 CFR Part 814) sets forth general criteria for determining when you must submit a PMA supplement or a 30-day notice for a device modification or manufacturing change (21 CFR 814.39). See [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/PremarketSubmissions/PremarketApprovalPMA/ucm050467.htm#types) for more detail."
+    type: boolean
+  is_pma_exempt:
+    description: "ProvideText"
+    format:
+    is_exact: false
+    possible_values:
+    type: boolean
+  is_rx:
+    description: "ProvideText"
+    format:
+    is_exact: false
+    possible_values:
+    type: boolean
+  is_single_use:
+    description: "Indicates that the device is intended for one use or on a single patient during a single procedure."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  is_sterile:
+    description: "Indicates that the device is packaged as sterile (ProvideText)"
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  is_sterilization_prior_use:
+    description: "Indicates that the device requires sterilization prior to use. (ProvideText)"
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        '1': "Yes"
+        '0': "No"
+    type: boolean
+  mri_safety:
+    description: "Indicates the MRI Safety Information, if any, that is present in the device labeling.  Please see the ASTM F2503-13 standard for more information."
     format:
     is_exact: true
     possible_values:
       type: one_of
       value:
-        'Subpart B': "“Premarket Approval Application” of the PMA regulation in Part 814 describes PMA amendments and supplements."
-        'Subpart E': "“Post Approval Requirements” describes requirements for continuing evaluation (post-approval studies), periodic reporting, and other requirements related to the continued reasonable assurance of safety and effectiveness of an approved PMA device. The Act defines different types of PMA supplements that are used to request approval of a change to a device that has an approved PMA (see section 737(4) of the Act (21 U.S.C. 379i(4)) for definitions of 180-day supplements, real-time supplements, panel-track supplements)."
-        'PMA supplement (180 days)': "Per section 737(4)(C) of the Act (21 U.S.C. 379i(4)(C)), this is a supplement to an approved premarket application or premarket report under section 515 that is not a panel-track supplement and requests a significant change in components, materials, design, specification, software, color additives, or labeling."
-        'Special PMA Supplement': "Changes Being Effected Sections 21 CFR 814.39(d)(1) and (d)(2)provide that certain labeling and manufacturing changes that enhance the safety of the device or the safety in the use of the device may be submitted as a supplement marked “Special PMA Supplement – Changes Being Effected.” The Special PMA Supplement is a narrow exception to the general rule that prior FDA approval of changes to a PMA, including the labeling for a device, is a condition of lawful distribution and, therefore, may only be utilized when (1) the applicant has newly acquired safety-related information; (2) the information in question was not previously submitted to the FDA; and (3) the information involves labeling changes that add or strengthen a contraindication, warning, precaution, or information about an adverse reaction for which there is reasonable evidence of a causal association."
-        '30-day Notice and 135 PMA Supplement': "Section 515(d) of the Act (21 U.S.C. 360e), as amended by the Food and Drug Administration Modernization Act of 1997 (FDAMA)(Pub. L. 105-115), permits a PMA applicant to submit written notification to the agency of a modification to the manufacturing procedure or method of manufacture affecting the safety and effectiveness of the device rather than submitting such change as a PMA supplement. The applicant may distribute the device 30 days after the date on which FDA receives the notice, unless FDA finds such information in the 30-day notice is not adequate, notifies the applicant that the submission has been converted to a 135-day supplement (21 CFR 814.39(f)), and describes further information or action that is required for acceptance of the modification."
-        'PMA Manufacturing Site Change Supplement': "After approval of a PMA, an applicant shall submit a PMA supplement for review and approval by FDA before making a change that affects the safety or effectiveness of the device, including a change that uses a different facility or establishment to manufacture, process, or package the device. Such a PMA supplement for a move to a different facility or establishment is called a “manufacturing site change supplement.”"
-        'Annual (periodic) Report or 30-day Supplements': "In accordance with 21 CFR 814.82(a)(7), FDA may require as a condition of approval submission to FDA at intervals specified in the approval order of periodic reports containing the information required by 21 CFR 814.84(b). In most cases, after the PMA is approved, the PMA applicant is required to submit reports to FDA annually unless a different time frame is specified in the approval order."
-        'PMA': "Any premarket approval application for a class III medical device, including all information submitted with or incorporated by reference."
+        '1': "MR Safe (ProvideValue)"
+        '2': "MR Unsave (ProvideValue)"
+        '3': "MR Conditional (ProvideValue)"
+        '4': "Labeling does not contain MRI Safety Information (ProvideValue)"
     type: string
-  trade_name:
-    description: "This is the proprietary name of the approved device."
+  pma_submissions:
+    items:
+      properties:
+        submission_number:
+          description: "Number associated with the regulatory decision regarding the applicant’s legal right to market a medical device for the following submission types: 510(k), PMA, PDP, HDE, BLA, and NDA."
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        submission_type:
+          description: "ProvideText"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        supplement_number:
+          description: "ProvideText"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+      type: object
+    type: array
+  product_codes:
+    items:
+      properties:
+        code:
+          description: "ProvideText"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        name:
+          description: "ProvideText"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+      type: object
+    type: array
+  publish_date:
+    description: "Provide Text"
+    format: date
+    is_exact: false
+    possible_values:
+    type: date
+  record_status:
+    description: "ProvideText"
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'Published': "Published"
+        'Unpublished': "Unpublished"
+        'Deactivated': "Deactivated"
+    type: string
+  sterilization_methods:
+    description:
     format:
     is_exact: true
     possible_values:
     type: string
-  zip:
-    description: "Portion of address that designates the zip code of the applicant."
+  sterilization_methods_exact:
+    description: "ProvideText"
     format:
     is_exact: false
     possible_values:
+      type: one_of
+      value:
+        'a': "Dry Heat Sterilization (ProvideValue)"
+        'b': "Dry Heat Sterilization, Ethylene Oxide (ProvideValue)"
+        'c': "etc (ProvideValue)"
     type: string
-  zip_ext:
-    description: "Portion of address that designates the “speed zip” or the “+4” of the applicant."
+  storage_handling:
+    items:
+      properties:
+        high:
+          properties:
+            unit:
+              description: "The high value unit of measure associated with the storage and handling conditions."
+              format:
+              is_exact: false
+              possible_values:
+                type: one_of
+                value:
+                  '1': "Degrees Celsius (ProvideValue)"
+                  '2': "Degrees Fahrenheit(ProvideValue)"
+                  '3': "Degrees Kelvin(ProvideValue)"
+                  '4': "Kilo Pascal(ProvideValue)"
+                  '5': "Percent (%) Relative Humidity, Millibar (ProvideValue)"
+              type: string
+            value:
+              description: "Indicates the high value for storage and handling requirements."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+          type: object
+        low:
+          properties:
+            unit:
+              description: "The low value unit of measure associated with the storage and handling conditions."
+              format:
+              is_exact: false
+              possible_values:
+                type: one_of
+                value:
+                  '1': "Degrees Celsius (ProvideValue)"
+                  '2': "Degrees Fahrenheit(ProvideValue)"
+                  '3': "Degrees Kelvin(ProvideValue)"
+                  '4': "Kilo Pascal(ProvideValue)"
+                  '5': "Percent (%) Relative Humidity, Millibar (ProvideValue)"
+              type: string
+            value:
+              description: "Indicates the low value for storage and handling requirements."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+          type: object
+        special_conditions:
+          description: "ProvideText"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        type:
+          description: "Indicates storage and handling requirements that are required for the device including temperature, humidity, and atmospheric pressure."
+          format:
+          is_exact: true
+          possible_values:
+            type: one_of
+            value:
+              'a': "Handling Environment Atmospheric Pressure (ProvideValue)"
+              'b': "Handling Environment Humidity (ProvideValue)"
+              'c': "Handling Environment Temperature (ProvideValue)"
+              'd': "Special Storage Conditions (ProvideValue)"
+              'e': "Storage Environment Atmospheric Pressure (ProvideValue)"
+              'f': "Storage Environment Humidity (ProvideValue)"
+              'g': "Storage Environment Temperature (ProvideValue)"
+          type: string
+      type: object
+    type: array
+  version_or_model_number:
+    description: "The version or model found on the device label or accompanying packaging used to identify a category or design of a device.  The version or model identifies all devices that have specifications, performance, size, and composition within limits set by the labeler."
     format:
-    is_exact: false
+    is_exact: true
     possible_values:
     type: string
 type: object
