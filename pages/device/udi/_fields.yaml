@@ -1,6 +1,6 @@
 properties:
   brand_name:
-    description: "The Proprietary/Trade/Brand name of the medical device as used in device labeling or in the catalog. This information may 1) be on a label attached to a durable device, 2) be on a package of a disposable device, or 3) appear in labeling materials of an implantable device.  The brand name is the name that is typically registered with USPTO and have the ® and/or TM symbol."
+    description: "The Proprietary/Trade/Brand name of the medical device as used in device labeling or in the catalog. This information may 1) be on a label attached to a durable device, 2) be on a package of a disposable device, or 3) appear in labeling materials of an implantable device. The brand name is the name that is typically registered with USPTO and have the ® and/or TM symbol."
     format:
     is_exact: false
     possible_values:
@@ -24,13 +24,13 @@ properties:
     possible_values:
       type: one_of
       value:
-        'AN': "In Commercial Distribution (ProvideValue)"
-        'CV': "Not in Commercial Distribution (ProvideValue)"
+       'In Commercial Distribution': "In Commercial Distribution"
+       'Not in Commercial Distribution': "Not in Commercial Distribution"
     type: string
   company_name:
     description: "Company name associated with the labeler DUNS Number entered in the DI Record."
     format:
-    is_exact: false
+    is_exact: true
     possible_values:
     type: string
   customer_contacts:
@@ -84,21 +84,21 @@ properties:
           possible_values:
             type: one_of
             value:
-              'AN': "Circumference (ProvideValue)"
-              'BN': "Depth; Device Size Text, specify; (ProvideValue)"
-              'CN': "Catheter Gauge (ProvideValue)"
-              'DN': "Outer Diameter (ProvideValue)"
-              'Dz': "Height (ProvideValue)"
-              'FN': "Length (ProvideValue)"
-              'GN': "Lumen/Inner Diameter (ProvideValue)"
-              'HN': "Needle Gauge (ProvideValue)"
-              'IN': "Total Volume (ProvideValue)"
-              'JN': "Width (ProvideValue)"
-              'KN': "Weight (ProvideValue)"
-              'LN': "Pressure (ProvideValue)"
-              'MN': "Pore Size (ProvideValue)"
-              'NN': "Area/Surface Area (ProvideValue)"
-              'ON': "Angle (ProvideValue)"
+             'Circumference': "Circumference"
+             'Depth; Device Size Text, specify;': "Depth; Device Size Text, specify;"
+             'Catheter Gauge': "Catheter Gauge"
+             'Outer Diameter': "Outer Diameter"
+             'Height': "Height"
+             'Length': "Length"
+             'Lumen/Inner Diameter': "Lumen/Inner Diameter"
+             'Needle Gauge': "Needle Gauge"
+             'Total Volume': "Total Volume"
+             'Width': "Width"
+             'Weight': "Weight"
+             'Pressure': "Pressure"
+             'Pore Size': "Pore Size"
+             'Area/Surface Area': "Area/Surface Area"
+             'Angle': "Angle"
           type: string
         unit:
           description: "The unit of measure associated with each clinically relevant size."
@@ -107,11 +107,11 @@ properties:
           possible_values:
             type: one_of
             value:
-              'AN': "Centimeter (ProvideValue)"
-              'BV': "Meter (ProvideValue)"
-              'CV': "[fur_us] (ProvideValue)"
-              'DV': "millibar (ProvideValue)"
-              'EV': "etc ?? (ProvideValue)"
+             'Centimeter': "Centimeter"
+             'Meter': "Meter"
+             '[fur_us]': "[fur_us]"
+             'millibar': "millibar"
+             'etc': "etc ?? (ProvideValues)"
           type: string
         value:
           description: "Numeric value for the clinically relevant size measurement of the medical device."
@@ -145,54 +145,54 @@ properties:
       type: object
     type: array
   has_donation_id_number:
-    description: "The Donation Identification Number is applicable to devices that are also regulated as HCT/Ps and is a number that is assigned to each donation.This number/code is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeleing, distribution and use to be determined."
+    description: "The Donation Identification Number is applicable to devices that are also regulated as HCT/Ps and is a number that is assigned to each donation.This number/code is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeling, distribution and use to be determined."
     format:
     is_exact: false
     possible_values:
       type: one_of
       value:
-        'Y': "Yes"
-        'N': "No"
+       'true': 'true'
+       'false': 'false'
     type: boolean
   has_expiration_date:
-    description: "The date by which the label of a device states the device must or should be used. This date is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeleing, distribution and use to be determined."
+    description: "The date by which the label of a device states the device must or should be used. This date is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeling, distribution and use to be determined."
     format:
     is_exact: false
     possible_values:
       type: one_of
       value:
-        '1': "Yes"
-        '0': "No"
+       'true': 'true'
+       'false': 'false'
     type: boolean
   has_lot_or_batch_number:
-    description: "The number assigned to one or more device(s) that consist of a single type, model, class, size, composition, or software version that are manufactured under essentially the same conditions and that are intended to have uniform characteristics and quality within specified limits. This number is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeleing, distribution and use to be determined."
+    description: "The number assigned to one or more device(s) that consist of a single type, model, class, size, composition, or software version that are manufactured under essentially the same conditions and that are intended to have uniform characteristics and quality within specified limits. This number is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeling, distribution and use to be determined."
     format:
     is_exact: false
     possible_values:
       type: one_of
       value:
-        '1': "Yes"
-        '0': "No"
+       'true': 'true'
+       'false': 'false'
     type: boolean
   has_manufacturing_date:
-    description: "The date on which a device is manufactured.This date is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeleing, distribution and use to be determined."
+    description: "The date on which a device is manufactured.This date is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeling, distribution and use to be determined."
     format:
     is_exact: false
     possible_values:
       type: one_of
       value:
-        '1': "Yes"
-        '0': "No"
+       'true': 'true'
+       'false': 'false'
     type: boolean
   has_serial_number:
-    description: "The number that allows for the identification of a device, indicating its position within a series. This number is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeleing, distribution and use to be determined."
+    description: "The number that allows for the identification of a device, indicating its position within a series. This number is required to be part of the UDI when included on the label in order to provide the means to track the device back to its manufacturing source or otherwise allow the history of the device manufacturing, packaging, labeling, distribution and use to be determined."
     format:
     is_exact: false
     possible_values:
       type: one_of
       value:
-        '1': "Yes"
-        '0': "No"
+       'true': 'true'
+       'false': 'false'
     type: boolean
   identifiers:
     items:
@@ -204,19 +204,19 @@ properties:
           possible_values:
           type: string
         issuing_agency:
-          description: "Organization accredited by FDA to operate a system for the issuance of UDIs.  GS1; HIBCC; ICCBBA"
+          description: "Organization accredited by FDA to operate a system for the issuance of UDIs"
           format:
           is_exact: true
           possible_values:
             type: one_of
             value:
-              'GS1': "GS1"
-              'ICCBBA': "ICCBBA"
-              'HIBCC': "HIBCC"
-              'NDC/NHRIC': "NDC/NHRIC"
+             'GS1': "GS1"
+             'ICCBBA': "ICCBBA"
+             'HIBCC': "HIBCC"
+             'NDC/NHRIC': "NDC/NHRIC"
           type: string
         package_discontinue_date:
-          description: "Indicates the date this particular package configuration is discontinued by the labeler."
+          description: "ProvideText"
           format: date
           is_exact: false
           possible_values:
@@ -228,8 +228,8 @@ properties:
           possible_values:
             type: one_of
             value:
-              'AN': "In Commercial Distribution (ProvideValue)"
-              'CV': "Not in Commercial Distribution (ProvideValue)"
+             'In Commercial Distribution': "In Commercial Distribution"
+             'Not in Commercial Distribution': "Not in Commercial Distribution"
           type: string
         quantity_per_package:
           description: "The number of packages with the same Primary DI or Package DI within a given packaging configuration."
@@ -252,14 +252,14 @@ properties:
       type: object
     type: array
   is_combination_product:
-    description: "Indicates that the product is comprised of two or more regulated products that are physically, chemically, or otherwise combined or mixed and produced as a single entity; packaged together as a single package; or packaged separately for the intended use together as defined under 21 CFR 3.2(e).  At least one of the products in the combination product must be a device in this case."
+    description: "Indicates that the product is comprised of two or more regulated products that are physically, chemically, or otherwise combined or mixed and produced as a single entity; packaged together as a single package; or packaged separately for the intended use together as defined under 21 CFR 3.2(e). Atleast one of the products in the combination product must be a device in this case."
     format:
     is_exact: false
     possible_values:
       type: one_of
       value:
-        '1': "Yes"
-        '0': "No"
+       'true': 'true'
+       'false': 'false'
     type: boolean
   is_direct_marking_exempt:
     description: "The device is exempt from Direct Marking requirements under 21 CFR 801.45."
@@ -268,8 +268,8 @@ properties:
     possible_values:
       type: one_of
       value:
-        '1': "Yes"
-        '0': "No"
+       'true': 'true'
+       'false': 'false'
     type: boolean
   is_hct_p:
     description: "Indicates that the product contains or consists of human cells or tissues that are intended for implantation, transplantation, infusion, or transfer into a human recipient as defined under 21 CFR 1271.3."
@@ -278,56 +278,68 @@ properties:
     possible_values:
       type: one_of
       value:
-        '1': "Yes"
-        '0': "No"
+       'true': 'true'
+       'false': 'false'
     type: boolean
   is_kit:
-    description: "Indicates that the device is a convenience, combination, in vitro diagnostic (IVD), or medical procedure kit.  Kits are a collection of products, including medical devices, that are packaged together to achieve a common intended use and is being distributed as a medical device."
+    description: "Indicates that the device is a convenience, combination, in vitro  diagnostic (IVD), or medical procedure kit. Kits are a collection of products, including medical devices, that are packaged together to achieve a common intended use and are being distributed as a medical device."
     format:
     is_exact: false
     possible_values:
       type: one_of
       value:
-        '1': "Yes"
-        '0': "No"
+       'true': 'true'
+       'false': 'false'
     type: boolean
   is_labeled_as_no_nrl:
-    description: "Indicates that natural rubber latex was not used as materials in the manufacture of the medical product and container and the device labeling contains this information.  Only applicable to devices not subject to the requirements under 21 CFR 801.437.  Not all medical products that are NOT made with natural rubber latex will be marked."
+    description: "Indicates that natural rubber latex was used as materials in the manufacture of the medical product and container and the device labeling contains this information. Only applicable to devices not subject to the requirements under 21 CFR 801.437. Not all medical products that are made with natural rubber latex will be marked."
     format:
     is_exact: false
     possible_values:
       type: one_of
       value:
-        '1': "Yes"
-        '0': "No"
+       'true': 'true'
+       'false': 'false'
     type: boolean
   is_labeled_as_nrl:
-    description: "Biju"
+    description: "Indicates that natural rubber latex was used as materials in the manufacture of the medical product and container and the device labeling contains this information. Only applicable to devices not subject to the requirements under 21 CFR 801.437. Not all medical products that are NOT made with natural rubber latex will be marked."
     format:
     is_exact: false
     possible_values:
       type: one_of
       value:
-        '1': "Yes"
-        '0': "No"
+       'true': 'true'
+       'false': 'false'
     type: boolean
   is_otc:
     description: "ProvideText"
     format:
     is_exact: false
     possible_values:
+      type: one_of
+      value:
+       'true': 'true'
+       'false': 'false'
     type: boolean
   is_pma_exempt:
     description: "ProvideText"
     format:
     is_exact: false
     possible_values:
+      type: one_of
+      value:
+       'true': 'true'
+       'false': 'false'
     type: boolean
   is_rx:
     description: "ProvideText"
     format:
     is_exact: false
     possible_values:
+      type: one_of
+      value:
+       'true': 'true'
+       'false': 'false'
     type: boolean
   is_single_use:
     description: "Indicates that the device is intended for one use or on a single patient during a single procedure."
@@ -336,40 +348,20 @@ properties:
     possible_values:
       type: one_of
       value:
-        '1': "Yes"
-        '0': "No"
-    type: boolean
-  is_sterile:
-    description: "Indicates that the device is packaged as sterile (ProvideText)"
-    format:
-    is_exact: false
-    possible_values:
-      type: one_of
-      value:
-        '1': "Yes"
-        '0': "No"
-    type: boolean
-  is_sterilization_prior_use:
-    description: "Indicates that the device requires sterilization prior to use. (ProvideText)"
-    format:
-    is_exact: false
-    possible_values:
-      type: one_of
-      value:
-        '1': "Yes"
-        '0': "No"
+       'true': 'true'
+       'false': 'false'
     type: boolean
   mri_safety:
-    description: "Indicates the MRI Safety Information, if any, that is present in the device labeling.  Please see the ASTM F2503-13 standard for more information."
+    description: "Indicates the MRI Safety Information, if any, that is present in the device labeling. Please see the ASTM F2503-13 standard for more information."
     format:
     is_exact: true
     possible_values:
       type: one_of
       value:
-        '1': "MR Safe (ProvideValue)"
-        '2': "MR Unsave (ProvideValue)"
-        '3': "MR Conditional (ProvideValue)"
-        '4': "Labeling does not contain MRI Safety Information (ProvideValue)"
+       'MR Safe': "MR Safe"
+       'MR Unsafe': "MR Unsafe"
+       'MR Conditional': "MR Conditional"
+       'Labeling does not contain MRI Safety Information': "Labeling does not contain MRI Safety Information"
     type: string
   pma_submissions:
     items:
@@ -385,6 +377,14 @@ properties:
           format:
           is_exact: false
           possible_values:
+            type: one_of
+            value:
+             '510(k)': "510(k)"
+             'PMA': "PMA"
+             'PDP': "PDP"
+             'HDE': "HDE"
+             'BLA': "BLA"
+             'NDA': "NDA"
           type: string
         supplement_number:
           description: "ProvideText"
@@ -409,10 +409,69 @@ properties:
           is_exact: false
           possible_values:
           type: string
+        openfda:
+          type: object
+          properties:
+            device_class:
+              description: "A risk based classification system for all medical devices ((Federal Food, Drug, and Cosmetic Act, section 513)."
+              format:
+              is_exact: false
+              possible_values:
+                type: one_of
+                value:
+                 '1': "Class I (low to moderate risk): general controls"
+                 '2': "Class II (moderate to high risk): general controls and special controls"
+                 '3': "Class III (high risk): general controls and Premarket Approval (PMA)"
+                 'U': "Unclassified"
+                 'N': "Not classified"
+                 'F': "HDE"
+              type: string
+            device_name:
+              description: "This is the proprietary name, or trade name, of the cleared device."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+            fei_number:
+              description: "Number assigned by FDA during Registration and Listing to all devices in commercial distribution, regardless of pre-market authorization requirements per 21 CFR 807.28(f)."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+            k_number:
+              description: "FDA-assigned premarket notification number, including leading letters. Leading letters “BK” indicates 510(k) clearance, or Premarket Notification, cleared by Center for Biologics Evaluation and Research. Leading letters “DEN” indicates De Novo, or Evaluation of Automatic Class III Designation. Leading letter “K” indicates 510(k) clearance, or Premarket Notification."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+            medical_specialty_description:
+              description: "Regulation Medical Specialty is assigned based on the regulation (e.g. 21 CFR Part 888 is Orthopedic Devices) which is why Class 3 devices lack the 'Regulation Medical Specialty' field."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+            pma_number:
+              description: "FDA-assigned premarket application number, including leading letters. Leading letter 'D' indicates Product Development Protocol type of Premarket Approval. Leading letters 'BP' indicates Premarket Approval by Center for Biologics Evaluation and Research. Leading letter 'H' indicates Humanitarian Device Exemption approval. Leading letter 'N' indicates New Drug Application. Early PMAs were approved as NDAs. Leading letter 'P' indicates Premarket Approval."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+            registration_number:
+              description: "Facility identifier assigned to facility by the FDA Office of Regulatory Affairs."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+            regulation_number:
+              description: "The classification regulation in the Code of Federal Regulations (CFR) under which the device is identified, described, and formally classified (Code of Federal regulations Title 21, 862.00 through 892.00). The classification regulation covers various aspects of design, clinical evaluation, manufacturing, packaging, labeling, and postmarket surveillance of the specific medical device."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
       type: object
     type: array
   publish_date:
-    description: "Provide Text"
+    description: "ProvideText"
     format: date
     is_exact: false
     possible_values:
@@ -424,28 +483,57 @@ properties:
     possible_values:
       type: one_of
       value:
-        'Published': "Published"
-        'Unpublished': "Unpublished"
-        'Deactivated': "Deactivated"
+       'Published': "Published"
+       'Unpublished': "Unpublished"
+       'Deactivated': "Deactivated"
     type: string
-  sterilization_methods:
-    description:
-    format:
-    is_exact: true
-    possible_values:
-    type: string
-  sterilization_methods_exact:
-    description: "ProvideText"
-    format:
-    is_exact: false
-    possible_values:
-      type: one_of
-      value:
-        'a': "Dry Heat Sterilization (ProvideValue)"
-        'b': "Dry Heat Sterilization, Ethylene Oxide (ProvideValue)"
-        'c': "etc (ProvideValue)"
-    type: string
-  storage_handling:
+  sterilization:
+    properties:
+      is_sterile:
+        description: "Indicates that the device is packaged as sterile."
+        format:
+        is_exact: false
+        possible_values:
+          type: one_of
+          value:
+           'true': 'true'
+           'false': 'false'
+        type: boolean
+      is_sterilization_prior_use:
+        description: "ProvideText"
+        format:
+        is_exact: false
+        possible_values:
+          type: one_of
+          value:
+           'true': 'true'
+           'false': 'false'
+        type: boolean
+      sterilization_methods:
+        description: "ProvideText"
+        format:
+        is_exact: false
+        possible_values:
+          type: one_of
+          value:
+           'Chlorine Dioxide': "Chlorine Dioxide"
+           'Dry Heat Sterilization': "Dry Heat Sterilization"
+           'Ethylene Oxide': "Ethylene Oxide"
+           'High Intensity Light or Pulse Light': "High Intensity Light or Pulse Light"
+           'High-level Disinfectant': "High-level Disinfectant"
+           'Hydrogen Peroxide': "Hydrogen Peroxide"
+           'Liquid Chemical': "Liquid Chemical"
+           'Microwave Radiation': "Microwave Radiation"
+           'Moist Heat or Steam Sterilization': "Moist Heat or Steam Sterilization"
+           'Nitrogen Dioxide': "Nitrogen Dioxide"
+           'Ozone': "Ozone"
+           'Peracetic Acid': "Peracetic Acid"
+           'Radiation Sterilization': "Radiation Sterilization"
+           'Sound Waves': "Sound Waves"
+           'Supercritical Carbon Dioxide': "Supercritical Carbon Dioxide"
+           'Ultraviolet Light': "Ultraviolet Light"
+        type: string
+  storage:
     items:
       properties:
         high:
@@ -457,11 +545,11 @@ properties:
               possible_values:
                 type: one_of
                 value:
-                  '1': "Degrees Celsius (ProvideValue)"
-                  '2': "Degrees Fahrenheit(ProvideValue)"
-                  '3': "Degrees Kelvin(ProvideValue)"
-                  '4': "Kilo Pascal(ProvideValue)"
-                  '5': "Percent (%) Relative Humidity, Millibar (ProvideValue)"
+                 'Degrees Celsius': "Degrees Celsius"
+                 'Degrees Fahrenheit': "Degrees Fahrenheit"
+                 'Degrees Kelvin': "Degrees Kelvin"
+                 'Kilo Pascal': "Kilo Pascal"
+                 'Percent (%) Relative Humidity, Millibar': "Percent (%) Relative Humidity,Millibar"
               type: string
             value:
               description: "Indicates the high value for storage and handling requirements."
@@ -477,19 +565,19 @@ properties:
               format:
               is_exact: false
               possible_values:
-                type: one_of
-                value:
-                  '1': "Degrees Celsius (ProvideValue)"
-                  '2': "Degrees Fahrenheit(ProvideValue)"
-                  '3': "Degrees Kelvin(ProvideValue)"
-                  '4': "Kilo Pascal(ProvideValue)"
-                  '5': "Percent (%) Relative Humidity, Millibar (ProvideValue)"
               type: string
             value:
               description: "Indicates the low value for storage and handling requirements."
               format:
               is_exact: false
               possible_values:
+                type: one_of
+                value:
+                 'Degrees Celsius': "Degrees Celsius"
+                 'Degrees Fahrenheit': "Degrees Fahrenheit"
+                 'Degrees Kelvin': "Degrees Kelvin"
+                 'Kilo Pascal': "Kilo Pascal"
+                 'Percent (%) Relative Humidity, Millibar': "Percent (%) Relative Humidity,Millibar"
               type: string
           type: object
         special_conditions:
@@ -499,24 +587,24 @@ properties:
           possible_values:
           type: string
         type:
-          description: "Indicates storage and handling requirements that are required for the device including temperature, humidity, and atmospheric pressure."
+          description: "Indicates storage and handling requirements for the device including temperature, humidity, and atmospheric pressure."
           format:
           is_exact: true
           possible_values:
             type: one_of
             value:
-              'a': "Handling Environment Atmospheric Pressure (ProvideValue)"
-              'b': "Handling Environment Humidity (ProvideValue)"
-              'c': "Handling Environment Temperature (ProvideValue)"
-              'd': "Special Storage Conditions (ProvideValue)"
-              'e': "Storage Environment Atmospheric Pressure (ProvideValue)"
-              'f': "Storage Environment Humidity (ProvideValue)"
-              'g': "Storage Environment Temperature (ProvideValue)"
+             'Handling Environment Atmospheric Pressure': "Handling Environment Atmospheric Pressure"
+             'Handling Environment Humidity': "Handling Environment Humidity"
+             'Handling Environment Temperature': "Handling Environment Temperature"
+             'Special Storage Conditions': "Special Storage Conditions"
+             'Storage Environment Atmospheric Pressure': "Storage Environment Atmospheric Pressure"
+             'Storage Environment Humidity': "Storage Environment Humidity"
+             'Storage Environment Temperature': "Storage Environment Temperature"
           type: string
       type: object
     type: array
   version_or_model_number:
-    description: "The version or model found on the device label or accompanying packaging used to identify a category or design of a device.  The version or model identifies all devices that have specifications, performance, size, and composition within limits set by the labeler."
+    description: "The version or model found on the device label or accompanying packaging used to identify a category or design of a device. The version or model identifies all devices that have specifications, performance, size, and composition within limits set by the labeler."
     format:
     is_exact: true
     possible_values:

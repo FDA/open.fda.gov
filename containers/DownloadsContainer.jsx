@@ -27,7 +27,7 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
         })
       }
 
-      xhrGET('https://api.fda.gov/download.json', _handleResponse)
+      xhrGET('https://8c0523f2.ngrok.io/download.json', _handleResponse)
     }
 
     _toggleDownloads () {

@@ -1,18 +1,18 @@
 oneCompanyMed:
-  title: Report involving company name that contain "Med".
+  title: Report involving company name that contain "Nuvasive".
   description:
     - This query searches for records matching a certain search term.
     - See the [reference](/device/udi/reference/) for more fields you can use to narrow searches.
   params:
-    - search for all records with `udi.company_name` that contains `med`.
+    - search for all records with `company_name` that contains `Nuvasive`.
     - limit to 1 record.
-  query: 'https://api.fda.gov/device/udi.json?search=udi.company_name:med&limit=1'
+  query: 'https://8c0523f2.ngrok.io/device/udi.json?search=company_name:Nuvasive&limit=1'
 oneBrandMed:
-  title: Report involving brand name that contain "Med".
+  title: Report involving brand name that contain "Armada".
   description:
     - This query searches for records matching a certain search term.
     - See the [reference](/device/udi/reference/) for more fields you can use to narrow searches.
   params:
-    - search for all records with `udi.brand_name` that contains `med`.
+    - search for all records with `brand_name` that contains `Armada`.
     - limit to 1 record.
-  query: 'https://api.fda.gov/device/udi.json?search=udi.brand_name=:med&limit=1'
+  query: 'https://8c0523f2.ngrok.io/device/udi.json?search=brand_name:Armada&limit=1&skip=50'

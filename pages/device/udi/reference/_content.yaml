@@ -1,10 +1,9 @@
 - "## About"
 - "[General information about UDI](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/UDIBasics/default.htm) that contains seemly everything that needs to be known about UDI."
-- "`UDI` is Purus mauris integer maecenas sit, ut hendrerit placerat urna amet. Dolor lacus, wisi justo sed taciti ligula habitasse. Nascetur aptent, nec id non eget tristique."
+- "The openFDA unique devise identifier API returns data from the Global Unique Device Identification Database (GUDID), which contains information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). UDIs are unique numeric or alphanumeric codes that consist of two parts—a device identifier (DI) and a production identifier (PI). UDIs are intended to increase electronic tracking abilities for devices involved in adverse events. Submission to the GUDID database is required for manufacturers of medical devices."
 - "downloads"
 - "## How records are organized"
 - example: header
-- example: openfda
 - "## Results"
 - "For non-`count` queries, the `results` section includes matching device uniquie identifiers records returned by the API."
 - "## Field-by-field reference"
@@ -32,27 +31,27 @@
   - is_pma_exempt
   - is_rx
   - is_single_use
-  - is_sterile
-  - sterilization_methods
-  - is_sterilization_prior_use
   - mri_safety
   - publish_date
   - record_status
+  - sterilization.is_sterile
+  - sterilization.is_sterilization_prior_use
+  - sterilization.sterilization_methods
   - product_codes.code
   - product_codes.name
   - version_or_model_number
 - "#### Device Identifiers"
-- "This section contains information on device identifier related fileds. (ProvideText)"
+- "This section contains information on device identifier related fields. (ProvideText)"
 - fields:
   - identifiers.id
   - identifiers.issuing_agency
-  - identifiers.issuing_agencypackage_discontinue_date
+  - identifiers.package_discontinue_date
   - identifiers.package_status
   - identifiers.quantity_per_package
   - identifiers.type
   - identifiers.unit_of_use_id
 - "#### Customer Contact"
-- "This section contains information on customer related fileds. (ProvideText)"
+- "This section contains information on customer related fields. (ProvideText)"
 - fields:
   - customer_contacts.email
   - customer_contacts.phone
@@ -72,13 +71,12 @@
 - "#### Storage and Handling"
 - "This section contains information on storage and handling related fields. (ProvideText)"
 - fields:
-  - storage_handling.high.value
-  - storage_handling.high.unit
-  - storage_handling.low.value
-  - storage_handling.low.unit
-  - storage_handling.definition
-  - storage_handling.special_conditions
-  - storage_handling.type
+  - storage.high.value
+  - storage.high.unit
+  - storage.low.value
+  - storage.low.unit
+  - storage.special_conditions
+  - storage.type
 - "#### PMA Submissions"
 - "This section contains information on pre marketing submissions related fields. (ProvideText)"
 - fields:
@@ -88,4 +86,12 @@
 - "### Openfda"
 - "The openfda section of each document is determined initially by looking at the product_code value."
 - fields:
-  - openfda
+  - product_codes.openfda
+#  .device_class
+#  - openfda.device_name
+#  - openfda.fei_number
+#  - openfda.k_number
+#  - openfda.medical_specialty_description
+#  - openfda.pma_number
+#  - openfda.registration_number
+#  - openfda.regulation_number

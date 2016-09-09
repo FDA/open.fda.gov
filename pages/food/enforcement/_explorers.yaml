@@ -6,7 +6,7 @@ oneReport:
   params:
     - "Search for all records with report_date between Jan 01, 2004 and Dec 31, 2013."
     - "Limit to 1 record."
-  query: 'https://api.fda.gov/food/enforcement.json?search=report_date:[20040101+TO+20131231]&limit=1'
+  query: 'https://8c0523f2.ngrok.io/food/enforcement.json?search=report_date:[20040101+TO+20131231]&limit=1'
 hazard:
   title: One enforcement report of a certain health hazard class
   description:
@@ -15,7 +15,7 @@ hazard:
   params:
   - "Search for all records where classification (health hazard level) was Class III."
   - "Limit to 1 record."
-  query: 'https://api.fda.gov/food/enforcement.json?search=classification:"Class+III"&limit=1'
+  query: 'https://8c0523f2.ngrok.io/food/enforcement.json?search=classification:"Class+III"&limit=1'
 voluntaryVsMandated:
   title: "Count of voluntary vs. mandated enforcement reports"
   description:
@@ -23,4 +23,4 @@ voluntaryVsMandated:
     - "The suffix .exact is required by openFDA to count the unique full phrases in the field voluntary_mandated. Without it, the API will count each word in that field individually—Firm Initiated would be counted as separate values, Firm and Initiated."
   params:
   - "Count the field `voluntary_mandated` (type of recall)."
-  query: 'https://api.fda.gov/food/enforcement.json?count=voluntary_mandated.exact'
+  query: 'https://8c0523f2.ngrok.io/food/enforcement.json?count=voluntary_mandated.exact'

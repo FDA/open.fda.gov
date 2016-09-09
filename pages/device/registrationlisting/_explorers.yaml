@@ -5,7 +5,7 @@ oneReport:
   params:
     - search for all records with `products.product_code` equal to `HQY`.
     - limit to 1 record.
-  query: 'https://api.fda.gov/device/registrationlisting.json?search=products.product_code:HQY&limit=1'
+  query: 'https://8c0523f2.ngrok.io/device/registrationlisting.json?search=products.product_code:HQY&limit=1'
 regulationNumber:
   title: One registrations and listings for 886.5850 regulation number
   description:
@@ -14,7 +14,7 @@ regulationNumber:
   params:
   - search for all records with `products.openfda.regulation_number` equals `886.5850`
   - limit to 1 record.
-  query: 'https://api.fda.gov/device/registrationlisting.json?search=products.openfda.regulation_number:886.5850&limit=1'
+  query: 'https://8c0523f2.ngrok.io/device/registrationlisting.json?search=products.openfda.regulation_number:886.5850&limit=1'
 topClasses:
   title: Count of top device classes for device registrations and listings.
   description:
@@ -23,4 +23,4 @@ topClasses:
   params:
   - search for all records.
   - count the field `products.openfda.device_class`
-  query: 'https://api.fda.gov/device/registrationlisting.json?count=products.openfda.device_class'
+  query: 'https://8c0523f2.ngrok.io/device/registrationlisting.json?count=products.openfda.device_class'
