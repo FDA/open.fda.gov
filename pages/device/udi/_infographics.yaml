@@ -27,13 +27,13 @@
 - title: "UDI Listing by Product Code"
   short: "By Product Code"
   description:
-    - "A three-letter identifier assigned to a device category. Assignment is based upon the medical device classfication designated under 21 CFR Parts 862-892, and the technology and intended use of the device. Occasionally these codes are changed over time."
+    - "This chart shows the number of devices listed for the top ten Product Codes in the current UDI dataset. A product code is a three-letter identifier assigned to a device category. Assignment is based upon the medical device classification designated under 21 CFR Parts 862-892, and the technology and intended use of the device. Product codes can change over time occasionally."
   countParam: "product_codes.code"
   filters:
     - title: "All UDI"
       searchParam: ""
-    - title: "By Medical Speciality associtated with product_code"
-      searchParam: "product_codes.openfda.medical_specialty_description:Orthopedic"
+    - title: "By Medical Speciality associated with product_code"
+      searchParam: "product_codes.openfda.medical_specialty_description:Surgery"
   filterByDate: false
   type: Bar
 

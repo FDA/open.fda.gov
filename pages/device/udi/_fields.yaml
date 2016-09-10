@@ -12,7 +12,7 @@ properties:
     possible_values:
     type: string
   commercial_distribution_end_date:
-    description: "ProvideText"
+    description: "Indicates the date the device is no longer held or offered for sale. See 21 CFR 807.3(b) for exceptions. The device may or may not still be available for purchase in the marketplace."
     format: date
     is_exact: false
     possible_values:
@@ -312,7 +312,7 @@ properties:
        'false': 'false'
     type: boolean
   is_otc:
-    description: "ProvideText"
+    description: "Indicates whether the device is Over-the-Counter."
     format:
     is_exact: false
     possible_values:
@@ -322,7 +322,7 @@ properties:
        'false': 'false'
     type: boolean
   is_pma_exempt:
-    description: "ProvideText"
+    description: "Indicates whether the device is exempt from premarket notification requirements."
     format:
     is_exact: false
     possible_values:
@@ -332,7 +332,7 @@ properties:
        'false': 'false'
     type: boolean
   is_rx:
-    description: "ProvideText"
+    description: "Indicates whether the device requires a prescription."
     format:
     is_exact: false
     possible_values:
@@ -398,7 +398,7 @@ properties:
     items:
       properties:
         code:
-          description: "ProvideText"
+          description: "A three-letter identifier assigned to a device category"
           format:
           is_exact: true
           possible_values:
@@ -488,6 +488,7 @@ properties:
        'Deactivated': "Deactivated"
     type: string
   sterilization:
+    type: object
     properties:
       is_sterile:
         description: "Indicates that the device is packaged as sterile."
