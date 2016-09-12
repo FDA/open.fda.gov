@@ -438,28 +438,10 @@ properties:
               is_exact: true
               possible_values:
               type: string
-            fei_number:
-              description: "Number assigned by FDA during Registration and Listing to all devices in commercial distribution, regardless of pre-market authorization requirements per 21 CFR 807.28(f)."
-              format:
-              is_exact: false
-              possible_values:
-              type: string
-            k_number:
-              description: "FDA-assigned premarket notification number, including leading letters. Leading letters “BK” indicates 510(k) clearance, or Premarket Notification, cleared by Center for Biologics Evaluation and Research. Leading letters “DEN” indicates De Novo, or Evaluation of Automatic Class III Designation. Leading letter “K” indicates 510(k) clearance, or Premarket Notification."
-              format:
-              is_exact: false
-              possible_values:
-              type: string
             medical_specialty_description:
               description: "Regulation Medical Specialty is assigned based on the regulation (e.g. 21 CFR Part 888 is Orthopedic Devices) which is why Class 3 devices lack the 'Regulation Medical Specialty' field."
               format:
               is_exact: true
-              possible_values:
-              type: string
-            pma_number:
-              description: "FDA-assigned premarket application number, including leading letters. Leading letter 'D' indicates Product Development Protocol type of Premarket Approval. Leading letters 'BP' indicates Premarket Approval by Center for Biologics Evaluation and Research. Leading letter 'H' indicates Humanitarian Device Exemption approval. Leading letter 'N' indicates New Drug Application. Early PMAs were approved as NDAs. Leading letter 'P' indicates Premarket Approval."
-              format:
-              is_exact: false
               possible_values:
               type: string
             registration_number:
