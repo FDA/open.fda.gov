@@ -14,7 +14,6 @@
       "is_sterilization_prior_use": "true",
       "is_sterile": "false"
     },
-    "@id": "gs1_00887517567062",
     "is_direct_marking_exempt": "false",
     "is_labeled_as_no_nrl": "false",
     "is_single_use": "false",
@@ -28,7 +27,7 @@
     "is_otc": "false",
     "version_or_model_number": "5163284",
     "has_manufacturing_date": "false",
-    "fei_numbers": [
+    "fei_number": [
       "3005949151",
       "3002980729"
     ],
@@ -59,7 +58,6 @@
     ],
     "device_count_in_base_package": "1",
     "has_lot_or_batch_number": "true",
-    "@checksum": "b2de9c7eb05d2b193215c654a7118e4a531c6b03",
     "customer_contacts": [
       {
         "phone": "+1(858)909-1800",

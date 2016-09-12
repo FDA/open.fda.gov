@@ -1,9 +1,8 @@
 - title: "UDI Listing by Brand Name"
   short: "By Brand Name"
   description:
-    - "UDI-30 Replace Me! Lorem ipsum dolor sit amet, ac lobortis augue feugiat, id vel at montes massa mattis. Ut sem condimentum in mauris, sit posuere. Eu quisque amet arcu, sodales ut pede massa commodo dis, ut habitasse, eget eget vel felis."
-    - "Proin congue blandit fusce metus lorem turpis, odio eget phasellus id tellus, tellus curabitur sed cum feugiat arcu, ut velit morbi ac. Inceptos tellus, sit vitae porttitor cum arcu augue, suscipit et fugiat. Nam ligula sed nullam id, nunc urna arcu magna. Aenean etiam sem orci sed convallis elit, sit elementum porttitor faucibus vestibulum nunc sit, et aliquam, metus nulla enim, wisi enim nonummy euismod vestibulum semper."
-  countParam: "brand_name"
+    - "This chart is generated based on queries against the UDI API endpoint. The chart is provided here to help illustrate how the UDI data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results). For example, observe how the results differ if you count using brand_name.exact rather than brand_name."
+  countParam: "brand_name.exact"
   filters:
     - title: "All UDI"
       searchParam: ""
@@ -14,9 +13,8 @@
 - title: "UDI Listing by Company Name"
   short: "By Company Name"
   description:
-    - "UDI-31 Give some description to past here"
-    - "Nunc semper justo metus, suspendisse sollicitudin ultrices, cum vivamus sem sollicitudin mi mi ac, velit ut malesuada erat, non nisl eu proin pellentesque est. Nunc in non in, faucibus sapien varius ut sapien, venenatis tortor fermentum dignissim integer vitae, molestie volutpat et sed nam."
-  countParam: "company_name"
+    - "This chart is generated based on queries against the UDI API endpoint. The chart is provided here to help illustrate how the UDI data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results). For example, observe how the results differ if you count using company_name.exact rather than company_name."
+  countParam: "company_name.exact"
   filters:
     - title: "All UDI"
       searchParam: ""
@@ -27,7 +25,7 @@
 - title: "UDI Listing by Product Code"
   short: "By Product Code"
   description:
-    - "This chart shows the number of devices listed for the top ten Product Codes in the current UDI dataset. A product code is a three-letter identifier assigned to a device category. Assignment is based upon the medical device classification designated under 21 CFR Parts 862-892, and the technology and intended use of the device. Product codes can change over time occasionally."
+    - "This chart is generated based on queries against the UDI API endpoint. The chart is provided here to help illustrate how the UDI data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results)."
   countParam: "product_codes.code"
   filters:
     - title: "All UDI"

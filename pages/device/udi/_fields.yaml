@@ -2,7 +2,7 @@ properties:
   brand_name:
     description: "The Proprietary/Trade/Brand name of the medical device as used in device labeling or in the catalog. This information may 1) be on a label attached to a durable device, 2) be on a package of a disposable device, or 3) appear in labeling materials of an implantable device. The brand name is the name that is typically registered with USPTO and have the ® and/or TM symbol."
     format:
-    is_exact: false
+    is_exact: true
     possible_values:
     type: string
   catalog_number:
@@ -37,19 +37,19 @@ properties:
     items:
       properties:
         email:
-          description: "ProvideText"
+          description: "Email for the Customer contact; to be used by patients and consumers for device-related questions."
           format:
           is_exact: false
           possible_values:
           type: string
         ext:
-          description: "ProvideText"
+          description: "Phone number extension for the customer contact."
           format:
           is_exact: false
           possible_values:
           type: string
         phone:
-          description: "ProvideText"
+          description: "Phone number for the customer contact; to be used by patients and consumers for device-related questions."
           format:
           is_exact: false
           possible_values:
@@ -109,9 +109,7 @@ properties:
             value:
              'Centimeter': "Centimeter"
              'Meter': "Meter"
-             '[fur_us]': "[fur_us]"
              'millibar': "millibar"
-             'etc': "etc ?? (ProvideValues)"
           type: string
         value:
           description: "Numeric value for the clinically relevant size measurement of the medical device."
@@ -121,7 +119,7 @@ properties:
           type: string
       type: object
     type: array
-  fei_numbers:
+  fei_number:
     description: "Number assigned by FDA during Registration and Listing to all devices in commercial distribution, regardless of pre-market authorization requirements per 21 CFR 807.28(f)."
     format:
     is_exact: false
@@ -198,7 +196,7 @@ properties:
     items:
       properties:
         id:
-          description: "ProvideText"
+          description: "An identifier for a medical device that meets the requirements to uniquely identify a device through its distribution and use.  Identifier types include Primary DI, Secondary DI, Direct Marking DI, Unit of Use DI, Package DI, or Previous DI."
           format:
           is_exact: false
           possible_values:
@@ -216,7 +214,7 @@ properties:
              'NDC/NHRIC': "NDC/NHRIC"
           type: string
         package_discontinue_date:
-          description: "ProvideText"
+          description: "Indicates the date this particular package configuration is discontinued by the Labeler or removed from the marketplace."
           format: date
           is_exact: false
           possible_values:
@@ -238,13 +236,21 @@ properties:
           possible_values:
           type: integer
         type:
-          description: "ProvideText"
+          description: "Indicates whether the identifier is the Primary, Secondary, Direct Marking, Unit of Use, Package, or Previous DI"
           format:
           is_exact: false
           possible_values:
+            type: one_of
+            value:
+              'Primary': "Primary DI. An identifier that is the main (primary) lookup for a medical device and meets the requirements to uniquely identify a device through its distribution and use.  The primary DI number will be located on the base package, which is the lowest package level of a medical device containing a full UDI.  For medical devices without packaging, the primary DI number and full UDI may be on the device itself."
+              'Secondary': "Secondary DI. An identifier that is an alternate (secondary) lookup for a medical device that is issued from a different issuing agency than the primary DI. Under 21 CFR 830.40(a), only one device identifier from any particular system for the issuance of UDIs may be used to identify a particular version or model of a device."
+              'Direct Marking': "Direct Marking DI. An identifier that is marked directly on the medical device and is different than the Primary DI Number; only applicable to devices subject to Direct Marking requirements under 21 CFR 801.45."
+              'Unit of Use': "Unit of Use DI. An identifier assigned to an individual medical device when a UDI is not labeled on the individual device at the level of its unit of use. Its purpose is to associate the use of a device to/on a patient."
+              'Package': "Package DI. A device identifier for the package configuration that contains multiple units of the base package (does not include shipping containers)."
+              'Previous DI': "Previous DI"
           type: string
         unit_of_use_id:
-          description: "ProvideText"
+          description: "An identifier assigned to an individual medical device when a UDI is not labeled on the individual device at the level of its unit of use. Its purpose is to associate the use of a device to/on a patient. Unit of Use DI is an identifier used by hospital staff and Materials Management to account for a single device when the UDI is labeled on a higher level of packaging. The Unit of Use DI does not appear on the label. Data type and field length are determined by the individual Issuing Agency structure."
           format:
           is_exact: false
           possible_values:
@@ -252,7 +258,7 @@ properties:
       type: object
     type: array
   is_combination_product:
-    description: "Indicates that the product is comprised of two or more regulated products that are physically, chemically, or otherwise combined or mixed and produced as a single entity; packaged together as a single package; or packaged separately for the intended use together as defined under 21 CFR 3.2(e). Atleast one of the products in the combination product must be a device in this case."
+    description: "Indicates that the product is comprised of two or more regulated products that are physically, chemically, or otherwise combined or mixed and produced as a single entity; packaged together as a single package; or packaged separately for the intended use together as defined under 21 CFR 3.2(e). At least one of the products in the combination product must be a device in this case."
     format:
     is_exact: false
     possible_values:
@@ -373,7 +379,7 @@ properties:
           possible_values:
           type: string
         submission_type:
-          description: "ProvideText"
+          description: "Indicates the premarket submission type."
           format:
           is_exact: false
           possible_values:
@@ -387,7 +393,7 @@ properties:
              'NDA': "NDA"
           type: string
         supplement_number:
-          description: "ProvideText"
+          description: "Number assigned by FDA to a supplemental application for approval of a change in a medical device with an approved PMA."
           format:
           is_exact: false
           possible_values:
@@ -404,7 +410,7 @@ properties:
           possible_values:
           type: string
         name:
-          description: "ProvideText"
+          description: "Name associated with the three-letter Product Code"
           format:
           is_exact: false
           possible_values:
@@ -471,13 +477,13 @@ properties:
       type: object
     type: array
   publish_date:
-    description: "ProvideText"
+    description: "Indicates the date the DI Record gets published and is available via Public Search."
     format: date
     is_exact: false
     possible_values:
     type: date
   record_status:
-    description: "ProvideText"
+    description: "Indicates the status of the DI Record."
     format:
     is_exact: false
     possible_values:
@@ -491,7 +497,7 @@ properties:
     type: object
     properties:
       is_sterile:
-        description: "Indicates that the device is packaged as sterile."
+        description: "Indicates the medical device is free from viable microorganisms. See ISO/TS 11139."
         format:
         is_exact: false
         possible_values:
@@ -501,7 +507,7 @@ properties:
            'false': 'false'
         type: boolean
       is_sterilization_prior_use:
-        description: "ProvideText"
+        description: "Indicates that the device requires sterilization prior to use."
         format:
         is_exact: false
         possible_values:
@@ -511,7 +517,7 @@ properties:
            'false': 'false'
         type: boolean
       sterilization_methods:
-        description: "ProvideText"
+        description: " Indicates the method(s) of sterilization that can be used for this device."
         format:
         is_exact: false
         possible_values:
@@ -582,7 +588,7 @@ properties:
               type: string
           type: object
         special_conditions:
-          description: "ProvideText"
+          description: "Indicates any special storage requirements for the device."
           format:
           is_exact: true
           possible_values:

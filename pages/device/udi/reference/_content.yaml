@@ -1,5 +1,5 @@
 - "## About"
-- "The openFDA unique device identifier API returns data from the Global Unique Device Identification Database (GUDID), which contains information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). UDIs are unique numeric or alphanumeric codes that consist of two parts—a device identifier (DI) and a production identifier (PI). UDIs are intended to increase electronic tracking abilities for devices involved in adverse events. Submission to the GUDID database is required for manufacturers of medical devices. To read more UDIs, see the FDA's [General information about UDI](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/UDIBasics/default.htm) page."
+- "The openFDA unique device identifier API returns data from the Global Unique Device Identification Database (GUDID), which contains information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). UDIs are unique numeric or alphanumeric codes that consist of two parts—a device identifier (DI) and a production identifier (PI). UDIs are intended to increase electronic tracking abilities for devices involved in adverse events. Submission to the GUDID database is required for manufacturers of medical devices. To learn more about UDIs, see the FDA's [General information about UDI](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/UDIBasics/default.htm) page."
 - "downloads"
 - "## How records are organized"
 - example: header
@@ -14,7 +14,7 @@
   - company_name
   - device_count_in_base_package
   - device_description
-  - fei_numbers
+  - fei_number
   - has_donation_id_number
   - has_expiration_date
   - has_lot_or_batch_number
@@ -40,7 +40,7 @@
   - product_codes.name
   - version_or_model_number
 - "#### Device Identifiers"
-- "This section contains information on device identifier related fields. (ProvideText)"
+- "This section contains information on device identifier related fields."
 - fields:
   - identifiers.id
   - identifiers.issuing_agency
@@ -50,25 +50,25 @@
   - identifiers.type
   - identifiers.unit_of_use_id
 - "#### Customer Contact"
-- "This section contains information on customer related fields. (ProvideText)"
+- "This section contains fields related to the customer contact for a device."
 - fields:
   - customer_contacts.email
   - customer_contacts.phone
   - customer_contacts.ext
 - "#### Device Size"
-- "This section contains information on device size related fields. (ProvideText)"
+- "This section contains information on device size related fields."
 - fields:
   - device_sizes.text
   - device_sizes.type
   - device_sizes.value
   - device_sizes.unit
 - "#### GMDN Terms"
-- "This section contains information on GMDN terms related fields. (ProvideText)"
+- "This section covers the fields that pertain to GMDN terms."
 - fields:
   - gmdn_terms.name
   - gmdn_terms.definition
 - "#### Storage and Handling"
-- "This section contains information on storage and handling related fields. (ProvideText)"
+- "This section contains information on storage and handling related fields."
 - fields:
   - storage.high.value
   - storage.high.unit
@@ -77,7 +77,7 @@
   - storage.special_conditions
   - storage.type
 - "#### PMA Submissions"
-- "This section contains information on pre marketing submissions related fields. (ProvideText)"
+- "This section contains information on pre marketing submissions related fields."
 - fields:
   - pma_submissions.submission_number
   - pma_submissions.submission_type
