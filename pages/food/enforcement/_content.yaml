@@ -8,7 +8,7 @@
 - "getting-started"
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/device/enforcement.json` using search parameters for [fields specific to the device enforcement endpoint.](/device/enforcement/reference/)"
+- "Make API calls to `https://api.fda.gov/food/enforcement.json` using search parameters for [fields specific to the food recalls enforcement reports endpoint.](/food/enforcement/reference/)"
 - queryExplorer: oneReport
 - queryExplorer: hazard
 - queryExplorer: voluntaryVsMandated
