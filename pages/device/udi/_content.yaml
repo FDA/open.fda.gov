@@ -1,0 +1,11 @@
+- "## About UDI"
+- "The *Global Unique Device Identification Database (GUDID)* contains key information submitted to the FDA about medical devices that have *Unique Device Identifiers (UDI)*."
+- "The FDA is establishing the unique device identification system to adequately identify devices sold in the U.S.- from manufacturing through distribution to patient use."
+- "getting-started"
+- "### Reference"
+- "See the [comprehensive field-by-field reference](/device/udi/reference/) for more detail about the structure and contents of device UDI."
+- "downloads"
+- "### How to search this endpoint"
+- "Make API calls to `https://8c0523f2.ngrok.io/device/udi.json` using search parameters for [fields specific to the device UDI endpoint.](/device/udi/reference/)"
+- queryExplorer: oneCompanyMed
+- queryExplorer: oneBrandMed

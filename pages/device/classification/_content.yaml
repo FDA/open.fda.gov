@@ -1,5 +1,5 @@
 - "## About device classification"
-- "The U.S. Food and Drug Administration (FDA) regulates medical devices in the United States. Medical devices range from simple tongue depressors and bedpans to complex programmable pacemakers with microchip technology and laser surgical devices. In addition, medical devices include in vitro diagnostic products, such as general purpose lab equipment, reagents, and test kits, which may include monoclonal antibody technology. Certain electronic radiation emitting products with medical application and claims meet the definition of medical device. Examples include diagnostic ultrasound products, x-ray machines, and medical lasers."
+- "The U.S. Food and Drug Administration (FDA) regulates medical devices in the United States. Medical devices range from simple tongue depressors and bedpans to complex programmable pacemakers and laser surgical devices. In addition, medical devices include in vitro diagnostic products, such as general purpose lab equipment, reagents, and test kits, which may include monoclonal antibody technology. Certain electronic radiation emitting products with medical application and claims meet the definition of medical device. Examples include diagnostic ultrasound products, x-ray machines, and medical lasers."
 - "The Product Classification dataset contains medical device names, their associated product codes, their medical specialty areas (panels) and their classification. The name and product code identify the generic category of a device for FDA. The product code assigned to a device is based upon the medical device product classification designated under 21 CFR Parts 862-892."
 - "The Food and Drug Administration (FDA) has established classifications for approximately 1,700 different generic types of devices and grouped them into 16 medical specialties referred to as panels. Each of these generic types of devices is assigned to one of three regulatory classes based on the level of control necessary to assure the safety and effectiveness of the device."
 - "For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/default.htm)."
@@ -8,7 +8,7 @@
 - "See the [comprehensive field-by-field reference](/device/classification/reference/) for more detail about the structure and contents of device classification."
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/device/classification.json` using search parameters for [fields specific to the device classification endpoint.](/device/classification/reference/)"
+- "Make API calls to `https://8c0523f2.ngrok.io/device/classification.json` using search parameters for [fields specific to the device classification endpoint.](/device/classification/reference/)"
 - queryExplorer: oneDevice
 - queryExplorer: nob
 - queryExplorer: topFei

@@ -3,28 +3,28 @@ oneReport:
   description:
     - 'This query searches in the `drug/event` endpoint for a single record, and returns it. The record contains all kinds of information about the adverse event report, including the drugs that the patient was taking, the reactions that the patient experienced, and a good deal of other context.'
     - 'Each endpoint has its own unique fields, particular to the kind of data that it serves.'
-  query: 'https://api.fda.gov/drug/event.json?limit=1'
+  query: 'https://8c0523f2.ngrok.io/drug/event.json?limit=1'
 searchSingleTerm:
   title: Matching a single search term
   description:
     - 'This query looks in the `drug/event` endpoint for a record where one of the reported patient reactions was fatigue.'
   params:
     - 'Search for records where the field `patient.reaction.reactionmeddrapt` (patient reaction) contains **fatigue**'
-  query: 'https://api.fda.gov/drug/event.json?search=patient.reaction.reactionmeddrapt:"fatigue"&limit=1'
+  query: 'https://8c0523f2.ngrok.io/drug/event.json?search=patient.reaction.reactionmeddrapt:"fatigue"&limit=1'
 searchAll:
   title: Matching all search terms
   description:
     - 'This query looks in the `drug/event` endpoint for a record where **both** fatigue was a reported patient reaction **and** the country in which the event happened was Canada. The key here is the `+AND+` that joins the two search terms.'
   params:
     - 'Search for records where the field `patient.reaction.reactionmeddrapt` (patient reaction) contains **fatigue** and `occurcountry` (country where the event happened) was **ca** (the country code for Canada)'
-  query: 'https://api.fda.gov/drug/event.json?search=patient.reaction.reactionmeddrapt:"fatigue"+AND+occurcountry:"ca"&limit=1'
+  query: 'https://8c0523f2.ngrok.io/drug/event.json?search=patient.reaction.reactionmeddrapt:"fatigue"+AND+occurcountry:"ca"&limit=1'
 searchAny:
   title: Matching any search terms
   description:
     - 'This query looks in the `drug/event` endpoint for a record where **either** fatigue was a reported patient reaction **or** the country in which the event happened was Canada.'
   params:
     - 'Search for records where the field `patient.reaction.reactionmeddrapt` (patient reaction) contains **fatigue** or `occurcountry` (country where the event happened) was **ca** (the country code for Canada)'
-  query: 'https://api.fda.gov/drug/event.json?search=patient.reaction.reactionmeddrapt:"fatigue"+occurcountry:"ca"&limit=1'
+  query: 'https://8c0523f2.ngrok.io/drug/event.json?search=patient.reaction.reactionmeddrapt:"fatigue"+occurcountry:"ca"&limit=1'
 count:
   title: Counting records where certain terms occur
   description:
@@ -32,21 +32,21 @@ count:
   params:
     - 'Search for all records'
     - 'Count the number of records matching the terms in `patient.reaction.reactionmeddrapt.exact`. The `.exact` suffix here tells the API to count whole phrases (e.g. **injection site reaction**) instead of individual words (e.g. **injection**, **site**, and **reaction** separately)'
-  query: 'https://api.fda.gov/drug/event.json?count=patient.reaction.reactionmeddrapt.exact'
+  query: 'https://8c0523f2.ngrok.io/drug/event.json?count=patient.reaction.reactionmeddrapt.exact'
 missing:
   title: Data is missing from a field
   description:
     - 'This query looks in the `drug/event` endpoint for records that are missing a company number, meaning that the report was submitted directly by a member of the public and not through a drug manufacturer.'
   params:
     - 'Search for records where the field `companynumb` is missing or empty'
-  query: 'https://api.fda.gov/drug/event.json?search=_missing_:companynumb&limit=1'
+  query: 'https://8c0523f2.ngrok.io/drug/event.json?search=_missing_:companynumb&limit=1'
 exists:
   title: 'Data in a field is present, regardless of the value'
   description:
     - 'This query looks in the `drug/event` endpoint for records that have a company number, meaning that the report was submitted through a drug manufacturer.'
   params:
     - 'Search for records where the field `companynumb` has data in it'
-  query: 'https://api.fda.gov/drug/event.json?search=_exists_:companynumb&limit=1'
+  query: 'https://8c0523f2.ngrok.io/drug/event.json?search=_exists_:companynumb&limit=1'
 timeseries:
   title: 'Counting by date, returning a timeseries'
   description:
@@ -54,4 +54,4 @@ timeseries:
   params:
     - 'Search for all records'
     - 'Count the number of records per day, according to the field `receiptdate`'
-  query: 'https://api.fda.gov/drug/event.json?count=receiptdate'
+  query: 'https://8c0523f2.ngrok.io/drug/event.json?count=receiptdate'

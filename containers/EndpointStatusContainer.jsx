@@ -41,7 +41,7 @@ const EndpointStatusContainer = function (ComposedEndpointStatus: ReactClass): R
         })
       }
 
-      xhrGET('https://api.fda.gov/status', _handleResponse, false)
+      xhrGET('https://8c0523f2.ngrok.io/status', _handleResponse, false)
     }
 
     componentDidMount () {
@@ -52,7 +52,7 @@ const EndpointStatusContainer = function (ComposedEndpointStatus: ReactClass): R
       if (!this.state.data) return <span />
 
       const path: string = this.props.path.replace(/(\/reference){1}/g, '')
-      const fullPath: string = `https://api.fda.gov${path}.json`
+      const fullPath: string = `https://8c0523f2.ngrok.io${path}.json`
 
       return (
         <ComposedEndpointStatus

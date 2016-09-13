@@ -26,7 +26,7 @@ const ApiStatusContainer = function (ComposedApiStatus: ReactClass): ReactClass 
         })
       }
 
-      xhrGET('https://api.fda.gov/status', _handleResponse, false)
+      xhrGET('https://8c0523f2.ngrok.io/status', _handleResponse, false)
     }
 
     render (): ?React.Element {

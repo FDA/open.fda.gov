@@ -1,5 +1,5 @@
 - "## About device adverse events"
-- "The U.S. Food and Drug Administration (FDA) regulates medical devices in the United States. Medical devices range from simple tongue depressors and bedpans to complex programmable pacemakers with microchip technology and laser surgical devices. In addition, medical devices include in vitro diagnostic products, such as general purpose lab equipment, reagents, and test kits, which may include monoclonal antibody technology. Certain electronic radiation emitting products with medical application and claims meet the definition of medical device. Examples include diagnostic ultrasound products, x-ray machines, and medical lasers."
+- "The U.S. Food and Drug Administration (FDA) regulates medical devices in the United States. Medical devices range from simple tongue depressors and bedpans to complex programmable pacemakers and laser surgical devices. In addition, medical devices include in vitro diagnostic products, such as general purpose lab equipment, reagents, and test kits, which may include monoclonal antibody technology. Certain electronic radiation emitting products with medical application and claims meet the definition of medical device. Examples include diagnostic ultrasound products, x-ray machines, and medical lasers."
 - "An adverse event report is submitted to the FDA to report serious events or undesirable experiences associated with the use of a medical device."
 - "### Adverse event reports"
 - "Each year, the FDA receives several hundred thousand medical device reports (MDRs) of suspected device-associated deaths, serious injuries and malfunctions. The FDA uses MDRs to monitor device performance, detect potential device-related safety issues, and contribute to benefit-risk assessments of these products. The MAUDE database houses MDRs submitted to the FDA by mandatory reporters (manufacturers, importers and device user facilities) and by voluntary reporters (such as health care professionals, patients, and consumers)."
@@ -10,7 +10,7 @@
 - "See the [comprehensive field-by-field reference](/device/event/reference/) for more detail about the structure and contents of device adverse event reports."
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/device/event.json` using search parameters for [fields specific to the device adverse events endpoint.](/device/event/reference/)"
+- "Make API calls to `https://8c0523f2.ngrok.io/device/event.json` using search parameters for [fields specific to the device adverse events endpoint.](/device/event/reference/)"
 - queryExplorer: oneReport
 - queryExplorer: genericName
 - queryExplorer: topEvents

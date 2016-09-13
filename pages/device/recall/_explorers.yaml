@@ -5,7 +5,7 @@ oneReport:
   params:
     - "*search* for all records with `product_code` equal to `FOZ`."
     - "*limit* to 1 record"
-  query: 'https://api.fda.gov/device/recall.json?search=product_code:FOZ&limit=1'
+  query: 'https://8c0523f2.ngrok.io/device/recall.json?search=product_code:FOZ&limit=1'
 regulationNumber:
   title: One recall for a *880.5200* regulation number
   description:
@@ -14,7 +14,7 @@ regulationNumber:
   params:
     - "*search* for all records with `openfda.regulation_number` equals *880.5200*"
     - "*limit* to 1 record"
-  query: 'https://api.fda.gov/device/recall.json?search=openfda.regulation_number:880.5200&limit=1'
+  query: 'https://8c0523f2.ngrok.io/device/recall.json?search=openfda.regulation_number:880.5200&limit=1'
 topProductCodes:
   title: Count of top product codes for device recalls
   description:
@@ -23,4 +23,4 @@ topProductCodes:
   params:
     - "*search* for all records."
     - count the field `product_code`
-  query: 'https://api.fda.gov/device/recall.json?count=product_code'
+  query: 'https://8c0523f2.ngrok.io/device/recall.json?count=product_code'

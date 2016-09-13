@@ -6,7 +6,7 @@
 - "See the [comprehensive field-by-field reference](/device/registrationlisting/reference/) for more detail about the structure and contents of device registrations and listings."
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/device/registrationlisting.json` using search parameters for [fields specific to the device registrations and listings endpoint.](/device/registrationlisting/reference/)"
+- "Make API calls to `https://8c0523f2.ngrok.io/device/registrationlisting.json` using search parameters for [fields specific to the device registrations and listings endpoint.](/device/registrationlisting/reference/)"
 - queryExplorer: oneReport
 - queryExplorer: regulationNumber
 - queryExplorer: topClasses

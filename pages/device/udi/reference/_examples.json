@@ -1,0 +1,87 @@
+{
+  "header" :
+  {
+    "has_donation_id_number": "false",
+    "mri_safety": "Labeling does not contain MRI Safety Information",
+    "record_status": "Published",
+    "is_rx": "true",
+    "is_labeled_as_nrl": "false",
+    "commercial_distribution_status": "In Commercial Distribution",
+    "device_description": "CoRoent Ant TLIF PEEK, 16x13x28mm 4°",
+    "has_serial_number": "false",
+    "sterilization": {
+      "sterilization_methods": "Moist Heat or Steam Sterilization",
+      "is_sterilization_prior_use": "true",
+      "is_sterile": "false"
+    },
+    "is_direct_marking_exempt": "false",
+    "is_labeled_as_no_nrl": "false",
+    "is_single_use": "false",
+    "identifiers": [
+      {
+        "issuing_agency": "GS1",
+        "id": "00887517567062",
+        "type": "Primary"
+      }
+    ],
+    "is_otc": "false",
+    "version_or_model_number": "5163284",
+    "has_manufacturing_date": "false",
+    "fei_number": [
+      "3005949151",
+      "3002980729"
+    ],
+    "brand_name": "CoRoent",
+    "is_combination_product": "false",
+    "is_kit": "false",
+    "product_codes": [
+      {
+        "code": "MAX",
+        "name": "Intervertebral fusion device with bone graft, lumbar",
+        "openfda": {
+          "device_name": "Intervertebral Fusion Device With Bone Graft, Lumbar",
+          "medical_specialty_description": "Orthopedic",
+          "device_class": "2",
+          "regulation_number": "888.3080"
+        }
+      },
+      {
+        "code": "MQP",
+        "name": "SPINAL VERTEBRAL BODY REPLACEMENT DEVICE",
+        "openfda": {
+          "device_name": "Spinal Vertebral Body Replacement Device",
+          "medical_specialty_description": "Orthopedic",
+          "device_class": "2",
+          "regulation_number": "888.3060"
+        }
+      }
+    ],
+    "device_count_in_base_package": "1",
+    "has_lot_or_batch_number": "true",
+    "customer_contacts": [
+      {
+        "phone": "+1(858)909-1800",
+        "email": "fang.wei@fda.hhs.gov"
+      }
+    ],
+    "company_name": "Nuvasive, Inc.",
+    "has_expiration_date": "false",
+    "is_hct_p": "false",
+    "gmdn_terms": [
+      {
+        "name": "Metallic spinal fusion cage, non-sterile",
+        "definition": "A non-sterile device intended to help fuse segments of the spine to treat anatomical abnormalities of the vertebrae, typically due to degenerative intervertebral disks [i.e., degenerative disc disease (DDD)]. The device is typically designed as a small, hollow and/or porous, threaded or fenestrated cylinder (or other geometric form) made of metal [usually titanium (Ti)] that is implanted between the bones or bone grafts of the spine, to provide mechanical stability and sufficient space for therapeutic spinal bone fusion to occur. Disposable devices associated with implantation may be included. This device must be sterilized prior to use."
+      }
+    ],
+    "is_pma_exempt": "false",
+    "pma_submissions": [
+      {
+        "supplement_number": "000",
+        "submission_type": "PMN",
+        "submission_number": "K071795"
+      }
+    ],
+    "publish_date": "2015-10-24"
+  }
+
+}

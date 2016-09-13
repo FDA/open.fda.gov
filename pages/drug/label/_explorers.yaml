@@ -2,7 +2,7 @@ oneLabel:
   params:
     - search for all records with effective_time between Jun 01, 2011 and Dec 31, 2012.
     - limit to 1 record.
-  query: 'https://api.fda.gov/drug/label.json?search=effective_time:[20110601+TO+20121231]&limit=1'
+  query: 'https://8c0523f2.ngrok.io/drug/label.json?search=effective_time:[20110601+TO+20121231]&limit=1'
   description:
     - This query searches for all records in a certain date range, and asks for a single one.
     - See the [reference](/drug/label/reference/) for more about effective_time. Brackets [ ] are used to specify a range for date, number, or string fields.
@@ -11,7 +11,7 @@ boxedWarning:
   params:
   - search for all records with a boxed_warning field.
   - limit to 1 record.
-  query: 'https://api.fda.gov/drug/label.json?search=_exists_:boxed_warning'
+  query: 'https://8c0523f2.ngrok.io/drug/label.json?search=_exists_:boxed_warning'
   description:
     - This query searches for labels with a Boxed Warning, and returns one result.
     - The `_exists_` search modifier lets you search for records that contain a specific field, no matter what its contents are. See the [API basics page](/api/) for more details.
@@ -19,7 +19,7 @@ boxedWarning:
 countByType:
   params:
   - count the field openfda.product_type (product type).
-  query: 'https://api.fda.gov/drug/label.json?count=openfda.product_type.exact'
+  query: 'https://8c0523f2.ngrok.io/drug/label.json?count=openfda.product_type.exact'
   description:
     - There are more labeling records for over-the-counter (OTC) drugs than prescription drugs.
     - The suffix .exact is required by openFDA to count the unique full phrases in the field openfda.product_type. Without it, the API will count each word in that field individually—HUMAN OTC DRUG would be counted as separate values, HUMAN and OTC and DRUG.

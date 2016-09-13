@@ -6,7 +6,7 @@ oneReport:
   params:
     - search for all records with `date_received` between Jan 01, 2013 and Dec 31, 2014. limit to 1 record.
     - see the header fields reference for more about `date_received`. Brackets [ ] are used to specify a range for date, number, or string fields.
-  query: 'https://api.fda.gov/device/event.json?search=date_received:[20130101+TO+20141231]&limit=1'
+  query: 'https://8c0523f2.ngrok.io/device/event.json?search=date_received:[20130101+TO+20141231]&limit=1'
 genericName:
   title: One report involving an x-ray device
   description:
@@ -14,7 +14,7 @@ genericName:
     - See the [reference](/device/event/reference/) for more fields you can use to narrow searches for device adverse event reports.
   params:
     - search for all records with `device.generic_name` (generic device name) contains x-ray
-  query: 'https://api.fda.gov/device/event.json?search=device.generic_name:x-ray&limit=1'
+  query: 'https://8c0523f2.ngrok.io/device/event.json?search=device.generic_name:x-ray&limit=1'
 topEvents:
   title: Count of top event types associated with x-ray devices
   description:
@@ -24,4 +24,4 @@ topEvents:
   params:
     - search for all records with `device.generic_name` (generic device name) contains x-ray
     - count the field `event_type` (outcomes associated with an adverse event report)
-  query: 'https://api.fda.gov/device/event.json?search=device.generic_name:x-ray&count=event_type.exact'
+  query: 'https://8c0523f2.ngrok.io/device/event.json?search=device.generic_name:x-ray&count=event_type.exact'

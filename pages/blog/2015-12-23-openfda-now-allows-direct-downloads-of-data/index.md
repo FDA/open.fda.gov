@@ -5,7 +5,7 @@ title: "OpenFDA Now Allows Direct Downloads of Data"
 authors:
   - "openFDA Team"
 ---
-Since openFDA launched in June 2014, the impetus for the project has been to make it easier to get access to publicly available FDA data. FDA’s goal is to make it simple for an application, mobile device, web developer, or researcher to use data from FDA. .
+Since its launch in June 2014, the impetus for openFDA has been to make it easier to get access to publicly available FDA data. FDA’s goal is to make it simple for an application, mobile device, web developer, or researcher to use data from FDA. .
 
 To date, one major focus of this project has been to  provide high-value APIs (short for Application Programming Interfaces), which make it easy for developers and researchers to query and build upon data related to drug adverse events, drug labeling, medical devices (including adverse events and device registration), and food recalls.
 
