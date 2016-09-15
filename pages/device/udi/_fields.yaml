@@ -337,7 +337,7 @@ properties:
        'false': 'false'
     type: boolean
   is_labeled_as_nrl:
-    description: "Indicates that the device or packaging contains natural rubber that contacts humans as described under 21 CFR 801.437. The `true` indicates that the device label or packaging contains one of the following statements: (1) `Caution: This Product Contains Natural Rubber Latex Which May Cause Allergic Reactions`,  (2) `This Product Contains Dry Natural Rubber`, (3) `Caution: The Packaging of This Product Contains Natural Rubber Latex Which May Cause Allergic Reactions` or (4) `The Packaging of This Product Contains Dry Natural Rubber`."
+    description: "Indicates that the device or packaging contains natural rubber that contacts humans as described under 21 CFR 801.437. The value `true` indicates that the device label or packaging contains one of the following statements: (1) 'Caution: This Product Contains Natural Rubber Latex Which May Cause Allergic Reactions', (2) 'This Product Contains Dry Natural Rubber', (3) 'Caution: The Packaging of This Product Contains Natural Rubber Latex Which May Cause Allergic Reactions' or (4) 'The Packaging of This Product Contains Dry Natural Rubber'."
     format:
     is_exact: false
     possible_values:
