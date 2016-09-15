@@ -27,7 +27,7 @@
   - is_labeled_as_no_nrl
   - is_labeled_as_nrl
   - is_otc
-  - is_pma_exempt
+  - is_pm_exempt
   - is_rx
   - is_single_use
   - mri_safety
@@ -54,7 +54,6 @@
 - fields:
   - customer_contacts.email
   - customer_contacts.phone
-  - customer_contacts.ext
 - "#### Device Size"
 - "This section contains information on device size related fields."
 - fields:
@@ -86,11 +85,4 @@
 - "The openfda section of each document is determined initially by looking at the product_code value."
 - fields:
   - product_codes.openfda
-#  .device_class
-#  - openfda.device_name
-#  - openfda.fei_number
-#  - openfda.k_number
-#  - openfda.medical_specialty_description
-#  - openfda.pma_number
-#  - openfda.registration_number
-#  - openfda.regulation_number
+
