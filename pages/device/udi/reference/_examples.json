@@ -27,10 +27,6 @@
     "is_otc": "false",
     "version_or_model_number": "5163284",
     "has_manufacturing_date": "false",
-    "fei_number": [
-      "3005949151",
-      "3002980729"
-    ],
     "brand_name": "CoRoent",
     "is_combination_product": "false",
     "is_kit": "false",
@@ -74,13 +70,6 @@
       }
     ],
     "is_pm_exempt": "false",
-    "pma_submissions": [
-      {
-        "supplement_number": "000",
-        "submission_type": "PMN",
-        "submission_number": "K071795"
-      }
-    ],
     "publish_date": "2015-10-24"
   }
 

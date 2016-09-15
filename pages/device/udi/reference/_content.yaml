@@ -1,5 +1,5 @@
 - "## About"
-- "The openFDA unique device identifier API returns data from the Global Unique Device Identification Database (GUDID), which contains information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). UDIs are unique numeric or alphanumeric codes that consist of two parts—a device identifier (DI) and a production identifier (PI). UDIs are intended to increase electronic tracking abilities for devices involved in adverse events. Submission to the GUDID database is required for manufacturers of medical devices. To learn more about UDIs, see the FDA's [General information about UDI](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/UDIBasics/default.htm) page."
+- "The openFDA unique device identifier API returns data from the Global Unique Device Identification Database (GUDID), which contains information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). UDIs are unique numeric or alphanumeric codes that consist of two parts—a device identifier (DI) and a production identifier (PI). UDIs are intended to increase electronic tracking abilities for devices involved in adverse events. Submission to the GUDID database is required for manufacturers of medical devices. To learn more about UDIs, see the FDA's [General information about UDI](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm) page."
 - "downloads"
 - "## How records are organized"
 - example: header
@@ -14,7 +14,6 @@
   - company_name
   - device_count_in_base_package
   - device_description
-  - fei_number
   - has_donation_id_number
   - has_expiration_date
   - has_lot_or_batch_number
