@@ -42,12 +42,6 @@ properties:
           is_exact: false
           possible_values:
           type: string
-        ext:
-          description: "Phone number extension for the customer contact."
-          format:
-          is_exact: false
-          possible_values:
-          type: string
         phone:
           description: "Phone number for the customer contact; to be used by patients and consumers for device-related questions."
           format:
@@ -237,7 +231,7 @@ properties:
     items:
       properties:
         id:
-          description: "An identifier for a medical device that meets the requirements to uniquely identify a device through its distribution and use.  Identifier types include Primary DI, Secondary DI, Direct Marking DI, Unit of Use DI, Package DI, or Previous DI."
+          description: "An identifier that is the main (primary) lookup for a medical device and meets the requirements to uniquely identify a device through its distribution and use. The primary DI number will be located on the base package, which is the lowest package level of a medical device containing a full UDI. For medical devices without packaging, the primary DI number and full UDI may be on the device itself."
           format:
           is_exact: false
           possible_values:
@@ -339,7 +333,7 @@ properties:
        'false': 'false'
     type: boolean
   is_labeled_as_no_nrl:
-    description: "Indicates that natural rubber latex was used as materials in the manufacture of the medical product and container and the device labeling contains this information. Only applicable to devices not subject to the requirements under 21 CFR 801.437. Not all medical products that are made with natural rubber latex will be marked."
+    description: "Indicates that natural rubber latex was not used as materials in the manufacture of the medical product and container and the device labeling contains this information.  Only applicable to devices not subject to the requirements under 21 CFR 801.437.  Not all medical products that are NOT made with natural rubber latex will be marked."
     format:
     is_exact: false
     possible_values:
@@ -349,7 +343,7 @@ properties:
        'false': 'false'
     type: boolean
   is_labeled_as_nrl:
-    description: "Indicates that natural rubber latex was used as materials in the manufacture of the medical product and container and the device labeling contains this information. Only applicable to devices not subject to the requirements under 21 CFR 801.437. Not all medical products that are NOT made with natural rubber latex will be marked."
+    description: "Indicates that the device or packaging contains natural rubber that contacts humans as described under 21 CFR 801.437. The `true` indicates that the device label or packaging contains one of the following statements: (1) `Caution: This Product Contains Natural Rubber Latex Which May Cause Allergic Reactions`,  (2) `This Product Contains Dry Natural Rubber`, (3) `Caution: The Packaging of This Product Contains Natural Rubber Latex Which May Cause Allergic Reactions` or (4) `The Packaging of This Product Contains Dry Natural Rubber`."
     format:
     is_exact: false
     possible_values:
@@ -359,7 +353,7 @@ properties:
        'false': 'false'
     type: boolean
   is_otc:
-    description: "Indicates whether the device is Over-the-Counter."
+    description: "Indicates that the device does not require a prescription to use and can be purchased over the counter."
     format:
     is_exact: false
     possible_values:
@@ -368,7 +362,7 @@ properties:
        'true': 'true'
        'false': 'false'
     type: boolean
-  is_pma_exempt:
+  is_pm_exempt:
     description: "Indicates whether the device is exempt from premarket notification requirements."
     format:
     is_exact: false
@@ -483,12 +477,6 @@ properties:
               description: "Regulation Medical Specialty is assigned based on the regulation (e.g. 21 CFR Part 888 is Orthopedic Devices) which is why Class 3 devices lack the 'Regulation Medical Specialty' field."
               format:
               is_exact: true
-              possible_values:
-              type: string
-            registration_number:
-              description: "Facility identifier assigned to facility by the FDA Office of Regulatory Affairs."
-              format:
-              is_exact: false
               possible_values:
               type: string
             regulation_number:

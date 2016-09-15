@@ -73,7 +73,7 @@
         "definition": "A non-sterile device intended to help fuse segments of the spine to treat anatomical abnormalities of the vertebrae, typically due to degenerative intervertebral disks [i.e., degenerative disc disease (DDD)]. The device is typically designed as a small, hollow and/or porous, threaded or fenestrated cylinder (or other geometric form) made of metal [usually titanium (Ti)] that is implanted between the bones or bone grafts of the spine, to provide mechanical stability and sufficient space for therapeutic spinal bone fusion to occur. Disposable devices associated with implantation may be included. This device must be sterilized prior to use."
       }
     ],
-    "is_pma_exempt": "false",
+    "is_pm_exempt": "false",
     "pma_submissions": [
       {
         "supplement_number": "000",

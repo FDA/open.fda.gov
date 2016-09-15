@@ -405,10 +405,10 @@
                 "fn": "Rajan, Velayudhan",
                 "hasEmail": "mailto:Velayudhan.Rajan@fda.hhs.gov"
             },
-            "description": "The Global Unique Device Identification Database (GUDID) contains key information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). Unique device identification is a system being established by the",
+            "description": "The Global Unique Device Identification Database (GUDID) contains key device identification information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). Unique device identification is a system being established by the",
             "distribution": [
             {
-                "description": "The Global Unique Device Identification Database (GUDID) contains information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). Unique device identification is a system being established by the",
+                "description": "The Global Unique Device Identification Database (GUDID) contains key device identification information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). Unique device identification is a system being established by the",
                 "mediaType": "text/html",
                 "accessURL": "http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/GlobalUDIDatabaseGUDID/default.htm"
             }
