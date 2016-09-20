@@ -22,8 +22,8 @@ export default () => (
         <section className='container clearfix marg-t-3 marg-b-3 relative'>
             <div className="usa-alert usa-alert-info">
                 <div className="usa-alert-body">
-                    <p className="usa-alert-text">FDA is not responsible for Section 508 compliance (accessibility) on other federal or private websites. See HHS’s Website Disclaimer, <a href="http://www.hhs.gov/disclaimer.html">http://www.hhs.gov/disclaimer.html</a></p>
-                    <p className="usa-alert-text">FDA is not responsible for the contents of any pages referred from its website. See FDA’s Website Policy, <a href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/#sites">http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/#sites</a>, See <a href="https://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m10-23.pdf">https://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m10-23.pdf</a></p>
+                    <p className="usa-alert-text">FDA is not responsible for Section 508 compliance (accessibility) on other federal or private websites. See [HHS’s Website Disclaimer](http://www.hhs.gov/disclaimer.html)</p>
+                    <p className="usa-alert-text">FDA is not responsible for the contents of any pages referred from its website. See [FDA’s Website Policy](http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/#sites) and the [2010 Whitehouse Memorandum](https://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m10-23.pdf)</p>
                 </div>
             </div>
 
@@ -35,7 +35,8 @@ export default () => (
                                     <a
                                         className={aCx}
                                         key={i}
-                                        href={tool.url}>
+                                        href={tool.url}
+                                        target="_blank">
                                         <h4 className='clr-primary-darker link-external'>{tool.title}</h4>
 
                                     </a>
