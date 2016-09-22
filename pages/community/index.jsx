@@ -7,7 +7,7 @@ import tools from './_apps.yaml'
 
 const aCx: string = 'clr-gray font-size-4 weight-400 t-pad-t-2 t-pad-b-2 block reading-width t-marg-b-2'
 const linkCx: string = 'clr-gray b-b-1 marg-b-1'
-
+const disclaimer: string = 'http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm'
 export default () => (
     <Layout
         crumbs={['openFDA','Community','openFDA Apps']}
@@ -30,16 +30,13 @@ export default () => (
             <div className="flex-box dir-row flex-wrap">
                     {
                         tools.map((tool, i) => (
-                            <div className="col d-3 b-t-1 grow-none">
+                            <div className="col d-3 b-t-1 grow-none" key={i}>
                                 <div className="flex-box">
-                                    <a
+                                    <h4><a
                                         className={aCx}
-                                        key={i}
                                         href={tool.url}
-                                        target="_blank">
-                                        <h4 className='clr-primary-darker link-external'>{tool.title}</h4>
-
-                                    </a>
+                                        className='clr-primary-darker'
+                                        target="_blank">{tool.title}</a><a href={disclaimer} target="_blank" className="link-external"></a></h4>
                                 </div>
                             </div>
                         ))
