@@ -62,7 +62,7 @@ const Hero = (props: tPROPS) => {
             }}>
             {
               type === 'endpoint' &&
-              <span className='clr-cool-blue-lighter weight-400'>8c0523f2.ngrok.io</span>
+              <span className='clr-cool-blue-lighter weight-400'>api.fda.gov</span>
             }
             {path}
           </h1>

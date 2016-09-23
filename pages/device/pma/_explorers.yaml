@@ -5,7 +5,7 @@ oneAPPR:
   params:
     - search for all records with `decision_code` equal to `APPR`.
     - limit to 1 record.
-  query: 'https://8c0523f2.ngrok.io/device/pma.json?search=decision_code:APPR&limit=1'
+  query: 'https://api.fda.gov/device/pma.json?search=decision_code:APPR&limit=1'
 oneLWP:
   title: One PMA record for the LWP product code
   description:
@@ -14,7 +14,7 @@ oneLWP:
   params:
     - search for all records with `product_code` equals `LWP`.
     - limit to 1 record.
-  query: 'https://8c0523f2.ngrok.io/device/pma.json?search=product_code:LWP&limit=1'
+  query: 'https://api.fda.gov/device/pma.json?search=product_code:LWP&limit=1'
 topAdvisory:
   title: Count of top advisory committees for PMA submissions.
   description:
@@ -23,4 +23,4 @@ topAdvisory:
   params:
     - search for all records.
     - count the field `advisory_committee`
-  query: 'https://8c0523f2.ngrok.io/device/pma.json?count=advisory_committee'
+  query: 'https://api.fda.gov/device/pma.json?count=advisory_committee'

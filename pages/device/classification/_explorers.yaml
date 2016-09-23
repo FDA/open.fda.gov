@@ -5,7 +5,7 @@ oneDevice:
   params:
     - search for all records with `regulation_number` equal to `872.6855`.
     - limit to 1 record.
-  query: 'https://8c0523f2.ngrok.io/device/classification.json?search=regulation_number:872.6855&limit=1'
+  query: 'https://api.fda.gov/device/classification.json?search=regulation_number:872.6855&limit=1'
 nob:
   title: One classification for a NOB product code
   description:
@@ -14,7 +14,7 @@ nob:
   params:
     - search for all records with `product_code` equals `LWP`.
     - limit to 1 record.
-  query: 'https://8c0523f2.ngrok.io/device/classification.json?search=product_code:NOB&limit=1'
+  query: 'https://api.fda.gov/device/classification.json?search=product_code:NOB&limit=1'
 topFei:
   title: Count of top Facility Establishment Identifiers (FEI) for device classifications.
   description:
@@ -23,4 +23,4 @@ topFei:
   params:
     - search for all records.
     - count the field `openfda.fei_number`
-  query: 'https://8c0523f2.ngrok.io/device/classification.json?count=openfda.fei_number'
+  query: 'https://api.fda.gov/device/classification.json?count=openfda.fei_number'
