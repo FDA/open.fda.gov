@@ -27,7 +27,7 @@ const _renderBars = (data: Array<Object>, fieldValues: Object, show: number) => 
         tabIndex={0}
         key={i}>
         {
-          typeof term === 'string' &&
+            (typeof term === 'string' || typeof term === 'number') &&
           <div className='clr-gray small weight-600'>
             <span className='clr-gray-dark'>
               {`${term}`.toLowerCase()}
