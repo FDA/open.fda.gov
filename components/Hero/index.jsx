@@ -7,8 +7,9 @@ import EndpointButtons from './EndpointButtons'
 
 type tPROPS = {
   description: string;
+  htmlDescription: boolean;
   label: string;
-  path: string,
+  path: string;
   title: React.Element|string;
   type: 'homepage'|'endpoint';
 };
@@ -25,6 +26,7 @@ type tPROPS = {
 const Hero = (props: tPROPS) => {
   const {
     description,
+    htmlDescription,
     label,
     path,
     title,
@@ -76,11 +78,22 @@ const Hero = (props: tPROPS) => {
           </h1>
         }
         {
-          desc &&
+          desc && htmlDescription &&
           <p
             tabIndex={0}
             className='clr-white font-size-4 reading-width'
             style={{
+              lineHeight: '25px',
+              marginBottom: '80px',
+            }} dangerouslySetInnerHTML={{__html: desc}}>
+          </p>
+        }
+        {
+          desc && !htmlDescription &&
+          <p
+              tabIndex={0}
+              className='clr-white font-size-4 reading-width'
+              style={{
               lineHeight: '25px',
               marginBottom: '80px',
             }}>
@@ -103,5 +116,6 @@ Hero.displayName = 'components/Hero'
 Hero.defaultProps = {
   description: '',
   type: 'landing',
+  htmlDescription: false
 }
 export default Hero

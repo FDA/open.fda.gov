@@ -1,0 +1,42 @@
+- title: "UDI Listing by Brand Name"
+  short: "By Brand Name"
+  description:
+    - "This chart is generated based on queries against the UDI API endpoint. The chart is provided here to help illustrate how the UDI data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results). For example, observe how the results differ if you count using brand_name.exact rather than brand_name."
+  countParam: "brand_name.exact"
+  filters:
+    - title: "All UDI"
+      searchParam: ""
+    - title: "For single use only"
+      searchParam: "is_single_use:true"
+  filterByDate: false
+  type: Line
+- title: "UDI Listing by Company Name"
+  short: "By Company Name"
+  description:
+    - "This chart is generated based on queries against the UDI API endpoint. The chart is provided here to help illustrate how the UDI data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results). For example, observe how the results differ if you count using company_name.exact rather than company_name."
+  countParam: "company_name.exact"
+  filters:
+    - title: "All UDI"
+      searchParam: ""
+    - title: "Available over the counter"
+      searchParam: "is_otc:true"
+  filterByDate: false
+  type: Bar
+- title: "UDI Listing by Product Code"
+  short: "By Product Code"
+  description:
+    - "This chart is generated based on queries against the UDI API endpoint. The chart is provided here to help illustrate how the UDI data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results)."
+  countParam: "product_codes.code"
+  filters:
+    - title: "All UDI"
+      searchParam: ""
+    - title: "By Medical Speciality associated with product_code"
+      searchParam: "product_codes.openfda.medical_specialty_description:Surgery"
+  filterByDate: false
+  type: Bar
+
+
+
+
+
+

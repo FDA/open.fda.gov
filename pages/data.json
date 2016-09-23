@@ -159,7 +159,7 @@
                 "fn": "Glenda R. Lewis",
                 "hasEmail": "mailto:retailfoodprotectionteam@fda.hhs.gov"
             },
-            "description": "The Food Code Reference System (FCRS) is a searchable database that provides access to FDA’s interpretative positions and responses to questions related to the FDA Food Code.  Users of the FCRS can search the database using dropdown menus, keywords and date. This system is a searchable repository of food code interpretations.  There are no exportable data sets.  All reports are in PDF format.",
+            "description": "The Food Code Reference System (FCRS) is a searchable database that provides access to FDAï¿½s interpretative positions and responses to questions related to the FDA Food Code.  Users of the FCRS can search the database using dropdown menus, keywords and date. This system is a searchable repository of food code interpretations.  There are no exportable data sets.  All reports are in PDF format.",
             "distribution": [
             {
                 "description": "This system is a searchable repository of food code interpretations.  There are no exportable data sets.  All reports are in PDF format.  ",
@@ -2515,7 +2515,7 @@
                 "fn": "openFDA",
                 "hasEmail": "mailto:open@fda.hhs.gov"
             },
-            "description": "Disclosure of reporting citations provide the public with a rationale for the Agency’s enforcement actions and will also help to inform public and industry decision-making, allowing them to make more informed marketplace choices and help to encourage compliance.",
+            "description": "Disclosure of reporting citations provide the public with a rationale for the Agencyï¿½s enforcement actions and will also help to inform public and industry decision-making, allowing them to make more informed marketplace choices and help to encourage compliance.",
             "distribution": [
             {
                 "downloadURL": "http://www.fda.gov/ICECI/EnforcementActions/ucm346077.htm",
@@ -2590,7 +2590,7 @@
                 "fn": "openFDA",
                 "hasEmail": "mailto:open@fda.hhs.gov"
             },
-            "description": "On November 16, 1988, the President of the United States signed into law the Generic Animal Drug and Patent Restoration Act (GADPTRA). Among its major provisions, the Act extends eligibility for submission of Abbreviated New Animal Drug Applications (ANADAs) to all animal drug products approved for safety and effectiveness under the Federal Food, Drug, and Cosmetic Act. The Act also requires that each sponsor of an approved animal drug product submit to the FDA certain information regarding patents held for the animal drug or its method of use. The Act requires that this information, as well as a list of all animal drug products approved for safety and effectiveness, be made available to the public. This list must be updated monthly under the provisions of the Act. This publication, which is known as the “Green Book”, was first published in January of 1989. Updates have been added monthly since then. The list is published in its entirety each January. ",
+            "description": "On November 16, 1988, the President of the United States signed into law the Generic Animal Drug and Patent Restoration Act (GADPTRA). Among its major provisions, the Act extends eligibility for submission of Abbreviated New Animal Drug Applications (ANADAs) to all animal drug products approved for safety and effectiveness under the Federal Food, Drug, and Cosmetic Act. The Act also requires that each sponsor of an approved animal drug product submit to the FDA certain information regarding patents held for the animal drug or its method of use. The Act requires that this information, as well as a list of all animal drug products approved for safety and effectiveness, be made available to the public. This list must be updated monthly under the provisions of the Act. This publication, which is known as the ï¿½Green Bookï¿½, was first published in January of 1989. Updates have been added monthly since then. The list is published in its entirety each January. ",
             "distribution": [
             {
                 "downloadURL": "http://www.accessdata.fda.gov/scripts/animaldrugsatfda/index.cfm",
@@ -2822,7 +2822,7 @@
                 "fn": "openFDA",
                 "hasEmail": "mailto:open@fda.hhs.gov"
             },
-            "description": "The Drug Listing Act of 1972 requires registered drug establishments to provide the Food and Drug Administration (FDA) with a current list of all drugs manufactured, prepared, propagated, compounded, or processed by it for commercial distribution. (See Section 510 of the Federal Food, Drug, and Cosmetic Act (Act) (21 U.S.C. § 360)). Drug products are identified and reported using a unique, three-segment number, called the National Drug Code (NDC), which serves as a universal product identifier for drugs. FDA publishes the listed NDC numbers and the information submitted as part of the listing information in the NDC Directory which is updated daily.",
+            "description": "The Drug Listing Act of 1972 requires registered drug establishments to provide the Food and Drug Administration (FDA) with a current list of all drugs manufactured, prepared, propagated, compounded, or processed by it for commercial distribution. (See Section 510 of the Federal Food, Drug, and Cosmetic Act (Act) (21 U.S.C. ï¿½ 360)). Drug products are identified and reported using a unique, three-segment number, called the National Drug Code (NDC), which serves as a universal product identifier for drugs. FDA publishes the listed NDC numbers and the information submitted as part of the listing information in the NDC Directory which is updated daily.",
             "distribution": [
             {
                 "downloadURL": "http://www.fda.gov/downloads/Drugs/DevelopmentApprovalProcess/UCM070838.zip",

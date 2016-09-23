@@ -287,6 +287,11 @@ const Nav = (props: tPROPS) => {
                   @openFDA (Twitter)
                 </a>
               </li>
+              <li className={`${liCx} m-6`}>
+                <Link
+                    className={linkCx}
+                    to='/community/'>openFDA Apps</Link>
+              </li>
             </ul>
           </div>
         </div>

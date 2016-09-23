@@ -22,6 +22,19 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
 
     _fetchDownloads () {
       const _handleResponse = data => {
+
+        data.results.device['udi'] = {
+          "total_records": 533467,
+          "export_date": "2016-09-02",
+          "partitions": [
+            {
+              "size_mb": "132.1",
+              "records": 533467,
+              "display_name": "/device/udi data",
+              "file": "https://s3.amazonaws.com/open.fda.gov-biju/device-udi-all-json.zip"
+            }
+          ]
+        };
         this.setState({
           data,
         })
