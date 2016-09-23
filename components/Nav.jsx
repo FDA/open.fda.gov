@@ -184,6 +184,21 @@ const Nav = (props: tPROPS) => {
                   Updates
                 </Link>
               </li>
+              <li className={liCx}>
+                <Link
+                    className={linkCx}
+                    to='/api/status/'>
+                  API status
+                </Link>
+              </li>
+              <li className={liCx}>
+                <Link
+                    className={linkCx}
+                    to='/api/statistics/'>
+                  API Usage Statistics
+                </Link>
+              </li>
+
             </ul>
             <ul
               className={ulCx}
@@ -205,13 +220,6 @@ const Nav = (props: tPROPS) => {
                   className={linkCx}
                   to='/api/reference/'>
                   API reference
-                </Link>
-              </li>
-              <li className={liCx}>
-                <Link
-                  className={linkCx}
-                  to='/api/status/'>
-                  API status
                 </Link>
               </li>
               <li className={liCx}>
