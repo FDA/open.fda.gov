@@ -7,7 +7,7 @@
 - "See the [comprehensive field-by-field reference](/device/510k/reference/) for more detail about the structure and contents of a device 510(k)."
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://8c0523f2.ngrok.io/device/510k.json` using search parameters for [fields specific to the device recalls endpoint.](/drug/event/reference/)"
+- "Make API calls to `https://api.fda.gov/device/510k.json` using search parameters for [fields specific to the device recalls endpoint.](/drug/event/reference/)"
 - queryExplorer: advisoryCommittee
 - queryExplorer: regulationNumber
 - queryExplorer: topCountryCodes

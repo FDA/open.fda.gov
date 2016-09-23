@@ -8,7 +8,7 @@
 - "See the [comprehensive field-by-field reference](/device/classification/reference/) for more detail about the structure and contents of device classification."
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://8c0523f2.ngrok.io/device/classification.json` using search parameters for [fields specific to the device classification endpoint.](/device/classification/reference/)"
+- "Make API calls to `https://api.fda.gov/device/classification.json` using search parameters for [fields specific to the device classification endpoint.](/device/classification/reference/)"
 - queryExplorer: oneDevice
 - queryExplorer: nob
 - queryExplorer: topFei
