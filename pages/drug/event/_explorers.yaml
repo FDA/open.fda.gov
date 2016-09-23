@@ -6,7 +6,7 @@ oneReport:
   params:
     - search for all records with receivedate between Jan 01, 2004 and Dec 31, 2008. limit to 1 record.
     - see the header fields reference for more about receivedate. Brackets [ ] are used to specify a range for date, number, or string fields.
-  query: 'https://8c0523f2.ngrok.io/drug/event.json?search=receivedate:[20040101+TO+20081231]&limit=1'
+  query: 'https://api.fda.gov/drug/event.json?search=receivedate:[20040101+TO+20081231]&limit=1'
 pharmacologic:
   title: One adverse event report with a drug from a certain pharmacologic class
   description:
@@ -16,7 +16,7 @@ pharmacologic:
   params:
   - search for all records with receivedate between Jan 01, 2004 and Dec 31, 2008. limit to 1 record.
   - see the header fields reference for more about receivedate. Brackets [ ] are used to specify a range for date, number, or string fields.
-  query: 'https://8c0523f2.ngrok.io/drug/event.json?search=patient.drug.openfda.pharm_class_epc:"nonsteroidal+anti-inflammatory+drug"&limit=1'
+  query: 'https://api.fda.gov/drug/event.json?search=patient.drug.openfda.pharm_class_epc:"nonsteroidal+anti-inflammatory+drug"&limit=1'
 reaction:
   title: Count of patient reactions
   description:
@@ -26,4 +26,4 @@ reaction:
   params:
   - search for all records with receivedate between Jan 01, 2004 and Dec 31, 2008. limit to 1 record.
   - see the header fields reference for more about receivedate. Brackets `[ ]` are used to specify a range for date, number, or string fields.
-  query: 'https://8c0523f2.ngrok.io/drug/event.json?search=patient.drug.openfda.pharm_class_epc:"nonsteroidal+anti-inflammatory+drug"&count=patient.reaction.reactionmeddrapt.exact'
+  query: 'https://api.fda.gov/drug/event.json?search=patient.drug.openfda.pharm_class_epc:"nonsteroidal+anti-inflammatory+drug"&count=patient.reaction.reactionmeddrapt.exact'

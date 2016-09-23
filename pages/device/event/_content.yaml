@@ -10,7 +10,7 @@
 - "See the [comprehensive field-by-field reference](/device/event/reference/) for more detail about the structure and contents of device adverse event reports."
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://8c0523f2.ngrok.io/device/event.json` using search parameters for [fields specific to the device adverse events endpoint.](/device/event/reference/)"
+- "Make API calls to `https://api.fda.gov/device/event.json` using search parameters for [fields specific to the device adverse events endpoint.](/device/event/reference/)"
 - queryExplorer: oneReport
 - queryExplorer: genericName
 - queryExplorer: topEvents
