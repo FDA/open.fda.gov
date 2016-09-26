@@ -132,7 +132,7 @@ const ChartDonut = (props: tPROPS) => {
                       }}
                     />
                     <strong>{d.label}</strong><br />
-                    <span className='clr-gray'>B{porCiento}% - {d.value} records</span>
+                    <span className='clr-gray'>{porCiento}% - {d.value} records</span>
                   </p>
                 </li>
               )
