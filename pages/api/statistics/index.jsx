@@ -1,5 +1,7 @@
 import React from 'react'
-import marked from 'marked'
+import Charts from 'react-chartjs'
+const Line: ReactClass = Charts.Line
+
 
 import Hero from '../../../components/Hero'
 import Layout from '../../../components/Layout'
@@ -8,6 +10,21 @@ import Layout from '../../../components/Layout'
 const aCx: string = 'clr-gray font-size-4 weight-400 t-pad-t-2 t-pad-b-2 block reading-width t-marg-b-2'
 const linkCx: string = 'clr-gray b-b-1 marg-b-1'
 const disclaimer: string = 'http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm'
+const height:int = 500
+const width:int = 500
+const dataChanged = true
+const nextChartData = {
+    labels : ["January","February","March","April","May","June"],
+    datasets : [
+        {
+            fillColor : "rgba(172,194,132,0.4)",
+            strokeColor : "#ACC26D",
+            pointColor : "#fff",
+            pointStrokeColor : "#9DB86D",
+            data : [200003,8880,99,90909,305,247]
+        }
+    ]
+}
 export default () => (
     <Layout
         crumbs={['openFDA','Community','openFDA Apps']}
@@ -20,16 +37,24 @@ export default () => (
         />
 
         <section className='container clearfix marg-t-3 marg-b-3 relative'>
-            <div className="usa-alert usa-alert-info">
-                <div className="usa-alert-body">
-                    <p className="usa-alert-text">FDA is not responsible for Section 508 compliance (accessibility) on other federal or private websites. See <a href="http://www.hhs.gov/disclaimer.html">HHS’s Website Disclaimer</a></p>
-                    <p className="usa-alert-text">FDA is not responsible for the contents of any pages referred from its website. See <a href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/#sites">FDA’s Website Policy</a> and the <a href="https://www.whitehouse.gov/sites/default/files/omb/assets/memoranda_2010/m10-23.pdf">2010 Whitehouse Memorandum</a></p>
-                </div>
-            </div>
 
-            <div className="flex-box dir-row flex-wrap">
 
-            </div>
+            <Line
+                // needed. destroy and redo chart on change
+                // this lets us toggle the animation property correctly
+                redraw={dataChanged}
+                data={nextChartData}
+                options={{
+                  // charts with large datasets can really chug
+                  // but, doesn't really work as needed since
+                  // chartjs doesn't let you toggle animation on and off
+                  // willy nilly, it just lets you set it initially
+                  // which is why we use the redraw prop
+                    animation: nextChartData.labels.length < 50,
+                }}
+                height={height}
+                width={width}
+            />
 
         </section>
     </Layout>
