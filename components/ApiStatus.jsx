@@ -18,6 +18,7 @@ const catMap: Object = Object.freeze({
   'devicereglist': 'Devices › 510k',
   'deviceclearance': 'Devices › Enforcement reports',
   'devicepma': 'Devices › PMA',
+  'deviceudi': 'Devices › UDI',
   'drugevent': 'Drugs › Adverse Events',
   'druglabel': 'Drugs › Labeling',
   'recall': 'Foods › Enforcement Reports'

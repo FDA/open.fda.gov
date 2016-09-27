@@ -1,5 +1,5 @@
 oneCompanyMed:
-  title: Report involving company name that contain "Nuvasive".
+  title: Record involving company name that contains "Nuvasive".
   description:
     - This query searches for records matching a certain search term.
     - See the [reference](/device/udi/reference/) for more fields you can use to narrow searches.
@@ -8,7 +8,7 @@ oneCompanyMed:
     - limit to 1 record.
   query: 'https://api.fda.gov/device/udi.json?search=company_name:Nuvasive&limit=1'
 oneBrandMed:
-  title: Report involving brand name that contain "Armada".
+  title: Record involving brand name that contains "Armada".
   description:
     - This query searches for records matching a certain search term.
     - See the [reference](/device/udi/reference/) for more fields you can use to narrow searches.
