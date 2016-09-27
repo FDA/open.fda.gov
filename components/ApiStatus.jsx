@@ -18,6 +18,7 @@ const catMap: Object = Object.freeze({
   'devicereglist': 'Devices › 510k',
   'deviceclearance': 'Devices › Enforcement reports',
   'devicepma': 'Devices › PMA',
+  'deviceudi': 'Devices › UDI',
   'drugevent': 'Drugs › Adverse Events',
   'druglabel': 'Drugs › Labeling',
   'recall': 'Foods › Enforcement Reports'
@@ -64,7 +65,7 @@ const ApiStatus = (props: tPROPS) => (
                 style={liStyl}
                 className='col marg-b-2 pad-2 t-3 d-2 b-1 grow-none'>
                 <p className={catCx}>{catMap[endpoint]}</p>
-                <p className='small'>8c0523f2.ngrok.io/{endpoint}</p>
+                <p className='small'>api.fda.gov/{endpoint}</p>
                 <ul className='flex-box'>
                   <li className='clr-base marg-r-2 small'>
                     Status

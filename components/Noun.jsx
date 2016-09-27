@@ -29,7 +29,7 @@ const Noun = ({ meta, content, }: tPROPS) => (
             className={aCx}
             key={i}
             href={c.url}>
-            <p className={endCx}>8c0523f2.ngrok.io<strong>{c.url}</strong></p>
+            <p className={endCx}>api.fda.gov<strong>{c.url}</strong></p>
             <h2 className='clr-primary-darker'>{c.title}</h2>
             {
               c.description &&

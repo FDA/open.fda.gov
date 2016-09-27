@@ -6,7 +6,7 @@
 - "See the [comprehensive field-by-field reference](/device/pma/reference/) for more detail about the structure and contents of device pre-market approval."
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://8c0523f2.ngrok.io/device/pma.json` using search parameters for [fields specific to the device PMA endpoint.](/device/pma/reference/)"
+- "Make API calls to `https://api.fda.gov/device/pma.json` using search parameters for [fields specific to the device PMA endpoint.](/device/pma/reference/)"
 - queryExplorer: oneAPPR
 - queryExplorer: oneLWP
 - queryExplorer: topAdvisory

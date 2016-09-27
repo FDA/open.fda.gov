@@ -6,7 +6,7 @@
 - "See the [comprehensive field-by-field reference](/device/recall/reference/) for more detail about the structure and contents of device recalls."
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://8c0523f2.ngrok.io/device/recall.json` using search parameters for [fields specific to the device recalls endpoint.](/drug/event/reference/)"
+- "Make API calls to `https://api.fda.gov/device/recall.json` using search parameters for [fields specific to the device recalls endpoint.](/drug/event/reference/)"
 - queryExplorer: oneReport
 - queryExplorer: regulationNumber
 - queryExplorer: topProductCodes
