@@ -40,6 +40,7 @@ const HTML = ({ title = 'openFDA', favicon, body }: tPROPS) => (
         name='description'
         content='openFDA'
       />
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
       <link
         rel='preconnect'
         // get that handshake going to
