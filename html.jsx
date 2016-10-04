@@ -63,6 +63,12 @@ const HTML = ({ title = 'openFDA', favicon, body }: tPROPS) => (
           __html: require('!raw!./css/build/app.css')
         }}
       />
+      <style
+          dangerouslySetInnerHTML={{
+          // $FlowIgnore
+          __html: require('!raw!./node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css')
+        }}
+      />
       {
         // in the future, we should only include the following
         // inside of an IE conditional comment, but that is a

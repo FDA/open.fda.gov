@@ -4,7 +4,6 @@ const Line:ReactClass = Charts.Line
 import xhrGET from '../utils/xhr'
 import bp from '../constants/breakpoints'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
 
 
 type tPROPS = {
