@@ -15,13 +15,27 @@ const catMap: Object = Object.freeze({
   'deviceevent': 'Devices › Adverse Events',
   'devicerecall': 'Devices › Recalls',
   'deviceclass': 'Devices › Classification',
-  'devicereglist': 'Devices › 510k',
-  'deviceclearance': 'Devices › Enforcement reports',
+  'devicereglist': 'Devices › Registration',
+  'deviceclearance': 'Devices › 510k',
   'devicepma': 'Devices › PMA',
   'deviceudi': 'Devices › UDI',
   'drugevent': 'Drugs › Adverse Events',
   'druglabel': 'Drugs › Labeling',
   'recall': 'Foods › Enforcement Reports'
+})
+
+
+const endpointLinkMap: Object = Object.freeze({
+  'deviceevent': 'device/event',
+  'devicerecall': 'device/recall',
+  'deviceclass': 'device/classification',
+  'devicereglist': 'device/registrationlisting',
+  'deviceclearance': 'device/510k',
+  'devicepma': 'device/pma',
+  'deviceudi': 'device/udi',
+  'drugevent': 'drug/event',
+  'druglabel': 'drug/label',
+  'recall': 'drug/enforcement'
 })
 
 /**
@@ -65,7 +79,7 @@ const ApiStatus = (props: tPROPS) => (
                 style={liStyl}
                 className='col marg-b-2 pad-2 t-3 d-2 b-1 grow-none'>
                 <p className={catCx}>{catMap[endpoint]}</p>
-                <p className='small'>api.fda.gov/{endpoint}</p>
+                <p className='small'>api.fda.gov/{endpointLinkMap[endpoint]}</p>
                 <ul className='flex-box'>
                   <li className='clr-base marg-r-2 small'>
                     Status

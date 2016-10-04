@@ -145,7 +145,7 @@ const ApiUsage = (props:tPROPS) => {
                             }
                         </div>
                         <div>
-                            <BootstrapTable data={this.state.data.table} striped={true} hover={true} pagination={true} >
+                            <BootstrapTable data={this.state.data.table} striped={true} hover={true}  >
                                 <TableHeaderColumn dataField="path" isKey={true} dataFormat={pathFormat} dataSort={true}>Path</TableHeaderColumn>
                                 <TableHeaderColumn dataField="hits" dataSort={true}>Hits</TableHeaderColumn>
                             </BootstrapTable>
