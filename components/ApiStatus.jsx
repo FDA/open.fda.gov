@@ -35,7 +35,7 @@ const endpointLinkMap: Object = Object.freeze({
   'deviceudi': 'device/udi',
   'drugevent': 'drug/event',
   'druglabel': 'drug/label',
-  'recall': 'drug/enforcement'
+  'recall': 'food/enforcement'
 })
 
 /**
