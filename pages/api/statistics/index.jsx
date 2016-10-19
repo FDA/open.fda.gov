@@ -15,7 +15,7 @@ export default () => (
             label='API Usage Statistics'
             title='Statistics'
             htmlDescription="true"
-            description="Provides an overview of various endpoints are used by the community."
+            description="This page provides an overview of the usage of the API endpoints by the community."
         />
 
         <section className='container clearfix marg-t-3 marg-b-3 relative'>
