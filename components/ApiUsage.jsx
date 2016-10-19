@@ -180,7 +180,7 @@ const ApiUsage = (props:tPROPS) => {
                         </aside>
 
                         <div className="float-r b-l-2">
-                            <h2 className="txt-c marg-t-2">API Calls in the Past 30 Days # {this.totalCount('lastThirtyDayUsage')}</h2>
+                            <h2 className="txt-c marg-t-2">API Calls in the Past 30 Days: {this.totalCount('lastThirtyDayUsage')}</h2>
                             <div className="italic txt-c t-6 smallest"> {this.state.dynamicDisclaimer}</div>
                             <div className="marg-l-1">
                                 <Line redraw={true}
