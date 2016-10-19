@@ -3,11 +3,12 @@ import Charts from 'react-chartjs'
 const Line:ReactClass = Charts.Line
 import xhrGET from '../utils/xhr'
 import bp from '../constants/breakpoints'
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import Table from './Table'
 
 
 type tPROPS = {
-    frequency: string
+    accessSinceLaunch: string,
+    dynamicDisclaimer: string
 };
 
 
@@ -49,8 +50,9 @@ const ApiUsage = (props:tPROPS) => {
 
             this.state = {
                 lastThirtyDayUsage: 0,
-                sinceLaunchUsage: 0,
-                thisYearUsage: 0,
+                sinceLaunchUsage: props.accessSinceLaunch,
+                dynamicDisclaimer: props.dynamicDisclaimer,
+                clickEndpointDisclaimer: props.clickEndpointDisclaimer,
                 data: null,
                 prefix: "1/api.fda.gov/",
                 breadcrumbs : ["1/api.fda.gov/"]
@@ -67,10 +69,10 @@ const ApiUsage = (props:tPROPS) => {
                 labels: [],
                 datasets: [
                     {
-                        fillColor: 'rgba(17, 46, 81, .3)',
-                        strokeColor: '#112e51',
-                        pointColor: '#112e51',
-                        pointStrokeColor: '#112e51',
+                        fillColor : "rgba(172,194,132,0.4)",
+                        strokeColor : "#ACC26D",
+                        pointColor : "#ACC26D",
+                        pointStrokeColor : "#9DB86D",
                         pointHighlightFill: '#fff',
                         pointHighlightStroke: '#112e51',
                         data : []
@@ -90,9 +92,7 @@ const ApiUsage = (props:tPROPS) => {
 
             }
             this.state.indexInfo = data.indexInfo;
-            this.state.lastThirtyDayUsage = this.state.lastThirtyDayUsage || data.lastThirtyDayUsage;
-            this.state.sinceLaunchUsage = this.state.sinceLaunchUsage || data.sinceLaunchUsage;
-            this.state.thisYearUsage = this.state.thisYearUsage || data.thisYearUsage;
+            this.state.lastThirtyDayUsage = data.lastThirtyDayUsage;
 
             this.state.data = graphData;
             this.setState(this.state);
@@ -144,79 +144,78 @@ const ApiUsage = (props:tPROPS) => {
 
                 return (
                     <div className="flex-box">
-                        <aside id="sidebarWrap" className="relative col sb">
-                            <div className="marg-t-4">
-                                <h6 className="font-size-3 txt-c">API Calls to date in 2016</h6>
-                                <h5 className="txt-c">{this.totalCount('thisYearUsage')}</h5>
+                        <aside  className="relative col">
+                            <div className="marg-t-2">
+                                <h6 className="font-size-3 txt-c">Total API Calls since Launch</h6>
+                                <h5 className="txt-c clr-green">{this.state['sinceLaunchUsage']}</h5>
                             </div>
-                            <div>
-                                <h6 className="font-size-3 txt-c">API Calls since Launch</h6>
-                                <h5 className="txt-c">{this.totalCount('sinceLaunchUsage')}</h5>
-                            </div>
-                            <div>
-                                <h5 className="font-size-3 txt-c">Current APIs</h5>
 
-                                <div className="usage-api t-marg-b-3">
-                                    <h6 className="small">For Human Drugs</h6>
-                                    <ul>
-                                        <li className="usage-api-li">Labeling (more than {this.docCount('druglabel')} drugs currently on the market)</li>
-                                        <li className="usage-api-li">Reports on negative side effects ({this.docCount('drugevent')} since 2003)</li>
-                                        <li className="usage-api-li">Enforcement reports ({this.docCount('recall')} records since 2012)</li>
-                                    </ul>
+                            <div className="marg-t-2 b-t-2 pad-t-2">
+                                <h5 className="font-size-3 txt-c">Size of Dataset</h5>
+
+                                <div>
+                                    <table className="table-sm table-bordered">
+                                        <tbody>
+                                            <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Human Drugs</strong></td></tr>
+                                            <tr> <td>Labelling</td><td>{this.docCount('druglabel')}</td> </tr>
+                                            <tr> <td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td> </tr>
+                                            <tr> <td>Enforcement Reports</td><td>{this.docCount('recall')}</td> </tr>
+                                            <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Devices</strong></td></tr>
+                                            <tr> <td>Classifications</td><td>{this.docCount('deviceclass')}</td> </tr>
+                                            <tr> <td>Registration and listing</td><td>{this.docCount('devicereglist')}</td> </tr>
+                                            <tr> <td>Premarket Approvals (PMAs)</td><td>{this.docCount('devicepma')}</td> </tr>
+                                            <tr> <td>510Ks</td><td>{this.docCount('deviceclearance')}</td> </tr>
+                                            <tr> <td>Recalls</td><td>{this.docCount('devicerecall')}</td> </tr>
+                                            <tr> <td>Adverse event reports</td><td>{this.docCount('deviceevent')}</td> </tr>
+                                            <tr> <td>UDIs</td><td>{this.docCount('deviceudi')}</td> </tr>
+                                            <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Foods</strong></td></tr>
+                                            <tr> <td>Enforcement Reports</td><td>{this.docCount('recall')}</td> </tr>
+                                        </tbody>
+                                    </table>
+
                                 </div>
 
-                                <div className="usage-api t-marg-b-3">
-                                    <h6 className="font-size-5">For Devices</h6>
-                                    <ul>
-                                        <li className="usage-api-li">Classification of {this.docCount('deviceclass')} distince types of devices organized into 16 medical specialities (6,000 records)</li>
-                                        <li className="usage-api-li">Registration and listing ({this.docCount('devicereglist')} records)</li>
-                                        <li className="usage-api-li">Premarket approvals (PMAs) and approval supplements ({this.docCount('devicepma')} records since 1997)</li>
-                                        <li className="usage-api-li">Clearence through premarket notifications (510ks)and granted de novo requests ({this.docCount('deviceclearance')} records since 1996)</li>
-                                        <li className="usage-api-li">Recalls ({this.docCount('devicerecall')} records since 2000)</li>
-                                        <li className="usage-api-li">Adverse event reports ({this.docCount('deviceevent')} since 1991)</li>
-                                        <li className="usage-api-li">Universal device identifiers ({this.docCount('deviceudi')} since September 2016)</li>
-                                    </ul>
-                                </div>
-
-                                <div className="usage-api t-marg-b-3">
-                                    <h6 className="small">For Foods</h6>
-                                    <ul>
-                                        <li className="usage-api-li">Enforcement reports (more than {this.docCount('recall')} records since 2012)</li>
-                                    </ul>
-                                </div>
 
                             </div>
                         </aside>
 
-                        <div className="float-r">
-                            <h4>API Calls in the past 30 Days: {this.totalCount('lastThirtyDayUsage')}</h4>
-                            <Line redraw={true}
-                                  data={this.state.data}
-                                  options={{
+                        <div className="float-r b-l-2">
+                            <h2 className="txt-c marg-t-2">API Calls in the Past 30 Days # {this.totalCount('lastThirtyDayUsage')}</h2>
+                            <div className="italic txt-c t-6 smallest"> {this.state.dynamicDisclaimer}</div>
+                            <div className="marg-l-1">
+                                <Line redraw={true}
+                                      data={this.state.data}
+                                      options={{
                                 animation: true,
                                 maintainAspectRatio: false,
                             }}
-                                  height={600}
-                                  width={size}
-                            />
-                            <h4>API Calls in Past 30 Days by Dataset</h4>
-                            <div>
+                                      height={600}
+                                      width={size}
+                                />
+
+                            </div>
+                            <h3 className="txt-c marg-t-3 b-t-light-1">API Calls in Past 30 Days by Dataset</h3>
+                            <div className="italic txt-c t-6 smallest"> {this.state.clickEndpointDisclaimer}</div>
+                            <div className="marg-l-1 marg-t-1 font-size-3 b-t-light-1">
                                 {
                                     this.state.breadcrumbs.map((b, i) => {
-                                        if(i > 0) {
-                                            return (<span> > <a key={'p' + i} onClick={(e)=>this.refreshPrefix(e)} data-prefix={b}>{b.substring(0, b.length-1).split('/').pop()}</a></span> )
+                                        if((this.state.breadcrumbs.length - 1) > i) {
+                                            //render link
+                                            return (<span> {(i > 0 ? ' > ' : '') } <a key={'p' + i} onClick={(e)=>this.refreshPrefix(e)} data-prefix={b}>{b.substring(0, b.length-1).split('/').pop()}</a></span> )
+                                        } else {
+                                            //render without link
+                                            return (<span>{ (i > 0 ? ' > ' : '') + b.substring(0, b.length-1).split('/').pop()}</span> )
                                         }
-                                        return (<a key={'p' + i} onClick={(e)=>this.refreshPrefix(e)} data-prefix={b}>{b.substring(0, b.length-1).split('/').pop()}</a>)
-
                                     })
                                 }
                             </div>
-                            <div>
+                            <div className="marg-1">
 
-                                <BootstrapTable data={this.state.data.table} striped={true} hover={true}  >
-                                    <TableHeaderColumn dataField="path" isKey={true} dataFormat={pathFormat} dataSort={true}>API</TableHeaderColumn>
-                                    <TableHeaderColumn dataField="hits" dataSort={true}>Hits</TableHeaderColumn>
-                                </BootstrapTable>
+                                <Table labels={['API', 'Hits']}
+                                       rows={this.state.data.table}
+                                       cols={['path','hits']}
+                                       formatters={{path:pathFormat}}/>
+
                             </div>
                         </div>
 
@@ -228,7 +227,7 @@ const ApiUsage = (props:tPROPS) => {
         }
 
     }
-    return <Usage />;
+    return <Usage {...props} />;
 
 }
 

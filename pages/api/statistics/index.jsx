@@ -4,6 +4,8 @@ import Hero from '../../../components/Hero'
 import Layout from '../../../components/Layout'
 import ApiUsage from '../../../components/ApiUsage'
 
+import content from './_content.yaml'
+
 
 export default () => (
     <Layout
@@ -18,7 +20,7 @@ export default () => (
 
         <section className='container clearfix marg-t-3 marg-b-3 relative'>
             <div className="float-r" style={{  maxWidth: '100%',}}>
-                <ApiUsage frequency="day" />
+                <ApiUsage accessSinceLaunch={content.accessSinceLaunch} dynamicDisclaimer={content.dynamicDisclaimer} clickEndpointDisclaimer={content.clickEndpointDisclaimer} />
             </div>
 
 

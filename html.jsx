@@ -40,7 +40,6 @@ const HTML = ({ title = 'openFDA', favicon, body }: tPROPS) => (
         name='description'
         content='openFDA'
       />
-      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
       <link
         rel='preconnect'
         // get that handshake going to
@@ -61,12 +60,6 @@ const HTML = ({ title = 'openFDA', favicon, body }: tPROPS) => (
         dangerouslySetInnerHTML={{
           // $FlowIgnore
           __html: require('!raw!./css/build/app.css')
-        }}
-      />
-      <style
-          dangerouslySetInnerHTML={{
-          // $FlowIgnore
-          __html: require('!raw!./node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css')
         }}
       />
       {

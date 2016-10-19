@@ -8,6 +8,7 @@
     "pretest": "eslint ./**/*.jsx",
     "test": "flow check",
     "gatsby": "gatsby",
+    "stylus": "gulp stylus",
     "dev": "gulp stylus; gatsby develop -p 3000",
     "build": "gatsby build"
   },
@@ -39,7 +40,6 @@
     "marked": "0.3.5",
     "matchmedia": "0.1.2",
     "react": "15.0.2",
-    "react-bootstrap-table": "^2.5.4",
     "react-chartjs": "0.7.3",
     "react-document-title": "2.0.1",
     "react-dom": "15.0.2",
