@@ -2,7 +2,7 @@ type: endpoint
 documentTitle: openFDA › Device › Registrations and listings API
 label: Device Registrations and listings
 title: Device Registrations and listings
-description: TK
+description: The registration and listing dataset contains the location of medical device establishments and the devices manufactured at those establishments. Those who own or operate businesses involved in the production or distributions of medical devices are required to register with the FDA annually.
 datasets:
 path: /device/registrationlisting
 start:
