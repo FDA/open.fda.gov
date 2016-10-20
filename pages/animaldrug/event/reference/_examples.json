@@ -1,0 +1,134 @@
+{
+  "header": {
+    "safetyreport": "1234567-8",
+    "safetyreportversion": "17",
+    "receivedate": "20041025",
+    "receivedateformat": "102",
+    "receiptdate": "20040224",
+    "receiptdateformat": "102",
+    "serious": "1",
+    "seriousnesscongenitalanomali": "1",
+    "seriousnessdeath": "1",
+    "seriousnessdisabling": "1",
+    "seriousnesshospitalization": "1",
+    "seriousnesslifethreatening": "1",
+    "seriousnessother": "1",
+    "transmissiondate": "1",
+    "transmissiondateformat": "1",
+    "duplicate": "1",
+    "companynumb": "200501050",
+    "occurcountry": "US",
+    "primarysourcecountry": "US",
+    "primarysource": {
+      "qualification": "1",
+      "reportercountry": "UNITED STATES"
+    },
+    "reportduplicate": {
+      "duplicatesource": "NOVARTIS",
+      "duplicatenumb": "PHEH2006US00792"
+    },
+    "sender": {
+      "sendertype": "2",
+      "senderorganization": "FDA-Public Use"
+    },
+    "receiver": {
+      "receivertype": "6",
+      "receiverorganization": "FDA"
+    }
+  },
+  "patient": {
+    "patientonsetage": "59",
+    "patientonsetageunit": "801",
+    "patientsex": "2",
+    "patientweight": "78",
+    "patientdeath": {
+      "patientdeathdate": "20030401",
+      "patientdeathdateformat": "102"
+    },
+    "drug": [
+      {
+        "actiondrug": "1",
+        "drugadditional": "1",
+        "drugcumulativedosagenumb": "4100",
+        "drugcumulativedosageunit": "003",
+        "drugdosageform": "Tablet",
+        "drugintervaldosagedefinition": "804",
+        "drugintervaldosageunitnumb": "1",
+        "drugrecurreadministration": "3",
+        "drugseparatedosagenumb": "1",
+        "drugstructuredosagenumb": "600",
+        "drugstructuredosageunit": "003",
+        "drugadministrationroute": "048",
+        "drugauthorizationnumb": "021223",
+        "drugbatchnumb": "020113A",
+        "drugcharacterization": "1",
+        "drugdoseagetext": "3.5 MG/KG, 1 IN 1 AS NECESSARY, INTRAVENOUS DRIP",
+        "drugenddate": "20020920",
+        "drugenddateformat": "102",
+        "drugindication": "RHEUMATOID ARTHRITIS",
+        "drugstartdate": "20020903",
+        "drugstartdateformat": "102",
+        "drugtreatmentduration": "1",
+        "drugtreatmentdurationunit": "804",
+        "medicinalproduct": "ASCORBIC ACID",
+        "openfda": {
+          "spl_id": [
+            "f67ce1df-27ea-4c67-a8a3-daf3fb3b9a92",
+            "72133842-ac3f-4a39-a825-38e01930a0a7"
+          ],
+          "product_ndc": [
+            "0389-0486",
+            "67457-118",
+            "67457-303"
+          ],
+          "route": [
+            "INTRAMUSCULAR",
+            "INTRAVENOUS",
+            "SUBCUTANEOUS"
+          ],
+          "substance_name": [
+            "ASCORBIC ACID"
+          ],
+          "rxcui": [
+            "308395"
+          ],
+          "spl_set_id": [
+            "a6c36a36-28ee-4a1b-86fe-98ef94064b68",
+            "d05200cb-cf29-4bc7-bf0c-b42ab2d20958"
+          ],
+          "package_ndc": [
+            "67457-118-50",
+            "0389-0486-50",
+            "67457-303-50"
+          ],
+          "product_type": [
+            "HUMAN PRESCRIPTION DRUG"
+          ],
+          "generic_name": [
+            "ASCORBIC ACID"
+          ],
+          "manufacturer_name": [
+            "The Torrance Company",
+            "Mylan Institutional LLC"
+          ],
+          "brand_name": [
+            "ASCORBIC ACID"
+          ]
+        }
+      }
+    ],
+    "reaction": [
+      {
+        "reactionmeddrapt": "Osteonecrosis of jaw",
+        "reactionmeddraversionpt": "16.1",
+        "reactionoutcome": "6"
+      },
+      {
+        "reactionmeddrapt": "HYPERTENSION"
+      },
+      {
+        "reactionmeddrapt": "POLYTRAUMATISM"
+      }
+    ]
+  }
+}

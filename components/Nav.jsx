@@ -251,6 +251,13 @@ const Nav = (props: tPROPS) => {
                   Foods
                 </Link>
               </li>
+              <li className={liCx}>
+                <Link
+                  className={linkCx}
+                  to='/animaldrug/'>
+                  Animal Drugs
+                </Link>
+              </li>
             </ul>
             <ul
               className={ulCx}
