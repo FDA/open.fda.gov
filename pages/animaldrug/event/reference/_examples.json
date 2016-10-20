@@ -1,72 +1,134 @@
 {
   "header": {
-    "treated_for_ae": "false",
+    "safetyreport": "1234567-8",
+    "safetyreportversion": "17",
+    "receivedate": "20041025",
+    "receivedateformat": "102",
+    "receiptdate": "20040224",
+    "receiptdateformat": "102",
+    "serious": "1",
+    "seriousnesscongenitalanomali": "1",
+    "seriousnessdeath": "1",
+    "seriousnessdisabling": "1",
+    "seriousnesshospitalization": "1",
+    "seriousnesslifethreatening": "1",
+    "seriousnessother": "1",
+    "transmissiondate": "1",
+    "transmissiondateformat": "1",
+    "duplicate": "1",
+    "companynumb": "200501050",
+    "occurcountry": "US",
+    "primarysourcecountry": "US",
+    "primarysource": {
+      "qualification": "1",
+      "reportercountry": "UNITED STATES"
+    },
+    "reportduplicate": {
+      "duplicatesource": "NOVARTIS",
+      "duplicatenumb": "PHEH2006US00792"
+    },
+    "sender": {
+      "sendertype": "2",
+      "senderorganization": "FDA-Public Use"
+    },
     "receiver": {
-      "country": "USA",
-      "street_address": "7500 Standish Place (HFV-210) Room N403",
-      "city": "Rockville",
-      "organization": "Food and Drug Administration Center for Veterinary Medicine",
-      "state": "MD",
-      "postal_code": "20855"
-    },
-    "unique_aer_id_number": "USA-USFDACVM-2016-US-######",
-    "original_receive_date": "20160118",
-    "number_of_animals_affected": "1",
-    "primary_reporter": "Animal Owner",
-    "number_of_animals_treated": "1"
-  },
-  "animal": {
-    "gender": "Male",
-    "species": "Dog",
-    "female_animal_physiological_status": "NOT APPLICABLE",
-    "weight": {
-      "qualifier": "Unknown"
-    },
-    "reproductive_status": "Unknown",
-    "age": {
-      "qualifier": "Unknown"
-    },
-    "breed": {
-      "is_crossbred": "false",
-      "breed_component": "Coton de Tuléar"
+      "receivertype": "6",
+      "receiverorganization": "FDA"
     }
   },
-  "drug": [
-    {
-      "used_according_to_label": "true",
-      "frequency_of_administration": {
-        "unit": "Day",
-        "value": "1"
-      },
-      "previous_exposure_to_drug": "false",
-      "last_exposure_date": "20150603",
-      "brand_name": "Capstar",
-      "active_ingredients": [
-        {
-          "dose": {
-            "denominator_unit": "Unknown",
-            "numerator_unit": "Unknown",
-            "denominator": "1",
-            "numerator": "1"
-          },
-          "name": "nitenpyram"
+  "patient": {
+    "patientonsetage": "59",
+    "patientonsetageunit": "801",
+    "patientsex": "2",
+    "patientweight": "78",
+    "patientdeath": {
+      "patientdeathdate": "20030401",
+      "patientdeathdateformat": "102"
+    },
+    "drug": [
+      {
+        "actiondrug": "1",
+        "drugadditional": "1",
+        "drugcumulativedosagenumb": "4100",
+        "drugcumulativedosageunit": "003",
+        "drugdosageform": "Tablet",
+        "drugintervaldosagedefinition": "804",
+        "drugintervaldosageunitnumb": "1",
+        "drugrecurreadministration": "3",
+        "drugseparatedosagenumb": "1",
+        "drugstructuredosagenumb": "600",
+        "drugstructuredosageunit": "003",
+        "drugadministrationroute": "048",
+        "drugauthorizationnumb": "021223",
+        "drugbatchnumb": "020113A",
+        "drugcharacterization": "1",
+        "drugdoseagetext": "3.5 MG/KG, 1 IN 1 AS NECESSARY, INTRAVENOUS DRIP",
+        "drugenddate": "20020920",
+        "drugenddateformat": "102",
+        "drugindication": "RHEUMATOID ARTHRITIS",
+        "drugstartdate": "20020903",
+        "drugstartdateformat": "102",
+        "drugtreatmentduration": "1",
+        "drugtreatmentdurationunit": "804",
+        "medicinalproduct": "ASCORBIC ACID",
+        "openfda": {
+          "spl_id": [
+            "f67ce1df-27ea-4c67-a8a3-daf3fb3b9a92",
+            "72133842-ac3f-4a39-a825-38e01930a0a7"
+          ],
+          "product_ndc": [
+            "0389-0486",
+            "67457-118",
+            "67457-303"
+          ],
+          "route": [
+            "INTRAMUSCULAR",
+            "INTRAVENOUS",
+            "SUBCUTANEOUS"
+          ],
+          "substance_name": [
+            "ASCORBIC ACID"
+          ],
+          "rxcui": [
+            "308395"
+          ],
+          "spl_set_id": [
+            "a6c36a36-28ee-4a1b-86fe-98ef94064b68",
+            "d05200cb-cf29-4bc7-bf0c-b42ab2d20958"
+          ],
+          "package_ndc": [
+            "67457-118-50",
+            "0389-0486-50",
+            "67457-303-50"
+          ],
+          "product_type": [
+            "HUMAN PRESCRIPTION DRUG"
+          ],
+          "generic_name": [
+            "ASCORBIC ACID"
+          ],
+          "manufacturer_name": [
+            "The Torrance Company",
+            "Mylan Institutional LLC"
+          ],
+          "brand_name": [
+            "ASCORBIC ACID"
+          ]
         }
-      ],
-      "atc_vet_code": "QP53BX02",
-      "manufacturer": {
-        "registration_number": "USA-USFDACVM-N141175",
-        "name": "Elanco US Inc"
+      }
+    ],
+    "reaction": [
+      {
+        "reactionmeddrapt": "Osteonecrosis of jaw",
+        "reactionmeddraversionpt": "16.1",
+        "reactionoutcome": "6"
       },
-      "dosage_form": "Tablet",
-      "dose": {
-        "denominator_unit": "Unknown",
-        "numerator_unit": "tablet",
-        "denominator": "1",
-        "numerator": "1"
+      {
+        "reactionmeddrapt": "HYPERTENSION"
       },
-      "route": "Oral",
-      "first_exposure_date": "20150601",
-      "administered_by": "Animal Owner"
-    }
-  ]
+      {
+        "reactionmeddrapt": "POLYTRAUMATISM"
+      }
+    ]
+  }
 }

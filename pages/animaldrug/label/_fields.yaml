@@ -114,7 +114,7 @@ properties:
   clinical_pharmacology:
     area: "prescription / few OTC"
     items:
-      description: "Information about the clinical pharmacology and actions of the drug."
+      description: "Information about the clinical pharmacology and actions of the drug in humans."
       format:
       is_exact: false
       possible_values:
@@ -175,7 +175,7 @@ properties:
   description:
     area: "prescription / some OTC"
     items:
-      description: "General information about the drug product, including the proprietary and established name of the drug, the type of dosage form and route of administration to which the label applies, qualitative and quantitative ingredient information, and the chemical name and structural formula of the drug."
+      description: "General information about the drug product, including the proprietary and established name of the drug, the type of dosage form and route of administration to which the label applies, qualitative and quantitative ingredient information, the pharmacologic or therapeutic class of the drug, and the chemical name and structural formula of the drug."
       format:
       is_exact: false
       possible_values:
@@ -210,7 +210,7 @@ properties:
   dosage_and_administration:
     area: "prescription / OTC"
     items:
-      description: "Information about the drug product’s dosage and administration recommendations, including starting dose, dose range, titration regimens, and any other sigificant information that affects dosing recommendations."
+      description: "Information about the drug product’s dosage and administration recommendations, including starting dose, dose range, titration regimens, and any other clinically sigificant information that affects dosing recommendations."
       format:
       is_exact: false
       possible_values:
@@ -245,7 +245,7 @@ properties:
   drug_interactions:
     area: "prescription / few OTC"
     items:
-      description: "Information about and practical guidance on preventing drug interactions that may occur."
+      description: "Information about and practical guidance on preventing clinically significant drug/drug and drug/food interactions that may occur in people taking the drug."
       format:
       is_exact: false
       possible_values:
@@ -258,6 +258,14 @@ properties:
     pattern: "YYYYmmdd"
     type: string
   environmental_warning:
+    items:
+      description:
+      format:
+      is_exact: false
+      possible_values:
+      type: string
+    type: array
+  food_safety_warning:
     items:
       description:
       format:
@@ -310,7 +318,7 @@ properties:
   how_supplied:
     area: "prescription / few OTC"
     items:
-      description: "Information about the available dosage forms to which the labeling applies, and for which the manufacturer or distributor is responsible. This field ordinarily includes the strength of the dosage form, the units in which the dosage form is available for prescribing, appropriate information to facilitate identification of the dosage forms, and special handling and storage condition information."
+      description: "Information about the available dosage forms to which the labeling applies, and for which the manufacturer or distributor is responsible. This field ordinarily includes the strength of the dosage form (in metric units), the units in which the dosage form is available for prescribing, appropriate information to facilitate identification of the dosage forms (such as shape, color, coating, scoring, and National Drug Code), and special handling and storage condition information."
       format:
       is_exact: false
       possible_values:
@@ -396,7 +404,7 @@ properties:
   laboratory_tests:
     area: "some prescription"
     items:
-      description: "Information on laboratory tests helpful in following the animal’s response to the drug or in identifying possible adverse reactions. If appropriate, information may be provided on such factors as the range of normal and abnormal values expected in the particular situation and the recommended frequency with which tests should be performed."
+      description: "Information on laboratory tests helpful in following the patient’s response to the drug or in identifying possible adverse reactions. If appropriate, information may be provided on such factors as the range of normal and abnormal values expected in the particular situation and the recommended frequency with which tests should be performed before, during, and after therapy."
       format:
       is_exact: false
       possible_values:
@@ -405,7 +413,7 @@ properties:
   mechanism_of_action:
     area: "prescription"
     items:
-      description: "Information about the established mechanism(s) of the drug’s action at various levels. If the mechanism of action is not known, this field contains a statement about the lack of information."
+      description: "Information about the established mechanism(s) of the drug’s action in humans at various levels (for example receptor, membrane, tissue, organ, whole body). If the mechanism of action is not known, this field contains a statement about the lack of information."
       format:
       is_exact: false
       possible_values:
@@ -457,7 +465,7 @@ properties:
           is_exact: true
           type: string
           pattern: ^[BLA|ANDA|NDA]{3,4}[0-9]{6}$
-          description: "This corresponds to the NDA, ANDA, or BLA number reported by the labeler for products which have the corresponding Marketing Category designated. For unapproved drugs, this field will be null."
+          description: "This corresponds to the NDA, ANDA, or BLA number reported by the labeler for products which have the corresponding Marketing Category designated. If the designated Marketing Category is OTC Monograph Final or OTC Monograph Not Final, then the application number will be the CFR citation corresponding to the appropriate Monograph (e.g. “part 341”). For unapproved drugs, this field will be null."
           possible_values:
       brand_name:
         type: array
@@ -515,7 +523,7 @@ properties:
           is_exact: true
           type: string
           pattern:
-          description: "Chemical structure classification of the drug product’s pharmacologic class. Takes the form of the classification, followed by `[Chemical/Ingredient]` or `Antibodies, Monoclonal [Chemical/Ingredient]`."
+          description: "Chemical structure classification of the drug product’s pharmacologic class. Takes the form of the classification, followed by `[Chemical/Ingredient]` (such as `Thiazides [Chemical/Ingredient]` or `Antibodies, Monoclonal [Chemical/Ingredient]."
           possible_values:
       pharm_class_epc:
         type: array
@@ -524,7 +532,7 @@ properties:
           is_exact: true
           type: string
           pattern:
-          description: "Established pharmacologic class associated with an approved indication of an active moiety (generic drug) that the FDA has determined to be scientifically valid and clinically meaningful. Takes the form of the pharmacologic class, followed by `[EPC]`."
+          description: "Established pharmacologic class associated with an approved indication of an active moiety (generic drug) that the FDA has determined to be scientifically valid and clinically meaningful. Takes the form of the pharmacologic class, followed by `[EPC]` (such as `Thiazide Diuretic [EPC]` or `Tumor Necrosis Factor Blocker [EPC]`."
           possible_values:
       pharm_class_pe:
         type: array
@@ -533,7 +541,7 @@ properties:
           is_exact: true
           type: string
           pattern:
-          description: "Physiologic effect or pharmacodynamic effect—tissue, organ, or organ system level functional activity—of the drug’s established pharmacologic class. Takes the form of the effect, followed by `[PE]`."
+          description: "Physiologic effect or pharmacodynamic effect—tissue, organ, or organ system level functional activity—of the drug’s established pharmacologic class. Takes the form of the effect, followed by `[PE]` (such as `Increased Diuresis [PE]` or `Decreased Cytokine Activity [PE]`."
           possible_values:
       pharm_class_moa:
         type: array
@@ -542,7 +550,7 @@ properties:
           is_exact: true
           type: string
           pattern:
-          description: "Mechanism of action of the drug—molecular, subcellular, or cellular functional activity—of the drug’s established pharmacologic class. Takes the form of the mechanism of action, followed by `[MoA]`."
+          description: "Mechanism of action of the drug—molecular, subcellular, or cellular functional activity—of the drug’s established pharmacologic class. Takes the form of the mechanism of action, followed by `[MoA]` (such as `Calcium Channel Antagonists [MoA]` or `Tumor Necrosis Factor Receptor Blocking Activity [MoA]`."
           possible_values:
       product_ndc:
         type: array
@@ -811,15 +819,6 @@ properties:
       possible_values:
       type: string
     type: array
-  safety_warnings:
-    area: "very few prescription / very few OTC"
-    items:
-      description: "When a drug can pose a hazard to health by contact, inhalation, ingestion, injection, or by any exposure, this field contains information which can prevent or decrease the possibility of harm."
-      format:
-      is_exact: false
-      possible_values:
-      type: string
-    type: array
   set_id:
     description: "The Set ID, A globally unique identifier (GUID) for the labeling, stable across all versions or revisions."
     format:
@@ -930,6 +929,15 @@ properties:
       possible_values:
       type: string
     type: array
+  user_safety_warnings:
+    area: "very few prescription / very few OTC"
+    items:
+      description: "When a drug can pose a hazard to human health by contact, inhalation, ingestion, injection, or by any exposure, this field contains information which can prevent or decrease the possibility of harm."
+      format:
+      is_exact: false
+      possible_values:
+      type: string
+    type: array
   version:
     description: "A sequentially increasing number identifying the particular version of a document, starting with `1`."
     format:
@@ -982,13 +990,6 @@ properties:
         type: string
         pattern:
         description: "Link to a web page with license terms that govern data within openFDA."
-        possible_values:
-      terms:
-        format:
-        is_exact: false
-        type: string
-        pattern:
-        description: "Link to a web page with terms that govern data within openFDA."
         possible_values:
       last_updated:
         format: date
