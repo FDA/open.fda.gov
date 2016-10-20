@@ -114,7 +114,7 @@ const ApiUsage = (props:tPROPS) => {
 
         fetchStats(){
 
-            xhrGET("http://e41f8c87.ngrok.io/usage.json?prefix=" + this.state.prefix, (data)=>{
+            xhrGET("http://5c2d7184.ngrok.io/usage.json?prefix=" + this.state.prefix, (data)=>{
                 this.handleUsageResponse(data);
             }, false)
         }
@@ -157,7 +157,7 @@ const ApiUsage = (props:tPROPS) => {
                                     <table className="table-sm table-bordered">
                                         <tbody>
                                             <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Human Drugs</strong></td></tr>
-                                            <tr> <td>Labelling</td><td>{this.docCount('druglabel')}</td> </tr>
+                                            <tr> <td>Labeling</td><td>{this.docCount('druglabel')}</td> </tr>
                                             <tr> <td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td> </tr>
                                             <tr> <td>Enforcement Reports</td><td>{this.docCount('recall')}</td> </tr>
                                             <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Devices</strong></td></tr>
