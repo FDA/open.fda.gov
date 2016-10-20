@@ -1,0 +1,10 @@
+documentTitle: openFDA › Animal Drugs › Labeling API
+name: Animal Drug Labeling
+description: ""
+datasets:
+  - SPL
+label: Animal Drug Labeling
+path: /animaldrug/label
+start: 20090601
+dateConstraintKey: effective_time
+type: endpoint
