@@ -199,7 +199,7 @@ class InfographicContainer extends React.Component {
       // complete search field. with or without range
       const search: string = this._getFilterSearch(searchParam, range)
       // the entire query, api endpoint + search params + count params
-      const query: string = `https://api.fda.gov${endpoint}.json?${search}count=${countParam}`
+      const query: string = `http://5c2d7184.ngrok.io${endpoint}.json?${search}count=${countParam}`
 
       // results data is unfortunately not included when filtering
       // by count params, so we need to make an additional request
@@ -207,7 +207,7 @@ class InfographicContainer extends React.Component {
 
       // the entire query, api endpoint + search params
       // we do not want to include count parameters when counting total records
-      const recordsQuery: string = `https://api.fda.gov${endpoint}.json?${search}`
+      const recordsQuery: string = `http://5c2d7184.ngrok.io${endpoint}.json?${search}`
 
       this.setState({
         // update the count param
