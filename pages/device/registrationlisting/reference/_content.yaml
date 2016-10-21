@@ -79,6 +79,6 @@
   - products.owner_operator_number
   - products.product_code
 - "### Openfda"
-- "The openfda section of each document is determined initially by looking at the product_code value. Since there are potentially more than one product_code values associated with a listing, there is an openfda subdocument for each one."
+- "The `openfda` section of each document is determined initially by looking at the product_code value. Since there are potentially more than one product_code values associated with a listing, there is an `openfda` subdocument for each one."
 - fields:
   - products.openfda

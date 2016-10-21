@@ -64,8 +64,8 @@
   - city
   - state
   - country
-- "### OpenFDA fields"
-- "For more information about the `openFDA` section, see the [API reference](/api/reference/)."
+- "### Openfda fields"
+- "For more information about the `openfda` section, see the [API reference](/api/reference/)."
 - "Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets."
 - "OpenFDA features harmonization of drug identifiers, to make it easier to search enforcement report records by more identifiers, like product type (OTC versus prescription). Drug products that appear in enforcement reports are harmonized on NDC or UPC, if available. **The linked data is listed as an `openfda` annotation in the `patient.drug` section of a result.**"
 - "Roughly half of enforcement reports have an `openfda` section. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if there is no NDC or UPC in the original enforcement report, there will be no `openfda` section."
