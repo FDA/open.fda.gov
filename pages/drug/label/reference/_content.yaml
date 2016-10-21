@@ -24,7 +24,7 @@
 - ul:
   - "Standard SPL fields, including unique identifiers."
   - "Product-specific fields, the order and contents of which are unique to each product."
-  - "An **openfda** section: An annotation with additional product identifiers, such as UPC and brand name, of the drug products listed in the labeling."
+  - "An **openFDA** section: An annotation with additional product identifiers, such as UPC and brand name, of the drug products listed in the labeling."
 - "#### Field variation"
 - Fields vary with the particular product being documented. Some fields are rarely used. Most prescription drug product labeling will feature similar fields, and those fields will contain similar content. Over-the-counter (OTC) drug product labeling will generally feature a different set of fields.
 - The specific requirements for content of these fields vary from product to product. General descriptions of the fields are provided below, along with notable exceptions or exceptional cases. Expect variation.
@@ -137,7 +137,7 @@
   - microbiology
   - package_label_principal_display_panel
   - spl_unclassified_section
-- "### openFDA fields"
+- "### OpenFDA fields"
 - Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.
 - OpenFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other drug information. Drug products that appear in FAERS records are joined to the NDC dataset first on brand name, and if there is no brand name, on generic name. If that is succesful, further links are established to other datasets. The linked data is listed as an openfda annotation in the patient.drug section of a result.
 - Roughly 86% of adverse event records have at least one openfda section. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if the drug name is misspelled. Some drug products will have openfda sections, while others will never, if there was no match during the harmonization process.

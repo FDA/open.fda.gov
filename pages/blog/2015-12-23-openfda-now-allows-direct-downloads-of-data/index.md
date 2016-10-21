@@ -3,7 +3,7 @@ path: "/update/openfda-now-allows-direct-downloads-of-data"
 date: 2015-12-23
 title: "OpenFDA Now Allows Direct Downloads of Data"
 authors:
-  - "openFDA Team"
+  - "OpenFDA Team"
 ---
 Since its launch in June 2014, the impetus for openFDA has been to make it easier to get access to publicly available FDA data. FDA’s goal is to make it simple for an application, mobile device, web developer, or researcher to use data from FDA. .
 
