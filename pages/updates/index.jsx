@@ -14,7 +14,7 @@ type PROPS = {
 export default ({ route }: PROPS) => (
   <Layout title='Open FDA Homepage'>
     <Hero
-      title='openFDA updates'
+      title='OpenFDA updates'
     />
     <section className='container marg-t-2'>
       <BlogRoll

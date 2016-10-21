@@ -22,7 +22,7 @@
   - review_panel
   - unclassified_reason
   - gmp_exempt_flag
-- "### Openfda"
-- "The openfda section of each document is determined by looking at the product_code value."
+- "### OpenFDA"
+- "The openFDA section of each document is determined by looking at the product_code value."
 - fields:
   - openfda

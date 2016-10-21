@@ -1,5 +1,9 @@
 /node_modules/
 public
 npm-debug.log
-.gatsby-context.js.
+.gatsby-context.js
 /css/build
+.idea/
+npm-debug.log.2000580574
+npm-debug.log.931881047
+.gitignore

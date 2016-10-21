@@ -186,7 +186,7 @@
   - event_key
   - mdr_report_key
   - manufacturer_link_flag
-- "### Openfda fields"
+- "### OpenFDA fields"
 - fields:
   - device.openfda
 - "datasets"
