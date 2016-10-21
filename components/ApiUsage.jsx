@@ -114,7 +114,7 @@ const ApiUsage = (props:tPROPS) => {
 
         fetchStats(){
 
-            xhrGET("http://5c2d7184.ngrok.io/usage.json?prefix=" + this.state.prefix, (data)=>{
+            xhrGET("https://api.fda.gov/usage.json?prefix=" + this.state.prefix, (data)=>{
                 this.handleUsageResponse(data);
             }, false)
         }
