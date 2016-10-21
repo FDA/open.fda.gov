@@ -114,7 +114,7 @@ properties:
   clinical_pharmacology:
     area: "prescription / few OTC"
     items:
-      description: "Information about the clinical pharmacology and actions of the drug in humans."
+      description: "Information about the clinical pharmacology and actions of the drug."
       format:
       is_exact: false
       possible_values:
@@ -413,7 +413,7 @@ properties:
   mechanism_of_action:
     area: "prescription"
     items:
-      description: "Information about the established mechanism(s) of the drug’s action in humans at various levels (for example receptor, membrane, tissue, organ, whole body). If the mechanism of action is not known, this field contains a statement about the lack of information."
+      description: "Information about the established mechanism(s) of the drug’s action in humans at various levels. If the mechanism of action is not known, this field contains a statement about the lack of information."
       format:
       is_exact: false
       possible_values:
