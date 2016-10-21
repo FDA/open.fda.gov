@@ -991,6 +991,13 @@ properties:
         pattern:
         description: "Link to a web page with license terms that govern data within openFDA."
         possible_values:
+      terms:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Link to a web page with terms that govern data within openFDA."
+        possible_values:
       last_updated:
         format: date
         is_exact: false
