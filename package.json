@@ -9,7 +9,8 @@
     "test": "flow check",
     "gatsby": "gatsby",
     "stylus": "gulp stylus",
-    "dev": "gulp stylus; gatsby develop -p 3000",
+    "serve": "gatsby develop -p 3000",
+    "dev": "gulp stylus & gatsby develop -p 3000",
     "build": "gatsby build"
   },
   "repository": {

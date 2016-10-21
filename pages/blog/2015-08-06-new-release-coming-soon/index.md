@@ -3,7 +3,7 @@ path: "/update/new-release-coming-soon"
 date: 2015-08-06
 title: "Mark your calendars: A new release coming soon from openFDA"
 authors:
-  - "openFDA Team"
+  - "OpenFDA Team"
 ---
 The FDA created openFDA to make their public information about food, drugs, and devices more accessible and useful to developers. To that end, the FDA has made a continuous effort to better understand the needs of the developer community and build on existing resources. Improvements to-date have consisted of making more data available, hardening the system, and making it easier and faster to access the data itself.
 

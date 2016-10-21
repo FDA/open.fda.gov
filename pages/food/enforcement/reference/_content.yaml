@@ -60,7 +60,7 @@
   - city
   - state
   - country
-- "### openFDA fields"
+- "### OpenFDA fields"
 - "For more information about the `openFDA` section, see the [API reference](/api/reference/)."
 - "Food product recall enforcement reports will always have an empty `openfda` section."
 - "datasets"

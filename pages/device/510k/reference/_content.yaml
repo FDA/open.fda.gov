@@ -38,11 +38,10 @@
   - advisory_committee
   - advisory_committee_description
   - device_name
-  - device_name
   - product_code
   - postal_code
   - applicant
   - decision_date
-- "## Openfda"
+- "## OpenFDA"
 - fields:
   - openfda

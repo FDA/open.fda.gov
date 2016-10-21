@@ -38,7 +38,7 @@
 - "getting-started"
 - '## HTTPS requests only'
 - 'OpenFDA requires you to use `https://api.fda.gov` for all queries to ensure secure communication.'
-- '## openFDA fields'
+- '## OpenFDA fields'
 - 'Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.'
 - 'OpenFDA features harmonization on drug identifiers, to make it easier to both search for and understand the drug products returned by API queries. These additional fields are attached to records in all endpoints, if applicable.'
 - 'When you query an endpoint, you can search by:'

@@ -2,7 +2,7 @@
   short: "Submissions over time"
   dataset: SPL
   description:
-    - "The openFDA drug product labeling API provides data for prescription and over-the-counter (OTC) drug labeling. Since mid-2009, labeling has been posted publicly in the [Structured Product Labeling (SPL) format](/dataset/spl/)."
+    - "The openFDA drug product labeling API provides data for prescription and over-the-counter (OTC) drug labeling. Since mid-2009, labeling has been posted publicly in the [Structured Product Labeling (SPL) format](/data/spl/)."
     - "This chart shows labeling submissions over time, by looking at their 'effective dates.' The search is limited to dates since June 2009, which excludes a small number of older submissions."
   countParam: "effective_time"
   filters:
