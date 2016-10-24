@@ -5,6 +5,8 @@ import cx from 'classnames'
 
 import NavContainer from '../containers/NavContainer'
 
+import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown'
+
 import ARIA from '../constants/aria'
 
 const Link: ReactClass = require('react-router').Link
@@ -161,146 +163,118 @@ const Nav = (props: tPROPS) => {
             style={{
               maxWidth: '735px',
             }}>
-            <ul
-              className={`${ulCx} t-range-hide`}
-              role='navigation'>
-              <li
-                { ...ARIA.hide }
-                className={catCx}>
-                openFDA
-              </li>
-              <li className={liCx}>
-                <Link
-                  aria-label='About Open FDA'
-                  className={linkCx}
-                  to='/about/'>
-                  About
-                </Link>
-              </li>
-              <li className={liCx}>
-                <Link
-                  className={linkCx}
-                  to='/updates/'>
-                  Updates
-                </Link>
-              </li>
-              <li className={liCx}>
-                <Link
-                    className={linkCx}
-                    to='/api/status/'>
-                  API status
-                </Link>
-              </li>
-              <li className={liCx}>
-                <Link
-                    className={linkCx}
-                    to='/api/statistics/'>
-                  API Usage Statistics
-                </Link>
-              </li>
-
-            </ul>
-            <ul
-              className={ulCx}
-              role='navigation'>
-              <li
-                { ...ARIA.hide }
-                className={catCx}>
-                Learn
-              </li>
-              <li className={liCx}>
-                <Link
-                  className={linkCx}
-                  to='/api/'>
-                  API basics
-                </Link>
-              </li>
-              <li className={liCx}>
-                <Link
-                  className={linkCx}
-                  to='/api/reference/'>
-                  API reference
-                </Link>
-              </li>
-              <li className={liCx}>
-                <Link
-                  className={linkCx}
-                  to='/analytics/'>
-                  Analytics & research
-                </Link>
-              </li>
-            </ul>
-            <ul
-              className={ulCx}
-              role='navigation'>
-              <li
-                { ...ARIA.hide }
-                className={catCx}>
-                API endpoints
-              </li>
-              <li className={liCx}>
-                <Link
-                  className={linkCx}
-                  to='/drug/'>
-                  Drugs
-                </Link>
-              </li>
-              <li className={liCx}>
-                <Link
-                  className={linkCx}
-                  to='/device/'>
-                  Devices
-                </Link>
-              </li>
-              <li className={liCx}>
-                <Link
-                  className={linkCx}
-                  to='/food/'>
-                  Foods
-                </Link>
-              </li>
-            </ul>
-            <ul
-              className={ulCx}
-              role='navigation'>
-              <li
-                { ...ARIA.hide }
-                className={catCx}>
-                Community
-              </li>
-              <li className={`${liCx} m-6`}>
-                <a
-                  className={`${linkCx} link-external`}
-                  href='https://github.com/FDA'
-                  rel='noopener noreferrer'
-                  target='_blank'>
-                  Source code (GitHub)
-                </a>
-              </li>
-              <li className={`${liCx} m-6`}>
-                <a
-                  className={`${linkCx} link-external`}
-                  href='https://opendata.stackexchange.com/questions/tagged/openfda'
-                  rel='noopener noreferrer'
-                  target='_blank'>
-                  Q&A (StackExchange)
-                </a>
-              </li>
-              <li className={`${liCx} m-6`}>
-                <a
-                  className={`${linkCx} link-external`}
-                  href='https://twitter.com/openFDA'
-                  rel='noopener noreferrer'
-                  target='_blank'>
-                  @openFDA (Twitter)
-                </a>
-              </li>
-              <li className={`${liCx} m-6`}>
-                <Link
-                    className={linkCx}
-                    to='/community/'>openFDA Apps</Link>
-              </li>
-            </ul>
+            <nav className='bg-white clr-gray t-pad-b-2 flex-box dir-row'>
+              <div className='usa-nav-container'>
+                <ul className={`${ulCx} t-range-hide`} role='navigation'>
+                  <li style={{float: 'left', paddingRight: '1em'}}>
+                    <Dropdown>
+                      <DropdownTrigger><span>openFDA</span></DropdownTrigger>
+                      <DropdownContent>
+                        <ul>
+                          <li className={liCx}>
+                            <Link aria-label='About Open FDA' className={linkCx} to='/about/'>About</Link>
+                          </li>
+                          <li className={liCx}>
+                            <Link className={linkCx} to='/updates/'>Updates</Link>
+                          </li>
+                          <li className={liCx}>
+                            <Link
+                              className={linkCx}
+                              to='/api/status/'>
+                              API status
+                            </Link>
+                          </li>
+                          <li className={liCx}>
+                            <Link
+                              className={linkCx}
+                              to='/api/statistics/'>
+                              API Usage Statistics
+                            </Link>
+                          </li>
+                        </ul>
+                      </DropdownContent>
+                    </Dropdown>
+                  </li>
+                  <li style={{float: 'left', paddingRight: '1em'}}>
+                    <Dropdown>
+                      <DropdownTrigger><span>Learn</span></DropdownTrigger>
+                      <DropdownContent>
+                        <ul>
+                          <li className={liCx}>
+                            <Link className={linkCx} to='/api/'>API basics</Link>
+                          </li>
+                          <li className={liCx}>
+                            <Link className={linkCx} to='/api/reference/'>API reference</Link>
+                          </li>
+                          <li className={liCx}>
+                            <Link className={linkCx} to='/analytics/'>Analytics & research</Link>
+                          </li>
+                        </ul>
+                      </DropdownContent>
+                    </Dropdown>
+                  </li>
+                  <li style={{float: 'left', paddingRight: '1em'}}>
+                    <Dropdown>
+                      <DropdownTrigger><span>API Endpoints</span></DropdownTrigger>
+                      <DropdownContent>
+                        <ul>
+                          <li className={liCx}>
+                            <Link className={linkCx} to='/drug/'>Drugs</Link>
+                          </li>
+                          <li className={liCx}>
+                            <Link className={linkCx} to='/device/'>Devices</Link>
+                          </li>
+                          <li className={liCx}>
+                            <Link className={linkCx} to='/food/'>Foods</Link>
+                          </li>
+                        </ul>
+                      </DropdownContent>
+                    </Dropdown>
+                  </li>
+                  <li style={{float: 'left', paddingRight: '1em'}}>
+                    <Dropdown>
+                      <DropdownTrigger><span>Community</span></DropdownTrigger>
+                      <DropdownContent>
+                        <ul>
+                          <li className={`${liCx} m-6`}>
+                            <a
+                                className={`${linkCx} link-external`}
+                                href='https://github.com/FDA'
+                                rel='noopener noreferrer'
+                                target='_blank'>
+                              Source code (GitHub)
+                            </a>
+                          </li>
+                          <li className={`${liCx} m-6`}>
+                            <a
+                                className={`${linkCx} link-external`}
+                                href='https://opendata.stackexchange.com/questions/tagged/openfda'
+                                rel='noopener noreferrer'
+                                target='_blank'>
+                              Q&A (StackExchange)
+                            </a>
+                          </li>
+                          <li className={`${liCx} m-6`}>
+                            <a
+                                className={`${linkCx} link-external`}
+                                href='https://twitter.com/openFDA'
+                                rel='noopener noreferrer'
+                                target='_blank'>
+                              @openFDA (Twitter)
+                            </a>
+                          </li>
+                          <li className={`${liCx} m-6`}>
+                            <Link
+                                className={linkCx}
+                                to='/community/'>openFDA Apps</Link>
+                          </li>
+                        </ul>
+                      </DropdownContent>
+                    </Dropdown>
+                  </li>
+                </ul>
+              </div>
+            </nav>
           </div>
         </div>
       </div>
