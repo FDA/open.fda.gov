@@ -74,8 +74,8 @@
   - storage.low.unit
   - storage.special_conditions
   - storage.type
-- "### Openfda"
-- "The openfda section of each document is determined initially by looking at the product_code value."
+- "### OpenFDA"
+- "The `openfda` section of each document is determined initially by looking at the product_code value."
 - fields:
   - product_codes.openfda
 

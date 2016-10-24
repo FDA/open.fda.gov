@@ -32,7 +32,7 @@
   - state
   - zip
   - zip_ext
-- "### Openfda"
-- "The openfda section of each document is determined initially by looking at the product_code value."
+- "### OpenFDA"
+- "The `openfda` section of each document is determined initially by looking at the product_code value."
 - fields:
   - openfda
