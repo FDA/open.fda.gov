@@ -2,6 +2,16 @@
     line-height: 1.1
     vertical-align: text-top
 
+.dropdown
+  display: inline-block
+
+.dropdown__content
+  display: none
+  position: absolute
+
+.dropdown--active .dropdown__content
+  display: block
+
 @media $bpMob
   .nav-ul
     display: flex
