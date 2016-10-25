@@ -12,6 +12,59 @@
 .dropdown--active .dropdown__content
   display: block
 
+.menu-container
+  display: inherit
+  justify-content: flex-end
+  flex: auto
+
+.menu-header
+  display: block
+  position: relative
+  margin-bottom: 0
+  padding: 0.5em
+  color: $clrPrimary
+  font-size: 34px
+  line-height: 39px
+
+.menu-header:hover
+  font-weight: bold
+
+.menu-header:focus
+  -webkit-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
+  -moz-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf    
+  box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf    
+
+.dropdown--active .menu-header
+  font-weight: bold
+
+.sub-menu-container
+  position: relative
+  margin-bottom: 0
+  background-color: $clrWhite
+  border: 1px solid #ccc
+  border-bottom-left-radius: 3px
+  border-bottom-right-radius: 3px
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2)
+  width: auto
+  min-width: 235px
+  z-index: 2
+
+.sub-menu-item
+  display: block
+  padding: 0.85rem 1rem 0.85rem 1.8rem
+  font-size: 1em
+  color: $clrPrimary
+
+.sub-menu-item:hover
+  font-weight: bold
+  background-color: $clrPrimary
+  color: $clrWhite
+
+.sub-menu-item:focus
+  -webkit-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
+  -moz-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
+  box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
+
 @media $bpMob
   .nav-ul
     display: flex
@@ -27,7 +80,8 @@
 
 @media $bpTab
   .open-fda-logo
-    absolute: bottom 0 left 0
+    position: relative
+    align-self: center
 
   .nav-li + .nav-li
     border-top: 1px solid $clrGrayLightest

@@ -7,14 +7,9 @@ import NavContainer from '../containers/NavContainer'
 
 import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown'
 
-import ARIA from '../constants/aria'
-
 const Link: ReactClass = require('react-router').Link
 
-const ulCx: string = 'col t-range-2 m-pad-t-2 t-range-pad-t-2 small nav-ul flex-wrap dir-row'
-const catCx: string = 'd-pad-t-3 t-pad-b-1 nav-li grow-none row no-b'
-const liCx: string = 'nav-li m-3'
-const linkCx: string = 'clr-primary-darker block pad-t-1 pad-b-1 no-underline'
+const linkCx: string = 'sub-menu-item no-underline'
 
 const hhsCx = 'col self-end pad-r-1 flex-box align-end dir-column m-marg-t-2 m-marg-l-2 hhs'
 const hhsACx = 'clr-white relative hhs'
@@ -50,7 +45,7 @@ const Nav = (props: tPROPS) => {
     props.meta.datasets.indexOf('CAERS') !== -1
 
   return (
-    <nav className='bg-white clr-gray t-pad-b-2 flex-box dir-column'>
+    <nav className='bg-white clr-gray flex-box dir-column'>
       <a
         href='#hero'
         className='visually-hidden'>
@@ -95,7 +90,7 @@ const Nav = (props: tPROPS) => {
           </div>
         </div>
       </div>
-      <div className='pad-t-2 bg-secondary-darkest t-marg-b-2 m-ord-3'>
+      <div className='pad-t-2 bg-secondary-darkest m-ord-3'>
         <p className='clr-white weight-600 container smallest'>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='clr-white underline' to='/terms/'> Terms of Service</Link></p>
         {
           doesItCAER &&
@@ -107,8 +102,9 @@ const Nav = (props: tPROPS) => {
       <div className='container m-pad-b-2 dir-column m-ord-1 m-pad-t-2'>
         <div className='flex-row relative'>
           <div
-            className='col t-2 marg-t-2 logo-wrapper'
+            className='col t-2 logo-wrapper'
             style={{
+              display: 'flex',
               minHeight: '35px',
             }}>
             <Link
@@ -161,71 +157,69 @@ const Nav = (props: tPROPS) => {
           <div
             className={navCx}
             style={{
-              maxWidth: '735px',
+              maxWidth: '845px',
             }}>
-            <nav className='bg-white clr-gray t-pad-b-2 flex-box dir-row'>
-              <div className='usa-nav-container'>
-                <ul className={`${ulCx} t-range-hide`} role='navigation'>
-                  <li style={{float: 'left', paddingRight: '1em'}}>
+                <ul className='menu-container' role='navigation'>
+                  <li>
                     <Dropdown>
-                      <DropdownTrigger><span>openFDA</span></DropdownTrigger>
+                      <DropdownTrigger><span className='menu-header'>openFDA</span></DropdownTrigger>
                       <DropdownContent>
-                        <ul>
-                          <li className={liCx}>
-                            <Link aria-label='About Open FDA' className={linkCx} to='/about/'>About</Link>
+                        <ul className='sub-menu-container' role='navigation'>
+                          <li>
+                            <Link className={linkCx} to='/about/'>About</Link>
                           </li>
-                          <li className={liCx}>
+                          <li>
                             <Link className={linkCx} to='/updates/'>Updates</Link>
                           </li>
                         </ul>
                       </DropdownContent>
                     </Dropdown>
                   </li>
-                  <li style={{float: 'left', paddingRight: '1em'}}>
+                  <li>
                     <Dropdown>
-                      <DropdownTrigger><span>Learn</span></DropdownTrigger>
+                      <DropdownTrigger><span className='menu-header'>Learn</span></DropdownTrigger>
                       <DropdownContent>
-                        <ul>
-                          <li className={liCx}>
+                        <ul className='sub-menu-container' role='navigation'>
+                          <li>
                             <Link className={linkCx} to='/api/'>API basics</Link>
                           </li>
-                          <li className={liCx}>
+                          <li>
                             <Link className={linkCx} to='/api/reference/'>API reference</Link>
                           </li>
-                          <li className={liCx}>
+                          <li>
                             <Link className={linkCx} to='/api/status/'>API status</Link>
                           </li>
-                          <li className={liCx}>
+                          <li>
                             <Link className={linkCx} to='/analytics/'>Analytics & research</Link>
                           </li>
                         </ul>
                       </DropdownContent>
                     </Dropdown>
                   </li>
-                  <li style={{float: 'left', paddingRight: '1em'}}>
+                  <li>
                     <Dropdown>
-                      <DropdownTrigger><span>API Endpoints</span></DropdownTrigger>
+                      <DropdownTrigger><span className='menu-header'>API Endpoints</span></DropdownTrigger>
                       <DropdownContent>
-                        <ul>
-                          <li className={liCx}>
+                        <ul className='sub-menu-container' role='navigation'>
+                          <li>
                             <Link className={linkCx} to='/drug/'>Drugs</Link>
                           </li>
-                          <li className={liCx}>
+                          <li>
                             <Link className={linkCx} to='/device/'>Devices</Link>
                           </li>
-                          <li className={liCx}>
+                          <li>
                             <Link className={linkCx} to='/food/'>Foods</Link>
                           </li>
                         </ul>
                       </DropdownContent>
                     </Dropdown>
                   </li>
-                  <li style={{float: 'left', paddingRight: '1em'}}>
+                  <li>
                     <Dropdown>
-                      <DropdownTrigger><span>Community</span></DropdownTrigger>
+                      <DropdownTrigger><span className='menu-header'>Community</span></DropdownTrigger>
                       <DropdownContent>
-                        <ul>
-                          <li className={`${liCx} m-6`}>
+                        <ul className='sub-menu-container' role='navigation'>
+                          <li>
                             <a
                                 className={`${linkCx} link-external`}
                                 href='https://github.com/FDA'
@@ -234,7 +228,7 @@ const Nav = (props: tPROPS) => {
                               Source code (GitHub)
                             </a>
                           </li>
-                          <li className={`${liCx} m-6`}>
+                          <li>
                             <a
                                 className={`${linkCx} link-external`}
                                 href='https://opendata.stackexchange.com/questions/tagged/openfda'
@@ -243,7 +237,7 @@ const Nav = (props: tPROPS) => {
                               Q&A (StackExchange)
                             </a>
                           </li>
-                          <li className={`${liCx} m-6`}>
+                          <li>
                             <a
                                 className={`${linkCx} link-external`}
                                 href='https://twitter.com/openFDA'
@@ -252,7 +246,7 @@ const Nav = (props: tPROPS) => {
                               @openFDA (Twitter)
                             </a>
                           </li>
-                          <li className={`${liCx} m-6`}>
+                          <li>
                             <Link
                                 className={linkCx}
                                 to='/community/'>openFDA Apps</Link>
@@ -262,8 +256,6 @@ const Nav = (props: tPROPS) => {
                     </Dropdown>
                   </li>
                 </ul>
-              </div>
-            </nav>
           </div>
         </div>
       </div>
