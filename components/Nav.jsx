@@ -195,7 +195,7 @@ const Nav = (props: tPROPS) => {
                 <Link
                     className={linkCx}
                     to='/api/statistics/'>
-                  API Usage Statistics
+                  API usage statistics
                 </Link>
               </li>
 
