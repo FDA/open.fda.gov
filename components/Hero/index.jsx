@@ -46,7 +46,7 @@ const Hero = (props: tPROPS) => {
     <section
       id='hero'
       className={heroCx}>
-      <div className='flex-row dir-column m-pad-t-2 m-pad-b-2 pad-t-3 pad-b-3 container'>
+      <div className='flex-row dir-column m-pad-t-2 m-pad-b-2 container'>
         <span
           tabIndex={0}
           className='clr-white serif weight-700 small'>
@@ -54,11 +54,11 @@ const Hero = (props: tPROPS) => {
         </span>
         {
           type === 'endpoint' &&
-          <h1
+          <h2
             // if we're showing a label we're on an endpoint
             // the endpoint reads weird - so just read the label instead
             tabIndex={label ? -1 : 0}
-            className='clr-white marg-b-2 weight-700 m-pad-r-1'
+            className='clr-white weight-700 m-pad-r-1'
             style={{
               wordBreak: 'break-all'
             }}>
@@ -67,24 +67,24 @@ const Hero = (props: tPROPS) => {
               <span className='clr-cool-blue-lighter weight-400'>api.fda.gov</span>
             }
             {path}
-          </h1>
+          </h2>
         }
         {
           type !== 'endpoint' &&
-          <h1
+          <h2
             tabIndex={label ? -1 : 0}
-            className='clr-white marg-b-2 weight-700 reading-width'>
+            className='clr-white weight-700 header-width'>
             {title}
-          </h1>
+          </h2>
         }
         {
           desc && htmlDescription &&
           <p
             tabIndex={0}
-            className='clr-white font-size-4 reading-width'
+            className='clr-white font-size-4 header-width'
             style={{
               lineHeight: '25px',
-              marginBottom: '80px',
+              marginBottom: '0px'
             }} dangerouslySetInnerHTML={{__html: desc}}>
           </p>
         }
@@ -92,10 +92,10 @@ const Hero = (props: tPROPS) => {
           desc && !htmlDescription &&
           <p
               tabIndex={0}
-              className='clr-white font-size-4 reading-width'
+              className='clr-white font-size-4 header-width'
               style={{
               lineHeight: '25px',
-              marginBottom: '80px',
+              marginBottom: '0px'
             }}>
             {desc}
           </p>
