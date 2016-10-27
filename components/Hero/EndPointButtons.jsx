@@ -35,9 +35,9 @@ const EndpointButtons = (props: tPROPS) => {
 
   return (
     <div
-      className='absolute'
+      className='relative'
       style={{
-        bottom: '-3px',
+        bottom: '-20px',
       }}>
       <Link
         className={getActiveCx(0)}

@@ -3,13 +3,15 @@
     vertical-align: text-top
 
 .dropdown
+  position: relative
   display: inline-block
 
-.dropdown__content
+.dropdown-content
   display: none
   position: absolute
+  right: 0px
 
-.dropdown--active .dropdown__content
+.dropdown:hover .dropdown-content
   display: block
 
 .menu-container
@@ -23,8 +25,8 @@
   margin-bottom: 0
   padding: 0.5em
   color: $clrPrimary
-  font-size: 34px
-  line-height: 39px
+  font-size: 1em
+  line-height: 2em
 
 .menu-header:hover
   font-weight: bold
@@ -34,11 +36,25 @@
   -moz-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf    
   box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf    
 
-.dropdown--active .menu-header
+.menu-header::after
+  display:block
+  content:attr(title)
+  font-weight:bold
+  height:1px
+  color:transparent
+  overflow:hidden
+  visibility:hidden
+  margin-bottom:-1px
+
+.dropdown:hover .menu-header
   font-weight: bold
+
+//.dropdown:hover .sub-menu-container
+  //display: block;
 
 .sub-menu-container
   position: relative
+  overflow: auto
   margin-bottom: 0
   background-color: $clrWhite
   border: 1px solid #ccc
@@ -46,7 +62,9 @@
   border-bottom-right-radius: 3px
   box-shadow: 0 3px 6px rgba(0,0,0,0.2)
   width: auto
-  min-width: 235px
+  min-width: 150px
+  text-align: right
+  white-space: nowrap
   z-index: 2
 
 .sub-menu-item

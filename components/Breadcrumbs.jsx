@@ -11,7 +11,7 @@ const BreadCrumbs = () => {
   if (crumbs.length === 0) return <span />
 
   return (
-    <div className='bg-gray-lightest row m-pad-t-2 m-pad-b-2 t-pad-t-2 t-pad-b-2'>
+    <div className='bg-gray-lightest row m-pad-t-2 m-pad-b-2 t-pad-t-05 t-pad-b-05'>
       <nav
         aria-label='Breadcrumb navigation.'
         className='container flex-box align-center dir-row clr-gray small'>
