@@ -2,7 +2,7 @@
   short: "Submissions over time"
   dataset: SPL
   description:
-    - "The openFDA drug product labeling API provides data for prescription and over-the-counter (OTC) drug labeling. Since mid-2009, labeling has been posted publicly in the [Structured Product Labeling (SPL) format](/data/spl/)."
+    - "The openFDA drug product labeling API provides data for drug labeling. Since mid-2009, labeling has been posted publicly in the [Structured Product Labeling (SPL) format](/data/spl/)."
     - "This chart shows labeling submissions over time, by looking at their 'effective dates.' The search is limited to dates since June 2009, which excludes a small number of older submissions."
   countParam: "effective_time"
   filters:
@@ -22,7 +22,7 @@
   short: "Routes of administration"
   dataset: SPL
   description:
-    - "Most drug product labeling describes a drug with a single route of administration—oral, intravenous, topical, and so forth. Click the buttons below to see the top routes of administration noted in various kinds of drug product labeling."
+    - "Most animal drug product labeling describes a drug with a single route of administration—oral, intravenous, topical, and so forth. Click the buttons below to see the top routes of administration noted in various kinds of drug product labeling."
   countParam: "openfda.route.exact"
   filters:
     - title: "All drug labeling submissions"
@@ -41,7 +41,7 @@
   short: "Drug interactions"
   dataset: SPL
   description:
-    - Drug product labeling must indicate known interactions with foods and other drug products. This chart shows top classes of drugs whose labeling notes caffeine, grapefruit, or alcohol in the interactions section.
+    - Drug product labeling must indicate known interactions with foods and other drug products. This chart shows top classes of drugs whose labeling notes interactions.
   countParam: "openfda.pharm_class_epc.exact"
   filters:
     - title: "Labeling noting caffeine in the interactions section"
