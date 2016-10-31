@@ -14,7 +14,6 @@
 - fields:
   - meta.disclaimer
   - meta.license
-  - meta.terms
   - meta.last_updated
   - meta.results.skip
   - meta.results.limit
@@ -34,7 +33,7 @@
 - "#### Field order"
 - Fields are ordered naturally, as they were found in the original product labeling. Expect variation in field order from product to product.
 - "#### Tables"
-- Manufacturers sometimes supply product labeling with HTML tables that summarize data, such as adverse reactions. These tables usually accompany other text describing the data. When these tables are encountered, openFDA puts the HTML tables in their own field, with a `_table` suffix.
+- Manufacturers sometimes supply product labeling with HTML tables that summarize data. These tables usually accompany other text describing the data. When these tables are encountered, openFDA puts the HTML tables in their own field, with a `_table` suffix.
 - example: tables
 - "Here are common examples you may see:"
 - ul:
@@ -42,9 +41,8 @@
   - "`spl_unclassified_section` accompanied by `spl_unclassified_section_table`"
 - "`_table` fields are each tables that are encoded as HTML, one table per string."
 - "## Field-by-field reference"
-- Fields and their contents will vary from product to product. There are major differences between prescription drugs and OTC drugs, for example. The following descriptions are as accurate as possible but do not cover all the potential variation among field contents.
+- Fields and their contents will vary from product to product. The following descriptions are as accurate as possible but do not cover all the potential variation among field contents.
 - This page groups fields conceptually for ease of reference. In API results, fields will be ordered naturally as in the product labeling submission.
-- There are records with fields that are not documented here and that are not ordinarily part of human drug product labeling, such as `veterinary_indications`. This is usually the result of a data error in the SPL submission.
 - "### ID and version"
 - "All drug product labeling records contain these fields, which uniquely identify individual records."
 - example: results
@@ -53,13 +51,6 @@
   - id
   - version
   - effective_time
-- "### Abuse and overdosage"
-- fields:
-  - drug_abuse_and_dependence
-  - controlled_substance
-  - abuse
-  - dependence
-  - overdosage
 - "### Adverse effects and interactions"
 - fields:
   - adverse_reactions
@@ -82,41 +73,6 @@
   - active_ingredient
   - inactive_ingredient
   - spl_product_data_elements
-- "### Patient information"
-- fields:
-  - spl_patient_package_insert
-  - information_for_patients
-  - information_for_owners_or_caregivers
-  - instructions_for_use
-  - ask_doctor
-  - ask_doctor_or_pharmacist
-  - do_not_use
-  - keep_out_of_reach_of_children
-  - other_safety_information
-  - questions
-  - stop_use
-  - when_using
-  - patient_medication_information
-  - spl_medguide
-- "### Special populations"
-- fields:
-  - use_in_specific_populations
-  - pregnancy
-  - teratogenic_effects
-  - labor_and_delivery
-  - nursing_mothers
-  - pregnancy_or_breast_feeding
-  - pediatric_use
-  - geriatric_use
-- "### Nonclinical toxicology"
-- fields:
-  - nonclinical_toxicology
-  - carcinogenesis_and_mutagenesis_and_impairment_of_fertility
-  - animal_pharmacology_and_or_toxicology
-- "### References"
-- fields:
-  - clinical_studies
-  - references
 - "### Supply, storage, and handling"
 - fields:
   - how_supplied
@@ -125,7 +81,7 @@
 - "### Warnings and precautions"
 - fields:
   - boxed_warning
-  - user_safety_warnings
+  - safety_warnings
   - precautions
   - warnings
   - general_precautions
@@ -138,7 +94,7 @@
   - spl_unclassified_section
 - "### openFDA fields"
 - Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.
-- OpenFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other drug information. Drug products that appear in FAERS records are joined to the NDC dataset first on brand name, and if there is no brand name, on generic name. If that is succesful, further links are established to other datasets. The linked data is listed as an openfda annotation in the patient.drug section of a result.
+- OpenFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other drug information. Drug products that appear in FAERS records are joined to the NDC dataset first on brand name, and if there is no brand name, on generic name. If that is succesful, further links are established to other datasets.
 - Roughly 86% of adverse event records have at least one openfda section. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if the drug name is misspelled. Some drug products will have openfda sections, while others will never, if there was no match during the harmonization process.
 - fields:
   - openfda
