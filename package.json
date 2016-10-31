@@ -47,7 +47,6 @@
     "react-highlight": "0.8.0",
     "react-radio-group": "2.2.0",
     "react-router": "2.0.0",
-    "react-simple-dropdown": "^1.1.4",
     "webfontloader": "1.6.24",
     "webpack": "1.12.14"
   },

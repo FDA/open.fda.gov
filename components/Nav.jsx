@@ -5,8 +5,6 @@ import cx from 'classnames'
 
 import NavContainer from '../containers/NavContainer'
 
-// import Dropdown, { DropdownTrigger, DropdownContent } from 'react-simple-dropdown'
-
 const Link: ReactClass = require('react-router').Link
 
 const linkCx: string = 'sub-menu-item no-underline'
