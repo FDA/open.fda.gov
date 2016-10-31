@@ -14,7 +14,6 @@
 - fields:
   - meta.disclaimer
   - meta.license
-  - meta.terms
   - meta.last_updated
   - meta.results.skip
   - meta.results.limit
