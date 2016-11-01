@@ -940,7 +940,6 @@ properties:
     area: "prescription / OTC"
     items:
       description: "Information about serious adverse reactions and potential safety hazards, including limitations in use imposed by those hazards and steps that should be taken if they occur."
-      description: "Information about serious adverse reactions and potential safety hazards, including limitations in use imposed by those hazards and steps that should be taken if they occur."
       format:
       is_exact: false
       possible_values:
