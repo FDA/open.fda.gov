@@ -40,11 +40,11 @@
     - Drug product labeling must indicate known interactions with foods and other drug products. This chart shows top classes of drugs whose labeling notes interactions.
   countParam: "openfda.pharm_class_epc.exact"
   filters:
-    - title: "Labeling noting caffeine in the interactions section"
-      searchParam: "drug_interactions:caffeine"
-    - title: "Labeling noting grapefruit juice in the interactions section"
-      searchParam: 'drug_interactions:"grapefruit"+juice'
-    - title: "Labeling noting alcohol in the interactions section"
-      searchParam: "drug_interactions:alcohol"
+    - title: "Labeling noting anthelmintics in the interactions section"
+      searchParam: "drug_interactions:anthelmintics"
+    - title: "Labeling noting multivitamins in the interactions section"
+      searchParam: "drug_interactions:multivitamins"
+    - title: "Labeling noting steroids in the interactions section"
+      searchParam: "drug_interactions:steroids"
   type: Line
   dateConstraint: false
