@@ -1,6 +1,6 @@
 documentTitle: openFDA › Animal Drugs › Adverse events reference guide
 name: Animal Drug adverse events reference
-description: "An adverse event is submitted to the FDA to report any undesirable experience associated with the use of a drug, including serious drug side effects, product use errors, product quality problems, and therapeutic failures."
+description: "An animal drug adverse event is submitted to the FDA to report an any undesirable experience associate with the use of an animal drug, such as adverse drug reactions, lack of effectiveness or product defects."
 datasets:
   - FAERS
 label: Drug adverse events
