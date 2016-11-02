@@ -8,7 +8,7 @@
     "pretest": "eslint ./**/*.jsx",
     "test": "flow check",
     "gatsby": "gatsby",
-    "dev": "gulp stylus; gatsby develop -p 3000",
+    "dev": "gulp stylus & gatsby develop -p 3000",
     "build": "gatsby build"
   },
   "repository": {
