@@ -1,8 +1,8 @@
 - url: /animaldrug/event/
   title: Animal Drug adverse events
   description:
-    - "Reports of drug side effects, product use errors, product quality problems, and therapeutic failures."
+    - "Reports of animal drug side effects, product use errors, product quality problems, and therapeutic failures."
 - url: /animaldrug/label/
   title: Animal Drug product labeling
   description:
-    - "Structured product information, including prescribing information, for approved drug products."
+    - "Structured product information, including prescribing information, for approved animal drug products."
