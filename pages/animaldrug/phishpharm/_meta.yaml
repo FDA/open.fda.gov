@@ -1,0 +1,10 @@
+documentTitle: openFDA › Animal Drugs › Phish Pharm API
+name: Animal Drug Phish Pharm
+description: ""
+datasets:
+  - SPL
+label: Animal Drug Phish Pharm
+path: /animaldrug/phishpharm
+start: 20090601
+dateConstraintKey: effective_time
+type: endpoint
