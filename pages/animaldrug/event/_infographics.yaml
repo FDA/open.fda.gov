@@ -3,29 +3,15 @@
   description:
     - "This is the openFDA API endpoint for animal drug adverse event reports. An adverse event report is submitted to the FDA’s Center for Veterinary Medicine (CVM) to report any undesirable experience associated with the use of an animal drug, including adverse reactions, product use errors, and product/manufacturing problems."
     - "Section 514.80 (b) (21 CFR 514.80(b)) of FDA regulations requires applicants of approved new animal drug applications (NADAs) and approved abbreviated new animal drug applications (ANADAs) to report adverse drug events and product and manufacturing defects. This continuous monitoring of approved NADAs and ANADAs afford the primary means by which FDA’s Center for Veterinary Medicine (CVM) obtains information regarding potential problems with the safety and efficacy of marketed approved new animal drugs as well as potential product/manufacturing problems."
-  countParam: "receivedate"
+  countParam: "original_receive_date"
   filters:
     - title: "All adverse event reports"
       searchParam: ""
-    - title: "Reported through manufacturers"
-      searchParam: "_exists_:companynumb"
-    - title: "Reported directly by public"
-      searchParam: "_missing_:companynumb"
-    - title: "Where indication for drug use was hypertension"
-      searchParam: "patient.drug.drugindication:hypertension"
-  dateConstraint: receivedate
+    - title: "Reported by animal owner"
+      searchParam: 'primary_reporter:"Owner"'
+    - title: "Reported by Veterinarian"
+      searchParam: 'primary_reporter:"Veterinarian"'
+    - title: "Where outcome was 'Death'"
+      searchParam: 'outcome.medical_status:"Died"'
+  dateConstraint: original_receive_date
   type: Line
-- title: "Who reports adverse events?"
-  short: "Who reports?"
-  description:
-    - "The vast majority of adverse event reports are ultimately reported to FDA through drug product manufacturers. But those reports may first be initiated by consumers, health professionals, or others."
-  countParam: "primarysource.qualification"
-  filters:
-    - title: "All adverse event reports"
-      searchParam: ""
-    - title: "Reported through manufacturers"
-      searchParam: "_exists_:companynumb"
-    - title: "Reported directly by public"
-      searchParam: "_missing_:companynumb"
-  dateConstraint: receivedate
-  type: Pie
