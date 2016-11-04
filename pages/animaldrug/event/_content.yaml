@@ -1,4 +1,4 @@
-- "## About drug adverse events"
+- "## About animal drug adverse events"
 - "Section 514.80 (b) (21 CFR 514.80(b)) of FDA regulations requires applicants of approved new animal drug applications (NADAs) and approved abbreviated new animal drug applications (ANADAs) to report adverse drug events and product and manufacturing defects. This continuous monitoring of approved NADAs and ANADAs afford the primary means by which FDA’s Center for Veterinary Medicine (CVM) obtains information regarding potential problems with the safety and efficacy of marketed approved new animal drugs as well as potential product/manufacturing problems."
 - "### Adverse event reports"
 - "This highly simplified schematic illustrates the general nature of an adverse event report. A report may list several animal drug products, as well as several animal or human patient reactions. No individual drug is connected to any individual reaction. **When a report lists multiple drugs and multiple reactions, there is no way to conclude from the data therein that a given drug is responsible for a given reaction.**"
@@ -8,7 +8,7 @@
 - "getting-started"
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/animaldrug/event.json` using search parameters for [fields specific to the drug adverse events endpoint.](/animaldrug/event/reference/)"
+- "Make API calls to `https://api.fda.gov/animaldrug/event.json` using search parameters for [fields specific to the animal drug adverse events endpoint.](/animaldrug/event/reference/)"
 - queryExplorer: oneReport
 - queryExplorer: pharmacologic
 - queryExplorer: reaction
