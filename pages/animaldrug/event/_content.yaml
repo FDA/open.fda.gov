@@ -10,5 +10,3 @@
 - "### How to search this endpoint"
 - "Make API calls to `https://api.fda.gov/animaldrug/event.json` using search parameters for [fields specific to the animal drug adverse events endpoint.](/animaldrug/event/reference/)"
 - queryExplorer: oneReport
-- queryExplorer: pharmacologic
-- queryExplorer: reaction
