@@ -1,9 +1,9 @@
-- title: "Prescription and over-the-counter (OTC) animal drug labeling"
+- title: "Prescription and over-the-counter (OTC) drug labeling"
   short: "Submissions over time"
   dataset: SPL
   description:
-    - "This is the openFDA API endpoint for pharmacokinetics data in fish. Phish-Pharm is a free, searchable, literature database that details drug metabolism, depletion, and pharmacokinetics in fish. Updated in 2014, the current version contains data from nearly 600 articles covering 175 aquatic species and over 200 drug and chemical compounds."
-    - "Section 514.80 (b) (21 CFR 514.80(b)) of FDA regulations requires applicants of approved new animal drug applications (NADAs) and approved abbreviated new animal drug applications (ANADAs) to report adverse drug events and product and manufacturing defects. This continuous monitoring of approved NADAs and ANADAs afford the primary means by which FDA’s Center for Veterinary Medicine (CVM) obtains information regarding potential problems with the safety and efficacy of marketed approved new animal drugs as well as potential product/manufacturing problems."
+    - "The openFDA drug product labeling API provides data for drug labeling. Since mid-2009, labeling has been posted publicly in the [Structured Product Labeling (SPL) format](/data/spl/)."
+    - "This chart shows labeling submissions over time, by looking at their 'effective dates.' The search is limited to dates since June 2009, which excludes a small number of older submissions."
   countParam: "effective_time"
   filters:
     - title: "All animal drug labeling submissions"
