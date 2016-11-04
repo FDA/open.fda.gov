@@ -1,0 +1,33 @@
+- title: "Prescription and over-the-counter (OTC) drug labeling"
+  short: "Submissions over time"
+  dataset: SPL
+  description:
+    - "The openFDA drug product labeling API provides data for drug labeling. Since mid-2009, labeling has been posted publicly in the [Structured Product Labeling (SPL) format](/data/spl/)."
+    - "This chart shows labeling submissions over time, by looking at their 'effective dates.' The search is limited to dates since June 2009, which excludes a small number of older submissions."
+  countParam: "effective_time"
+  filters:
+    - title: "All animal drug labeling submissions"
+      searchParam: ""
+    - title: "Over-the-counter animal drug labeling"
+      searchParam: "openfda.product_type:otc"
+    - title: "Prescription animal drug labeling"
+      searchParam: "openfda.product_type:prescription"
+    - title: "Contraindications include Hepatic Insufficiency"
+      searchParam: 'contraindications:"hepatic insufficiency"'
+  type: Line
+  dateConstraint: effective_time
+- title: "Drug interactions noted in labeling"
+  short: "Drug interactions"
+  dataset: SPL
+  description:
+    - Drug product labeling must indicate known interactions with foods and other drug products. This chart shows top classes of drugs whose labeling notes interactions.
+  countParam: "openfda.generic_name.exact"
+  filters:
+    - title: "Labeling noting anthelmintics in the interactions section"
+      searchParam: "drug_interactions:anthelmintics"
+    - title: "Labeling noting multivitamins in the interactions section"
+      searchParam: "drug_interactions:multivitamins"
+    - title: "Labeling noting steroids in the interactions section"
+      searchParam: "drug_interactions:steroids"
+  type: Line
+  dateConstraint: false

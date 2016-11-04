@@ -6,3 +6,7 @@
   title: Animal Drug product labeling
   description:
     - "Structured product information, including prescribing information, for approved animal drug products."
+- url: /animaldrug/phishpharm/
+  title: Animal Drug Phish Pharm
+  description:
+    - "Placeholder."
