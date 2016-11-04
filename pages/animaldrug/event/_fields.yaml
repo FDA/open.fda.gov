@@ -166,13 +166,25 @@ properties:
             is_exact: false
             possible_values:
             properties:
-              quantity:
-                description: "The quantity/volume of the actual dose given, e.g. number of tablets, number of boluses, amount of feed, quantity of solution, etc."
+              denominator:
+                description:
                 format:
                 is_exact: false
                 possible_values:
                 type: float
-              unit:
+              denominator_unit:
+                description:
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              numerator:
+                description:
+                format:
+                is_exact: false
+                possible_values:
+                type: float
+              numerator_unit:
                 description:
                 format:
                 is_exact: false
@@ -581,6 +593,44 @@ properties:
         possible_values:
         type: integer
     type: object
+  receiver:
+    properties:
+      city:
+        description:
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      country:
+        description:
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      organization:
+        description:
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      postal_code:
+        description:
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      state:
+        description:
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      street_address:
+        description:
+        format:
+        is_exact: true
+        possible_values:
+        type: string
   report_id:
     description: "The globally unique adverse event report is designated by the Marketing Authorization Holder. It consists of a 3-character ISO 3166 country code, 8-character MAH identifier code, and a unique number assigned by the MAH. If the report originally was sent by a Regulatory Authority, this number may include the RA identifier code in place of the MAH identifier code."
     format:
