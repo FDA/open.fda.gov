@@ -21,6 +21,6 @@ countByType:
   - count the field openfda.product_type (product type).
   query: 'http://5c2d7184.ngrok.io/animaldrug/label.json?count=openfda.product_type.exact'
   description:
-    - There are more labeling records for over-the-counter (OTC) drugs than prescription drugs.
-    - The suffix .exact is required by openFDA to count the unique full phrases in the field openfda.product_type. Without it, the API will count each word in that field individually—HUMAN OTC DRUG would be counted as separate values, HUMAN and OTC and DRUG.
+    - There are more labeling records for over-the-counter (OTC) drugs than prescription animal drugs.
+    - The suffix .exact is required by openFDA to count the unique full phrases in the field openfda.product_type. Without it, the API will count each word in that field individually—OTC ANIMAL DRUG would be counted as separate values, OTC and ANIMAL and DRUG.
   title: Count of drug labeling, by product type
