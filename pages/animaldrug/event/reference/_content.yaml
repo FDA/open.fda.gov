@@ -39,7 +39,7 @@
   - domestic_or_foreign
 - "### Patient"
 - "Information about the patient(s) or animal(s) in the adverse event report."
-- example: patient
+- example: animal
 - fields:
   - number_of_animals_treated
   - number_of_animals_affected
@@ -50,6 +50,7 @@
   - last_exposure_date
 - "#### Drugs"
 - "Information on the drugs taken while the event was experienced."
+- example: drug
 - fields:
   - frequency_of_administration
   - administered_by
