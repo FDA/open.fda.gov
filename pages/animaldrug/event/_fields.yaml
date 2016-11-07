@@ -156,9 +156,7 @@ properties:
     properties:
       active_ingredients:
         description: "Active ingredients for the veterinary medicinal product."
-        format:
-        is_exact: false
-        possible_values:
+        type: string
         properties:
           dose:
             description: "The actual dose administered to the animal involved in the adverse event."
@@ -197,7 +195,6 @@ properties:
             is_exact: true
             possible_values:
             type: string
-        type: object
       atc_vet_code:
         description: "The Anatomic Therapeutic Chemical system for the classification of substance intended for therapeutic use, which can serve as a tool for the classification of Veterinary Medicinal Products."
         format:
@@ -216,6 +213,18 @@ properties:
         is_exact: false
         possible_values:
         type: string
+      first_exposure_date:
+        description: "The date (day, month and year) on which the animal was first treated with the veterinary medicinal product."
+        format: date
+        is_exact: false
+        possible_values:
+        type: date
+      last_exposure_date:
+        description: "The date (day, month and year) on which the animal was last treated with the veterinary medicinal product."
+        format: date
+        is_exact: false
+        possible_values:
+        type: date
       lot_expiration:
         description: "The expiration date of the veterinary medicinal product(s) involved in the adverse event."
         format: year_month
@@ -464,12 +473,6 @@ properties:
         possible_values:
         type: string
     type: object
-  first_exposure_date:
-    description: "The date (day, month and year) on which the animal was first treated with the veterinary medicinal product."
-    format: date
-    is_exact: false
-    possible_values:
-    type: date
   frequency_of_administration:
     description: "Frequency of administration of the veterinary medicinal product(s) involved in the adverse event."
     format:
@@ -495,12 +498,6 @@ properties:
         possible_values:
         type: string
     type: object
-  last_exposure_date:
-    description: "The date (day, month and year) on which the animal was last treated with the veterinary medicinal product."
-    format: date
-    is_exact: false
-    possible_values:
-    type: date
   number_of_animals_affected:
     description: "Total number of animals affected by the adverse event, whether through direct or indirect exposure (e.g. treated during pregnancy or lactation, commingled, infection spread, etc.)."
     format:

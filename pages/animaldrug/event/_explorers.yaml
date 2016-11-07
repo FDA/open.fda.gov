@@ -4,6 +4,6 @@ oneReport:
     - This query searches for all records in a certain date range, and asks for a single one. See the header fields reference for more about original_receive_date. Brackets `[ ]` are used to specify a range for date, number, or string fields.
     - See the [header fields reference](/animaldrug/event/reference/) for more about original_receive_date. Brackets `[ ]` are used to specify a range for date, number, or string fields.
   params:
-    - search for all records with original_receive_date between Jan 01, 2004 and Dec 31, 2008. limit to 1 record.
+    - search for all records with original_receive_date between Jan 01, 2004 and Nov 07, 2016. limit to 1 record.
     - see the header fields reference for more about original_receive_date. Brackets [ ] are used to specify a range for date, number, or string fields.
-  query: 'http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/animaldrug/event.json?search=original_receive_date:[20040101+TO+20081231]&limit=1'
+  query: 'http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/animaldrug/event.json?search=original_receive_date:[20040101+TO+20161107]&limit=1'

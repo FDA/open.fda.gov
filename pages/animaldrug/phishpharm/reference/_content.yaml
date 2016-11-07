@@ -6,7 +6,6 @@
 - "For non-`count` queries, the `results` section includes matching reports returned by the API."
 - "## Field-by-field reference"
 - fields:
-  - id
   - drug
   - metabolites
   - species
