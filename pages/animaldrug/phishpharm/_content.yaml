@@ -3,7 +3,6 @@
 - "getting-started"
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `http://5c2d7184.ngrok.io/animaldrug/phishpharm.json` using search parameters for [fields specific to the animal phish pharm endpoint.](/animaldrug/phishpharm/reference/)"
-- queryExplorer: oneLabel
-- queryExplorer: boxedWarning
-- queryExplorer: countByType
+- "Make API calls to `https://api.fda.gov/animaldrug/phishpharm.json` using search parameters for [fields specific to the animal phish pharm endpoint.](/animaldrug/phishpharm/reference/)"
+- queryExplorer: oneRecord
+- queryExplorer: countBySpecies

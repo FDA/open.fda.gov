@@ -2,7 +2,7 @@ oneLabel:
   params:
     - search for all records with effective_time between Jun 01, 2011 and Dec 31, 2012.
     - limit to 1 record.
-  query: 'http://5c2d7184.ngrok.io/animaldrug/label.json?search=effective_time:[20110601+TO+20121231]&limit=1'
+  query: 'http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/animaldrug/label.json?search=effective_time:[20110601+TO+20121231]&limit=1'
   description:
     - This query searches for all records in a certain date range, and asks for a single one.
     - See the [reference](/animaldrug/label/reference/) for more about effective_time. Brackets [ ] are used to specify a range for date, number, or string fields.

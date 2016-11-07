@@ -1,6 +1,6 @@
 properties:
   clearance:
-    description: "Clearance of the treatment or study."
+    description: "The rate at which the drug is eliminated from the sample under study."
     format:
     is_exact: false
     possible_values:
@@ -12,7 +12,7 @@ properties:
     possible_values:
     type: string
   depletion_time:
-    description: "Time of depletion."
+    description: "The time for the drug to be depleted or eliminated from the sample (blood, organ, or tissue) being studied."
     format:
     is_exact: false
     possible_values:
@@ -66,7 +66,7 @@ properties:
     possible_values:
     type: integer
   is_half_life_estimated:
-    description: "Is half-life of the drug measured or estimated."
+    description: "Is the half-life of the drug measured or estimated."
     format:
     is_exact: false
     possible_values:
@@ -120,7 +120,7 @@ properties:
     possible_values:
     type: string
   pub_url:
-    description:
+    description: "The url of the publication."
     format:
     is_exact: false
     possible_values:
@@ -168,10 +168,17 @@ properties:
     possible_values:
     type: string
   water_type:
-    description:
+    description: "Describes the nature of the water."
     format:
     is_exact: false
     possible_values:
+      type: one_of
+      value:
+        Brackish: "Brackish"
+        Freshwater: "Freshwater"
+        Not Specified: "Not Specified"
+        Saltwater: "Saltwater"
+        Various*: "Various*"
     type: string
   weight:
     description: "Average weight of animal(s) in treatment or study."

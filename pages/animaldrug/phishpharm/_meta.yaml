@@ -5,6 +5,6 @@ datasets:
   - SPL
 label: Animal Drug Phish Pharm
 path: /animaldrug/phishpharm
-start: 20090601
+start: 19920101
 dateConstraintKey: effective_time
 type: endpoint

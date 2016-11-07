@@ -1,118 +1,43 @@
 {
-  "anatomy": {
-    "meta": {
-      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
-      "license": "http://open.fda.gov/license",
-      "last_updated": "2015-10-29",
-      "results": {
-        "skip": 0,
-        "limit": 1,
-        "total": 1355
-      }
-    },
-    "results": [
-      {}
-    ]
-  },
-  "meta": {
-    "meta": {
-      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
-      "terms": "https://open.fda.gov/terms/",
-      "license": "https://open.fda.gov/license/",
-      "last_updated": "2016-11-04",
-      "results": {
-        "skip": 0,
-        "limit": 1,
-        "total": 3253
-      }
+  "results": [
+    {
+      "dosage": "5 mg/kg sd",
+      "is_half_life_estimated": false,
+      "depletion_time": null,
+      "water_type": "Freshwater",
+      "half_life_detail": "alpha=16h, beta=285h.",
+      "drug": "Flumequine",
+      "genus_species": "Oncorhynchus mykiss",
+      "pub_date": 1994,
+      "water_temperature": 13,
+      "pharmacokinetic_model": "three-compartment",
+      "clearance": null,
+      "water_temperature_detail": "13+/-1 C",
+      "id": 267,
+      "pub_authors": [
+        "Sohlberg S",
+        "Aulie A",
+        "Soli NE"
+      ],
+      "pub_url": "http://dx.doi.org/10.1016/0044-8486(94)90439-1",
+      "comments": "Catheterized fish.  Residues 2h=1.4, 4h=1.5, 8h=1.7, 12h=1.9, 24h=1.9, 35h=1.8, 49h=1.8, 74h= 1.6, 98h=1.3, 123h=1.4, 144h=1.2, 194h=1.2, 241h=1.1, 337h=0.9, 505h=0.4. ug/ml. t 1/2 alpha=16h, beta=285h.",
+      "method": "HPLC",
+      "dosage_detail": "5 mg/kg sd",
+      "protein_binding": null,
+      "weight": 498,
+      "pub_citation": "Aquaculture 119:1-10",
+      "vc": null,
+      "sample": [
+        "blood, plasma"
+      ],
+      "metabolites": null,
+      "vd": null,
+      "drug_class": "Antibiotic-Quinolone",
+      "half_life": 285,
+      "route": "PO",
+      "species": "Trout, rainbow",
+      "pub_title": "Temperature-dependent absorption and elimination of flumequine in rainbow trout (Oncorhynchus mykiss Walbaum) in fresh water.",
+      "weight_detail": "499+/-133 g"
     }
-  },
-  "tables": {
-    "results": [
-      {
-        "dosage_and_administration": "...",
-        "dosage_and_administration_table": "<table>...</table>"
-      }
-    ]
-  },
-  "results": {
-    "results": [
-      {
-        "effective_time": "20150302",
-        "inactive_ingredient": [
-          "INACTIVE INGREDIENTS: Demineralized water, 20% Ethanol"
-        ],
-        "keep_out_of_reach_of_children": [
-          "KEEP OUT OF REACH OF CHILDREN: Keep out of reach of children."
-        ],
-        "purpose": [
-          "INDICATIONS: For temporary relief of symptoms due to parasitic infestation such as anal irritation, itching and abdominal bloating.** **These statements are based upon traditional homeopathic practice. They have not been reviewed by the Food and Drug Administration."
-        ],
-        "warnings": [
-          "WARNINGS: Keep out of reach of children. Consult your veterinarian for assistance in the diagnosis, treatment, and control of parasitism. This is a tamper resistant package. Do not use if tamper evident seal is broken or missing."
-        ],
-        "questions": [
-          "QUESTIONS: Dist. by Peaceful Mountain, Inc. Woodbine, IA 51579 888-303-3388 www.peacefulmountain.com"
-        ],
-        "spl_product_data_elements": [
-          "Parasite Formula Artemisia Vulgaris, Cina, Filix Mas, Sabadilla, Spigelia Anthelmia, Baryta Carbonica, Calcarea Carbonica, Sulphur, Terebinthina ARTEMISIA VULGARIS ROOT ARTEMISIA VULGARIS ROOT ARTEMISIA CINA PRE-FLOWERING TOP ARTEMISIA CINA FLOWER DRYOPTERIS FILIX-MAS ROOT DRYOPTERIS FILIX-MAS ROOT SCHOENOCAULON OFFICINALE SEED SCHOENOCAULON OFFICINALE SEED SPIGELIA ANTHELMIA SPIGELIA ANTHELMIA BARIUM CARBONATE BARIUM CATION OYSTER SHELL CALCIUM CARBONATE, CRUDE OYSTER SHELL CALCIUM CARBONATE, CRUDE SULFUR SULFUR TURPENTINE OIL TURPENTINE OIL WATER ALCOHOL"
-        ],
-        "openfda": {
-          "product_ndc": [
-            "43846-0049"
-          ],
-          "spl_id": [
-            "c8a5c6bb-6301-4fba-9973-68d0a6521760"
-          ],
-          "substance_name": [
-            "BARIUM CARBONATE",
-            "DRYOPTERIS FILIX-MAS ROOT",
-            "TURPENTINE OIL",
-            "OYSTER SHELL CALCIUM CARBONATE, CRUDE",
-            "SCHOENOCAULON OFFICINALE SEED",
-            "SULFUR",
-            "ARTEMISIA VULGARIS ROOT",
-            "ARTEMISIA CINA FLOWER",
-            "SPIGELIA ANTHELMIA"
-          ],
-          "product_type": [
-            "OTC ANIMAL DRUG"
-          ],
-          "is_original_packager": [
-            true
-          ],
-          "package_ndc": [
-            "43846-0049-1"
-          ],
-          "generic_name": [
-            "ARTEMISIA VULGARIS, CINA, FILIX MAS, SABADILLA, SPIGELIA ANTHELMIA, BARYTA CARBONICA, CALCAREA CARBONICA, SULPHUR, TEREBINTHINA"
-          ],
-          "spl_set_id": [
-            "001d66b0-4d56-4c04-8f70-c8e7e0020299"
-          ],
-          "brand_name": [
-            "Parasite Formula"
-          ],
-          "manufacturer_name": [
-            "Peaceful Mountain, Inc."
-          ]
-        },
-        "version": "1",
-        "dosage_and_administration": [
-          "DIRECTIONS: 1 to 2 drops per dose; frequency to be determined by severity of condition. May be administered by dropper in the mouth, on the nose, in the ears, on the foot pad, or on any non-haired portion of skin."
-        ],
-        "package_label_principal_display_panel": [
-          "PACKAGE LABEL DISPLAY: Seya's Healthy Paws Parasite Formula Homeopathic Pet Remedy 1 fl. oz. (30 ml) Parasite Formula"
-        ],
-        "indications_and_usage": [
-          "INDICATIONS: For temporary relief of symptoms due to parasitic infestation such as anal irritation, itching and abdominal bloating.** **These statements are based upon traditional homeopathic practice. They have not been reviewed by the Food and Drug Administration."
-        ],
-        "set_id": "001d66b0-4d56-4c04-8f70-c8e7e0020299",
-        "id": "c8a5c6bb-6301-4fba-9973-68d0a6521760",
-        "active_ingredient": [
-          "ACTIVE INGREDIENTS: Artemisia Vulgaris 3X, Cina 3X, Filix Mas 3X, Sabadilla 3X, Spigelia Anthelmia 3X, Baryta Carbonica 12X, Calcarea Carbonica 12X, Sulphur 12X, Terebinthina 12X"
-        ]
-      }
-    ]
-  }
+  ]
 }
