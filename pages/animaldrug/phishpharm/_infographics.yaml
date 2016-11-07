@@ -1,32 +1,38 @@
-- title: "Prescription and over-the-counter (OTC) animal drug labeling"
-  short: "Submissions over time"
+- title: "Phish pharm records over time"
+  short: "Records over time"
   dataset: SPL
   description:
     - "This is the openFDA API endpoint for pharmacokinetics data in fish. Phish-Pharm is a free, searchable, literature database that details drug metabolism, depletion, and pharmacokinetics in fish. Updated in 2014, the current version contains data from nearly 600 articles covering 175 aquatic species and over 200 drug and chemical compounds."
-  countParam: "effective_time"
+  countParam: "pub_date"
   filters:
-    - title: "All animal drug labeling submissions"
+    - title: "All phish pharm records"
       searchParam: ""
-    - title: "Over-the-counter animal drug labeling"
-      searchParam: "openfda.product_type:otc"
-    - title: "Prescription animal drug labeling"
-      searchParam: "openfda.product_type:prescription"
-    - title: "Contraindications include Hepatic Insufficiency"
-      searchParam: 'contraindications:"hepatic insufficiency"'
+    - title: "Catfish records"
+      searchParam: "species:catfish"
+    - title: "Oncorhynchus mykiss records"
+      searchParam: 'genus_species.exact="Oncorhynchus mykiss"'
+    - title: "Blood sample records"
+      searchParam: "sample:blood"
+    - title: "Intestinal tract sample records"
+      searchParam: 'sample:"intestinal tract"'
+    - title: "Oxytetracycline records"
+      searchParam: 'drug.exact="Oxytetracycline"'
   type: Line
-  dateConstraint: effective_time
-- title: "Drug interactions noted in labeling"
-  short: "Drug interactions"
+  dateConstraint: false
+- title: "Phish pharm sample types"
+  short: "Samples"
   dataset: SPL
   description:
-    - Drug product labeling must indicate known interactions with foods and other drug products. This chart shows top classes of drugs whose labeling notes interactions.
-  countParam: "route"
+    - "This is the openFDA API endpoint for pharmacokinetics data in fish. Phish-Pharm is a free, searchable, literature database that details drug metabolism, depletion, and pharmacokinetics in fish. Updated in 2014, the current version contains data from nearly 600 articles covering 175 aquatic species and over 200 drug and chemical compounds."
+  countParam: "sample.exact"
   filters:
-    - title: "Labeling noting anthelmintics in the interactions section"
-      searchParam: "drug_interactions:anthelmintics"
-    - title: "Labeling noting multivitamins in the interactions section"
-      searchParam: "drug_interactions:multivitamins"
-    - title: "Labeling noting steroids in the interactions section"
-      searchParam: "drug_interactions:steroids"
+    - title: "All phish pharm records"
+      searchParam: ""
+    - title: "Records with muscle samples"
+      searchParam: "sample:muscle"
+    - title: "Records with blood samples"
+      searchParam: "sample:blood"
+    - title: "Records with intestinal tract samples"
+      searchParam: 'sample:"intestinal tract"'
   type: Line
   dateConstraint: false
