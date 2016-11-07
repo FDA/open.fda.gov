@@ -1,4 +1,4 @@
-- title: "Prescription and over-the-counter (OTC) drug labeling"
+- title: "Prescription and over-the-counter (OTC) animal drug labeling"
   short: "Submissions over time"
   dataset: SPL
   description:
@@ -16,8 +16,8 @@
       searchParam: 'contraindications:"hepatic insufficiency"'
   type: Line
   dateConstraint: effective_time
-- title: "Drug interactions noted in labeling"
-  short: "Drug interactions"
+- title: "Animal Drug interactions noted in labeling"
+  short: "Animal Drug interactions"
   dataset: SPL
   description:
     - Drug product labeling must indicate known interactions with foods and other drug products. This chart shows top classes of drugs whose labeling notes interactions.
