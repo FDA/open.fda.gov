@@ -20,7 +20,7 @@
   dataset: SPL
   description:
     - Drug product labeling must indicate known interactions with foods and other drug products. This chart shows top classes of drugs whose labeling notes interactions.
-  countParam: "openfda.generic_name.exact"
+  countParam: "route"
   filters:
     - title: "Labeling noting anthelmintics in the interactions section"
       searchParam: "drug_interactions:anthelmintics"
