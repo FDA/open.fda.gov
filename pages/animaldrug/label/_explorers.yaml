@@ -11,7 +11,7 @@ boxedWarning:
   params:
   - search for all records with a boxed_warning field.
   - limit to 1 record.
-  query: 'http://5c2d7184.ngrok.io/animaldrug/label.json?search=_exists_:boxed_warning'
+  query: 'http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/animaldrug/label.json?search=_exists_:boxed_warning'
   description:
     - This query searches for labels with a Boxed Warning, and returns one result.
     - The `_exists_` search modifier lets you search for records that contain a specific field, no matter what its contents are. See the [API basics page](/api/) for more details.
@@ -19,8 +19,8 @@ boxedWarning:
 countByType:
   params:
   - count the field openfda.product_type (product type).
-  query: 'http://5c2d7184.ngrok.io/animaldrug/label.json?count=openfda.product_type.exact'
+  query: 'http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/animaldrug/label.json?count=openfda.product_type.exact'
   description:
-    - There are more labeling records for over-the-counter (OTC) drugs than prescription animal drugs.
-    - The suffix .exact is required by openFDA to count the unique full phrases in the field openfda.product_type. Without it, the API will count each word in that field individually—OTC ANIMAL DRUG would be counted as separate values, OTC and ANIMAL and DRUG.
+    - "This query returns a count of the records in the dataset by product type. In this example, the suffix .exact is used, which tells the API to count the unique full phrases in the openfda.product_type field. Without it, the API will count each word in that field individually. That is, OTC ANIMAL DRUG, for example, would be counted as separate values: OTC and ANIMAL and DRUG."
+    - "See the [API basics page](https://open.fda.gov/api/) for additional information and tips on how to search the openFDA APIs."
   title: Count of drug labeling, by product type

@@ -3,31 +3,25 @@
 - "Section 514.80 (b) (21 CFR 514.80(b)) of FDA regulations requires applicants of approved new animal drug applications (NADAs) and approved abbreviated new animal drug applications (ANADAs) to report adverse drug events and product and manufacturing defects. This continuous monitoring of approved NADAs and ANADAs afford the primary means by which FDA’s Center for Veterinary Medicine (CVM) obtains information regarding potential problems with the safety and efficacy of marketed approved new animal drugs as well as potential product/manufacturing problems."
 - "CVM relies on adverse event reports to facilitate a determination as to whether there may be grounds for suspending or withdrawing approval of an animal drug application. The information contained in these reports also assists CVM in working with firms to minimize ADEs due to manufacturing problems, previously unidentified or uncommon side effects, and off-label use of animal drugs."
 - disclaimer:
-  - "FAERS data does have limitations. There is no certainty that the reported event (adverse event or medication error) was actually due to the product. FDA does not require that a causal relationship between a product and event be proven, and reports do not always contain enough detail to properly evaluate an event."
+  - "Animal drug AE data does have limitations. There is no certainty that the reported event (adverse event or medication error) was actually due to the product. FDA does not require that a causal relationship between a product and event be proven, and reports do not always contain enough detail to properly evaluate an event."
   - "Further, FDA does not receive reports for every adverse event or medication error that occurs with a product. Many factors can influence whether or not an event will be reported, such as the time a product has been marketed and publicity about an event."
   - "Submission of a safety report does not constitute an admission that medical personnel, user facility, importer, distributor, manufacturer or product caused or contributed to the event. The information in these reports has not been scientifically or otherwise verified as to a cause and effect relationship and cannot be used to estimate the incidence of these events."
-- "In 2012, FDA changed from the Adverse Event Reporting System (AERS) to the FDA Adverse Event Reporting System (FAERS). There was a minor shift in terms as part of this transition. If you are using data from before December 2012, you should be aware of this shift."
 - "### Responsible use of the data"
 - "Adverse event reports submitted to FDA do not undergo extensive validation or verification. Therefore, **a causal relationship cannot be established between product and reactions listed in a report.** While a suspected relationship *may* exist, it is not medically validated and should not be the sole source of information for clinical decision making or other assumptions about the safety or efficacy of a product."
 - "Additionally, it is important to remember that adverse event reports represent a small percentage of total usage numbers of a product. Common products may have a higher number of adverse events due to the higher total number of people using the product. In recent years the FDA has undertaken efforts to increase collection of adverse events. Increases in the total number of adverse events is likely caused by improved reporting."
-- "### How adverse events are organized"
-- "Adverse events are collected through a series of *safety reports.* Each is identified by a 8-digit string (for instance, `6176304-1`). The first 7 digits (before the hyphen) identify the individual report, and the last digit (after the hyphen) is a checksum. Rather than updating individual records in FAERS, subsequent updates are submitted in seperate reports."
-- "### Format"
-- "Adverse event reports use the [ICH E2b/M2 version 2.1 standard.](http://estri.ich.org/e2br22/ICH_ICSR_Specification_V2-3.pdf) OpenFDA annotates the original records with [special fields.](#openfda-fields)"
 - "downloads"
-- "FDA releases quarterly updates to FAERS data. OpenFDA uses these extracts, but processes the data further before supplying them through the API. There are no plans for the openFDA initiative to change the FAERS release protocols. At this time it is anticipated that FAERS downloads will continue to be available from the same site on the same quarterly schedule. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical production use. While FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated."
 - "### Results"
 - "For non-`count` queries, the `results` section includes matching animal drugs adverse event reports returned by the API."
 - "Each animal drug adverse event report consists of these major sections:"
 - ul:
   - "**Header:** General information about the adverse event"
-  - "**Patient Information:** Details on the patient who experienced the event, such as age, weight, sex, etc."
+  - "**Animal Information:** Details on the animal that experienced the event, such as breed, weight, sex, etc."
   - "**Drugs:** Information on the drugs taken while the event was experienced"
   - "**Reactions:** Information on the reactions experienced by the patient"
 - "## Field-by-field reference"
+- example: animaldrug
 - "### Header"
 - "General information about the adverse event."
-- example: header
 - fields:
   - report_id
   - original_receive_date
@@ -37,20 +31,16 @@
   - type_of_information
   - serious_ae
   - domestic_or_foreign
-- "### Patient"
-- "Information about the patient(s) or animal(s) in the adverse event report."
-- example: animal
+- "### Animal"
+- "Information about the animal(s) in the adverse event report."
 - fields:
   - number_of_animals_treated
   - number_of_animals_affected
   - animal
   - health_assessment_prior_to_exposure
   - health_assessment_prior_to_exposure.assessed_by
-  - first_exposure_date
-  - last_exposure_date
 - "#### Drugs"
 - "Information on the drugs taken while the event was experienced."
-- example: drug
 - fields:
   - frequency_of_administration
   - administered_by
@@ -71,9 +61,11 @@
   - drug.number_of_items_returned
   - drug.atc_vet_code
   - drug.active_ingredients
+  - drug.first_exposure_date
+  - drug.last_exposure_date
 - "#### openFDA fields"
 - "Different datasets use different drug identifiers—brand name, generic name, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets."
-- "openFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other veterinary medicinal product information. A majority of adverse event records have a least one `openfda` section. Because the harmonization process requires an exact match, some veterinary medicinal products cannot be harmonized in this fashion—for instance, if the product name is misspelled. Some products will have `openfda` sections, while other will never, if there was no match during the harmonization process."
+- "openFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other veterinary medicinal product information. A majority of adverse event records have a least one `openfda` section. Because the harmonization process requires an exact match, some veterinary medicinal products cannot be harmonized in this fashion—for instance, if the product NDC is missing. Some products will have `openfda` sections, while other will never, if there was no match during the harmonization process."
 - fields:
   - drug.openfda
   - drug.manufacturer.registration_number

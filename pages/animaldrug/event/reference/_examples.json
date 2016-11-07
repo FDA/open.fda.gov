@@ -1,72 +1,74 @@
 {
-  "header": {
-    "treated_for_ae": "false",
-    "receiver": {
-      "country": "USA",
-      "street_address": "7500 Standish Place (HFV-210) Room N403",
-      "city": "Rockville",
-      "organization": "Food and Drug Administration Center for Veterinary Medicine",
-      "state": "MD",
-      "postal_code": "20855"
-    },
-    "unique_aer_id_number": "USA-USFDACVM-2016-US-######",
-    "original_receive_date": "20160118",
-    "number_of_animals_affected": "1",
-    "primary_reporter": "Animal Owner",
-    "number_of_animals_treated": "1"
-  },
-  "animal": {
-    "gender": "Male",
-    "species": "Dog",
-    "female_animal_physiological_status": "NOT APPLICABLE",
-    "weight": {
-      "qualifier": "Unknown"
-    },
-    "reproductive_status": "Unknown",
-    "age": {
-      "qualifier": "Unknown"
-    },
-    "breed": {
-      "is_crossbred": "false",
-      "breed_component": "Coton de Tuléar"
-    }
-  },
-  "drug": [
-    {
-      "used_according_to_label": "true",
-      "frequency_of_administration": {
-        "unit": "Day",
-        "value": "1"
+  "animaldrug": {
+    "header": {
+      "treated_for_ae": "false",
+      "receiver": {
+        "country": "USA",
+        "street_address": "7500 Standish Place (HFV-210) Room N403",
+        "city": "Rockville",
+        "organization": "Food and Drug Administration Center for Veterinary Medicine",
+        "state": "MD",
+        "postal_code": "20855"
       },
-      "previous_exposure_to_drug": "false",
-      "last_exposure_date": "20150603",
-      "brand_name": "Capstar",
-      "active_ingredients": [
-        {
-          "dose": {
-            "denominator_unit": "Unknown",
-            "numerator_unit": "Unknown",
-            "denominator": "1",
-            "numerator": "1"
-          },
-          "name": "nitenpyram"
-        }
-      ],
-      "atc_vet_code": "QP53BX02",
-      "manufacturer": {
-        "registration_number": "USA-USFDACVM-N141175",
-        "name": "Elanco US Inc"
+      "unique_aer_id_number": "USA-USFDACVM-2016-US-######",
+      "original_receive_date": "20160118",
+      "number_of_animals_affected": "1",
+      "primary_reporter": "Animal Owner",
+      "number_of_animals_treated": "1"
+    },
+    "animal": {
+      "gender": "Male",
+      "species": "Dog",
+      "female_animal_physiological_status": "NOT APPLICABLE",
+      "weight": {
+        "qualifier": "Unknown"
       },
-      "dosage_form": "Tablet",
-      "dose": {
-        "denominator_unit": "Unknown",
-        "numerator_unit": "tablet",
-        "denominator": "1",
-        "numerator": "1"
+      "reproductive_status": "Unknown",
+      "age": {
+        "qualifier": "Unknown"
       },
-      "route": "Oral",
-      "first_exposure_date": "20150601",
-      "administered_by": "Animal Owner"
-    }
-  ]
+      "breed": {
+        "is_crossbred": "false",
+        "breed_component": "Coton de Tuléar"
+      }
+    },
+    "drug": [
+      {
+        "used_according_to_label": "true",
+        "frequency_of_administration": {
+          "unit": "Day",
+          "value": "1"
+        },
+        "previous_exposure_to_drug": "false",
+        "last_exposure_date": "20150603",
+        "brand_name": "Capstar",
+        "active_ingredients": [
+          {
+            "dose": {
+              "denominator_unit": "Unknown",
+              "numerator_unit": "Unknown",
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "name": "nitenpyram"
+          }
+        ],
+        "atc_vet_code": "QP53BX02",
+        "manufacturer": {
+          "registration_number": "USA-USFDACVM-N141175",
+          "name": "Elanco US Inc"
+        },
+        "dosage_form": "Tablet",
+        "dose": {
+          "denominator_unit": "Unknown",
+          "numerator_unit": "tablet",
+          "denominator": "1",
+          "numerator": "1"
+        },
+        "route": "Oral",
+        "first_exposure_date": "20150601",
+        "administered_by": "Animal Owner"
+      }
+    ]
+  }
 }
