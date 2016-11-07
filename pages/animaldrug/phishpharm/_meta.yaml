@@ -1,6 +1,6 @@
 documentTitle: openFDA › Animal Drugs › Phish Pharm API
 name: Animal Drug Phish Pharm
-description: ""
+description: "The FDA’s Center for Veterinary Medicine Office of Research developed and regularly updates Phish-Pharm, a free, searchable, literature database that details drug metabolism, depletion, and pharmacokinetics in fish."
 datasets:
   - SPL
 label: Animal Drug Phish Pharm
