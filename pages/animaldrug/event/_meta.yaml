@@ -6,5 +6,5 @@ datasets:
   - FAERS
 path: /animaldrug/event
 start: 20040101
-dateConstraintKey: receivedate
+dateConstraintKey: original_receive_date
 type: endpoint
