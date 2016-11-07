@@ -108,7 +108,7 @@ properties:
     possible_values:
     type: string
   pub_date:
-    description: "Original publication date of the study."
+    description: "Original publication year of the study."
     format:
     is_exact: false
     possible_values:
