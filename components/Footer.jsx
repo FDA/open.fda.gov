@@ -74,9 +74,8 @@ const Footer = () => (
           <a href='https://www.fda.gov/'>
             <img
               alt='Go to FDA website'
-              height='25px'
-              width='62px'
-              src='/img/l_FDA_white.png'
+              height='60px'
+              src='/img/gov-fda-new-white.svg'
             />
           </a>
         </li>
