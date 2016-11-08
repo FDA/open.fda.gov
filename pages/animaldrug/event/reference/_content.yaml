@@ -46,6 +46,7 @@
   - animal.reproductive_status
   - animal.species
   - animal.weight
+  - health_assessment_prior_to_exposure
   - health_assessment_prior_to_exposure.assessed_by
 - "#### Drugs"
 - "Information on the drugs taken while the event was experienced."
