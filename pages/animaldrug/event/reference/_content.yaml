@@ -37,22 +37,27 @@
 - fields:
   - number_of_animals_treated
   - number_of_animals_affected
-  - animal
-  - health_assessment_prior_to_exposure
+  - animal.age
+  - animal.breed
+  - animal.female_animal_physiological_status
+  - animal.gender
+  - animal.reproductive_status
+  - animal.species
+  - animal.weight
   - health_assessment_prior_to_exposure.assessed_by
 - "#### Drugs"
 - "Information on the drugs taken while the event was experienced."
 - fields:
-  - frequency_of_administration
-  - administered_by
-  - dose
-  - dose.quantity
-  - used_according_to_label
-  - off_label_use
-  - previous_exposure_to_drug
-  - previous_ae_to_drug
-  - ae_abated_after_stopping_drug
-  - ae_reappeared_after_resuming_drug
+  - drug.frequency_of_administration
+  - drug.administered_by
+  - drug.dose
+  - drug.dose.quantity
+  - drug.used_according_to_label
+  - drug.off_label_use
+  - drug.previous_exposure_to_drug
+  - drug.previous_ae_to_drug
+  - drug.ae_abated_after_stopping_drug
+  - drug.ae_reappeared_after_resuming_drug
   - drug.manufacturing_date
   - drug.lot_number
   - drug.lot_expiration
@@ -66,7 +71,7 @@
   - drug.last_exposure_date
 - "#### openFDA fields"
 - "Different datasets use different drug identifiers—brand name, generic name, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets."
-- "openFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other veterinary medicinal product information. A majority of adverse event records have a least one `openfda` section. Because the harmonization process requires an exact match, some veterinary medicinal products cannot be harmonized in this fashion—for instance, if the product NDC is missing. Some products will have `openfda` sections, while other will never, if there was no match during the harmonization process."
+- "openFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other veterinary medicinal product information. A majority of adverse event records have a least one `openfda` section. Because the harmonization process requires an exact match, some veterinary medicinal products cannot be harmonized in this fashion—for instance, if the product NDC is missing. Some products will have `openfda` sections, while others never will, if there was no match during the harmonization process."
 - fields:
   - drug.openfda
   - drug.manufacturer.registration_number
