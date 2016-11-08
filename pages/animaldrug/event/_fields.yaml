@@ -26,7 +26,7 @@ properties:
             is_exact: false
             possible_values:
             type: float
-        type: string
+        type: object
       breed:
         description: "Describes the breed of the animal(s) associated with the species."
         format:
@@ -45,7 +45,7 @@ properties:
             is_exact: true
             possible_values:
             type: string
-        type: string
+        type: object
       female_animal_physiological_status:
         description: "Describes the pregnancy and lactation status of affected female animal(s)."
         format:
@@ -679,7 +679,7 @@ properties:
         possible_values:
         type: string
   report_id:
-    description: "The globally unique adverse event report is designated by the Marketing Authorization Holder. It consists of a 3-character ISO 3166 country code, 8-character MAH identifier code, and a unique number assigned by the MAH. If the report originally was sent by a Regulatory Authority, this number may include the RA identifier code in place of the MAH identifier code."
+    description: "This field is used for the sender to identify additional information that may be used to process the information into their IT systems. The format for the report identifier is the 1-character application/file identifier followed by the 6-number identifier assigned by FDA for that application/file (e.g., A200999). The application/file number is the NADA or ANADA number to which the report is being sent."
     format:
     is_exact: false
     possible_values:
@@ -726,6 +726,12 @@ properties:
     type: string
   type_of_submission:
     description: "A list of values regarding the type of report being submitted."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  unique_aer_id_number:
+    description: "The globally unique adverse event report is designated by the Marketing Authorization Holder. It consists of a 3-character ISO 3166 country code, 8-character MAH identifier code, and a unique number assigned by the MAH. If the report originally was sent by a Regulatory Authority, this number may include the RA identifier code in place of the MAH identifier code."
     format:
     is_exact: false
     possible_values:

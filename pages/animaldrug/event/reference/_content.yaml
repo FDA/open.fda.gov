@@ -24,8 +24,10 @@
 - "### Header"
 - "General information about the adverse event."
 - fields:
+  - unique_aer_report_id
   - report_id
   - original_receive_date
+  - receiver
   - primary_reporter
   - secondary_reporter
   - type_of_submission
