@@ -1,21 +1,5 @@
 {
   "animaldrug": {
-    "header": {
-      "treated_for_ae": "false",
-      "receiver": {
-        "country": "USA",
-        "street_address": "7500 Standish Place (HFV-210) Room N403",
-        "city": "Rockville",
-        "organization": "Food and Drug Administration Center for Veterinary Medicine",
-        "state": "MD",
-        "postal_code": "20855"
-      },
-      "unique_aer_id_number": "USA-USFDACVM-2016-US-######",
-      "original_receive_date": "20160118",
-      "number_of_animals_affected": "1",
-      "primary_reporter": "Animal Owner",
-      "number_of_animals_treated": "1"
-    },
     "animal": {
       "gender": "Male",
       "species": "Dog",
