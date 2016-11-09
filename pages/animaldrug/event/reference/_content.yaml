@@ -58,7 +58,7 @@
 - fields:
   - onset_date
   - duration
-  - reaction.veddra_term_name
+  - reaction
   - time_between_exposure_and_onset
   - treated_for_ae
 - "datasets"
