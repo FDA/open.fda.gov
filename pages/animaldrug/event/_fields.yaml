@@ -1,37 +1,34 @@
+type: object
 properties:
   animal:
     description: "Animal(s) involved in the adverse drug event."
+    type: object
     properties:
       age:
         description: "Describes the age of the affected animal(s)."
-        format:
-        is_exact: false
-        possible_values:
+        type: object
         properties:
           qualifier:
             description:
             format:
             is_exact: false
-            possible_values:
             type: string
           unit:
             description:
             format:
             is_exact: false
-            possible_values:
             type: string
           value:
             description:
             format:
             is_exact: false
-            possible_values:
             type: float
-        type: object
       breed:
         description: "Describes the breed of the animal(s) associated with the species."
         format:
         is_exact: false
         possible_values:
+        type: object
         properties:
           is_crossbred:
             description:
@@ -45,7 +42,6 @@ properties:
             is_exact: true
             possible_values:
             type: string
-        type: object
       female_animal_physiological_status:
         description: "Describes the pregnancy and lactation status of affected female animal(s)."
         format:
@@ -95,7 +91,6 @@ properties:
             possible_values:
             type: float
         type: object
-    type: object
   domestic_or_foreign:
     description: "Domestic reports are those that involve an FDA-regulated veterinary medicinal product, regardless of the country in which the adverse event occurs. Foreign reports are those that involve a veterinary medicinal product that is the same as or similar to an FDA-regulated product but that is not the FDA-approved product."
     format:
@@ -103,6 +98,7 @@ properties:
     possible_values:
     type: string
   drug:
+    desccription: "The drug taken while the event was experienced."
     properties:
       active_ingredients:
         description: "Active ingredients for the veterinary medicinal product."
@@ -543,6 +539,7 @@ properties:
     format:
     is_exact: false
     possible_values:
+    type: object
     properties:
       assessed_by:
         description: "Who the animal affected by the adverse event was assessed by."
@@ -556,7 +553,6 @@ properties:
         is_exact: true
         possible_values:
         type: string
-    type: object
   number_of_animals_affected:
     description: "Total number of animals affected by the adverse event, whether through direct or indirect exposure (e.g. treated during pregnancy or lactation, commingled, infection spread, etc.)."
     format:
