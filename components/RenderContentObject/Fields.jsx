@@ -53,7 +53,11 @@ const _renderLi = (props: tLiProps) => {
   // whether field has .exact
   let isExact: bool = false
 
-  if (field) {
+  if (!field.description) {
+    return
+  }
+
+  if (field ) {
     desc = field.description
     pattern = field.pattern
     type = field.type
