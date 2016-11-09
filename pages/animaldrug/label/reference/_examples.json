@@ -35,28 +35,137 @@
       }
     ]
   },
-  "results": {
+  "id_and_version": {
     "results": [
       {
-        "effective_time": "20150302",
+        "version": "1",
+        "set_id": "00b3d016-a6bb-4335-89fe-ae5f26914633",
+        "id": "00b3d016-a6bb-4335-89fe-ae5f26914633"
+      }
+    ]
+  },
+  "adverse_effects_and_interactions": {
+    "results": [
+      {
+        "drug_interactions": [
+          "7. DRUG INTERACTIONS No interactions with other drugs or nutritional products are known. The safety and compatibility of other..."
+        ],
+        "adverse_reactions": [
+          "6. ADVERSE REACTIONS 6.1 Overall Adverse Reaction Profile Products containing hydroxyethyl starch may lead to anaphylactoid...",
+          "6.1 Overall Adverse Reaction Profile Products containing hydroxyethyl starch may lead to anaphylactoid reactions..."
+        ]
+      }
+    ]
+  },
+  "clinical_pharmacology": {
+    "results": [
+      {
+        "pharmacodynamics": [
+          "Pharmacodynamics: In a study of pharmacodynamic effects using horses with gastric cannulae, secretion of gastric acid was inhibited..."
+        ],
+        "mechanism_of_action": [
+          "Mechanism of Action: Omeprazole is a gastric acid pump inhibitor that regulates the final step in hydrogen ion production..."
+        ],
+        "pharmacokinetics": [
+          "Pharmacokinetics: In a pharmacokinetic study involving thirteen healthy, mixed breed horses (8 female, 5 male) receiving..."
+        ],
+        "clinical_pharmacology": [
+          "Clinical Pharmacology Mechanism of Action: Omeprazole is a gastric acid pump inhibitor that regulates the final step in hydrogen..."
+        ]
+      }
+    ]
+  },
+  "indications_and_dosage": {
+    "results": [
+      {
+        "contraindications": [
+          "CONTRAINDICATIONS KETASET is contraindicated in cats and subhuman primates suffering from renal or hepatic insufficiency..."
+        ],
         "inactive_ingredient": [
           "INACTIVE INGREDIENTS: Demineralized water, 20% Ethanol"
         ],
-        "keep_out_of_reach_of_children": [
-          "KEEP OUT OF REACH OF CHILDREN: Keep out of reach of children."
-        ],
         "purpose": [
-          "INDICATIONS: For temporary relief of symptoms due to parasitic infestation such as anal irritation, itching and abdominal bloating.** **These statements are based upon traditional homeopathic practice. They have not been reviewed by the Food and Drug Administration."
+          "INDICATIONS: For temporary relief of symptoms due to parasitic infestation such as anal irritation, itching and abdominal..."
         ],
-        "warnings": [
-          "WARNINGS: Keep out of reach of children. Consult your veterinarian for assistance in the diagnosis, treatment, and control of parasitism. This is a tamper resistant package. Do not use if tamper evident seal is broken or missing."
-        ],
-        "questions": [
-          "QUESTIONS: Dist. by Peaceful Mountain, Inc. Woodbine, IA 51579 888-303-3388 www.peacefulmountain.com"
+        "description": [
+          "DESCRIPTION KETASET (ketamine hydrochloride injection, USP) is a rapid-acting, nonnarcotic, nonbarbiturate agent for..."
         ],
         "spl_product_data_elements": [
-          "Parasite Formula Artemisia Vulgaris, Cina, Filix Mas, Sabadilla, Spigelia Anthelmia, Baryta Carbonica, Calcarea Carbonica, Sulphur, Terebinthina ARTEMISIA VULGARIS ROOT ARTEMISIA VULGARIS ROOT ARTEMISIA CINA PRE-FLOWERING TOP ARTEMISIA CINA FLOWER DRYOPTERIS FILIX-MAS ROOT DRYOPTERIS FILIX-MAS ROOT SCHOENOCAULON OFFICINALE SEED SCHOENOCAULON OFFICINALE SEED SPIGELIA ANTHELMIA SPIGELIA ANTHELMIA BARIUM CARBONATE BARIUM CATION OYSTER SHELL CALCIUM CARBONATE, CRUDE OYSTER SHELL CALCIUM CARBONATE, CRUDE SULFUR SULFUR TURPENTINE OIL TURPENTINE OIL WATER ALCOHOL"
+          "Parasite Formula Artemisia Vulgaris, Cina, Filix Mas, Sabadilla, Spigelia Anthelmia, Baryta Carbonica, Calcarea Carbonica..."
         ],
+        "dosage_and_administration": [
+          "DOSAGE AND ADMINISTRATION DOSAGE AND ADMINISTRATION: Mature Horses and Cattle, administer orally 1/2 to 1 1/2 Boluses two..."
+        ],
+        "dosage_forms_and_strengths": [
+          "CONTENTS CONTENTS: Each Bolus contains: Acetylsalicylic Acid..........480 grains (31.2 g)"
+        ],
+        "indications_and_usage": [
+          "INDICATIONS KETASET may be used in cats for restraint or as the sole anesthetic agent for diagnostic or minor, brief, surgical procedures that do not require skeletal muscle relaxation. It may be used in subhuman primates for restraint."
+        ],
+        "active_ingredient": [
+          "ACTIVE INGREDIENTS: Artemisia Vulgaris 3X, Cina 3X, Filix Mas 3X, Sabadilla 3X, Spigelia Anthelmia 3X, Baryta Carbonica 12X, Calcarea Carbonica 12X, Sulphur 12X, Terebinthina 12X"
+        ]
+      }
+    ]
+  },
+  "supply_and_handling": {
+    "results": [
+      {
+        "safe_handling_warning": [
+          "FIRST AID If in Eyes: Immediately flush eyes with plenty of cool, running water. Remove contact lenses..."
+        ],
+        "storage_and_handling": [
+          "STORAGE INFORMATION Store at or below 25°C (77°F). Protect from light. Do not use if precipitate appears. Use contents within 4 months of first puncture."
+        ],
+        "how_supplied": [
+          "HOW SUPPLIED KETASET (ketamine hydrochloride injection, USP) is supplied as the hydrochloride in concentrations equivalent to ketamine base. Each 10 mL vial contains 100 mg/mL. NDC 0856-2013-01 — 10 mL — vial"
+        ]
+      }
+    ]
+  },
+  "warnings_and_precautions": {
+    "results": [
+      {
+        "precautions": [
+          "CAUTION For external use only. Avoid contact with eyes. Consult your veterinarian in cases of deep or puncture wounds, animal bites, serious burns or if redness and irritation persists or increases."
+        ],
+        "warnings": [
+          "For animal use only. Keep out of reach of children and pets to prevent accidental ingestion."
+        ],
+        "general_precautions": [
+          "FOR COMMERCIAL USE ONLY KEEP OUT OF REACH OF CHILDREN NOT FOR HUMAN USE"
+        ],
+        "boxed_warning": [
+          "WARNING: The active ingredient in Topmax, ractopamine hydrochloride..."
+        ]
+      }
+    ]
+  },
+  "other_fields": {
+    "results": [
+      {
+        "spl_unclassified_section": [
+          "Heifers T - H with Tylan ® (trenbolone and tylosin implant) Each implant consists of 200 mg trenbolone acetate...",
+          "GENERAL INSTRUCTIONS: Study the instructions which should be followed carefully at all times, avoiding short cuts...",
+          "IMPLANTING INSTRUCTIONS: Loading the Implanter Load the implanter following the instructions supplied with each..."
+        ],
+        "microbiology": [
+          "Microbiology: Clindamycin is a lincosaminide antimicrobial agent with activity against a wide variety of aerobic..."
+        ],
+        "laboratory_tests": [
+          "Table 1. Clindamycin MIC Values (microgram/mL) from Diagnostic Laboratory Survey Data Evaluating Canine Pathogens...",
+          "Table 2. Clindamycin MIC Values (microgram/mL) from Diagnostic Laboratory Survey Data Evaluating Feline Pathogens..."
+        ],
+        "package_label_principal_display_panel": [
+          "Image of bottle/case label (Iss. 07-13) 20 mL bottle/case label",
+          "Image of Carton label (Iss. 06-13) Image of carton label"
+        ]
+      }
+    ]
+  },
+  "openfda": {
+    "results": [
+      {
         "openfda": {
           "product_ndc": [
             "43846-0049"
@@ -96,22 +205,7 @@
           "manufacturer_name": [
             "Peaceful Mountain, Inc."
           ]
-        },
-        "version": "1",
-        "dosage_and_administration": [
-          "DIRECTIONS: 1 to 2 drops per dose; frequency to be determined by severity of condition. May be administered by dropper in the mouth, on the nose, in the ears, on the foot pad, or on any non-haired portion of skin."
-        ],
-        "package_label_principal_display_panel": [
-          "PACKAGE LABEL DISPLAY: Seya's Healthy Paws Parasite Formula Homeopathic Pet Remedy 1 fl. oz. (30 ml) Parasite Formula"
-        ],
-        "indications_and_usage": [
-          "INDICATIONS: For temporary relief of symptoms due to parasitic infestation such as anal irritation, itching and abdominal bloating.** **These statements are based upon traditional homeopathic practice. They have not been reviewed by the Food and Drug Administration."
-        ],
-        "set_id": "001d66b0-4d56-4c04-8f70-c8e7e0020299",
-        "id": "c8a5c6bb-6301-4fba-9973-68d0a6521760",
-        "active_ingredient": [
-          "ACTIVE INGREDIENTS: Artemisia Vulgaris 3X, Cina 3X, Filix Mas 3X, Sabadilla 3X, Spigelia Anthelmia 3X, Baryta Carbonica 12X, Calcarea Carbonica 12X, Sulphur 12X, Terebinthina 12X"
-        ]
+        }
       }
     ]
   }
