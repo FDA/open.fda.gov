@@ -11,6 +11,14 @@
 - "Adverse event reports submitted to FDA do not undergo extensive validation or verification. Therefore, **a causal relationship cannot be established between veterinary medicinal product (VMP) and reactions listed in a report.** While a suspected relationship *may* exist, it is not medically validated and should not be the sole source of information for clinical decision making or other assumptions about the safety or efficacy of a VMP."
 - "Additionally, it is important to remember that adverse event reports represent a small percentage of total usage numbers of a VMP. Common VMPs may have a higher number of adverse events due to the higher total number of animals being given the product. In recent years the FDA has undertaken efforts to increase collection of adverse events. Increases in the total number of adverse events is likely caused by improved reporting."
 - "downloads"
+- "## Anatomy of a response"
+- "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."
+- example: anatomy
+- "### Meta"
+- "For non-`count` queries, the `meta` section includes a disclaimer, a link to the openFDA data license, and information about the results that follow."
+- example: meta
+- fields:
+  - meta
 - "### Results"
 - "For non-`count` queries, the `results` section includes matching animal drugs adverse event reports returned by the API."
 - "Each animal drug adverse event report consists of these major sections:"
@@ -20,9 +28,9 @@
   - "**Drugs:** Information on the drugs taken while the event was experienced"
   - "**Reactions:** Information on the reactions experienced by the patient"
 - "## Field-by-field reference"
-- example: animaldrug
 - "### Header"
 - "General information about the adverse event."
+- example: header
 - fields:
   - unique_aer_id_number
   - report_id
@@ -36,6 +44,7 @@
   - domestic_or_foreign
 - "### Animal"
 - "Information about the animal(s) in the adverse event report."
+- example: animal
 - fields:
   - number_of_animals_treated
   - number_of_animals_affected
@@ -43,11 +52,13 @@
   - health_assessment_prior_to_exposure
 - "#### Drugs"
 - "Information on the drugs taken while the event was experienced."
+- example: drugs
 - fields:
   - drug
 - "#### openFDA fields"
 - "Different datasets use different drug identifiers—brand name, generic name, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets."
 - "openFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other veterinary medicinal product information. A majority of adverse event records have a least one `openfda` section. Because the harmonization process requires an exact match, some veterinary medicinal products cannot be harmonized in this fashion—for instance, if the product NDC is missing. Some products will have `openfda` sections, while others never will, if there was no match during the harmonization process."
+- example: openfda
 - fields:
   - drug.openfda
   - drug.manufacturer.registration_number
@@ -55,6 +66,7 @@
   - "A single drug product listed in an adverse event report may have multiple associated manufacturer names, NDCs, and SPLs in a corresponding `openfda` section. That is because the drug may have multiple manufacturers, packagers, dosage forms, etc. Their inclusion in the `openfda` section does not mean that they had any connection to the adverse event. The ordering of data in `openfda` fields is not significant."
 - "#### Reactions"
 - "Information on the reactions experienced."
+- example: reactions
 - fields:
   - onset_date
   - duration

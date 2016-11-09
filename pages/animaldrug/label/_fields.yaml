@@ -560,7 +560,7 @@ properties:
           is_exact: true
           type: string
           pattern:
-          description:
+          description: "The type of veterinary medicinal product."
           possible_values:
             type: reference
             value:

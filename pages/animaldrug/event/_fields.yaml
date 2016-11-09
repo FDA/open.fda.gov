@@ -587,6 +587,65 @@ properties:
         is_exact: true
         possible_values:
         type: string
+  meta:
+    format:
+    type: object
+    description: 'This section contains a disclaimer and license information. The field `last_updated` indicates when the data files were exported.'
+    possible_values:
+    properties:
+      type: object
+      disclaimer:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Important details notes about openFDA data and limitations of the dataset."
+        possible_values:
+      license:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Link to a web page with license terms that govern data within openFDA."
+        possible_values:
+      terms:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Link to a web page with terms that govern data within openFDA."
+        possible_values:
+      last_updated:
+        format: date
+        is_exact: false
+        type: string
+        pattern:
+        description: "The last date when this openFDA endpoint was updated. Note that this does not correspond to the most recent record for the endpoint or dataset. Rather, it is the last time the openFDA API was itself updated."
+        possible_values:
+      results:
+        type: object
+        properties:
+          skip:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Offset (page) of results, defined by the `skip` [query parameter](/api/)."
+            possible_values:
+          limit:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Number of records in this return, defined by the `limit` [query parameter](/api/). If there is no `limit` parameter, the API returns one result."
+            possible_values:
+          total:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Total number of records matching the search criteria."
+            possible_values:
   number_of_animals_affected:
     description: "Total number of animals affected by the adverse event, whether through direct or indirect exposure (e.g. treated during pregnancy or lactation, commingled, infection spread, etc.)."
     format:

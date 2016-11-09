@@ -19,7 +19,7 @@
   - meta.results.limit
   - meta.results.total
 - "### Results"
-- "For non-`count` queries, the `results` section includes matching adverse event reports returned by the API."
+- "For non-`count` queries, the `results` section includes matching animal drug records returned by the API."
 - "Each SPL record consists of three sets of fields:"
 - ul:
   - "Standard SPL fields, including unique identifiers."
