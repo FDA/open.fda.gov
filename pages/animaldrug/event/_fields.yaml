@@ -8,21 +8,34 @@ properties:
         description: "Describes the age of the affected animal(s)."
         type: object
         properties:
-          qualifier:
-            description:
+          max:
+            description: "This is the age of the oldest of the affected animals."
             format:
             is_exact: false
-            type: string
-          unit:
-            description:
-            format:
-            is_exact: false
-            type: string
-          value:
-            description:
-            format:
-            is_exact: false
+            possible_values:
             type: float
+          min:
+            description: "This is the age of the youngest of the affected animals, or the age of a single affected animal."
+            format:
+            is_exact: false
+            possible_values:
+            type: float
+          qualifier:
+            description: "This describes the method used to determine the age of the affected animal(s)."
+            format:
+            is_exact: false
+            type: string
+            possible_values:
+              type: one_of
+              value:
+                Measured: "The age of the animal(s) is known."
+                Estimated: "The age of the animal(s) is not known, but an estimation of the age can be made."
+                Unknown: "The age of the animal(s) is not known."
+          unit:
+            description: "The unit of measurement for age."
+            format:
+            is_exact: false
+            type: string
       breed:
         description: "Describes the breed of the animal(s) associated with the species."
         format:
@@ -31,13 +44,13 @@ properties:
         type: object
         properties:
           is_crossbred:
-            description:
+            description: "Identifies an animal made up of more than one breed."
             format:
             is_exact: false
             possible_values:
             type: boolean
-          name:
-            description:
+          breed_component:
+            description: "Describes the different breeds involved in the crossbreed."
             format:
             is_exact: true
             possible_values:
@@ -71,26 +84,37 @@ properties:
         format:
         is_exact: false
         possible_values:
+        type: object
         properties:
-          qualifier:
-            description:
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          unit:
-            description:
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          value:
-            description:
+          max:
+            description: "This is the maximum weight of the affected animals."
             format:
             is_exact: false
             possible_values:
             type: float
-        type: object
+          min:
+            description: "This is the minimum weight of the affected animals, or the weight of a single affected animal."
+            format:
+            is_exact: false
+            possible_values:
+            type: float
+          qualifier:
+            description: "This list describes how the weight of the affected animal(s) was determined."
+            format:
+            is_exact: false
+            possible_values:
+              type: one_of
+              value:
+                Measured: "The animal was weighed."
+                Estimated: "The animal was not weighed but an estimation of the age can be made."
+                Unknown: "The animal's weight is not known."
+            type: string
+          unit:
+            description: "Units of measurement for weight."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
   domestic_or_foreign:
     description: "Domestic reports are those that involve an FDA-regulated veterinary medicinal product, regardless of the country in which the adverse event occurs. Foreign reports are those that involve a veterinary medicinal product that is the same as or similar to an FDA-regulated product but that is not the FDA-approved product."
     format:
@@ -99,44 +123,45 @@ properties:
     type: string
   drug:
     desccription: "The drug taken while the event was experienced."
+    type: object
     properties:
       active_ingredients:
         description: "Active ingredients for the veterinary medicinal product."
-        type: string
+        type: object
         properties:
           dose:
             description: "The actual dose administered to the animal involved in the adverse event."
             format:
             is_exact: false
             possible_values:
+            type: object
             properties:
               denominator:
-                description:
+                description: "This describes the recipient of the dose by individual animal, weight, volume, etc."
                 format:
                 is_exact: false
                 possible_values:
                 type: float
               denominator_unit:
-                description:
+                description: "This describes the recipient of the dose by individual animal, weight, volume, etc. "
                 format:
                 is_exact: false
                 possible_values:
                 type: string
               numerator:
-                description:
+                description: "This is the quantity/volume of the actual dose given, e.g., number of tablets, number of boluses, amount of feed, quantity of solution, etc"
                 format:
                 is_exact: false
                 possible_values:
                 type: float
               numerator_unit:
-                description:
+                description: "These are the units that qualify the numeric value for dose."
                 format:
                 is_exact: false
                 possible_values:
                 type: string
-            type: string
           name:
-            description:
+            description: "Name of the active ingredient."
             format:
             is_exact: true
             possible_values:
@@ -151,6 +176,7 @@ properties:
         description: "A list of values (Yes, No, Unknown, or Not Applicable) describing whether the adverse event abated after stopping the veterinary medicinal product."
         format:
         is_exact: false
+        type: boolean
         possible_values:
           type: one_of
           value:
@@ -158,11 +184,11 @@ properties:
             No: "Adverse event did not abate."
             Unknown: "Information is not available."
             Not Applicable: "The veterinary medicinal product was neither stopped nor re-introduced."
-        type: boolean
       ae_reappeared_after_resuming_drug:
         description: "A list of values (Yes, No, Unknown, or Not Applicable) describing whether the adverse event reappeared after re-introduction of the veterinary medicinal product."
         format:
         is_exact: false
+        type: boolean
         possible_values:
           type: one_of
           value:
@@ -170,7 +196,6 @@ properties:
             No: "Adverse event did not reappear."
             Unknown: "Information is not available."
             Not Applicable: "The veterinary medicinal product was neither stopped nor re-introduced."
-        type: boolean
       atc_vet_code:
         description: "The Anatomic Therapeutic Chemical system for the classification of substance intended for therapeutic use, which can serve as a tool for the classification of Veterinary Medicinal Products."
         format:
@@ -195,20 +220,30 @@ properties:
         is_exact: false
         possible_values:
         properties:
-          quantity:
-            description: "The quantity/volume of the actual dose given, e.g. number of tablets, number of boluses, amount of feed, quantity of solution, etc."
+          denominator:
+            description: "This describes the recipient of the dose by individual animal, weight, volume, etc."
             format:
             is_exact: false
             possible_values:
             type: float
-          unit:
-            description:
+          denominator_unit:
+            description: "This describes the recipient of the dose by individual animal, weight, volume, etc. "
             format:
-            index: not_analyzed
             is_exact: false
             possible_values:
             type: string
-        type: object
+          numerator:
+            description: "This is the quantity/volume of the actual dose given, e.g., number of tablets, number of boluses, amount of feed, quantity of solution, etc"
+            format:
+            is_exact: false
+            possible_values:
+            type: float
+          numerator_unit:
+            description: "These are the units that qualify the numeric value for dose."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
       first_exposure_date:
         description: "The date (day, month and year) on which the animal was first treated with the veterinary medicinal product."
         format: date
@@ -220,20 +255,20 @@ properties:
         format:
         is_exact: false
         possible_values:
+        type: object
         properties:
           unit:
-            description:
+            description: "These are the units that qualify the numeric value of the frequency of administration."
             format:
             is_exact: false
             possible_values:
             type: string
           value:
-            description:
+            description: "This is a number that characterizes the frequency of administration of the veterinary medicinal product(s)."
             format:
             is_exact: false
             possible_values:
             type: float
-        type: string
       last_exposure_date:
         description: "The date (day, month and year) on which the animal was last treated with the veterinary medicinal product."
         format: date
@@ -256,7 +291,7 @@ properties:
         type: object
         properties:
           name:
-            description:
+            description: "The name of the manufacturer."
             format:
             is_exact: true
             possible_values:
@@ -449,7 +484,7 @@ properties:
           substance_name:
             type: array
             items:
-              description:
+              description: "The substance name of the veterinary medicinal product."
               format:
               is_exact: true
               possible_values:
@@ -472,6 +507,7 @@ properties:
         description: "A list of values (Yes, No, Unknown, or Not Applicable) describing whether or not the affected animal(s) experienced an adverse event when exposed to the veterinary medicinal product on a date previous to this adverse event report."
         format:
         is_exact: false
+        type: boolean
         possible_values:
           type: one_of
           value:
@@ -479,18 +515,17 @@ properties:
             No: "There was no previous adverse event."
             Unknown: "Information is not available."
             Not Applicable: "There was no previous exposure to the veterinary medicinal product."
-        type: boolean
       previous_exposure_to_drug:
         description: "A list of values (Yes, No, or Unknown) describing whether or not the affected animal(s) had been exposed to the veterinary medicinal product on a date previous to the adverse event report."
         format:
         is_exact: false
+        type: boolean
         possible_values:
           type: one_of
           value:
             Yes: "There was a previous exposure."
             No: "There was no previous exposure."
             Unknown: "Information is not available."
-        type: boolean
       product_ndc:
         description: "The national drug code number for the veterinary medicinal product(s) involved in the adverse event"
         format:
@@ -507,33 +542,32 @@ properties:
         description: "A list of values (Yes, No, or Unknown) describing whether the veterinary medicinal product was used according to its labeled recommendations/directions of use."
         format:
         is_exact: false
+        type: boolean
         possible_values:
           type: one_of
           value:
             Yes: "The veterinary medicinal product was used according to its labeled recommendations/directions of use."
             No: "The veterinary medicinal product was used in an off-label use manner."
             Unknown: "Information is not available."
-        type: boolean
-    type: object
   duration:
     description: "The actual or approximate time the adverse event lasted."
     format:
     is_exact: false
     possible_values:
+    type: object
     properties:
       unit:
-        description:
+        description: "The unit of measurement for duration."
         format:
         is_exact: false
         possible_values:
         type: string
       value:
-        description:
+        description: "The unit associated with the numeric value for duration."
         format:
         is_exact: false
         possible_values:
         type: string
-    type: string
   health_assessment_prior_to_exposure:
     description: "Veterinarian’s assessment of the health status of the animal(s) involved in the adverse event prior to exposure. In case of human exposure, this would be the assessment by the attending physician."
     format:
@@ -548,7 +582,7 @@ properties:
         possible_values:
         type: string
       condition:
-        description:
+        description: "The animal's medical condition prior to exposure."
         format:
         is_exact: true
         possible_values:
@@ -578,24 +612,30 @@ properties:
     possible_values:
     type: date
   outcome:
-    description:
+    description: "This is the medical status of the animal(s) affected in the adverse event report at the time the adverse event is reported."
     format:
     is_exact: true
     possible_values:
+    type: object
     properties:
       medical_status:
-        description:
+        description: "The animal's medical status after treatment."
         format:
         is_exact: true
-        possible_values:
         type: string
+        possible_values:
+          Ongoing: "The number of animals described in the adverse event report with ongoing clinical manifestations."
+          Recovered/Normal: "The number of animals described in the adverse event report that have recovered or returned to normal health."
+          Recovered with Sequela: "The number of animals described in the adverse event report that have recovered but are left with an altered health status."
+          Died: "The number of animals described in the AER that died (not including those that have been euthanized)."
+          Euthanized: "The number of animals described in the AER that were euthanized."
+          Unknown: "The number of animals with an unknown outcome."
       number_of_animals_affected:
         description: "Total number of animals affected by the adverse event, whether through direct or indirect exposure (e.g. treated during pregnancy or lactation, commingled, infection spread, etc.)."
         format:
         is_exact: false
         possible_values:
         type: integer
-    type: string
   primary_reporter:
     description: "The person or organization who holds or provides the most pertinent information related to the adverse event report."
     format:
@@ -603,11 +643,12 @@ properties:
     possible_values:
     type: string
   reaction:
+    description:
+    type: object
     properties:
       accuracy:
-        description:
+        description: "Indicates whether the integer provided by `number_of_animals_affected` is an actual or estimated number"
         format:
-        index: not_analyzed
         is_exact: false
         possible_values:
         type: string
@@ -618,58 +659,59 @@ properties:
         possible_values:
         type: integer
       veddra_term_code:
-        description:
+        description: "The code indicating the lowest level term as used in VeDDRA for each adverse clinical manifestation observed in the adverse event."
         format:
         is_exact: false
         possible_values:
         type: string
       veddra_term_name:
-        description: "The VeDDRA Vocabulary is the VICH-harmonized list for submission of AE terms. The most current list, as well as a full explanation and guidance notes on the use of VeDDRA Terminology for Reporting Adverse Events in Animals, can be downloaded here."
+        description: "The lowest level term as used in VeDDRA for each adverse clinical manifestation observed in the adverse event."
         format:
         is_exact: true
         possible_values:
         type: string
       veddra_version:
-        description:
+        description: "Indicates the AER Message Version and Release Number on which this batch is based."
         format:
         is_exact: false
         possible_values:
         type: integer
-    type: object
   receiver:
+    description: "The receiver of the adverse event report."
+    type: object
     properties:
       city:
-        description:
+        description: "The city in which the adverse event report is received."
         format:
         is_exact: true
         possible_values:
         type: string
       country:
-        description:
+        description: "The country in which the adverse event report is received."
         format:
         is_exact: true
         possible_values:
         type: string
       organization:
-        description:
+        description: "The organization receiving the adverse event report."
         format:
         is_exact: true
         possible_values:
         type: string
       postal_code:
-        description:
+        description: "The postal code for the area in which the adverse event report is received."
         format:
         is_exact: true
         possible_values:
         type: string
       state:
-        description:
+        description: "The state in which the adverse event report is received."
         format:
         is_exact: true
         possible_values:
         type: string
       street_address:
-        description:
+        description: "The street address of the organization receiving the adverse event report."
         format:
         is_exact: true
         possible_values:
