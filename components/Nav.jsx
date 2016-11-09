@@ -62,8 +62,8 @@ const Nav = (props: tPROPS) => {
             <img
               alt='Go to FDA website'
               height='25px'
-              width='62px'
-              src='/img/l_FDA_white.png'
+              wwidth='240px'
+              src='/img/gov-fda-new-white.svg'
             />
           </a>
           <div className={hhsCx}>
