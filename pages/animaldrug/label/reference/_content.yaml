@@ -45,24 +45,27 @@
 - This page groups fields conceptually for ease of reference. In API results, fields will be ordered naturally as in the product labeling submission.
 - "### ID and version"
 - "All drug product labeling records contain these fields, which uniquely identify individual records."
-- example: results
+- example: id_and_version
 - fields:
   - set_id
   - id
   - version
   - effective_time
 - "### Adverse effects and interactions"
+- example: adverse_effects_and_interactions
 - fields:
   - adverse_reactions
   - drug_interactions
   - drug_and_or_laboratory_test_interactions
 - "### Clinical pharmacology"
+- example: clinical_pharmacology
 - fields:
   - clinical_pharmacology
   - mechanism_of_action
   - pharmacodynamics
   - pharmacokinetics
-- "### Indications, usage, and dosage"
+- "### Indications and dosage"
+- example: indications_and_dosage
 - fields:
   - indications_and_usage
   - contraindications
@@ -73,12 +76,14 @@
   - active_ingredient
   - inactive_ingredient
   - spl_product_data_elements
-- "### Supply, storage, and handling"
+- "### Supply and handling"
+- example: supply_and_handling
 - fields:
   - how_supplied
   - storage_and_handling
   - safe_handling_warning
 - "### Warnings and precautions"
+- example: warnings_and_precautions
 - fields:
   - boxed_warning
   - safety_warnings
@@ -86,6 +91,7 @@
   - warnings
   - general_precautions
 - "### Other fields"
+- example: other_fields
 - fields:
   - laboratory_tests
   - recent_major_changes
@@ -93,6 +99,7 @@
   - package_label_principal_display_panel
   - spl_unclassified_section
 - "### openFDA fields"
+- example: openfda
 - Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.
 - OpenFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other drug information. Drug products that appear in ADAE records are joined to the NDC dataset first on NDC drug code. If that is succesful, further links are established to other datasets.
 - fields:

@@ -643,7 +643,7 @@ properties:
     possible_values:
     type: string
   reaction:
-    description:
+    description: "Information about the reaction involved in the adverse event."
     type: object
     properties:
       accuracy:
