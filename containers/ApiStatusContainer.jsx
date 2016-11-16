@@ -26,7 +26,7 @@ const ApiStatusContainer = function (ComposedApiStatus: ReactClass): ReactClass 
         })
       }
 
-      xhrGET('https://api.fda.gov/status', _handleResponse, false)
+      xhrGET('http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/status', _handleResponse, false)
     }
 
     render (): ?React.Element {
