@@ -28,8 +28,8 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
         })
       }
 
-      //xhrGET('https://api.fda.gov/download.json', _handleResponse)
-      xhrGET('http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/download.json', _handleResponse)
+      xhrGET('https://api.fda.gov/download.json', _handleResponse)
+      //xhrGET('http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/download.json', _handleResponse)
     }
 
     _toggleDownloads () {
@@ -87,6 +87,7 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
       return (
         <ComposedDownloads
           k={this.props.k}
+          path={path}
           allPartitions={results.partitions}
           results={resultsByCat}
           showAllResults={this.state.showAllResults}
