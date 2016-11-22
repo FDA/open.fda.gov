@@ -83,7 +83,7 @@
   title: 'Device recall browser'
   description:
     - 'This app is an interface that supports paging through medical device recall records one at a time, with report fields presented in easy to read tables.'
-- url: 'https://openfda.shinyapps.io/deviceenforceview/'
+- url: 'https://openfda.shinyapps.io/foodrecallview/'
   noun: Foods
   title: 'Food enforcement report browser'
   description:
