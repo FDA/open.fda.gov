@@ -187,9 +187,10 @@ const Nav = (props: tPROPS) => {
                   <span className='menu-header' title='API Endpoints'>API Endpoints</span>
                   <div className='dropdown-content'>
                     <div className='sub-menu-container dropdown__content' role='navigation'>
-                        <Link className={linkCx} to='/drug/'>Drugs</Link>
-                        <Link className={linkCx} to='/device/'>Devices</Link>
+                        <Link className={linkCx} to='/animaldrug/'>Animal drugs</Link>
                         <Link className={linkCx} to='/food/'>Foods</Link>
+                        <Link className={linkCx} to='/drug/'>Human drugs</Link>
+                        <Link className={linkCx} to='/device/'>Medical devices</Link>
                     </div>
                     </div>
                 </div>

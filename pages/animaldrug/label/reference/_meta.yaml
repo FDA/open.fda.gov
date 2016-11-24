@@ -1,0 +1,8 @@
+documentTitle: openFDA › Animal Drugs › Drug Labeling API Reference
+name: Animal Drug labeling Reference
+description: ""
+datasets:
+  - SPL
+label: Animal Drug Labeling API Reference
+path: /animaldrug/label/reference
+type: endpoint

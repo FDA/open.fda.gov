@@ -34,7 +34,7 @@ const yamlGet = function (field: string, fieldsYAML: Object): void|Object {
 
     // If the current path takes us to an…
     // Object: push 'properties' to the path
-    if (type === 'object') {
+    if (type === 'object' && currentPath.split(".").pop() != field.split(".").pop()) {
       newPathParts.push('properties')
     }
     // Array: push 'items' to the path

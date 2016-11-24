@@ -1,0 +1,43 @@
+{
+  "results": [
+    {
+      "dosage": "5 mg/kg sd",
+      "is_half_life_estimated": false,
+      "depletion_time": null,
+      "water_type": "Freshwater",
+      "half_life_detail": "alpha=16h, beta=285h.",
+      "drug": "Flumequine",
+      "genus_species": "Oncorhynchus mykiss",
+      "pub_date": 1994,
+      "water_temperature": 13,
+      "pharmacokinetic_model": "three-compartment",
+      "clearance": null,
+      "water_temperature_detail": "13+/-1 C",
+      "id": 267,
+      "pub_authors": [
+        "Sohlberg S",
+        "Aulie A",
+        "Soli NE"
+      ],
+      "pub_url": "http://dx.doi.org/10.1016/0044-8486(94)90439-1",
+      "comments": "Catheterized fish.  Residues 2h=1.4, 4h=1.5, 8h=1.7, 12h=1.9, 24h=1.9, 35h=1.8, 49h=1.8, 74h= 1.6, 98h=1.3, 123h=1.4, 144h=1.2, 194h=1.2, 241h=1.1, 337h=0.9, 505h=0.4. ug/ml. t 1/2 alpha=16h, beta=285h.",
+      "method": "HPLC",
+      "dosage_detail": "5 mg/kg sd",
+      "protein_binding": null,
+      "weight": 498,
+      "pub_citation": "Aquaculture 119:1-10",
+      "vc": null,
+      "sample": [
+        "blood, plasma"
+      ],
+      "metabolites": null,
+      "vd": null,
+      "drug_class": "Antibiotic-Quinolone",
+      "half_life": 285,
+      "route": "PO",
+      "species": "Trout, rainbow",
+      "pub_title": "Temperature-dependent absorption and elimination of flumequine in rainbow trout (Oncorhynchus mykiss Walbaum) in fresh water.",
+      "weight_detail": "499+/-133 g"
+    }
+  ]
+}

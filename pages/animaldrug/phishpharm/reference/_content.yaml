@@ -1,0 +1,39 @@
+- "## About"
+- The openFDA phish farm API returns data from a searchable database of pharmacokinetic data in fish. The goal of the database is to aid researchers in finding and generating the necessary data to support safe and effective drug approvals for aquatic animals, to improve screening methods for illegal drugs, and to aid in study design by highlighting data gaps.
+- The database was updated in 2014. The current version contains data from nearly 600 articles covering 175 aquatic species and over 200 drug and chemical compounds.
+- "downloads"
+- "### Results"
+- "For non-`count` queries, the `results` section includes matching reports returned by the API."
+- example: results
+- "## Field-by-field reference"
+- fields:
+  - drug
+  - metabolites
+  - species
+  - depletion_time
+  - half_life
+  - is_half_life_estimated
+  - sample
+  - weight
+  - water_temperature
+  - water_type
+  - dosage
+  - route
+  - comments
+  - protein_binding
+  - clearance
+  - pub_authors
+  - vc
+  - vd
+  - pub_date
+  - pub_citation
+  - pub_title
+  - pub_url
+  - genus_species
+  - drug_class
+  - half_life_detail
+  - weight_detail
+  - water_temperature_detail
+  - dosage_detail
+  - method
+  - pharmacokinetic_model

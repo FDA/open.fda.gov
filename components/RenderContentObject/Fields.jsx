@@ -53,7 +53,11 @@ const _renderLi = (props: tLiProps) => {
   // whether field has .exact
   let isExact: bool = false
 
-  if (field) {
+  if (!field.description && !field.items) {
+    return
+  }
+
+  if (field ) {
     desc = field.description
     pattern = field.pattern
     type = field.type
@@ -159,28 +163,42 @@ const _renderLi = (props: tLiProps) => {
   )
 }
 
-// @TODO we can probably do away
-//       with this intermediate step
-const _renderFDA = (key: string, data) => {
-  const fieldKeys: Array<string> = data ? Object.keys(data) : ['']
+const _renderObj = (key: string, data) => {
+  const fieldKeys: Array<string> = data ? Object.keys(data.properties) : ['']
 
-  const fieldData: Array<?React.Element> = fieldKeys.map((key: string, i) => {
-    const field: void|Object = data && data[key]
+  const objectEntry = _renderLi({
+    field: data,
+    i: 0,
+    isFDA: false,
+    key
+  })
+  const fieldData: Array<?React.Element> = fieldKeys.map((obKey: string, i) => {
+    const field: void|Object = data && data.properties[obKey]
+    let fullKey = key + "." + obKey
+    if (field.type === "object") {
+      return _renderObj(
+        fullKey,
+        field
+      )
+    }
+    else {
 
-    if (!field) return null
+      if (!field) return null
 
-    return _renderLi({
-      field,
-      i,
-      isFDA: true,
-      key,
-    })
+      return _renderLi({
+        field,
+        i,
+        isFDA: false,
+        key: fullKey,
+      })
+    }
   })
 
   return (
-    <ul key={key}>
-      {fieldData}
-    </ul>
+      <ul key={key}>
+        {objectEntry}
+        {fieldData}
+      </ul>
   )
 }
 
@@ -208,9 +226,8 @@ const Fields = ({ data, fields, k }: tPROPS) => {
       return
     }
 
-    // openfda key is a special case
-    if (key.indexOf('openfda') !== -1) {
-      return _renderFDA(
+    if (field.type === "object") {
+      return _renderObj(
         key,
         field
       )

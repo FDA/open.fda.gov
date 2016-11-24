@@ -1,0 +1,8 @@
+- "## About animal drug adverse events"
+- "The FDA encourages veterinarians and animal owners to report adverse drug experiences associated with animal drugs. Adverse drug experiences can include side effects or other problems, like lack of effectiveness. The FDA recommends that an animal drug adverse event reporter include details on the following: names and amounts of all drugs, products marketed as supplements, or vitamins the animal has been given; current type and/or brand of pet food and treats; information about any recent surgeries; and as much information about the clinical findings as possible. Clinical findings may include: veterinary examination findings; bloodwork, urinalysis, and fecal exam results; radiographic findings; hemodynamic data such as blood pressure; and neurologic test results. However, the details and information submitted in any report may vary and in some cases certain information may not be included in a given report."
+- "To read more about animal drug adverse events and adverse event reporting, see [Animal & Veterinary Safety & Health](http://www.fda.gov/AnimalVeterinary/SafetyHealth/default.htm)."
+- "getting-started"
+- "downloads"
+- "### How to search this endpoint"
+- "Make API calls to `https://api.fda.gov/animaldrug/event.json` using search parameters for [fields specific to the animal drug adverse events endpoint.](/animaldrug/event/reference/)"
+- queryExplorer: oneReport

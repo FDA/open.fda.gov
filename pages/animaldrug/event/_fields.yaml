@@ -1,0 +1,835 @@
+type: object
+properties:
+  animal:
+    description: "Animal(s) involved in the adverse drug event."
+    type: object
+    properties:
+      age:
+        description: "Describes the age of the affected animal(s)."
+        type: object
+        properties:
+          max:
+            description: "This is the age of the oldest of the affected animals."
+            format:
+            is_exact: false
+            possible_values:
+            type: float
+          min:
+            description: "This is the age of the youngest of the affected animals, or the age of a single affected animal."
+            format:
+            is_exact: false
+            possible_values:
+            type: float
+          qualifier:
+            description: "This describes the method used to determine the age of the affected animal(s)."
+            format:
+            is_exact: false
+            type: string
+            possible_values:
+              type: one_of
+              value:
+                Measured: "The age of the animal(s) is known."
+                Estimated: "The age of the animal(s) is not known, but an estimation of the age can be made."
+                Unknown: "The age of the animal(s) is not known."
+          unit:
+            description: "The unit of measurement for age."
+            format:
+            is_exact: false
+            type: string
+      breed:
+        description: "Describes the breed of the animal(s) associated with the species."
+        format:
+        is_exact: false
+        possible_values:
+        type: object
+        properties:
+          is_crossbred:
+            description: "Identifies an animal made up of more than one breed."
+            format:
+            is_exact: false
+            possible_values:
+            type: boolean
+          breed_component:
+            description: "Describes the different breeds involved in the crossbreed."
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+      female_animal_physiological_status:
+        description: "Describes the pregnancy and lactation status of affected female animal(s)."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      gender:
+        description: "Described whether the affected animal(s) is male or female."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      reproductive_status:
+        description: "Describes whether the affected animal(s) is intact or neutered."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      species:
+        description: "A list of values regarding the species of animal affected."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      weight:
+        description: "Describes the weight of the animals involved in the adverse event."
+        format:
+        is_exact: false
+        possible_values:
+        type: object
+        properties:
+          max:
+            description: "This is the maximum weight of the affected animals."
+            format:
+            is_exact: false
+            possible_values:
+            type: float
+          min:
+            description: "This is the minimum weight of the affected animals, or the weight of a single affected animal."
+            format:
+            is_exact: false
+            possible_values:
+            type: float
+          qualifier:
+            description: "This list describes how the weight of the affected animal(s) was determined."
+            format:
+            is_exact: false
+            possible_values:
+              type: one_of
+              value:
+                Measured: "The animal was weighed."
+                Estimated: "The animal was not weighed but an estimation of the age can be made."
+                Unknown: "The animal's weight is not known."
+            type: string
+          unit:
+            description: "Units of measurement for weight."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+  domestic_or_foreign:
+    description: "Domestic reports are those that involve an FDA-regulated veterinary medicinal product, regardless of the country in which the adverse event occurs. Foreign reports are those that involve a veterinary medicinal product that is the same as or similar to an FDA-regulated product but that is not the FDA-approved product."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  drug:
+    desccription: "The drug taken while the event was experienced."
+    type: object
+    properties:
+      active_ingredients:
+        description: "Active ingredients for the veterinary medicinal product."
+        type: object
+        properties:
+          dose:
+            description: "The actual dose administered to the animal involved in the adverse event."
+            format:
+            is_exact: false
+            possible_values:
+            type: object
+            properties:
+              denominator:
+                description: "This describes the recipient of the dose by individual animal, weight, volume, etc."
+                format:
+                is_exact: false
+                possible_values:
+                type: float
+              denominator_unit:
+                description: "This describes the recipient of the dose by individual animal, weight, volume, etc. "
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              numerator:
+                description: "This is the quantity/volume of the actual dose given, e.g., number of tablets, number of boluses, amount of feed, quantity of solution, etc"
+                format:
+                is_exact: false
+                possible_values:
+                type: float
+              numerator_unit:
+                description: "These are the units that qualify the numeric value for dose."
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          name:
+            description: "Name of the active ingredient."
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+      administered_by:
+        description: "Describes the individual who administered the veterinary medicinal product(s) to the animal(s) involved in the adverse event."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      ae_abated_after_stopping_drug:
+        description: "A list of values (Yes, No, Unknown, or Not Applicable) describing whether the adverse event abated after stopping the veterinary medicinal product."
+        format:
+        is_exact: false
+        type: boolean
+        possible_values:
+          type: one_of
+          value:
+            Yes: "Adverse event abated."
+            No: "Adverse event did not abate."
+            Unknown: "Information is not available."
+            Not Applicable: "The veterinary medicinal product was neither stopped nor re-introduced."
+      ae_reappeared_after_resuming_drug:
+        description: "A list of values (Yes, No, Unknown, or Not Applicable) describing whether the adverse event reappeared after re-introduction of the veterinary medicinal product."
+        format:
+        is_exact: false
+        type: boolean
+        possible_values:
+          type: one_of
+          value:
+            Yes: "Adverse event reappeared."
+            No: "Adverse event did not reappear."
+            Unknown: "Information is not available."
+            Not Applicable: "The veterinary medicinal product was neither stopped nor re-introduced."
+      atc_vet_code:
+        description: "The Anatomic Therapeutic Chemical system for the classification of substance intended for therapeutic use, which can serve as a tool for the classification of Veterinary Medicinal Products."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      brand_name:
+        description: "The name by which the product is presented by the marketing authorization holder"
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      dosage_form:
+        description: "The labeled dosage form of the veterinary medicinal product(s) involved in the adverse event."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      dose:
+        description: "The actual dose administered to the animal involved in the adverse event."
+        format:
+        is_exact: false
+        possible_values:
+        properties:
+          denominator:
+            description: "This describes the recipient of the dose by individual animal, weight, volume, etc."
+            format:
+            is_exact: false
+            possible_values:
+            type: float
+          denominator_unit:
+            description: "This describes the recipient of the dose by individual animal, weight, volume, etc. "
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          numerator:
+            description: "This is the quantity/volume of the actual dose given, e.g., number of tablets, number of boluses, amount of feed, quantity of solution, etc"
+            format:
+            is_exact: false
+            possible_values:
+            type: float
+          numerator_unit:
+            description: "These are the units that qualify the numeric value for dose."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+      first_exposure_date:
+        description: "The date (day, month and year) on which the animal was first treated with the veterinary medicinal product."
+        format: date
+        is_exact: false
+        possible_values:
+        type: date
+      frequency_of_administration:
+        description: "Frequency of administration of the veterinary medicinal product(s) involved in the adverse event."
+        format:
+        is_exact: false
+        possible_values:
+        type: object
+        properties:
+          unit:
+            description: "These are the units that qualify the numeric value of the frequency of administration."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          value:
+            description: "This is a number that characterizes the frequency of administration of the veterinary medicinal product(s)."
+            format:
+            is_exact: false
+            possible_values:
+            type: float
+      last_exposure_date:
+        description: "The date (day, month and year) on which the animal was last treated with the veterinary medicinal product."
+        format: date
+        is_exact: false
+        possible_values:
+        type: date
+      lot_expiration:
+        description: "The expiration date of the veterinary medicinal product(s) involved in the adverse event."
+        format: year_month
+        is_exact: false
+        possible_values:
+        type: date
+      lot_number:
+        description: "The lot number of the veterinary medicinal product(s) involved in the adverse event."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      manufacturer:
+        type: object
+        properties:
+          name:
+            description: "The name of the manufacturer."
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          registration_number:
+            description: "A combination of the 3-character ISO 3166 code for the country where the veterinary medicinal product is approved, the 8-character RA Identifier code, and the registration number of the veterinary medicinal product involved in the adverse event."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+      manufacturing_date:
+        description: "The date the veterinary medicinal product was manufactured."
+        format: date
+        is_exact: false
+        possible_values:
+        type: date
+      number_of_defective_items:
+        description: "The number of defective items of the veterinary medicinal product described in the adverse event, based on the applicable retail unit."
+        format:
+        is_exact: false
+        possible_values:
+        type: integer
+      number_of_items_returned:
+        description: "The number of veterinary medicinal products returned as described in the adverse event."
+        format:
+        is_exact: false
+        possible_values:
+        type: integer
+      off_label_use:
+        description: "Describes how the veterinary medicinal product was used in an off-label manner."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      openfda:
+        type: object
+        properties:
+          application_number:
+            type: array
+            items:
+              description: "A combination of the 3-character ISO 3166 code for the country where the veterinary medicinal product is approved, the 8-character RA Identifier Code, and the registration number of the veterinary medicinal product involved in the adverse event."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+          brand_name:
+            type: array
+            items:
+              description: "The name by which the product is presented by the marketing authorization holder."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+          dosage_form:
+            description: "The labeled dosage form of the veterinary medicinal product(s) involved in the adverse event."
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          generic_name:
+            type: array
+            items:
+              description: "The generic name(s) of the veterinary medicinal product."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+          is_original_packager:
+            description: "Original packager of the veterinary medicinal product."
+            format:
+            is_exact: false
+            possible_values:
+            type: boolean
+          manufacturer_name:
+            type: array
+            items:
+              description: "Manufacturer of the veterinary medicinal product involved in the adverse event."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+          nui:
+            type: array
+            items:
+              description: "Unique Identifier Code of the veterinary medicinal product involved in the adverse event."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+          package_ndc:
+            type: array
+            items:
+              description: "National Drug Code for the package containing veterinary medicinal products involved in an adverse event."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+          pharm_class_cs:
+            type: array
+            items:
+              description: "Chemical structure classification of the veterinary medicinal product’s pharmacologic class."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+          pharm_class_epc:
+            type: array
+            items:
+              description: "Established pharmacologic class associated with an approved indication of an active moiety that the FDA has determined to be scientifically valid and clinically meaningful."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+          pharm_class_moa:
+            type: array
+            items:
+              description: "Mechanism of action of the veterinary medicinal product—molecular, subcellular, or cellular functional activity—of the drug’s established pharmacologic class."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+          pharm_class_pe:
+            type: array
+            items:
+              description: "Physiologic effect or pharmacodynamics effect—tissue, organ, or organ system functional activity—of the drug’s established pharmacologic class."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+          product_ndc:
+            type: array
+            items:
+              description: "National Drug Code for the veterinary medicinal product(s) involved in an adverse event."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+          product_type:
+            type: array
+            items:
+              description: "Type of veterinary medicinal product involved in the adverse event."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+          route:
+            type: array
+            items:
+              description: "Route by which the veterinary medicinal product was administered."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+          rxcui:
+            type: array
+            items:
+              description: "A unique number that described a semantic concept about the veterinary medicinal product, including its ingredients, strength, and dose forms."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+          rxstring:
+            description: "The RxString of an RxConcept."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          rxtty:
+            description: "The term type of an RxConcept."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          spl_id:
+            type: array
+            items:
+              description: "Unique identifier for a particular version of a Structured Product Label for a product"
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+          spl_set_id:
+            type: array
+            items:
+              description: "Unique identifier for the Structured Product Label for a product, which is stable across versions of the label."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+          substance_name:
+            type: array
+            items:
+              description: "The substance name of the veterinary medicinal product."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+          unii:
+            type: array
+            items:
+              description: "A non-proprietary, free, unique, unambiguous, non semantic, alphanumeric identifier based on a substance’s molecular structure and/or descriptive information."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+          upc:
+            description: "Universal Product Code of the veterinary medicinal product."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+      previous_ae_to_drug:
+        description: "A list of values (Yes, No, Unknown, or Not Applicable) describing whether or not the affected animal(s) experienced an adverse event when exposed to the veterinary medicinal product on a date previous to this adverse event report."
+        format:
+        is_exact: false
+        type: boolean
+        possible_values:
+          type: one_of
+          value:
+            Yes: "There was a previous adverse event."
+            No: "There was no previous adverse event."
+            Unknown: "Information is not available."
+            Not Applicable: "There was no previous exposure to the veterinary medicinal product."
+      previous_exposure_to_drug:
+        description: "A list of values (Yes, No, or Unknown) describing whether or not the affected animal(s) had been exposed to the veterinary medicinal product on a date previous to the adverse event report."
+        format:
+        is_exact: false
+        type: boolean
+        possible_values:
+          type: one_of
+          value:
+            Yes: "There was a previous exposure."
+            No: "There was no previous exposure."
+            Unknown: "Information is not available."
+      product_ndc:
+        description: "The national drug code number for the veterinary medicinal product(s) involved in the adverse event"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      route:
+        description: "Route by which the veterinary medicinal product was administered."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      used_according_to_label:
+        description: "A list of values (Yes, No, or Unknown) describing whether the veterinary medicinal product was used according to its labeled recommendations/directions of use."
+        format:
+        is_exact: false
+        type: boolean
+        possible_values:
+          type: one_of
+          value:
+            Yes: "The veterinary medicinal product was used according to its labeled recommendations/directions of use."
+            No: "The veterinary medicinal product was used in an off-label use manner."
+            Unknown: "Information is not available."
+  duration:
+    description: "The actual or approximate time the adverse event lasted."
+    format:
+    is_exact: false
+    possible_values:
+    type: object
+    properties:
+      unit:
+        description: "The unit of measurement for duration."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      value:
+        description: "The unit associated with the numeric value for duration."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+  health_assessment_prior_to_exposure:
+    description: "Veterinarian’s assessment of the health status of the animal(s) involved in the adverse event prior to exposure. In case of human exposure, this would be the assessment by the attending physician."
+    format:
+    is_exact: false
+    possible_values:
+    type: object
+    properties:
+      assessed_by:
+        description: "Who the animal affected by the adverse event was assessed by."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      condition:
+        description: "The animal's medical condition prior to exposure."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+  meta:
+    format:
+    type: object
+    description: 'This section contains a disclaimer and license information. The field `last_updated` indicates when the data files were exported.'
+    possible_values:
+    properties:
+      type: object
+      disclaimer:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Important details notes about openFDA data and limitations of the dataset."
+        possible_values:
+      license:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Link to a web page with license terms that govern data within openFDA."
+        possible_values:
+      terms:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Link to a web page with terms that govern data within openFDA."
+        possible_values:
+      last_updated:
+        format: date
+        is_exact: false
+        type: string
+        pattern:
+        description: "The last date when this openFDA endpoint was updated. Note that this does not correspond to the most recent record for the endpoint or dataset. Rather, it is the last time the openFDA API was itself updated."
+        possible_values:
+      results:
+        type: object
+        properties:
+          skip:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Offset (page) of results, defined by the `skip` [query parameter](/api/)."
+            possible_values:
+          limit:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Number of records in this return, defined by the `limit` [query parameter](/api/). If there is no `limit` parameter, the API returns one result."
+            possible_values:
+          total:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Total number of records matching the search criteria."
+            possible_values:
+  number_of_animals_affected:
+    description: "Total number of animals affected by the adverse event, whether through direct or indirect exposure (e.g. treated during pregnancy or lactation, commingled, infection spread, etc.)."
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  number_of_animals_treated:
+    description: "Number of animals being treated directly by the veterinary medicinal product."
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  onset_date:
+    description: "The date (day, month or year) of the onset of the adverse event."
+    format: date
+    is_exact: false
+    possible_values:
+    type: date
+  original_receive_date:
+    description: "The date of the first receipt of information by the MAH responsible for reporting the adverse event to the FDA."
+    format: date
+    is_exact: false
+    possible_values:
+    type: date
+  outcome:
+    description: "This is the medical status of the animal(s) affected in the adverse event report at the time the adverse event is reported."
+    format:
+    is_exact: true
+    possible_values:
+    type: object
+    properties:
+      medical_status:
+        description: "The animal's medical status after treatment."
+        format:
+        is_exact: true
+        type: string
+        possible_values:
+          Ongoing: "The number of animals described in the adverse event report with ongoing clinical manifestations."
+          Recovered/Normal: "The number of animals described in the adverse event report that have recovered or returned to normal health."
+          Recovered with Sequela: "The number of animals described in the adverse event report that have recovered but are left with an altered health status."
+          Died: "The number of animals described in the AER that died (not including those that have been euthanized)."
+          Euthanized: "The number of animals described in the AER that were euthanized."
+          Unknown: "The number of animals with an unknown outcome."
+      number_of_animals_affected:
+        description: "Total number of animals affected by the adverse event, whether through direct or indirect exposure (e.g. treated during pregnancy or lactation, commingled, infection spread, etc.)."
+        format:
+        is_exact: false
+        possible_values:
+        type: integer
+  primary_reporter:
+    description: "The person or organization who holds or provides the most pertinent information related to the adverse event report."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  reaction:
+    description: "Information about the reaction involved in the adverse event."
+    type: object
+    properties:
+      accuracy:
+        description: "Indicates whether the integer provided by `number_of_animals_affected` is an actual or estimated number"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      number_of_animals_affected:
+        description: "Total number of animals affected by the adverse event, whether through direct or indirect exposure (e.g. treated during pregnancy or lactation, commingled, infection spread, etc.)."
+        format:
+        is_exact: false
+        possible_values:
+        type: integer
+      veddra_term_code:
+        description: "The code indicating the lowest level term as used in VeDDRA for each adverse clinical manifestation observed in the adverse event."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      veddra_term_name:
+        description: "The lowest level term as used in VeDDRA for each adverse clinical manifestation observed in the adverse event."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      veddra_version:
+        description: "Indicates the AER Message Version and Release Number on which this batch is based."
+        format:
+        is_exact: false
+        possible_values:
+        type: integer
+  receiver:
+    description: "The receiver of the adverse event report."
+    type: object
+    properties:
+      city:
+        description: "The city in which the adverse event report is received."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      country:
+        description: "The country in which the adverse event report is received."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      organization:
+        description: "The organization receiving the adverse event report."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      postal_code:
+        description: "The postal code for the area in which the adverse event report is received."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      state:
+        description: "The state in which the adverse event report is received."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      street_address:
+        description: "The street address of the organization receiving the adverse event report."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+  report_id:
+    description: "This field is used for the sender to identify additional information that may be used to process the information into their IT systems. The format for the report identifier is the 1-character application/file identifier followed by the 6-number identifier assigned by FDA for that application/file (e.g., A200999). The application/file number is the NADA or ANADA number to which the report is being sent."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  secondary_reporter:
+    description: "A person or organization who also possesses pertinent information related to the adverse event report e.g. if the primary reporter is a veterinarian, the secondary reporter may be the animal owner."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  serious_ae:
+    description: "A list of values (Yes or No) characterizing the seriousness of the adverse event."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        Yes: "The adverse event is fatal or life-threatening, or requires professional intervention, or causes an abortion, or stillbirth, or infertility, or congenital anomaly, or prolonged or permanent disability, or disfigurement."
+        No: "The adverse event is none of the above."
+    type: boolean
+  time_between_exposure_and_onset:
+    description: "The length of time between the first exposure to the veterinary medicinal product and the onset of the adverse event."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  treated_for_ae:
+    description: "A list of values (Yes, No, Unknown, or Not Applicable) describing whether or not the human or animal affected received treatment in response to the adverse event."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        Yes: "Human or animal was treated."
+        No: "Human or animal was not treated."
+        Unknown: "Information is not available."
+        Not Applicable: "The veterinary medicinal product was neither stopped nor re-introduced."
+    type: boolean
+  type_of_information:
+    description: "A list of values regarding the type of information in the report."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  type_of_submission:
+    description: "A list of values regarding the type of report being submitted."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  unique_aer_id_number:
+    description: "The globally unique adverse event report is designated by the Marketing Authorization Holder. It consists of a 3-character ISO 3166 country code, 8-character MAH identifier code, and a unique number assigned by the MAH. If the report originally was sent by a Regulatory Authority, this number may include the RA identifier code in place of the MAH identifier code."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
