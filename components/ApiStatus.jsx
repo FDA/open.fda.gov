@@ -13,33 +13,39 @@ type tPROPS = {
 
 const catMap: Object = Object.freeze({
   'animaldrugevent': 'Animal Drugs › Adverse Events',
+  'animaldruglabel': 'Animal Drugs › Labeling',
   'phishpharm': 'Animal Drugs › Phish Pharm',
+  'foodenforcement': 'Foods › Enforcement Reports',
   'drugevent': 'Human Drugs › Adverse Events',
   'druglabel': 'Human Drugs › Labeling',
-  'recall': 'Foods › Enforcement Reports',
+  'drugenforcement': 'Human Drugs › Enforcement Reports',
   'deviceevent': 'Medical Devices › Adverse Events',
   'devicerecall': 'Medical Devices › Recalls',
   'deviceclass': 'Medical Devices › Classification',
   'devicereglist': 'Medical Devices › Registration',
   'deviceclearance': 'Medical Devices › 510k',
   'devicepma': 'Medical Devices › PMA',
-  'deviceudi': 'Medical Devices › UDI'
+  'deviceudi': 'Medical Devices › UDI',
+  'deviceenforcement': 'Medical Devices › Enforcement'
 })
 
 
 const endpointLinkMap: Object = Object.freeze({
   'animaldrugevent': 'animaldrug/event',
+  'animaldruglabel': 'animaldrug/label',
   'phishpharm': 'animaldrug/phishpharm',
   'drugevent': 'drug/event',
   'druglabel': 'drug/label',
-  'recall': 'food/enforcement',
+  'foodenforcement': 'food/enforcement',
+  'drugenforcement': 'drug/enforcement',
   'deviceevent': 'device/event',
   'devicerecall': 'device/recall',
   'deviceclass': 'device/classification',
   'devicereglist': 'device/registrationlisting',
   'deviceclearance': 'device/510k',
   'devicepma': 'device/pma',
-  'deviceudi': 'device/udi'
+  'deviceudi': 'device/udi',
+  'deviceenforcement': 'device/enforcement'
 })
 
 /**
