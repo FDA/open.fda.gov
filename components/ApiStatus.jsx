@@ -57,7 +57,6 @@ const ApiStatus = (props: tPROPS) => (
     crumbs={['API', 'API status']}
     title='openFDA › API › API status'>
     <Hero
-      label='Learn'
       title='API status'
       description='This is the current status of the openFDA API endpoints, including when they were last updated.'
     />
