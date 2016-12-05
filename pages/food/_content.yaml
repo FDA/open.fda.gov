@@ -2,3 +2,7 @@
   title: Food recall enforcement reports
   description:
     - "Food product recall enforcement reports."
+- url: /food/event/
+  title: Food adverse event reports
+  description:
+    - "Food adverse event reports."

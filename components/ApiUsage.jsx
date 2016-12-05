@@ -114,7 +114,7 @@ const ApiUsage = (props:tPROPS) => {
 
         fetchStats(){
 
-            xhrGET("https://api.fda.gov/usage.json?prefix=" + this.state.prefix, (data)=>{
+            xhrGET("http://ec2-52-91-0-118.compute-1.amazonaws.com:8000/usage.json?prefix=" + this.state.prefix, (data)=>{
                 this.handleUsageResponse(data);
             }, false)
         }
@@ -166,10 +166,11 @@ const ApiUsage = (props:tPROPS) => {
                                             <tr> <td>Premarket Approvals (PMAs)</td><td>{this.docCount('devicepma')}</td> </tr>
                                             <tr> <td>510Ks</td><td>{this.docCount('deviceclearance')}</td> </tr>
                                             <tr> <td>Recalls</td><td>{this.docCount('devicerecall')}</td> </tr>
-                                            <tr> <td>Adverse event reports</td><td>{this.docCount('deviceevent')}</td> </tr>
+                                            <tr> <td>Adverse Event Reports</td><td>{this.docCount('deviceevent')}</td> </tr>
                                             <tr> <td>UDIs</td><td>{this.docCount('deviceudi')}</td> </tr>
                                             <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Foods</strong></td></tr>
                                             <tr> <td>Enforcement Reports</td><td>{this.docCount('recall')}</td> </tr>
+                                            <tr> <td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td> </tr>
                                         </tbody>
                                     </table>
 
