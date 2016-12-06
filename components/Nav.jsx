@@ -36,12 +36,6 @@ const Nav = (props: tPROPS) => {
     'm-hide': !showMobileNav,
   })
 
-  // we include a disclaimer to cover our asses
-  // CAERS is new, and we have a different disclaimer for it
-  const doesItCAER: boolean = props.meta &&
-    props.meta.datasets &&
-    props.meta.datasets.indexOf('CAERS') !== -1
-
   return (
     <nav className='bg-white clr-gray flex-box dir-column'>
       <a
@@ -89,12 +83,6 @@ const Nav = (props: tPROPS) => {
       </div>
       <div className='pad-t-2 bg-secondary-darkest m-ord-3'>
         <p className='clr-white weight-600 container smallest'>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='clr-white underline' to='/terms/'> Terms of Service</Link></p>
-        {
-          doesItCAER &&
-          <p className='clr-white weight-600 container smallest'>
-            Submission of an adverse event report does not constitute an admission that a product caused or contributed to an event. The information in these reports has not been scientifically or otherwise verified as to a cause and effect relationship and cannot be used to estimate incidence (occurrence rate) or to estimate risk.
-          </p>
-        }
       </div>
       <div className='container m-pad-b-2 dir-column m-ord-1 m-pad-t-2'>
         <div className='flex-row relative'>
