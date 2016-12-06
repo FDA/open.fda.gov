@@ -14,7 +14,7 @@ industry:
   params:
     - search for all records where products.industry_code (FDA industry code) contains 23 (Nuts/Edible Seed).
     - limit to 1 record.
-  query: 'https://api.fda.gov/food/event.json?search=products.industry_code:5&limit=1'
+  query: 'https://api.fda.gov/food/event.json?search=products.industry_code:23&limit=1'
 reaction:
   title: Count of consumer reactions
   description:
@@ -25,4 +25,4 @@ reaction:
   params:
     - search for all records where products.industry_code (FDA industry code) contains 23 (cereal prep/breakfast food).
     - limit to 1 record.
-  query: 'https://api.fda.gov/food/event.json?search=products.industry_code:5&count=reactions.exact'
+  query: 'https://api.fda.gov/food/event.json?search=products.industry_code:23&count=reactions.exact'
