@@ -1,7 +1,7 @@
 #!/bin/bash
 
 TODAY=$(date +"%Y-%m-%d")
-BUCKET="open.fda.gov-jack2"
+BUCKET="open.fda.gov-$TODAY"
 
 echo "Pushing to: ${BUCKET}"
 
