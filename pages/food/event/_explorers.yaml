@@ -12,7 +12,7 @@ industry:
   description:
     - 'This query searches records listing a product associated with a certain industry, and returns a single record.'
   params:
-    - 'search for all records where products.industry_code (FDA industry code) contains 5 (cereal prep/breakfast food).'
+    - search for all records where products.industry_code (FDA industry code) contains 23 (Nuts/Edible Seed).
     - limit to 1 record.
   query: 'https://api.fda.gov/food/event.json?search=products.industry_code:5&limit=1'
 reaction:
@@ -23,6 +23,6 @@ reaction:
     - The suffix .exact is required by openFDA to count the unique full phrases in the field reactions. Without it, the API will count each word in that field individually—difficulty sleeping would be counted as separate values, difficulty and sleeping.
     - See the [reaction reference](/food/event/reference/) for more about consumer reactions in adverse event records.
   params:
-    - search for all records where products.industry_code (FDA industry code) contains 5 (cereal prep/breakfast food).
+    - search for all records where products.industry_code (FDA industry code) contains 23 (cereal prep/breakfast food).
     - limit to 1 record.
-  query: 'https://api.fda.gov/drug/event.json?search=products.industry_code:5&count=reactions.exact'
+  query: 'https://api.fda.gov/food/event.json?search=products.industry_code:5&count=reactions.exact'

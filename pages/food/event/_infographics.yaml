@@ -1,8 +1,7 @@
-- title: "Adverse food and cosmetic event reports since 2004"
+- title: "Adverse food, dietary supplement, and cosmetic event reports since 2004"
   short: "Reports over time"
   description:
-    - "This is the openFDA API endpoint for adverse food and cosmetic product events. An adverse event is submitted to the FDA to report adverse health effects and product complaints about food and cosmetic products."
-    - "Reporting of adverse events is largely voluntary in the United States. Dietary supplement manufacturers must rnotify the FDA if they receive reports about serious adverse events. Increases in the total number of adverse events are likely caused by improved reporting. News, enforcement actions, and other phenomena can also spur reporting."
+    - "This is the openFDA API endpoint for adverse food, dietary supplement, and cosmetic product events. An adverse event is submitted to the FDA to report adverse health effects and product complaints about food, dietary supplements, and cosmetics."
   countParam: "date_created"
   filters:
     - title: "All adverse event reports"
