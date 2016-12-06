@@ -3,6 +3,6 @@
   description:
     - "Food product recall enforcement reports."
 - url: /food/event/
-  title: Food adverse event reports
+  title: Food, dietary supplement, and cosmetic adverse event reports
   description:
-    - "Food adverse event reports."
+    - "Food, dietary supplement, and cosmetic adverse event reports."
