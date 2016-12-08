@@ -5,6 +5,8 @@ import React from 'react'
 import Downloads from '../../components/Downloads'
 import Hero from '../../components/Hero'
 import Layout from '../../components/Layout'
+import SideBar from '../../components/SideBar'
+import SideBarContainer from '../../containers/SideBarContainer'
 
 import animaldrug_event_meta from '../animaldrug/event/_meta.yaml'
 import animaldrug_label_meta from '../animaldrug/label/_meta.yaml'
@@ -22,6 +24,41 @@ import device_recall_meta from '../device/recall/_meta.yaml'
 import device_registration_listing_meta from '../device/registrationlisting/_meta.yaml'
 import device_udi_meta from '../device/udi/_meta.yaml'
 
+const ComposedSidebar: ReactClass = SideBarContainer(SideBar)
+
+var endpoint_list = {
+  'Animal Drug': 'animaldrug_header',
+  'Animal Drug Event': animaldrug_event_meta,
+  'Animal Drug Label': animaldrug_label_meta,
+  'Phish Pharm': animaldrug_phishpharm_meta,
+  'Food': 'food_header',
+  'Food Enforcement': food_enforcement_meta,
+  'Human Drug': 'humandrug_header',
+  'Human Drug Event': drug_event_meta,
+  'Human Drug Label': drug_label_meta,
+  'Human Drug Enforcement': drug_enforcement_meta,
+  'Medical Device': 'device_header',
+  'Medical Device 510k': device_510k_meta,
+  'Medical Device Classification': device_classification_meta,
+  'Medical Device Enforcement': device_enforcement_meta,
+  'Medical Device Event': device_event_meta,
+  'Medical Device PMA': device_pma_meta,
+  'Medical Device Recall': device_recall_meta,
+  'Medical Device Registration Listing': device_registration_listing_meta,
+  'Medical Device UDI': device_udi_meta
+}
+
+let downloads_list = Object.keys(endpoint_list).map((key: string, i: number) => {
+  if (typeof endpoint_list[key] === "string") {
+    return <li id={key}><h2>{key}</h2></li>
+  }
+  else {
+    return <li id={key}><Downloads
+      k={i}
+      meta={endpoint_list[key]}
+    /></li>
+  }
+})
 
 export default () => (
   <Layout
@@ -33,68 +70,16 @@ export default () => (
         htmlDescription="true"
         description="This page provides all available endpoint downloads."
     />
-    <section className='container clearfix marg-t-3 marg-b-3 relative'>
-      <div className="float-r" style={{  maxWidth: '100%',}}>
-        <Downloads
-          k={0}
-          meta={animaldrug_event_meta}
-        />
-        <Downloads
-          k={1}
-          meta={animaldrug_label_meta}
-        />
-        <Downloads
-          k={2}
-          meta={animaldrug_phishpharm_meta}
-        />
-        <Downloads
-          k={3}
-          meta={food_enforcement_meta}
-        />
-        <Downloads
-          k={4}
-          meta={drug_enforcement_meta}
-        />
-        <Downloads
-          k={5}
-          meta={drug_event_meta}
-        />
-        <Downloads
-          k={6}
-          meta={drug_label_meta}
-        />
-        <Downloads
-            k={1}
-            meta={device_510k_meta}
-        />
-        <Downloads
-            k={1}
-            meta={device_classification_meta}
-        />
-        <Downloads
-            k={1}
-            meta={device_enforcement_meta}
-        />
-        <Downloads
-            k={1}
-            meta={device_event_meta}
-        />
-        <Downloads
-            k={1}
-            meta={device_pma_meta}
-        />
-        <Downloads
-            k={1}
-            meta={device_recall_meta}
-        />
-        <Downloads
-            k={1}
-            meta={device_registration_listing_meta}
-        />
-        <Downloads
-            k={1}
-            meta={device_udi_meta}
-        />
+    <section className='container t-marg-t-3 marg-b-3 relative row content-wrapper'>
+
+      <ComposedSidebar
+        downloads={Object.keys(endpoint_list)}
+      />
+
+      <div className="float-r ref-content" style={{  maxWidth: '100%',}}>
+        <ul>
+          {downloads_list}
+        </ul>
       </div>
     </section>
   </Layout>
