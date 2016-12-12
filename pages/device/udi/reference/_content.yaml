@@ -45,6 +45,7 @@
   - identifiers.issuing_agency
   - identifiers.package_discontinue_date
   - identifiers.package_status
+  - identifiers.package_type
   - identifiers.quantity_per_package
   - identifiers.type
   - identifiers.unit_of_use_id

@@ -258,6 +258,11 @@ properties:
              'In Commercial Distribution': "In Commercial Distribution"
              'Not in Commercial Distribution': "Not in Commercial Distribution"
           type: string
+        package_type:
+          description: "The type of packaging used for the device."
+          is_exact: false
+          possible_values:
+          type: string
         quantity_per_package:
           description: "The number of packages with the same Primary DI or Package DI within a given packaging configuration."
           format:
