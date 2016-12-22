@@ -130,20 +130,20 @@ properties:
         type: object
         properties:
           dose:
-            description: "The actual dose administered to the animal involved in the adverse event."
+            description: "The actual dose administered to the animal involved in the adverse event, e.g., number of tablets, number of boluses, amount of feed, quantity of solution, etc."
             format:
             is_exact: false
             possible_values:
             type: object
             properties:
               denominator:
-                description: "This describes the recipient of the dose by individual animal, weight, volume, etc."
+                description: "This describes the dose by individual animal, weight, volume, etc."
                 format:
                 is_exact: false
                 possible_values:
                 type: float
               denominator_unit:
-                description: "This describes the recipient of the dose by individual animal, weight, volume, etc. "
+                description: "This describes the dose by individual animal, weight, volume, etc. "
                 format:
                 is_exact: false
                 possible_values:
@@ -221,13 +221,13 @@ properties:
         possible_values:
         properties:
           denominator:
-            description: "This describes the recipient of the dose by individual animal, weight, volume, etc."
+            description: "This describes the dose by individual animal, weight, volume, etc."
             format:
             is_exact: false
             possible_values:
             type: float
           denominator_unit:
-            description: "This describes the recipient of the dose by individual animal, weight, volume, etc. "
+            description: "This describes the dose by individual animal, weight, volume, etc. "
             format:
             is_exact: false
             possible_values:
@@ -332,7 +332,7 @@ properties:
           application_number:
             type: array
             items:
-              description: "A combination of the 3-character ISO 3166 code for the country where the veterinary medicinal product is approved, the 8-character RA Identifier Code, and the registration number of the veterinary medicinal product involved in the adverse event."
+              description: "The 1-character application/file identifier followed by the 6 numbers assigned by FDA for that application/file (e.g., A200999, N199999, I999999)."
               format:
               is_exact: false
               possible_values:
@@ -563,7 +563,7 @@ properties:
         possible_values:
         type: string
       value:
-        description: "The unit associated with the numeric value for duration."
+        description: "The numeric value for duration associated with the unit of measurement."
         format:
         is_exact: false
         possible_values:
@@ -730,7 +730,7 @@ properties:
         possible_values:
         type: string
       veddra_version:
-        description: "Indicates the AER Message Version and Release Number on which this batch is based."
+        description: "The version of VeDDRA from which the veddra codes and terms have been supplied for use in this adverse event report."
         format:
         is_exact: false
         possible_values:
@@ -828,7 +828,7 @@ properties:
     possible_values:
     type: string
   unique_aer_id_number:
-    description: "The globally unique adverse event report is designated by the Marketing Authorization Holder. It consists of a 3-character ISO 3166 country code, 8-character MAH identifier code, and a unique number assigned by the MAH. If the report originally was sent by a Regulatory Authority, this number may include the RA identifier code in place of the MAH identifier code."
+    description: "For the purposes of OpenFDA, this number represents a unique report identification number documented in the FDA CVM database."
     format:
     is_exact: false
     possible_values:
