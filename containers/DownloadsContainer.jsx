@@ -86,6 +86,7 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
       return (
         <ComposedDownloads
           k={this.props.k}
+          path={path}
           allPartitions={results.partitions}
           results={resultsByCat}
           showAllResults={this.state.showAllResults}
