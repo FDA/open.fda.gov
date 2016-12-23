@@ -10,12 +10,12 @@ const linkCx: string = 'clr-gray b-b-1 marg-b-1'
 
 export default () => (
   <Layout
-    crumbs={['openFDA','Analytics & research tools']}
-    title='openFDA › Analytics & research tools'>
+    crumbs={['openFDA','Research tools']}
+    title='openFDA › Research tools'>
     <Hero
       label='Learn'
-      title='Analytics & research tools'
-      description='These sophisticated, interactive, and open-source applications demonstrate how openFDA APIs can be used for epidemiological research, combined with powerful statistical tools built by the openFDA community.'
+      title='Research tools'
+      description='These sophisticated, interactive, and open-source applications demonstrate how openFDA APIs can be used for epidemiological research.'
     />
     <nav className='container marg-t-3 marg-b-3'>
       {
