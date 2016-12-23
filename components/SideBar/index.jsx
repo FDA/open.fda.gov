@@ -5,6 +5,7 @@ import cx from 'classnames'
 
 import CustomMenu from './CustomMenu'
 import ReferenceMenu from './ReferenceMenu'
+import DownloadsMenu from './DownloadsMenu'
 import type tMenu from '../../constants/types/menu'
 
 type tPROPS = {
@@ -12,6 +13,7 @@ type tPROPS = {
   bottomPos: number;
   bp: Object;
   className: string;
+  downloads: Array<Array<string>|Object>;
   fixed: boolean;
   menu: tMenu;
   reference: Array<Array<string>|Object>;
@@ -34,6 +36,8 @@ const SideBar = (props: tPROPS) => {
     bp,
     // pass through prop for applying classes
     className,
+    // data for rendering downloads menu
+    downloads,
     // is the sidebar sticky
     fixed,
     // menu data for rendering infographic menu
@@ -77,6 +81,15 @@ const SideBar = (props: tPROPS) => {
           <ReferenceMenu
             bottomPos={bottomPos}
             content={reference}
+            isFixed={fixed}
+            isBottom={bottom}
+          />
+        }
+        {
+          downloads &&
+          <DownloadsMenu
+            bottomPos={bottomPos}
+            content={downloads}
             isFixed={fixed}
             isBottom={bottom}
           />

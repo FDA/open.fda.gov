@@ -161,12 +161,13 @@ const Nav = (props: tPROPS) => {
                 <div className='dropdown'>
                   <span className='menu-header' title='openFDA'>openFDA</span>
                     <div className='dropdown-content'>
-                    <div className='sub-menu-container' role='navigation'>
-                      <Link className={linkCx} to='/about/'>About</Link>
-                      <Link className={linkCx} to='/updates/'>Updates</Link>
-                      <Link className={linkCx} to='/api/status/'>API status</Link>
-                      <Link className={linkCx} to='/api/statistics/'>API usage statistics</Link>
-                    </div>
+                      <div className='sub-menu-container' role='navigation'>
+                        <Link className={linkCx} to='/about/'>About</Link>
+                        <Link className={linkCx} to='/updates/'>Updates</Link>
+                        <Link className={linkCx} to='/api/status/'>API status</Link>
+                        <Link className={linkCx} to='/api/statistics/'>API usage statistics</Link>
+                        <Link className={linkCx} to='/downloads/'>Downloads</Link>
+                      </div>
                     </div>
                 </div>
               </li>
