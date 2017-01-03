@@ -8,7 +8,7 @@
 - 'There are three ways to download data from openFDA.'
 - ul:
   - '**Download manually.** All downloadable files are available on [this page](https://open.fda.gov/downloads/). Additionally, there’s a downloads section on each endpoint’s openFDA page—for example, [drug adverse event downloads](https://open.fda.gov/drug/event/#downloads). There you can download a sampling of the data, or all of it, one file at a time.'
-  - '**Write code to download the data automatically.** A json containing links to all downloadable files is available at [here](https://open.fda.gov/downloads/). The data files are hosted at [http://download.open.fda.gov/](http://download.open.fda.gov/).'
+  - '**Write code to download the data automatically.** A json containing links to all downloadable files is available at [here](https://api.fda.gov/download.json). The data files are hosted at [http://download.open.fda.gov/](http://download.open.fda.gov/).'
   - '**Synchronize with the openFDA S3 bucket.** Both current and old (archived) data files are available at **s3://download.open.api.gov**, in subdirectories by date (e.g. **s3://download.open.fda.gov/2015-12-19/**). This is the only place that old data files are hosted.'
 - "## Download API fields"
 - example: downloadQuery
