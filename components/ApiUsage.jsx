@@ -116,7 +116,7 @@ const ApiUsage = (props:tPROPS) => {
 
     fetchStats () {
 
-      xhrGET("https://9d386ebf.ngrok.io/usage.json?prefix=" + this.state.prefix, (data) => {
+      xhrGET("http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/usage.json?prefix=" + this.state.prefix, (data) => {
         this.handleUsageResponse(data)
       }, false)
     }
