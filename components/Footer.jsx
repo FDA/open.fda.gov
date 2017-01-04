@@ -45,7 +45,7 @@ const links: Array<Object> = [
   },
   {
     txt: 'Email the openFDA team',
-    url: '/',
+    url: 'mailto:open@fda.hhs.gov',
   },
 ]
 
