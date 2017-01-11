@@ -7,12 +7,17 @@
   display: inline-block
 
 .dropdown-content
-  display: none
   position: absolute
   right: 0px
 
-.dropdown:hover .dropdown-content
+.display-block
   display: block
+
+.display-none
+  display: none
+
+.bold
+  font-weight: bold
 
 .menu-container
   display: inherit
@@ -28,14 +33,6 @@
   font-size: 1em
   line-height: 2em
 
-.menu-header:hover
-  font-weight: bold
-
-.menu-header:focus
-  -webkit-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
-  -moz-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf    
-  box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf    
-
 .menu-header::after
   display:block
   content:attr(title)
@@ -45,12 +42,6 @@
   overflow:hidden
   visibility:hidden
   margin-bottom:-1px
-
-.dropdown:hover .menu-header
-  font-weight: bold
-
-//.dropdown:hover .sub-menu-container
-  //display: block;
 
 .sub-menu-container
   position: relative
@@ -69,8 +60,9 @@
 
 .sub-menu-item
   display: block
-  padding: 0.85rem 1rem 0.85rem 1.8rem
+  padding: 0rem 1rem 0rem 1.8rem
   font-size: 1em
+  line-height: 2em
   color: $clrPrimary
 
 .sub-menu-item:hover
@@ -84,6 +76,7 @@
   box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
 
 @media $bpMob
+
   .nav-ul
     display: flex
     flex-direction: row
@@ -95,6 +88,25 @@
   .hhs
     text-align: left
     width: 100%
+
+  .menu-header
+    font-size: 4.5vw
+
+  .menu-container
+    display: block
+
+  .dropdown-content
+    width: 100%
+
+  .sub-menu-container
+    text-align: left
+    border: none
+
+  .sub-menu-item
+    font-size: 1.5em
+    border: 1px solid #ccc
+    border-bottom-left-radius: 3px
+    border-bottom-right-radius: 3px
 
 @media $bpTab
   .open-fda-logo
