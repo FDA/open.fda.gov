@@ -154,36 +154,35 @@ const Nav = (props: tPROPS) => {
               maxWidth: '845px',
             }}>
             <div className='menu-container' role='navigation'>
-              <div className='dropdown' onMouseLeave={showMobileNav ? null: {hideDropdownContent}} onMouseEnter={showDropdownContent}>
+              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <Link
                   title='Home'
                   to='/'
-                  className={showMobileNav ? 'display-none': activeDropdown=='Home' ? 'menu-header bold': 'menu-header'}
+                  className={showMobileNav ? 'display-none': activeDropdown=='Home' ? 'menu-header emphasis': 'menu-header'}
                 >Home</Link>
               </div>
-              <div className='dropdown' onMouseLeave={showMobileNav ? null: {hideDropdownContent}} onMouseEnter={showDropdownContent}>
+              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                   title='openFDA'
-                  className={activeDropdown=='openFDA' ? 'menu-header bold': 'menu-header'}
+                  className={activeDropdown=='openFDA' ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
                 >openFDA</span>
-              </div>
-              <div className={activeDropdown=='openFDA' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                <div className='sub-menu-container' role='navigation'>
-                  <Link className={linkCx} to='/about/'>About</Link>
-                  <Link className={linkCx} to='/updates/'>Updates</Link>
-                  <Link className={linkCx} to='/api/status/'>API status</Link>
-                  <Link className={linkCx} to='/api/statistics/'>API usage statistics</Link>
-                  <Link className={linkCx} to='/downloads/'>Downloads</Link>
+                <div className={activeDropdown=='openFDA' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                  <div className='sub-menu-container' role='navigation'>
+                    <Link className={linkCx} to='/about/'>About</Link>
+                    <Link className={linkCx} to='/updates/'>Updates</Link>
+                    <Link className={linkCx} to='/api/status/'>API status</Link>
+                    <Link className={linkCx} to='/api/statistics/'>API usage statistics</Link>
+                    <Link className={linkCx} to='/downloads/'>Downloads</Link>
+                  </div>
                 </div>
               </div>
-              <div className='dropdown' onMouseLeave={showMobileNav ? null: {hideDropdownContent}} onMouseEnter={showDropdownContent}>
+              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                   title='Learn'
-                  className={activeDropdown=='Learn' ? 'menu-header bold': 'menu-header'}
+                  className={activeDropdown=='Learn' ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
                 >Learn</span>
-              </div>
               <div className={activeDropdown=='Learn' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                 <div className='sub-menu-container' role='navigation'>
                   <Link className={linkCx} to='/api/'>API basics</Link>
@@ -191,53 +190,54 @@ const Nav = (props: tPROPS) => {
                   <Link className={linkCx} to='/research/'>Research tools</Link>
                 </div>
               </div>
-              <div className='dropdown' onMouseLeave={showMobileNav ? null: {hideDropdownContent}} onMouseEnter={showDropdownContent}>
+              </div>
+              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                   title='API Endpoints'
-                  className={activeDropdown=='API Endpoints' ? 'menu-header bold': 'menu-header'}
+                  className={activeDropdown=='API Endpoints' ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
                 >API Endpoints</span>
-              </div>
-              <div className={activeDropdown=='API Endpoints' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                <div className='sub-menu-container dropdown__content' role='navigation'>
-                  <Link className={linkCx} to='/drug/'>Drugs</Link>
-                  <Link className={linkCx} to='/device/'>Devices</Link>
-                  <Link className={linkCx} to='/food/'>Foods</Link>
+                <div className={activeDropdown=='API Endpoints' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                  <div className='sub-menu-container dropdown__content' role='navigation'>
+                    <Link className={linkCx} to='/drug/'>Drugs</Link>
+                    <Link className={linkCx} to='/device/'>Devices</Link>
+                    <Link className={linkCx} to='/food/'>Foods</Link>
+                  </div>
                 </div>
               </div>
-              <div className='dropdown' onMouseLeave={showMobileNav ? null: {hideDropdownContent}} onMouseEnter={showDropdownContent}>
+              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                   title='Community'
-                  className={activeDropdown=='Community' ? 'menu-header bold': 'menu-header'}
+                  className={activeDropdown=='Community' ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
                 >Community</span>
-              </div>
-              <div className={activeDropdown=='Community' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                <div className='sub-menu-container dropdown__content' role='navigation'>
-                  <a
-                    className={`${linkCx} link-external`}
-                    href='https://github.com/FDA'
-                    rel='noopener noreferrer'
-                    target='_blank'>
-                    Source code (GitHub)
-                  </a>
-                  <a
-                    className={`${linkCx} link-external`}
-                    href='https://opendata.stackexchange.com/questions/tagged/openfda'
-                    rel='noopener noreferrer'
-                    target='_blank'>
-                    Q&A (StackExchange)
-                  </a>
-                  <a
-                    className={`${linkCx} link-external`}
-                    href='https://twitter.com/openFDA'
-                    rel='noopener noreferrer'
-                    target='_blank'>
-                    @openFDA (Twitter)
-                  </a>
-                  <Link
-                    className={linkCx}
-                    to='/community/'>openFDA Apps</Link>
+                <div className={activeDropdown=='Community' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                  <div className='sub-menu-container dropdown__content' role='navigation'>
+                    <a
+                      className={`${linkCx} link-external`}
+                      href='https://github.com/FDA'
+                      rel='noopener noreferrer'
+                      target='_blank'>
+                      Source code (GitHub)
+                    </a>
+                    <a
+                      className={`${linkCx} link-external`}
+                      href='https://opendata.stackexchange.com/questions/tagged/openfda'
+                      rel='noopener noreferrer'
+                      target='_blank'>
+                      Q&A (StackExchange)
+                    </a>
+                    <a
+                      className={`${linkCx} link-external`}
+                      href='https://twitter.com/openFDA'
+                      rel='noopener noreferrer'
+                      target='_blank'>
+                      @openFDA (Twitter)
+                    </a>
+                    <Link
+                      className={linkCx}
+                      to='/community/'>openFDA Apps</Link>
+                  </div>
                 </div>
               </div>
             </div>

@@ -35,16 +35,20 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
     }
 
     _hideDropdownContent () {
-      this.setState({
-        activeDropdown: ' '
-      })
+      if (this.state.showMobileNav == false) {
+        this.setState({
+          activeDropdown: ' '
+        })
+      }
     }
 
     _showDropdownContent (e) {
-      let title = e.target.getAttribute('title')
-      this.setState({
-        activeDropdown: title
-      })
+      if (this.state.showMobileNav == false) {
+        let title = e.target.getAttribute('title')
+        this.setState({
+          activeDropdown: title
+        })
+      }
     }
 
     render (): React.Element {

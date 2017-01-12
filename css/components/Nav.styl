@@ -16,7 +16,7 @@
 .display-none
   display: none
 
-.bold
+.emphasis
   font-weight: bold
 
 .menu-container
@@ -53,7 +53,7 @@
   border-bottom-right-radius: 3px
   box-shadow: 0 3px 6px rgba(0,0,0,0.2)
   width: auto
-  min-width: 150px
+  min-width: 160px
   text-align: right
   white-space: nowrap
   z-index: 2
@@ -66,7 +66,6 @@
   color: $clrPrimary
 
 .sub-menu-item:hover
-  font-weight: bold
   background-color: $clrPrimary
   color: $clrWhite
 
@@ -91,11 +90,18 @@
 
   .menu-header
     font-size: 4.5vw
+    font-weight: bold
+
+  .emphasis
+    background-color: $clrPrimary
+    color: $clrWhite
 
   .menu-container
     display: block
+    padding-top: 20px
 
   .dropdown-content
+    position: fixed
     width: 100%
 
   .sub-menu-container
