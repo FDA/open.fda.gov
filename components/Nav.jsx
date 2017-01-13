@@ -198,7 +198,7 @@ const Nav = (props: tPROPS) => {
                   onTouchStart={toggleDropdownContent}
                 >API Endpoints</span>
                 <div className={activeDropdown=='API Endpoints' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                  <div className='sub-menu-container dropdown__content' role='navigation'>
+                  <div className='sub-menu-container' role='navigation'>
                     <Link className={linkCx} to='/drug/'>Drugs</Link>
                     <Link className={linkCx} to='/device/'>Devices</Link>
                     <Link className={linkCx} to='/food/'>Foods</Link>
@@ -212,7 +212,7 @@ const Nav = (props: tPROPS) => {
                   onTouchStart={toggleDropdownContent}
                 >Community</span>
                 <div className={activeDropdown=='Community' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                  <div className='sub-menu-container dropdown__content' role='navigation'>
+                  <div className='sub-menu-container' role='navigation'>
                     <a
                       className={`${linkCx} link-external`}
                       href='https://github.com/FDA'
