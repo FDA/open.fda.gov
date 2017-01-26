@@ -44,6 +44,10 @@ const links: Array<Object> = [
     url: 'https://open.fda.gov/terms',
   },
   {
+    txt: 'License',
+    url: 'https://open.fda.gov/license'
+  },
+  {
     txt: 'Email the openFDA team',
     url: 'mailto:open@fda.hhs.gov',
   },
