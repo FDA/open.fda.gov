@@ -8,7 +8,7 @@ title:        Data Licensing
 Through openFDA, you can access a wide variety of public data that the FDA collects and publishes in machine-readable formats. We want you to fully understand the rights around this data so that you can accurately use openFDA in your work.
 
 ### Terms of Service
-The [terms of service](open.fda.gov/terms/) govern how you may access openFDA as a service. Use of the data made available via openFDA is generally unrestricted, however, the service through which we make that data available is offered subject to your acceptance of those terms and conditions as well as any relevant sections of the [FDA Website Policies](http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/default.htm).
+The [terms of service](https://open.fda.gov/terms/) govern how you may access openFDA as a service. Use of the data made available via openFDA is generally unrestricted, however, the service through which we make that data available is offered subject to your acceptance of those terms and conditions as well as any relevant sections of the [FDA Website Policies](http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/default.htm).
 
 As noted in the terms of service, unless otherwise noted, the content, data, documentation, code, and related materials on openFDA is public domain and made available with a [Creative Commons CC0 1.0 Universal](http://creativecommons.org/publicdomain/zero/1.0/legalcode) dedication. Under CC0, FDA has dedicated the work to the public domain by waiving all rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law. You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
 
