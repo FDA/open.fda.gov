@@ -19,13 +19,9 @@ import localforage from 'localforage'
  * @param {boolean} [cache] [by default we cache, but sometimes we don't want to]
  * @returns {Object} [regardless of how the data is got, return JSON]
  */
+
 const xhrGET = function (query: string, cb: Function, willCache: boolean = true) {
   if (willCache) {
-    localforage.getItem(query).then(res => {
-      // res will return null if not found
-      if (res !== null) return cb(JSON.parse(res))
-
-      // if nothing in localforage, make request
       const xhr = new XMLHttpRequest()
       xhr.open('GET', query, true)
       xhr.onload = function () {
@@ -35,18 +31,17 @@ const xhrGET = function (query: string, cb: Function, willCache: boolean = true)
         }
 
         // save to prevent additional requests later
-        localforage.setItem(query, xhr.responseText)
-
-        // callback function defined in calling file
-        // ie, where the calling component will handle the res
-        return cb(JSON.parse(xhr.responseText))
+        localforage.setItem(query, xhr.responseText).then(function() {
+          return localforage.getItem(query)
+        }).then(function (value) {
+          return cb(JSON.parse(value))
+        }).catch(function(err) {
+          console.error('Localforage couldnt retrieve query: ', err)
+        })
       }
 
       xhr.send()
-    })
-    .catch(err => {
-      console.error('Localforage couldnt retrieve query: ', err)
-    })
+
   }
   else {
     // if not caching, always make a request
