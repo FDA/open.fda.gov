@@ -41,7 +41,7 @@ const links: Array<Object> = [
   },
   {
     txt: 'openFDA Terms of Service',
-    url: 'https://open.fda.gov/terms',
+    url: '/terms',
   },
   {
     txt: 'License',

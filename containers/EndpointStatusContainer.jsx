@@ -41,7 +41,7 @@ const EndpointStatusContainer = function (ComposedEndpointStatus: ReactClass): R
         })
       }
 
-      xhrGET('https://api.fda.gov/status', _handleResponse, false)
+      xhrGET('https://api.fda.gov/status', _handleResponse)
     }
 
     componentDidMount () {

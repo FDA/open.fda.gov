@@ -116,7 +116,7 @@ const ApiUsage = (props:tPROPS) => {
 
             xhrGET("https://api.fda.gov/usage.json?prefix=" + this.state.prefix, (data)=>{
                 this.handleUsageResponse(data);
-            }, false)
+            })
         }
         docCount(typeName:string):string {
             return this.formatNumber(this.state.indexInfo[typeName]);
