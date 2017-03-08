@@ -3,6 +3,6 @@
 - "getting-started"
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/animaldrug/phishpharm.json` using search parameters for [fields specific to the animal phish pharm endpoint.](/animaldrug/phishpharm/reference/)"
+- "Make API calls to `https://api.fda.gov/animaldrug/phishpharm.json` using search parameters for [fields specific to the animal Phish-Pharm endpoint.](/animaldrug/phishpharm/reference/)"
 - queryExplorer: oneRecord
 - queryExplorer: countBySpecies

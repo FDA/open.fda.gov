@@ -1,5 +1,5 @@
 - "## About"
-- The openFDA phish farm API returns data from a searchable database of pharmacokinetic data in fish. The goal of the database is to aid researchers in finding and generating the necessary data to support safe and effective drug approvals for aquatic animals, to improve screening methods for illegal drugs, and to aid in study design by highlighting data gaps.
+- The openFDA Phish-Pharm API returns data from a searchable database of pharmacokinetic data in fish. The goal of the database is to aid researchers in finding and generating the necessary data to support safe and effective drug approvals for aquatic animals, to improve screening methods for illegal drugs, and to aid in study design by highlighting data gaps.
 - The database was updated in 2014. The current version contains data from nearly 600 articles covering 175 aquatic species and over 200 drug and chemical compounds.
 - "downloads"
 - "### Results"

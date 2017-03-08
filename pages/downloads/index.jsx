@@ -30,7 +30,7 @@ var endpoint_list = {
   'Animal Drug': 'animaldrug_header',
   'Animal Drug Event': animaldrug_event_meta,
   'Animal Drug Label': animaldrug_label_meta,
-  'Phish Pharm': animaldrug_phishpharm_meta,
+  'Phish-Pharm': animaldrug_phishpharm_meta,
   'Food': 'food_header',
   'Food Enforcement': food_enforcement_meta,
   'Human Drug': 'humandrug_header',

@@ -6,7 +6,7 @@ oneRecord:
   description:
     - This query searches for all records by publication year, and asks for a single one.
     - See the [reference](/animaldrug/phishpharm/reference/) for more about pub_date. Brackets [ ] are used to specify a range for date, number, or string fields.
-  title: One phish pharm record
+  title: One Phish-Pharm record
 countBySpecies:
   params:
     - count the number of records of each species.
@@ -14,4 +14,4 @@ countBySpecies:
   description:
     - This query returns a count of records for each species.
     - The suffix .exact is required by openFDA to count the unique full phrases in the field openfda.product_type. Without it, the API will count each word in that field individually—Trout, rainbow would be counted as separate values, Trout, and rainbow.
-  title: Count of phish pharm records, by species type
+  title: Count of Phish-Pharm records, by species type
