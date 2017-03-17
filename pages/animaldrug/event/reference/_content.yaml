@@ -8,7 +8,7 @@
   - "Submission of a safety report does not constitute an admission that medical personnel, user facility, importer, distributor, manufacturer or product caused or contributed to the event. The information in these reports has not been scientifically or otherwise verified as to a cause and effect relationship and cannot be used to estimate the incidence of these events."
 - "### Responsible use of the data"
 - "Adverse event reports submitted to FDA do not undergo extensive validation or verification. Therefore, **a causal relationship cannot be established between product and reactions listed in a report.** While a suspected relationship *may* exist, it is not medically validated and should not be the sole source of information for clinical decision making or other assumptions about the safety or effectiveness of a product."
-- "Additionally, it is important to remember that adverse event reports represent a small percentage of total usage numbers of a product. Commonly used prodcuts may have a higher number of reported adverse events due to the higher total number of animals being given the product."
+- "Additionally, it is important to remember that adverse event reports represent a small percentage of total usage numbers of a product. Commonly used products may have a higher number of reported adverse events due to the higher total number of animals being given the product."
 - "downloads"
 - "## Anatomy of a response"
 - "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."
