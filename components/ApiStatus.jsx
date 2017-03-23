@@ -12,6 +12,11 @@ type tPROPS = {
 };
 
 const catMap: Object = Object.freeze({
+  'foodenforcement': 'Foods › Enforcement Reports',
+  'foodevent': 'Foods › Adverse Events',
+  'drugevent': 'Drugs › Adverse Events',
+  'druglabel': 'Drugs › Labeling',
+  'drugenforcement': 'Human Drugs › Enforcement Reports',
   'deviceevent': 'Devices › Adverse Events',
   'devicerecall': 'Devices › Recalls',
   'deviceclass': 'Devices › Classification',
@@ -19,14 +24,16 @@ const catMap: Object = Object.freeze({
   'deviceclearance': 'Devices › 510k',
   'devicepma': 'Devices › PMA',
   'deviceudi': 'Devices › UDI',
-  'drugevent': 'Drugs › Adverse Events',
-  'druglabel': 'Drugs › Labeling',
-  'recall': 'Foods › Enforcement Reports',
-  'foodevent': 'Foods › Adverse Events'
+  'deviceenforcement': 'Medical Devices › Enforcement'
 })
 
 
 const endpointLinkMap: Object = Object.freeze({
+  'foodevent': 'food/event',
+  'foodenforcement': 'food/enforcement',
+  'drugevent': 'drug/event',
+  'druglabel': 'drug/label',
+  'drugenforcement': 'drug/enforcement',
   'deviceevent': 'device/event',
   'devicerecall': 'device/recall',
   'deviceclass': 'device/classification',
@@ -34,10 +41,7 @@ const endpointLinkMap: Object = Object.freeze({
   'deviceclearance': 'device/510k',
   'devicepma': 'device/pma',
   'deviceudi': 'device/udi',
-  'drugevent': 'drug/event',
-  'druglabel': 'drug/label',
-  'recall': 'food/enforcement',
-  'foodevent': 'food/event'
+  'deviceenforcement': 'device/enforcement'
 })
 
 /**
