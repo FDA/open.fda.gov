@@ -116,7 +116,7 @@ const ApiUsage = (props:tPROPS) => {
 
     fetchStats () {
 
-      xhrGET("http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/usage.json?prefix=" + this.state.prefix, (data) => {
+      xhrGET("https://api.fda.gov/usage.json?prefix=" + this.state.prefix, (data) => {
         this.handleUsageResponse(data)
       }, false)
     }
