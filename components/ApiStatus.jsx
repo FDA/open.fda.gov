@@ -24,7 +24,7 @@ const catMap: Object = Object.freeze({
   'deviceclearance': 'Devices › 510k',
   'devicepma': 'Devices › PMA',
   'deviceudi': 'Devices › UDI',
-  'deviceenforcement': 'Devices › Enforcement'
+  'deviceenforcement': 'Devices › Enforcement Reports'
 })
 
 
