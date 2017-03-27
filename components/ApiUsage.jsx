@@ -116,7 +116,7 @@ const ApiUsage = (props:tPROPS) => {
 
     fetchStats () {
 
-      xhrGET("http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/usage.json?prefix=" + this.state.prefix, (data) => {
+      xhrGET("https://api.fda.gov/usage.json?prefix=" + this.state.prefix, (data) => {
         this.handleUsageResponse(data)
       }, false)
     }
@@ -156,28 +156,28 @@ const ApiUsage = (props:tPROPS) => {
                 <h5 className='font-size-3 txt-c'>Size of Dataset</h5>
 
             <div>
-                <table className="table-sm table-bordered">
-                    <tbody>
-                      <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Foods</strong></td></tr>
-                      <tr> <td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td> </tr>
-                      <tr> <td>Enforcement Reports</td><td>{this.docCount('foodenforcement')}</td> </tr>
+              <table className="table-sm table-bordered">
+                <tbody>
+                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Drugs</strong></td></tr>
+                  <tr> <td>Labeling</td><td>{this.docCount('druglabel')}</td> </tr>
+                  <tr> <td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td> </tr>
+                  <tr> <td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td> </tr>
 
-                      <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Human Drugs</strong></td></tr>
-                      <tr> <td>Labeling</td><td>{this.docCount('druglabel')}</td> </tr>
-                      <tr> <td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td> </tr>
-                      <tr> <td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td> </tr>
+                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Foods</strong></td></tr>
+                  <tr> <td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td> </tr>
+                  <tr> <td>Enforcement Reports</td><td>{this.docCount('foodenforcement')}</td> </tr>
 
-                      <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Medical Devices</strong></td></tr>
-                      <tr> <td>Classifications</td><td>{this.docCount('deviceclass')}</td> </tr>
-                      <tr> <td>Registration and listing</td><td>{this.docCount('devicereglist')}</td> </tr>
-                      <tr> <td>Premarket Approvals (PMAs)</td><td>{this.docCount('devicepma')}</td> </tr>
-                      <tr> <td>510Ks</td><td>{this.docCount('deviceclearance')}</td> </tr>
-                      <tr> <td>Recalls</td><td>{this.docCount('devicerecall')}</td> </tr>
-                      <tr> <td>Adverse Event Reports</td><td>{this.docCount('deviceevent')}</td> </tr>
-                      <tr> <td>UDIs</td><td>{this.docCount('deviceudi')}</td> </tr>
-                      <tr> <td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td> </tr>
-                    </tbody>
-                  </table>
+                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Devices</strong></td></tr>
+                  <tr> <td>Classifications</td><td>{this.docCount('deviceclass')}</td> </tr>
+                  <tr> <td>Registration and listing</td><td>{this.docCount('devicereglist')}</td> </tr>
+                  <tr> <td>Premarket Approvals (PMAs)</td><td>{this.docCount('devicepma')}</td> </tr>
+                  <tr> <td>510Ks</td><td>{this.docCount('deviceclearance')}</td> </tr>
+                  <tr> <td>Recalls</td><td>{this.docCount('devicerecall')}</td> </tr>
+                  <tr> <td>Adverse Event Reports</td><td>{this.docCount('deviceevent')}</td> </tr>
+                  <tr> <td>UDIs</td><td>{this.docCount('deviceudi')}</td> </tr>
+                  <tr> <td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td> </tr>
+                  </tbody>
+                </table>
 
                 </div>
 
