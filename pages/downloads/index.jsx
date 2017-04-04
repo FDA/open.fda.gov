@@ -8,8 +8,6 @@ import Layout from '../../components/Layout'
 import SideBar from '../../components/SideBar'
 import SideBarContainer from '../../containers/SideBarContainer'
 
-import animaldrug_event_meta from '../animaldrug/event/_meta.yaml'
-import animaldrug_label_meta from '../animaldrug/label/_meta.yaml'
 import animaldrug_phishpharm_meta from '../animaldrug/phishpharm/_meta.yaml'
 import food_enforcement_meta from '../food/enforcement/_meta.yaml'
 import drug_enforcement_meta from '../drug/enforcement/_meta.yaml'
@@ -28,8 +26,6 @@ const ComposedSidebar: ReactClass = SideBarContainer(SideBar)
 
 var endpoint_list = {
   'Animal Drug': 'animaldrug_header',
-  'Animal Drug Event': animaldrug_event_meta,
-  'Animal Drug Label': animaldrug_label_meta,
   'Phish-Pharm': animaldrug_phishpharm_meta,
   'Food': 'food_header',
   'Food Enforcement': food_enforcement_meta,
