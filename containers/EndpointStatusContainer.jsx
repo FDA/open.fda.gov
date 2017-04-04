@@ -52,7 +52,7 @@ const EndpointStatusContainer = function (ComposedEndpointStatus: ReactClass): R
       if (!this.state.data) return <span />
 
       const path: string = this.props.path.replace(/(\/reference){1}/g, '')
-      const fullPath: string = `http://ec2-54-86-220-160.compute-1.amazonaws.com:8000${path}.json`
+      const fullPath: string = `https://api.fda.gov${path}.json`
 
       return (
         <ComposedEndpointStatus
