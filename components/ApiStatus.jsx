@@ -25,6 +25,7 @@ const catMap: Object = Object.freeze({
   'devicepma': 'Medical Devices › PMA',
   'deviceudi': 'Medical Devices › UDI',
   'deviceenforcement': 'Medical Devices › Enforcement'
+
 })
 
 
@@ -33,6 +34,7 @@ const endpointLinkMap: Object = Object.freeze({
   'drugevent': 'drug/event',
   'druglabel': 'drug/label',
   'foodenforcement': 'food/enforcement',
+
   'drugenforcement': 'drug/enforcement',
   'deviceevent': 'device/event',
   'devicerecall': 'device/recall',

@@ -41,7 +41,7 @@ const EndpointStatusContainer = function (ComposedEndpointStatus: ReactClass): R
         })
       }
 
-      xhrGET('http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/status', _handleResponse, false)
+      xhrGET('https://api.fda.gov/status', _handleResponse)
     }
 
     componentDidMount () {

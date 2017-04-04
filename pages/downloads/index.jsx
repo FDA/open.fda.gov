@@ -10,6 +10,7 @@ import SideBarContainer from '../../containers/SideBarContainer'
 
 import animaldrug_phishpharm_meta from '../animaldrug/phishpharm/_meta.yaml'
 import food_enforcement_meta from '../food/enforcement/_meta.yaml'
+import food_event_meta from '../food/event/_meta.yaml'
 import drug_enforcement_meta from '../drug/enforcement/_meta.yaml'
 import drug_event_meta from '../drug/event/_meta.yaml'
 import drug_label_meta from '../drug/label/_meta.yaml'
@@ -29,6 +30,7 @@ var endpoint_list = {
   'Phish-Pharm': animaldrug_phishpharm_meta,
   'Food': 'food_header',
   'Food Enforcement': food_enforcement_meta,
+  'Food Event': food_event_meta,
   'Human Drug': 'humandrug_header',
   'Human Drug Event': drug_event_meta,
   'Human Drug Label': drug_label_meta,
