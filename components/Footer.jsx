@@ -41,11 +41,15 @@ const links: Array<Object> = [
   },
   {
     txt: 'openFDA Terms of Service',
-    url: 'https://open.fda.gov/terms',
+    url: '/terms',
+  },
+  {
+    txt: 'License',
+    url: 'https://open.fda.gov/license'
   },
   {
     txt: 'Email the openFDA team',
-    url: '/',
+    url: 'mailto:open@fda.hhs.gov',
   },
 ]
 
@@ -74,7 +78,7 @@ const Footer = () => (
           <a href='https://www.fda.gov/'>
             <img
               alt='Go to FDA website'
-              height='60px'
+              width='180px'
               src='/img/gov-fda-new-white.svg'
             />
           </a>

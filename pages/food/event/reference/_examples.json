@@ -1,0 +1,101 @@
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    }
+  },
+  "results": {
+    "report_number": "65325",
+    "date_created": "20040101",
+    "date_started": "20030804",
+    "consumer": {
+      "gender": "Female",
+      "age": "2",
+      "age_unit": "Year(s)"
+    },
+    "products": [
+      {
+        "name_brand": "MIDWEST COUNTRY FAIR CHOCOLATE FLAVORED CHIPS",
+        "industry_name": "Bakery Prod/Dough/Mix/Icing",
+        "industry_code": "3",
+        "role": "Suspect"
+      }
+    ],
+    "reactions": [
+      "SWELLING FACE",
+      "WHEEZING",
+      "COUGH",
+      "RASH",
+      "HOSPITALISATION",
+      "DYSPNOEA"
+    ],
+    "outcomes": [
+      "VISITED AN ER",
+      "VISITED A HEALTH CARE PROVIDER",
+      "REQ. INTERVENTION TO PRVNT PERM. IMPRMNT.",
+      "HOSPITALIZATION"
+    ]
+  },
+  "header": {
+    "report_number": "65325",
+    "date_created": "20040101",
+    "date_started": "20030804"
+  },
+  "consumer": {
+    "consumer": {
+      "gender": "Female",
+      "age": "2",
+      "age_unit": "Year(s)"
+    }
+  },
+  "products": {
+    "products": [
+      {
+        "name_brand": "MIDWEST COUNTRY FAIR CHOCOLATE FLAVORED CHIPS",
+        "industry_name": "Bakery Prod/Dough/Mix/Icing",
+        "industry_code": "3",
+        "role": "Suspect"
+      }
+    ]
+  },
+  "reactions": {
+    "reactions": [
+      "SWELLING FACE",
+      "WHEEZING",
+      "COUGH",
+      "RASH",
+      "HOSPITALISATION",
+      "DYSPNOEA"
+    ]
+  },
+  "outcomes": {
+    "outcomes": [
+      "VISITED AN ER",
+      "VISITED A HEALTH CARE PROVIDER",
+      "REQ. INTERVENTION TO PRVNT PERM. IMPRMNT.",
+      "HOSPITALIZATION"
+    ]
+  }
+}
