@@ -200,7 +200,7 @@ class InfographicContainer extends React.Component {
       const search: string = this._getFilterSearch(searchParam, range)
       // the entire query, api endpoint + search params + count params
       //const query: string = `http://5c2d7184.ngrok.io${endpoint}.json?${search}count=${countParam}`
-      const query: string = `http://ec2-54-86-220-160.compute-1.amazonaws.com:8000${endpoint}.json?${search}count=${countParam}`
+      const query: string = `http://openfda-ci-elb-1069226378.us-east-1.elb.amazonaws.com${endpoint}.json?${search}count=${countParam}`
       // results data is unfortunately not included when filtering
       // by count params, so we need to make an additional request
       // to update records only when searchParams change
@@ -208,7 +208,7 @@ class InfographicContainer extends React.Component {
       // the entire query, api endpoint + search params
       // we do not want to include count parameters when counting total records
       //const recordsQuery: string = `http://5c2d7184.ngrok.io${endpoint}.json?${search}`
-      const recordsQuery: string = `http://ec2-54-86-220-160.compute-1.amazonaws.com:8000${endpoint}.json?${search}`
+      const recordsQuery: string = `http://openfda-ci-elb-1069226378.us-east-1.elb.amazonaws.com${endpoint}.json?${search}`
 
       this.setState({
         // update the count param
@@ -230,7 +230,7 @@ class InfographicContainer extends React.Component {
     // or make a request, check the meta of that request, and then
     // make another request with the date in the search field
     // i prefer to just make the download request (which gets cached anyway)
-    xhrGET('http://ec2-54-86-220-160.compute-1.amazonaws.com:8000/download.json', _handleDownloadResponse)
+    xhrGET('http://openfda-ci-elb-1069226378.us-east-1.elb.amazonaws.com/download.json', _handleDownloadResponse)
   }
 
   /**
