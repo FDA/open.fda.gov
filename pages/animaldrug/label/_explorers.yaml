@@ -9,13 +9,13 @@ oneLabel:
   title: One drug product labeling record
 boxedWarning:
   params:
-  - search for all records with a boxed_warning field.
+  - search for all records that require specific veterinarian instructions.
   - limit to 1 record.
-  query: 'https://api.fda.gov/animaldrug/label.json?search=_exists_:boxed_warning'
+  query: 'http://api.fda.gov/animaldrug/label.json?search=_exists_:adverse_reactions&limit=100'
   description:
-    - This query searches for labels with a Boxed Warning, and returns one result.
+    - This query searches for labels with veterinarian instructions, and returns one hundred results.
     - The `_exists_` search modifier lets you search for records that contain a specific field, no matter what its contents are. See the [API basics page](/api/) for more details.
-  title: Product labeling record with a Boxed Warning
+  title: Product labeling record with a veterinarian instructions
 countByType:
   params:
   - count the field openfda.product_type (product type).
