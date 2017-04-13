@@ -8,7 +8,7 @@ properties:
   results:
     format:
     type: string
-    description: "This section has an object for each of the three openFDA *nouns* (`drug`, `device`, and `food`), and each of those has a child object for each endpoint. For example, for the `device/event` endpoint, there is a `results.device.event` object."
+    description: "This section has an object for each of the openFDA *nouns*, and each of those has a child object for each endpoint. For example, for the `device/event` endpoint, there is a `results.device.event` object."
     possible_values:
   total_records:
     format: integer
@@ -38,7 +38,7 @@ properties:
   file:
     format:
     type: integer
-    description: "A URL at which the file can be accessed, by HTTP."
+    description: "A URL at which the file can be accessed."
     possible_values:
   application_number:
     format:

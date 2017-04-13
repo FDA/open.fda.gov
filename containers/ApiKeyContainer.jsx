@@ -55,6 +55,11 @@ const ApiKeyContainer = function (ComposedApiKey: ReactClass): ReactClass {
           'terms_and_conditions': '1',
           'send_welcome_email': '0',
           'registration_source': 'open.fda.gov'
+        },
+        options: {
+          'contact_url': 'mailto:open@fda.hhs.gov',
+          'site_name': 'OpenFDA',
+          'email_from_name': 'OpenFDA'
         }
       }
 
