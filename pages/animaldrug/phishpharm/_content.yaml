@@ -1,8 +1,0 @@
-- "## About Pharmacokinetics Data in Fish"
-- Increased aquaculture production in the US and abroad has led to increased concern over the use of drugs and chemicals (both legal and illegal) in the production of fish products. To address this, the FDA’s Center for Veterinary Medicine (CVM), Office of Research developed and regularly updated Phish-Pharm, a free, searchable, literature database that details drug metabolism, depletion, and pharmacokinetics in fish. The goal of the database is to aid researchers in finding and generating the necessary data to support safe and effective drug approvals for aquatic animals, to improve screening methods for illegal drugs, and to aid in study design by highlighting data gaps. The database was updated in 2014.
-- "getting-started"
-- "downloads"
-- "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/animaldrug/phishpharm.json` using search parameters for [fields specific to the animal Phish-Pharm endpoint.](/animaldrug/phishpharm/reference/)"
-- queryExplorer: oneRecord
-- queryExplorer: countBySpecies

@@ -41,7 +41,7 @@ const EndpointStatusContainer = function (ComposedEndpointStatus: ReactClass): R
         })
       }
 
-      xhrGET('http://openfda-ci-elb-1069226378.us-east-1.elb.amazonaws.com/status', _handleResponse, false)
+      xhrGET('https://api.fda.gov/status', _handleResponse)
     }
 
     componentDidMount () {
@@ -52,7 +52,7 @@ const EndpointStatusContainer = function (ComposedEndpointStatus: ReactClass): R
       if (!this.state.data) return <span />
 
       const path: string = this.props.path.replace(/(\/reference){1}/g, '')
-      const fullPath: string = `hhttp://openfda-ci-elb-1069226378.us-east-1.elb.amazonaws.com${path}.json`
+      const fullPath: string = `https://api.fda.gov${path}.json`
 
       return (
         <ComposedEndpointStatus

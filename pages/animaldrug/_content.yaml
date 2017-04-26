@@ -2,11 +2,3 @@
   title: Animal drug adverse events
   description:
     - "Reports of animal drug side effects, product use errors, product quality problems, and therapeutic failures."
-- url: /animaldrug/label/
-  title: Animal drug product labeling
-  description:
-    - "Structured product information, including prescribing information, for approved animal drug products."
-- url: /animaldrug/phishpharm/
-  title: Animal drug Phish-Pharm
-  description:
-    - "Data from a free, searchable, literature database that details drug metabolism and pharmacokinetics in fish."
