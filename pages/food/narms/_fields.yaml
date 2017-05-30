@@ -1,235 +1,521 @@
-"properties":
-  "sample_id":
-    "type": string
-    "description": ""
-  "genus":
-    "type": string
-    "description": ""
-  "species":
-    "type": string
-    "description": ""
-  "serotype":
-    "type": string
-    "description": ""
-  "isolate_id":
-    "type": string
-    "description": ""
-  "received_date":
-    "type": date
-    "format": date
-    "description": ""
-  "plate":
-    "type": string
-    "description": ""
-  "state":
-    "type": string
-    "description": ""
-  "month":
-    "type": integer
-    "description": ""
-  "year":
-    "type": integer
-    "description": ""
-  "meat_type":
-    "type": string
-    "description": ""
-  "cuts":
-    "type": string
-    "description": ""
-  "sellby_date":
-    "format": date
-    "type": date
-    "description": ""
-  "acquisition_date":
-    "format": date
-    "type": date
-    "description": ""
-  "organic_ind":
-    "type": string
-    "description": ""
-  "antibiotic_ind":
-    "type": string
-    "description": ""
-  "antigenic_formula":
-    "type": string
-    "description": ""
-  "country_of_origin":
-    "type": string
-    "description": ""
-  "agency":
-    "type": string
-    "description": ""
-  "source":
-    "type": string
-    "description": ""
-  "host_species":
-    "type": string
-    "description": ""
-  "source_species_info":
-    "type": string
-    "description": ""
-  "amoxicillin_clavulanic_acid":
-    "type": string
-    "description": ""
-  "amikacin":
-    "type": string
-    "description": ""
-  "ampicillin":
-    "type": string
-    "description": ""
-  "apramycin":
-    "type": string
-    "description": ""
-  "aztreonam":
-    "type": string
-    "description": ""
-  "ceftriaxone":
-    "type": string
-    "description": ""
-  "azithromycin":
-    "type": string
-    "description": ""
-  "bacitracin":
-    "type": string
-    "description": ""
-  "ceftazidime":
-    "type": string
-    "description": ""
-  "cephalothin":
-    "type": string
-    "description": ""
-  "chloramphenicol":
-    "type": string
-    "description": ""
-  "ciprofloxacin":
-    "type": string
-    "description": ""
-  "clindamycin":
-    "type": string
-    "description": ""
-  "trimethoprim_sulfamethoxazole":
-    "type": string
-    "description": ""
-  "cefotaxime":
-    "type": string
-    "description": ""
-  "daptomycin":
-    "type": string
-    "description": ""
-  "doxycycline":
-    "type": string
-    "description": ""
-  "erythromycin":
-    "type": string
-    "description": ""
-  "cefepime":
-    "type": string
-    "description": ""
-  "florfenicol":
-    "type": string
-    "description": ""
-  "sulfisoxazole":
-    "type": string
-    "description": ""
-  "flavomycin":
-    "type": string
-    "description": ""
-  "cefoxitin":
-    "type": string
-    "description": ""
-  "gentamicin":
-    "type": string
-    "description": ""
-  "imipenem":
-    "type": string
-    "description": ""
-  "kanamycin":
-    "type": string
-    "description": ""
-  "lincomycin":
-    "type": string
-    "description": ""
-  "linezolid":
-    "type": string
-    "description": ""
-  "meropenem":
-    "type": string
-    "description": ""
-  "nalidixic_acid":
-    "type": string
-    "description": ""
-  "nitrofurantoin":
-    "type": string
-    "description": ""
-  "penicillin":
-    "type": string
-    "description": ""
-  "piperacillin_tazobactam":
-    "type": string
-    "description": ""
-  "quinupristin_dalfopristin":
-    "type": string
-    "description": ""
-  "sulfamethoxazole":
-    "type": string
-    "description": ""
-  "streptomycin":
-    "type": string
-    "description": ""
-  "telithromycin":
-    "type": string
-    "description": ""
-  "tetracycline":
-    "type": string
-    "description": ""
-  "tigecycline":
-    "type": string
-    "description": ""
-  "ceftiofur":
-    "type": string
-    "description": ""
-  "tylosin":
-    "type": string
-    "description": ""
-  "vancomycin":
-    "type": string
-    "description": ""
-  "genotype":
-    "type": string
-    "description": ""
-  "accession_number":
-    "type": string
-    "description": ""
-  "aminoglycoside_resist_genes":
-    "type": string
-    "description": ""
-  "beta-lactam_resist_genes":
-    "type": string
-    "description": ""
-  "glycopeptide_resist_genes":
-    "type": string
-    "description": ""
-  "macrolide_resist_genes":
-    "type": string
-    "description": ""
-  "qac_resist_genes":
-    "type": string
-    "description": ""
-  "quinolone_resist_genes":
-    "type": string
-    "description": ""
-  "sulfonamide_resist_genes":
-    "type": string
-    "description": ""
-  "tetracycline_resist_genes":
-    "type": string
-    "description": ""
-  "trimethoprim_resist_genes":
-    "type": string
-    "description": ""
-  "phenicol_resist_genes":
-    "type": string
-    "description": ""
-  "other_classes_resist_genes":
-    "type": string
-    "description": ""
+properties:
+  meta:
+    format:
+    type: object
+    description: 'This section contains a disclaimer and license information. The field `last_updated` indicates when the data files were exported.'
+    possible_values:
+    properties:
+      type: object
+      disclaimer:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Important details notes about openFDA data and limitations of the dataset."
+        possible_values:
+      terms:
+        format:
+        is_exact: false
+        pattern:
+        description: "Link to a web page with terms of service that govern data within openFDA."
+        possible_values:
+      license:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Link to a web page with license terms that govern data within openFDA."
+        possible_values:
+      last_updated:
+        format: date
+        is_exact: false
+        type: string
+        pattern:
+        description: "The last date when this openFDA endpoint was updated. Note that this does not correspond to the most recent record for the endpoint or dataset. Rather, it is the last time the openFDA API was itself updated."
+        possible_values:
+      results:
+        type: object
+        properties:
+          skip:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Offset (page) of results, defined by the `skip` [query parameter](/api/)."
+            possible_values:
+          limit:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Number of records in this return, defined by the `limit` [query parameter](/api/). If there is no `limit` parameter, the API returns one result."
+            possible_values:
+          total:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Total number of records matching the search criteria."
+            possible_values:
+  sample_id:
+    type: string
+    description: "A unique identifier for the sample."
+    format:
+    is_exact: false
+    possible_values:
+  genus:
+    type: string
+    description: "The taxonomic rank of the bacteria in the sample."
+    format:
+    is_exact: false
+    possible_values:
+  species:
+    type: string
+    description: "The specific species of bacteria in the sample."
+    format:
+    is_exact: false
+    possible_values:
+  serotype:
+    type: string
+    description: "The variation of bacteria in the sample."
+    format:
+    is_exact: false
+    possible_values:
+  isolate_id:
+    type: string
+    description: "A unique identifier of the isolated bacteria."
+    format:
+    is_exact: false
+    possible_values:
+  received_date:
+    type: date
+    description: "The date the report was received."
+    format: date
+    is_exact: false
+    possible_values:
+  plate:
+    type: string
+    description: "???"
+    format:
+    is_exact: false
+    possible_values:
+  state:
+    type: string
+    description: "The state in which testing took place."
+    format:
+    is_exact: false
+    possible_values:
+  month:
+    type: integer
+    description: "The month in which testing took place."
+    format:
+    is_exact: false
+    possible_values:
+  year:
+    type: integer
+    description: "The year in which testing took place."
+    format:
+    is_exact: false
+    possible_values:
+  meat_type:
+    type: string
+    description: "The type of meat of the sample."
+    format:
+    is_exact: true
+    possible_values:
+  cuts:
+    type: string
+    description: "The specific cut of meat of the sample."
+    format:
+    is_exact: false
+    possible_values:
+  sellby_date:
+    type: date
+    description: "The sample's sellby date."
+    format: date
+    is_exact: false
+    possible_values:
+  acquisition_date:
+    type: date
+    description: "The date the sample was acquired."
+    format: date
+    is_exact: false
+    possible_values:
+  organic_ind:
+    type: string
+    description: "???"
+    format:
+    is_exact: true
+    possible_values:
+  antibiotic_ind:
+    type: string
+    description: "???"
+    format:
+    is_exact: true
+    possible_values:
+  antigenic_formula:
+    type: string
+    description: "???"
+    format:
+    is_exact: false
+    possible_values:
+  country_of_origin:
+    type: string
+    description: "The sample's country of origin."
+    format:
+    is_exact: false
+    possible_values:
+  agency:
+    type: string
+    description: "The reporting agency."
+    format:
+    is_exact: false
+    possible_values:
+  source:
+    type: string
+    description: "The animal source of the sample."
+    format:
+    is_exact: false
+    possible_values:
+  host_species:
+    type: string
+    description: "The species of the host sample."
+    format:
+    is_exact: false
+    possible_values:
+  source_species_info:
+    type: string
+    description: "More specific information about the host sample."
+    format:
+    is_exact: false
+    possible_values:
+  amoxicillin_clavulanic_acid:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  amikacin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  ampicillin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  apramycin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  aztreonam:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  ceftriaxone:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  azithromycin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  bacitracin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  ceftazidime:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  cephalothin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  chloramphenicol:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  ciprofloxacin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  clindamycin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  trimethoprim_sulfamethoxazole:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  cefotaxime:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  daptomycin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  doxycycline:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  erythromycin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  cefepime:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  florfenicol:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  sulfisoxazole:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  flavomycin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  cefoxitin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  gentamicin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  imipenem:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  kanamycin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  lincomycin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  linezolid:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  meropenem:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  nalidixic_acid:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  nitrofurantoin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  penicillin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  piperacillin_tazobactam:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  quinupristin_dalfopristin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  sulfamethoxazole:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  streptomycin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  telithromycin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  tetracycline:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  tigecycline:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  ceftiofur:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  tylosin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  vancomycin:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  genotype:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  accession_number:
+    type: string
+    description: "???"
+    format:
+    is_exact: false
+    possible_values:
+  aminoglycoside_resist_genes:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  beta-lactam_resist_genes:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  glycopeptide_resist_genes:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  macrolide_resist_genes:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  qac_resist_genes:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  quinolone_resist_genes:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  sulfonamide_resist_genes:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  tetracycline_resist_genes:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  trimethoprim_resist_genes:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  phenicol_resist_genes:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+  other_classes_resist_genes:
+    type: string
+    description: ""
+    format:
+    is_exact: false
+    possible_values:

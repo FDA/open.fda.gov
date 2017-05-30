@@ -1,0 +1,25 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › NARMS'
+crumbs:
+  - openFDA
+  - Datasets
+  - NARMS
+title: 'The National Antimicrobial Resistance Monitoring System'
+description: 'This portion of the national public health surveillance system tracks changes in the antimicrobial susceptibility of enteric (intestinal) bacteria found in retail meats (FDA) in the United States.'
+source:
+  name: 'NARMS'
+  nameLong: 'The National Antimicrobial Resistance Monitoring System'
+  link: 'hhttps://www.fda.gov/AnimalVeterinary/SafetyHealth/AntimicrobialResistance/NationalAntimicrobialResistanceMonitoringSystem/'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+time:
+  start: 'Q1 1996'
+  current:
+  delay:
+  frequency:
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - "Antibiotic resistance is an adverse event associated with the use of antibiotics. It is directly related to the safety and effectiveness of antibiotics, which FDA is responsible for ensuring. Its main function is to serve the FDA Center for Veterinary Medicine (CVM) as a source of data for the approval of new animal antibiotics and for the post-approval safety monitoring of these compounds. Thus, NARMS is used to assess the risks associated with new drugs and to monitor the continued safe use of older agents. NARMS was established in 1996 as a partnership between the FDA, the Centers for Disease Control and Prevention (CDC), and the U.S. Department of Agriculture (USDA) to track antibiotic resistance in foodborne bacteria from humans (CDC), retail meats (FDA), and food animals (USDA)."

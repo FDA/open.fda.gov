@@ -6,3 +6,7 @@
   title: Food, dietary supplement, and cosmetic adverse event reports
   description:
     - "Food, dietary supplement, and cosmetic adverse event reports."
+- url: /food/narms/
+  title: Food NARMS reports
+  description:
+    - "FDA National Antimicrobial Resistance Monitoring System reports."

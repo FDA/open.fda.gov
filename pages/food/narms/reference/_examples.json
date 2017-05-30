@@ -52,7 +52,6 @@
     "streptomycin": "=4.0",
     "ciprofloxacin": "<=0.015"
   },
-  },
   "header": {
     "sample_id": "210085975",
     "genus": "EC",

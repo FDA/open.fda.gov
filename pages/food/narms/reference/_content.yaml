@@ -110,7 +110,7 @@
 - example: miscellaneous
 - fields:
   - genotype
-  - asscession_number
+  - accession_number
 - "#### Resistant Genes"
 - "This section lists resistant genes found in the bacteria."
 - example: resistant
@@ -126,5 +126,4 @@
   - trimethoprim_resist_genes
   - phenicol_resist_genes
   - other_classes_resist_genes
-- datasets:
- - narms
+- "datasets"

@@ -3,7 +3,7 @@ documentTitle: openFDA › Food › NARMS reference guide
 name: Food NARMS reference
 description: This portion of the national public health surveillance system tracks changes in the antimicrobial susceptibility of enteric (intestinal) bacteria found in retail meats (FDA) in the United States.
 datasets:
-  - CAERS
+  - NARMS
 label: Food NARMS
 path: /food/narms/reference
 status: foodnarms
