@@ -1,0 +1,130 @@
+- "## About"
+- "The openFDA National Antimicrobial Resistance Monitoring System API returns data from the [National Antimicrobial Resistance Monitoring System (NARMS)](/data/narms/), a series of CSV files that contains information on tracks changes in the antimicrobial susceptibility of enteric (intestinal) bacteria found in retail meats (FDA) in the United States. The NARMS program helps promote and protect public health by providing information about emerging bacterial resistance, how resistant infections differ from susceptible infections, and the impact of interventions designed to limit the spread of resistance. NARMS data are used by FDA to make regulatory decisions designed to preserve the effectiveness of antibiotics for humans and animals."
+- "For more information about the NARMS data, please see this web page:  [https://www.fda.gov/AnimalVeterinary/SafetyHealth/AntimicrobialResistance/NationalAntimicrobialResistanceMonitoringSystem/](https://www.fda.gov/AnimalVeterinary/SafetyHealth/AntimicrobialResistance/NationalAntimicrobialResistanceMonitoringSystem/)."
+- "### How NARMS reports are organized"
+- "Each report received regarding an meat sample is assigned a unique sample id."
+- "downloads"
+- "## Anatomy of a response"
+- "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."
+- example: anatomy
+- "### Meta"
+- "For non-`count` queries, the `meta` section includes a disclaimer, a link to the openFDA data license, and information about the results that follow."
+- example: meta
+- fields:
+  - meta.disclaimer
+  - meta.terms
+  - meta.license
+  - meta.last_updated
+  - meta.results.skip
+  - meta.results.limit
+  - meta.results.total
+- "### Results"
+- "For non-`count` queries, the `results` section includes matching NARMS reports returned by the API."
+- "Each NARMS report consists of these major sections:"
+- ul:
+  - "Header: General information about the adverse event report"
+  - "Consumer: Information about the individual who experienced the adverse event"
+  - "Products: Information about the products involved in the adverse event report"
+  - "Reactions: Information on the reactions or symptoms experienced by the individual involved"
+  - "Outcomes: Information on known outcomes or consequences of the adverse event"
+- example: results
+- "## Field-by-field reference"
+- "### Header"
+- "General information about the adverse event report."
+- example: header
+- fields:
+  - sample_id
+  - genus
+  - species
+  - serotype
+  - isolate_id
+  - received_date
+  - plate
+  - state
+  - month
+  - year
+- "### Meat"
+- "Information about the meat sample used to generate the record."
+- example: meat
+- fields:
+  - meat_type
+  - cuts
+  - sellby_date
+  - acquisition_date
+  - organic_ind
+  - antibiotic_ind
+  - antigenic_formula
+  - country_of_origin
+  - agency
+  - source
+  - host_species
+  - source_species_info
+- "#### Antibiotic"
+- "This section contains information about the antibiotic values found in the sample."
+- example: antibiotic
+- fields:
+  - amoxicillin_clavulanic_acid
+  - amikacin
+  - ampicillin
+  - apramycin
+  - aztreonam
+  - ceftriaxone
+  - azithromycin
+  - bacitracin
+  - ceftazidime
+  - cephalothin
+  - chloramphenicol
+  - ciprofloxacin
+  - clindamycin
+  - trimethoprim_sulfamethoxazole
+  - cefotaxime
+  - daptomycin
+  - doxycycline
+  - erythromycin
+  - cefepime
+  - florfenicol
+  - sulfisoxazole
+  - flavomycin
+  - cefoxitin
+  - gentamicin
+  - imipenem
+  - kanamycin
+  - lincomycin
+  - linezolid
+  - meropenem
+  - nalidixic_acid
+  - nitrofurantoin
+  - penicillin
+  - piperacillin_tazobactam
+  - quinupristin_dalfopristin
+  - sulfamethoxazole
+  - streptomycin
+  - telithromycin
+  - tetracycline
+  - tigecycline
+  - ceftiofur
+  - tylosin
+  - vancomycin
+- "#### Miscellaneous"
+- "An assortment of values not grouped with anything else."
+- example: miscellaneous
+- fields:
+  - genotype
+  - asscession_number
+- "#### Resistant Genes"
+- "This section lists resistant genes found in the bacteria."
+- example: resistant
+- fields:
+  - aminoglycoside_resist_genes
+  - beta-lactam_resist_genes
+  - glycopeptide_resist_genes
+  - macrolide_resist_genes
+  - qac_resist_genes
+  - quinolone_resist_genes
+  - sulfonamide_resist_genes
+  - tetracycline_resist_genes
+  - trimethoprim_resist_genes
+  - phenicol_resist_genes
+  - other_classes_resist_genes
+- datasets:
+ - narms

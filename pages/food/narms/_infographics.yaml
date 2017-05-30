@@ -1,0 +1,15 @@
+- title: "NARMS Reports over time"
+  short: "Reports over time"
+  description:
+    - "Reports over time indicating the bacterial resistance in meat."
+  countParam: "date_created"
+  filters:
+    - title: "All narms reports"
+      searchParam: ""
+    - title: "Involving swine"
+      searchParam: "host_species:'Swine'"
+    - title: "Resistant to azithromycin"
+      searchParam: "_exists_:azithromycin"
+  filterByDate: true
+  type: Line
+

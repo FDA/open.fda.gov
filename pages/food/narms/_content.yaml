@@ -1,0 +1,11 @@
+- "## About NARMS"
+- "The U.S. Food and Drug Administration (FDA) regulates food products in the United States, working to assure that the food supply is safe, sanitary, wholesome, and honestly labeled. FDA's responsibility covers all domestic and imported food except meat, poultry, and frozen, dried, and liquid eggs, and the labeling of alcoholic beverages (above 7% alcohol). It even includes dietary supplements, bottled water, food additives, infant formulas, and other food products."
+- "The FDA portion of the National Antimicrobial Resistance Monitoring System (NARMS) tracks changes in the antimicrobial susceptibility of enteric (intestinal) bacteria found in retail meats in the United States."
+- "### Reference"
+- "See the [comprehensive field-by-field reference](/food/narms/) for more detail about the structure and contents of NARMS reports."
+- "downloads"
+- "### How to search this endpoint"
+- "Make API calls to `https://api.fda.gov/food/event.json` using search parameters for [fields specific to the food NARMS endpoint.](/food/narms/reference/)"
+- queryExplorer: oneReport
+- queryExplorer: species
+- queryExplorer: bacteria

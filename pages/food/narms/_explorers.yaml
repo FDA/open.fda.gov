@@ -1,0 +1,29 @@
+oneReport:
+  title: One narms report
+  description:
+    - This query searches for all records in a certain date range, and asks for a single one.
+    - See the [header fields reference](/food/narms/reference/) for more about date_started. Brackets [ ] are used to specify a range for date, number, or string fields.
+  params:
+    - search for all records with received_date between Jan 01, 2004 and Jan 1, 2016.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/food/narms.json?search=received_date:[20040101+TO+20160101]&limit=1'
+species:
+  title: One adverse event report involving the bacteria faecalis
+  description:
+    - 'This query searches records involving faecalis, and returns a single record.'
+  params:
+    - search for all records where species is faecalis.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/food/narms.json?search=species:"faecalis"&limit=1'
+bacteria:
+  title: Count of unique bacteria in Swine
+  description:
+    - This query returns a count of unique bacteria in Swine.
+    - count the field species.exact.
+    - The suffix .exact is required by openFDA to count the unique full phrases in the field reactions. Without it, the API will count each word in that field individually—difficulty sleeping would be counted as separate values, difficulty and sleeping.
+    - See the [narms reference](/food/narms/reference/) for more about these fields.
+  params:
+    - search for all records where host_species is Swine.
+    - count the field species.exact.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/food/narms.json?search=host_species:"Swine"&count=species.exact'

@@ -1,0 +1,235 @@
+"properties":
+  "sample_id":
+    "type": string
+    "description": ""
+  "genus":
+    "type": string
+    "description": ""
+  "species":
+    "type": string
+    "description": ""
+  "serotype":
+    "type": string
+    "description": ""
+  "isolate_id":
+    "type": string
+    "description": ""
+  "received_date":
+    "type": date
+    "format": date
+    "description": ""
+  "plate":
+    "type": string
+    "description": ""
+  "state":
+    "type": string
+    "description": ""
+  "month":
+    "type": integer
+    "description": ""
+  "year":
+    "type": integer
+    "description": ""
+  "meat_type":
+    "type": string
+    "description": ""
+  "cuts":
+    "type": string
+    "description": ""
+  "sellby_date":
+    "format": date
+    "type": date
+    "description": ""
+  "acquisition_date":
+    "format": date
+    "type": date
+    "description": ""
+  "organic_ind":
+    "type": string
+    "description": ""
+  "antibiotic_ind":
+    "type": string
+    "description": ""
+  "antigenic_formula":
+    "type": string
+    "description": ""
+  "country_of_origin":
+    "type": string
+    "description": ""
+  "agency":
+    "type": string
+    "description": ""
+  "source":
+    "type": string
+    "description": ""
+  "host_species":
+    "type": string
+    "description": ""
+  "source_species_info":
+    "type": string
+    "description": ""
+  "amoxicillin_clavulanic_acid":
+    "type": string
+    "description": ""
+  "amikacin":
+    "type": string
+    "description": ""
+  "ampicillin":
+    "type": string
+    "description": ""
+  "apramycin":
+    "type": string
+    "description": ""
+  "aztreonam":
+    "type": string
+    "description": ""
+  "ceftriaxone":
+    "type": string
+    "description": ""
+  "azithromycin":
+    "type": string
+    "description": ""
+  "bacitracin":
+    "type": string
+    "description": ""
+  "ceftazidime":
+    "type": string
+    "description": ""
+  "cephalothin":
+    "type": string
+    "description": ""
+  "chloramphenicol":
+    "type": string
+    "description": ""
+  "ciprofloxacin":
+    "type": string
+    "description": ""
+  "clindamycin":
+    "type": string
+    "description": ""
+  "trimethoprim_sulfamethoxazole":
+    "type": string
+    "description": ""
+  "cefotaxime":
+    "type": string
+    "description": ""
+  "daptomycin":
+    "type": string
+    "description": ""
+  "doxycycline":
+    "type": string
+    "description": ""
+  "erythromycin":
+    "type": string
+    "description": ""
+  "cefepime":
+    "type": string
+    "description": ""
+  "florfenicol":
+    "type": string
+    "description": ""
+  "sulfisoxazole":
+    "type": string
+    "description": ""
+  "flavomycin":
+    "type": string
+    "description": ""
+  "cefoxitin":
+    "type": string
+    "description": ""
+  "gentamicin":
+    "type": string
+    "description": ""
+  "imipenem":
+    "type": string
+    "description": ""
+  "kanamycin":
+    "type": string
+    "description": ""
+  "lincomycin":
+    "type": string
+    "description": ""
+  "linezolid":
+    "type": string
+    "description": ""
+  "meropenem":
+    "type": string
+    "description": ""
+  "nalidixic_acid":
+    "type": string
+    "description": ""
+  "nitrofurantoin":
+    "type": string
+    "description": ""
+  "penicillin":
+    "type": string
+    "description": ""
+  "piperacillin_tazobactam":
+    "type": string
+    "description": ""
+  "quinupristin_dalfopristin":
+    "type": string
+    "description": ""
+  "sulfamethoxazole":
+    "type": string
+    "description": ""
+  "streptomycin":
+    "type": string
+    "description": ""
+  "telithromycin":
+    "type": string
+    "description": ""
+  "tetracycline":
+    "type": string
+    "description": ""
+  "tigecycline":
+    "type": string
+    "description": ""
+  "ceftiofur":
+    "type": string
+    "description": ""
+  "tylosin":
+    "type": string
+    "description": ""
+  "vancomycin":
+    "type": string
+    "description": ""
+  "genotype":
+    "type": string
+    "description": ""
+  "accession_number":
+    "type": string
+    "description": ""
+  "aminoglycoside_resist_genes":
+    "type": string
+    "description": ""
+  "beta-lactam_resist_genes":
+    "type": string
+    "description": ""
+  "glycopeptide_resist_genes":
+    "type": string
+    "description": ""
+  "macrolide_resist_genes":
+    "type": string
+    "description": ""
+  "qac_resist_genes":
+    "type": string
+    "description": ""
+  "quinolone_resist_genes":
+    "type": string
+    "description": ""
+  "sulfonamide_resist_genes":
+    "type": string
+    "description": ""
+  "tetracycline_resist_genes":
+    "type": string
+    "description": ""
+  "trimethoprim_resist_genes":
+    "type": string
+    "description": ""
+  "phenicol_resist_genes":
+    "type": string
+    "description": ""
+  "other_classes_resist_genes":
+    "type": string
+    "description": ""

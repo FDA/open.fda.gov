@@ -1,0 +1,106 @@
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2015-01-01",
+      "results": {
+        "skip": 0,
+        "limit": 10,
+        "total": 134120
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    }
+  },
+  "results": {
+    "cefoxitin": "=4.0",
+    "ampicillin": "=2.0",
+    "agency": "USDA-FSIS",
+    "year": 2014,
+    "sample_id": "210085975",
+    "host_species": "Cattle",
+    "trimethoprim_sulfamethoxazole": "<=0.125",
+    "azithromycin": "=2.0",
+    "source": "Cecal (Dairy)",
+    "sulfisoxazole": "<=16.0",
+    "ceftriaxone": "<=0.25",
+    "species": "coli",
+    "received_date": "20140428",
+    "genus": "EC",
+    "isolate_id": 210085975,
+    "gentamicin": "=1.0",
+    "nalidixic_acid": "=2.0",
+    "chloramphenicol": "=4.0",
+    "tetracycline": ">32.0",
+    "ceftiofur": "=0.25",
+    "amoxicillin_clavulanic_acid": "=4.0",
+    "streptomycin": "=4.0",
+    "ciprofloxacin": "<=0.015"
+  },
+  },
+  "header": {
+    "sample_id": "210085975",
+    "genus": "EC",
+    "species": "coli",
+    "serotype": "Kentucky",
+    "isolate_id": "07CA01CB09-S",
+    "received_date": "20071017",
+    "plate": "CMV1AGNF",
+    "state": "CA",
+    "month": "1",
+    "year": "2007"
+  },
+  "meat": {
+    "meat_type": "CB",
+    "cuts": "CUT/ GROUND",
+    "sellby_date": "20071206",
+    "acquisition_date": "20071130",
+    "organic_ind": "NO",
+    "antibiotic_ind": "???",
+    "antigenic_formula": "???",
+    "country_of_origin": "???",
+    "agency": "USDA-FSIS",
+    "source": "Retail Chickens",
+    "host_species": "Chickens",
+    "source_species_info": "CUT/ GROUND"
+  },
+  "antibiotic": {
+    "amikacin": "=2.0",
+    "cefoxitin": "=2.0",
+    "gentamicin": "=0.5",
+    "ceftiofur": "=1.0",
+    "amoxicillin_clavulanic_acid": "<=1.0",
+    "ampicillin": "<=1.0",
+    "trimethoprim_sulfamethoxazole": "<=0.125",
+    "kanamycin": "<=8.0",
+    "sulfisoxazole": "=64.0",
+    "ceftriaxone": "<=0.25",
+    "nalidixic_acid": "=2.0",
+    "chloramphenicol": "=4.0",
+    "tetracycline": ">32.0",
+    "streptomycin": "=64.0",
+    "ciprofloxacin": "<=0.015"
+  },
+  "miscellaneous": {
+    "genotype": "",
+    "accession_number": ""
+  },
+  "resistant": {
+    "aminoglycoside_resist_genes": ""
+  }
+}
