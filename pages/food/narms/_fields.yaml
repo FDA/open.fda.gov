@@ -123,6 +123,10 @@ properties:
     format:
     is_exact: true
     possible_values:
+      "CB": "CB"
+      "GT": "GT"
+      "GB": "GB"
+      "PC": "PC"
   cuts:
     type: string
     description: "The specific cut of meat of the sample."
@@ -147,12 +151,20 @@ properties:
     format:
     is_exact: true
     possible_values:
+      type: one_of
+      value:
+        'YES': 'YES'
+        'NO': 'NO'
   antibiotic_ind:
-    type: string
+    type: boolean
     description: "???"
     format:
     is_exact: true
     possible_values:
+      type: one_of
+      value:
+        'YES': 'YES'
+        'NO': 'NO'
   antigenic_formula:
     type: string
     description: "???"
