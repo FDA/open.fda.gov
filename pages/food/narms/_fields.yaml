@@ -123,10 +123,12 @@ properties:
     format:
     is_exact: true
     possible_values:
-      "CB": "CB"
-      "GT": "GT"
-      "GB": "GB"
-      "PC": "PC"
+      type: one_of
+      value:
+        "CB": "CB"
+        "GT": "GT"
+        "GB": "GB"
+        "PC": "PC"
   cuts:
     type: string
     description: "The specific cut of meat of the sample."
