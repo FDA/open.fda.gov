@@ -65,91 +65,97 @@ properties:
     possible_values:
   genus:
     type: string
-    description: "The taxonomic rank of the bacteria in the sample."
+    description: "A code that identifies the bacteria genus."
     format:
     is_exact: false
     possible_values:
+      type: one_of
+      value:
+        "C": "Campylobacter"
+        "E": "Enterococcus"
+        "EC": "Escherichia"
+        "S": "Salmonella"
   species:
     type: string
-    description: "The specific species of bacteria in the sample."
+    description: "Either the specific species name of the genus found in this isolate or a grouping such as 'Other' for reporting purposes."
     format:
     is_exact: false
     possible_values:
   serotype:
     type: string
-    description: "The variation of bacteria in the sample."
+    description: "Either the specific serotype name found in this isolate or a grouping such as 'Other' for reporting purposes."
     format:
     is_exact: false
     possible_values:
   isolate_id:
     type: string
-    description: "A unique identifier of the isolated bacteria."
+    description: "A code that uniquely identifies a bacteria isolate. The code may be broken down into state, year, month, source type, and sequence."
     format:
     is_exact: false
     possible_values:
   received_date:
     type: date
-    description: "The date the report was received."
+    description: "The date that the isolate or sample was received by the testing laboratory."
     format: date
     is_exact: false
     possible_values:
   plate:
     type: string
-    description: "???"
+    description: "Testing method and broth microdilution plate name."
     format:
     is_exact: false
     possible_values:
   state:
     type: string
-    description: "The state in which testing took place."
+    description: "The state in which the sample was collected."
     format:
     is_exact: false
     possible_values:
   month:
     type: integer
-    description: "The month in which testing took place."
+    description: "The month in which the sample was collected."
     format:
     is_exact: false
     possible_values:
   year:
     type: integer
-    description: "The year in which testing took place."
+    description: "The year in which the sample was collected."
     format:
     is_exact: false
     possible_values:
   meat_type:
     type: string
-    description: "The type of meat of the sample."
+    description: "A code that identifies the type of retail meat sample.  "
     format:
     is_exact: true
     possible_values:
       type: one_of
       value:
-        "CB": "CB"
-        "GT": "GT"
-        "GB": "GB"
-        "PC": "PC"
+        "CB": "Chicken Breast"
+        "GT": "Ground Turkey"
+        "GB": "Ground Beef"
+        "PC": "Pork Chops"
   cuts:
     type: string
-    description: "The specific cut of meat of the sample."
+    description: "A code that indicates whether beef patties, chicken wings, or turkey was used."
     format:
     is_exact: false
     possible_values:
   sellby_date:
     type: date
-    description: "The sample's sellby date."
+    description: "The sell-by date listed on the retail meat package"
     format: date
     is_exact: false
     possible_values:
   acquisition_date:
     type: date
-    description: "The date the sample was acquired."
+    description: "The date the sample was collected."
     format: date
     is_exact: false
     possible_values:
   organic_ind:
     type: string
-    description: "???"
+    description: "A yes/no flag that indicates whether or not retail packages were labeled as 'organic'."
     format:
     is_exact: true
     possible_values:
@@ -159,7 +165,7 @@ properties:
         'NO': 'NO'
   antibiotic_ind:
     type: boolean
-    description: "???"
+    description: "A yes/no flag that indicates whether lack of antibiotic use was indicated on the retail package."
     format:
     is_exact: true
     possible_values:
@@ -169,367 +175,391 @@ properties:
         'NO': 'NO'
   antigenic_formula:
     type: string
-    description: "???"
+    description: "The formula of antigens indicating the specific serotype of bacterium."
     format:
     is_exact: false
     possible_values:
   country_of_origin:
     type: string
-    description: "The sample's country of origin."
+    description: "The name of the country where the meat or animal originated."
     format:
     is_exact: false
     possible_values:
   agency:
     type: string
-    description: "The reporting agency."
+    description: "The abbreviation for the agency that performed the test. Valid values are: CDC, FDA, USDA-ARS, and USDA-FSIS."
     format:
     is_exact: false
     possible_values:
+      type: one_of
+      value:
+        'FDA': 'Food and Drug Administration'
+        'USDA-ARS': 'United States Department of Agriculture Agricultural Research Service'
+        'USDA-FSIS': 'United States Department of Agriculture Food Safety and Inspection Service'
   source:
     type: string
-    description: "The animal source of the sample."
+    description: "The name of the source of the sample."
     format:
-    is_exact: false
+    is_exact: true
     possible_values:
+      type: one_of
+      value:
+        "Slaughter": "Slaughter"
+        "HACCP": "HACCP"
+        "Retail Chickens": "Retail Chickens"
+        "Retail Ground Turkey": "Retail Ground Turkey"
+        "Retail Ground Beef": "Retail Ground Beef"
+        "Retail Pork Chops": "Retail Pork Chops"
+        "Cecal (Beef)": "Cecal (Beef)"
+        "Cecal (Dairy)": "Cecal (Dairy)"
+        "Cecal (Market Hogs)": "Cecal (Market Hogs)"
+        "Cecal (Sows)": "Cecal (Sows)"
+        "Cecal": "Cecal"
   host_species:
     type: string
-    description: "The species of the host sample."
+    description: "The name of the host species that was the source of the sample."
     format:
-    is_exact: false
+    is_exact: true
     possible_values:
+      type: one_of
+      value:
+        "Chickens": "Chickens"
+        "Cattle": "Cattle"
+        "Turkeys": "Turkeys"
+        "Swine": "Swine"
   source_species_info:
     type: string
-    description: "More specific information about the host sample."
+    description: "Additional details about the food or food animal source."
     format:
     is_exact: false
     possible_values:
   amoxicillin_clavulanic_acid:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Amoxicillin-Clavulanic acid)"
     format:
     is_exact: false
     possible_values:
   amikacin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus.(Amikacin)"
     format:
     is_exact: false
     possible_values:
   ampicillin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus.(Ampicillin)"
     format:
     is_exact: false
     possible_values:
   apramycin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus.(Apramycin)"
     format:
     is_exact: false
     possible_values:
   aztreonam:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus.(Aztreonam)"
     format:
     is_exact: false
     possible_values:
   ceftriaxone:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Ceftriaxone)"
     format:
     is_exact: false
     possible_values:
   azithromycin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Azithromycin)"
     format:
     is_exact: false
     possible_values:
   bacitracin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Bacitracin)"
     format:
     is_exact: false
     possible_values:
   ceftazidime:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Ceftazidime)"
     format:
     is_exact: false
     possible_values:
   cephalothin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Cephalothin)"
     format:
     is_exact: false
     possible_values:
   chloramphenicol:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Chloramphenicol)"
     format:
     is_exact: false
     possible_values:
   ciprofloxacin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Ciprofloxacin)"
     format:
     is_exact: false
     possible_values:
   clindamycin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Clindamycin)"
     format:
     is_exact: false
     possible_values:
   trimethoprim_sulfamethoxazole:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Trimethoprim-Sulfamethoxazole)"
     format:
     is_exact: false
     possible_values:
   cefotaxime:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Cefotaxime)"
     format:
     is_exact: false
     possible_values:
   daptomycin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Daptomycin)"
     format:
     is_exact: false
     possible_values:
   doxycycline:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Doxycycline)"
     format:
     is_exact: false
     possible_values:
   erythromycin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Erythromycin)"
     format:
     is_exact: false
     possible_values:
   cefepime:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Cefepime)"
     format:
     is_exact: false
     possible_values:
   florfenicol:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Florfenicol)"
     format:
     is_exact: false
     possible_values:
   sulfisoxazole:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Sulfisoxazole)"
     format:
     is_exact: false
     possible_values:
   flavomycin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Flavomycin)"
     format:
     is_exact: false
     possible_values:
   cefoxitin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Cefoxitin)"
     format:
     is_exact: false
     possible_values:
   gentamicin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Gentamicin)"
     format:
     is_exact: false
     possible_values:
   imipenem:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Imipenem)"
     format:
     is_exact: false
     possible_values:
   kanamycin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Kanamycin)"
     format:
     is_exact: false
     possible_values:
   lincomycin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Lincomycin)"
     format:
     is_exact: false
     possible_values:
   linezolid:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Linezolid)"
     format:
     is_exact: false
     possible_values:
   meropenem:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Meropenem)"
     format:
     is_exact: false
     possible_values:
   nalidixic_acid:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Nalidixic Acid)"
     format:
     is_exact: false
     possible_values:
   nitrofurantoin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Nitrofurantoin)"
     format:
     is_exact: false
     possible_values:
   penicillin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Penicillin)"
     format:
     is_exact: false
     possible_values:
   piperacillin_tazobactam:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Piperacillin-Tazobactam)"
     format:
     is_exact: false
     possible_values:
   quinupristin_dalfopristin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Quinupristin-Dalfopristin)"
     format:
     is_exact: false
     possible_values:
   sulfamethoxazole:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Sulfamethoxazole)"
     format:
     is_exact: false
     possible_values:
   streptomycin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Streptomycin)"
     format:
     is_exact: false
     possible_values:
   telithromycin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Telithromcyin)"
     format:
     is_exact: false
     possible_values:
   tetracycline:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Tetracycline)"
     format:
     is_exact: false
     possible_values:
   tigecycline:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Tigecycline)"
     format:
     is_exact: false
     possible_values:
   ceftiofur:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Ceftiofur)"
     format:
     is_exact: false
     possible_values:
   tylosin:
     type: string
-    description: ""
+    description: "The given concentration that indicates the MIC for this isolate and bacteria genus. (Tylosin)"
     format:
     is_exact: false
     possible_values:
   vancomycin:
     type: string
-    description: ""
+    description: "The given concentration that indicate the MIC for this isolate and bacteria genus. (Vancomycin)"
     format:
     is_exact: false
     possible_values:
   genotype:
     type: string
-    description: ""
+    description: "The genetic constitution of the bacteria."
     format:
     is_exact: false
     possible_values:
   accession_number:
     type: string
-    description: "???"
+    description: "GenBank Accession Number of sequenced isolate."
     format:
     is_exact: false
     possible_values:
   aminoglycoside_resist_genes:
     type: string
-    description: ""
+    description: "Genes that confer resistance to Aminoglycoside antibiotics."
     format:
     is_exact: false
     possible_values:
   beta-lactam_resist_genes:
     type: string
-    description: ""
+    description: "Genes that confer resistance to Beta-lactam antibiotics."
     format:
     is_exact: false
     possible_values:
   glycopeptide_resist_genes:
     type: string
-    description: ""
+    description: "Genes that confer resistance to Glycopeptide antibiotics."
     format:
     is_exact: false
     possible_values:
   macrolide_resist_genes:
     type: string
-    description: ""
+    description: "Genes that confer resistance to Macrolide antibiotics."
     format:
     is_exact: false
     possible_values:
   qac_resist_genes:
     type: string
-    description: ""
+    description: "Genes that confer resistance to quaternary ammonium compounds and other cationic compounds."
     format:
     is_exact: false
     possible_values:
   quinolone_resist_genes:
     type: string
-    description: ""
+    description: "Genes that confer resistance to Quinolone antibiotics."
     format:
     is_exact: false
     possible_values:
   sulfonamide_resist_genes:
     type: string
-    description: ""
+    description: "Genes that confer resistance to Sulfonamide antibiotics."
     format:
     is_exact: false
     possible_values:
   tetracycline_resist_genes:
     type: string
-    description: ""
+    description: "Genes that confer resistance to Tetracycline antibiotics."
     format:
     is_exact: false
     possible_values:
   trimethoprim_resist_genes:
     type: string
-    description: ""
+    description: "Genes that confer resistance to  Trimethoprim."
     format:
     is_exact: false
     possible_values:
   phenicol_resist_genes:
     type: string
-    description: ""
+    description: "Genes that confer resistance to Phenicol antibiotics."
     format:
     is_exact: false
     possible_values:
   other_classes_resist_genes:
     type: string
-    description: ""
+    description: "Genes that confer resistance to Other classes of antibiotics not indicated here."
     format:
     is_exact: false
     possible_values:
