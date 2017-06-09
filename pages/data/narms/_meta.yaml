@@ -9,7 +9,7 @@ description: 'This portion of the national public health surveillance system tra
 source:
   name: 'NARMS'
   nameLong: 'The National Antimicrobial Resistance Monitoring System'
-  link: 'hhttps://www.fda.gov/AnimalVeterinary/SafetyHealth/AntimicrobialResistance/NationalAntimicrobialResistanceMonitoringSystem/'
+  link: 'https://www.fda.gov/AnimalVeterinary/SafetyHealth/AntimicrobialResistance/NationalAntimicrobialResistanceMonitoringSystem/'
 license:
   name: 'Public Domain and CC0'
   link: 'http://creativecommons.org/publicdomain/zero/1.0/'
