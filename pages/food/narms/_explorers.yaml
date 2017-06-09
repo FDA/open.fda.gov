@@ -6,7 +6,7 @@ oneReport:
   params:
     - search for all records with received_date between Jan 01, 2004 and Jan 1, 2016.
     - limit to 1 record.
-  query: 'http://88721d08.ngrok.io/food/narms.json?search=received_date:[20040101+TO+20160101]&limit=1'
+  query: 'https://api.fda.gov/food/narms.json?search=received_date:[20040101+TO+20160101]&limit=1'
 species:
   title: One adverse event report involving the bacteria faecalis
   description:
@@ -14,7 +14,7 @@ species:
   params:
     - search for all records where species is faecalis.
     - limit to 1 record.
-  query: 'http://88721d08.ngrok.io/food/narms.json?search=species:"faecalis"&limit=1'
+  query: 'https://api.fda.gov/food/narms.json?search=species:"faecalis"&limit=1'
 bacteria:
   title: Count of unique bacteria in Swine
   description:
@@ -25,4 +25,4 @@ bacteria:
     - search for all records where host_species is Swine.
     - count the field species.exact.
     - limit to 1 record.
-  query: 'http://88721d08.ngrok.io/food/narms.json?search=host_species:"Swine"&count=species.exact'
+  query: 'https://api.fda.gov/food/narms.json?search=host_species:"swine"&count=species.exact'
