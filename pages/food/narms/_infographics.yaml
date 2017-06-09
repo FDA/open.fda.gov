@@ -2,14 +2,29 @@
   short: "Reports over time"
   description:
     - "Reports over time indicating the bacterial resistance in meat."
-  countParam: "date_created"
+  countParam: "year"
   filters:
-    - title: "All narms reports"
+    - title: "All NARMS reports"
       searchParam: ""
     - title: "Involving swine"
-      searchParam: "host_species:'Swine'"
+      searchParam: "host_species:swine"
     - title: "Resistant to azithromycin"
       searchParam: "_exists_:azithromycin"
   filterByDate: true
   type: Line
-
+- title: "NARMS Reports by Meat Type"
+  short: "Meat Type"
+  description:
+    - "Reports indicating the antibiotic resistance categorized by meat type."
+  countParam: "meat_type.exact"
+  filters:
+    - title: "All NARMS reports"
+      searchParam: ""
+    - title: "From the year 2010"
+      searchParam: "year:2010"
+    - title: "Organic meat"
+      searchParam: "organic_ind:yes"
+    - title: "Resistant to azithromycin"
+      searchParam: "_exists_:azithromycin"
+  filterByDate: false
+  type: Pie
