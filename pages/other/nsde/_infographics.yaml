@@ -1,10 +1,9 @@
 - title: "Prescription and over-the-counter (OTC) drug records"
-  short: "New products over time"
+  short: "Dosage Forms"
   dataset: NSDE
   description:
-    - "The openFDA drug product labeling API provides data for prescription and over-the-counter (OTC) drug labeling. Since mid-2009, labeling has been posted publicly in the [Structured Product Labeling (SPL) format](/data/spl/)."
-    - "This chart shows new drugs over time, by looking at their 'marketing_start_date'. The search is limited to dates since June 2009, which excludes a small number of older submissions."
-  countParam: "marketing_start_date"
+    - "Both prescription and over-the-counter (OTC) drugs come in a wide variety of forms - see the breadth of them below."
+  countParam: "dosage_form"
   filters:
     - title: "All drug labeling submissions"
       searchParam: ""
