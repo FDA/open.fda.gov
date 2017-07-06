@@ -1,0 +1,144 @@
+properties:
+  package_ndc:
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern: ^[0-9]{5,4}-[0-9]{4,3}-[0-9]{1,2}$
+      description: "This number, known as the NDC, identifies the labeler, product, and trade package size. The first segment, the labeler code, is assigned by the FDA. A labeler is any firm that manufactures (including repackers or relabelers), or distributes (under its own name) the drug."
+      possible_values:
+  package_ndc11:
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern: ^[0-9]{11}$
+      description: "The NDC11 is a transformed version of the segmented NDC code using the algorithm defined by the National Council for Prescription Drug Programs (NCPDP). Three segment NHRIC codes have also been transformed following the same algorithm. Two segment NHRIC and ISBT codes have not been transformed."
+      possible_values:
+  proprietary_name:
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern:
+      description: "Also known as the trade name. It is the name of the product chosen by the author."
+      possible_values:
+  dosage_form:
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern:
+      description: "This column contains the dosage form as manufactured."
+      possible_values:
+  marketing_category:
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern:
+      description: "The author chooses a category that most closely describes the FDA regulations for marketing the product."
+      possible_values:
+  application_number_or_citation:
+    type: array
+    items:
+      format:
+      is_exact: false
+      type: string
+      pattern:
+      description: "Some types of marketing categories may be associated with FDA assigned numbers (e.g., NDA123456) or regulatory citations (e.g., part348)."
+      possible_values:
+  product_type:
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern:
+      description: "The author chooses a type that most closely describes the product (e.g., Vaccine) associated with the SPL document."
+      possible_values:
+  marketing_start_date:
+    type: array
+    items:
+      format: date
+      is_exact: false
+      type: string
+      pattern: "YYYYmmdd"
+      description: "This is the date the author indicates when it started marketing the packaged product."
+      possible_values:
+  marketing_end_date:
+    type: array
+    items:
+      format: date
+      is_exact: false
+      type: string
+      pattern: "YYYYmmdd"
+      description: "This is the expiration date of the last lot distributed. Products that are actively being marketed will not have a marketing end date. Products that are no longer manufactured may have a future end marketing date for the expiration of the last lot distributed."
+      possible_values:
+  billing_unit:
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern:
+      description: "The National Council for Prescription Drug Programs (NCPDP) developed the Billing Unit Standard to assist in consistent and accurate billing of pharmaceutical products. Information on the NCPDP Billing Unit Standard may be found at http://www.ncpdp.org/PDF/BUS_overview.pdfdisclaimer icon. This column may contain a NCPDP Billing Unit (GM, ML or EA)."
+      possible_values:
+  meta:
+    format:
+    type: object
+    description: 'This section contains a disclaimer and license information. The field `last_updated` indicates when the data files were exported.'
+    possible_values:
+    properties:
+      type: object
+      disclaimer:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Important details notes about openFDA data and limitations of the dataset."
+        possible_values:
+      license:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Link to a web page with license terms that govern data within openFDA."
+        possible_values:
+      last_updated:
+        format: date
+        is_exact: false
+        type: string
+        pattern:
+        description: "The last date when this openFDA endpoint was updated. Note that this does not correspond to the most recent record for the endpoint or dataset. Rather, it is the last time the openFDA API was itself updated."
+        possible_values:
+      results:
+        type: object
+        properties:
+          skip:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Offset (page) of results, defined by the `skip` [query parameter](/api/)."
+            possible_values:
+          limit:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Number of records in this return, defined by the `limit` [query parameter](/api/). If there is no `limit` parameter, the API returns one result."
+            possible_values:
+          total:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Total number of records matching the search criteria."
+            possible_values:
+type: object

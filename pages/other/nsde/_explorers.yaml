@@ -1,0 +1,23 @@
+oneRecord:
+  params:
+    - search for all records and display one.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/other/nsde.json?limit=1'
+  description:
+    - This query searches for all records and asks for a single one.
+  title: One NSDE record
+byNDC:
+  params:
+  - search for a specific package_ndc.
+  - limit to 1 record.
+  query: 'https://api.fda.gov/other/nsde.json?search=package_ndc:"55700-019-60"'
+  description:
+    - This query searches for records with the specific package_ndc "55700-019-60", and returns one result.
+  title: NSDE Record by NDC
+countByType:
+  params:
+  - count the field openfda.product_type (product type).
+  query: 'https://api.fda.gov/other/nsde.json?count=product_type'
+  description:
+    - There are more records for over-the-counter (OTC) drugs than prescription drugs.
+  title: Count of nsde records, by product type
