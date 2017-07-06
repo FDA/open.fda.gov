@@ -1,5 +1,5 @@
 - "## About"
-- The openFDA nsde API returns data from the [FDA Comprehensive NDC SPL Data Elements](https://www.fda.gov/forindustry/datastandards/structuredproductlabeling/ucm240580.htm) (NSDE) file. This file is for products in final marketed form.
+- The openFDA NSDE API returns data from the [FDA Comprehensive NDC SPL Data Elements](https://www.fda.gov/forindustry/datastandards/structuredproductlabeling/ucm240580.htm) (NSDE) file. This file is for products in final marketed form.
 - "downloads"
 - "## Anatomy of a response"
 - "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."

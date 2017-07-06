@@ -19,5 +19,5 @@ countByType:
   - count the field openfda.product_type (product type).
   query: 'https://api.fda.gov/other/nsde.json?count=product_type'
   description:
-    - There are more records for over-the-counter (OTC) drugs than prescription drugs.
-  title: Count of nsde records, by product type
+    - This example query searches all records and counts the number of unique values for product_type. By default, the API returns the 1000 most frequent values.
+  title: Count of NSDE records, by product type
