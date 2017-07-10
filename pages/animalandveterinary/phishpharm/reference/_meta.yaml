@@ -1,8 +1,8 @@
-documentTitle: openFDA › Animal Drugs › Phish-Pharm API Reference
+documentTitle: openFDA › Animal & Veterinary › Phish-Pharm API Reference
 name: Animal Drug Phish-Pharm Reference
 description: ""
 datasets:
   - SPL
 label: Animal Drug Phish-Pharm API Reference
-path: /animaldrug/phishpharm/reference
+path: /animalandveterinary/phishpharm/reference
 type: endpoint

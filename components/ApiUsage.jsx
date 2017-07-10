@@ -159,7 +159,7 @@ const ApiUsage = (props:tPROPS) => {
                 <div>
                   <table className='table-sm table-bordered'>
                     <tbody>
-                    <tr className='bg-primary-darkest clr-white'> <td colSpan='2'><strong>Animal Drugs</strong></td></tr>
+                    <tr className='bg-primary-darkest clr-white'> <td colSpan='2'><strong>Animal & Veterinary</strong></td></tr>
                     <tr> <td>Animal Drug Phish-Pharm</td><td>{this.docCount('phishpharm')}</td> </tr>
                       
                     <tr className='bg-primary-darkest clr-white'> <td colSpan='2'><strong>Foods</strong></td></tr>
