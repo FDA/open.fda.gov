@@ -26,7 +26,7 @@ import device_udi_meta from '../device/udi/_meta.yaml'
 const ComposedSidebar: ReactClass = SideBarContainer(SideBar)
 
 var endpoint_list = {
-  'Animal Drug': 'animaldrug_header',
+  'Animal & Veterinary': 'animaldrug_header',
   'Animal Drug Event': animaldrug_event_meta,
   'Food': 'food_header',
   'Food Enforcement': food_enforcement_meta,
