@@ -1,10 +1,10 @@
-documentTitle: openFDA › Animal Drugs › Adverse events API
+documentTitle: openFDA › Animal & Veterinary › Adverse events API
 label: Animal Drug adverse events
 title: Animal Drug adverse events
 description: "An animal drug adverse event is submitted to the FDA to report an any undesirable experience associate with the use of an animal drug, such as adverse drug reactions, lack of effectiveness or product defects."
 datasets:
   - FAERS
-path: /animaldrug/event
+path: /animalandveterinary/event
 start: 20040101
 dateConstraintKey: receivedate
 type: endpoint
