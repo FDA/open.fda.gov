@@ -5,7 +5,7 @@
 - "getting-started"
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/animaldrug/label.json` using search parameters for [fields specific to the animal drug labeling endpoint.](/animaldrug/label/reference/)"
+- "Make API calls to `https://api.fda.gov/animalandveterinary/label.json` using search parameters for [fields specific to the animal drug labeling endpoint.](/animalandveterinary/label/reference/)"
 - queryExplorer: oneLabel
 - queryExplorer: boxedWarning
 - queryExplorer: countByType
