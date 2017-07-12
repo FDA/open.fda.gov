@@ -9,4 +9,5 @@
 - "Make API calls to `https://api.fda.gov/drug/label.json` using search parameters for [fields specific to the drug labeling endpoint.](/drug/label/reference/)"
 - queryExplorer: oneRecord
 - queryExplorer: byNDC
-- queryExplorer: countByType
+- queryExplorer: onTheMarket
+- queryExplorer: discontinued
