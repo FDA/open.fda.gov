@@ -1,7 +1,7 @@
 properties:
   product_name:
     items:
-      description: ""
+      description: "Typically the branc name of the product."
       format:
       is_exact: false
       possible_values:
@@ -9,7 +9,7 @@ properties:
     type: array
   flavor:
     items:
-      description: ""
+      description: "The flavor or name of the individual product."
       format:
       is_exact: false
       possible_values:
@@ -17,7 +17,7 @@ properties:
     type: array
   species:
     items:
-      description: ""
+      description: "The species of animal in the report"
       format:
       is_exact: false
       possible_values:
@@ -25,7 +25,7 @@ properties:
     type: array
   breed:
     items:
-      description: ""
+      description: "The breaed of animal in the report."
       format:
       is_exact: false
       possible_values:
@@ -33,7 +33,7 @@ properties:
     type: array
   age:
     items:
-      description: ""
+      description: "The animal's age."
       format:
       is_exact: false
       possible_values:
@@ -41,7 +41,7 @@ properties:
     type: array
   age_uom:
     items:
-      description: ""
+      description: "The units of measurement used to indicate the animal's age."
       format:
       is_exact: false
       possible_values:
@@ -49,7 +49,7 @@ properties:
     type: array
   weight:
     items:
-      description: ""
+      description: "The animal's weight."
       format:
       is_exact: false
       possible_values:
@@ -57,7 +57,7 @@ properties:
     type: array
   weight_uom:
     items:
-      description: ""
+      description: "The units of measurement used to indicate the animal's weight."
       format:
       is_exact: false
       possible_values:
@@ -65,7 +65,7 @@ properties:
     type: array
   gender:
     items:
-      description: ""
+      description: "The animal's gender."
       format:
       is_exact: false
       possible_values:
@@ -73,7 +73,7 @@ properties:
     type: array
   reproductive_status:
     items:
-      description: ""
+      description: "Indicates whether an animal has been neutered or spayed."
       format:
       is_exact: false
       possible_values:
@@ -81,7 +81,7 @@ properties:
     type: array
   number_of_animals_given_the_product:
     items:
-      description: ""
+      description: "The sample size of animals in the report."
       format:
       is_exact: false
       possible_values:
@@ -89,7 +89,7 @@ properties:
     type: array
   number_of_animals_reacted:
     items:
-      description: ""
+      description: "The number of animals who had the indicated reaction."
       format:
       is_exact: false
       possible_values:
@@ -97,7 +97,7 @@ properties:
     type: array
   number_of_animals_died:
     items:
-      description: ""
+      description: "The number of animals who died after consuming the product."
       format:
       is_exact: false
       possible_values:
@@ -105,7 +105,7 @@ properties:
     type: array
   formulation:
     items:
-      description: ""
+      description: "The category of food. IE Treat, Canned, Dry."
       format:
       is_exact: false
       possible_values:
@@ -113,7 +113,7 @@ properties:
     type: array
   low_level_term:
     items:
-      description: ""
+      description: "The low level MEDDRA observation of symptoms."
       format:
       is_exact: false
       possible_values:
@@ -121,7 +121,7 @@ properties:
     type: array
   llt_freq:
     items:
-      description: ""
+      description: "The frequency of the symptoms."
       format:
       is_exact: false
       possible_values:
@@ -129,7 +129,7 @@ properties:
     type: array
   manufacturer_or_distributer:
     items:
-      description: ""
+      description: "The manufactoring or distributing brand."
       format:
       is_exact: false
       possible_values:
