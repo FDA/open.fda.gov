@@ -1,0 +1,24 @@
+oneRecord:
+  params:
+    - search for all records.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/animal/pet_foods.json?limit=1'
+  description:
+    - This query searches for a single record.
+  title: One pet food record
+countDeadlyProducts:
+  params:
+  - search for all records in which animals died.
+  - count the field product name
+  query: 'https://api.fda.gov/animal/pet_foods.json?search=low_level_term:%22Death%20by%20euthanasia%22+low_level_term:%22Death%22&count=product_name'
+  description:
+    - This query searches for records which include animal death.
+  title: Count of products linked to animal death
+countByFlavor:
+  params:
+  -search for all records with product_name "Alpo".
+  - count the field flavor.
+  query: 'https://api.fda.gov/animal/pet_foods.json?search=product_name:"Alpo"&count=flavor'
+  description:
+    - This query searces for records with the product name Alpo and returns a count of each flavor of reported product.
+  title: Count of Alpo flavors

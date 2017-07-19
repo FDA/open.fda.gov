@@ -1,0 +1,8 @@
+documentTitle: openFDA › Animal & Veterinary › Pet Food API
+name: Animal Pet Food
+description: ""
+datasets:
+  - Pet_Food
+label: Animal Pet Food
+path: /animal/pet_food
+type: endpoint

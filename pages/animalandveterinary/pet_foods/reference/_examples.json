@@ -1,0 +1,52 @@
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2015-01-01",
+      "results": {
+        "skip": 0,
+        "limit": 100,
+        "total": 5000
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2015-01-01",
+      "results": {
+        "skip": 0,
+        "limit": 100,
+        "total": 5000
+      }
+  },
+  "results": {
+    "results": [
+      {
+        "weight_uom": "Pounds",
+        "gender": "Female",
+        "number_of_animals_reacted": 1,
+        "weight": 7,
+        "product_name": "Dingo",
+        "breed": "Terrier - Yorkshire",
+        "flavor": "Meat in the Middle - Mini",
+        "age_units": "Years",
+        "number_of_animals_given_the_product": 1,
+        "species": "Dog",
+        "number_of_animals_died": 1,
+        "formulation": "Treat",
+        "low_level_term": "Lethargy (see also Central nervous system depression in 'Neurological')",
+        "reproductive_status": "Spayed",
+        "age": 3,
+        "llt_freq": 1
+      }
+    ]
+  }
+}
