@@ -4,5 +4,5 @@ description: ""
 datasets:
   - Pet_Food
 label: Animal Pet Food
-path: /animal/pet_food
+path: /animalandveterinary/pet_food
 type: endpoint

@@ -119,7 +119,7 @@ properties:
       possible_values:
       type: string
     type: array
-  lit_freq:
+  llt_freq:
     items:
       description: ""
       format:
