@@ -1,7 +1,7 @@
 properties:
   product_name:
     items:
-      description: "Typically the branc name of the product."
+      description: "Typically the brand name of the product."
       format:
       is_exact: false
       possible_values:
@@ -37,7 +37,7 @@ properties:
       format:
       is_exact: false
       possible_values:
-      type: string
+      type: float
     type: array
   age_uom:
     items:
@@ -53,7 +53,7 @@ properties:
       format:
       is_exact: false
       possible_values:
-      type: string
+      type: float
     type: array
   weight_uom:
     items:
@@ -85,7 +85,7 @@ properties:
       format:
       is_exact: false
       possible_values:
-      type: string
+      type: float
     type: array
   number_of_animals_reacted:
     items:
@@ -93,7 +93,7 @@ properties:
       format:
       is_exact: false
       possible_values:
-      type: string
+      type: float
     type: array
   number_of_animals_died:
     items:
@@ -101,7 +101,7 @@ properties:
       format:
       is_exact: false
       possible_values:
-      type: string
+      type: float
     type: array
   formulation:
     items:
@@ -125,7 +125,7 @@ properties:
       format:
       is_exact: false
       possible_values:
-      type: string
+      type: float
     type: array
   manufacturer_or_distributer:
     items:
