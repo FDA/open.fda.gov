@@ -1,0 +1,26 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › Pet Food'
+crumbs:
+  - openFDA
+  - Datasets
+  - Pet_Food
+title: 'Animal Pet Food Recalls'
+description: 'The Food and Drug Administration (FDA) regulates that can of cat food, bag of dog food, or box of dog treats or snacks in your pantry. The FDA’s regulation of pet food is similar to that for other animal foods. The Federal Food, Drug, and Cosmetic Act (FFDCA) requires that all animal foods, like human foods, be safe to eat, produced under sanitary conditions, contain no harmful substances, and be truthfully labeled.'
+  source:
+  name: 'Pet_Food'
+  nameLong: 'Animal Pet Food Recall'
+  link: 'https://www.fda.gov/AnimalVeterinary/Products/AnimalFoodFeeds/PetFood/default.htm'
+  linkDownload:
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+time:
+  start:
+  current:
+  delay:
+  frequency:
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - 'There is no requirement that pet food products have pre-market approval by the FDA. However, FDA ensures that the ingredients used in pet food are safe and have an appropriate function in the pet food. Many ingredients such as meat, poultry and grains are considered safe and do not require pre-market approval. Other substances such as sources of minerals, vitamins or other nutrients, flavorings, preservatives, or processing aids may be generally recognized as safe (GRAS) for an intended use (21 CFR 582 and 584) or must have approval as food additives (21 CFR 570, 571 and 573). Colorings must have approvals for that use as specified in 21 CFR 70 and be listed in Parts 73, 74, or 81.'
