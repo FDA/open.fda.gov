@@ -42,13 +42,13 @@
     - title: "All pet food records"
       searchParam: ""
     - title: "Dogs over ten"
-      searchParam: 'species:"Dog"+AND+age>10.0'
+      searchParam: 'species:"Dog"+AND+age:[11.0+TO+20.0]'
     - title: "Dogs under ten"
-      searchParam: 'species:"Dog"+AND+age<10.0'
+      searchParam: 'species:"Dog"+AND+age:[1.0+TO+10.0]'
     - title: "Cats over ten"
-      searchParam: 'species:"Cat"+AND+age>10.0'
+      searchParam: 'species:"Cat"+AND+age:[11.0+TO+20.0]'
     - title: "Cats under ten"
-      searchParam: 'species:"Cat"+AND+age<10.0'
+      searchParam: 'species:"Cat"+AND+age:[1.0+TO+10.0]'
     - title: "Fatality"
       searchParam: 'low_level_term:"Death_by_euthanasia"+low_level_term:"Death"'
   type: Line
