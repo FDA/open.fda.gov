@@ -20,5 +20,5 @@ femaleChihuahuas:
   - limit to thirty records/
   query: 'https://api.fda.gov/animalandveterinary/pet_food.json?search=gender:%22Female%22+AND+breed:%22Chihuahua%22&limit=30'
   description:
-    - This query searces for records with the product name Alpo and returns a count of each flavor of reported product.
+    - This query displays thirty records of female chihuahuas.
   title: Records of female chihuahuas

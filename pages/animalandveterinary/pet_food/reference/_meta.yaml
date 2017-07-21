@@ -1,8 +1,8 @@
 documentTitle: openFDA › Animal & Veterinary › Pet Food API
-name: Animal Pet Food Reference
+name: Pet Food Recall Reference
 description: ""
 datasets:
   - Pet_Food
-label: Animal Pet Food API Reference
+label: Pet Food Recall API Reference
 path: /animalandveterinary/pet_food/reference
 type: endpoint
