@@ -30,7 +30,6 @@ const catMap: Object = Object.freeze({
 
 
 const endpointLinkMap: Object = Object.freeze({
-  'animalandveterinarypetfood': 'animalandveterinary/pet_foods',
   'foodevent': 'food/event',
   'foodenforcement': 'food/enforcement',
   'drugevent': 'drug/event',
@@ -43,7 +42,8 @@ const endpointLinkMap: Object = Object.freeze({
   'deviceclearance': 'device/510k',
   'devicepma': 'device/pma',
   'deviceudi': 'device/udi',
-  'deviceenforcement': 'device/enforcement'
+  'deviceenforcement': 'device/enforcement',
+  'animalandveterinarypetfood': 'animalandveterinary/pet_foods'
 })
 
 /**

@@ -14,11 +14,11 @@ countDeadlyProducts:
   description:
     - This query searches for records which include animal death.
   title: Count of products linked to animal death
-countByFlavor:
+femaleChihuahuas:
   params:
-  - search for all records with product_name "Alpo".
-  - count the field flavor.
-  query: 'https://api.fda.gov/animalandveterinary/pet_food.json?search=product_name:"Alpo"&count=flavor'
+  - search for all records of female chihuahuas.
+  - limit to thirty records/
+  query: 'https://api.fda.gov/animalandveterinary/pet_food.json?search=gender:%22Female%22+AND+breed:%22Chihuahua%22&limit=30'
   description:
     - This query searces for records with the product name Alpo and returns a count of each flavor of reported product.
-  title: Count of Alpo flavors
+  title: Records of female chihuahuas

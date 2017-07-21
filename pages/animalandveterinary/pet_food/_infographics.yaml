@@ -2,7 +2,7 @@
   short: "Species and breed"
   dataset: Pet_Food
   description:
-    - "This chart counts the number of records for each breed of animal, with options to narrow the search results to only dogs or cats."
+    - "This chart counts the number of records for each breed of animal, with options to narrow the search results to only dogs or cats. Only the top ten results are shown."
   countParam: "breed"
   filters:
     - title: "All pet food records"
@@ -17,7 +17,7 @@
   short: "Impact on pet"
   dataset: Pet_Food
   description:
-    - "This chart displays the varied reactions of animals to specific products according to the low level term MEDDRA observations."
+    - "This chart displays the varied reactions of animals to specific products according to the low level term MEDDRA observations. Only the top ten results are shown"
   countParam: "low_level_term"
   filters:
     - title: "Dingo American Made Market Cuts CJT"
@@ -30,5 +30,26 @@
       searchParam: 'product_name:"Cadet"+AND+flavor:"Gourmet Duck Breast"'
     - title: "Friskies Salmon Dinner"
       searchParam: 'product_name:"Friskies"+AND+flavor:"Salmon Dinner"'
+  type: Line
+  dateConstraint: false
+- title: "Formulation information"
+  short: "Formulation"
+  dataset: Pet_Food
+  description:
+    - "This chart counts the number of records for each formulation of food, with options to narrow the search results by species, age, and fatality. Only the top ten results are shown."
+  countParam: "formulation"
+  filters:
+    - title: "All pet food records"
+      searchParam: ""
+    - title: "Dogs over ten"
+      searchParam: 'species:"Dog"+AND+age>10.0'
+    - title: "Dogs under ten"
+      searchParam: 'species:"Dog"+AND+age<10.0'
+    - title: "Cats over ten"
+      searchParam: 'species:"Cat"+AND+age>10.0'
+    - title: "Cats under ten"
+      searchParam: 'species:"Cat"+AND+age<10.0'
+    - title: "Fatality"
+      searchParam: 'low_level_term:"Death_by_euthanasia"+low_level_term:"Death"'
   type: Line
   dateConstraint: false

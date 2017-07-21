@@ -158,8 +158,6 @@ const ApiUsage = (props:tPROPS) => {
             <div>
               <table className="table-sm table-bordered">
                 <tbody>
-                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Animal & Veterinary</strong></td></tr>
-                  <tr> <td>Pet Food</td><td>{this.docCount('animalandveterinarypetfood')}</td> </tr>
                   <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Drugs</strong></td></tr>
                   <tr> <td>Labeling</td><td>{this.docCount('druglabel')}</td> </tr>
                   <tr> <td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td> </tr>
@@ -178,6 +176,9 @@ const ApiUsage = (props:tPROPS) => {
                   <tr> <td>Adverse Event Reports</td><td>{this.docCount('deviceevent')}</td> </tr>
                   <tr> <td>UDIs</td><td>{this.docCount('deviceudi')}</td> </tr>
                   <tr> <td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td> </tr>
+
+                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Animal & Veterinary</strong></td></tr>
+                  <tr> <td>Pet Food</td><td>{this.docCount('animalandveterinarypetfood')}</td> </tr>
                   </tbody>
                 </table>
 

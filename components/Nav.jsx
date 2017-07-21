@@ -199,10 +199,10 @@ const Nav = (props: tPROPS) => {
                 >API Endpoints</span>
                 <div className={activeDropdown=='API Endpoints' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/animalandveterinary/'>Animal and Veterinary</Link>
                     <Link className={linkCx} to='/drug/'>Drugs</Link>
                     <Link className={linkCx} to='/device/'>Devices</Link>
                     <Link className={linkCx} to='/food/'>Foods</Link>
+                    <Link className={linkCx} to='/animalandveterinary/'>Animal & Veterinary</Link>
                   </div>
                 </div>
               </div>

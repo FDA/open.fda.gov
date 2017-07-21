@@ -3,11 +3,11 @@ documentTitle: 'openFDA › Datasets › Pet Food'
 crumbs:
   - openFDA
   - Datasets
-  - Pet_Food
+  - Pet Food
 title: 'Animal Pet Food Recalls'
 description: "The Food and Drug Administration (FDA) regulates that can of cat food, bag of dog food, or box of dog treats or snacks in your pantry. The FDA’s regulation of pet food is similar to that for other animal foods. The Federal Food, Drug, and Cosmetic Act (FFDCA) requires that all animal foods, like human foods, be safe to eat, produced under sanitary conditions, contain no harmful substances, and be truthfully labeled."
 source:
-  name: 'Pet_Food'
+  name: 'Pet Food'
   nameLong: 'Animal Pet Food Recall'
   link: 'https://www.fda.gov/AnimalVeterinary/Products/AnimalFoodFeeds/PetFood/default.htm'
   linkDownload:

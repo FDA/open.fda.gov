@@ -7,4 +7,4 @@
 - "Make API calls to `https://api.fda.gov/animal/pet_food.json` using search parameters for [fields specific to the drug labeling endpoint.](/animalandveterinary/pet_food/reference/)"
 - queryExplorer: oneRecord
 - queryExplorer: countDeadlyProducts
-- queryExplorer: countByFlavor
+- queryExplorer: femaleChihuahuas

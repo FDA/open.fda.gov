@@ -17,7 +17,7 @@ properties:
     type: array
   species:
     items:
-      description: "The species of animal in the report"
+      description: "The species of animal in the report."
       format:
       is_exact: false
       possible_values:
@@ -25,7 +25,7 @@ properties:
     type: array
   breed:
     items:
-      description: "The breaed of animal in the report."
+      description: "The breed of animal in the report."
       format:
       is_exact: false
       possible_values:
@@ -113,7 +113,7 @@ properties:
     type: array
   low_level_term:
     items:
-      description: "The low level MEDDRA observation of symptoms."
+      description: "The low level VEDDRA observation of symptoms."
       format:
       is_exact: false
       possible_values:
