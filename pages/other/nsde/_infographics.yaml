@@ -1,26 +1,18 @@
-- title: "Prescription and over-the-counter (OTC) drug records"
-  short: "Dosage Forms"
+- title: "Drugs on and off the market"
+  short: "On/Off the Market"
   dataset: NSDE
   description:
-    - "Both prescription and over-the-counter (OTC) drugs come in a wide variety of forms - see the breadth of them below."
-  countParam: "dosage_form"
-  filters:
-    - title: "All drug labeling submissions"
-      searchParam: ""
-    - title: "Over-the-counter drug labeling"
-      searchParam: "openfda.product_type:HUMAN OTC DRUG"
-    - title: "Prescription drug labeling"
-      searchParam: "openfda.product_type:HUMAN PRESCRIPTION DRUG"
-    - title: "Marketing Category ANDA"
-      searchParam: "marketing_category:ANDA"
-  type: Line
-- title: "Product Types"
-  short: "Product Types"
-  dataset: SPL
-  description:
-    - "The FDA regulates a wide variety of products - see the breadth of them below."
+    - "NSDE provides marketing information for OTC and prescription drugs for both humans and animals, as demonstrated below."
   countParam: "product_type"
   filters:
-    - title: "All drug labeling submissions"
-      searchParam: ""
+    - title: "All NSDE product types"
+      searchParam: ''
+    - title: "Human Drugs on the market"
+      searchParam: '(product_type:"HUMAN OTC DRUG"+product_type:"HUMAN PRESCRIPTION DRUG")+AND+_missing_:"marketing_end_date"'
+    - title: "Human Drugs off the market"
+      searchParam: '(product_type:"HUMAN OTC DRUG"+product_type:"HUMAN PRESCRIPTION DRUG")+AND+_exists_:"marketing_end_date"'
+    - title: "Animal Drugs on the market"
+      searchParam: '(product_type:"OTC ANIMAL DRUG"+product_type:"PRESCRIPTION ANIMAL DRUG")+AND+_missing_:"marketing_end_date"'
+    - title: "Animal Drugs off the market"
+      searchParam: '(product_type:"OTC ANIMAL DRUG"+product_type:"PRESCRIPTION ANIMAL DRUG")+AND+_exists_:"marketing_end_date"'
   type: Line
