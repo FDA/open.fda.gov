@@ -1,0 +1,212 @@
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2016-11-04",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 3253
+      }
+    }
+  },
+  "tables": {
+    "results": [
+      {
+        "dosage_and_administration": "...",
+        "dosage_and_administration_table": "<table>...</table>"
+      }
+    ]
+  },
+  "id_and_version": {
+    "results": [
+      {
+        "version": "1",
+        "set_id": "00b3d016-a6bb-4335-89fe-ae5f26914633",
+        "id": "00b3d016-a6bb-4335-89fe-ae5f26914633"
+      }
+    ]
+  },
+  "adverse_effects_and_interactions": {
+    "results": [
+      {
+        "drug_interactions": [
+          "7. DRUG INTERACTIONS No interactions with other drugs or nutritional products are known. The safety and compatibility of other..."
+        ],
+        "adverse_reactions": [
+          "6. ADVERSE REACTIONS 6.1 Overall Adverse Reaction Profile Products containing hydroxyethyl starch may lead to anaphylactoid...",
+          "6.1 Overall Adverse Reaction Profile Products containing hydroxyethyl starch may lead to anaphylactoid reactions..."
+        ]
+      }
+    ]
+  },
+  "clinical_pharmacology": {
+    "results": [
+      {
+        "pharmacodynamics": [
+          "Pharmacodynamics: In a study of pharmacodynamic effects using horses with gastric cannulae, secretion of gastric acid was inhibited..."
+        ],
+        "mechanism_of_action": [
+          "Mechanism of Action: Omeprazole is a gastric acid pump inhibitor that regulates the final step in hydrogen ion production..."
+        ],
+        "pharmacokinetics": [
+          "Pharmacokinetics: In a pharmacokinetic study involving thirteen healthy, mixed breed horses (8 female, 5 male) receiving..."
+        ],
+        "clinical_pharmacology": [
+          "Clinical Pharmacology Mechanism of Action: Omeprazole is a gastric acid pump inhibitor that regulates the final step in hydrogen..."
+        ]
+      }
+    ]
+  },
+  "indications_and_dosage": {
+    "results": [
+      {
+        "contraindications": [
+          "CONTRAINDICATIONS KETASET is contraindicated in cats and subhuman primates suffering from renal or hepatic insufficiency..."
+        ],
+        "inactive_ingredient": [
+          "INACTIVE INGREDIENTS: Demineralized water, 20% Ethanol"
+        ],
+        "purpose": [
+          "INDICATIONS: For temporary relief of symptoms due to parasitic infestation such as anal irritation, itching and abdominal..."
+        ],
+        "description": [
+          "DESCRIPTION KETASET (ketamine hydrochloride injection, USP) is a rapid-acting, nonnarcotic, nonbarbiturate agent for..."
+        ],
+        "spl_product_data_elements": [
+          "Parasite Formula Artemisia Vulgaris, Cina, Filix Mas, Sabadilla, Spigelia Anthelmia, Baryta Carbonica, Calcarea Carbonica..."
+        ],
+        "dosage_and_administration": [
+          "DOSAGE AND ADMINISTRATION DOSAGE AND ADMINISTRATION: Mature Horses and Cattle, administer orally 1/2 to 1 1/2 Boluses two..."
+        ],
+        "dosage_forms_and_strengths": [
+          "CONTENTS CONTENTS: Each Bolus contains: Acetylsalicylic Acid..........480 grains (31.2 g)"
+        ],
+        "indications_and_usage": [
+          "INDICATIONS KETASET may be used in cats for restraint or as the sole anesthetic agent for diagnostic or minor, brief, surgical procedures that do not require skeletal muscle relaxation. It may be used in subhuman primates for restraint."
+        ],
+        "active_ingredient": [
+          "ACTIVE INGREDIENTS: Artemisia Vulgaris 3X, Cina 3X, Filix Mas 3X, Sabadilla 3X, Spigelia Anthelmia 3X, Baryta Carbonica 12X, Calcarea Carbonica 12X, Sulphur 12X, Terebinthina 12X"
+        ]
+      }
+    ]
+  },
+  "supply_and_handling": {
+    "results": [
+      {
+        "safe_handling_warning": [
+          "FIRST AID If in Eyes: Immediately flush eyes with plenty of cool, running water. Remove contact lenses..."
+        ],
+        "storage_and_handling": [
+          "STORAGE INFORMATION Store at or below 25°C (77°F). Protect from light. Do not use if precipitate appears. Use contents within 4 months of first puncture."
+        ],
+        "how_supplied": [
+          "HOW SUPPLIED KETASET (ketamine hydrochloride injection, USP) is supplied as the hydrochloride in concentrations equivalent to ketamine base. Each 10 mL vial contains 100 mg/mL. NDC 0856-2013-01 — 10 mL — vial"
+        ]
+      }
+    ]
+  },
+  "warnings_and_precautions": {
+    "results": [
+      {
+        "precautions": [
+          "CAUTION For external use only. Avoid contact with eyes. Consult your veterinarian in cases of deep or puncture wounds, animal bites, serious burns or if redness and irritation persists or increases."
+        ],
+        "warnings": [
+          "For animal use only. Keep out of reach of children and pets to prevent accidental ingestion."
+        ],
+        "general_precautions": [
+          "FOR COMMERCIAL USE ONLY KEEP OUT OF REACH OF CHILDREN NOT FOR HUMAN USE"
+        ],
+        "boxed_warning": [
+          "WARNING: The active ingredient in Topmax, ractopamine hydrochloride..."
+        ]
+      }
+    ]
+  },
+  "other_fields": {
+    "results": [
+      {
+        "spl_unclassified_section": [
+          "Heifers T - H with Tylan ® (trenbolone and tylosin implant) Each implant consists of 200 mg trenbolone acetate...",
+          "GENERAL INSTRUCTIONS: Study the instructions which should be followed carefully at all times, avoiding short cuts...",
+          "IMPLANTING INSTRUCTIONS: Loading the Implanter Load the implanter following the instructions supplied with each..."
+        ],
+        "microbiology": [
+          "Microbiology: Clindamycin is a lincosaminide antimicrobial agent with activity against a wide variety of aerobic..."
+        ],
+        "laboratory_tests": [
+          "Table 1. Clindamycin MIC Values (microgram/mL) from Diagnostic Laboratory Survey Data Evaluating Canine Pathogens...",
+          "Table 2. Clindamycin MIC Values (microgram/mL) from Diagnostic Laboratory Survey Data Evaluating Feline Pathogens..."
+        ],
+        "package_label_principal_display_panel": [
+          "Image of bottle/case label (Iss. 07-13) 20 mL bottle/case label",
+          "Image of Carton label (Iss. 06-13) Image of carton label"
+        ]
+      }
+    ]
+  },
+  "openfda": {
+    "results": [
+      {
+        "openfda": {
+          "product_ndc": [
+            "43846-0049"
+          ],
+          "spl_id": [
+            "c8a5c6bb-6301-4fba-9973-68d0a6521760"
+          ],
+          "substance_name": [
+            "BARIUM CARBONATE",
+            "DRYOPTERIS FILIX-MAS ROOT",
+            "TURPENTINE OIL",
+            "OYSTER SHELL CALCIUM CARBONATE, CRUDE",
+            "SCHOENOCAULON OFFICINALE SEED",
+            "SULFUR",
+            "ARTEMISIA VULGARIS ROOT",
+            "ARTEMISIA CINA FLOWER",
+            "SPIGELIA ANTHELMIA"
+          ],
+          "product_type": [
+            "OTC ANIMAL DRUG"
+          ],
+          "is_original_packager": [
+            true
+          ],
+          "package_ndc": [
+            "43846-0049-1"
+          ],
+          "generic_name": [
+            "ARTEMISIA VULGARIS, CINA, FILIX MAS, SABADILLA, SPIGELIA ANTHELMIA, BARYTA CARBONICA, CALCAREA CARBONICA, SULPHUR, TEREBINTHINA"
+          ],
+          "spl_set_id": [
+            "001d66b0-4d56-4c04-8f70-c8e7e0020299"
+          ],
+          "brand_name": [
+            "Parasite Formula"
+          ],
+          "manufacturer_name": [
+            "Peaceful Mountain, Inc."
+          ]
+        }
+      }
+    ]
+  }
+}

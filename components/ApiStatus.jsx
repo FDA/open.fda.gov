@@ -12,27 +12,29 @@ type tPROPS = {
 };
 
 const catMap: Object = Object.freeze({
+  'animaldruglabel': 'Animal & Veterinary › Labeling',
   'foodenforcement': 'Foods › Enforcement Reports',
   'foodevent': 'Foods › Adverse Events',
-  'drugevent': 'Drugs › Adverse Events',
-  'druglabel': 'Drugs › Labeling',
-  'drugenforcement': 'Drugs › Enforcement Reports',
-  'deviceevent': 'Devices › Adverse Events',
-  'devicerecall': 'Devices › Recalls',
-  'deviceclass': 'Devices › Classification',
-  'devicereglist': 'Devices › Registration',
-  'deviceclearance': 'Devices › 510k',
-  'devicepma': 'Devices › PMA',
-  'deviceudi': 'Devices › UDI',
-  'deviceenforcement': 'Devices › Enforcement Reports'
+  'drugevent': 'Human Drugs › Adverse Events',
+  'druglabel': 'Human Drugs › Labeling',
+  'drugenforcement': 'Human Drugs › Enforcement Reports',
+  'deviceevent': 'Medical Devices › Adverse Events',
+  'devicerecall': 'Medical Devices › Recalls',
+  'deviceclass': 'Medical Devices › Classification',
+  'devicereglist': 'Medical Devices › Registration',
+  'deviceclearance': 'Medical Devices › 510k',
+  'devicepma': 'Medical Devices › PMA',
+  'deviceudi': 'Medical Devices › UDI',
+  'deviceenforcement': 'Medical Devices › Enforcement'
 })
 
 
 const endpointLinkMap: Object = Object.freeze({
-  'foodevent': 'food/event',
-  'foodenforcement': 'food/enforcement',
+  'animaldruglabel': 'animalandveterinary/label',
   'drugevent': 'drug/event',
   'druglabel': 'drug/label',
+  'foodenforcement': 'food/enforcement',
+  'foodevent': 'food/event',
   'drugenforcement': 'drug/enforcement',
   'deviceevent': 'device/event',
   'devicerecall': 'device/recall',
@@ -53,7 +55,6 @@ const ApiStatus = (props: tPROPS) => (
     crumbs={['API', 'API status']}
     title='openFDA › API › API status'>
     <Hero
-      label='Learn'
       title='API status'
       description='This is the current status of the openFDA API endpoints, including when they were last updated.'
     />
