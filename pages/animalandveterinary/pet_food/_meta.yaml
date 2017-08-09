@@ -1,0 +1,8 @@
+documentTitle: openFDA › Animal & Veterinary › Pet Food API
+name: Pet Food Recall
+description: ""
+datasets:
+  - Pet_Food
+label: Pet Food Recall
+path: /animalandveterinary/pet_food
+type: endpoint

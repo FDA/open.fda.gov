@@ -1,0 +1,55 @@
+- title: "Records by species and breed"
+  short: "Species and breed"
+  dataset: Pet_Food
+  description:
+    - "This chart counts the number of records for each breed of animal, with options to narrow the search results to only dogs or cats. Only the top ten results are shown."
+  countParam: "breed"
+  filters:
+    - title: "All pet food records"
+      searchParam: ""
+    - title: "Dogs"
+      searchParam: 'species:"Dog"'
+    - title: "Cats"
+      searchParam: 'species:"Cat"'
+  type: Line
+  dateConstraint: false
+- title: "Impact on pet by product"
+  short: "Impact on pet"
+  dataset: Pet_Food
+  description:
+    - "This chart displays the varied reactions of animals to specific products according to the low level term MEDDRA observations. Only the top ten results are shown"
+  countParam: "low_level_term"
+  filters:
+    - title: "Dingo American Made Market Cuts CJT"
+      searchParam: 'product_name:"Dingo"+AND+flavor:"American Made Market Cuts CJT"'
+    - title: "Kingdom Pets Chicken Jerky"
+      searchParam: 'product_name:"Kingdom Pets"+AND+flavor:"Chicken Jerky"'
+    - title: "Natural Balance L.I.D. Limited Ingredient Diets Chicken and Sweet Potato"
+      searchParam: 'product_name:"Natural Balance"+AND+flavor:"L.I.D. Limited Ingredient Diets Chicken and Sweet Potato"'
+    - title: "Cadet Gourmet Duck Breast"
+      searchParam: 'product_name:"Cadet"+AND+flavor:"Gourmet Duck Breast"'
+    - title: "Friskies Salmon Dinner"
+      searchParam: 'product_name:"Friskies"+AND+flavor:"Salmon Dinner"'
+  type: Line
+  dateConstraint: false
+- title: "Formulation information"
+  short: "Formulation"
+  dataset: Pet_Food
+  description:
+    - "This chart counts the number of records for each formulation of food, with options to narrow the search results by species, age, and fatality. Only the top ten results are shown."
+  countParam: "formulation"
+  filters:
+    - title: "All pet food records"
+      searchParam: ""
+    - title: "Dogs over ten"
+      searchParam: 'species:"Dog"+AND+age:[11.0+TO+20.0]'
+    - title: "Dogs under ten"
+      searchParam: 'species:"Dog"+AND+age:[1.0+TO+10.0]'
+    - title: "Cats over ten"
+      searchParam: 'species:"Cat"+AND+age:[11.0+TO+20.0]'
+    - title: "Cats under ten"
+      searchParam: 'species:"Cat"+AND+age:[1.0+TO+10.0]'
+    - title: "Fatality"
+      searchParam: 'low_level_term:"Death_by_euthanasia"+low_level_term:"Death"'
+  type: Line
+  dateConstraint: false

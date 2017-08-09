@@ -1,7 +1,5 @@
 documentTitle: openFDA › Datasets
+label: Dataset information
 title: Datasets
-description:
-datasets:
-label:
-path: /data/
-start:
+description: "The source data which all of the endpoints are based on."
+path: /data
