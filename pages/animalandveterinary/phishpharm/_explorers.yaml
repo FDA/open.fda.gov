@@ -1,0 +1,17 @@
+oneRecord:
+  params:
+    - search for all records with pub_date between 1992 and 1996.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/animalandveterinary/phishpharm.json?search=pub_date=[1992+TO+1996]&limit=1'
+  description:
+    - This query searches for all records by publication year, and asks for a single one.
+    - See the [reference](/animalandveterinary/phishpharm/reference/) for more about pub_date. Brackets [ ] are used to specify a range for date, number, or string fields.
+  title: One Phish-Pharm record
+countBySpecies:
+  params:
+    - count the number of records of each species.
+  query: 'https://api.fda.gov/animalandveterinary/phishpharm.json?count=species.exact'
+  description:
+    - This query returns a count of records for each species.
+    - The suffix .exact is required by openFDA to count the unique full phrases in the field openfda.product_type. Without it, the API will count each word in that field individually—Trout, rainbow would be counted as separate values, Trout, and rainbow.
+  title: Count of Phish-Pharm records, by species type
