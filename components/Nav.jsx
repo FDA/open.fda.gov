@@ -52,9 +52,6 @@ const Nav = (props: tPROPS) => {
         className='visually-hidden'>
         Skip navigation, go to start of content
       </a>
-      <div className='pad-t-2 m-ord-3 bg-gray-light'>
-        <p className='clr-white weight-600 container smallest'>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='clr-white underline' to='/terms/'> Terms of Service</Link></p>
-      </div>
       <div className='bg-primary-darker m-ord-2'>
         <div className='container smallest clr-white pad-t-2 pad-b-2 flex-row dir-row'>
           <a
@@ -247,6 +244,9 @@ const Nav = (props: tPROPS) => {
             }}>
           </div>
         </div>
+      </div>
+      <div className='pad-t-2 m-ord-3 bg-cool-blue' >
+        <p className='clr-white weight-600 container smallest'>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='clr-white underline' to='/terms/'> Terms of Service</Link></p>
       </div>
     </nav>
   )
