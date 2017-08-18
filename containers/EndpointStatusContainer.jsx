@@ -3,6 +3,7 @@
 import React from 'react'
 import find from 'lodash/find'
 import xhrGET from '../utils/xhr'
+import API_LINK from '../constants/api'
 
 type tPROPS = {
   endpoint: string;
@@ -41,7 +42,7 @@ const EndpointStatusContainer = function (ComposedEndpointStatus: ReactClass): R
         })
       }
 
-      xhrGET('https://api.fda.gov/status', _handleResponse)
+      xhrGET(API_LINK + '/status', _handleResponse)
     }
 
     componentDidMount () {
@@ -52,7 +53,7 @@ const EndpointStatusContainer = function (ComposedEndpointStatus: ReactClass): R
       if (!this.state.data) return <span />
 
       const path: string = this.props.path.replace(/(\/reference){1}/g, '')
-      const fullPath: string = `https://api.fda.gov${path}.json`
+      const fullPath: string = API_LINK + `${path}.json`
 
       return (
         <ComposedEndpointStatus

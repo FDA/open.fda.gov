@@ -12,6 +12,7 @@ import $ from 'jquery'
 // requiring the pre-built dist file in npm
 //import localforage from '../polyfills/localforage/src/localforage.js'
 import localforage from 'localforage'
+import API_LINK from '../constants/api'
 
 type tSTATE = {
   apiKey: ?string;
@@ -71,7 +72,7 @@ const ApiKeyContainer = function (ComposedApiKey: ReactClass): ReactClass {
           })
         }
         else {
-          $.post('https://api.data.gov/api-umbrella/v1/users.json?api_key=qeFgqbUXRY76Yk0nCKC60ur1J3bEuLUyPKp2remB', postBody)
+          $.post(API_LINK + '/api-umbrella/v1/users.json?api_key=qeFgqbUXRY76Yk0nCKC60ur1J3bEuLUyPKp2remB', postBody)
             .done(data => {
               localforage.setItem(`openfda-api-${email}`, data.user.api_key)
 

@@ -6,6 +6,7 @@ import SideBar from '../components/SideBar'
 import Infographic from '../components/Infographic'
 import InfographicExplorer from '../components/InfographicExplorer'
 import xhrGET from '../utils/xhr'
+import API_LINK from '../constants/api'
 
 type tSTATE = {
   countParam: string;
@@ -199,7 +200,7 @@ class InfographicContainer extends React.Component {
       // complete search field. with or without range
       const search: string = this._getFilterSearch(searchParam, range)
       // the entire query, api endpoint + search params + count params
-      const query: string = `https://api.fda.gov${endpoint}.json?${search}count=${countParam}`
+      const query: string = API_LINK + `${endpoint}.json?${search}count=${countParam}`
 
       // results data is unfortunately not included when filtering
       // by count params, so we need to make an additional request
@@ -207,7 +208,7 @@ class InfographicContainer extends React.Component {
 
       // the entire query, api endpoint + search params
       // we do not want to include count parameters when counting total records
-      const recordsQuery: string = `https://api.fda.gov${endpoint}.json?${search}`
+      const recordsQuery: string = API_LINK + `${endpoint}.json?${search}`
 
       this.setState({
         // update the count param
@@ -229,7 +230,7 @@ class InfographicContainer extends React.Component {
     // or make a request, check the meta of that request, and then
     // make another request with the date in the search field
     // i prefer to just make the download request (which gets cached anyway)
-    xhrGET('https://api.fda.gov/download.json', _handleDownloadResponse)
+    xhrGET(API_LINK + '/download.json', _handleDownloadResponse)
   }
 
   /**

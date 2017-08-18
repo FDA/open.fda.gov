@@ -2,6 +2,7 @@
 
 import React from 'react'
 import xhrGET from '../utils/xhr'
+import API_LINK from '../constants/api'
 
 type tSTATE = {
   data: ?Array<Object>;
@@ -26,7 +27,7 @@ const ApiStatusContainer = function (ComposedApiStatus: ReactClass): ReactClass 
         })
       }
 
-      xhrGET('https://api.fda.gov/status', _handleResponse)
+      xhrGET(API_LINK + '/status', _handleResponse)
     }
 
     render (): ?React.Element {

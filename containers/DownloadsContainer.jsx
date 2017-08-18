@@ -3,6 +3,7 @@
 import React from 'react'
 import get from 'lodash/get'
 import xhrGET from '../utils/xhr'
+import API_LINK from '../constants/api'
 
 type tSTATE = {
   data: ?Object;
@@ -28,7 +29,7 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
         })
       }
 
-      xhrGET('https://api.fda.gov/download.json', _handleResponse)
+      xhrGET(API_LINK + '/download.json', _handleResponse)
     }
 
     _toggleDownloads () {

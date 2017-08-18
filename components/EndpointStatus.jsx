@@ -40,5 +40,5 @@ const EndpointStatus = ({ data, fullPath, }: tPROPS) => (
   </aside>
 )
 
-EndpointStatus.displayName = 'component/EndpointStatus'
+EndpointStatus.displayName = 'component/Endpoint_Box'
 export default EndpointStatusContainer(EndpointStatus)

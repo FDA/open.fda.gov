@@ -12,7 +12,7 @@ type PROPS = {
 
 // homepage
 export default ({ route }: PROPS) => (
-  <Layout title='Open FDA Homepage'>
+  <Layout title='OpenFDA Homepage'>
     <Hero
       title='OpenFDA updates'
     />

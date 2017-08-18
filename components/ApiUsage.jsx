@@ -4,6 +4,8 @@ const Line:ReactClass = Charts.Line
 import xhrGET from '../utils/xhr'
 import bp from '../constants/breakpoints'
 import Table from './Table'
+import API_LINK from '../constants/api'
+import API_NAME from '../constants/api'
 
 
 type tPROPS = {
@@ -55,8 +57,8 @@ const ApiUsage = (props:tPROPS) => {
         dynamicDisclaimer: props.dynamicDisclaimer,
         clickEndpointDisclaimer: props.clickEndpointDisclaimer,
         data: null,
-        prefix: "1/api.fda.gov/",
-        breadcrumbs: ["1/api.fda.gov/"]
+        prefix: "1/" + API_NAME + "/",
+        breadcrumbs: ["1/" + API_NAME + "/"]
       }
     }
 
@@ -116,7 +118,7 @@ const ApiUsage = (props:tPROPS) => {
 
     fetchStats () {
 
-      xhrGET("https://api.fda.gov/usage.json?prefix=" + this.state.prefix, (data) => {
+      xhrGET(API_LINK + "/usage.json?prefix=" + this.state.prefix, (data) => {
         this.handleUsageResponse(data)
       }, false)
     }

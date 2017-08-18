@@ -46,6 +46,7 @@ const HTML = ({ title = 'openFDA', favicon, body }: tPROPS) => (
         // cut down on our latency a bit
         href='https://cdnjs.cloudflare.com'
       />
+      <script src="https://use.fontawesome.com/300ab20b15.js"/>
       <link
         rel='shortcut icon'
         href={favicon}
