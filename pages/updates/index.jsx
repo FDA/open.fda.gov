@@ -16,10 +16,8 @@ export default ({ route }: PROPS) => (
     <Hero
       title='OpenFDA updates'
     />
-    <section className='container marg-t-2'>
-      <BlogRoll
-        posts={route.pages}
-      />
-    </section>
+    <BlogRoll
+      posts={route.pages}
+    />
   </Layout>
 )

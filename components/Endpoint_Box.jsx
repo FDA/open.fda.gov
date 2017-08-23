@@ -57,16 +57,13 @@ const Endpoint_Box = (props: tPROPS) => {
     <section
       id='endpoint_box' className="ep-box">
       <div className="bg-img-container" style={bg_image_color[endpoint_name]}>
-        <img
-          alt='Go to openFDA homepage'
-          src={bg_image[endpoint_name]}
-        />
+        <img src={bg_image[endpoint_name]}/>
       </div>
       <div className="absolute" style={{paddingBottom:"50px"}}>
         {icon[endpoint_name]}
       </div>
       <div className='flex-row dir-column m-pad-t-2 m-pad-b-2 ep-text-box'>
-        <h3 className="txt-c clr-primary-alt-dark pad-t-4">{ep_name[endpoint_name]}</h3>
+        <h3 className="txt-c clr-primary-darker pad-t-4">{ep_name[endpoint_name]}</h3>
         <span className="marg-1">{description[endpoint_name]}</span>
         <span className="txt-c marg-2 clr-primary weight-700">LEARN MORE <i className="fa fa-angle-right"/></span>
       </div>

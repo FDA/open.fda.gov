@@ -19,13 +19,23 @@ const _sortPosts = posts => {
   return sorted
 }
 
+type tPROPS = {
+  posts: Object,
+  small: boolean
+};
+
 /**
  * @description [reverse chron list of blog posts for home and /updates/]
  */
-const BlogRoll = (posts: Object) => {
+const BlogRoll = (props: tPROPS) => {
+  const {
+    posts,
+    small
+  } = props
+
   // filter out posts without a valid date
   // and also sort them reverse chron
-  const sortedPosts: Array<Object> = _sortPosts(posts.posts)
+  const sortedPosts: Array<Object> = _sortPosts(posts)
 
   // increment for every actually rendered post
   // this is useful because not everything in
@@ -35,91 +45,101 @@ const BlogRoll = (posts: Object) => {
   let tally: number = 0 | 0
 
   return (
-    <ul
-      aria-label='openFDA updates'
-      tabIndex={0}
-      className='d-reading-width'>
-      {
-        sortedPosts.map((post: Object, i: number) => {
-          // only render markdown files
-          if (get(post, 'file.ext') !== 'md') return
+    <section className='blog-bg pad-l-2 pad-r-2'>
+      <h3 className="pad-2 pad-t-3 clr-primary-darker txt-c">Latest News & Updates</h3>
+      <ul
+        aria-label='openFDA updates'
+        tabIndex={0}
+        className={'blog-container ' + (small === true ?  'overflow-hidden small-blog-container' : '')}>
+        {
+          sortedPosts.map((post: Object, i: number) => {
+            // only render markdown files
+            if (get(post, 'file.ext') !== 'md') return
 
-          // showInList is true by default
-          // basically, not every post needs to
-          // be part of the BlogRoll
-          if (post.data.showInList === false) return
+            // showInList is true by default
+            // basically, not every post needs to
+            // be part of the BlogRoll
+            if (post.data.showInList === false) return
 
-          const {
-            authors,
-            body,
-            date,
-          } = post.data
+            const {
+              body,
+              date,
+            } = post.data
 
-          const title: string = get(post, 'data.title') || post.path
+            const title: string = (get(post, 'data.title') || post.path).substring(0, 40) + '...'
 
-          // level refers to header level. h1, h2, etc
-          // we start at 2, because h1 is the hero section
-          // and then we proceed from there
-          // we do this so we have a logical order of headers
-          // h1 -> h2 -> h3 and so on til we get to h6
-          let level: number = tally === 0 ? 2 : (tally + 2)
-          // cheap way to keep capped at h6
-          if (level > 6) {
-            level = 6
-          }
+            // level refers to header level. h1, h2, etc
+            // we start at 2, because h1 is the hero section
+            // and then we proceed from there
+            // we do this so we have a logical order of headers
+            // h1 -> h2 -> h3 and so on til we get to h6
+            let level: number = tally === 0 ? 2 : (tally + 2)
+            // cheap way to keep capped at h6
+            if (level > 6) {
+              level = 6
+            }
 
-          // WE DO THIS FOR ACCESSIBILITY
-          // IT MAY SEEM UNNECESSARY, BUT DO NOT CHANGE
-          // $FlowIgnore
-          const Title: React.Element = React.createElement(
-            `h${level}`,
-            {
-              className: 'font-size-3 marg-b-1',
-              tabIndex: 0,
-            },
-            <Link
-              className='font-size-3 clr-primary-darker'
-              to={post.path}>
-              {title}
-            </Link>
-          )
+            // WE DO THIS FOR ACCESSIBILITY
+            // IT MAY SEEM UNNECESSARY, BUT DO NOT CHANGE
+            // $FlowIgnore
+            let Title: React.Element = React.createElement(
+              `h${level}`,
+              {
+                className: 'font-size-3',
+                tabIndex: 0,
+              },
+              <Link
+                className='font-size-3 clr-primary-darker'
+                style={{fontSize: '18px', lineHeight: '22px'}}
+                to={post.path}>
+                {title}
+              </Link>
+            )
+            let More =
+              <Link
+                className='absolute bottom pad-b-2 font-size-3 weight-700 clr-primary'
+                to={post.path}>
+                READ MORE <i className="fa fa-angle-right"/>
+              </Link>
 
-          // don't remove me
-          // i keep track of the amount
-          // of actually rendered blog posts
-          tally += 1
+
+            // don't remove me
+            // i keep track of the amount
+            // of actually rendered blog posts
+            tally += 1
 
           // Cheap way of making post excerpt
-          const excerpt = marked(body).substring(0, 255) + '…'
+          const excerpt = body.substring(3, body.search("</p>")).replace(/<(?:.|\n)*?>/gm, '').substring(0, 120) + '...'
 
-          // Post date, if available
-          let formattedDate = ''
-          if (date.length > 0) {
-            formattedDate = dateFormat(date, 'mmmm d, yyyy')
-          }
+            // Post date, if available
+            let formattedDate = ''
+            if (date.length > 0) {
+              formattedDate = dateFormat(date, 'mmmm d, yyyy').toUpperCase()
+            }
 
-          // Some posts don’t have authors. If the post has authors,
-          // join their names as a string, comma-separated.
-          let postAuthors: string = ''
-          if (authors) {
-            postAuthors = authors.join(', ')
-          }
 
-          return (
-            <li
-              key={i}
-              className='marg-b-4'>
-              {Title}
-              <div
-                className='font-size-5'
-                dangerouslySetInnerHTML={{__html: excerpt}}
-              />
-              <p className='small'>{postAuthors.length > 0 && <span>{postAuthors}</span>} <span className='clr-gray'>{formattedDate}</span> </p>
-            </li>
-          )
-        })
-      }
-    </ul>
+            return (
+              <li
+                key={i}
+                className='marg-l-1 marg-r-1 marg-t-2 marg-b-2 blog-item'>
+                <div className='pad-3 relative full-height blog-text-item' style={{paddingTop: "30px"}}>
+                {Title}
+                <div className='clr-gray-light marg-b-1 t-marg-t-05'>{formattedDate}</div>
+                <p className="smallest txt-overflow-ellipsis">{excerpt}</p>
+                {More}
+                </div>
+              </li>
+            )
+          })
+        }
+      </ul>
+      {small === true &&
+        <Link
+        className='pad-b-3 font-size-3 weight-700 clr-primary'
+        to='/updates/'>
+        VIEW ALL <i className="fa fa-angle-right"/>
+        </Link>}
+    </section>
   )
 }
 
