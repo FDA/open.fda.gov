@@ -46,7 +46,7 @@ const BlogRoll = (props: tPROPS) => {
 
   return (
     <section className='blog-bg pad-l-2 pad-r-2'>
-      <h3 className="pad-2 pad-t-3 clr-primary-darker txt-c">Latest News & Updates</h3>
+      <h2 className="center-heading" style={{margin: '30px 30px 10px'}}><span>Latest News & Updates</span></h2>
       <ul
         aria-label='openFDA updates'
         tabIndex={0}
@@ -97,7 +97,7 @@ const BlogRoll = (props: tPROPS) => {
             )
             let More =
               <Link
-                className='absolute bottom pad-b-2 font-size-3 weight-700 clr-primary'
+                className='absolute bottom pad-b-2 weight-700 clr-primary'
                 to={post.path}>
                 READ MORE <i className="fa fa-angle-right"/>
               </Link>
@@ -135,7 +135,7 @@ const BlogRoll = (props: tPROPS) => {
       </ul>
       {small === true &&
         <Link
-        className='pad-b-3 font-size-3 weight-700 clr-primary'
+        className='pad-b-3 weight-700 clr-primary'
         to='/updates/'>
         VIEW ALL <i className="fa fa-angle-right"/>
         </Link>}

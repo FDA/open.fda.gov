@@ -3,7 +3,7 @@
   overflow: hidden
   border-radius: 5px 5px 0px 0px
 
-.bg-img-container img
+.bg-img-container > img
   margin-top: -40px
   mix-blend-mode: multiply
 
@@ -16,8 +16,8 @@
   align-items: center
 
 .ep-box
-  width: 20%
-  height: 90%
+  width: 280px
+  height: 395px
   text-align: center
   display: flex
   flex-direction: column
@@ -27,5 +27,16 @@
   border-radius: 6px
 
 .ep-text-box
+  height: 215px
   border-radius: 0px 0px 5px 5px
   box-shadow: inset 0 0 0 1px #ccc
+
+.ep-text-box > h3
+  padding-top: 60px
+
+.ep-text-box > div
+  padding: 20px
+
+@media $bpMob
+  .ep-text-box > h3
+    padding-top: 40px

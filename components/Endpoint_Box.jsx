@@ -2,6 +2,8 @@
 
 import React from 'react'
 
+const Link: ReactClass = require('react-router').Link
+
 type tPROPS = {
   endpoint_name: string
 };
@@ -53,19 +55,28 @@ const Endpoint_Box = (props: tPROPS) => {
     animal_and_veterinary: <div className="icon" style={{backgroundColor:"#FEEED1"}}><i className="fa fa-3x fa-paw absolute" style={{color: "#FBAA18"}}/></div>
   }
 
+  const ep_path = {
+    food: '/food/',
+    medical_devices: '/device/',
+    drugs: '/drug/',
+    animal_and_veterinary: '/animal_and_veterinary/'
+  }
+
   return (
     <section
-      id='endpoint_box' className="ep-box">
+      id='endpoint_box' className="ep-box marg-2">
       <div className="bg-img-container" style={bg_image_color[endpoint_name]}>
         <img src={bg_image[endpoint_name]}/>
       </div>
       <div className="absolute" style={{paddingBottom:"50px"}}>
         {icon[endpoint_name]}
       </div>
-      <div className='flex-row dir-column m-pad-t-2 m-pad-b-2 ep-text-box'>
+      <div className='flex-row dir-column m-pad-t-2 m-pad-b-2 ep-text-box no-flex-wrap'>
         <h3 className="txt-c clr-primary-darker pad-t-4">{ep_name[endpoint_name]}</h3>
         <span className="marg-1">{description[endpoint_name]}</span>
-        <span className="txt-c marg-2 clr-primary weight-700">LEARN MORE <i className="fa fa-angle-right"/></span>
+        <Link className="btn clr-primary weight-700" to={ep_path[endpoint_name]}>
+          LEARN MORE<i className="fa fa-angle-right marg-l-1"/>
+        </Link>
       </div>
     </section>
   )

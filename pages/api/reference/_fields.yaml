@@ -23,7 +23,7 @@ properties:
   partitions:
     format:
     type: array of objects
-    description: "The list of data files available for this endpoint. Each object in this list represents a single data file. Some endpoints have just one item in this list, but others have dozens of items."
+    description: "The list of data files available for this endpoint. Each object in this list represents a single data file. Some categories have just one item in this list, but others have dozens of items."
     possible_values:
   size_mb:
     format:

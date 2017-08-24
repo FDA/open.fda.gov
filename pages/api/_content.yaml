@@ -1,6 +1,6 @@
 - '## About the openFDA API'
 - 'OpenFDA is an [Elasticsearch-based](http://www.elasticsearch.org/) [API](http://apievangelist.com/index.html) that serves public [FDA](http://www.fda.gov/) data about *nouns* like [drugs](/drug/), [devices](/device/), and [foods](/food/).'
-- 'Each of these nouns has one or more **endpoints,** which serve unique data—such as data about recall enforcement reports, or about adverse events. Every query to the API must go through one endpoint for one kind of data.'
+- 'Each of these nouns has one or more **categories,** which serve unique data—such as data about recall enforcement reports, or about adverse events. Every query to the API must go through one endpoint for one kind of data.'
 - 'Not all data in openFDA has been validated for clinical or production use. And because openFDA only serves publicly available data, it does not contain data with Personally Identifiable Information about patients or other sensitive information.'
 - 'The API returns individual results as [JSON](http://www.json.org/) by default. The JSON object has two sections:'
 - ul:

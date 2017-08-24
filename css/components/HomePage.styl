@@ -1,3 +1,26 @@
+.half-hero
+  width: 50%
+  min-height: 250px
+  background-size: cover
+  background-position: 0 100%
+  background-repeat: no-repeat
+  justify-content: flex-end
+  overflow: hidden
+
+.half-hero > div
+  margin: 30px 60px
+
+.area-chart-container
+  background-image: url('/img/area-chart.svg')
+  background-color: #00B1CB
+  color: white
+  margin-right: 2px
+
+.down-arrows-container
+  background-image: url('/img/down-arrows.svg')
+  background-color: #DEF1F5
+  margin-left: 2px
+
 .blue-code-container
   background-image: url('/img/blue-code.jpg')
   background-size: 50%
@@ -9,3 +32,55 @@
   justify-content: flex-end
   margin-top: 4px
   overflow: hidden
+
+.blue-code-container > div
+  margin: 40px
+
+.center-heading
+  max-width: 100%
+  text-align: center
+  font-size: 28px
+  font-family: 'Source Sans Pro', sans-serif
+  color: #00517D
+
+.center-heading span
+  padding: 0 20px
+  position: relative
+
+.center-heading span:before, .center-heading span:after
+  content: ""
+  position: absolute
+  height: 1px
+  border-top: 1px solid #ccc
+  margin: 15px -5px
+  bottom: 0
+  width: 50px
+
+.center-heading span:before
+  right: 100%
+
+.center-heading span:after
+  left: 100%
+
+@media $bpMob
+  .center-heading span:before, .center-heading span:after
+    display: none
+
+@media $tablet
+  .half-hero
+    width: 100%
+    margin: 0
+    min-height: 0px
+
+  .half-hero > div
+    margin: 30px
+
+  .blue-code-container > div
+    margin: 30px
+
+@media $bpMobSmall
+  .area-chart-container
+    background-image: none
+
+  .down-arrows-container
+    background-image: none

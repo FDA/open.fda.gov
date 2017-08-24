@@ -2,7 +2,7 @@
 - 'OpenFDA is designed primarily for real-time queries. However, some applications may require all the data served by an endpoint, or exceed the [query limits](#authentication) or result limit (5000 records per query) in place to promote equitable access and manage load on the system.'
 - 'Because [openFDA is open source and its source code is available on GitHub](http://github.com/FDA/openfda/), you can create your own instance of openFDA without these limits and run it on your own server. You can also download the data for any openFDA endpoint, in exactly the same JSON format that query results follow, and build your own custom application that uses these JSON files. Because the format is exactly the same as API query results, you can reuse existing code that you’ve written for applications that process openFDA data. There are two things you should know about these downloads.'
 - ul:
-  - '**Downloads are broken into parts.** Some endpoints have millions of records. For those endpoints, the data are broken up into many small parts. So while some endpoints have all their data available in a single file, others have dozens of files. Each file is a zipped JSON file.'
+  - '**Downloads are broken into parts.** Some categories have millions of records. For those categories, the data are broken up into many small parts. So while some categories have all their data available in a single file, others have dozens of files. Each file is a zipped JSON file.'
   - '**To keep your downloaded data up to date, you need to re-download the data every time it is updated.** Every time an endpoint is updated (which happens on a regular basis), it is possible that every record has changed, due to corrections or enhancements. That means that you cannot simply download "new" files to keep your downloaded version up to date. You need to download all available data files for the endpoint of interest.'
 - '### How to download data'
 - 'There are three ways to download data from openFDA.'
@@ -41,7 +41,7 @@
 - 'OpenFDA requires you to use `https://api.fda.gov` for all queries to ensure secure communication.'
 - '## OpenFDA fields'
 - 'Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.'
-- 'OpenFDA features harmonization on drug identifiers, to make it easier to both search for and understand the drug products returned by API queries. These additional fields are attached to records in all endpoints, if applicable.'
+- 'OpenFDA features harmonization on drug identifiers, to make it easier to both search for and understand the drug products returned by API queries. These additional fields are attached to records in all categories, if applicable.'
 - 'When you query an endpoint, you can search by:'
 - ul:
   - 'Fields native to records served by that endpoint.'
