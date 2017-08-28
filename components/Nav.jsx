@@ -120,32 +120,32 @@ const Nav = (props: tPROPS) => {
                 transform: 'rotate(0deg)',
                 width: '36px',
               }}>
-              <span
-                className='absolute bg-primary block row'
-                style={{
-                  ...hamStyl,
-                  transform: showMobileNav ?
-                    'translate3d(0, 10px, 0) rotate(45deg)' :
-                    'translate3d(0, 0, 0) rotate(0deg)',
-                }}
-              />
-              <span
-                className='absolute bg-primary block row'
-                style={{
-                  ...hamStyl,
-                  transform: 'translate3d(0, 10px, 0)',
-                  opacity: showMobileNav ? 0 : 1,
-                }}
-              />
-              <span
-                className='absolute bg-primary block row'
-                style={{
-                  ...hamStyl,
-                  transform: showMobileNav ?
-                    'translate3d(0, 10px, 0) rotate(-45deg)' :
-                    'translate3d(0, 20px, 0) rotate(0deg)',
-                }}
-              />
+                <span
+                  className='absolute bg-primary block row'
+                  style={{
+                    ...hamStyl,
+                    transform: showMobileNav ?
+                      'translate3d(0, 10px, 0) rotate(45deg)' :
+                      'translate3d(0, 0, 0) rotate(0deg)',
+                  }}
+                />
+                <span
+                  className='absolute bg-primary block row'
+                  style={{
+                    ...hamStyl,
+                    transform: 'translate3d(0, 10px, 0)',
+                    opacity: showMobileNav ? 0 : 1,
+                  }}
+                />
+                <span
+                  className='absolute bg-primary block row'
+                  style={{
+                    ...hamStyl,
+                    transform: showMobileNav ?
+                      'translate3d(0, 10px, 0) rotate(-45deg)' :
+                      'translate3d(0, 20px, 0) rotate(0deg)',
+                  }}
+                />
             </div>
           </div>
           <div
@@ -166,7 +166,7 @@ const Nav = (props: tPROPS) => {
                   title='openFDA'
                   className={activeDropdown=='openFDA' ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
-                >openFDA</span>
+                >openFDA <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
                 <div className={activeDropdown=='openFDA' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
                     <Link className={linkCx} to='/about/'>About</Link>
@@ -179,10 +179,10 @@ const Nav = (props: tPROPS) => {
               </div>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
-                  title='Learn'
-                  className={activeDropdown=='Learn' ? 'menu-header emphasis': 'menu-header'}
-                  onTouchStart={toggleDropdownContent}
-                >Learn</span>
+                title='Learn'
+                className={activeDropdown=='Learn' ? 'menu-header emphasis': 'menu-header'}
+                onTouchStart={toggleDropdownContent}
+                >Learn <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
               <div className={activeDropdown=='Learn' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                 <div className='sub-menu-container' role='navigation'>
                   <Link className={linkCx} to='/api/'>API basics</Link>
@@ -193,10 +193,10 @@ const Nav = (props: tPROPS) => {
               </div>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
-                  title='API Endpoints'
-                  className={activeDropdown=='API Endpoints' ? 'menu-header emphasis': 'menu-header'}
-                  onTouchStart={toggleDropdownContent}
-                >API Endpoints</span>
+                title='API Endpoints'
+                className={activeDropdown=='API Endpoints' ? 'menu-header emphasis': 'menu-header'}
+                onTouchStart={toggleDropdownContent}
+                >API Endpoints <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none': '')}/></span>
                 <div className={activeDropdown=='API Endpoints' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
                     <Link className={linkCx} to='/drug/'>Drugs</Link>
@@ -207,10 +207,10 @@ const Nav = (props: tPROPS) => {
               </div>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
-                  title='Community'
-                  className={activeDropdown=='Community' ? 'menu-header emphasis': 'menu-header'}
-                  onTouchStart={toggleDropdownContent}
-                >Community</span>
+                title='Community'
+                className={activeDropdown=='Community' ? 'menu-header emphasis': 'menu-header'}
+                onTouchStart={toggleDropdownContent}
+                >Community <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none': '')}/></span>
                 <div className={activeDropdown=='Community' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
                     <a

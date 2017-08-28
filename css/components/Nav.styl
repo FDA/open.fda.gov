@@ -16,9 +16,6 @@
 .display-none
   display: none
 
-.emphasis
-  font-weight: bold
-
 .menu-container
   display: inherit
   justify-content: flex-end
@@ -29,19 +26,15 @@
   position: relative
   margin-bottom: 0
   padding: 0.5em
-  color: $clrPrimary
+  color: #666666
   font-size: 1em
   line-height: 2em
 
-.menu-header::after
-  display:block
-  content:attr(title)
-  font-weight:bold
-  height:1px
-  color:transparent
-  overflow:hidden
-  visibility:hidden
-  margin-bottom:-1px
+.emphasis
+  color: $clrPrimary
+
+.fa-angle-down
+  padding-left: 0.5em
 
 .sub-menu-container
   position: relative
@@ -54,7 +47,7 @@
   box-shadow: 0 3px 6px rgba(0,0,0,0.2)
   width: auto
   min-width: 160px
-  text-align: right
+  text-align: left
   white-space: nowrap
   z-index: 2
 
@@ -63,7 +56,7 @@
   padding: 0rem 1rem 0rem 1.8rem
   font-size: 1em
   line-height: 2em
-  color: $clrPrimary
+  color: #666666
 
 .sub-menu-item:hover
   background-color: $clrPrimary
@@ -92,10 +85,6 @@
     font-size: 4.5vw
     font-weight: bold
 
-  .emphasis
-    background-color: $clrPrimary
-    color: $clrWhite
-
   .menu-container
     display: block
     padding-top: 20px
@@ -109,7 +98,7 @@
     border: none
 
   .sub-menu-item
-    font-size: 1.5em
+    font-size: 4.5vw
     border: 1px solid #ccc
     border-bottom-left-radius: 3px
     border-bottom-right-radius: 3px
