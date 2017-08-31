@@ -1,0 +1,9 @@
+type: endpoint
+documentTitle: openFDA › Food › NARMS API
+label: The National Antimicrobial Resistance Monitoring System
+title: The National Antimicrobial Resistance Monitoring System
+description: This portion of the national public health surveillance system tracks changes in the antimicrobial susceptibility of enteric (intestinal) bacteria found in retail meats (FDA) in the United States.
+datasets:
+  - NARMS
+path: /food/narms
+start: 20040101
