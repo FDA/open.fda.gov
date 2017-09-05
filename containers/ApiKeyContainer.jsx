@@ -12,7 +12,7 @@ import $ from 'jquery'
 // requiring the pre-built dist file in npm
 //import localforage from '../polyfills/localforage/src/localforage.js'
 import localforage from 'localforage'
-import API_LINK from '../constants/api'
+import { API_LINK } from '../constants/api'
 
 type tSTATE = {
   apiKey: ?string;

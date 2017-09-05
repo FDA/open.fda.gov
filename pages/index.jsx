@@ -2,7 +2,6 @@
 
 import React from 'react'
 
-import Hero from '../components/Hero'
 import Layout from '../components/Layout'
 import Endpoint_Box from '../components/Endpoint_Box'
 import BlogRoll from '../components/BlogRoll'
@@ -16,10 +15,6 @@ type PROPS = {
 // homepage
 const INDEX = ({ route }: PROPS) => (
   <Layout title='openFDA'>
-    <Hero
-      label='openFDA'
-      title='Open-source APIs and a developer community for FDA data'
-    />
     <section className='flex-box dir-column just-center'>
       <h2 className="center-heading" style={{margin: '30px 0px 10px'}}><span>API Endpoint Categories</span></h2>
       <div className='flex-row just-center align-center flex-wrap'>

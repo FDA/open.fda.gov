@@ -6,7 +6,7 @@ import SideBar from '../components/SideBar'
 import Infographic from '../components/Infographic'
 import InfographicExplorer from '../components/InfographicExplorer'
 import xhrGET from '../utils/xhr'
-import API_LINK from '../constants/api'
+import { API_LINK } from '../constants/api'
 
 type tSTATE = {
   countParam: string;
@@ -230,7 +230,8 @@ class InfographicContainer extends React.Component {
     // or make a request, check the meta of that request, and then
     // make another request with the date in the search field
     // i prefer to just make the download request (which gets cached anyway)
-    xhrGET(API_LINK + '/download.json', _handleDownloadResponse)
+    let download_link = API_LINK + '/download.json'
+    xhrGET('https://api.fda.gov/download.json', _handleDownloadResponse)
   }
 
   /**

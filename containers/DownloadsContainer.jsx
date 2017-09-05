@@ -3,7 +3,7 @@
 import React from 'react'
 import get from 'lodash/get'
 import xhrGET from '../utils/xhr'
-import API_LINK from '../constants/api'
+import { API_LINK } from '../constants/api'
 
 type tSTATE = {
   data: ?Object;

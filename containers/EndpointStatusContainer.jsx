@@ -3,7 +3,7 @@
 import React from 'react'
 import find from 'lodash/find'
 import xhrGET from '../utils/xhr'
-import API_LINK from '../constants/api'
+import { API_LINK } from '../constants/api'
 
 type tPROPS = {
   endpoint: string;

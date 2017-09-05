@@ -2,7 +2,7 @@
 
 import React from 'react'
 import xhrGET from '../utils/xhr'
-import API_LINK from '../constants/api'
+import { API_LINK } from '../constants/api'
 
 type tSTATE = {
   data: ?Array<Object>;
