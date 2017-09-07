@@ -45,10 +45,10 @@ var endpoint_list = {
 
 let downloads_list = Object.keys(endpoint_list).map((key: string, i: number) => {
   if (typeof endpoint_list[key] === "string") {
-    return <li id={key}><h2>{key}</h2></li>
+    return <li id={key} key={key}><h2>{key}</h2></li>
   }
   else {
-    return <li id={key}><Downloads
+    return <li id={key} key={key}><Downloads
       k={i}
       meta={endpoint_list[key]}
     /></li>

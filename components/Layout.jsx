@@ -19,7 +19,7 @@ DocumentTitle.displayName = 'Document Title'
 // got really tired of importing DocumentTitle
 // and Nav and Footer, etc into every file
 const Layout = ({ children, meta, title, }: PROPS) => (
-  <DocumentTitle title={title}>
+  <DocumentTitle title={title} key={title}>
     <div>
       <div
         className='align-center bg-gray-lightest flex-box clr-black just-center smallest dir-row pad-1'

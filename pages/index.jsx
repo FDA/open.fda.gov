@@ -5,6 +5,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import Endpoint_Box from '../components/Endpoint_Box'
 import BlogRoll from '../components/BlogRoll'
+import type tTEMPLATE from '../constants/types/template'
 
 const Link: ReactClass = require('react-router').Link
 
@@ -13,8 +14,9 @@ type PROPS = {
 };
 
 // homepage
-const INDEX = ({ route }: PROPS) => (
+const INDEX = ({ route }: tTEMPLATE) => (
   <Layout title='openFDA'>
+    {console.log(route)}
     <section className='flex-box dir-column just-center'>
       <h2 className="center-heading" style={{margin: '30px 0px 10px'}}><span>API Endpoint Categories</span></h2>
       <div className='flex-row just-center align-center flex-wrap'>

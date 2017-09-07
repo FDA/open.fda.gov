@@ -62,6 +62,7 @@ const Content = (props: tPROPS) => {
                 examples={examples}
                 fields={fields}
                 explorers={explorers}
+                key={i}
               />
             )
           }
@@ -84,6 +85,7 @@ const Content = (props: tPROPS) => {
               <Downloads
                 k={i}
                 meta={meta}
+                key={i}
               />
             )
           }
@@ -95,6 +97,7 @@ const Content = (props: tPROPS) => {
               <Datasets
                 k={i}
                 meta={meta}
+                key={i}
               />
             )
           }
@@ -105,6 +108,7 @@ const Content = (props: tPROPS) => {
             return (
               <MultipleProductTable
                 k={i}
+                key={i}
               />
             )
           }
@@ -113,6 +117,7 @@ const Content = (props: tPROPS) => {
             return (
               <ApiKey
                 k={i}
+                key={i}
               />
             )
           }

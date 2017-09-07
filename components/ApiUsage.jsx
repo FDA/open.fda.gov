@@ -4,8 +4,7 @@ const Line:ReactClass = Charts.Line
 import xhrGET from '../utils/xhr'
 import bp from '../constants/breakpoints'
 import Table from './Table'
-import API_LINK from '../constants/api'
-import API_NAME from '../constants/api'
+import { API_LINK, API_NAME } from '../constants/api'
 
 
 type tPROPS = {
@@ -160,24 +159,24 @@ const ApiUsage = (props:tPROPS) => {
             <div>
               <table className="table-sm table-bordered">
                 <tbody>
-                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Drugs</strong></td></tr>
-                  <tr> <td>Labeling</td><td>{this.docCount('druglabel')}</td> </tr>
-                  <tr> <td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td> </tr>
-                  <tr> <td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td> </tr>
+                  <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Drugs</strong></td></tr>
+                  <tr><td>Labeling</td><td>{this.docCount('druglabel')}</td></tr>
+                  <tr><td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td></tr>
+                  <tr><td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td></tr>
 
-                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Foods</strong></td></tr>
-                  <tr> <td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td> </tr>
-                  <tr> <td>Enforcement Reports</td><td>{this.docCount('foodenforcement')}</td> </tr>
+                  <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Foods</strong></td></tr>
+                  <tr><td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td></tr>
+                  <tr><td>Enforcement Reports</td><td>{this.docCount('foodenforcement')}</td></tr>
 
-                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Devices</strong></td></tr>
-                  <tr> <td>Classifications</td><td>{this.docCount('deviceclass')}</td> </tr>
-                  <tr> <td>Registration and listing</td><td>{this.docCount('devicereglist')}</td> </tr>
-                  <tr> <td>Premarket Approvals (PMAs)</td><td>{this.docCount('devicepma')}</td> </tr>
-                  <tr> <td>510Ks</td><td>{this.docCount('deviceclearance')}</td> </tr>
-                  <tr> <td>Recalls</td><td>{this.docCount('devicerecall')}</td> </tr>
-                  <tr> <td>Adverse Event Reports</td><td>{this.docCount('deviceevent')}</td> </tr>
-                  <tr> <td>UDIs</td><td>{this.docCount('deviceudi')}</td> </tr>
-                  <tr> <td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td> </tr>
+                  <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Devices</strong></td></tr>
+                  <tr><td>Classifications</td><td>{this.docCount('deviceclass')}</td></tr>
+                  <tr><td>Registration and listing</td><td>{this.docCount('devicereglist')}</td></tr>
+                  <tr><td>Premarket Approvals (PMAs)</td><td>{this.docCount('devicepma')}</td></tr>
+                  <tr><td>510Ks</td><td>{this.docCount('deviceclearance')}</td></tr>
+                  <tr><td>Recalls</td><td>{this.docCount('devicerecall')}</td></tr>
+                  <tr><td>Adverse Event Reports</td><td>{this.docCount('deviceevent')}</td></tr>
+                  <tr><td>UDIs</td><td>{this.docCount('deviceudi')}</td></tr>
+                  <tr><td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td></tr>
                   </tbody>
                 </table>
 
@@ -191,8 +190,7 @@ const ApiUsage = (props:tPROPS) => {
               <h2 className='txt-c marg-t-2'>API Calls in the Past 30 Days: {this.totalCount('lastThirtyDayUsage')}</h2>
               <div className='italic txt-c t-6 smallest'> {this.state.dynamicDisclaimer}</div>
               <div className='marg-l-1'>
-                <Line redraw={true}
-                      data={this.state.data}
+                <Line data={this.state.data}
                       options={{
                     animation: true,
                     maintainAspectRatio: false,
@@ -209,11 +207,11 @@ const ApiUsage = (props:tPROPS) => {
                   this.state.breadcrumbs.map((b, i) => {
                     if ((this.state.breadcrumbs.length - 1) > i) {
                       // render link
-                      return (<span> {(i > 0 ? ' > ' : '') } <a key={'p' + i} onClick={(e) => this.refreshPrefix(e)} data-prefix={b}>{b.substring(0, b.length - 1).split('/').pop()}</a></span>)
+                      return (<span key={i}> {(i > 0 ? ' > ' : '') } <a key={'p' + i} onClick={(e) => this.refreshPrefix(e)} data-prefix={b}>{b.substring(0, b.length - 1).split('/').pop()}</a></span>)
                     }
                     else {
                       // render without link
-                      return (<span>{ (i > 0 ? ' > ' : '') + b.substring(0, b.length - 1).split('/').pop()}</span>)
+                      return (<span key={i}>{ (i > 0 ? ' > ' : '') + b.substring(0, b.length - 1).split('/').pop()}</span>)
                     }
                   })
                 }

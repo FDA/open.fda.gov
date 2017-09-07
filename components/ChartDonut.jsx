@@ -107,7 +107,6 @@ const ChartDonut = (props: tPROPS) => {
           segmentShowStroke: false,
         }}
         width={size}
-        redraw="true"
       />
       {
         hasLegend &&

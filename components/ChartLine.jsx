@@ -162,7 +162,6 @@ const ChartLine = ({ countParam, data, height, fields, width, }: PROPS) => {
       <Line
         // needed. destroy and redo chart on change
         // this lets us toggle the animation property correctly
-        redraw={dataChanged}
         data={nextChartData}
         options={{
           // charts with large datasets can really chug
