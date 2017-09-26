@@ -27,6 +27,7 @@ type tPROPS = {
   hideDropdownContent: Function;
   showDropdownContent: Function;
   activeDropdown: string;
+  path: string;
 };
 
 
@@ -37,7 +38,8 @@ const Nav = (props: tPROPS) => {
     hideDropdownContent,
     showDropdownContent,
     toggleDropdownContent,
-    activeDropdown
+    activeDropdown,
+    path
   } = props
 
   const navCx = cx({
@@ -93,13 +95,14 @@ const Nav = (props: tPROPS) => {
       <div className='pad-t-2 bg-secondary-darkest m-ord-3'>
         <p className='clr-white weight-600 container smallest'>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='clr-white underline' to='/terms/'> Terms of Service</Link></p>
       </div>
-      <div className='container m-pad-b-2 dir-column m-ord-1 m-pad-t-2' style={{width: '100%'}}>
+      <div className='container dir-column m-ord-1 m-pad-b-1 m-pad-t-1' style={{width: '100%'}}>
         <div className='flex-row relative'>
           <div
             className='container t-2 logo-wrapper relative'
             style={{
               display: 'flex',
               minHeight: '35px',
+              marginLeft: '0'
             }}>
             <Link
               className='open-fda-logo'
@@ -158,59 +161,77 @@ const Nav = (props: tPROPS) => {
                 <Link
                   title='Home'
                   to='/'
-                  className={showMobileNav ? 'display-none': activeDropdown=='Home' ? 'menu-header emphasis': 'menu-header'}
+                  className={showMobileNav ? 'display-none': activeDropdown=='Home' ? 'menu-header emphasis': path === '/' ? 'menu-header emphasis': 'menu-header'}
                 >Home</Link>
+                <div className={path === '/' ? 'menu-header-underbar': 'menu-header-underbar display-none'} style={{width: 'calc(100% - 1em)'}}/>
               </div>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
-                  title='openFDA'
-                  className={activeDropdown=='openFDA' ? 'menu-header emphasis': 'menu-header'}
+                  title='About'
+                  className={activeDropdown=='About' ? 'menu-header emphasis': path.includes('about') ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
-                >openFDA <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
-                <div className={activeDropdown=='openFDA' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                >About <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
+                <div className={path.includes('about') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
+                <div className={activeDropdown=='About' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/about/'>About</Link>
-                    <Link className={linkCx} to='/updates/'>Updates</Link>
-                    <Link className={linkCx} to='/api/status/'>API status</Link>
-                    <Link className={linkCx} to='/api/statistics/'>API usage statistics</Link>
-                    <Link className={linkCx} to='/downloads/'>Downloads</Link>
+                    <Link className={linkCx} to='/about/introduction/'>What is openFDA?</Link>
+                    <Link className={linkCx} to='/about/updates/'>Updates</Link>
                   </div>
                 </div>
               </div>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
-                title='Learn'
-                className={activeDropdown=='Learn' ? 'menu-header emphasis': 'menu-header'}
+                title='Getting Started'
+                className={activeDropdown=='Getting Started' ? 'menu-header emphasis': path.includes('getting_started') ? 'menu-header emphasis': 'menu-header'}
                 onTouchStart={toggleDropdownContent}
-                >Learn <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
-              <div className={activeDropdown=='Learn' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                <div className='sub-menu-container' role='navigation'>
-                  <Link className={linkCx} to='/api/'>API basics</Link>
-                  <Link className={linkCx} to='/api/reference/'>API reference</Link>
-                  <Link className={linkCx} to='/research/'>Research tools</Link>
+                >Getting Started <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
+                <div className={path.includes('getting_started') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
+                <div className={activeDropdown=='Getting Started' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                  <div className='sub-menu-container' role='navigation'>
+                    <Link className={linkCx} to='/getting_started/api_basics/'>API basics</Link>
+                    <Link className={linkCx} to='/getting_started/api_basics/reference/'>API reference</Link>
+                    <Link className={linkCx} to='/getting_started/research/'>Research tools</Link>
+                  </div>
                 </div>
               </div>
+              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
+                <span
+                  title='Explore the Data'
+                  className={activeDropdown=='Explore the Data' ? 'menu-header emphasis': path.includes('explore') ? 'menu-header emphasis': 'menu-header'}
+                  onTouchStart={toggleDropdownContent}
+                >Explore the Data <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
+                <div className={path.includes('explore') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
+                <div className={activeDropdown=='Explore the Data' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                  <div className='sub-menu-container' role='navigation'>
+                    <Link className={linkCx} to='/explore/status/'>API status</Link>
+                    <Link className={linkCx} to='/explore/statistics/'>API usage statistics</Link>
+                    <Link className={linkCx} to='/explore/downloads/'>Downloads</Link>
+                    <Link className={linkCx} to='/explore/data/'>Data Reference</Link>
+                  </div>
+                </div>
               </div>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                 title='API Endpoints'
-                className={activeDropdown=='API Endpoints' ? 'menu-header emphasis': 'menu-header'}
+                className={activeDropdown=='API Endpoints' ? 'menu-header emphasis': path.includes('api_endpoints') ? 'menu-header emphasis': 'menu-header'}
                 onTouchStart={toggleDropdownContent}
                 >API Endpoints <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none': '')}/></span>
+                <div className={path.includes('api_endpoints') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown=='API Endpoints' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/drug/'>Drugs</Link>
-                    <Link className={linkCx} to='/device/'>Devices</Link>
-                    <Link className={linkCx} to='/food/'>Foods</Link>
+                    <Link className={linkCx} to='/api_endpoints/drug/'>Drugs</Link>
+                    <Link className={linkCx} to='/api_endpoints/device/'>Devices</Link>
+                    <Link className={linkCx} to='/api_endpoints/food/'>Foods</Link>
                   </div>
                 </div>
               </div>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                 title='Community'
-                className={activeDropdown=='Community' ? 'menu-header emphasis': 'menu-header'}
+                className={activeDropdown=='Community' ? 'menu-header emphasis': path.includes('community') ? 'menu-header emphasis': 'menu-header'}
                 onTouchStart={toggleDropdownContent}
                 >Community <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none': '')}/></span>
+                <div className={path.includes('community') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown=='Community' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
                     <a

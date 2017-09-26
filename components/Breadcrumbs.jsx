@@ -11,12 +11,12 @@ const BreadCrumbs = () => {
   if (crumbs.length === 0) return <span />
 
   return (
-    <div className='bg-gray-lightest row m-pad-t-2 m-pad-b-2 t-pad-t-05 t-pad-b-05'>
+    <div className='row m-pad-t-2 m-pad-b-2 t-pad-t-1 t-pad-b-1' style={{background: 'rgba(0, 0, 0, 0.2)'}}>
       <nav
         aria-label='Breadcrumb navigation.'
-        className='container flex-box align-center dir-row clr-gray small'>
+        className='container flex-box align-center dir-row clr-gray mob-header font-size-4'>
         <a
-          className='clr-primary-darker pad-r-1'
+          className='clr-white pad-r-1'
           href='/'>
           openFDA
         </a>
@@ -35,16 +35,16 @@ const BreadCrumbs = () => {
 
             return (
               <span key={i}>
-                ›
+                <i className="fa fa-angle-right clr-white"/>
                 {
                   !isLast ?
                   <a
-                    className='clr-primary-darker pad-r-1 pad-l-1'
+                    className='clr-white pad-r-1 pad-l-1'
                     href={`${window.location.origin}/${safeUrl}/`}>
                     {safeCrumb}
                   </a>
                   :
-                  <span className='clr-black marg-l-1'>
+                  <span className='clr-white marg-l-1'>
                     {crumb}
                   </span>
                 }

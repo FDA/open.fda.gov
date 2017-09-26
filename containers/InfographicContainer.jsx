@@ -192,7 +192,7 @@ class InfographicContainer extends React.Component {
 
     const _handleDownloadResponse = downloadData => {
       // drug/event or whatever
-      const endpoint: string = this.props.meta.path
+      const endpoint: string = this.props.meta.api_path
       // search range to help filter out bunk data
       // or nothing, if we don't filter this query
       // see _explorers yaml for this endpoint
@@ -231,7 +231,7 @@ class InfographicContainer extends React.Component {
     // make another request with the date in the search field
     // i prefer to just make the download request (which gets cached anyway)
     let download_link = API_LINK + '/download.json'
-    xhrGET('https://api.fda.gov/download.json', _handleDownloadResponse)
+    xhrGET(download_link, _handleDownloadResponse)
   }
 
   /**

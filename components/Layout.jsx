@@ -4,7 +4,6 @@ import React from 'react'
 import DocumentTitle from 'react-document-title'
 
 import Nav from './Nav'
-import BreadCrumbs from './BreadCrumbs'
 import Footer from './Footer'
 import ARIA from '../constants/aria'
 
@@ -59,7 +58,6 @@ const Layout = ({ children, meta, title, }: PROPS) => (
       <Nav
         meta={meta}
       />
-      <BreadCrumbs />
       {children}
       <Footer />
     </div>

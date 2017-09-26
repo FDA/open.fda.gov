@@ -1,0 +1,10 @@
+type: endpoint
+documentTitle: openFDA › Food › Adverse events API
+label: Food, dietary supplement, and cosmetic adverse events
+title: Food, dietary supplement, and cosmetic adverse events
+description: An adverse event is submitted to the FDA to report adverse health effects and product complaints about foods, dietary supplements, and cosmetics.
+datasets:
+  - CAERS
+path: /api_endpoints/food/event
+api_path: /food/event
+start: 20040101

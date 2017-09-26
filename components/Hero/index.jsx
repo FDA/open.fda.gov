@@ -2,8 +2,9 @@
 
 import React from 'react'
 import cx from 'classnames'
+import BreadCrumbs from '../BreadCrumbs'
+import CategoryMenu from '../CategoryMenu'
 
-import EndpointButtons from './EndpointButtons'
 
 type tPROPS = {
   description: string;
@@ -30,82 +31,82 @@ const Hero = (props: tPROPS) => {
     label,
     path,
     title,
-    type,
+    type
   } = props
 
   const heroCx = cx({
-    'flex-box pad-t-2 pad-b-2 overflow-hidden relative': true,
+    'flex-box overflow-hidden relative dir-column': true,
     'bg-gray': type !== 'dataset' && type !== 'endpoint',
-    'bg-primary': type === 'dataset',
-    'bg-gray-dark': type === 'endpoint',
+    'bg-primary': type === 'dataset'
   })
+
+  const bg_image_color = {
+    food: {background: 'linear-gradient(to bottom right, rgba(81, 161, 22, 1), rgba(143, 209, 100, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
+    device: {background: 'linear-gradient(to bottom right, rgba(243, 117, 73, 1), rgba(255, 198, 59, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
+    drug: {background: 'linear-gradient(to bottom right, rgba(153, 88, 163, 1), rgba(220, 141, 188, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
+    animal_and_veterinary: {background: 'linear-gradient(to bottom right, rgba(249, 157, 28, 1), rgba(252, 215, 112, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
+    other: {backgroundColor: '#5b616b'}
+  }
+  const bg_image = {
+    food: '/img/apple.png',
+    device: '/img/stethoscope.png',
+    drug: '/img/pill-bottle.png',
+    animal_and_veterinary: '/img/dog.png'
+  }
+
+  if ('path' in props) {
+    let cat_path = path.split( '/' )
+    var cat_name = cat_path[2]
+  } else {
+    var cat_name = 'other'
+  }
+
 
   const desc: void|string = description && description.trim()
 
   return (
     <section
-      id='hero'
-      className={heroCx}>
-      <div className='flex-row dir-column m-pad-t-2 m-pad-b-2 container'>
-        <span
-          tabIndex={0}
-          className='clr-white serif weight-700 small'>
-          {label}
-        </span>
-        {
-          type === 'endpoint' &&
-          <h2
-            // if we're showing a label we're on an endpoint
-            // the endpoint reads weird - so just read the label instead
-            tabIndex={label ? -1 : 0}
-            className='clr-white weight-700 m-pad-r-1'
-            style={{
-              wordBreak: 'break-all'
-            }}>
-            {
-              type === 'endpoint' &&
-              <span className='clr-cool-blue-lighter weight-400'>api.fda.gov</span>
-            }
-            {path}
-          </h2>
-        }
-        {
-          type !== 'endpoint' &&
+      id='hero'>
+      {
+        (type === 'endpoint' || type === 'noun') &&
+        <CategoryMenu />
+      }
+      <div
+        className={heroCx}
+        style={bg_image_color[cat_name]}>
+        <BreadCrumbs />
+        <div className='flex-row dir-column pad-t-2 pad-b-2 pad-l-4'>
           <h2
             tabIndex={label ? -1 : 0}
             className='clr-white weight-700 header-width'>
             {title}
           </h2>
-        }
-        {
-          desc && htmlDescription &&
-          <p
-            tabIndex={0}
-            className='clr-white font-size-4 header-width'
-            style={{
-              lineHeight: '25px',
-              marginBottom: '0px'
-            }} dangerouslySetInnerHTML={{__html: desc}}>
-          </p>
-        }
-        {
-          desc && !htmlDescription &&
-          <p
+          <div style={{borderTop: '4px solid rgba(255, 255, 255, 0.3)', margin: '20px 0px', bottom: '0', height: '1px', width: '80px'}}/>
+          {
+            desc && htmlDescription &&
+            <p
               tabIndex={0}
               className='clr-white font-size-4 header-width'
               style={{
-              lineHeight: '25px',
-              marginBottom: '0px'
-            }}>
-            {desc}
-          </p>
-        }
-        {
-          type === 'endpoint' &&
-          <EndpointButtons
-            {...props}
-          />
-        }
+                lineHeight: '25px',
+                marginBottom: '0px'
+              }} dangerouslySetInnerHTML={{__html: desc}}>
+            </p>
+          }
+          {
+            desc && !htmlDescription &&
+            <p
+                tabIndex={0}
+                className='clr-white font-size-4 header-width'
+                style={{
+                lineHeight: '25px',
+                marginBottom: '0px'
+              }}>
+              {desc}
+            </p>
+          }
+        </div>
+        <img src={bg_image[cat_name]} style={{height: '240px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '120%', bottom: '-25px'}}/>
       </div>
     </section>
   )

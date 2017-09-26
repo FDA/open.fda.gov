@@ -1,0 +1,11 @@
+documentTitle: openFDA › Drugs › Recall enforcement reports reference guide
+label: Drug recall enforcement reports reference
+title: Drug recall enforcement reports reference
+description: "Recalls are an appropriate alternative method for removing or correcting marketed consumer products, their labeling, and/or promotional literature that violate the laws administered by the Food and Drug Administration (FDA)."
+datasets:
+  - RES
+path: /api_endpoints/drug/enforcement/reference
+status: recall
+type: endpoint
+start: 20090101
+dateConstraintKey: termination_date

@@ -56,10 +56,10 @@ const Endpoint_Box = (props: tPROPS) => {
   }
 
   const ep_path = {
-    food: '/food/',
-    medical_devices: '/device/',
-    drugs: '/drug/',
-    animal_and_veterinary: '/animal_and_veterinary/'
+    food: '/api_endpoints/food/',
+    medical_devices: '/api_endpoints/device/',
+    drugs: '/api_endpoints/drug/',
+    animal_and_veterinary: '/api_endpoints/animal_and_veterinary/'
   }
 
   return (

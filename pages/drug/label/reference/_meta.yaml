@@ -1,8 +1,0 @@
-documentTitle: openFDA › Drugs › Drug Labeling API Reference
-name: Drug labeling Reference
-description: ""
-datasets:
-  - SPL
-label: Drug Labeling API Reference
-path: /drug/label/reference
-type: endpoint

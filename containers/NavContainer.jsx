@@ -6,14 +6,22 @@ type tSTATE = {
   showMobileNav: boolean;
   toggleDropdownContent: boolean;
   activeDropdown: string;
+  path: string;
 };
 
 const NavContainer = function (ComposedNav: ReactClass): ReactClass {
   class HOC extends React.Component {
     state: tSTATE = {
       showMobileNav: false,
-      activeDropdown: ' '
+      activeDropdown: ' ',
+      path: ' '
     };
+
+    componentDidMount () {
+      this.setState({
+        path: window.location.pathname
+      })
+    }
 
     _toggleMobileNav () {
       this.setState({

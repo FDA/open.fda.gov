@@ -1,0 +1,13 @@
+- "## About device 510(k)"
+- "The premarket notification dataset contains details about specific products and the original sponsors of premarket notification applications. It also contains administrative and tracking information about the applications and receipt and decision dates."
+- "A 510(k) is a premarket submission made to FDA to demonstrate that the device to be marketed is at least as safe and effective, that is, substantially equivalent, to a legally marketed device (21 CFR 807.92(a)(3)) that is not subject to PMA. Submitters must compare their device to one or more similar legally marketed devices and make and support their substantial equivalency claims. A legally marketed device, as described in 21 CFR 807.92(a)(3), is a device that was legally marketed prior to May 28, 1976 (preamendments device), for which a PMA is not required, or a device which has been reclassified from Class III to Class II or I, or a device which has been found substantially equivalent through the 510(k) process. The legally marketed device(s) to which equivalence is drawn is commonly known as the “predicate.”"
+- "For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/PremarketSubmissions/PremarketNotification510k/default.htm)."
+- "getting-started"
+- "### Reference"
+- "See the [comprehensive field-by-field reference](/device/510k/reference/) for more detail about the structure and contents of a device 510(k)."
+- "downloads"
+- "### How to search this endpoint"
+- "Make API calls to `https://api.fda.gov/device/510k.json` using search parameters for [fields specific to the device recalls endpoint.](/drug/event/reference/)"
+- queryExplorer: advisoryCommittee
+- queryExplorer: regulationNumber
+- queryExplorer: topCountryCodes

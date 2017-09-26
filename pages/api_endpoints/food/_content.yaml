@@ -1,0 +1,8 @@
+- url: /food/enforcement/
+  title: Food recall enforcement reports
+  description:
+    - "Food product recall enforcement reports."
+- url: /food/event/
+  title: Food, dietary supplement, and cosmetic adverse event reports
+  description:
+    - "Food, dietary supplement, and cosmetic adverse event reports."

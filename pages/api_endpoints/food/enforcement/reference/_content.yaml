@@ -1,0 +1,66 @@
+- "## About"
+- "The openFDA food enforcement reports API returns data from the [FDA Recall Enterprise System (RES)](https://open.fda.gov/data/res/), a database that contains information on recall event information submitted to FDA. Currently, this data covers publically releasable records from 2004-present. The data is updated weekly."
+- "The procedures followed to input recall information into RES when FDA learns of a recall event are outlined in [Chapter 7 of FDA’s Regulatory Procedure Manual](http://www.fda.gov/ICECI/ComplianceManuals/RegulatoryProceduresManual/ucm177304.htm). The Regulatory Procedures Manual is a reference manual for FDA personnel. It provides FDA personnel with information on internal procedures to be used in processing domestic and import regulatory and enforcement matters."
+- disclaimer:
+  - "This data should not be used as a method to collect data to issue alerts to the public, nor should it be used to track the lifecycle of a recall. FDA seeks publicity about a recall only when it believes the public needs to be alerted to a serious hazard. FDA works with industry and our state partners to publish press releases and other public notices about recalls that may potentially present a significant or serious risk to the consumer or user of the product. [Subscribe to this Recall/Safety Alert feed here](http://www.fda.gov/AboutFDA/ContactFDA/StayInformed/RSSFeeds/Recalls/rss.xml)."
+  - "Further, FDA does not update the status of a recall after the recall has been classified according to its level of hazard. As such, the status of a recall (open, completed, or terminated) will remain unchanged after published in the Enforcement Reports."
+- "When necessary, the FDA will make corrections or changes to recall information previously disclosed in a past Enforcement Report for various reasons. For instance, the firm may discover that the initial recall should be expanded to include more batches or lots of the same recalled product than formerly reported. For more information about corrections or changes implemented, please refer to the Enforcement Report’s [Changes to Past Enforcement Reports” page](http://www.fda.gov/Safety/Recalls/EnforcementReports/ucm345487.htm)."
+- "### What are enforcement reports?"
+- "An enforcement report contains information on actions taken in connection with FDA regulatory activities. The data served by this API endpoint includes enforcement reports about drug product recalls."
+- "Whereas not all recalls are announced in the media or on [FDA’s Recalls press release page](http://www.fda.gov/Safety/recalls/default.htm), all recalls montiored by FDA are included in [FDA’s weekly Enforcement Report](http://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm) once they are classified according to the level of hazard involved."
+- "Manufacturers and/or distributors may initiate a recall at any time to fulfill their responsibility to protect the public health from products that present a risk of injury or gross deception, or are otherwise defective. Firms may also initiate a recall following notification of a problem by FDA or a state agency, in response to a formal request by FDA, or as ordered by FDA."
+- "### Downloads"
+- "downloads"
+- "### Anatomy of a response"
+- "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."
+- example: anatomy
+- "### Meta"
+- "For non-`count` queries, the `meta` section includes a disclaimer, a link to the openFDA data license, and information about the results that follow."
+- example: meta
+- fields:
+  - meta.disclaimer
+  - meta.license
+  - meta.last_updated
+  - meta.results.skip
+  - meta.results.limit
+  - meta.results.total
+- "### Results"
+- "For non-`count` queries, the `results` section includes matching enforcement report records returned by the API, each of which has a set of fields describing the food product recall."
+- "The data format of RES enforcement reports changed in June 2012. In openFDA API results, reports from before that time do not contain the following fields:"
+- ul:
+  - "`event_id`"
+  - "`status`"
+  - "`city`"
+  - "`state`"
+  - "`country`"
+  - "`voluntary_mandated`"
+  - "`initial_firm_notification`"
+  - "`recall_initiation_date`"
+- "## Field-by-field reference"
+- "### Enforcement report"
+- example: result
+- fields:
+  - recalling_firm
+  - classification
+  - status
+  - distribution_pattern
+  - product_description
+  - code_info
+  - reason_for_recall
+  - product_quantity
+  - voluntary_mandated
+  - report_date
+  - recall_initiation_date
+  - initial_firm_notification
+  - recall_number
+  - event_id
+  - product_type
+- "### Geographic data"
+- fields:
+  - city
+  - state
+  - country
+- "### OpenFDA fields"
+- "For more information about the `openfda` section, see the [API reference](/api/reference/)."
+- "Food product recall enforcement reports will always have an empty `openfda` section."
+- "datasets"

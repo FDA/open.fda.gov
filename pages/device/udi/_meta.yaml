@@ -1,9 +1,0 @@
-type: endpoint
-documentTitle: openFDA › Device › UDI
-label: Unique Device Identifier
-title: Unique Device Identifier
-description: The unique device identification system was established to identify devices through distribution and use. Device labelers are required to include a unique device identifier (UDI) on device labels and packages. The Global Unique Device Identification Database (GUDID) contains key device identification information submitted to the FDA.
-endpoint: device/udi
-datasets:
-path: /device/udi
-start:

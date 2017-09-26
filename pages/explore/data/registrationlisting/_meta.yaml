@@ -1,0 +1,28 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › Registration & Listing'
+crumbs:
+  - openFDA
+  - Datasets
+  - Registration and Listing
+title: 'Registration and Listing'
+description: 'Registration and listing provides FDA with the location of medical device establishments and the devices manufactured at those establishments.'
+source:
+  name: 'R&L'
+  nameLong: 'Registration and Listing'
+  link: 'http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/RegistrationandListing/'
+  linkDownload: 'http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/RegistrationandListing/'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+time:
+  start:
+  current: 'Current'
+  delay:
+  frequency: 'Monthly'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - "Registration and listing provides FDA with the location of medical device establishments and the devices manufactured at those establishments. Knowing where devices are made increases the nation’s ability to prepare for and respond to public health emergencies."
+  - "Owners or operators of places of business (also called establishments or facilities) that are involved in the production and distribution of medical devices intended for use in the United States (U.S.) are required to register annually with the FDA. This process is known as establishment registration (Title 21 CFR Part 807)."
+  - "Most establishments that are required to register with the FDA are also required to list the devices that are made there and the activities that are performed on those devices. If a device requires premarket approval or notification before being marketed in the U.S., then the owner/operator should also provide the FDA premarket submission number (510(k), PMA, PDP, HDE)."

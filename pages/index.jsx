@@ -16,7 +16,6 @@ type PROPS = {
 // homepage
 const INDEX = ({ route }: tTEMPLATE) => (
   <Layout title='openFDA'>
-    {console.log(route)}
     <section className='flex-box dir-column just-center'>
       <h2 className="center-heading" style={{margin: '30px 0px 10px'}}><span>API Endpoint Categories</span></h2>
       <div className='flex-row just-center align-center flex-wrap'>
@@ -25,7 +24,7 @@ const INDEX = ({ route }: tTEMPLATE) => (
         <Endpoint_Box endpoint_name="drugs"/>
         <Endpoint_Box endpoint_name="animal_and_veterinary"/>
       </div>
-      <Link className="btn marg-b-2 txt-c clr-primary weight-700" to='/categories/'>
+      <Link className="btn marg-b-2 txt-c clr-primary weight-700" to='/api_endpoints/'>
         VIEW ALL<i className="fa fa-angle-right marg-l-1"/>
       </Link>
     </section>

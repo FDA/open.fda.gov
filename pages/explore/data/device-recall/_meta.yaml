@@ -1,0 +1,28 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › Device Recalls'
+crumbs:
+  - openFDA
+  - Datasets
+  - Device Recalls
+title: 'Device Recalls'
+description: 'A recall is an action taken to address a problem with a medical device that violates FDA law. Recalls occur when a medical device is defective, when it could be a risk to health, or when it is both defective and a risk to health.'
+source:
+  name: 'Device Recalls'
+  nameLong: 'Device Recalls'
+  link: 'http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRES/res.cfm'
+  linkDownload: 'http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRES/res.cfm'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+time:
+  start:
+  current:
+  delay:
+  frequency: 'Monthly'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - "A recall is an action taken to address a problem with a medical device that violates FDA law. Recalls occur when a medical device is defective, when it could be a risk to health, or when it is both defective and a risk to health."
+  - "In most cases, a company (manufacturer, distributor, or other responsible party) recalls a medical device on its own (voluntarily). When a company learns that it has a product that violates FDA law, it does two things: Recalls the device (through correction or removal), and notifies FDA."
+  - "Legally, FDA can require a company to recall a device. This could happen if a company refuses to recall a device that is associated with significant health problems or death. However, in practice, FDA has rarely needed to require a medical device recall."
