@@ -17,9 +17,9 @@ type tPROPS = {
  * @param {string} type [endpoint or not, used for styling and tabs]
  * @return {React.Element}
  */
-const Endpoint_Box = (props: tPROPS) => {
+const NounBox = (props: tPROPS) => {
   const {
-    endpoint_name
+    noun_name
   } = props
 
   const description = {
@@ -29,7 +29,7 @@ const Endpoint_Box = (props: tPROPS) => {
     animal_and_veterinary: "Regulating over-the-counter and prescription products for animals in the United States"
   }
 
-  const ep_name = {
+  const noun_title = {
     food: "Food",
     medical_devices: "Medical Devices",
     drugs: "Drugs",
@@ -55,7 +55,7 @@ const Endpoint_Box = (props: tPROPS) => {
     animal_and_veterinary: <div className="icon" style={{backgroundColor:"#FEEED1"}}><i className="fa fa-3x fa-paw absolute" style={{color: "#FBAA18"}}/></div>
   }
 
-  const ep_path = {
+  const noun_path = {
     food: '/api_endpoints/food/',
     medical_devices: '/api_endpoints/device/',
     drugs: '/api_endpoints/drug/',
@@ -64,17 +64,17 @@ const Endpoint_Box = (props: tPROPS) => {
 
   return (
     <section
-      id='endpoint_box' className="ep-box marg-2">
-      <div className="bg-img-container" style={bg_image_color[endpoint_name]}>
-        <img src={bg_image[endpoint_name]}/>
+      id='endpoint_box' className="noun-box marg-2">
+      <div className="bg-img-container" style={bg_image_color[noun_name]}>
+        <img src={bg_image[noun_name]}/>
       </div>
       <div className="absolute" style={{paddingBottom:"50px"}}>
-        {icon[endpoint_name]}
+        {icon[noun_name]}
       </div>
-      <div className='flex-row dir-column m-pad-t-2 m-pad-b-2 ep-text-box no-flex-wrap'>
-        <h3 className="txt-c clr-primary-darker pad-t-4">{ep_name[endpoint_name]}</h3>
-        <span className="marg-1">{description[endpoint_name]}</span>
-        <Link className="btn clr-primary weight-700" to={ep_path[endpoint_name]}>
+      <div className='flex-row dir-column m-pad-t-2 m-pad-b-2 noun-text-box no-flex-wrap'>
+        <h3 className="txt-c clr-primary-darker pad-t-4">{noun_title[noun_name]}</h3>
+        <span className="marg-1">{description[noun_name]}</span>
+        <Link className="btn clr-primary weight-700" to={noun_path[noun_name]}>
           LEARN MORE<i className="fa fa-angle-right marg-l-1"/>
         </Link>
       </div>
@@ -82,5 +82,5 @@ const Endpoint_Box = (props: tPROPS) => {
   )
 }
 
-Endpoint_Box.displayName = 'components/Hero'
-export default Endpoint_Box
+NounBox.displayName = 'components/NounBox'
+export default NounBox

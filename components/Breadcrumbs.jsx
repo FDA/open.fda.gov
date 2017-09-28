@@ -14,7 +14,7 @@ const BreadCrumbs = () => {
     <div className='row m-pad-t-2 m-pad-b-2 t-pad-t-1 t-pad-b-1' style={{background: 'rgba(0, 0, 0, 0.2)'}}>
       <nav
         aria-label='Breadcrumb navigation.'
-        className='container flex-box align-center dir-row clr-gray mob-header font-size-4'>
+        className='container flex-box align-center dir-row clr-gray responsive-header font-size-4'>
         <a
           className='clr-white pad-r-1'
           href='/'>

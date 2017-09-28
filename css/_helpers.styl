@@ -294,10 +294,15 @@ for $key, $value in $uswds-colors
   display: -webkit-box
   max-height: 80px
 
-.mob-header
+.responsive-header
+  font-size: 1em
+  font-weight: 300px
 
-$bpMob
-  .mob-header
+@media $bpMob
+  .responsive-header
     font-size: 4.5vw
     font-weight: bold
 
+@media $bpTabRange
+  .responsive-header
+    font-size: 22px

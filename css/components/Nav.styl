@@ -27,7 +27,6 @@
   margin-bottom: 0
   padding: 0.5em
   color: #666666
-  font-size: 1em
   line-height: 2em
 
 .emphasis
@@ -61,7 +60,6 @@
 .sub-menu-item
   display: block
   padding: 0rem 1rem 0rem 1.8rem
-  font-size: 1em
   line-height: 2em
   color: #666666
 
@@ -74,8 +72,21 @@
   -moz-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
   box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
 
+.red-warning-bar
+  font-size: 13px
+  line-height: 15px
+
+@media $bpTabRange
+
+  .fda-bar
+    margin-top: 35px
+
 @media $bpMob
 
+  .fda-bar
+    margin-top: 55px
+
+@media $tablet
   .nav-ul
     display: flex
     flex-direction: row
@@ -88,12 +99,12 @@
     text-align: left
     width: 100%
 
-  .menu-header
-    font-size: 4.5vw
-    font-weight: bold
+  .nav-bar
+    position: fixed
+    z-index: 100
+    background: white
 
   .menu-header-underbar
-    margin-top: -5px
     width: calc(100% - 1em)
 
   .menu-container
@@ -101,6 +112,7 @@
     padding-top: 20px
 
   .dropdown-content
+    z-index: 10
     position: fixed
     width: 100%
 
@@ -109,12 +121,10 @@
     border: none
 
   .sub-menu-item
-    font-size: 4.5vw
     border: 1px solid #ccc
     border-bottom-left-radius: 3px
     border-bottom-right-radius: 3px
 
-@media $bpTab
   .open-fda-logo
     position: relative
     align-self: center

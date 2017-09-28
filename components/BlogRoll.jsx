@@ -136,7 +136,7 @@ const BlogRoll = (props: tPROPS) => {
       {small === true &&
         <Link
         className='pad-b-3 weight-700 clr-primary'
-        to='/updates/'>
+        to='/about/updates/'>
         VIEW ALL <i className="fa fa-angle-right"/>
         </Link>}
     </section>

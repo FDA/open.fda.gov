@@ -43,8 +43,8 @@ const Nav = (props: tPROPS) => {
   } = props
 
   const navCx = cx({
-    'col t-4 d-5 flex-row': true,
-    'm-hide': !showMobileNav,
+    'col d-5 flex-row': true,
+    'tab-hide': !showMobileNav,
   })
 
   return (
@@ -54,7 +54,7 @@ const Nav = (props: tPROPS) => {
         className='visually-hidden'>
         Skip navigation, go to start of content
       </a>
-      <div className='bg-primary-darker m-ord-2'>
+      <div className='bg-primary-darker m-ord-2 fda-bar'>
         <div className='container smallest clr-white pad-t-2 pad-b-2 flex-row dir-row'>
           <a
             href='https://www.fda.gov/'
@@ -88,17 +88,17 @@ const Nav = (props: tPROPS) => {
               />
               U.S. Department of Health and Human Services
             </a>
-            <strong className='row'>Food and Drug Administration</strong>
+            <strong className='row txt-r'>Food and Drug Administration</strong>
           </div>
         </div>
       </div>
       <div className='pad-t-2 bg-secondary-darkest m-ord-3'>
-        <p className='clr-white weight-600 container smallest'>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='clr-white underline' to='/terms/'> Terms of Service</Link></p>
+        <p className='clr-white weight-600 container red-warning-bar'>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='clr-white underline' to='/terms/'> Terms of Service</Link></p>
       </div>
-      <div className='container dir-column m-ord-1 m-pad-b-1 m-pad-t-1' style={{width: '100%'}}>
-        <div className='flex-row relative'>
+      <div className='container dir-column m-ord-1 m-pad-b-1 m-pad-t-1 nav-bar' style={{width: '100%'}}>
+        <div className={showMobileNav ? 'dir-column relative': 'flex-row relative'}>
           <div
-            className='container t-2 logo-wrapper relative'
+            className='container d-2 align-center logo-wrapper relative'
             style={{
               display: 'flex',
               minHeight: '35px',
@@ -115,7 +115,7 @@ const Nav = (props: tPROPS) => {
               />
             </Link>
             <div
-              className='absolute top right t-hide'
+              className='absolute top right d-hide'
               onClick={toggleMobileNav}
               style={{
                 height: '25px',
@@ -156,7 +156,7 @@ const Nav = (props: tPROPS) => {
             style={{
               maxWidth: '845px',
             }}>
-            <div className='menu-container' role='navigation'>
+            <div className='menu-container responsive-header' role='navigation'>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <Link
                   title='Home'

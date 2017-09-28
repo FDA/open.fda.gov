@@ -1,13 +1,16 @@
-.bg-img-container
-  height: 180px
-  overflow: hidden
-  border-radius: 5px 5px 0px 0px
+.ep-icon-container
+  position: relative
+  top: -20px
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1)
+  border-radius: 50%
+  background-color: white
+  width: 105px
+  height: 105px
+  display: flex
+  justify-content: center
+  align-items: center
 
-.bg-img-container > img
-  margin-top: -40px
-  mix-blend-mode: multiply
-
-.icon
+.ep-icon
   height: 100px
   width: 100px
   border-radius: 50%
@@ -16,27 +19,40 @@
   align-items: center
 
 .ep-box
-  width: 280px
-  height: 395px
+  width: 330px
+  height: 315px
   text-align: center
   display: flex
   flex-direction: column
-  justify-content: center
+  justify-content: flex-end
   align-items: center
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1)
-  border-radius: 6px
-
-.ep-text-box
-  height: 215px
   border-radius: 0px 0px 5px 5px
   box-shadow: inset 0 0 0 1px #ccc
 
+.ep-text-box
+  height: 200px
+  padding: 20px
+
 .ep-text-box > h3
-  padding-top: 60px
+  padding-top: 20px
 
 .ep-text-box > div
   padding: 20px
 
 @media $bpMob
+  .ep-box
+    width: 300px
+
+  .ep-text-box
+    padding: 0px 10px 10px 0px
+
   .ep-text-box > h3
-    padding-top: 40px
+    padding-top: 10px
+
+  .ep-icon-container
+    height: 90px
+    width: 90px
+
+  .ep-icon
+    height: 85px
+    width: 85px
