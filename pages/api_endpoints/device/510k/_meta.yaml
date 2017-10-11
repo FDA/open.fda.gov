@@ -8,3 +8,4 @@ datasets:
 path: /api_endpoints/device/510k
 api_path: /device/510k
 start: 19760101
+status: deviceclearance

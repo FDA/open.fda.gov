@@ -7,5 +7,6 @@ label: Drug Labeling
 path: /api_endpoints/drug/label
 api_path: /drug/label
 start: 20090601
+status: druglabel
 dateConstraintKey: effective_time
 type: endpoint

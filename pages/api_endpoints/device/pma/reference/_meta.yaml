@@ -1,9 +1,0 @@
-type: endpoint
-documentTitle: openFDA › Device › PMA
-name: Device Pre-market Approval
-description: The PMA dataset contains details about specific products and the sponsors of premarket approval applications and supplements. It also contains administrative and tracking information about the applications and receipt and decision dates. Premarket approval (PMA) is the FDA process of scientific and regulatory review to evaluate the safety and effectiveness of Class III medical devices. An approved PMA Application is, in effect, a private license granted to the applicant for marketing a particular medical device.
-endpoint: device/pma
-datasets:
-label: Device Pre-market Approval
-path: /api_endpoints/device/pma/reference
-status: devicepma

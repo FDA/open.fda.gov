@@ -4,7 +4,6 @@ import React from 'react'
 import marked from 'marked'
 import cx from 'classnames'
 
-import ApiKey from './ApiKey'
 import Datasets from './Datasets'
 import Downloads from './Downloads'
 import MultipleProductTable from './MultipleProductTable'
@@ -19,6 +18,8 @@ type tPROPS = {
   meta: Object;
 };
 
+
+
 // reads in _content.yaml from ideally anywhere
 // and knows what component to render for each field
 const Content = (props: tPROPS) => {
@@ -31,18 +32,9 @@ const Content = (props: tPROPS) => {
     meta,
   } = props
 
-  // full width === most pages
-  // but we have some weird layout stuff
-  // on infographic pages
-  const contentCx = cx({
-    // 'm-marg-t-3': true,
-    'float-r content': showMenu === false,
-  })
-
   return (
     <section
       id='start-of-content'
-      className={contentCx}
       style={{
         maxWidth: '100%',
       }}>
@@ -107,15 +99,6 @@ const Content = (props: tPROPS) => {
           if (words === 'image') {
             return (
               <MultipleProductTable
-                k={i}
-                key={i}
-              />
-            )
-          }
-
-          if (words === 'getting-started') {
-            return (
-              <ApiKey
                 k={i}
                 key={i}
               />

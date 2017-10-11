@@ -16,6 +16,7 @@ import { API_LINK } from '../constants/api'
 
 type tSTATE = {
   apiKey: ?string;
+  showForm: boolean;
   submitted: boolean;
 };
 
@@ -23,6 +24,7 @@ const ApiKeyContainer = function (ComposedApiKey: ReactClass): ReactClass {
   class HOC extends React.Component {
     state: tSTATE = {
       apiKey: null,
+      showForm: false
     };
 
     _boundUpdate () {}
@@ -33,6 +35,12 @@ const ApiKeyContainer = function (ComposedApiKey: ReactClass): ReactClass {
       // only bind once
       this._boundUpdate = this._postAndUpdate.bind(this)
     }
+
+    _transformButton () {
+      this.setState({
+        showForm: true,
+      })
+  }
 
     _postAndUpdate (e) {
       // older ie doesn't support preventDefault
@@ -84,20 +92,17 @@ const ApiKeyContainer = function (ComposedApiKey: ReactClass): ReactClass {
       })
     }
 
-    // @TODO make work later, focusing on
-    // removing fetch / async / await to see
-    // if that fixes the build
     render (): React.Element {
       return (
         <ComposedApiKey
           {...this.props}
           {...this.state}
           onSubmit={this._boundUpdate}
+          transformButton={this._transformButton.bind(this)}
         />
       )
     }
   }
-
   return HOC
 }
 

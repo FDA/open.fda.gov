@@ -6,5 +6,6 @@ datasets:
 path: /api_endpoints/drug/event
 api_path: /drug/event
 start: 20040101
+status: drugevent
 dateConstraintKey: receivedate
 type: endpoint

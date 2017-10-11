@@ -7,5 +7,6 @@ datasets:
 path: /api_endpoints/drug/enforcement
 api_path: /drug/enforcement
 start: 20090101
+status: drugenforcement
 dateConstraintKey: termination_date
 type: endpoint

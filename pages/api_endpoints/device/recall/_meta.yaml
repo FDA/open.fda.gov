@@ -8,3 +8,4 @@ datasets:
 path: /api_endpoints/device/recall
 api_path: /device/recall
 start: 20030101
+status: devicerecall

@@ -64,24 +64,26 @@ const SideBarContainer = function (ComposedSideBar: ReactClass): ReactClass {
       const realPos: number = browser - runwayStart
 
       // don't do anything if at the top of the page
-      if (browser <= runwayStart && !this.state.fixed) {
+      if (browser <= (runwayStart) && !this.state.fixed) {
         return
       }
 
+
       // we're within the 'runway'
-      if (browser > runwayStart) {
-        // we fix the nav once the browser is past starting poitn
-        const fixed: boolean = true
+      if (browser > (runwayStart)) {
+        // we fix the nav once the browser is past starting point
+        let fixed: boolean = true
         // we're at the end of the runway
         let bottom: boolean = false
-        const elementBottomPos: number = realPos + (el.clientHeight + 50)
+        const elementBottomPos: number = realPos + (el.clientHeight)
 
         // browser top position +
         // element menu height +
         // 50 for 25px margin above el and
         // for a 25px spacer at the bottom
-        if (elementBottomPos >= runwayEnd) {
+        if ((elementBottomPos >= (runwayEnd - 25))) {
           bottom = true
+          fixed = false
         }
 
         return this.setState({

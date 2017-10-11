@@ -8,4 +8,5 @@ datasets:
 path: /api_endpoints/food/enforcement
 api_path: /food/enforcement
 start: 20090101
+status: drugenforcement
 dateConstraintKey: termination_date

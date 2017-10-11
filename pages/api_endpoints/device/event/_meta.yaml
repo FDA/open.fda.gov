@@ -8,4 +8,5 @@ datasets:
 path: /api_endpoints/device/event
 api_path: /device/event
 start: 19910101
+status: deviceevent
 dateConstraintKey: date_received

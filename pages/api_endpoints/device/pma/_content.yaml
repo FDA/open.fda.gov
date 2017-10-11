@@ -1,7 +1,6 @@
 - "## About device pre-market approval"
 - "The PMA dataset contains details about specific products and the sponsors of premarket approval applications and supplements. It also contains administrative and tracking information about the applications and receipt and decision dates. Premarket approval (PMA) is the FDA process of scientific and regulatory review to evaluate the safety and effectiveness of Class III medical devices. An approved PMA Application is, in effect, a private license granted to the applicant for marketing a particular medical device."
 - "Class III devices are those that support or sustain human life, are of substantial importance in preventing impairment of human health, or that present a potential, unreasonable risk of illness or injury. Due to the level of risk associated with Class III devices, FDA has determined that general and special controls alone are insufficient to assure the safety and effectiveness of class III devices."
-- "getting-started"
 - "### Reference"
 - "See the [comprehensive field-by-field reference](/device/pma/reference/) for more detail about the structure and contents of device pre-market approval."
 - "downloads"
@@ -10,3 +9,41 @@
 - queryExplorer: oneAPPR
 - queryExplorer: oneLWP
 - queryExplorer: topAdvisory
+- "## About"
+- "[General information about PMA](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/PremarketSubmissions/PremarketApprovalPMA/default.htm) that contains seemly everything that needs to be known about PMA."
+- "`PMA` is any premarket approval application for a class III medical device, including all information submitted with or incorporated by reference. “PMA” includes a new drug application for a device under section 520(l) of the FD&C Act."
+- "downloads"
+- "## How records are organized"
+- example: header
+- example: openfda
+- "## Results"
+- "For non-`count` queries, the `results` section includes matching device registrations and listings records returned by the API."
+- "## Field-by-field reference"
+- fields:
+  - advisory_committee
+  - advisory_committee_description
+  - ao_statement
+  - generic_name
+  - supplement_number
+  - supplement_reason
+  - supplement_type
+  - trade_name
+  - decision_date
+  - fed_reg_notice_date
+  - date_received
+  - decision_code
+  - product_code
+  - pma_number
+  - docket_number
+  - expedited_review_flag
+  - applicant
+  - street_1
+  - street_2
+  - city
+  - state
+  - zip
+  - zip_ext
+- "### OpenFDA"
+- "The `openfda` section of each document is determined initially by looking at the product_code value."
+- fields:
+  - openfda

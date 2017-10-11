@@ -3,7 +3,6 @@
 - "The Product Classification dataset contains medical device names, their associated product codes, their medical specialty areas (panels) and their classification. The name and product code identify the generic category of a device for FDA. The product code assigned to a device is based upon the medical device product classification designated under 21 CFR Parts 862-892."
 - "The Food and Drug Administration (FDA) has established classifications for approximately 1,700 different generic types of devices and grouped them into 16 medical specialties referred to as panels. Each of these generic types of devices is assigned to one of three regulatory classes based on the level of control necessary to assure the safety and effectiveness of the device."
 - "For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/default.htm)."
-- "getting-started"
 - "### Reference"
 - "See the [comprehensive field-by-field reference](/device/classification/reference/) for more detail about the structure and contents of device classification."
 - "downloads"
@@ -12,3 +11,31 @@
 - queryExplorer: oneDevice
 - queryExplorer: nob
 - queryExplorer: topFei
+- "## About"
+- "downloads"
+- "## How records are organized"
+- example: header
+- example: openfda
+- "## Results"
+- "For non-`count` queries, the `results` section includes matching device classification records returned by the API."
+- "## Field-by-field reference"
+- fields:
+  - regulation_number
+  - life_sustain_support_flag
+  - definition
+  - review_code
+  - submission_type_id
+  - third_party_flag
+  - implant_flag
+  - medical_specialty
+  - medical_specialty_description
+  - device_class
+  - device_name
+  - product_code
+  - review_panel
+  - unclassified_reason
+  - gmp_exempt_flag
+- "### OpenFDA"
+- "The `openfda` section of each document is determined by looking at the product_code value."
+- fields:
+  - openfda

@@ -1,7 +1,6 @@
 - "## About device registrations and listings"
 - "The registration and listing dataset contains the location of medical device establishments and the devices manufactured at those establishments. Owners or operators of places of business (also called establishments or facilities) that are involved in the production and distribution of medical devices intended for use in the United States are required to register annually with the FDA. This process is known as establishment registration. Most foreign and domestic establishments that are required to register with the FDA are also required to list the devices that are made there for commercial distribution."
 - "For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/RegistrationandListing/default.htm)."
-- "getting-started"
 - "### Reference"
 - "See the [comprehensive field-by-field reference](/device/registrationlisting/reference/) for more detail about the structure and contents of device registrations and listings."
 - "downloads"
@@ -10,3 +9,87 @@
 - queryExplorer: oneReport
 - queryExplorer: regulationNumber
 - queryExplorer: topClasses
+- "## About"
+- disclaimer:
+  - "Registration and listing data are submitted and maintained by medical device companies that are required to identify their places of business and the devices they produce or process at those places of business. These data are generally not reviewed by FDA for accuracy or completeness and the appearance of these data on the FDA web site and on open.fda.gov does not infer FDA approval of either the products or the facilities.When using the Product data, keep in mind that the definition of 'product' can be variable, based on whether the device requires some form of premarket approval or notification, or can be marketed without any premarket review by FDA. You may want to identify the number of products by the number of proprietary names associated with a given data set rather than the number of product rows returned. However, as noted, the data provided by these APIs may or may not be complete as most of them have not been verified by FDA."
+- "downloads"
+- "## How records are organized"
+- example:
+- "## Results"
+- "For non-`count` queries, the `results` section includes matching device registrations and listings records returned by the API."
+- "## Field-by-field reference"
+- "### Registration"
+- "The Registration record provides identification (name, registration number) and address information for a medical device establishment that performs an activity that requires that they register with the FDA Center for Devices and Radiological Health (CDRH). [See](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/RegistrationandListing/ucm053165.htm) for more information on who must register."
+- fields:
+  - registration.status_code
+  - registration.initial_importer_flag
+  - registration.reg_expiry_date_year
+  - registration.address_line_1
+  - registration.address_line_2
+  - registration.city
+  - registration.state_code
+  - registration.zip_code
+  - registration.iso_country_code
+  - registration.name
+  - registration.postal_code
+  - registration.fei_number
+  - registration.registration_number
+- "### Owner operator"
+- "The Owner Operator is the company that owns or operates the registered establishment. They are responsible for the activities that are conducted at the registered establishment and the devices put in commercial distribution in the U.S. This is usually the corporate headquarters of the company."
+- "The Official Correspondent is the person who is responsible for maintaining the establishment’s registration and listing information with CDRH. This can be, but does not have be, the same person as the Owner Operator or, in the case of a foreign establishment, the US Agent."
+- fields:
+  - registration.owner_operator.owner_operator_number
+  - registration.owner_operator.firm_name
+  - registration.owner_operator.official_correspondent.first_name
+  - registration.owner_operator.official_correspondent.last_name
+  - registration.owner_operator.official_correspondent.middle_initial
+  - registration.owner_operator.official_correspondent.phone_number
+  - registration.owner_operator.official_correspondent.subaccount_company_name
+  - registration.owner_operator.contact_address.address_1
+  - registration.owner_operator.contact_address.address_2
+  - registration.owner_operator.contact_address.city
+  - registration.owner_operator.contact_address.state_code
+  - registration.owner_operator.contact_address.state_province
+  - registration.owner_operator.contact_address.postal_code
+  - registration.owner_operator.contact_address.iso_country_code
+- "### US Agent"
+- "The US agent is a person who must reside or keep a place of business in the United States and can represent the registered foreign establishment in communications with FDA. All foreign establishments are required to identify a single US agent for all of the products exported to the U.S. from their establishment."
+- fields:
+  - registration.us_agent.name
+  - registration.us_agent.business_name
+  - registration.us_agent.address_line_1
+  - registration.us_agent.address_line_2
+  - registration.us_agent.city
+  - registration.us_agent.state_code
+  - registration.us_agent.zip_code
+  - registration.us_agent.postal_code
+  - registration.us_agent.iso_country_code
+  - registration.us_agent.bus_phone_area_code
+  - registration.us_agent.bus_phone_extn
+  - registration.us_agent.bus_phone_num
+  - registration.us_agent.fax_area_code
+  - registration.us_agent.fax_num
+  - registration.us_agent.email_address
+- "### Proprietary names"
+- "The Proprietary Names are the names under which the medical device is marketed in the U.S. The Proprietary Names are identified at the Owner Operator level, so they may not be accurately associated with individual establishments if a product is made at more than one establishment owned or operated by the same company. In other words, if a company makes a product under Proprietary Name “A” at Establishment “1” and under Proprietary Name “B” at Establishment “2,” it will appear in the Registration and Listing data as both products being made at both establishments."
+- fields:
+  - proprietary_name
+- "### Establishment types"
+- "The Establishment Types identify the activity or activities being conducted at a given establishment for a given product. These include Manufacturer, Contract Manufacturer, Repacker/Relabeler, and several others. A company has to identify at least one Establishment Type for each product it makes. These are identified at the establishment and product listing level."
+- fields:
+  - establishment_type
+- "### Products"
+- "All medical devices entering commerce in the U.S. must be “listed” with FDA. This means that each owner or operator of a medical device establishment that conducts an activity – manufactures, sterilizes, relabels, etc. – that is regulated by FDA must identify the devices that they market in the U.S. This can get a bit tricky as these products are identified differently depending on whether a company has to submit a premarket application or notification prior to marketing their device (see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/default.htm))."
+- "If they do not have to submit a premarket application or notification, then the device is considered “exempt” from premarket notification, and the company identifies the device they are making by selecting the appropriate product code and providing the Establishment Types that apply to their establishment and the Proprietary Names they are marketing the device under. It will appear in the open.fda.gov data as one document or record."
+- "If, however, a company must get premarket approval or clearance, they identify the product they are making by the premarket approval (PMA, HDE, PDP or NDA) or clearance (510(k) or Denovo) number assigned by FDA. Each Establishment Type and Proprietary Name is then associated with the product in the open.fda.gov database based on that premarket number, not by product code, although all listings, including those that are not exempt, have product codes assigned."
+- fields:
+  - k_number
+  - pma_number
+  - products.created_date
+  - products.exempt
+  - products.owner_operator_number
+  - products.product_code
+- "### OpenFDA"
+- "The `openfda` section of each document is determined initially by looking at the product_code value. Since there are potentially more than one product_code values associated with a listing, there is an `openfda` subdocument for each one."
+- fields:
+  - products.openfda

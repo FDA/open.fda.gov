@@ -7,3 +7,4 @@ datasets:
 path: /api_endpoints/device/registrationlisting
 api_path: /device/registrationlisting
 start:
+status: devicereglist

@@ -1,9 +1,0 @@
-type: endpoint
-documentTitle: openFDA › Device › UDI
-name: Unique Device Identifier
-description: The Global Unique Device Identification Database (GUDID) contains key device identification information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI).
-endpoint: device/udi
-datasets:
-label: Unique Device Identifier
-path: /api_endpoints/device/udi/reference
-status: deviceudi

@@ -5,6 +5,9 @@
   position: absolute
   top: 11px
   width: 20px
+html
+  -webkit-scrollbar
+    width: 1px
 
 @media $bpTab
   .sb,
@@ -19,9 +22,7 @@
     width: 20%
     width: calc(25% - 50px)
 
-  .sb-fixed,
-  .sb-bottom,
-  .sb-gradient
+  .sb-fixed
     position: fixed
     // fallback for ie
     width: 200px
@@ -31,10 +32,11 @@
   .sb-bottom
     height: 90vh
     height: calc(100% - 50px)
-    overflow: scroll
+    overflow: overlay
 
   .sb-bottom
-    bottom: 25px
+    position: absolute
+    bottom: 0px
 
   .sb-fixed
     top: 25px

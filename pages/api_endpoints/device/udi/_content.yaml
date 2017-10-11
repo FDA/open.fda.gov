@@ -1,7 +1,6 @@
 - "## About UDI"
 - "The *Global Unique Device Identification Database (GUDID)* contains key information submitted to the FDA about medical devices that have *Unique Device Identifiers (UDI)*."
 - "The FDA is establishing the unique device identification system to adequately identify devices sold in the U.S.- from manufacturing through distribution to patient use."
-- "getting-started"
 - "### Reference"
 - "See the [comprehensive field-by-field reference](/device/udi/reference/) for more detail about the structure and contents of device UDI."
 - "downloads"
@@ -9,3 +8,84 @@
 - "Make API calls to `https://api.fda.gov/device/udi.json` using search parameters for [fields specific to the device UDI endpoint.](/device/udi/reference/)"
 - queryExplorer: oneCompanyMed
 - queryExplorer: oneBrandMed
+- "## About"
+- "The openFDA unique device identifier API returns data from the Global Unique Device Identification Database (GUDID), which contains information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). UDIs are unique numeric or alphanumeric codes that consist of two parts—a device identifier (DI) and a production identifier (PI). UDIs are intended to increase electronic tracking abilities for devices involved in adverse events. Submission to the GUDID database is required for manufacturers of medical devices. To learn more about UDIs, see the FDA's [General information about UDI](http://www.fda.gov/udi) page."
+- "downloads"
+- "## How records are organized"
+- example: header
+- "## Results"
+- "For non-`count` queries, the `results` section includes matching unique device identifiers records returned by the API."
+- "## Field-by-field reference"
+- fields:
+  - brand_name
+  - catalog_number
+  - commercial_distribution_end_date
+  - commercial_distribution_status
+  - company_name
+  - device_count_in_base_package
+  - device_description
+  - has_donation_id_number
+  - has_expiration_date
+  - has_lot_or_batch_number
+  - has_manufacturing_date
+  - has_serial_number
+  - is_combination_product
+  - is_direct_marking_exempt
+  - is_hct_p
+  - is_kit
+  - is_labeled_as_no_nrl
+  - is_labeled_as_nrl
+  - is_otc
+  - is_pm_exempt
+  - is_rx
+  - is_single_use
+  - mri_safety
+  - publish_date
+  - record_status
+  - sterilization.is_sterile
+  - sterilization.is_sterilization_prior_use
+  - sterilization.sterilization_methods
+  - product_codes.code
+  - product_codes.name
+  - version_or_model_number
+- "#### Device Identifiers"
+- "This section contains information on device identifier related fields."
+- fields:
+  - identifiers.id
+  - identifiers.issuing_agency
+  - identifiers.package_discontinue_date
+  - identifiers.package_status
+  - identifiers.package_type
+  - identifiers.quantity_per_package
+  - identifiers.type
+  - identifiers.unit_of_use_id
+- "#### Customer Contact"
+- "This section contains fields related to the customer contact for a device."
+- fields:
+  - customer_contacts.email
+  - customer_contacts.phone
+- "#### Device Size"
+- "This section contains information on device size related fields."
+- fields:
+  - device_sizes.text
+  - device_sizes.type
+  - device_sizes.value
+  - device_sizes.unit
+- "#### GMDN Terms"
+- "This section covers the fields that pertain to GMDN terms."
+- fields:
+  - gmdn_terms.name
+  - gmdn_terms.definition
+- "#### Storage and Handling"
+- "This section contains information on storage and handling related fields."
+- fields:
+  - storage.high.value
+  - storage.high.unit
+  - storage.low.value
+  - storage.low.unit
+  - storage.special_conditions
+  - storage.type
+- "### OpenFDA"
+- "The `openfda` section of each document is determined initially by looking at the product_code value."
+- fields:
+  - product_codes.openfda

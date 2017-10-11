@@ -118,16 +118,16 @@ const EndpointBox = (props: tPROPS) => {
   }
 
   return (
-    <section id='endpoint_box' className="ep-box marg-2">
-      <div className="ep-icon-container">
-        {icon[noun_name][endpoint_name]}
-      </div>
-      <div className='flex-row dir-column ep-text-box no-flex-wrap'>
-        <h3 className="txt-c clr-primary-darker">{ep_title[noun_name][endpoint_name]}</h3>
-        <span className="marg-1">{description[noun_name][endpoint_name]}</span>
-      </div>
-      <Link className="btn clr-primary weight-700" to={ep_path[noun_name][endpoint_name]}>
-        LEARN MORE<i className="fa fa-angle-right marg-l-1"/>
+    <section id='endpoint_box' className="marg-2 endpoint-card">
+      <Link className="ep-box" to={ep_path[noun_name][endpoint_name]}>
+        <div className="ep-icon-container">
+          {icon[noun_name][endpoint_name]}
+        </div>
+        <div className='flex-row dir-column ep-text-box no-flex-wrap'>
+          <h3 className="txt-c clr-primary-darker">{ep_title[noun_name][endpoint_name]}</h3>
+          <span className="marg-1 clr-black">{description[noun_name][endpoint_name]}</span>
+        </div>
+        <span className="btn clr-primary weight-700">LEARN MORE<i className="fa fa-angle-right marg-l-1"/></span>
       </Link>
     </section>
   )

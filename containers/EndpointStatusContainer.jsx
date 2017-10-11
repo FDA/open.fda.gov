@@ -29,13 +29,14 @@ const EndpointStatusContainer = function (ComposedEndpointStatus: ReactClass): R
 
     _getStatus () {
       const _handleResponse = data => {
-        const path: string = this.props.path.replace(/(\/reference){1}/g, '')
+        const path: string = this.props.path.replace(/(\/api_endpoints){1}/g, '').replace(/(\/reference){1}/g, '')
         const key: string = this.props.status ?
           this.props.status :
           path.split('/').join('')
 
         // pull the relevant endpoint status from the api response
         const relevant: Object = find(data, d => d.endpoint === key)
+
 
         this.setState({
           data: relevant,
@@ -52,7 +53,7 @@ const EndpointStatusContainer = function (ComposedEndpointStatus: ReactClass): R
     render (): ?React.Element {
       if (!this.state.data) return <span />
 
-      const path: string = this.props.path.replace(/(\/reference){1}/g, '')
+      const path: string = this.props.path.replace(/(\/api_endpoints){1}/g, '').replace(/(\/reference){1}/g, '')
       const fullPath: string = API_LINK + `${path}.json`
 
       return (

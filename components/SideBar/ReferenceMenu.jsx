@@ -1,11 +1,12 @@
 /* @flow */
 
 import React from 'react'
-import marked from 'marked'
 import cx from 'classnames'
+import $ from 'jquery'
 
 import ARIA from '../../constants/aria'
 import RenderContentObject from '../RenderContentObject'
+import ApiKey from '../ApiKey'
 
 /**
  * @description [semantic menu means no links. we don't leave the page]
@@ -23,12 +24,17 @@ const _scrollIntoView = e => {
   const el: ?Object = document.getElementById(id)
   return el && el.scrollIntoView({
     behavior: 'smooth',
+    block: 'start',
+    inline: 'nearest'
   })
+}
+
+const _scrollToTop = e => {
+  return $('html, body').animate({ scrollTop: 0 }, 'smooth')
 }
 
 const ReferenceMenu = (props: Object) => {
   const {
-    bottomPos,
     content,
     isBottom,
     isFixed,
@@ -46,10 +52,9 @@ const ReferenceMenu = (props: Object) => {
       className={menuCx}
       style={{
         // stick to bottom if near footer
-        bottom: isBottom && `${bottomPos}px`,
-        height: isBottom && 'initial',
+        height: 'initial',
         // to account for the gradient overflow
-        paddingBottom: !isBottom && '75px',
+        paddingTop: !isFixed && !isBottom && '25px'
       }}>
       {
         content.map((c: string|Object, i: number) => {
@@ -97,11 +102,15 @@ const ReferenceMenu = (props: Object) => {
           )
         })
       }
+      <ApiKey/>
+      <button
+        className="menu-item row weight-600"
+        onClick={_scrollToTop}>
+        <i className="fa fa-arrow-up"/> Back to top
+      </button>
       {
-        props.isFixed &&
-        !props.isBottom &&
-        <span
-          className='fixed bottom left right sb-gradient'
+        <div
+          className={'bottom left right sb-gradient '}
           style={{
             background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%)',
             height: '100px',

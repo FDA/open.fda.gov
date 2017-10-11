@@ -9,7 +9,7 @@ const Link: ReactClass = require('react-router').Link
 
 const linkCx: string = 'sub-menu-item no-underline'
 
-const hhsCx = 'col self-end pad-r-1 flex-box align-end dir-column m-marg-t-2 m-marg-l-2 hhs'
+const hhsCx = 'col pad-r-1 flex-box align-end dir-column m-marg-t-2 m-marg-l-2 hhs'
 const hhsACx = 'clr-white relative hhs'
 
 const hamStyl: Object = Object.freeze({
@@ -55,7 +55,7 @@ const Nav = (props: tPROPS) => {
         Skip navigation, go to start of content
       </a>
       <div className='bg-primary-darker m-ord-2 fda-bar'>
-        <div className='container smallest clr-white pad-t-2 pad-b-2 flex-row dir-row'>
+        <div className='container smallest clr-white pad-t-1 pad-b-1 flex-row dir-row align-center'>
           <a
             href='https://www.fda.gov/'
             className='col self-start'
@@ -68,6 +68,7 @@ const Nav = (props: tPROPS) => {
               alt='Go to FDA website'
               width='320px'
               src='/img/gov-fda-new-white.svg'
+              className='fda-logo'
             />
           </a>
           <div className={hhsCx}>
@@ -95,7 +96,7 @@ const Nav = (props: tPROPS) => {
       <div className='pad-t-2 bg-secondary-darkest m-ord-3'>
         <p className='clr-white weight-600 container red-warning-bar'>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='clr-white underline' to='/terms/'> Terms of Service</Link></p>
       </div>
-      <div className='container dir-column m-ord-1 m-pad-b-1 m-pad-t-1 nav-bar' style={{width: '100%'}}>
+      <div className='container dir-column m-ord-1 m-pad-b-1 m-pad-t-1 nav-bar'>
         <div className={showMobileNav ? 'dir-column relative': 'flex-row relative'}>
           <div
             className='container d-2 align-center logo-wrapper relative'

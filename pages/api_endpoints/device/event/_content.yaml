@@ -5,7 +5,6 @@
 - "Each year, the FDA receives several hundred thousand medical device reports (MDRs) of suspected device-associated deaths, serious injuries and malfunctions. The FDA uses MDRs to monitor device performance, detect potential device-related safety issues, and contribute to benefit-risk assessments of these products. The MAUDE database houses MDRs submitted to the FDA by mandatory reporters (manufacturers, importers and device user facilities) and by voluntary reporters (such as health care professionals, patients, and consumers)."
 - "Although MDRs are a valuable source of information, this passive surveillance system has limitations, including the potential submission of incomplete, inaccurate, untimely, unverified, or biased data. In addition, the incidence or prevalence of an event cannot be determined from this reporting system alone due to potential under-reporting of events and lack of information about frequency of device use. Because of this, MDRs comprise only one of the FDA’s several important postmarket surveillance data sources."
 - "See the [MAUDE dataset page](/data/maude/) for more details."
-- "getting-started"
 - "### Reference"
 - "See the [comprehensive field-by-field reference](/device/event/reference/) for more detail about the structure and contents of device adverse event reports."
 - "downloads"
@@ -14,3 +13,195 @@
 - queryExplorer: oneReport
 - queryExplorer: genericName
 - queryExplorer: topEvents
+- "## About"
+- "The openFDA device adverse event API returns data from [Manufacturer and User Facility Device Experience (MAUDE)](http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfmaude/search.cfm), an FDA dataset that contains medical device adverse event reports submitted by mandatory reporters—manufacturers, importers and device user facilities—and voluntary reporters such as health care professionals, patients, and consumers. Currently, this data covers publically releasable records submitted to the FDA from about 1992 to the present. The data is updated weekly."
+- "Each year, the FDA receives several hundred thousand medical device reports (MDRs) of suspected device-associated deaths, serious injuries and malfunctions. The FDA uses MDRs to monitor device performance, detect potential device-related safety issues, and contribute to benefit-risk assessments of these products."
+- disclaimer:
+  - "Although MDRs are a valuable source of information, this passive surveillance system has limitations, including the potential submission of incomplete, inaccurate, untimely, unverified, or biased data. In addition, the incidence or prevalence of an event cannot be determined from this reporting system alone due to potential under-reporting of events and lack of information about frequency of device use. Because of this, MDRs comprise only one of the FDA's several important postmarket surveillance data sources."
+- "See the [MAUDE dataset page](/data/maude/) for more details."
+- "## How records are organized"
+- "Device adverse event reports vary significantly, depending on who initially reported the event, what kind of event was reported, and whether there were follow-up reports. Some reports come directly from user facilities (like hospitals) or device importers (distributors), while others come directly from manufacturers. Some involve adverse reactions in patients, while others are reports of defects that did not result in such adverse reactions."
+- "Records served by the openFDA device adverse events endpoint loosely reflect field organization found in the [forms used by manufacturers and members of the public](http://www.fda.gov/Safety/MedWatch/HowtoReport/DownloadForms/default.htm) to report these events. Since reports may come from manufacturers, user facilities, distributors, and voluntary sources (such as patients and physicians) who are subject to different reporting requirements, the collected data in the adverse event system may not always capture every field and should not be interpreted as incomplete."
+- "**Patients and devices.**"
+- "Reports may involve more than one device, and more than one patient. Each device, and each patient, is identified in the report by a sequence number, beginning with `1`."
+- ul:
+  - "The `device` section in a result has one JSON object for each device."
+  - "Each device is identified by a number in the field `device.device_sequence_number`."
+  - "The other fields describe that device."
+- ul:
+  - "The `patient` section in a result has one JSON object for each patient."
+  - "Each patient identified by a number in the field `patient.patient_sequence_number`."
+  - "The other fields describe outcomes and treatments for that patient."
+- ul:
+  - "The `mdr_text` section, which has narrative descriptions of the adverse event or problem report, links these descriptions to patient outcomes by way of the same patient sequence number"
+  - "Here the sequence number is in the field `mdr_text.patient_sequence_number`."
+  - "Even in reports that did not involve any patient, the general device problem description is still associated with a “patient” with `patient_sequence_number` `1`."
+- "downloads"
+- "## Field-by-field reference"
+- "### Event"
+- "These fields describe the general nature of the adverse event. For example, whether it was a device malfunction or defect, whether there were patients involved, who reported the event, and so on."
+- fields:
+  - adverse_event_flag
+  - product_problem_flag
+  - date_of_event
+  - date_report
+  - date_received
+  - device_date_of_manufacturer
+  - event_type
+  - number_devices_in_event
+  - number_patients_in_event
+  - previous_use_code
+  - remedial_action
+  - removal_correction_number
+  - report_number
+  - single_use_flag
+- "### Source"
+- "These fields describe the source and initial reporter of the adverse event report."
+- fields:
+  - report_source_code
+  - health_professional
+  - reporter_occupation_code
+  - initial_report_to_fda
+  - reprocessed_and_reused_flag
+- "### Device"
+- "If there were devices listed in the adverse event report, there will be a `device` section, consisting of a list of devices. Each object in the `device` section may consist of many of the following fields."
+- example: device
+- "The first field is a record-local index for the particular device; it is also used to link this device information to narrative (text) descriptions in the `mdr_text` section."
+- fields:
+  - device.device_sequence_number
+  - device.device_event_key
+  - device.date_received
+- "### Identifcation"
+- "Each device has fields that can be used to uniquely identify it."
+- fields:
+  - device.brand_name
+  - device.generic_name
+  - device.device_report_product_code
+- "**Device model and catalog numbers**"
+- "If available, these values should be recorded exactly as they appear on the device or device labeling, including spaces, hyphens, etc."
+- fields:
+  - device.model_number
+  - device.catalog_number
+  - device.lot_number
+  - device.other_id_number
+- "**Age and expiration date**"
+- fields:
+  - device.expiration_date_of_device
+  - device.device_age_text
+- "**Evaluation by manufacturer**"
+- fields:
+  - device.device_availability
+  - device.date_returned_to_manufacturer
+  - device.device_evaluated_by_manufacturer
+- "### Use of Device"
+- "The following fields describe who was operating the device, if applicable, and whether it was an implanted device."
+- fields:
+  - device.device_operator
+  - device.implant_flag
+  - device.date_removed_flag
+- "### Manufacturer"
+- "Each device has its own fields for identification of the manufacturer."
+- "**Device manufacturer name**"
+- fields:
+  - device.manufacturer_d_name
+- "**Address**"
+- fields:
+  - device.manufacturer_d_address_1
+  - device.manufacturer_d_address_2
+  - device.manufacturer_d_city
+  - device.manufacturer_d_state
+  - device.manufacturer_d_zip_code
+  - device.manufacturer_d_zip_code_ext
+  - device.manufacturer_d_postal_code
+  - device.manufacturer_d_country
+- "### Patient"
+- "If there were patients noted in the adverse event report, there will be patient section, consisting of a list of patient treatment and outcomes. Each object in the `patient` section consists of the following fields."
+- example: patient
+- fields:
+  - patient.date_received
+  - patient.patient_sequence_number
+  - patient.sequence_number_outcome
+  - patient.sequence_number_treatment
+- "### Report text"
+- "The `mdr_text` section contains narrative information about the adverse event or problem report. Text may be about the problem, about the device, or about the patient adverse event, depending on the nature of the report. Each narrative or text description has the following fields."
+- example: mdr_text
+- fields:
+  - mdr_text.date_report
+  - mdr_text.mdr_text_key
+  - mdr_text.patient_sequence_number
+  - mdr_text.text
+  - mdr_text.text_type_code
+- "### Reporter-dependent fields"
+- "### By user facility/importer"
+- "For reports submitted by user facilities, importers, or distributors, the following information is available."
+- fields:
+  - type_of_report
+  - date_facility_aware
+  - report_date
+  - report_to_fda
+  - date_report_to_fda
+  - report_to_manufacturer
+  - date_report_to_manufacturer
+  - event_location
+- "### Name and address"
+- fields:
+  - distributor_name
+  - distributor_address_1
+  - distributor_address_2
+  - distributor_city
+  - distributor_state
+  - distributor_zip_code
+  - distributor_zip_code_ext
+- "### Suspect device manufacturer"
+- "User facilities/importers (distributors) include the suspect device manufacturer name and address in their reports."
+- fields:
+  - manufacturer_name
+  - manufacturer_address_1
+  - manufacturer_address_2
+  - manufacturer_city
+  - manufacturer_postal_code
+  - manufacturer_state
+  - manufacturer_zip_code
+  - manufacturer_zip_code_ext
+  - manufacturer_country
+  - manufacturer_contact_address_1
+  - manufacturer_contact_address_2
+  - manufacturer_contact_area_code
+  - manufacturer_contact_city
+  - manufacturer_contact_country
+  - manufacturer_contact_exchange
+  - manufacturer_contact_extension
+  - manufacturer_contact_t_name
+  - manufacturer_contact_f_name
+  - manufacturer_contact_l_name
+  - manufacturer_contact_pcity
+  - manufacturer_contact_pcountry
+  - manufacturer_contact_phone_number
+  - manufacturer_contact_plocal
+  - manufacturer_contact_postal_code
+  - manufacturer_contact_state
+  - manufacturer_contact_zip_code
+  - manufacturer_contact_zip_ext
+  - manufacturer_g1_name
+  - manufacturer_g1_city
+  - manufacturer_g1_country
+  - manufacturer_g1_postal_code
+  - manufacturer_g1_state
+  - manufacturer_g1_address_1
+  - manufacturer_g1_address_2
+  - manufacturer_g1_zip_code
+  - manufacturer_g1_zip_code_ext
+- "### By any manufacturer"
+- "This information is ordinarily provided by all manufacturers."
+- fields:
+  - date_manufacturer_received
+  - source_type
+- "### Keys and flags"
+- fields:
+  - event_key
+  - mdr_report_key
+  - manufacturer_link_flag
+- "### OpenFDA fields"
+- fields:
+  - device.openfda
+- "datasets"

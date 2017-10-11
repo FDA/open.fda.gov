@@ -8,3 +8,4 @@ datasets:
 path: /api_endpoints/device/classification
 api_path: /device/classification
 start:
+status: deviceclass

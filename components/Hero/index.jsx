@@ -3,7 +3,6 @@
 import React from 'react'
 import cx from 'classnames'
 import BreadCrumbs from '../BreadCrumbs'
-import CategoryMenu from '../CategoryMenu'
 
 
 type tPROPS = {
@@ -35,7 +34,7 @@ const Hero = (props: tPROPS) => {
   } = props
 
   const heroCx = cx({
-    'flex-box overflow-hidden relative dir-column': true,
+    'flex-box relative dir-column': true,
     'bg-gray': type !== 'dataset' && type !== 'endpoint',
     'bg-primary': type === 'dataset'
   })
@@ -67,15 +66,11 @@ const Hero = (props: tPROPS) => {
   return (
     <section
       id='hero'>
-      {
-        (type === 'endpoint' || type === 'noun') &&
-        <CategoryMenu />
-      }
       <div
         className={heroCx}
         style={bg_image_color[cat_name]}>
         <BreadCrumbs />
-        <div className='flex-row dir-column pad-t-2 pad-b-2 pad-l-4'>
+        <div className='container flex-row dir-column pad-t-2 pad-b-2'>
           <h2
             tabIndex={label ? -1 : 0}
             className='clr-white weight-700 header-width'>

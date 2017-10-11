@@ -50,6 +50,7 @@ const SideBar = (props: tPROPS) => {
 
   const sideBarCx = cx({
     'sb-fixed': fixed,
+
   })
 
   const wrapCx = cx({

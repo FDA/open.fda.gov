@@ -41,7 +41,7 @@ const ContentWrapper = (props: tPROPS) => {
     infographics,
     fields,
     showMenu,
-    meta,
+    meta
   } = props
 
   let fieldsMapped: Object = {}
@@ -53,7 +53,7 @@ const ContentWrapper = (props: tPROPS) => {
 
   const contentCx = cx({
     'float-r': true,
-    'ref-content': showMenu,
+    'ref-content': true,
   })
 
   return (
@@ -64,9 +64,13 @@ const ContentWrapper = (props: tPROPS) => {
       <Hero
         {...meta}
       />
+      {
+        <EndpointStatus
+          {...meta}
+        />
+      }
       <section className={wrapperCx}>
         {
-          showMenu &&
           <ComposedSidebar
             className='m-hide'
             reference={content}
@@ -77,19 +81,6 @@ const ContentWrapper = (props: tPROPS) => {
           style={{
             maxWidth: '100%',
           }}>
-          {
-            showMenu &&
-            <EndpointStatus
-              {...meta}
-            />
-          }
-          {
-            infographics &&
-            <InfographicContainer
-              { ...props }
-              fieldsFlattened={fieldsFlattened}
-            />
-          }
           <Content
             { ...props }
           />

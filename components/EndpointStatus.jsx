@@ -8,37 +8,38 @@ type tPROPS = {
   fullPath: string;
 };
 
-const EndpointStatus = ({ data, fullPath, }: tPROPS) => (
-  <aside className='b-b-1 clr-gray m-hide t-show marg-b-2 pad-b-2'>
-    <pre
-      style={{
-        fontFamily: 'Hack, monospace',
-        marginBottom: '20px',
-        padding: '10px 15px',
-        width: '100%'
-      }}>
-      {fullPath}
-    </pre>
-    <div className='flex-box weight-600'>
-      <div className='col self-start t-3'>
-        API Status and Freshness
+const EndpointStatus = ({ data, fullPath, }: tPROPS) => {
+  var date = new Date(data.last_updated)
+  return (
+    <section className='flex-box just-between b-b-1 bg-gray-lightest m-hide marg-b-2 pad-b-2 pad-t-2 pad-l-4 pad-r-4'>
+      <div className='status-container'>
+        <span className='weight-700'>Endpoint: </span>
+        <span className='status-content'>{fullPath}</span>
       </div>
-      <div className='col self-end flex-box t-3'>
-        <div className='col t-3 txt-r'>
-          {
-            data.status === 'GREEN' ?
-            'API OK'
+      <div className='status-container'>
+        <span className='weight-700'>Status: </span>
+        {
+          data.status === 'GREEN' ?
+            <span className='status-content status-content-bg bg-green-light clr-white'>
+            <i className='fa fa-check'/> OK
+          </span>
             :
-            'API DOWN'
-          }
-        </div>
-        <div className='col t-3 txt-r'>
-          API updated {data.last_updated}
-        </div>
+            <span className='status-content status-content-bg bg-red clr-white'>
+            <i className='fa fa-close'/> DOWN
+          </span>
+        }
       </div>
-    </div>
-  </aside>
-)
+      <div className='status-container'>
+        <span className='weight-700'>Last updated: </span>
+        <span className='status-content'>{date.toDateString()}</span>
+      </div>
+      <div className='status-container'>
+        <span className='weight-700'>Total records: </span>
+        <span className='status-content'>{data.documents}</span>
+      </div>
+    </section>
+  )
+}
 
 EndpointStatus.displayName = 'component/Endpoint_Box'
 export default EndpointStatusContainer(EndpointStatus)

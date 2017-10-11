@@ -1,9 +1,0 @@
-documentTitle: openFDA › Drugs › Adverse events reference guide
-name: Drug adverse events reference
-description: "An adverse event is submitted to the FDA to report any undesirable experience associated with the use of a drug, including serious drug side effects, product use errors, product quality problems, and therapeutic failures."
-datasets:
-  - FAERS
-label: Drug adverse events
-path: /api_endpoints/drug/event/reference
-status: drugevent
-type: endpoint

@@ -8,3 +8,4 @@ datasets:
 path: /api_endpoints/food/event
 api_path: /food/event
 start: 20040101
+status: foodevent

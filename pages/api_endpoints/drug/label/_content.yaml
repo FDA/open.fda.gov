@@ -1,10 +1,155 @@
 - "## About drug product labeling"
 - Drug manufacturers and distributors submit documentation about their products to FDA in the [Structured Product Labeling (SPL) format](http://labels.fda.gov/). The labeling is a "living document" that changes over time to reflect increased knowledge about the safety and effectiveness of the drug.
 - The openFDA drug product labels API returns data from these submissions for both prescription and over-the-counter (OTC) drugs. The labels are broken into sections, such as indications for use (prescription drugs) or purpose (OTC drugs), adverse reactions, and so forth. There is considerable variation between drug products in terms of these sections and their contents, since the information required for safe and effective use varies with the unique characteristics of each drug product.
-- "getting-started"
 - "downloads"
 - "### How to search this endpoint"
 - "Make API calls to `https://api.fda.gov/drug/label.json` using search parameters for [fields specific to the drug labeling endpoint.](/drug/label/reference/)"
 - queryExplorer: oneLabel
 - queryExplorer: boxedWarning
 - queryExplorer: countByType
+- "## About"
+- Note that the effective_time of labeling is used to calculate how current data is. Some labeling is dated in the future, and that is reflected in the calculation above.
+- The openFDA drug product labeling API returns data from the [FDA Structured Product Labeling](https://open.fda.gov/data/spl/) (SPL) dataset. This dataset contains structured documentation about regulated products, submitted by manufacturers to FDA. OpenFDA uses the latest available bulk downloads, which have the latest version of every structured product labeling document for products that are actively marketed.
+- "### What is structured product labeling?"
+- Drug manufacturers and distributors submit documentation about their products to FDA. Labeling contains a summary of the essential scientific information needed for the safe and effective use of the drug.
+- The openFDA drug product labeling API returns data from these submissions for both prescription and over-the-counter (OTC) drugs. The labeling is broken into sections, such as indications for use (prescription drugs) or purpose (OTC drugs), adverse reactions, and so forth. There is considerable variation between drug products, since the information required for safe and effective use varies with the unique characteristics of each drug product.
+- "downloads"
+- "## Anatomy of a response"
+- "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."
+- example: anatomy
+- "### Meta"
+- "For non-`count` queries, the `meta` section includes a disclaimer, a link to the openFDA data license, and information about the results that follow."
+- example: meta
+- fields:
+  - meta.disclaimer
+  - meta.license
+  - meta.last_updated
+  - meta.results.skip
+  - meta.results.limit
+  - meta.results.total
+- "### Results"
+- "For non-`count` queries, the `results` section includes matching adverse event reports returned by the API."
+- "Each SPL record consists of three sets of fields:"
+- ul:
+  - "Standard SPL fields, including unique identifiers."
+  - "Product-specific fields, the order and contents of which are unique to each product."
+  - "An **openFDA** section: An annotation with additional product identifiers, such as UPC and brand name, of the drug products listed in the labeling."
+- "#### Field variation"
+- Fields vary with the particular product being documented. Some fields are rarely used. Most prescription drug product labeling will feature similar fields, and those fields will contain similar content. Over-the-counter (OTC) drug product labeling will generally feature a different set of fields.
+- The specific requirements for content of these fields vary from product to product. General descriptions of the fields are provided below, along with notable exceptions or exceptional cases. Expect variation.
+- FDA regulations describe these fields more thoroughly than this documentation. The following documents may be useful for more information about [prescription drug product labeling](http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfCFR/CFRSearch.cfm?fr=201.57) and [over-the-counter (OTC) drug product labeling](http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfCFR/CFRSearch.cfm?fr=201.57).
+- Some fields are considered by the SPL specification as subsections of other fields, but labeling is not always formatted according to the specification. For example, information about prescription drugs’ potential `teratogenic effects` are ordinarily encoded in the teratogenic_effects field, found after (as a subsection of) the `pregnancy` field. However, some labels combine all the content into the `pregnancy` field and do not have a `teratogenic_effects` field. Again, expect variation.
+- Some labeling features data encoded in the wrong fields. These errors may be corrected in subsequent versions of the product labeling.
+- "#### Field order"
+- Fields are ordered naturally, as they were found in the original product labeling. Expect variation in field order from product to product.
+- "#### Tables"
+- Manufacturers sometimes supply product labeling with HTML tables that summarize data, such as adverse reactions. These tables usually accompany other text describing the data. When these tables are encountered, openFDA puts the HTML tables in their own field, with a `_table` suffix.
+- example: tables
+- "Here are common examples you may see:"
+- ul:
+  - "`drug_interactions` accompanied by `drug_interactions_table`"
+  - "`adverse_reactions` accompanied by `adverse_reactions_table`"
+  - "`how_supplied` accompanied by `how_supplied_table`"
+- "`_table` fields are each tables that are encoded as HTML, one table per string."
+- "## Field-by-field reference"
+- Fields and their contents will vary from product to product. There are major differences between prescription drugs and OTC drugs, for example. The following descriptions are as accurate as possible but do not cover all the potential variation among field contents.
+- This page groups fields conceptually for ease of reference. In API results, fields will be ordered naturally as in the product labeling submission.
+- There are records with fields that are not documented here and that are not ordinarily part of human drug product labeling, such as `veterinary_indications`. This is usually the result of a data error in the SPL submission.
+- "### ID and version"
+- "All drug product labeling records contain these fields, which uniquely identify individual records."
+- example: results
+- fields:
+  - set_id
+  - id
+  - version
+  - effective_time
+- "### Abuse and overdosage"
+- fields:
+  - drug_abuse_and_dependence
+  - controlled_substance
+  - abuse
+  - dependence
+  - overdosage
+- "### Adverse effects and interactions"
+- fields:
+  - adverse_reactions
+  - drug_interactions
+  - drug_and_or_laboratory_test_interactions
+- "### Clinical pharmacology"
+- fields:
+  - clinical_pharmacology
+  - mechanism_of_action
+  - pharmacodynamics
+  - pharmacokinetics
+- "### Indications, usage, and dosage"
+- fields:
+  - indications_and_usage
+  - contraindications
+  - dosage_and_administration
+  - dosage_forms_and_strengths
+  - purpose
+  - description
+  - active_ingredient
+  - inactive_ingredient
+  - spl_product_data_elements
+- "### Patient information"
+- fields:
+  - spl_patient_package_insert
+  - information_for_patients
+  - information_for_owners_or_caregivers
+  - instructions_for_use
+  - ask_doctor
+  - ask_doctor_or_pharmacist
+  - do_not_use
+  - keep_out_of_reach_of_children
+  - other_safety_information
+  - questions
+  - stop_use
+  - when_using
+  - patient_medication_information
+  - spl_medguide
+- "### Special populations"
+- fields:
+  - use_in_specific_populations
+  - pregnancy
+  - teratogenic_effects
+  - labor_and_delivery
+  - nursing_mothers
+  - pregnancy_or_breast_feeding
+  - pediatric_use
+  - geriatric_use
+- "### Nonclinical toxicology"
+- fields:
+  - nonclinical_toxicology
+  - carcinogenesis_and_mutagenesis_and_impairment_of_fertility
+  - animal_pharmacology_and_or_toxicology
+- "### References"
+- fields:
+  - clinical_studies
+  - references
+- "### Supply, storage, and handling"
+- fields:
+  - how_supplied
+  - storage_and_handling
+  - safe_handling_warning
+- "### Warnings and precautions"
+- fields:
+  - boxed_warning
+  - user_safety_warnings
+  - precautions
+  - warnings
+  - general_precautions
+- "### Other fields"
+- fields:
+  - laboratory_tests
+  - recent_major_changes
+  - microbiology
+  - package_label_principal_display_panel
+  - spl_unclassified_section
+- "### OpenFDA fields"
+- Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.
+- OpenFDA features harmonization of drug identifiers, to make it easier to connect adverse event report records to other drug information. Drug products that appear in FAERS records are joined to the NDC dataset first on brand name, and if there is no brand name, on generic name. If that is succesful, further links are established to other datasets. The linked data is listed as an `openfda` annotation in the patient.drug section of a result.
+- Roughly 86% of adverse event records have at least one `openfda` section. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if the drug name is misspelled. Some drug products will have `openfda` sections, while others will never, if there was no match during the harmonization process.
+- fields:
+  - openfda
+- "datasets"
