@@ -104,7 +104,7 @@ const BreadCrumbs = (props: tPROPS) => {
       <nav
         aria-label='Breadcrumb navigation.'
         className='container flex-box just-between align-center dir-row clr-gray responsive-header'>
-        <div>
+        <div className='breadcrumb'>
           <a
             className='clr-white pad-r-1'
             href='/'>

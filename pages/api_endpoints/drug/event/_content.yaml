@@ -6,13 +6,12 @@
 - "image"
 - "Any number of the drugs may be marked as *suspect* if thought to be responsible for one or more of the reactions, but that information is not validated. *Concomitant* drugs are those which are not suspected of causing one or more of the reactions. Many drug products appear frequently in adverse event reports simply because they are commonly taken by many people in the population, not because they are responsible for more adverse events."
 - "Reports contain varying levels of detail about the drug products involved, indications for use, route of administration, and dose."
-- "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/drug/event.json` using search parameters for [fields specific to the drug adverse events endpoint.](/drug/event/reference/)"
+- "Make API calls to `https://api.fda.gov/drug/event.json` using search parameters for fields specific to the drug adverse events endpoint."
 - queryExplorer: oneReport
 - queryExplorer: pharmacologic
 - queryExplorer: reaction
-- "## About"
+- "## Data reference"
 - "The openFDA drug adverse event API returns data from the [FDA Adverse Event Reporting System (FAERS)](/data/faers/), a database that contains information on adverse event and medication error reports submitted to FDA. Currently, this data covers publically releasable records submitted to the FDA from 2004-2013. The data is updated quarterly."
 - "An adverse event is submitted to the FDA to report any undesirable experience associated with the use of a medical product in a patient. For drugs, this includes serious drug side effects, product use errors, product quality problems, and therapeutic failures for prescription or over-the-counter medicines and medicines administered to hospital patients or at outpatient infusion centers."
 - "Reporting of adverse events by healthcare professionals and consumers is voluntary in the United States. FDA receives some adverse event reports directly from healthcare professionals (such as physicians, pharmacists, nurses and others) and consumers (such as patients, family members, lawyers and others). Healthcare professionals and consumers may also report adverse events to the products’ manufacturers. If a manufacturer receives an adverse event report, it is normally required to send the report to FDA."
@@ -28,6 +27,7 @@
 - "Adverse events are collected through a series of *safety reports.* Each is identified by a 8-digit string (for instance, `6176304-1`). The first 7 digits (before the hyphen) identify the individual report, and the last digit (after the hyphen) is a checksum. Rather than updating individual records in FAERS, subsequent updates are submitted in seperate reports."
 - "### Format"
 - "Adverse event reports use the [ICH E2b/M2 version 2.1 standard.](http://estri.ich.org/e2br22/ICH_ICSR_Specification_V2-3.pdf) OpenFDA annotates the original records with [special fields.](#openfda-fields)"
+- "### Downloads"
 - "downloads"
 - "FDA releases quarterly updates to FAERS data. OpenFDA uses these extracts, but processes the data further before supplying them through the API. There are no plans for the openFDA initiative to change the FAERS release protocols. At this time it is anticipated that FAERS downloads will continue to be available from the same site on the same quarterly schedule. OpenFDA is a research project to make access to these datasets easier, not replace the current process. The information available through openFDA is not for clinical production use. While FDA makes every effort to ensure the data is accurate, it should be assumed that all results are not validated."
 - "### Results"

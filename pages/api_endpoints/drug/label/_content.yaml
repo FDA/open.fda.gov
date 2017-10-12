@@ -1,18 +1,18 @@
 - "## About drug product labeling"
 - Drug manufacturers and distributors submit documentation about their products to FDA in the [Structured Product Labeling (SPL) format](http://labels.fda.gov/). The labeling is a "living document" that changes over time to reflect increased knowledge about the safety and effectiveness of the drug.
 - The openFDA drug product labels API returns data from these submissions for both prescription and over-the-counter (OTC) drugs. The labels are broken into sections, such as indications for use (prescription drugs) or purpose (OTC drugs), adverse reactions, and so forth. There is considerable variation between drug products in terms of these sections and their contents, since the information required for safe and effective use varies with the unique characteristics of each drug product.
-- "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/drug/label.json` using search parameters for [fields specific to the drug labeling endpoint.](/drug/label/reference/)"
+- "Make API calls to `https://api.fda.gov/drug/label.json` using search parameters for fields specific to the drug labeling endpoint."
 - queryExplorer: oneLabel
 - queryExplorer: boxedWarning
 - queryExplorer: countByType
-- "## About"
-- Note that the effective_time of labeling is used to calculate how current data is. Some labeling is dated in the future, and that is reflected in the calculation above.
-- The openFDA drug product labeling API returns data from the [FDA Structured Product Labeling](https://open.fda.gov/data/spl/) (SPL) dataset. This dataset contains structured documentation about regulated products, submitted by manufacturers to FDA. OpenFDA uses the latest available bulk downloads, which have the latest version of every structured product labeling document for products that are actively marketed.
+- "## Data reference"
+- "Note that the effective_time of labeling is used to calculate how current data is. Some labeling is dated in the future, and that is reflected in the calculation above."
+- "The openFDA drug product labeling API returns data from the [FDA Structured Product Labeling](/data/spl/) (SPL) dataset. This dataset contains structured documentation about regulated products, submitted by manufacturers to FDA. OpenFDA uses the latest available bulk downloads, which have the latest version of every structured product labeling document for products that are actively marketed."
 - "### What is structured product labeling?"
 - Drug manufacturers and distributors submit documentation about their products to FDA. Labeling contains a summary of the essential scientific information needed for the safe and effective use of the drug.
 - The openFDA drug product labeling API returns data from these submissions for both prescription and over-the-counter (OTC) drugs. The labeling is broken into sections, such as indications for use (prescription drugs) or purpose (OTC drugs), adverse reactions, and so forth. There is considerable variation between drug products, since the information required for safe and effective use varies with the unique characteristics of each drug product.
+- "### Downloads"
 - "downloads"
 - "## Anatomy of a response"
 - "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."

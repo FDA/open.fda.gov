@@ -1,15 +1,13 @@
 - "## About UDI"
 - "The *Global Unique Device Identification Database (GUDID)* contains key information submitted to the FDA about medical devices that have *Unique Device Identifiers (UDI)*."
 - "The FDA is establishing the unique device identification system to adequately identify devices sold in the U.S.- from manufacturing through distribution to patient use."
-- "### Reference"
-- "See the [comprehensive field-by-field reference](/device/udi/reference/) for more detail about the structure and contents of device UDI."
-- "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/device/udi.json` using search parameters for [fields specific to the device UDI endpoint.](/device/udi/reference/)"
+- "Make API calls to `https://api.fda.gov/device/udi.json` using search parameters for fields specific to the device UDI endpoint."
 - queryExplorer: oneCompanyMed
 - queryExplorer: oneBrandMed
-- "## About"
+- "## Data reference"
 - "The openFDA unique device identifier API returns data from the Global Unique Device Identification Database (GUDID), which contains information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI). UDIs are unique numeric or alphanumeric codes that consist of two parts—a device identifier (DI) and a production identifier (PI). UDIs are intended to increase electronic tracking abilities for devices involved in adverse events. Submission to the GUDID database is required for manufacturers of medical devices. To learn more about UDIs, see the FDA's [General information about UDI](http://www.fda.gov/udi) page."
+- "### Downloads"
 - "downloads"
 - "## How records are organized"
 - example: header

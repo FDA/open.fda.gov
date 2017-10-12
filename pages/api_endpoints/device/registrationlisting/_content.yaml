@@ -1,17 +1,15 @@
 - "## About device registrations and listings"
 - "The registration and listing dataset contains the location of medical device establishments and the devices manufactured at those establishments. Owners or operators of places of business (also called establishments or facilities) that are involved in the production and distribution of medical devices intended for use in the United States are required to register annually with the FDA. This process is known as establishment registration. Most foreign and domestic establishments that are required to register with the FDA are also required to list the devices that are made there for commercial distribution."
 - "For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/RegistrationandListing/default.htm)."
-- "### Reference"
-- "See the [comprehensive field-by-field reference](/device/registrationlisting/reference/) for more detail about the structure and contents of device registrations and listings."
-- "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/device/registrationlisting.json` using search parameters for [fields specific to the device registrations and listings endpoint.](/device/registrationlisting/reference/)"
+- "Make API calls to `https://api.fda.gov/device/registrationlisting.json` using search parameters for fields specific to the device registrations and listings endpoint."
 - queryExplorer: oneReport
 - queryExplorer: regulationNumber
 - queryExplorer: topClasses
-- "## About"
+- "## Data reference"
 - disclaimer:
   - "Registration and listing data are submitted and maintained by medical device companies that are required to identify their places of business and the devices they produce or process at those places of business. These data are generally not reviewed by FDA for accuracy or completeness and the appearance of these data on the FDA web site and on open.fda.gov does not infer FDA approval of either the products or the facilities.When using the Product data, keep in mind that the definition of 'product' can be variable, based on whether the device requires some form of premarket approval or notification, or can be marketed without any premarket review by FDA. You may want to identify the number of products by the number of proprietary names associated with a given data set rather than the number of product rows returned. However, as noted, the data provided by these APIs may or may not be complete as most of them have not been verified by FDA."
+- "### Downloads"
 - "downloads"
 - "## How records are organized"
 - example:

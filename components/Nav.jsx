@@ -177,6 +177,9 @@ const Nav = (props: tPROPS) => {
                   <div className='sub-menu-container' role='navigation'>
                     <Link className={linkCx} to='/about/introduction/'>What is openFDA?</Link>
                     <Link className={linkCx} to='/about/updates/'>Updates</Link>
+                    <Link className={linkCx} to='/about/status/'>API status</Link>
+                    <Link className={linkCx} to='/about/statistics/'>API usage statistics</Link>
+                    <Link className={linkCx} to='/about/downloads/'>Downloads</Link>
                   </div>
                 </div>
               </div>
@@ -192,22 +195,6 @@ const Nav = (props: tPROPS) => {
                     <Link className={linkCx} to='/getting_started/api_basics/'>API basics</Link>
                     <Link className={linkCx} to='/getting_started/api_basics/reference/'>API reference</Link>
                     <Link className={linkCx} to='/getting_started/research/'>Research tools</Link>
-                  </div>
-                </div>
-              </div>
-              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
-                <span
-                  title='Explore the Data'
-                  className={activeDropdown=='Explore the Data' ? 'menu-header emphasis': path.includes('explore') ? 'menu-header emphasis': 'menu-header'}
-                  onTouchStart={toggleDropdownContent}
-                >Explore the Data <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
-                <div className={path.includes('explore') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
-                <div className={activeDropdown=='Explore the Data' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                  <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/explore/status/'>API status</Link>
-                    <Link className={linkCx} to='/explore/statistics/'>API usage statistics</Link>
-                    <Link className={linkCx} to='/explore/downloads/'>Downloads</Link>
-                    <Link className={linkCx} to='/explore/data/'>Data Reference</Link>
                   </div>
                 </div>
               </div>

@@ -1,0 +1,26 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › 510(k) Clearances'
+crumbs:
+  - openFDA
+  - Datasets
+  - 510(k) Clearances
+title: '510(k) Clearances'
+description: 'A 510(k) is a premarketing submission made to FDA to demonstrate that the device to be marketed is as safe and effective, that is, substantially equivalent (SE), to a legally marketed device that is not subject to premarket approval (PMA).'
+source:
+  name: '510(k)'
+  nameLong: '510(k) Clearances'
+  link: 'http://www.fda.gov/MedicalDevices/ProductsandMedicalProcedures/DeviceApprovalsandClearances/default.htm'
+  linkDownload: 'http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPMN/pmn.cfm'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+time:
+  start: '1976'
+  current: Current
+  delay:
+  frequency: 'Monthly'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - "A 510(k) is a premarketing submission made to FDA to demonstrate that the device to be marketed is as safe and effective, that is, substantially equivalent (SE), to a legally marketed device that is not subject to premarket approval (PMA). 510(k) (premarket notification) to FDA is required at least 90 days before marketing unless the device is exempt from 510(k) requirements."

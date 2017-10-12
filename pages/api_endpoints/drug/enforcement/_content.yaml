@@ -5,14 +5,13 @@
 - "An enforcement report contains information on actions taken in connection with FDA regulatory activities. The data served by this API endpoint includes enforcement reports about drug product recalls."
 - "This API should not be used as a method to collect data to issue alerts to the public. FDA seeks publicity about a recall only when it believes the public needs to be alerted to a serious hazard. FDA works with industry and our state partners to publish press releases and other public notices about recalls that may potentially present a significant or serious risk to the consumer or user of the product. Subscribe to this Recall/Safety Alert feed here."
 - "Whereas not all recalls are announced in the media or on our recall press release page all FDA-monitored recalls go into FDA’s Enforcement Report once they are classified according to the level of hazard involved.  For more information, see FDA 101: Product Recalls from First Alert to Effectiveness Checks."
-- "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/drug/enforcement.json` using search parameters for [fields specific to the drug enforcement endpoint.](/drug/enforcement/reference/)"
+- "Make API calls to `https://api.fda.gov/drug/enforcement.json` using search parameters for fields specific to the drug enforcement endpoint."
 - queryExplorer: oneReport
 - queryExplorer: hazard
 - queryExplorer: voluntaryVsMandated
-- "## About"
-- "The openFDA drug enforcement reports API returns data from the [FDA Recall Enterprise System (RES)](https://open.fda.gov/data/res/), a database that contains information on recall event information submitted to FDA. Currently, this data covers publically releasable records from 2004-present. The data is updated weekly."
+- "## Data reference"
+- "The openFDA drug enforcement reports API returns data from the [FDA Recall Enterprise System (RES)](/data/res/), a database that contains information on recall event information submitted to FDA. Currently, this data covers publically releasable records from 2004-present. The data is updated weekly."
 - "The procedures followed to input recall information into RES when FDA learns of a recall event are outlined in [Chapter 7 of FDA’s Regulatory Procedure Manual](http://www.fda.gov/ICECI/ComplianceManuals/RegulatoryProceduresManual/ucm177304.htm). The Regulatory Procedures Manual is a reference manual for FDA personnel. It provides FDA personnel with information on internal procedures to be used in processing domestic and import regulatory and enforcement matters."
 - disclaimer:
   - "This data should not be used as a method to collect data to issue alerts to the public, nor should it be used to track the lifecycle of a recall. FDA seeks publicity about a recall only when it believes the public needs to be alerted to a serious hazard. FDA works with industry and our state partners to publish press releases and other public notices about recalls that may potentially present a significant or serious risk to the consumer or user of the product. [Subscribe to this Recall/Safety Alert feed here](http://www.fda.gov/AboutFDA/ContactFDA/StayInformed/RSSFeeds/Recalls/rss.xml)."

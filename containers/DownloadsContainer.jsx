@@ -69,9 +69,9 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
     render (): ?React.Element {
       if (typeof this.state.data !== 'object') return <span />
 
-      const path: string = this.props.meta.path.replace('/reference', '')
+      const api_path: string = this.props.meta.api_path
       // drug/event => results.drug.event
-      const key: string = `results${path.split('/').join('.')}`
+      const key: string = `results${api_path.split('/').join('.')}`
       // data = { results: { drug: { event: relevantData } } }
       const results: Object = get(this.state.data, key)
 
@@ -87,7 +87,8 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
       return (
         <ComposedDownloads
           k={this.props.k}
-          path={path}
+          api_path={api_path}
+          title={this.props.meta.title}
           allPartitions={results.partitions}
           results={resultsByCat}
           showAllResults={this.state.showAllResults}

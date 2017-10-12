@@ -68,7 +68,8 @@ const _renderByYear = (results, years) => {
 type tPROPS = {
   allPartitions: Array<Object>;
   k: number;
-  path: path;
+  api_path: string;
+  title: string;
   results: Object;
   showAllResults: boolean;
   toggle: Function;
@@ -79,7 +80,8 @@ const Downloads = (props: tPROPS) => {
   const {
     allPartitions,
     k,
-    path,
+    api_path,
+    title,
     results,
     showAllResults,
     toggle,
@@ -98,7 +100,7 @@ const Downloads = (props: tPROPS) => {
     <section
       className='marg-t-3 marg-b-3 clearfix'
       key={k}>
-      <h3>Downloads [{path}]</h3>
+      <h3>{title} [{api_path}]</h3>
       <p>This endpoint’s data may be downloaded in zipped JSON files. Records are represented in the same format as API calls to this endpoint. Each update to the data in this endpoint could change old records. You need to download all the files to ensure you have a complete and up-to-date dataset, not just the newest files. For more information about openFDA downloads, see the <a href='/api/'>API basics</a>.
       </p>
       <p>There are <strong>{allPartitions.length}</strong> files, last updated on <strong>{updated}</strong>.</p>

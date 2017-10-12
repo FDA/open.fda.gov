@@ -1,4 +1,5 @@
 documentTitle: openFDA › Drugs › Adverse events API
+label: Drug adverse events
 title: Drug Adverse Events
 description: "An adverse event is submitted to the FDA to report any undesirable experience associated with the use of a drug, including serious drug side effects, product use errors, product quality problems, and therapeutic failures."
 datasets:

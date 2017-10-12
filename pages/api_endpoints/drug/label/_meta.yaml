@@ -3,7 +3,8 @@ name: Drug Labeling
 description: ""
 datasets:
   - SPL
-label: Drug Labeling
+label: Drug labeling
+title: Drug Labeling
 path: /api_endpoints/drug/label
 api_path: /drug/label
 start: 20090601

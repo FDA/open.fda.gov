@@ -1,6 +1,6 @@
 documentTitle: openFDA › Drugs › Recall enforcement reports API
 label: Drug recall enforcement reports
-title: Drug recall enforcement reports
+title: Drug Recall Enforcement Reports
 description: "Recalls are an appropriate alternative method for removing or correcting marketed consumer products, their labeling, and/or promotional literature that violate the laws administered by the Food and Drug Administration (FDA)."
 datasets:
   - RES
