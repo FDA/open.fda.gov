@@ -1,4 +1,3 @@
-/node_modules/
 public
 npm-debug.log
 .gatsby-context.js
@@ -7,3 +6,4 @@ npm-debug.log
 npm-debug.log.2000580574
 npm-debug.log.931881047
 .gitignore
+.DS_Store

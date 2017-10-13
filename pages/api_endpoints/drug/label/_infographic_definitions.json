@@ -1,0 +1,20 @@
+{
+  "title": "Drugs Labels by Type and Categories of Administering Routes Year Over Year (YOY)",
+  "queries": {
+    "otc": "openfda.product_type:otc",
+    "prescription": "openfda.product_type:prescription",
+    "lactose": "inactive_ingredient:lactose",
+    "bleeding": "boxed_warning:bleeding",
+    "all": ""
+  }, 
+  "defaults": {
+    "xKey":"SUBLINGUAL",
+    "yKey":"lactose"
+  }, 
+  "yName": "Query",
+  "xName": "Route",
+  "countBy": "openfda.route.exact",
+  "tooltipFormat": "Query: ${this.yKey.charAt(0).toUpperCase() + this.yKey.slice(1).toLowerCase()}\n Route: ${this.xKey.charAt(0).toUpperCase() + this.xKey.slice(1).toLowerCase()}",
+  "type": "HeatMap",
+  "startYear": 2009
+}

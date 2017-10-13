@@ -4,6 +4,7 @@ import ContentWrapper from '../../../../components/ContentWrapper'
 
 import content from './_content.yaml'
 import examples from './_examples.json'
+import infographicDefinitions from './_infographic_definitions.json'
 import explorers from './_explorers.yaml'
 import infographics from './_infographics.yaml'
 import fields from './_fields.yaml'
@@ -15,6 +16,7 @@ export default () => (
     examples={examples}
     explorers={explorers}
     infographics={infographics}
+    infographicDefinitions={infographicDefinitions}
     fields={fields}
     meta={meta}
   />

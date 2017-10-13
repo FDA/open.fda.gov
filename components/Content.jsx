@@ -8,6 +8,7 @@ import Datasets from './Datasets'
 import Downloads from './Downloads'
 import MultipleProductTable from './MultipleProductTable'
 import RenderContentObject from './RenderContentObject'
+import InteractiveInfographic from './InteractiveInfographic'
 
 type tPROPS = {
   content: Array<Object|string>;
@@ -26,6 +27,7 @@ const Content = (props: tPROPS) => {
   const {
     content,
     examples,
+    infographicDefinitions,
     explorers,
     fields,
     showMenu,
@@ -83,8 +85,21 @@ const Content = (props: tPROPS) => {
             )
           }
 
+          if (words === 'visualization') {
+            console.log('words: visualization', meta)
+            return (
+              <InteractiveInfographic
+                infographicDefinitions={infographicDefinitions}
+                k={i}
+                meta={meta}
+                key={i}
+              />
+            )
+          }
+
+
           // as far as i can tell we just
-          // have the one 'image' for drug/event
+          // have the one 'image' for drug\/event
           if (words === 'datasets') {
             return (
               <Datasets
@@ -96,7 +111,7 @@ const Content = (props: tPROPS) => {
           }
 
           // as far as i can tell we just
-          // have the one 'image' for drug/event
+          // have the one 'image' for drug\/event
           if (words === 'image') {
             return (
               <MultipleProductTable
@@ -110,16 +125,16 @@ const Content = (props: tPROPS) => {
           // but we need to handle some edge cases first
           // specifically, all external links need the external link icon
           // so we
-          // 1) check for http://
+          // 1) check for http:\/\/
           // 2) use regex to grab all tags that match
           // 3) loop over matches, incrementally wrapping external links
           //    with our wrapper class (link-external)
           // 4) finally output the linkified (or not) text
           //
-          // assume that local links just do /path/path
-          // instead of http://whatever
-          const hasLink: boolean = html.indexOf('http://') !== -1
-          // regex for matching <a> tags WITH a valid http:// href
+          // assume that local links just do \/path\/path
+          // instead of http:\/\/whatever
+          const hasLink: boolean = html.indexOf('http:\/\/') !== -1
+          // regex for matching <a> tags WITH a valid http:\/\/ href
           const httpRE: RegExp = /<a[\s]+[^>]*?href[\s]?=[\s\"\']*(http:\/\/.*?)[\"\']*.*?>([^<]+|.*?)?<\/a>/gm
           // if no external links, just output the markdownified text
           // otherwise, we'll need to string replace the external links

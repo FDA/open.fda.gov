@@ -1,0 +1,15 @@
+{
+  "dataGridProperties": [
+      { "key": "state", "name": "State", "width":50, "sortable": true },
+      { "key": "recalling_firm", "name": "Recalling Firm", "width":150, "sortable": true, "formatter": "LongTextFormatter"},
+      { "key": "reason_for_recall", "name": "Reason", "width":350, "locked": true,"formatter": "LongTextFormatter"},
+      { "key": "product_description", "name": "Product Description", "width":350, "formatter": "LongTextFormatter"},
+      { "key": "status", "name": "Status", "width":100, "sortable": true }
+  ],
+  "selectedState": "VA",
+  "countBy": "state.exact",
+  "title": "Food enforcement recalls change Year Over Year (YOY)",
+  "type": "DataMap",
+  "dateField": "report_date",
+  "startYear": 2012
+}
