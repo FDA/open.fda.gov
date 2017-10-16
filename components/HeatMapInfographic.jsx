@@ -329,7 +329,7 @@ class HeatMapInfographic extends React.Component {
 
     return (
         <section className='float-r infographic-container'>
-        <h3 className="interactive-infographic-header-title">{this.state.title} </h3>
+        <h3 className="datamap-infographic-header-title">{this.state.title} </h3>
           <div className="heatmap-header">
             <p className="interactive-infographic-center"> Selected Year - <i className="interactive-infographic-bold">{this.state.currentValue}</i></p>
             <Slider 

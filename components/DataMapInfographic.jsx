@@ -45,13 +45,16 @@ class DataMapInfographic extends React.Component {
       return result;
     }, {})
 
+    this.LongTextFormatter = LongTextFormatter
+    this.DeviceFormatter = DeviceFormatter
+    this.EventDescriptionFormatter = EventDescriptionFormatter
   
     const dataGridProperties = this.props.infographicDefinitions.gridConfig.dataGridProperties.map((value) => {
       if(value.formatter !== undefined){
         value.formatter = this[value.formatter];
       } 
       return value;
-    })    
+    }, this)    
 
     this.state = {
       title: this.props.infographicDefinitions.title,
@@ -332,10 +335,12 @@ class DataMapInfographic extends React.Component {
 
     let filesPromise = Promise.resolve([]);
     filesPromise = Promise.all(urls.map(this.fetchJSON))
+      .catch(function(results){})
       .then(function(results) {
+        var result = results === undefined ? [] : results[0].results;
         that.setState({
-          _rows : results[0].results,
-          original_rows: results[0].results,
+          _rows : result,
+          original_rows: result,
           selectedState: _id
         })
 
@@ -386,10 +391,10 @@ class DataMapInfographic extends React.Component {
     return (
         <section classNameName='float-r infographic-container'>
           <div>
-            <h3 className="interactive-infographic-header-title">{this.state.title}</h3>
-            <div className="interactive-infographic-header">
-              <p className="interactive-infographic-header-params" >
-                State - <i className="interactive-infographic-header-text-bold">{this.state.selectedState}</i>, Year - <i className="interactive-infographic-header-text-bold">{this.state.currentValue}</i>
+            <h3 className="datamap-infographic-header-title">{this.state.title}</h3>
+            <div className="datamap-infographic-header">
+              <p className="datamap-infographic-header-params" >
+                State - <i className="datamap-infographic-header-text-bold">{this.state.selectedState}</i>, Year - <i className="datamap-infographic-header-text-bold">{this.state.currentValue}</i>
               </p>
               <Slider 
                 min={this.state.min} 
@@ -402,7 +407,7 @@ class DataMapInfographic extends React.Component {
               />
             </div>
             <Datamap
-              className="interactive-infographic-datamap"
+              className="datamap-infographic-datamap"
               scope={this.props.infographicDefinitions.dataMapConfig.scope}
               onClick={this.mapOnClick}
               geographyConfig={{
@@ -423,19 +428,17 @@ class DataMapInfographic extends React.Component {
               height={this.props.infographicDefinitions.dataMapConfig.height}
             />
             { this.state._rows.length ? 
-                <ReactDataGrid
+                <div className="datamap-infographic-grid">
+                  <ReactDataGrid
                     columns={this.state.dataGridProperties}
                     rowGetter={this.rowGetter}
                     rowsCount={this.state._rows.length}
-                    rowScrollTimeout={this.props.infographicDefinitions.gridConfig.rowScrollTimeout}
-                    headerRowHeight={this.props.infographicDefinitions.gridConfig.headerRowHeight}
-                    rowHeight={this.props.infographicDefinitions.gridConfig.rowHeight}
-                    minHeight={this.props.infographicDefinitions.gridConfig.minHeight}
-                    minWidth={this.props.infographicDefinitions.gridConfig.minWidth}
                     onGridSort={this.handleGridSort}
                     onFilter={this.onGridRowsUpdated}
-                />
-              : null 
+                    {...this.props.infographicDefinitions.gridConfig}
+                  />
+                </div>
+              : <i className="datamap-infographic-empty-data"> No Data Found </i>
             }
           </div>
         </section>
