@@ -75,7 +75,6 @@ const Content = (props: tPROPS) => {
           // people to understand that they just type
           // 'downloads' to render that section
           if (words === 'downloads') {
-            console.log('words: download', meta)
             return (
               <Downloads
                 k={i}

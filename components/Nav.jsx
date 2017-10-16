@@ -2,6 +2,7 @@
 
 import React from 'react'
 import cx from 'classnames'
+import ReactModal from 'react-modal'
 
 import NavContainer from '../containers/NavContainer'
 
@@ -22,10 +23,13 @@ const hamStyl: Object = Object.freeze({
 
 type tPROPS = {
   showMobileNav: boolean;
+  showModal: boolean;
   toggleMobileNav: Function;
   toggleDropdownContent: Function;
   hideDropdownContent: Function;
   showDropdownContent: Function;
+  handleOpenModal: Function;
+  handleCloseModal: Function;
   activeDropdown: string;
   path: string;
 };
@@ -34,10 +38,13 @@ type tPROPS = {
 const Nav = (props: tPROPS) => {
   const {
     showMobileNav,
+    showModal,
     toggleMobileNav,
     hideDropdownContent,
     showDropdownContent,
     toggleDropdownContent,
+    handleOpenModal,
+    handleCloseModal,
     activeDropdown,
     path
   } = props
@@ -49,6 +56,19 @@ const Nav = (props: tPROPS) => {
 
   return (
     <nav className='bg-white clr-gray flex-box dir-column'>
+      <ReactModal
+        isOpen={showModal}
+        className='modal-container'
+        overlayClassName='modal-overlay'
+        contentLabel="Disclaimer Modal"
+        shouldCloseOnOverlayClick={false}
+      >
+        <h4 className="modal-header">Disclaimer</h4>
+        <div className='modal-body'>
+          <span>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='underline' to='/terms/'> Terms of Service</Link></span>
+        </div>
+        <button className='button bg-primary clr-white' onClick={handleCloseModal}>ACCEPT</button>
+      </ReactModal>
       <a
         href='#hero'
         className='visually-hidden'>
@@ -92,9 +112,6 @@ const Nav = (props: tPROPS) => {
             <strong className='row txt-r'>Food and Drug Administration</strong>
           </div>
         </div>
-      </div>
-      <div className='pad-t-2 bg-secondary-darkest m-ord-3'>
-        <p className='clr-white weight-600 container red-warning-bar'>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='clr-white underline' to='/terms/'> Terms of Service</Link></p>
       </div>
       <div className='container dir-column m-ord-1 m-pad-b-1 m-pad-t-1 nav-bar'>
         <div className={showMobileNav ? 'dir-column relative': 'flex-row relative'}>
@@ -248,6 +265,13 @@ const Nav = (props: tPROPS) => {
                       to='/community/'>openFDA Apps</Link>
                   </div>
                 </div>
+              </div>
+              <div className='dropdown'>
+                <button
+                  title='Disclaimer'
+                  onClick={handleOpenModal}
+                  className={showMobileNav ? 'display-none': activeDropdown=='Home' ? 'menu-header emphasis': 'menu-header'}
+                >Disclaimer</button>
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ import React from 'react'
 
 type tSTATE = {
   showMobileNav: boolean;
+  showModal: boolean;
   toggleDropdownContent: boolean;
   activeDropdown: string;
   path: string;
@@ -13,6 +14,7 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
   class HOC extends React.Component {
     state: tSTATE = {
       showMobileNav: false,
+      showModal: true,
       activeDropdown: ' ',
       path: ' '
     };
@@ -59,6 +61,18 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
       }
     }
 
+    _handleOpenModal () {
+      this.setState({
+        showModal: true
+      })
+    }
+
+    _handleCloseModal () {
+      this.setState({
+        showModal: false
+      })
+    }
+
     render (): React.Element {
       return (
         <ComposedNav
@@ -68,6 +82,8 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
           toggleDropdownContent={this._toggleDropdownContent.bind(this)}
           hideDropdownContent={this._hideDropdownContent.bind(this)}
           showDropdownContent={this._showDropdownContent.bind(this)}
+          handleOpenModal={this._handleOpenModal.bind(this)}
+          handleCloseModal={this._handleCloseModal.bind(this)}
         />
       )
     }

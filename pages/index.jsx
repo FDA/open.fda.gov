@@ -20,7 +20,7 @@ const INDEX = ({ route }: tTEMPLATE) => (
       <div>
         <h3>Open Access to FDA Data</h3>
         <p style={{color: "white"}}>APIs and file downloads for FDA data, including adverse events, product labeling, and enforcement reports.</p>
-        <Link className="btn weight-700 bg-white" style={{color: "#00B1CB"}} to='/data/'>
+        <Link className="btn weight-700 bg-white" style={{color: "#00B1CB"}} to='/getting_started/api_basics/'>
           Learn More<i className="fa fa-arrow-right marg-l-1"/>
         </Link>
       </div>
