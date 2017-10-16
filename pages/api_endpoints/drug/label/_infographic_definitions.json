@@ -14,7 +14,74 @@
   "yName": "Query",
   "xName": "Route",
   "countBy": "openfda.route.exact",
-  "tooltipFormat": "Query: ${this.yKey.charAt(0).toUpperCase() + this.yKey.slice(1).toLowerCase()}\n Route: ${this.xKey.charAt(0).toUpperCase() + this.xKey.slice(1).toLowerCase()}",
   "type": "HeatMap",
-  "startYear": 2009
+  "startYear": 2009,
+  "heatMapConfig":{
+    "keyFormat": "Query: ${this.yKey.charAt(0).toUpperCase() + this.yKey.slice(1).toLowerCase()}\n Route: ${this.xKey.charAt(0).toUpperCase() + this.xKey.slice(1).toLowerCase()}",
+    "valueFormatter": "${this.value}%",
+    "height": 350,
+    "width": 900,
+    "indexBy": "_type",
+    "margin": {
+        "top": 25,
+        "right": 25,
+        "bottom": 60,
+        "left": 60
+    },
+    "minValue": -100,
+    "maxValue": 100,
+    "forceSquare": false,
+    "sizeVariation": 0,
+    "padding": 0,
+    "colors": "nivo",
+    "axisBottom": {
+        "orient": "bottom",
+        "tickSize": 5,
+        "tickPadding": 5,
+        "tickRotation": -35,
+        "legendPosition": "center",
+        "legendOffset": 36
+    },
+    "axisLeft": {
+        "orient": "left",
+        "tickSize": 5,
+        "tickPadding": 5,
+        "tickRotation": 0,
+        "legendPosition": "center",
+        "legendOffset": -40
+    },
+    "enableGridX": false,
+    "enableGridY": true,
+    "cellShape": "rect",
+    "cellOpacity": 1,
+    "cellBorderWidth": 1,
+    "cellBorderColor": "inherit:darker(2)",
+    "enableLabels": true,
+    "labelTextColor": "inherit:darker(5)",
+    "animate": true,
+    "motionStiffness": 120,
+    "motionDamping": 9,
+    "isInteractive": true,
+    "hoverTarget": "rowColumn",
+    "cellHoverOpacity": 1,
+    "cellHoverOthersOpacity": 0.5
+  },
+  "chartConfig": {
+    "width": 800,
+    "showGrid": true,
+    "chartRowHeight": 200,
+    "yAxis": {
+        "label": "Count",
+        "min": 0,
+        "width": 100,
+        "type": "linear"
+    },
+    "interpolation": "curveBasis",
+    "lineStyle": {
+        "value": {
+            "stroke": "#a02c2c",
+            "opacity": 0.2
+        }
+    }
+  }
 }

@@ -21,14 +21,7 @@ const InteractiveInfographic = (props: tPROPS) => {
       <HeatMapInfographic
         api={meta.api_path}
         dateField={meta.dateConstraintKey}
-        startYear={infographicDefinitions.startYear}
-        title={infographicDefinitions.title}
-        countBy={infographicDefinitions.countBy}
-        queries={infographicDefinitions.queries}
-        defaults={infographicDefinitions.defaults}
-        yName={infographicDefinitions.yName}
-        xName={infographicDefinitions.xName}
-        tooltipFormat={infographicDefinitions.tooltipFormat}
+        infographicDefinitions={infographicDefinitions}
       />
     )
   } else if (infographicDefinitions.type == "DataMap") {
@@ -36,12 +29,7 @@ const InteractiveInfographic = (props: tPROPS) => {
 
       <DataMapInfographic 
           api={meta.api_path}
-          dateField={infographicDefinitions.dateField}
-          startYear={infographicDefinitions.startYear}
-          title={infographicDefinitions.title}
-          countBy={infographicDefinitions.countBy}
-          selectedState={infographicDefinitions.selectedState}
-          dataGridProperties={infographicDefinitions.dataGridProperties}
+          infographicDefinitions={infographicDefinitions}
         />
     )
   } 

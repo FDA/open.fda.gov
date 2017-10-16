@@ -32,15 +32,11 @@ class DataMapInfographic extends React.Component {
 
     if(
         this.props.api == undefined || 
-        this.props.dateField == undefined || 
-        this.props.startYear == undefined || 
-        this.props.title == undefined || 
-        this.props.countBy == undefined ||
-        this.props.dataGridProperties == undefined 
+        this.props.infographicDefinitions === undefined
       ) {
       throw "Invalid Props"
     }
-    const startYear = this.props.startYear
+    const startYear = this.props.infographicDefinitions.startYear
     const now = new Date()
     const currentYear = now.getFullYear()
     const years = _.range(startYear, currentYear+1)
@@ -50,7 +46,7 @@ class DataMapInfographic extends React.Component {
     }, {})
 
   
-    const dataGridProperties = this.props.dataGridProperties.map((value) => {
+    const dataGridProperties = this.props.infographicDefinitions.gridConfig.dataGridProperties.map((value) => {
       if(value.formatter !== undefined){
         value.formatter = this[value.formatter];
       } 
@@ -58,21 +54,21 @@ class DataMapInfographic extends React.Component {
     })    
 
     this.state = {
-      title: this.props.title,
+      title: this.props.infographicDefinitions.title,
       api: this.props.api,
       API_LINK: API_LINK,
-      dateField: this.props.dateField,
+      dateField: this.props.infographicDefinitions.dateField,
       defaultValue: currentYear, 
       currentValue: currentYear,
       max: currentYear,
       startYear: startYear,
       endYear: currentYear,
-      countBy: this.props.countBy,
+      countBy: this.props.infographicDefinitions.countBy,
       min: startYear+1,
       step: 1,
       slider_marks: slider_marks,
       years: years,
-      selectedState: this.props.selectedState || "VA",
+      selectedState: this.props.infographicDefinitions.selectedState,
       dataGridProperties: dataGridProperties,
       _rows: [],
       original_rows: [],
@@ -372,36 +368,6 @@ class DataMapInfographic extends React.Component {
 
   render (): ?React.Element {
 
-    const wrapperStyle = {
-      width: 500, 
-      marginTop: 50,
-      marginLeft: 50,
-      marginRight: 50,
-      marginBottom: 10,
-      left: "18%",
-      position: "relative"
-    };
-
-    const center = {
-      textAlign: "center",
-      whiteSpace: "nowrap"
-    };
-
-    const boldLabel = {
-      fontWeight: "bold",
-      whiteSpace: "nowrap"
-    };
-
-    const dataMapStyle = {
-      position: "relative",
-      left: "9%"
-    }
-    const pageHeading = {
-      fontSize: "23px",
-      position: "relative",
-      left: "21%"
-    }
-
     const handle = (props) => {
       const { value, dragging, index, ...restProps } = props;
       return (
@@ -418,12 +384,12 @@ class DataMapInfographic extends React.Component {
     };
 
     return (
-        <section className='float-r infographic-container'>
+        <section classNameName='float-r infographic-container'>
           <div>
-            <h3 style={pageHeading}>{this.state.title}</h3>
-            <div style={wrapperStyle}>
-              <p style={center} >
-                State - <i style={boldLabel}>{this.state.selectedState}</i>, Year - <i style={boldLabel}>{this.state.currentValue}</i>
+            <h3 className="interactive-infographic-header-title">{this.state.title}</h3>
+            <div className="interactive-infographic-header">
+              <p className="interactive-infographic-header-params" >
+                State - <i className="interactive-infographic-header-text-bold">{this.state.selectedState}</i>, Year - <i className="interactive-infographic-header-text-bold">{this.state.currentValue}</i>
               </p>
               <Slider 
                 min={this.state.min} 
@@ -436,30 +402,36 @@ class DataMapInfographic extends React.Component {
               />
             </div>
             <Datamap
-              style={dataMapStyle}
-              scope="usa"
+              className="interactive-infographic-datamap"
+              scope={this.props.infographicDefinitions.dataMapConfig.scope}
               onClick={this.mapOnClick}
               geographyConfig={{
-                highlightBorderColor: '#bada55',
-                popupTemplate: (geography, data) =>
-                  `<div class='hoverinfo'>${geography.properties.name}\nYOY change %: ${this.state.currentValue} => ${data.numberOfThings}%`,
-                highlightBorderWidth: 3
+                highlightBorderColor: this.props.infographicDefinitions.dataMapConfig.geographyConfig.highlightBorderColor,
+                popupTemplate: (geography, data) =>  {
+                  let properties = {
+                    this : this,
+                    geography : geography,
+                    data: data
+                  }
+                  return new Function('return `' + this.props.infographicDefinitions.dataMapConfig.geographyConfig.popupTemplate + '`;').call(properties)
+                },
+                highlightBorderWidth: this.props.infographicDefinitions.dataMapConfig.geographyConfig.highlightBorderWidth,
               }}
-              fills={{defaultFill: '#F5F5F5' }}
               data={this.state.data}
-              width={800}
-              height={400}
+              fills={this.props.infographicDefinitions.dataMapConfig.defaultFill}
+              width={this.props.infographicDefinitions.dataMapConfig.width}
+              height={this.props.infographicDefinitions.dataMapConfig.height}
             />
             { this.state._rows.length ? 
                 <ReactDataGrid
                     columns={this.state.dataGridProperties}
                     rowGetter={this.rowGetter}
-                    rowScrollTimeout={0}
                     rowsCount={this.state._rows.length}
-                    headerRowHeight={30}
-                    rowHeight={75}
-                    minHeight={400} 
-                    minWidth={1010}
+                    rowScrollTimeout={this.props.infographicDefinitions.gridConfig.rowScrollTimeout}
+                    headerRowHeight={this.props.infographicDefinitions.gridConfig.headerRowHeight}
+                    rowHeight={this.props.infographicDefinitions.gridConfig.rowHeight}
+                    minHeight={this.props.infographicDefinitions.gridConfig.minHeight}
+                    minWidth={this.props.infographicDefinitions.gridConfig.minWidth}
                     onGridSort={this.handleGridSort}
                     onFilter={this.onGridRowsUpdated}
                 />

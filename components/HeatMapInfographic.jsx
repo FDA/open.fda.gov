@@ -28,45 +28,38 @@ class HeatMapInfographic extends React.Component {
     if(
         this.props.api === undefined || 
         this.props.dateField === undefined || 
-        this.props.startYear === undefined || 
-        this.props.title === undefined || 
-        this.props.countBy === undefined ||
-        this.props.tooltipFormat === undefined ||
-        this.props.xName === undefined ||
-        this.props.yName === undefined || 
-        this.props.queries === undefined ||
-        this.props.defaults === undefined
+        this.props.infographicDefinitions === undefined 
       ) {
       throw "Invalid Props"
     }
     
     const now = new Date()
     const currentYear = now.getFullYear()
-    const years = _.range(this.props.startYear, currentYear+1)
+    const years = _.range(this.props.infographicDefinitions.startYear, currentYear+1)
     const slider_marks = years.slice(1,100).reduce(function(result, item, index, array) {
       result[item] = item;
       return result;
     }, {})
-    const minTime = new Date(this.props.startYear,1,1);
+    const minTime = new Date(this.props.infographicDefinitions.startYear,1,1);
 
     this.state = {
       API_LINK: API_LINK,
-      title: this.props.title,
+      title: this.props.infographicDefinitions.title,
       api: this.props.api,
       selection:  null,
       tracker:   null,
       sparklineData:  null,
       timerange:  null,
-      queries:  this.props.queries,
+      queries:  this.props.infographicDefinitions.queries,
       xTerms: [],
       step: 1,
-      min: this.props.startYear+1,
+      min: this.props.infographicDefinitions.startYear+1,
       max: currentYear,
       defaultValue: currentYear,
       currentValue: currentYear,
-      startYear: this.props.startYear,
+      startYear: this.props.infographicDefinitions.startYear,
       endYear: currentYear,
-      countBy: this.props.countBy,
+      countBy: this.props.infographicDefinitions.countBy,
       slider_marks: slider_marks,
       years: years,
       minTime: minTime,
@@ -90,7 +83,7 @@ class HeatMapInfographic extends React.Component {
         data: res.data[this.state.defaultValue],
         timeseries: res.timeseries,
       })
-      this.onClick(this.props.defaults)
+      this.onClick(this.props.infographicDefinitions.defaults)
     })
   }
 
@@ -270,7 +263,7 @@ class HeatMapInfographic extends React.Component {
     if(node.value === '-') return
     var xKey = this.state.xTerms[node['xKey']],
         yKey = this.state.queries[node['yKey'].toLowerCase()] === "" ? "" :  ("+AND+" + this.state.queries[node['yKey'].toLowerCase()]),
-        url = `${this.state.API_LINK}${this.state.api}.json?search=${this.props.countBy}:` + xKey + yKey + `&count=${this.props.dateField}`,
+        url = `${this.state.API_LINK}${this.state.api}.json?search=${this.props.infographicDefinitions.countBy}:` + xKey + yKey + `&count=${this.props.dateField}`,
         that = this;
 
     let filesPromise = Promise.resolve([]);
@@ -319,36 +312,6 @@ class HeatMapInfographic extends React.Component {
   render (): ?React.Element {
     if (!this.state.data) return <span />
 
-    const wrapperStyle = { 
-      width: 600, 
-      margin: 50, 
-      paddingLeft: 200
-    };
-
-    const center = {
-      textAlign: "center"
-    };
-    const floatLeft = {
-      float: "left"
-    };
-    const boldLabel = {
-      fontWeight: "bold",
-      whiteSpace: "nowrap"
-    };
-
-    const style = {
-        value: {
-            stroke: "#a02c2c",
-            opacity: 0.2
-        }
-    }
-    const pageHeading = {
-      fontSize: "23px",
-      position: "relative",
-      left: "21%"
-    }
-    const zoomButtonCss = {float:'right', borderStyle:'double', borderWidth: '2px', padding: "8px 10px 10px 10px"}
-
     const handle = (props) => {
       const { value, dragging, index, ...restProps } = props;
       return (
@@ -366,13 +329,11 @@ class HeatMapInfographic extends React.Component {
 
     return (
         <section className='float-r infographic-container'>
-        <h3>{this.state.title} </h3>
-          <div style={wrapperStyle}>
-            <p style={center} >
-              Selected Year - <i style={boldLabel}>{this.state.currentValue}</i>
-            </p>
+        <h3 className="interactive-infographic-header-title">{this.state.title} </h3>
+          <div className="heatmap-header">
+            <p className="interactive-infographic-center"> Selected Year - <i className="interactive-infographic-bold">{this.state.currentValue}</i></p>
             <Slider 
-              style={floatLeft}
+              className="interactive-infographic-left"
               min={this.state.min} 
               max={this.state.max} 
               defaultValue={this.state.defaultValue}
@@ -385,88 +346,38 @@ class HeatMapInfographic extends React.Component {
           <HeatMap
             data={this.state.data}
             keys={this.state.keys}
-            keyFormat={this.props.tooltipFormat}
-            valueFormatter={"${this.value}%"}
             onClick={this.onClick}
-            width={900}
-            height={350}
-            indexBy="_type"
-            margin={{
-                "top": 25,
-                "right": 25,
-                "bottom": 60,
-                "left": 60
-            }}
-            minValue="-100"
-            maxValue="100"
-            forceSquare={false}
-            sizeVariation={0}
-            padding={0}
-            colors="nivo"
-            axisBottom={{
-                "orient": "bottom",
-                "tickSize": 5,
-                "tickPadding": 5,
-                "tickRotation": -35,
-                "legendPosition": "center",
-                "legendOffset": 36
-            }}
-            axisLeft={{
-                "orient": "left",
-                "tickSize": 5,
-                "tickPadding": 5,
-                "tickRotation": 0,
-                "legendPosition": "center",
-                "legendOffset": -40
-            }}
-            enableGridX={false}
-            enableGridY={true}
-            cellShape="rect"
-            cellOpacity={1}
-            cellBorderWidth={1}
-            cellBorderColor="inherit:darker(2)"
-            enableLabels={true}
-            labelTextColor="inherit:darker(5)"
-            animate={true}
-            motionStiffness={120}
-            motionDamping={9}
-            isInteractive={true}
-            hoverTarget="rowColumn"
-            cellHoverOpacity={1}
-            cellHoverOthersOpacity={0.5}
+            {...this.props.infographicDefinitions.heatMapConfig}
           />
-          <button style={zoomButtonCss} onClick={this.togglePanZoom }> { this.state.enablePanZoom ? 'Disable' : 'Enable' } Zoom</button>
+          <button className="heatmap-infographic-zoom-button" onClick={this.togglePanZoom }> { this.state.enablePanZoom ? 'Disable' : 'Enable' } Zoom</button>
           { !this.state.sparklineData ? null : 
-            <h3 style={center}> {this.props.yName}: {this.state.currentYkey}, {this.props.xName}: {this.state.currentXkey} </h3> 
+            <h3 className="interactive-infographic-center"> {this.props.infographicDefinitions.yName}: {this.state.currentYkey}, {this.props.infographicDefinitions.xName}: {this.state.currentXkey} </h3> 
           }
           { !this.state.sparklineData ? null : 
             <Resizable>
               <ChartContainer 
                 timeRange={this.state.timerange} 
-                width={800}
+                width={this.props.infographicDefinitions.chartConfig.width}
                 enablePanZoom={this.state.enablePanZoom}
                 onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
                 trackerPosition={this.state.tracker}
                 onTrackerChanged={tracker => this.setState({ tracker })}
                 minTime={this.state.minTime}
                 maxTime={this.state.maxTime}
-                showGrid={true}
+                showGrid={this.props.infographicDefinitions.chartConfig.showGrid}
               >
-                  <ChartRow height="200">
+                  <ChartRow height={this.props.infographicDefinitions.chartConfig.chartRowHeight}>
                       <YAxis 
                         id="axis1"
-                        label="Count"
-                        min={0}
                         max={this.state.sparklindDataMax}
-                        width={100}
-                        type="linear"
+                        {...this.props.infographicDefinitions.chartConfig.yAxis}
                       />
                       <Charts>
                           <LineChart 
                             axis="axis1"
                             series={this.state.sparklineData}
-                            style={style}
-                            interpolation="curveBasis"
+                            style={this.props.infographicDefinitions.chartConfig.lineStyle}
+                            interpolation={this.props.infographicDefinitions.chartConfig.interpolation}
                             highlight={this.state.highlight}
                             onHighlightChange={highlight => this.setState({ highlight })}
                             selection={this.state.selection}
