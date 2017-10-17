@@ -2,9 +2,9 @@
 
 import React from 'react'
 import cx from 'classnames'
-import ReactModal from 'react-modal'
 
 import NavContainer from '../containers/NavContainer'
+import Disclaimer from '../components/Disclaimer'
 
 const Link: ReactClass = require('react-router').Link
 
@@ -28,10 +28,10 @@ type tPROPS = {
   toggleDropdownContent: Function;
   hideDropdownContent: Function;
   showDropdownContent: Function;
-  handleOpenModal: Function;
   handleCloseModal: Function;
   activeDropdown: string;
   path: string;
+  validated: boolean;
 };
 
 
@@ -40,13 +40,13 @@ const Nav = (props: tPROPS) => {
     showMobileNav,
     showModal,
     toggleMobileNav,
+    toggleDropdownContent,
     hideDropdownContent,
     showDropdownContent,
-    toggleDropdownContent,
-    handleOpenModal,
     handleCloseModal,
     activeDropdown,
-    path
+    path,
+    validated
   } = props
 
   const navCx = cx({
@@ -56,19 +56,7 @@ const Nav = (props: tPROPS) => {
 
   return (
     <nav className='bg-white clr-gray flex-box dir-column'>
-      <ReactModal
-        isOpen={showModal}
-        className='modal-container'
-        overlayClassName='modal-overlay'
-        contentLabel="Disclaimer Modal"
-        shouldCloseOnOverlayClick={false}
-      >
-        <h4 className="modal-header">Disclaimer</h4>
-        <div className='modal-body'>
-          <span>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='underline' to='/terms/'> Terms of Service</Link></span>
-        </div>
-        <button className='button bg-primary clr-white' onClick={handleCloseModal}>ACCEPT</button>
-      </ReactModal>
+      <Disclaimer validated={validated} handleCloseModal={handleCloseModal} showModal={showModal} />
       <a
         href='#hero'
         className='visually-hidden'>
@@ -265,13 +253,6 @@ const Nav = (props: tPROPS) => {
                       to='/community/'>openFDA Apps</Link>
                   </div>
                 </div>
-              </div>
-              <div className='dropdown'>
-                <button
-                  title='Disclaimer'
-                  onClick={handleOpenModal}
-                  className={showMobileNav ? 'display-none': activeDropdown=='Home' ? 'menu-header emphasis': 'menu-header'}
-                >Disclaimer</button>
               </div>
             </div>
           </div>

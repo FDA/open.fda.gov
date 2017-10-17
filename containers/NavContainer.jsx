@@ -8,20 +8,23 @@ type tSTATE = {
   toggleDropdownContent: boolean;
   activeDropdown: string;
   path: string;
+  validated: boolean;
 };
 
 const NavContainer = function (ComposedNav: ReactClass): ReactClass {
   class HOC extends React.Component {
     state: tSTATE = {
       showMobileNav: false,
-      showModal: true,
+      showModal: false,
       activeDropdown: ' ',
-      path: ' '
+      path: ' ',
+      validated: false
     };
 
     componentDidMount () {
       this.setState({
-        path: window.location.pathname
+        path: window.location.pathname,
+        showModal: true
       })
     }
 
@@ -67,10 +70,13 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
       })
     }
 
-    _handleCloseModal () {
+    _handleCloseModal (hideModal) {
+      console.log("in nav",this.state.showModal)
       this.setState({
+        validated: true,
         showModal: false
       })
+      hideModal()
     }
 
     render (): React.Element {
