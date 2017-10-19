@@ -17,7 +17,7 @@ countDeadlyProducts:
 femaleChihuahuas:
   params:
   - search for all records of female chihuahuas.
-  - limit to thirty records/
+  - limit to thirty records.
   query: 'https://api.fda.gov/animalandveterinary/pet_food.json?search=gender:%22Female%22+AND+breed:%22Chihuahua%22&limit=30'
   description:
     - This query displays thirty records of female chihuahuas.
