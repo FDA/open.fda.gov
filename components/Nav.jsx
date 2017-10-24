@@ -56,7 +56,6 @@ const Nav = (props: tPROPS) => {
 
   return (
     <nav className='bg-white clr-gray flex-box dir-column'>
-      <Disclaimer validated={validated} handleCloseModal={handleCloseModal} showModal={showModal} />
       <a
         href='#hero'
         className='visually-hidden'>
@@ -169,7 +168,7 @@ const Nav = (props: tPROPS) => {
                   to='/'
                   className={showMobileNav ? 'display-none': activeDropdown=='Home' ? 'menu-header emphasis': path === '/' ? 'menu-header emphasis': 'menu-header'}
                 >Home</Link>
-                <div className={path === '/' ? 'menu-header-underbar': 'menu-header-underbar display-none'} style={{width: 'calc(100% - 1em)'}}/>
+                <div className={path === '/' ? 'menu-header-underbar': 'menu-header-underbar display-none'} style={{width: 'calc(100% - 2em)'}}/>
               </div>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span

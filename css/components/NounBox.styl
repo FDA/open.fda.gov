@@ -23,8 +23,16 @@
   flex-direction: column
   justify-content: center
   align-items: center
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1)
   border-radius: 6px
+  box-shadow: inset 0 0 0 1px #ccc
+
+.noun-card
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 9px
+  transition: all 0.2s linear
+
+.noun-card:hover
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px
+  transform: translateY(-4px)
 
 .noun-text-box
   height: 215px
@@ -36,6 +44,11 @@
 
 .noun-text-box > div
   padding: 20px
+
+.noun-text-box > span
+  line-height: 19px
+  font-size: 0.9rem
+  padding: 0 15px
 
 @media $bpMob
   .noun-text-box > h3

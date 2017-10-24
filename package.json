@@ -9,6 +9,7 @@
     "test": "flow check",
     "gatsby": "gatsby",
     "stylus": "gulp stylus",
+    "watch": "gulp watch",
     "serve": "gatsby develop -p 3000",
     "dev": "gulp stylus & gatsby develop -p 3000",
     "build": "gatsby build"

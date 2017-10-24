@@ -12,11 +12,11 @@ const EndpointStatus = ({ data, fullPath, }: tPROPS) => {
   var date = new Date(data.last_updated)
   return (
     <section className='flex-box just-between b-b-1 bg-gray-lightest m-hide marg-b-2 pad-b-2 pad-t-2 pad-l-4 pad-r-4'>
-      <div className='status-container'>
+      <div>
         <span className='weight-700'>Endpoint: </span>
         <span className='status-content'>{fullPath}</span>
       </div>
-      <div className='status-container'>
+      <div>
         <span className='weight-700'>Status: </span>
         {
           data.status === 'GREEN' ?
@@ -29,11 +29,11 @@ const EndpointStatus = ({ data, fullPath, }: tPROPS) => {
           </span>
         }
       </div>
-      <div className='status-container'>
+      <div>
         <span className='weight-700'>Last updated: </span>
         <span className='status-content'>{date.toDateString()}</span>
       </div>
-      <div className='status-container'>
+      <div>
         <span className='weight-700'>Total records: </span>
         <span className='status-content'>{data.documents}</span>
       </div>

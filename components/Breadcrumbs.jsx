@@ -125,7 +125,7 @@ const BreadCrumbs = (props: tPROPS) => {
 
               return (
                 <span key={i}>
-                  <i className="fa fa-angle-right clr-white"/>
+                  <span className="clr-white" style={{opacity: '50%'}}>/</span>
                   {
                     !isLast ?
                       <a
@@ -133,10 +133,10 @@ const BreadCrumbs = (props: tPROPS) => {
                         href={`${window.location.origin}/${safeUrl}/`}>
                         {safeCrumb}
                       </a>
-                      :
+                    :
                       <span className='clr-white marg-l-1'>
                       {crumb}
-                    </span>
+                      </span>
                   }
                 </span>
               )
@@ -150,7 +150,7 @@ const BreadCrumbs = (props: tPROPS) => {
             className='flex-box align-center just-center dir-row responsive-header' style={{zIndex:1}}>
             {
               Object.keys(cat_map).map((cat, i) => (
-                <div className="dropdown" key={i} onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
+                <div className="endpoint-dropdown" key={i} onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                   <span
                     title={cat}
                     className={'cat-menu-item ' + (activeDropdown == cat ? 'clr-white': path.includes(cat) ? 'clr-white ': 'clr-muted-white ')}

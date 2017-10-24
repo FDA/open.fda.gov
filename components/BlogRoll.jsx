@@ -95,12 +95,6 @@ const BlogRoll = (props: tPROPS) => {
                 {title}
               </Link>
             )
-            let More =
-              <Link
-                className='absolute bottom pad-b-2 weight-700 clr-primary'
-                to={post.path}>
-                READ MORE <i className="fa fa-angle-right"/>
-              </Link>
 
 
             // don't remove me
@@ -122,12 +116,12 @@ const BlogRoll = (props: tPROPS) => {
               <li
                 key={i}
                 className='marg-l-1 marg-r-1 marg-t-2 marg-b-2 blog-item'>
-                <div className='pad-3 relative full-height blog-text-item' style={{paddingTop: "30px"}}>
-                {Title}
-                <div className='clr-gray-light marg-b-1 t-marg-t-05'>{formattedDate}</div>
-                <p className="smallest txt-overflow-ellipsis">{excerpt}</p>
-                {More}
-                </div>
+                <Link className='pad-3 relative full-height blog-text-item' style={{paddingTop: "30px"}}to={post.path}>
+                  <h2 className='blog-header clr-primary-darker'>{title}</h2>
+                  <div className='clr-gray-light marg-b-1 t-marg-t-05'>{formattedDate}</div>
+                  <p className="smallest txt-overflow-ellipsis">{excerpt}</p>
+                  <span className="absolute bottom pad-b-2 weight-700 clr-primary">READ MORE <i className="fa fa-angle-right"/></span>
+                </Link>
               </li>
             )
           })

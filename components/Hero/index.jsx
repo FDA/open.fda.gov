@@ -41,7 +41,7 @@ const Hero = (props: tPROPS) => {
 
   const bg_image_color = {
     food: {background: 'linear-gradient(to bottom right, rgba(81, 161, 22, 1), rgba(143, 209, 100, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
-    device: {background: 'linear-gradient(to bottom right, rgba(243, 117, 73, 1), rgba(255, 198, 59, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
+    device: {background: 'linear-gradient(to right bottom, rgb(232, 92, 44), rgb(236, 169, 6))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
     drug: {background: 'linear-gradient(to bottom right, rgba(153, 88, 163, 1), rgba(220, 141, 188, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
     animal_and_veterinary: {background: 'linear-gradient(to bottom right, rgba(249, 157, 28, 1), rgba(252, 215, 112, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
     other: {backgroundColor: '#5b616b'}
@@ -70,35 +70,24 @@ const Hero = (props: tPROPS) => {
         className={heroCx}
         style={bg_image_color[cat_name]}>
         <BreadCrumbs />
-        <div className='container flex-row dir-column pad-t-2 pad-b-2'>
+        <div className='hero-text-box container flex-row dir-column pad-t-2 pad-b-2'>
           <h2
             tabIndex={label ? -1 : 0}
             className='clr-white weight-700 header-width'>
             {title}
           </h2>
-          <div style={{borderTop: '4px solid rgba(255, 255, 255, 0.3)', margin: '20px 0px', bottom: '0', height: '1px', width: '80px'}}/>
+          <div className="hero-divider-line"/>
           {
             desc && htmlDescription &&
             <p
               tabIndex={0}
-              className='clr-white font-size-4 header-width'
-              style={{
-                lineHeight: '25px',
-                marginBottom: '0px'
-              }} dangerouslySetInnerHTML={{__html: desc}}>
+              className='subtitle clr-white font-size-4 header-width'
+              dangerouslySetInnerHTML={{__html: desc}}>
             </p>
           }
           {
             desc && !htmlDescription &&
-            <p
-                tabIndex={0}
-                className='clr-white font-size-4 header-width'
-                style={{
-                lineHeight: '25px',
-                marginBottom: '0px'
-              }}>
-              {desc}
-            </p>
+            <p tabIndex={0} className='subtitle clr-white font-size-4 header-width'>{desc}</p>
           }
         </div>
         <img src={bg_image[cat_name]} style={{height: '240px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '120%', bottom: '-25px'}}/>
