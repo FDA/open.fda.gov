@@ -45,12 +45,12 @@ const BlogRoll = (props: tPROPS) => {
   let tally: number = 0 | 0
 
   return (
-    <section className='blog-bg pad-l-2 pad-r-2'>
+    <section className='blog-bg'>
       <h2 className="center-heading" style={{margin: '30px 30px 10px'}}><span>Latest News & Updates</span></h2>
       <ul
         aria-label='openFDA updates'
         tabIndex={0}
-        className={'blog-container ' + (small === true ?  'overflow-hidden small-blog-container' : '')}>
+        className={'container blog-container ' + (small === true ?  'overflow-hidden small-blog-container' : '')}>
         {
           sortedPosts.map((post: Object, i: number) => {
             // only render markdown files
