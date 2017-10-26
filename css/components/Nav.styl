@@ -50,6 +50,7 @@
 .dropdown
   position: relative
   display: inline-block
+  z-index: 200
 
 .dropdown-content
   position: absolute
@@ -66,11 +67,16 @@
   justify-content: flex-end
   flex: auto
 
+.menu-container
+  > div
+    margin-right: 20px
+
+
 .menu-header
   display: block
   position: relative
   margin-bottom: 0
-  padding: 1.5em 0.5em
+  padding: 1.5em 1.0em
   color: #666666
   line-height: 2em
 
@@ -79,10 +85,10 @@
 
 .menu-header-underbar
   border-top: 4px solid #00AAFF
-  margin: -25px 0px 21px 0.5em
+  margin: -25px 0px 21px 1em
   bottom: 0
   height: 1px
-  width: calc(100% - 39px)
+  width: calc(100% - 55px)
 
 .fa-angle-down
   padding-left: 0.5em

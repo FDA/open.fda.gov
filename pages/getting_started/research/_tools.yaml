@@ -20,7 +20,7 @@
     - 'This app uses the proportional reporting ratio (PRR) to show how much more commonly associated a particular reaction is with a particular drug, over time, compared with other drugs.'
 - url: 'https://openfda.shinyapps.io/ChangePoint/'
   noun: Drugs
-  title: 'Change point analysis for adverse event reports'
+  title: 'Change point analysis for adverse event'
   description:
     - 'This app shows changes over time in the average number of reports for particular drug and adverse reaction combinations. It can guide inquiry into increased or decreased adverse event reports, of particular reactions, or of particular drugs being reported.'
 - url: 'https://openfda.shinyapps.io/reportview/'

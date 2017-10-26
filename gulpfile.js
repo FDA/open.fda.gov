@@ -52,5 +52,5 @@ gulp.task('uncss', function () {
     .pipe(gulp.dest('./css/build'))
 })
 
-gulp.task('watch', () => gulp.watch('./css/**/*.styl', ['stylus']))
+gulp.task('watch', ['stylus'], () => gulp.watch('./css/**/*.styl', ['stylus']))
 gulp.task('default', ['stylus', 'watch'])

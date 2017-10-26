@@ -8,6 +8,7 @@
   background-position: 0 40%
   background-repeat: no-repeat
   overflow: hidden
+  text-shadow: 0 4px 6px rgba(0,0,0,0.5)
 
 .homepage-hero:before
   position: absolute
@@ -19,6 +20,7 @@
   display: block
   z-index:0
   background-color: rgba(0, 124, 186, 0.7)
+  box-shadow: inset 0 10px 10px rgba(0,0,0,0.2)
 
 .homepage-hero > div
   display: flex
@@ -29,9 +31,22 @@
   width: 30%
   z-index: 1
 
+.homepage-hero .btn
+  text-shadow: none
+  box-shadow: 0 4px 7px rgba(0,0,0,0.3)
+  text-transform: uppercase
+
+.divider-line
+  width: 100px
+  height: 2px
+  background: white
+  opacity: .5
+  margin: 20px auto
+  box-shadow: 0 4px 7px rgba(0,0,0,0.9)
+
 .half-hero
   width: 50%
-  min-height: 250px
+  min-height: 350px
   background-size: cover
   background-position: 0 100%
   background-repeat: no-repeat
@@ -46,11 +61,13 @@
   background-color: #00B1CB
   color: white
   margin-right: 2px
+  background-position: 0 8px
 
 .down-arrows-container
   background-image: url('/img/down-arrows.svg')
   background-color: #DEF1F5
   margin-left: 2px
+  background-position: 0px 45px
 
 .blue-code-container
   background-image: url('/img/blue-code.jpg')
@@ -59,13 +76,13 @@
   background-color: #0C58B6
   background-repeat: no-repeat
   color: white
-  height: 200px
+  height: 270px
   justify-content: flex-end
   margin-top: 4px
   overflow: hidden
 
 .blue-code-container > div
-  margin: 40px
+  margin: 60px
 
 .center-heading
   max-width: 100%

@@ -49,7 +49,7 @@ const EndpointBox = (props: tPROPS) => {
   const ep_title = {
     'food': {
       'enforcement': 'Recall enforcement reports',
-      'event': 'Food, dietary supplement, and cosmetic adverse event reports'
+      'event': 'CAERS reports'
     },
     'device': {
       'event': 'Adverse event reports',

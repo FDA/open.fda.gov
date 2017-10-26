@@ -64,20 +64,20 @@ const NounBox = (props: tPROPS) => {
 
   return (
     <section
-      id='endpoint_box' className="noun-box marg-2">
-      <div className="bg-img-container" style={bg_image_color[noun_name]}>
-        <img src={bg_image[noun_name]}/>
-      </div>
-      <div className="absolute" style={{paddingBottom:"50px"}}>
-        {icon[noun_name]}
-      </div>
-      <div className='flex-row dir-column m-pad-t-2 m-pad-b-2 noun-text-box no-flex-wrap'>
-        <h3 className="txt-c clr-primary-darker pad-t-4">{noun_title[noun_name]}</h3>
-        <span className="marg-1">{description[noun_name]}</span>
-        <Link className="btn clr-primary weight-700" to={noun_path[noun_name]}>
-          LEARN MORE<i className="fa fa-angle-right marg-l-1"/>
-        </Link>
-      </div>
+      id='endpoint_box' className="noun-card marg-2">
+      <Link className="noun-box" to={noun_path[noun_name]}>
+        <div className="bg-img-container" style={bg_image_color[noun_name]}>
+          <img src={bg_image[noun_name]}/>
+        </div>
+        <div className="absolute" style={{paddingBottom:"50px"}}>
+          {icon[noun_name]}
+        </div>
+        <div className='flex-row dir-column m-pad-t-2 m-pad-b-2 noun-text-box no-flex-wrap'>
+          <h3 className="txt-c clr-primary-darker pad-t-4">{noun_title[noun_name]}</h3>
+          <span className="clr-black marg-1">{description[noun_name]}</span>
+          <span className="btn clr-primary weight-700">LEARN MORE<i className="fa fa-angle-right marg-l-1"/></span>
+        </div>
+      </Link>
     </section>
   )
 }
