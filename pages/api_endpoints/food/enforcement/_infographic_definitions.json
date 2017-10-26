@@ -1,20 +1,55 @@
 {
   "selectedState": "VA",
   "countBy": "state.exact",
-  "title": "Food enforcement recalls change Year Over Year (YOY)",
+  "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Food Enforcement Recalls</i>: Year Over Year (YOY) Change % by State</p>",
   "type": "DataMap",
+  "ipURL": "https:\/\/freegeoip.net/json/?callback=",
+  "slider": {
+    "style": {
+      "float": "left",
+      "height": "350px"
+    },
+    "handleStyle": {
+      "borderColor": "black"
+    },
+    "trackStyle": {
+      "backgroundColor": "#8C8C8C",
+      "width": 5
+    },
+    "dotStyle": {
+      "backgroundColor": "white",
+      "borderColor": "black"
+    }
+  },
   "dateField": "report_date",
   "startYear": 2012,
   "dataMapConfig": {
-    "geographyConfig": {
-      "highlightBorderColor": "#bada55",
+    "geographyConfigInfo": {
+      "highlightBorderColor": "#FFFFFF",
+      "highlightFillColor": "rgb(44,205,255)",
       "popupTemplate": "<div class='hoverinfo'>${this.geography.properties.name}\nYOY change %: ${this.this.state.currentValue} => ${this.data.numberOfThings}%",
       "highlightBorderWidth": 3
     },
-    "defaultFill": "#F5F5F5",
+    "fills": {
+      "defaultFill": "#FFFFFF"
+    },
     "height": 400,
     "width": 800,
-    "scope": "usa"
+    "scope": "usa",
+    "bubblesConfig": {
+      "borderWidth": 3,
+      "borderOpacity": 1,
+      "borderColor": "#080808",
+      "popupOnHover": false,
+      "fillOpacity": 1,
+      "animate": false,
+      "highlightOnHover": true,
+      "highlightFillColor": "#FFFFFF",
+      "exitDelay": 100
+    },
+    "updateChoroplethOptions":{
+      "reset": true
+    }
   },
   "gridConfig": {
     "rowScrollTimeout": 0,
@@ -55,6 +90,59 @@
         "width":100,
         "sortable": true
       }
-    ]
+    ],
+    "defaultData": [{"reason_for_recall": "No Data Found"},{},{},{},{},{}]
+  },
+  "states": {
+    "MT": "Montana", 
+    "CT": "Connecticut", 
+    "TX": "Texas", 
+    "VT": "Vermont", 
+    "FL": "Florida", 
+    "NV": "Nevada", 
+    "SD": "South Dakota", 
+    "UT": "Utah", 
+    "SC": "South Carolina", 
+    "WV": "West Virginia", 
+    "WY": "Wyoming", 
+    "IA": "Iowa", 
+    "NY": "New York", 
+    "WA": "Washington", 
+    "ND": "North Dakota", 
+    "NE": "Nebraska", 
+    "NC": "North Carolina", 
+    "WI": "Wisconsin", 
+    "HI": "Hawaii", 
+    "NM": "New Mexico", 
+    "NJ": "New Jersey", 
+    "LA": "Louisiana", 
+    "NH": "New Hampshire", 
+    "AZ": "Arizona", 
+    "DE": "Delaware", 
+    "AR": "Arkansas", 
+    "AK": "Alaska", 
+    "CA": "California", 
+    "AL": "Alabama", 
+    "CO": "Colorado", 
+    "MN": "Minnesota", 
+    "ME": "Maine", 
+    "GA": "Georgia", 
+    "RI": "Rhode Island", 
+    "PA": "Pennsylvania", 
+    "OR": "Oregon", 
+    "MS": "Mississippi", 
+    "VA": "Virginia", 
+    "MO": "Missouri", 
+    "OH": "Ohio", 
+    "OK": "Oklahoma", 
+    "KY": "Kentucky", 
+    "MA": "Massachusetts", 
+    "MI": "Michigan", 
+    "ID": "Idaho", 
+    "TN": "Tennessee", 
+    "MD": "Maryland", 
+    "IN": "Indiana", 
+    "KS": "Kansas", 
+    "IL": "Illinois"
   }
 }

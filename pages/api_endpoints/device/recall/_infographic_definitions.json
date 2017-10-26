@@ -1,0 +1,30 @@
+{
+  "title": "Drugs Labels by Type and Categories of Administering Routes Year Over Year (YOY)",
+  "yName": "Query",
+  "xName": "Route",
+  "countBy": "openfda.device_class",
+  "type": "PieChart",
+  "startYear": 2003,
+  "dateField": "event_date_terminated",
+  "subfield": "product_code",
+  "classification_api": "/device/classification",
+  "pieChartConfig":{},
+  "lineChartConfig": {
+    "width": 200,
+    "showGrid": true,
+    "chartRowHeight": 200,
+    "yAxis": {
+        "label": "Count",
+        "min": 0,
+        "width": 50,
+        "type": "linear"
+    },
+    "interpolation": "curveBasis",
+    "lineStyle": {
+        "value": {
+            "stroke": "#a02c2c",
+            "opacity": 0.2
+        }
+    }
+  }
+}

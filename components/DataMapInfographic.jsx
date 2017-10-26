@@ -17,6 +17,8 @@ import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
 import Datamap from 'react-datamaps';
 import ReactDataGrid from 'react-data-grid';
+import Parser from 'html-react-parser';
+
 
 window.$ = $;
 
@@ -57,7 +59,6 @@ class DataMapInfographic extends React.Component {
     }, this)    
 
     this.state = {
-      title: this.props.infographicDefinitions.title,
       api: this.props.api,
       API_LINK: API_LINK,
       dateField: this.props.infographicDefinitions.dateField,
@@ -71,10 +72,15 @@ class DataMapInfographic extends React.Component {
       step: 1,
       slider_marks: slider_marks,
       years: years,
-      selectedState: this.props.infographicDefinitions.selectedState,
+      selectedState: null,
       dataGridProperties: dataGridProperties,
       _rows: [],
       original_rows: [],
+      bubbles: [{
+        radius: 5,
+        centered: this.props.infographicDefinitions.selectedState,
+        fillColor: "#080808"
+      }]
     };
 
 
@@ -98,7 +104,11 @@ class DataMapInfographic extends React.Component {
         data: this._get_dataset(this.state.defaultValue),
         timeseries: res.timeseries
       })
-      this.mapOnClick()
+      // use ajax request to get IP address and state
+      const p2 = Promise.resolve(this.fetchJSON(this.props.infographicDefinitions.ipURL)).then( (res) => {
+        this.setState({selectedState: res.region_code})
+        this.mapOnClick()
+      });
     })
   }
 
@@ -293,7 +303,7 @@ class DataMapInfographic extends React.Component {
 
     var paletteScaleGreen = d3.scale.linear()
             .domain([0, 200])
-            .range(["#DA6A6A","#D72020"]);
+            .range(["#DA6A6A","#D72020"])
 
 
     var f = function(val){
@@ -323,6 +333,11 @@ class DataMapInfographic extends React.Component {
     if(_id === undefined){
       _id = this.state.selectedState
     }
+    const bubbles = that.state.bubbles
+    bubbles[0].centered = _id
+    that.setState({
+      bubbles: bubbles
+    })
     if(currentValue === undefined){
       currentValue = this.state.currentValue  
     }
@@ -337,14 +352,12 @@ class DataMapInfographic extends React.Component {
     filesPromise = Promise.all(urls.map(this.fetchJSON))
       .catch(function(results){})
       .then(function(results) {
-        var result = results === undefined ? [] : results[0].results;
+        var result = results === undefined ? that.props.infographicDefinitions.gridConfig.defaultData : results[0].results;
         that.setState({
           _rows : result,
           original_rows: result,
           selectedState: _id
         })
-
-        // $('.react-grid-Cell').css("overflow", "auto")
       })
 
   }
@@ -368,7 +381,6 @@ class DataMapInfographic extends React.Component {
   }
 
   onGridRowsUpdated(e) {
-    console.log(e)
   }
 
   render (): ?React.Element {
@@ -389,57 +401,58 @@ class DataMapInfographic extends React.Component {
     };
 
     return (
-        <section classNameName='float-r infographic-container'>
+        <section className='float-r infographic-container'>
           <div>
-            <h3 className="datamap-infographic-header-title">{this.state.title}</h3>
-            <div className="datamap-infographic-header">
-              <p className="datamap-infographic-header-params" >
-                State - <i className="datamap-infographic-header-text-bold">{this.state.selectedState}</i>, Year - <i className="datamap-infographic-header-text-bold">{this.state.currentValue}</i>
-              </p>
+            {Parser(this.props.infographicDefinitions.title)}
+            <hr className="datamap-hr"/>
+            <div style={{paddingLeft:"25px", paddingTop: "25px"}}>
               <Slider 
-                min={this.state.min} 
-                max={this.state.max} 
-                defaultValue={this.state.defaultValue}
-                marks={this.state.slider_marks}
-                handle={handle} 
-                onAfterChange={this.changeValue}
-                step={this.state.step}
+                  min={this.state.min} 
+                  max={this.state.max}
+                  defaultValue={this.state.defaultValue}
+                  marks={this.state.slider_marks}
+                  onAfterChange={this.changeValue}
+                  step={this.state.step}
+                  handle={handle}
+                  vertical={true}
+                  {...this.props.infographicDefinitions.slider}
+                />
+            </div>
+            <div className="datamap-infographic">
+              <Datamap
+                scope={this.props.infographicDefinitions.dataMapConfig.scope}
+                onClick={this.mapOnClick}
+                geographyConfig={{
+                  highlightBorderColor: this.props.infographicDefinitions.dataMapConfig.geographyConfigInfo.highlightBorderColor,
+                  popupTemplate: (geography, data) =>  {
+                    let properties = {
+                      this : this,
+                      geography : geography,
+                      data: data
+                    }
+                    return new Function('return `' + this.props.infographicDefinitions.dataMapConfig.geographyConfigInfo.popupTemplate + '`;').call(properties)
+                  },
+                  highlightBorderWidth: this.props.infographicDefinitions.dataMapConfig.geographyConfigInfo.highlightBorderWidth,
+                  highlightFillColor: this.props.infographicDefinitions.dataMapConfig.geographyConfigInfo.highlightFillColor
+                }}
+                bubbles={this.state.bubbles}
+                data={this.state.data}
+                {...this.props.infographicDefinitions.dataMapConfig}
               />
             </div>
-            <Datamap
-              className="datamap-infographic-datamap"
-              scope={this.props.infographicDefinitions.dataMapConfig.scope}
-              onClick={this.mapOnClick}
-              geographyConfig={{
-                highlightBorderColor: this.props.infographicDefinitions.dataMapConfig.geographyConfig.highlightBorderColor,
-                popupTemplate: (geography, data) =>  {
-                  let properties = {
-                    this : this,
-                    geography : geography,
-                    data: data
-                  }
-                  return new Function('return `' + this.props.infographicDefinitions.dataMapConfig.geographyConfig.popupTemplate + '`;').call(properties)
-                },
-                highlightBorderWidth: this.props.infographicDefinitions.dataMapConfig.geographyConfig.highlightBorderWidth,
-              }}
-              data={this.state.data}
-              fills={this.props.infographicDefinitions.dataMapConfig.defaultFill}
-              width={this.props.infographicDefinitions.dataMapConfig.width}
-              height={this.props.infographicDefinitions.dataMapConfig.height}
-            />
-            { this.state._rows.length ? 
-                <div className="datamap-infographic-grid">
-                  <ReactDataGrid
-                    columns={this.state.dataGridProperties}
-                    rowGetter={this.rowGetter}
-                    rowsCount={this.state._rows.length}
-                    onGridSort={this.handleGridSort}
-                    onFilter={this.onGridRowsUpdated}
-                    {...this.props.infographicDefinitions.gridConfig}
-                  />
-                </div>
-              : <i className="datamap-infographic-empty-data"> No Data Found </i>
-            }
+            <p className='datamap-infographic-header-params'> 
+              Recalls for <i className='datamap-infographic-header-text-bold'>{this.props.infographicDefinitions.states[this.state.selectedState]}</i> in <i className='datamap-infographic-header-text-bold'>{this.state.currentValue}</i>
+            </p>
+            <div>
+              <ReactDataGrid
+                columns={this.state.dataGridProperties}
+                rowGetter={this.rowGetter}
+                rowsCount={this.state._rows.length}
+                onGridSort={this.handleGridSort}
+                onFilter={this.onGridRowsUpdated}
+                {...this.props.infographicDefinitions.gridConfig}
+              />
+            </div>
           </div>
         </section>
     )
