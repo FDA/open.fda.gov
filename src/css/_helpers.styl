@@ -1,0 +1,302 @@
+.sans
+  font-family: $sans
+
+.serif
+  font-family: $serif
+
+.mono
+  font-family: $mono
+
+.small-caps
+  font-variant: small-caps
+
+.no-b
+  border: 0 !important
+
+.b-1
+  border: 1px solid $clrGrayLighter
+
+.b-t-1
+  border-top: 1px solid $clrGrayLighter
+
+.b-r-1
+  border-right: 1px solid $clrGrayLighter
+
+.b-b-1
+  border-bottom: 1px solid $clrGrayLighter
+
+.b-l-1
+  border-left: 1px solid $clrGrayLighter
+
+.b-t-light-1
+  border-top: 1px solid $clrGrayLighter2
+
+.b-r-light-1
+  border-right: 1px solid $clrGrayLighter2
+
+.b-b-light-1
+  border-bottom: 1px solid $clrGrayLighter2
+
+.b-l-light-1
+  border-left: 1px solid $clrGrayLighter2
+
+.b-2
+  border: 2px solid $clrGrayLighter
+
+.b-t-2
+  border-top: 2px solid $clrGrayLighter
+
+.b-r-2
+  border-right: 2px solid $clrGrayLighter
+
+.b-b-2
+  border-bottom: 2px solid $clrGrayLighter
+
+.b-l-2
+  border-left: 2px solid $clrGrayLighter
+
+.b-t-light-2
+  border-top: 2px solid $clrGrayLighter2
+
+.b-r-light-2
+  border-right: 2px solid $clrGrayLighter2
+
+.b-b-light-2
+  border-bottom: 2px solid $clrGrayLighter2
+
+.b-l-light-1
+  border-left: 2px solid $clrGrayLighter2
+
+.center
+  display: block
+  margin-left: auto
+  margin-right: auto
+
+.cursor-pointer
+  cursor: pointer
+
+.no-marg
+  margin: 0 !important
+
+.txt-l
+  text-align: left
+
+.txt-c
+  text-align: center
+
+.txt-r
+  text-align: right
+
+.txt-overflow-ellipsis
+  text-overflow: ellipsis
+
+.italic
+  font-style: italic !important
+
+.float-l
+  float: left
+
+.float-r
+  float: right
+
+.smallest
+  {$smallest}
+
+.underline
+  text-decoration: underline
+
+.no-underline
+  text-decoration: none
+
+.tab
+  border-bottom-left-radius: 0
+  border-bottom-right-radius: 0
+
+/**
+ * @desc color helperz
+ * @returns color classes for every color in the hash
+ */
+for $key, $value in $uswds-colors
+  .bg-{$key}
+    background-color $value
+
+  .hvr-bg-{$key}
+    &.active,
+    &:hover,
+    &:active
+      background-color $value
+
+  .clr-{$key}
+    color $value
+
+  .hvr-clr-{$key}
+    &.active,
+    &:hover,
+    &:active
+      color $value
+
+.row,
+.block
+  display: block
+
+.inline-block
+  display: inline-block
+
+.absolute
+  position: absolute
+
+.fixed
+  position: fixed
+
+.relative
+  position: relative
+
+.top
+  top: 0
+
+.right
+  right: 0
+
+.bottom
+  bottom: 0
+
+.left
+  left: 0
+
+.overflow
+  overflow: hidden
+
+.weight-300
+  font-weight: 300
+
+.weight-400
+  font-weight: 400
+
+.weight-600
+  font-weight: 600
+
+.weight-700
+  font-weight: 700
+
+.overflow-hidden
+  overflow: hidden
+
+.overflow-scroll
+  overflow-y: scroll
+
+// Webkit hack to always show scrollbar
+.always-show-scroll::-webkit-scrollbar
+  appearance: none
+  width: 7px
+
+// style-ize it
+.always-show-scroll::-webkit-scrollbar-track
+  background-color: transparent
+
+// style-ize it
+.always-show-scroll::-webkit-scrollbar-thumb
+  background-color: $clrPrimaryDarker
+
+/**
+ * Hide element visually, but leave it available for screenreaders
+ * anything that gets toggled but needs to be accessible
+ * is a good candidate for this instead of display none
+ * $see http://open.blogs.nytimes.com/2014/06/24/improving-article-accessibility/
+ */
+.visually-hidden
+  background: $clrWhite
+  border: 0
+  clip: rect(0 0 0 0)
+  color: $clrPrimaryDarker
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+  &:focus
+    border: 1px solid
+    clip: auto
+    display: block
+    height: auto
+    margin: 0
+    overflow: visible
+    padding: 10px
+    position: static
+    width: auto
+
+.select-wrap
+  position: relative
+  &:after
+    absolute: top 12px right 10px
+    background: url('/img/arrow-down.png') no-repeat
+    background-size: auto 15px
+    content: ''
+    cursor: pointer
+    display: block
+    height: 15px
+    pointer-events: none
+    position: absolute
+    // right: 10px
+    // top: 12px
+    width: 15px
+    z-index: 2
+
+// https://standards.usa.gov/sidenav/
+// with modifications
+.menu-item
+  color: $clrBase
+  border-radius: 0
+  font-size: $pSize
+  padding: 10px 10px 10px 0px
+  text-align: left
+
+  &.depth-2,
+  &.depth-3
+    font-size: $smallSize
+
+  &.depth-2
+    padding-left: 20px
+
+  &.depth-3
+    padding-left: 30px
+
+  &.active
+    color: $clrPrimary
+    border-left: 4px solid $clrPrimary
+    font-weight: bolder
+    padding-left: 15px
+
+  &:hover
+    background-color: $clrGrayLightest
+
+// normally we use the LinkExternal component for this
+// but when parsing arbitrary markdown (ie, the content yamls)
+// it's easier (and safer) to just do a string replace to add
+// this class dynamically
+.link-external
+  &:after
+    background-image: url('/img/i_external.png')
+    content: ''
+    display: inline-block
+    size: 10px
+    margin: 2px 5px
+
+.line-clamp
+  -webkit-box-orient: vertical
+  -webkit-line-clamp: 3
+  display: -webkit-box
+  max-height: 80px
+
+.responsive-header
+  font-size: 1em
+  font-weight: 300px
+
+@media $bpMob
+  .responsive-header
+    font-size: 4.5vw
+    font-weight: bold
+
+@media $bpTabRange
+  .responsive-header
+    font-size: 22px

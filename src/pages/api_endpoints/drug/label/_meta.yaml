@@ -1,0 +1,13 @@
+documentTitle: openFDA › Drugs › Labeling API
+name: Drug Labeling
+description: ""
+datasets:
+  - SPL
+label: Drug labeling
+title: Drug Labeling
+path: /api_endpoints/drug/label
+api_path: /drug/label
+start: 20090601
+status: druglabel
+dateConstraintKey: effective_time
+type: endpoint

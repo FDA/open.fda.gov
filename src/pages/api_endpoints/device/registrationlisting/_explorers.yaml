@@ -1,0 +1,26 @@
+oneReport:
+  title: One device registration and listing
+  description:
+    - This query searches for all records with a particular `products.product_code`.
+  params:
+    - search for all records with `products.product_code` equal to `HQY`.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/device/registrationlisting.json?search=products.product_code:HQY&limit=1'
+regulationNumber:
+  title: One registrations and listings for 886.5850 regulation number
+  description:
+    - This query searches for records matching a certain search term, and asks for a single one.
+    - See the [reference](/device/registrationlisting/reference/) for more fields you can use to narrow searches for device registrations and listings.
+  params:
+  - search for all records with `products.openfda.regulation_number` equals `886.5850`
+  - limit to 1 record.
+  query: 'https://api.fda.gov/device/registrationlisting.json?search=products.openfda.regulation_number:886.5850&limit=1'
+topClasses:
+  title: Count of top device classes for device registrations and listings.
+  description:
+    - This query is similar to the prior one, but returns a count of the most device classes.
+    - See the [reference](/device/registrationlisting/reference/) for more fields you can use to count and understand the nature of device adverse event reports.
+  params:
+  - search for all records.
+  - count the field `products.openfda.device_class`
+  query: 'https://api.fda.gov/device/registrationlisting.json?count=products.openfda.device_class'

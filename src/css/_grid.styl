@@ -1,0 +1,808 @@
+.col
+  // all this extra stuff for ie
+  display: inline-block
+  -ms-flex: 1 0 0
+  flex: auto
+  float: left
+  min-width: 0
+
+.header-width
+  max-width: $gridHeader
+
+.reading-width
+  max-width: $gridReading
+
+.grow-none
+  flex-grow: 0
+
+.self-auto
+  align-self: auto
+
+.self-start
+  align-self: flex-start
+
+.self-end
+  align-self: flex-end
+
+.self-center
+  align-self: center
+
+.self-baseline
+  align-self: baseline
+
+.self-stretch
+  align-self: stretch
+
+.col:last-child
+  margin-right: 0
+
+.row,
+.flex-row
+  width: 100%
+
+// gotta support old IE
+.clearfix
+  *zoom: 1
+
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.flex-row:before,
+.row:after,
+.flex-row:after
+  content: ''
+  display: table
+
+.clearfix:after,
+.row:after,
+.flex-row:after
+  clear: both
+
+.container
+  display: block
+  margin-left: auto
+  margin-right: auto
+  // fallback for ie
+  width: 85%
+
+.flex-box,
+.flex-row
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
+
+.flex-row.dir-column,
+.flex-box.dir-column
+  flex-direction: column
+
+.dir-row
+  flex-direction: row
+
+.dir-column-reverse
+  flex-direction: column-reverse
+
+.dir-row-reverse
+  flex-direction: row-reverse
+
+.align-start
+  align-items: flex-start
+
+.align-end
+  align-items: flex-end
+
+.align-baseline
+  align-items: baseline
+
+.align-center
+  align-items: center
+
+.align-stretch
+  align-items: stretch
+
+.align-content-start
+  align-content: flex-start
+
+.align-content-end
+  align-content: flex-end
+
+.align-content-baseline
+  align-content: baseline
+
+.align-content-center
+  align-content: center
+
+.align-content-stretch
+  align-content: stretch
+
+.just-start
+  justify-content: flex-start
+
+.just-end
+  justify-content: flex-end
+
+.just-center
+  justify-content: center
+
+.just-between
+  justify-content: space-between
+
+.just-around
+  justify-content: space-around
+
+.just-evenly
+  justify-content: space-evenly
+
+.flex-row.no-flex-wrap,
+.flex-box.no-flex-wrap
+  flex-wrap: nowrap
+
+.flex-box.flex-wrap,
+.flex-row.flex-wrap
+  flex-wrap: wrap
+
+.wrap-reverse
+  flex-wrap: wrap-reverse
+
+.full-height
+  height: 100%
+
+.ord-1
+  order: 1
+
+.ord-2
+  order: 2
+
+.ord-3
+  order: 3
+
+.ord-4
+  order: 4
+
+.ord-5
+  order: 5
+
+.ord-6
+  order: 6
+
+.hide
+  display: none
+
+.show
+  display: block
+
+.remove
+  display: none !important
+
+.reveal
+  display: block !important
+
+.marg-1
+  margin: 10px
+
+.pad-1
+  padding: 10px
+
+.marg-t-1
+  margin-top: 10px
+
+.pad-t-1
+  padding-top: 10px
+
+.marg-r-1
+  margin-right: 10px
+
+.pad-r-1
+  padding-right: 10px
+
+.marg-b-1
+  margin-bottom: 10px
+
+.pad-b-1
+  padding-bottom: 10px
+
+.marg-l-1
+  margin-left: 10px
+
+.pad-l-1
+  padding-left: 10px
+
+.marg-2
+  margin: 20px
+
+.pad-2
+  padding: 20px
+
+.marg-t-2
+  margin-top: 20px
+
+.pad-t-2
+  padding-top: 20px
+
+.marg-r-2
+  margin-right: 20px
+
+.pad-r-2
+  padding-right: 20px
+
+.marg-b-2
+  margin-bottom: 20px
+
+.pad-b-2
+  padding-bottom: 20px
+
+.marg-l-2
+  margin-left: 20px
+
+.pad-l-2
+  padding-left: 20px
+
+.marg-3
+  margin: 40px
+
+.pad-3
+  padding: 40px
+
+.marg-t-3
+  margin-top: 40px
+
+.pad-t-3
+  padding-top: 40px
+
+.marg-r-3
+  margin-right: 40px
+
+.pad-r-3
+  padding-right: 40px
+
+.marg-b-3
+  margin-bottom: 40px
+
+.pad-b-3
+  padding-bottom: 40px
+
+.marg-l-3
+  margin-left: 40px
+
+.pad-l-3
+  padding-left: 40px
+
+.marg-4
+  margin: 60px
+
+.pad-4
+  padding: 60px
+
+.marg-t-4
+  margin-top: 60px
+
+.pad-t-4
+  padding-top: 60px
+
+.marg-r-4
+  margin-right: 60px
+
+.pad-r-4
+  padding-right: 60px
+
+.marg-b-4
+  margin-bottom: 60px
+
+.pad-b-4
+  padding-bottom: 60px
+
+.marg-l-4
+  margin-left: 60px
+
+.pad-l-4
+  padding-left: 60px
+
+@media $bpTab
+  .col
+    float: left
+    margin-right: 1%
+
+  .container
+    max-width: $gridMaxWidth
+    // fallback for ie
+    width: 95%
+
+  .flex-box,
+  .flex-row
+    flex-direction: row
+    flex-wrap: nowrap
+
+  .t-omega
+    margin-right: 0 !important
+
+  .t-1
+    width: 15%
+
+  .t-ord-1
+    order: 1
+
+  .t-2
+    width: 32%
+
+  .t-ord-2
+    order: 2
+
+  .t-3
+    width: 49%
+
+  .t-ord-3
+    order: 3
+
+  .t-4
+    width: 66%
+
+  .t-ord-4
+    order: 4
+
+  .t-5
+    width: 83.00000000000001%
+
+  .t-ord-5
+    order: 5
+
+  .t-6
+    width: 100%
+    margin-right: 0
+
+  .t-ord-6
+    order: 6
+
+  .t-hide
+    display: none
+
+  .t-show
+    display: block
+
+  .t-marg-t-05
+    margin-top: 5px
+
+  .t-pad-t-05
+    padding-top: 5px
+
+  .t-marg-r-05
+    margin-right: 5px
+
+  .t-pad-r-05
+    padding-right: 5px
+
+  .t-marg-b-05
+    margin-bottom: 5px
+
+  .t-pad-b-05
+    padding-bottom: 5px
+
+  .t-marg-l-05
+    margin-left: 5px
+
+  .t-pad-l-05
+    padding-left: 5px
+
+  .t-marg-t-1
+    margin-top: 10px
+
+  .t-pad-t-1
+    padding-top: 10px
+
+  .t-marg-r-1
+    margin-right: 10px
+
+  .t-pad-r-1
+    padding-right: 10px
+
+  .t-marg-b-1
+    margin-bottom: 10px
+
+  .t-pad-b-1
+    padding-bottom: 10px
+
+  .t-marg-l-1
+    margin-left: 10px
+
+  .t-pad-l-1
+    padding-left: 10px
+
+  .t-marg-t-2
+    margin-top: 20px
+
+  .t-pad-t-2
+    padding-top: 20px
+
+  .t-marg-r-2
+    margin-right: 20px
+
+  .t-pad-r-2
+    padding-right: 20px
+
+  .t-marg-b-2
+    margin-bottom: 20px
+
+  .t-pad-b-2
+    padding-bottom: 20px
+
+  .t-marg-l-2
+    margin-left: 20px
+
+  .t-pad-l-2
+    padding-left: 20px
+
+  .t-marg-t-3
+    margin-top: 40px
+
+  .t-pad-t-3
+    padding-top: 40px
+
+  .t-marg-r-3
+    margin-right: 40px
+
+  .t-pad-r-3
+    padding-right: 40px
+
+  .t-marg-b-3
+    margin-bottom: 40px
+
+  .t-pad-b-3
+    padding-bottom: 40px
+
+  .t-marg-l-3
+    margin-left: 40px
+
+  .t-pad-l-3
+    padding-left: 40px
+
+
+@media $bpMob
+  .col
+    width: 100%
+
+  .m-3
+    width: 50%
+
+  .m-6
+    width: 100%
+
+  .m-ord-1
+    order: 1
+
+  .m-ord-2
+    order: 2
+
+  .m-ord-3
+    order: 3
+
+  .m-omega
+    margin-right: 0 !important
+
+  .m-hide
+    display: none
+
+  .m-show
+    display: block
+
+  .m-marg-t-1
+    margin-top: 10px
+
+  .m-pad-t-1
+    padding-top: 10px
+
+  .m-marg-r-1
+    margin-right: 10px
+
+  .m-pad-r-1
+    padding-right: 10px
+
+  .m-marg-b-1
+    margin-bottom: 10px
+
+  .m-pad-b-1
+    padding-bottom: 10px
+
+  .m-marg-l-1
+    margin-left: 10px
+
+  .m-pad-l-1
+    padding-left: 10px
+
+  .m-marg-t-2
+    margin-top: 20px
+
+  .m-pad-t-2
+    padding-top: 20px
+
+  .m-marg-r-2
+    margin-right: 20px
+
+  .m-pad-r-2
+    padding-right: 20px
+
+  .m-marg-b-2
+    margin-bottom: 20px
+
+  .m-pad-b-2
+    padding-bottom: 20px
+
+  .m-marg-l-2
+    margin-left: 20px
+
+  .m-pad-l-2
+    padding-left: 20px
+
+  .m-marg-t-3
+    margin-top: 40px
+
+  .m-pad-t-3
+    padding-top: 40px
+
+  .m-marg-r-3
+    margin-right: 40px
+
+  .m-pad-r-3
+    padding-right: 40px
+
+  .m-marg-b-3
+    margin-bottom: 40px
+
+  .m-pad-b-3
+    padding-bottom: 40px
+
+  .m-marg-l-3
+    margin-left: 40px
+
+  .m-pad-l-3
+    padding-left: 40px
+
+
+@media $bpTabRange
+  .t-range-omega
+    margin-right: 0 !important
+
+  .t-range-1
+    width: 15.000000000000002%
+
+  .t-range-ord-1
+    order: 1
+
+  .t-range-2
+    width: 32%
+
+  .t-range-ord-2
+    order: 2
+
+  .t-range-3
+    width: 49%
+
+  .t-range-ord-3
+    order: 3
+
+  .t-range-4
+    width: 66%
+
+  .t-range-ord-4
+    order: 4
+
+  .t-range-5
+    width: 83.00000000000001%
+
+  .t-range-ord-5
+    order: 5
+
+  .t-range-6
+    width: 100%
+    margin-right: 0
+
+  .t-range-ord-6
+    order: 6
+
+  .t-range-hide
+    display: none
+
+  .t-range-show
+    display: block
+
+  .t-range-marg-t-1
+    margin-top: 10px
+
+  .t-range-pad-t-1
+    padding-top: 10px
+
+  .t-range-marg-r-1
+    margin-right: 10px
+
+  .t-range-pad-r-1
+    padding-right: 10px
+
+  .t-range-marg-b-1
+    margin-bottom: 10px
+
+  .t-range-pad-b-1
+    padding-bottom: 10px
+
+  .t-range-marg-l-1
+    margin-left: 10px
+
+  .t-range-pad-l-1
+    padding-left: 10px
+
+  .t-range-marg-t-2
+    margin-top: 20px
+
+  .t-range-pad-t-2
+    padding-top: 20px
+
+  .t-range-marg-r-2
+    margin-right: 20px
+
+  .t-range-pad-r-2
+    padding-right: 20px
+
+  .t-range-marg-b-2
+    margin-bottom: 20px
+
+  .t-range-pad-b-2
+    padding-bottom: 20px
+
+  .t-range-marg-l-2
+    margin-left: 20px
+
+  .t-range-pad-l-2
+    padding-left: 20px
+
+  .t-range-marg-t-3
+    margin-top: 40px
+
+  .t-range-pad-t-3
+    padding-top: 40px
+
+  .t-range-marg-r-3
+    margin-right: 40px
+
+  .t-range-pad-r-3
+    padding-right: 40px
+
+  .t-range-marg-b-3
+    margin-bottom: 40px
+
+  .t-range-pad-b-3
+    padding-bottom: 40px
+
+  .t-range-marg-l-3
+    margin-left: 40px
+
+  .t-range-pad-l-3
+    padding-left: 40px
+
+
+@media $bpDesk
+  .d-max-width
+    max-width: $gridMaxWidth
+
+  .d-reading-width
+    max-width: $gridReading
+
+  .d-flex
+    display: flex
+
+  .d-omega
+    margin-right: 0 !important
+
+  .d-1
+    width: 15.000000000000002%
+
+  .d-ord-1
+    order: 1
+
+  .d-2
+    width: 32%
+
+  .d-ord-2
+    order: 2
+
+  .d-3
+    width: 49%
+
+  .d-ord-3
+    order: 3
+
+  .d-4
+    width: 66%
+
+  .d-ord-4
+    order: 4
+
+  .d-5
+    width: 83.00000000000001%
+
+  .d-ord-5
+    order: 5
+
+  .d-6
+    width: 100%
+    margin-right: 0
+
+  .d-ord-6
+    order: 6
+
+  .d-hide
+    display: none
+
+  .d-show
+    display: block
+
+  .d-marg-t-1
+    margin-top: 10px
+
+  .d-pad-t-1
+    padding-top: 10px
+
+  .d-marg-r-1
+    margin-right: 10px
+
+  .d-pad-r-1
+    padding-right: 10px
+
+  .d-marg-b-1
+    margin-bottom: 10px
+
+  .d-pad-b-1
+    padding-bottom: 10px
+
+  .d-marg-l-1
+    margin-left: 10px
+
+  .d-pad-l-1
+    padding-left: 10px
+
+  .d-marg-t-2
+    margin-top: 20px
+
+  .d-pad-t-2
+    padding-top: 20px
+
+  .d-marg-r-2
+    margin-right: 20px
+
+  .d-pad-r-2
+    padding-right: 20px
+
+  .d-marg-b-2
+    margin-bottom: 20px
+
+  .d-pad-b-2
+    padding-bottom: 20px
+
+  .d-marg-l-2
+    margin-left: 20px
+
+  .d-pad-l-2
+    padding-left: 20px
+
+  .d-marg-t-3
+    margin-top: 40px
+
+  .d-pad-t-3
+    padding-top: 40px
+
+  .d-marg-r-3
+    margin-right: 40px
+
+  .d-pad-r-3
+    padding-right: 40px
+
+  .d-marg-b-3
+    margin-bottom: 40px
+
+  .d-pad-b-3
+    padding-bottom: 40px
+
+  .d-marg-l-3
+    margin-left: 40px
+
+  .d-pad-l-3
+    padding-left: 40px
+
+@media $tablet
+  .tab-hide
+    display: none

@@ -1,0 +1,57 @@
+- "## About device 510(k)"
+- "The premarket notification dataset contains details about specific products and the original sponsors of premarket notification applications. It also contains administrative and tracking information about the applications and receipt and decision dates."
+- "A 510(k) is a premarket submission made to FDA to demonstrate that the device to be marketed is at least as safe and effective, that is, substantially equivalent, to a legally marketed device (21 CFR 807.92(a)(3)) that is not subject to PMA. Submitters must compare their device to one or more similar legally marketed devices and make and support their substantial equivalency claims. A legally marketed device, as described in 21 CFR 807.92(a)(3), is a device that was legally marketed prior to May 28, 1976 (preamendments device), for which a PMA is not required, or a device which has been reclassified from Class III to Class II or I, or a device which has been found substantially equivalent through the 510(k) process. The legally marketed device(s) to which equivalence is drawn is commonly known as the “predicate.”"
+- "For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/PremarketSubmissions/PremarketNotification510k/default.htm)."
+- "### How to search this endpoint"
+- "Make API calls to `https://api.fda.gov/device/510k.json` using search parameters for fields specific to the device recalls endpoint."
+- queryExplorer: advisoryCommittee
+- queryExplorer: regulationNumber
+- queryExplorer: topCountryCodes
+- "## Data reference"
+- "### Downloads"
+- "downloads"
+- "### How records are organized"
+- "Example:"
+- example: record
+- "## Anatomy of a response"
+- "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."
+- example: anatomy
+- "### Meta"
+- "For non-`count` queries, the `meta` section includes a disclaimer, a link to the openFDA data license, and information about the results that follow."
+- example: meta
+- fields:
+  - meta.disclaimer
+  - meta.license
+  - meta.last_updated
+  - meta.results.skip
+  - meta.results.limit
+  - meta.results.total
+- "### Results"
+- "For non-`count` queries, the `results` section includes matching adverse event reports returned by the API."
+- "## Field-by-field reference"
+- fields:
+  - k_number
+  - clearance_type
+  - zip_code
+  - decision_code
+  - decision_description
+  - statement_or_summary
+  - date_received
+  - third_party_flag
+  - state
+  - address_1
+  - address_2
+  - contact
+  - country_code
+  - city
+  - review_advisory_committee
+  - advisory_committee
+  - advisory_committee_description
+  - device_name
+  - product_code
+  - postal_code
+  - applicant
+  - decision_date
+- "## OpenFDA"
+- fields:
+  - openfda

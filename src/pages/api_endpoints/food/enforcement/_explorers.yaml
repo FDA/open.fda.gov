@@ -1,0 +1,26 @@
+oneReport:
+  title: One enforcement report
+  description:
+    - "This query searches for all records in a certain date range, and asks for a single one."
+    - "See the [reference](/food/enforcement/reference/) for more about report_date. Brackets `[ ]` are used to specify a range for date, number, or string fields."
+  params:
+    - "Search for all records with report_date between Jan 01, 2004 and Dec 31, 2013."
+    - "Limit to 1 record."
+  query: 'https://api.fda.gov/food/enforcement.json?search=report_date:[20040101+TO+20131231]&limit=1'
+hazard:
+  title: One enforcement report of a certain health hazard class
+  description:
+    - "This query searches records of a certain health hazard, and returns a single record."
+    - 'Double quotation marks `" "` surround phrases that must match exactly. The plus sign + is used in place of a space character ` `.'
+  params:
+  - "Search for all records where classification (health hazard level) was Class III."
+  - "Limit to 1 record."
+  query: 'https://api.fda.gov/food/enforcement.json?search=classification:"Class+III"&limit=1'
+voluntaryVsMandated:
+  title: "Count of voluntary vs. mandated enforcement reports"
+  description:
+    - "The vast majority of recalls are firm-initiated. This query searches the endpoint for all records, and tells the API to count how many enforcement reports were for voluntary vs. FDA-mandated recalls."
+    - "The suffix .exact is required by openFDA to count the unique full phrases in the field voluntary_mandated. Without it, the API will count each word in that field individually—Firm Initiated would be counted as separate values, Firm and Initiated."
+  params:
+  - "Count the field `voluntary_mandated` (type of recall)."
+  query: 'https://api.fda.gov/food/enforcement.json?count=voluntary_mandated.exact'

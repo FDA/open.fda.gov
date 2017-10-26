@@ -1,0 +1,193 @@
+.modal-overlay
+  position: fixed
+  top: 0px
+  left: 0px
+  right: 0px
+  bottom: 0px
+  background: rgba(0,0,0,0.5)
+  z-index: 1050
+
+.modal-container
+  position: absolute
+  display: flex
+  flex-direction: column
+  height: 240px
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  margin: auto 270px
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 6px;
+  overflow: auto;
+  outline: none;
+
+.modal-container button
+  margin: auto
+
+.modal-header
+  padding: 15px
+  border-bottom: 1px solid #e5e5e5
+
+.modal-body
+  padding: 15px 15px 0
+
+.modal-body span
+  line-height: 20px
+
+.hhs
+    line-height: 1.1
+    vertical-align: text-top
+
+.nav-bar
+  width: 95%
+
+.fda-logo
+  width: 225px
+
+.dropdown
+  position: relative
+  display: inline-block
+  z-index: 200
+
+.dropdown-content
+  position: absolute
+  right: 0px
+
+.display-block
+  display: block
+
+.display-none
+  display: none
+
+.menu-container
+  display: inherit
+  justify-content: flex-end
+  flex: auto
+
+.menu-container
+  > div
+    margin-right: 20px
+
+
+.menu-header
+  display: block
+  position: relative
+  margin-bottom: 0
+  padding: 1.5em 1.0em
+  color: #666666
+  line-height: 2em
+
+.emphasis
+  color: $clrPrimary
+
+.menu-header-underbar
+  border-top: 4px solid #00AAFF
+  margin: -25px 0px 21px 1em
+  bottom: 0
+  height: 1px
+  width: calc(100% - 55px)
+
+.fa-angle-down
+  padding-left: 0.5em
+
+.sub-menu-container
+  position: relative
+  overflow: auto
+  margin-bottom: 0
+  background-color: $clrWhite
+  border: 1px solid #ccc
+  border-bottom-left-radius: 3px
+  border-bottom-right-radius: 3px
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2)
+  width: auto
+  min-width: 160px
+  text-align: left
+  white-space: nowrap
+  z-index: 2
+
+.sub-menu-item
+  display: block
+  padding: 0rem 1rem 0rem 1.8rem
+  line-height: 2em
+  color: #666666
+
+.sub-menu-item:hover
+  background-color: $clrPrimary
+  color: $clrWhite
+
+.sub-menu-item:focus
+  -webkit-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
+  -moz-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
+  box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
+
+@media $bpTabRange
+
+  .fda-bar
+    margin-top: 35px
+
+@media $bpMob
+
+  .fda-bar
+    margin-top: 55px
+
+@media $tablet
+  .nav-ul
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+
+  .logo-wrapper
+    width: 95%
+
+  .hhs
+    text-align: left
+    width: 100%
+
+  .nav-bar
+    position: fixed
+    z-index: 100
+    background: white
+    width: 100%
+    margin: 0 2.5vw
+
+  .menu-header-underbar
+    width: calc(100% - 1em)
+
+  .menu-container
+    display: block
+    padding-top: 20px
+
+  .dropdown-content
+    z-index: 10
+    position: fixed
+    width: 100%
+
+  .sub-menu-container
+    text-align: left
+    border: none
+
+  .sub-menu-item
+    border: 1px solid #ccc
+    border-bottom-left-radius: 3px
+    border-bottom-right-radius: 3px
+
+  .open-fda-logo
+    position: relative
+    align-self: center
+
+  .nav-li + .nav-li
+    border-top: 1px solid $clrGrayLightest
+
+  .hhs
+    float: right
+    text-align: right
+
+@media $bpDesk
+  .nav-li
+    margin-right: 15px
+    min-width: 160px
+
+

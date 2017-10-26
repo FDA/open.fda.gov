@@ -1,0 +1,66 @@
+- '## About the openFDA API'
+- 'OpenFDA is an [Elasticsearch-based](http://www.elasticsearch.org/) [API](http://apievangelist.com/index.html) that serves public [FDA](http://www.fda.gov/) data about *nouns* like [drugs](/drug/), [devices](/device/), and [foods](/food/).'
+- 'Each of these nouns has one or more **categories,** which serve unique data—such as data about recall enforcement reports, or about adverse events. Every query to the API must go through one endpoint for one kind of data.'
+- 'Not all data in openFDA has been validated for clinical or production use. And because openFDA only serves publicly available data, it does not contain data with Personally Identifiable Information about patients or other sensitive information.'
+- 'The API returns individual results as [JSON](http://www.json.org/) by default. The JSON object has two sections:'
+- ul:
+  - '`meta`: Metadata about the query, including a disclaimer, link to data license, last-updated date, and total matching records, if applicable.'
+  - '`results`: An array of matching results, dependent on which endpoint was queried.'
+- '## Try the API'
+- 'The following example is a query for one report of an adverse drug event. In other words, it is a query for a single record from the **adverse event** endpoint for **drugs**.'
+- queryExplorer: oneReport
+- "## Anatomy of a response"
+- "Responses for non-`count` queries are divided into two sections, `meta` and `results`."
+- "### Meta"
+- "For non-`count` queries, the `meta` section includes a disclaimer, a link to the openFDA data license, and information about the results that follow."
+- fields:
+  - meta.disclaimer
+  - meta.license
+  - meta.last_updated
+  - meta.results.skip
+  - meta.results.limit
+  - meta.results.total
+- '### Results'
+- 'For non-`count` queries, the `results` section is an array of matching records.'
+- '## Query parameters'
+- 'The API supports four query parameters. The basic building block of queries is the `search` parameter. Use it to "filter" requests to the API by looking in specific fields for matches. Each endpoint has its own unique fields that can be searched.'
+- ul:
+  - '`search`: What to search for, in which fields. If you don’t specify a field to search, the API will search in every field.'
+  - '`count`: Count the number of unique values of a certain field, for all the records that matched the `search` parameter. By default, the API returns the 1000 most frequent values.'
+  - '`limit`: Return up to this number of records that match the `search` parameter. Large numbers (above 100) could take a very long time, or crash your browser.'
+  - '`skip`:    Skip this number of records that match the `search` parameter, then return the matching records that follow. Use in combination with `limit` to paginate results.'
+- '## Query syntax'
+- 'Queries to the openFDA API are made up of *parameters* joined by an ampersand `&`. Each parameter is followed by an equals sign `=` and an argument.'
+- 'Searches have a special syntax: `search=field:term`. Note that there is only one equals sign `=` and there is a colon `:` between the field to search, and the term to search for.'
+- 'Here are a few syntax patterns that may help if you’re new to this API.'
+- ul:
+  - '`search=field:term`: Search within a specific `field` for a `term`.'
+  - '`search=field:term+AND+field:term`: Search for records that match **both** terms.'
+  - '`search=field:term+field:term`: Search for records that match **either** of two terms.'
+  - '`search=field:term&count=another_field`: Search for matching records. Then within that set of records, count the number of times that the unique values of a field appear. Instead of looking at individual records, you can use the `count` parameter to count how often certain terms (like drug names or patient reactions) appear in the matching set of records.'
+- 'Here are some example queries that demonstrate how these searches and the `count` parameter work, all using the drug adverse events endpoint.'
+- queryExplorer: 'searchSingleTerm'
+- queryExplorer: 'searchAll'
+- queryExplorer: 'searchAny'
+- queryExplorer: 'count'
+- '### Spaces'
+- 'Queries use the plus sign `+` in place of the space character. Wherever you would use a space character, use a plus sign instead.'
+- '### Phrase matches'
+- 'For phrase matches, use double quotation marks `" "` around the words. For example, `"multiple+myeloma"`.'
+- '### Grouping'
+- 'To group several terms together, use parentheses `(` `)`. For example, `(patient.drug.medicinalproduct:cetirizine+loratadine+diphenhydramine)`. Terms separated by plus signs `+` are treated as in a boolean OR.'
+- 'To join terms as in a boolean AND, use the term `+AND+`. For example, `(patient.drug.medicinalproduct:cetirizine+loratadine+diphenhydramine)+AND+serious:2` requires that *any* of the drug names match *and* that the field `serious` also match.'
+- '## Dates and ranges'
+- 'The openFDA API supports searching by *range* in date, numeric, or string fields.'
+- ul:
+  - 'Specify an *inclusive* range by using square brackets `[min+TO+max]`. These include the values in the range. For example, `[1+TO+5]` will match **1** through **5**.'
+  - 'Dates are simple to search by via range. For instance, `[2004-01-01+TO+2005-01-01]` will search for records between Jan 1, 2004 and Jan 1, 2005.'
+- '## Missing (or not missing) values'
+- ul:
+  - '`_missing_`: `search` modifier that matches when a field has no value (is empty).'
+  - '`_exists_`: `search` modifier that matches when a field has a value (is not empty).'
+- queryExplorer: 'missing'
+- queryExplorer: 'exists'
+- '## Timeseries'
+- 'The API supports `count` on date fields, which produces a timeseries at the granularity of **day**. The API returns a complete timeseries.'
+- queryExplorer: 'timeseries'
