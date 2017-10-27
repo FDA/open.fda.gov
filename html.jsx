@@ -25,6 +25,7 @@ const HTML = ({ title = 'openFDA', favicon, body }: tPROPS) => (
   <html
     ref='html'
     lang='en'>
+  {console.log("body: ",body)}
     <head>
       <title>{title}</title>
       <meta charSet='utf-8' />
@@ -78,6 +79,7 @@ const HTML = ({ title = 'openFDA', favicon, body }: tPROPS) => (
       <script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js' />
     </head>
     <body>
+    {console.log("body: ",body)}
       <main
         id='react-mount'
         dangerouslySetInnerHTML={{__html: body}}

@@ -26,7 +26,7 @@ const INDEX = ({ route }: tTEMPLATE) => (
         </Link>
       </div>
     </section>
-    <section className='flex-box dir-column just-center'>
+    <section className='body-bg-offwhite flex-box dir-column just-center'>
       <h2 className="center-heading" style={{margin: '30px 0px 10px'}}><span>API Endpoint Categories</span></h2>
       <div className='flex-row just-center align-center flex-wrap'>
         <NounBox noun_name="food"/>
