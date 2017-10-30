@@ -36,7 +36,7 @@
   "main": "n/a",
   "scripts": {
     "dev:css": "stylus -w ./src/css/app.styl -o ./src/css/build/app.css -I ./node-modules/nib",
-    "dev:site": "gatsby develop",
+    "dev:site": "gatsby develop -p 3000",
     "build": "gatsby build",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"

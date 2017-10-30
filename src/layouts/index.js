@@ -1,2 +1,2 @@
 import React from 'react'
-export default (props) => props.children
+export default (props) => props.children()

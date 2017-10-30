@@ -83,6 +83,7 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
         id='___gatsby'
         dangerouslySetInnerHTML={{__html: body}}
       />
+      {console.log(postBodyComponents)}
       {postBodyComponents}
     </body>
   </html>

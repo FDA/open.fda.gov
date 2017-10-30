@@ -69,10 +69,6 @@ const INDEX = ({ route }: tTEMPLATE) => (
       </Link>
     </div>
   </section>
-  <BlogRoll
-    posts={route.pages}
-    small={true}
-  />
   </Layout>
 )
 
