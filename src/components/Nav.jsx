@@ -56,6 +56,7 @@ const Nav = (props: tPROPS) => {
 
   return (
     <nav className='bg-white clr-gray flex-box dir-column'>
+      <Disclaimer validated={validated} handleCloseModal={handleCloseModal} showModal={showModal} />
       <a
         href='#hero'
         className='visually-hidden'>

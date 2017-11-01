@@ -3,15 +3,18 @@
 import React from 'react'
 import cx from 'classnames'
 import BreadCrumbs from '../BreadCrumbs'
+import dateFormat from 'dateformat'
 
 
 type tPROPS = {
+  authors: Array<string>;
+  date: string;
   description: string;
   htmlDescription: boolean;
   label: string;
   path: string;
   title: React.Element|string;
-  type: 'homepage'|'endpoint';
+  type: 'homepage'|'endpoint'|'update';
 };
 
 /**
@@ -25,6 +28,8 @@ type tPROPS = {
  */
 const Hero = (props: tPROPS) => {
   const {
+    authors,
+    date,
     description,
     htmlDescription,
     label,
@@ -71,12 +76,23 @@ const Hero = (props: tPROPS) => {
         style={bg_image_color[cat_name]}>
         <BreadCrumbs />
         <div className='hero-text-box container flex-row dir-column pad-t-2 pad-b-2'>
+          {
+            type === 'update' &&
+            <span
+              tabIndex={0}
+              className='clr-white serif weight-700 small'>
+              {dateFormat(date, 'mmmm d, yyyy')}
+            </span>
+          }
           <h2
             tabIndex={label ? -1 : 0}
             className='clr-white weight-700 header-width'>
             {title}
           </h2>
-          <div className="hero-divider-line"/>
+          {
+            type != 'update' &&
+            <div className="hero-divider-line"/>
+          }
           {
             desc && htmlDescription &&
             <p
@@ -88,6 +104,14 @@ const Hero = (props: tPROPS) => {
           {
             desc && !htmlDescription &&
             <p tabIndex={0} className='subtitle clr-white font-size-4 header-width'>{desc}</p>
+          }
+          {
+            authors &&
+            authors.map((author: string, i: number) => {
+              return (
+                <p tabIndex={i} key={i} className='subtitle clr-white font-size-4 header-width'>{author}</p>
+              )
+            })
           }
         </div>
         <img src={bg_image[cat_name]} style={{height: '240px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '120%', bottom: '-25px'}}/>

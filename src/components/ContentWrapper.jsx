@@ -20,8 +20,9 @@ type tPROPS = {
   explorers: Object;
   infographics: Array<Object>;
   fields: Object;
-  showMenu: boolean;
+  hideMenu: boolean;
   meta: Object;
+  type: String;
 };
 
 const wrapperCx = cx({
@@ -40,7 +41,7 @@ const ContentWrapper = (props: tPROPS) => {
     explorers,
     infographics,
     fields,
-    showMenu,
+    hideMenu,
     meta
   } = props
 
@@ -71,6 +72,7 @@ const ContentWrapper = (props: tPROPS) => {
       }
       <section className={wrapperCx}>
         {
+          meta.type != 'update' &&
           <ComposedSidebar
             className='m-hide'
             reference={content}

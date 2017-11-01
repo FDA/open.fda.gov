@@ -6,18 +6,13 @@ import BlogRoll from '../../../components/BlogRoll'
 import Hero from '../../../components/Hero/index'
 import Layout from '../../../components/Layout'
 
-type PROPS = {
-  route: Object;
-};
 
 // homepage
-export default ({ route }: PROPS) => (
+export default () => (
   <Layout title='OpenFDA updates'>
     <Hero
       title='OpenFDA updates'
     />
-    <BlogRoll
-      posts={route.pages}
-    />
+    <BlogRoll/>
   </Layout>
 )

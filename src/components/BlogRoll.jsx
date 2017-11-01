@@ -3,16 +3,16 @@
 import React from 'react'
 import dateFormat from 'dateformat'
 import get from 'lodash/get'
-import marked from 'marked'
-
 import Link from 'gatsby-link'
+import updates from '../pages/about/updates/updates.yaml'
+import Async from 'react-promise'
 
-const _sortPosts = posts => {
-  const filtered = posts.filter(p => p.data.date)
+const _sortUpdates = updates => {
+  const filtered = updates.filter(u => u.date)
 
   const sorted = filtered.sort(function (a, b) {
-    const dateA = new Date(a.data.date).getTime()
-    const dateB = new Date(b.data.date).getTime()
+    const dateA = new Date(a.date).getTime()
+    const dateB = new Date(b.date).getTime()
     return dateA > dateB ? 1 : -1
   }).reverse()
 
@@ -20,7 +20,6 @@ const _sortPosts = posts => {
 }
 
 type tPROPS = {
-  posts: Object,
   small: boolean
 };
 
@@ -29,14 +28,14 @@ type tPROPS = {
  */
 const BlogRoll = (props: tPROPS) => {
   const {
-    posts,
     small
   } = props
 
   // filter out posts without a valid date
   // and also sort them reverse chron
-  const sortedPosts: Array<Object> = _sortPosts(posts)
+  const sortedUpdates: Array<Object> = _sortUpdates(updates.updates)
 
+  console.log(sortedUpdates)
   // increment for every actually rendered post
   // this is useful because not everything in
   // sortedPosts will get rendered. actually,
@@ -52,21 +51,22 @@ const BlogRoll = (props: tPROPS) => {
         tabIndex={0}
         className={'container blog-container ' + (small === true ?  'overflow-hidden small-blog-container' : '')}>
         {
-          sortedPosts.map((post: Object, i: number) => {
-            // only render markdown files
-            if (get(post, 'file.ext') !== 'md') return
-
-            // showInList is true by default
-            // basically, not every post needs to
-            // be part of the BlogRoll
-            if (post.data.showInList === false) return
-
+          sortedUpdates.map((update: Object, i: number) => {
             const {
-              body,
-              date,
-            } = post.data
+              desc,
+              date
+            } = update
 
-            const title: string = (get(post, 'data.title') || post.path).substring(0, 40) + '...'
+            console.log("update title length: ", update.title.length)
+            let title = new Promise(function(resolve, reject){
+              if (update.title.length > 40) {
+                console.log("it's longer")
+                resolve((get(update, 'title')).substring(0, 40) + '...')
+              } else {
+                resolve(update.title)
+              }
+            })
+            console.log("title: ", title)
 
             // level refers to header level. h1, h2, etc
             // we start at 2, because h1 is the hero section
@@ -88,12 +88,13 @@ const BlogRoll = (props: tPROPS) => {
                 className: 'font-size-3',
                 tabIndex: 0,
               },
-              <Link
+              <Async promise={title} then ={(val) => <Link
                 className='font-size-3 clr-primary-darker'
                 style={{fontSize: '18px', lineHeight: '22px'}}
-                to={post.path}>
-                {title}
-              </Link>
+                to={update.path}>
+                {console.log("val is this: ", val)}
+                {val}
+              </Link>}/>
             )
 
 
@@ -102,8 +103,6 @@ const BlogRoll = (props: tPROPS) => {
             // of actually rendered blog posts
             tally += 1
 
-          // Cheap way of making post excerpt
-          const excerpt = body.substring(3, body.search("</p>")).replace(/<(?:.|\n)*?>/gm, '').substring(0, 120) + '...'
 
             // Post date, if available
             let formattedDate = ''
@@ -116,10 +115,10 @@ const BlogRoll = (props: tPROPS) => {
               <li
                 key={i}
                 className='marg-l-1 marg-r-1 marg-t-2 marg-b-2 blog-item'>
-                <Link className='pad-3 relative full-height blog-text-item' style={{paddingTop: "30px"}}to={post.path}>
+                <Link className='pad-3 relative full-height blog-text-item' style={{paddingTop: "30px"}}to={update.path}>
                   <h2 className='blog-header clr-primary-darker'>{title}</h2>
                   <div className='clr-gray-light marg-b-1 t-marg-t-05'>{formattedDate}</div>
-                  <p className="smallest txt-overflow-ellipsis">{excerpt}</p>
+                  <p className="smallest txt-overflow-ellipsis">{desc}</p>
                   <span className="absolute bottom pad-b-2 weight-700 clr-primary">READ MORE <i className="fa fa-angle-right"/></span>
                 </Link>
               </li>

@@ -132,7 +132,7 @@ const Content = (props: tPROPS) => {
             // but just to be safe
             if (matches) {
               for (const match of matches) {
-                const intermediate: string = finalOutput.replace(match, `<span class="link-external">${match}</span>`)
+                const intermediate: string = finalOutput.replace(match, `<span>${match}</span>`)
                 finalOutput = intermediate
               }
             }
