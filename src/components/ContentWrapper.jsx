@@ -7,10 +7,8 @@ import EndpointStatus from './EndpointStatus'
 import SideBar from './SideBar'
 import Content from './Content'
 import Hero from './Hero'
-import Layout from './Layout'
 
 import SideBarContainer from '../containers/SideBarContainer'
-import InfographicContainer from '../containers/InfographicContainer'
 
 import mapFields from '../utils/mapFields'
 import flattenFields from '../utils/flattenFields'
@@ -39,9 +37,7 @@ const ContentWrapper = (props: tPROPS) => {
   const {
     content,
     explorers,
-    infographics,
     fields,
-    hideMenu,
     meta
   } = props
 
@@ -58,10 +54,7 @@ const ContentWrapper = (props: tPROPS) => {
   })
 
   return (
-    <Layout
-      crumbs={meta.crumbs}
-      meta={meta}
-      title={meta.documentTitle}>
+    <section>
       <Hero
         {...meta}
       />
@@ -88,7 +81,7 @@ const ContentWrapper = (props: tPROPS) => {
           />
         </div>
       </section>
-    </Layout>
+    </section>
   )
 }
 

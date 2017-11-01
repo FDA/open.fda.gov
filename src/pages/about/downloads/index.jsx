@@ -4,7 +4,6 @@ import React from 'react'
 
 import Downloads from '../../../components/Downloads'
 import Hero from '../../../components/Hero'
-import Layout from '../../../components/Layout'
 import SideBar from '../../../components/SideBar'
 import SideBarContainer from '../../../containers/SideBarContainer'
 
@@ -56,9 +55,7 @@ let downloads_list = Object.keys(endpoint_list).map((key: string, i: number) => 
 })
 
 export default () => (
-  <Layout
-      crumbs={['openFDA','downloads']}
-      title='openFDA › Downloads'>
+  <section>
     <Hero
         label='Endpoint Downloads'
         title='Downloads'
@@ -77,5 +74,5 @@ export default () => (
         </ul>
       </div>
     </section>
-  </Layout>
+  </section>
 )

@@ -4,7 +4,6 @@ import React from 'react'
 import marked from 'marked'
 
 import Hero from './Hero'
-import Layout from './Layout'
 
 const boxCx: string = 'clr-gray b-b-1 marg-b-2'
 
@@ -14,9 +13,7 @@ type tPROPS = {
 
 // pages like /data/faers/
 const Dataset = ({ meta }: tPROPS) => (
-  <Layout
-    crumbs={meta.crumbs}
-    title={meta.documentTitle}>
+  <section>
     <Hero
       label='Dataset that supplies data to openFDA'
       title={meta.title}
@@ -93,7 +90,7 @@ const Dataset = ({ meta }: tPROPS) => (
         </div>
       </div>
     </div>
-  </Layout>
+  </section>
 )
 
 Dataset.displayName = 'components/Dataset'

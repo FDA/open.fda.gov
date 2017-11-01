@@ -3,7 +3,6 @@
 import React from 'react'
 import marked from 'marked'
 
-import Layout from './Layout'
 import Hero from './Hero'
 
 const aCx: string = 'clr-gray font-size-4 weight-400 t-pad-t-2 t-pad-b-2 block reading-width t-marg-b-2'
@@ -16,9 +15,7 @@ type tPROPS = {
 
 // pages like /drug/ or /food/
 const Noun = ({ meta, content, }: tPROPS) => (
-  <Layout
-    crumbs={meta.crumbs}
-    title={meta.documentTitle}>
+  <section>
     <Hero
       {...meta}
     />
@@ -44,7 +41,7 @@ const Noun = ({ meta, content, }: tPROPS) => (
         ))
       }
     </nav>
-  </Layout>
+  </section>
 )
 
 Noun.displayName = 'components/Noun'

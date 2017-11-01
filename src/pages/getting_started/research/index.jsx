@@ -1,15 +1,12 @@
 import React from 'react'
 
 import Hero from '../../../components/Hero/index'
-import Layout from '../../../components/Layout'
 import ResearchBox from '../../../components/ResearchBox'
 import tools from './_tools.yaml'
 
 
 export default () => (
-  <Layout
-    crumbs={['openFDA','Research tools']}
-    title='openFDA › Research tools'>
+  <section>
     <Hero
       label='Learn'
       title='Research tools'
@@ -32,5 +29,5 @@ export default () => (
         }
       </div>
     </section>
-  </Layout>
+  </section>
 )

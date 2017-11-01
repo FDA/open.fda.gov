@@ -3,12 +3,11 @@
 import React from 'react'
 
 import Hero from '../../components/Hero/index'
-import Layout from '../../components/Layout'
 import NounBox from '../../components/NounBox'
 
 
 export default () => (
-  <Layout title='openFDA'>
+  <section>
     <Hero
       label='Endpoint Categories'
       title='Open-source APIs and a developer community for FDA data'
@@ -22,5 +21,5 @@ export default () => (
         <NounBox noun_name="animal_and_veterinary"/>
       </div>
     </section>
-  </Layout>
+  </section>
 )

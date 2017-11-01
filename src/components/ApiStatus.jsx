@@ -4,7 +4,6 @@ import React from 'react'
 import cx from 'classnames'
 
 import Hero from './Hero'
-import Layout from './Layout'
 import ApiStatusContainer from '../containers/ApiStatusContainer'
 
 type tPROPS = {
@@ -49,9 +48,7 @@ const endpointLinkMap: Object = Object.freeze({
  * @param  {Object} props [from ApiStatusContainer. has response data]
  */
 const ApiStatus = (props: tPROPS) => (
-  <Layout
-    crumbs={['API', 'API status']}
-    title='openFDA › API › API status'>
+  <section>
     <Hero
       label='Learn'
       title='API status'
@@ -119,7 +116,7 @@ const ApiStatus = (props: tPROPS) => (
         }
       </ul>
     </section>
-  </Layout>
+  </section>
 )
 
 ApiStatus.displayName = 'component/ApiStatus'

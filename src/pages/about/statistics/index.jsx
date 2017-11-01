@@ -1,16 +1,13 @@
 import React from 'react'
 
 import Hero from '../../../components/Hero/index'
-import Layout from '../../../components/Layout'
 import ApiUsage from '../../../components/ApiUsage'
 
 import content from './_content.yaml'
 
 
 export default () => (
-    <Layout
-        crumbs={['openFDA','about','statistics']}
-        title='openFDA › Usage'>
+    <section>
         <Hero
             label='API Usage Statistics'
             title='Statistics'
@@ -25,5 +22,5 @@ export default () => (
 
 
         </section>
-    </Layout>
+    </section>
 )

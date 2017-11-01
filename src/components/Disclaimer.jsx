@@ -7,7 +7,6 @@ import ComposedDisclaimer from '../containers/DisclaimerContainer'
 
 type tPROPS = {
   showModal: boolean,
-  handleOpenModal: Function,
   handleCloseModal: Function,
   hideModal: Function
 };
@@ -24,11 +23,9 @@ type tPROPS = {
 const Disclaimer = (props: tPROPS) => {
   const {
     showModal,
-    handleOpenModal,
     handleCloseModal,
     hideModal
   } = props
-  console.log("dumb disclaimer showModal: ", showModal)
 
 
   return (

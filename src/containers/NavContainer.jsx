@@ -66,17 +66,17 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
 
     _handleOpenModal () {
       this.setState({
+        validated: false,
         showModal: true
       })
     }
 
-    _handleCloseModal (hideModal) {
+    _handleCloseModal () {
       console.log("in nav",this.state.showModal)
       this.setState({
         validated: true,
         showModal: false
       })
-      hideModal()
     }
 
     render (): React.Element {

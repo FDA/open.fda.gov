@@ -1,17 +1,13 @@
 import React from 'react'
-import marked from 'marked'
 
 import Hero from '../../components/Hero'
-import Layout from '../../components/Layout'
 import tools from './_apps.yaml'
 
 const aCx: string = 'clr-gray font-size-4 weight-400 t-pad-t-2 t-pad-b-2 block reading-width t-marg-b-2'
-const linkCx: string = 'clr-gray b-b-1 marg-b-1'
 const disclaimer: string = 'http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm'
+
 export default () => (
-    <Layout
-        crumbs={['openFDA','Community','openFDA Apps']}
-        title='openFDA › openFDA Apps'>
+    <section>
         <Hero
             label='Community'
             title='openFDA Apps'
@@ -37,5 +33,5 @@ export default () => (
             </div>
 
         </section>
-    </Layout>
+    </section>
 )

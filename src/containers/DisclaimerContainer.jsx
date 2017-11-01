@@ -6,15 +6,13 @@ type tSTATE = {
   showModal: boolean;
 };
 
-const DiclaimerContainer = function (ComposedDisclaimer: ReactClass): ReactClass {
+const DisclaimerContainer = function (ComposedDisclaimer: ReactClass): ReactClass {
   class HOC extends React.Component {
     state: tSTATE = {
       showModal: false
     };
 
     componentDidMount () {
-      console.log("smart disc mount valid",this.props.validated)
-      console.log("smart disc mount showmodal: ", this.state.showModal)
       if (this.props.validated == false) {
         this.setState({
           showModal: true
@@ -22,8 +20,19 @@ const DiclaimerContainer = function (ComposedDisclaimer: ReactClass): ReactClass
       }
     }
 
+    componentWillReceiveProps (nextProps) {
+      if (this.props.validated == true && nextProps.validated == false) {
+        this.setState({
+          showModal: true
+        })
+      } else if (this.props.validated == false && nextProps.validated == true) {
+        this.setState({
+          showModal: false
+        })
+      }
+    }
+
     _hideModal () {
-      console.log("smart disc hide valid", this.props.validated)
       this.setState({
         showModal: false
       })
@@ -43,4 +52,4 @@ const DiclaimerContainer = function (ComposedDisclaimer: ReactClass): ReactClass
   return HOC
 }
 
-export default DiclaimerContainer
+export default DisclaimerContainer

@@ -2,18 +2,12 @@
 
 import React from 'react'
 import Link from 'gatsby-link'
-import Layout from '../components/Layout'
 import NounBox from '../components/NounBox'
 import BlogRoll from '../components/BlogRoll'
-import type tTEMPLATE from '../constants/types/template'
-
-type PROPS = {
-  route: Object;
-};
 
 // homepage
-const INDEX = ({ route }: tTEMPLATE) => (
-  <Layout title='openFDA'>
+const INDEX = () => (
+  <section>
     <section className='flex-box just-center homepage-hero'>
       <div>
         <h2>Open Access to FDA Data</h2>
@@ -69,7 +63,10 @@ const INDEX = ({ route }: tTEMPLATE) => (
       </Link>
     </div>
   </section>
-  </Layout>
+  <BlogRoll
+    small={true}
+  />
+  </section>
 )
 
 INDEX.displayName = 'Homepage'

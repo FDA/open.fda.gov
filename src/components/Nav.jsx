@@ -28,6 +28,7 @@ type tPROPS = {
   toggleDropdownContent: Function;
   hideDropdownContent: Function;
   showDropdownContent: Function;
+  handleOpenModal: Function;
   handleCloseModal: Function;
   activeDropdown: string;
   path: string;
@@ -43,6 +44,7 @@ const Nav = (props: tPROPS) => {
     toggleDropdownContent,
     hideDropdownContent,
     showDropdownContent,
+    handleOpenModal,
     handleCloseModal,
     activeDropdown,
     path,
@@ -157,11 +159,7 @@ const Nav = (props: tPROPS) => {
                 />
             </div>
           </div>
-          <div
-            className={navCx}
-            style={{
-              maxWidth: '845px',
-            }}>
+          <div className={navCx}>
             <div className='menu-container responsive-header' role='navigation'>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <Link
@@ -253,6 +251,13 @@ const Nav = (props: tPROPS) => {
                       to='/community/'>openFDA Apps</Link>
                   </div>
                 </div>
+              </div>
+              <div className='dropdown'>
+                <button
+                  title='Disclaimer'
+                  onClick={handleOpenModal}
+                  className={showMobileNav ? 'display-none': activeDropdown=='Home' ? 'menu-header emphasis': 'menu-header'}
+                >Disclaimer</button>
               </div>
             </div>
           </div>
