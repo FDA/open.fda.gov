@@ -35,7 +35,6 @@ const BlogRoll = (props: tPROPS) => {
   // and also sort them reverse chron
   const sortedUpdates: Array<Object> = _sortUpdates(updates.updates)
 
-  console.log(sortedUpdates)
   // increment for every actually rendered post
   // this is useful because not everything in
   // sortedPosts will get rendered. actually,
@@ -57,16 +56,13 @@ const BlogRoll = (props: tPROPS) => {
               date
             } = update
 
-            console.log("update title length: ", update.title.length)
             let title = new Promise(function(resolve, reject){
               if (update.title.length > 40) {
-                console.log("it's longer")
                 resolve((get(update, 'title')).substring(0, 40) + '...')
               } else {
                 resolve(update.title)
               }
             })
-            console.log("title: ", title)
 
             // level refers to header level. h1, h2, etc
             // we start at 2, because h1 is the hero section
@@ -78,25 +74,6 @@ const BlogRoll = (props: tPROPS) => {
             if (level > 6) {
               level = 6
             }
-
-            // WE DO THIS FOR ACCESSIBILITY
-            // IT MAY SEEM UNNECESSARY, BUT DO NOT CHANGE
-            // $FlowIgnore
-            let Title: React.Element = React.createElement(
-              `h${level}`,
-              {
-                className: 'font-size-3',
-                tabIndex: 0,
-              },
-              <Async promise={title} then ={(val) => <Link
-                className='font-size-3 clr-primary-darker'
-                style={{fontSize: '18px', lineHeight: '22px'}}
-                to={update.path}>
-                {console.log("val is this: ", val)}
-                {val}
-              </Link>}/>
-            )
-
 
             // don't remove me
             // i keep track of the amount
@@ -110,13 +87,12 @@ const BlogRoll = (props: tPROPS) => {
               formattedDate = dateFormat(date, 'mmmm d, yyyy').toUpperCase()
             }
 
-
             return (
               <li
                 key={i}
                 className='marg-l-1 marg-r-1 marg-t-2 marg-b-2 blog-item'>
                 <Link className='pad-3 relative full-height blog-text-item' style={{paddingTop: "30px"}}to={update.path}>
-                  <h2 className='blog-header clr-primary-darker'>{title}</h2>
+                  <Async promise={title} then={(val) => <h2 className='blog-header clr-primary-darker'>{val}</h2>}/>
                   <div className='clr-gray-light marg-b-1 t-marg-t-05'>{formattedDate}</div>
                   <p className="smallest txt-overflow-ellipsis">{desc}</p>
                   <span className="absolute bottom pad-b-2 weight-700 clr-primary">READ MORE <i className="fa fa-angle-right"/></span>
