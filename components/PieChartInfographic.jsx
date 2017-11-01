@@ -6,10 +6,11 @@ import { Pie } from 'nivo'
 
 import { TimeSeries, TimeRange, sum } from "pondjs";
 import { Series, DataFrame } from 'pandas-js';
-import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable } from "react-timeseries-charts"
+import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable, styler, Legend } from "react-timeseries-charts"
 import { API_LINK } from '../constants/api'
 import _ from 'lodash';
 import Sparkline from 'react-sparkline';
+import Parser from 'html-react-parser';
 
 window.$ = $;
 
@@ -50,42 +51,17 @@ class PieChartInfographic extends React.Component {
       selection:  null,
       tracker:   null,
       sparklineData:  null,
-      lineChartColumns: []
+      lineChartColumns: [],
+      trackerInfoValues: "",
+      width: this.props.infographicDefinitions.lineChartConfig.width
     };
-
-    // /////////
-    // this.state = {
-    //   API_LINK: API_LINK,
-    //   title: this.props.infographicDefinitions.title,
-    //   api: this.props.api,
-    //   selection:  null,
-    //   tracker:   null,
-    //   sparklineData:  null,
-    //   timerange:  null,
-    //   queries:  this.props.infographicDefinitions.queries,
-    //   xTerms: [],
-    //   step: 1,
-    //   min: this.props.infographicDefinitions.startYear+1,
-    //   max: currentYear,
-    //   defaultValue: currentYear,
-    //   currentValue: currentYear,
-    //   startYear: this.props.infographicDefinitions.startYear,
-    //   endYear: currentYear,
-    //   countBy: this.props.infographicDefinitions.countBy,
-    //   slider_marks: slider_marks,
-    //   years: years,
-    //   minTime: minTime,
-    //   maxTime: now,
-    //   enablePanZoom: false,
-    //   defaultTimeRange: new TimeRange([minTime, now]),
-    //   _rows: [],
-    //   original_rows: []
-    // }
-    // ///////////////
-
 
     // functions
     this.onClick = this.onClick.bind(this)
+    this.onHighlightChange = this.onHighlightChange.bind(this)
+    this.onSelectionChange = this.onSelectionChange.bind(this)
+    this.onTrackerChanged = this.onTrackerChanged.bind(this)
+    this.handleChartResize = this.handleChartResize.bind(this)
   }
 
   componentDidMount () {
@@ -156,27 +132,13 @@ class PieChartInfographic extends React.Component {
     fetch(subfields_url)
       .then(res => res.json())
       .then(res => {
-        var sliced_data = res.results.slice(0,10)
-        var classification_urls = sliced_data.map( value => `${that.state.API_LINK}${that.props.api}.json?search=${that.props.infographicDefinitions.subfield}:${value.term}`)
         var terms = {};
-        sliced_data.forEach( value => terms[value.term] = {});
 
-        let classification_urls_promise = Promise.resolve([]);
-        classification_urls_promise = Promise.all(classification_urls.map(this.fetchJSON)).then( results => {
-          results.forEach( (product_code_res,i) => {
-            var d = product_code_res.results[0]
-            terms[d.product_code].description =  d.openfda.device_name.split(',').splice(0,1)  + " - " + d.openfda.medical_specialty_description + i
-          })
-          that.setState({
-            terms
-          })
-        })
-
-        var timeseries_urls = sliced_data.map( value => `${that.state.API_LINK}${that.props.api}.json?search=${that.props.infographicDefinitions.countBy}:${data.data.id}+AND+${that.props.infographicDefinitions.subfield}:${value.term}&count=${that.props.infographicDefinitions.dateField}`);
+        var timeseries_urls = res.results.map( value => `${that.state.API_LINK}${that.props.api}.json?search=${that.props.infographicDefinitions.countBy}:${data.data.id}+AND+${that.props.infographicDefinitions.subfield}:${value.term}&count=${that.props.infographicDefinitions.dateField}`);
 
         let filesPromise = Promise.resolve([]);
         filesPromise = Promise.all(timeseries_urls.map(this.fetchJSON)).then( results => {
-          var columns = Object.values(that.state.terms).map( value => value.description )
+          var columns = res.results.map( value => value.term )
           
           const dataset = []
 
@@ -243,77 +205,126 @@ class PieChartInfographic extends React.Component {
             rows.push(row)
           }
           dataKeys.forEach( (key, i) => {
-            if(parseInt(key) === 1246553999999){
-              console.log(1)
-            }
             final.push([parseInt(key)].concat(rows[i])) 
           });
 
-          console.log(final)
-
           var series = new TimeSeries({
-              name: "timeseries",
-              columns: ["time"].concat(columns),
-              points: final
-            })
+            name: "timeseries",
+            columns: ["time"].concat(columns),
+            points: final
+          })
+
+          // set categories
+          var categories = columns.map(column => {
+            return {
+              key: column,
+              label: column[0].toUpperCase() + column.slice(1,column.length),
+              value: null
+            }
+          })
+          var colorRange = d3.scale.linear().domain([0, 10, 35]).range(["LightSalmon", "darkred", "DarkOrange"]);
+
+          const customColorsList = [
+            "#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c",
+            "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5",
+            "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+            "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+        ];
+
+          // set style according to categories
+          var legendStyle = styler(columns.map((column,idx)=> {
+            console.log(colorRange(idx), idx)
+            return {
+              key: column,
+              color: customColorsList[idx],
+              width: 2
+            }
+          }))
+
 
           that.setState({
+            legendStyle,
+            categories,
+            selectedClassName: this.state.defs[data.data.id],
             sparklineData: series,
             sparklineDataMax: Math.max(...findMax),
             lineChartColumns: ["time"].concat(columns),
             classSelection: data.data.id
           })
+
+          this.onSelectionChange(categories[0].key)
+          $(".fOXeFO").removeClass("fOXeFO")
         })
       })
+  }
+
+  onHighlightChange (highlight){
+    // console.log(highlight)
+    // this.setState({ highlight })
+  }
+  onSelectionChange(selection) {
+    this.setState({ 
+      selection,
+      selectionName: selection[0].toUpperCase() + selection.slice(1,selection.length)
+    })
+    this.onTrackerChanged(this.state.tracker, selection)
+  }
+  onTrackerChanged(tracker, selection) {
+    if(!this.state.categories || !this.state.sparklineData){
+      return;
+    }
+    let index;
+    try{
+      index = this.state.sparklineData.bisect(tracker);
+    } catch (e) {
+      return;
+    }
+    const trackerEvent = this.state.sparklineData.at(index);
+    
+    var highlight = this.state.highlight;
+    var selection = selection || this.state.selection;
+
+    var categories = [],
+        trackerInfoValues = [];
+    this.state.categories.forEach((value, idx) => {
+      var num = trackerEvent.get(value.key)
+      // value.value = num
+      
+      categories.push(value)
+      if(value.key === selection){
+        trackerInfoValues.push({
+          label: value.key[0].toUpperCase() + value.key.slice(1,value.key.length),
+          value: num.toString()
+        })
+      }
+    })
+    this.setState({
+      categories,
+      trackerInfoValues,
+      tracker
+    })
+  }
+  handleChartResize(width){
+    this.setState({width})
   }
 
   render (): ?React.Element {
     if (!this.state.data) return <span />
 
+    const timeStyle = {
+        fontSize: "1.2rem",
+        color: "#999"
+    };
+
     return (
         <section className='float-r infographic-container'>
         <div>
-          { !this.state.sparklineData ? null : 
-            <Resizable>
-                <ChartContainer 
-                  timeRange={this.state.timerange} 
-                  width={this.props.infographicDefinitions.lineChartConfig.width}
-                  enablePanZoom={this.state.enablePanZoom}
-                  onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
-                  trackerPosition={this.state.tracker}
-                  onTrackerChanged={tracker => this.setState({ tracker })}
-                  minTime={this.state.minTime}
-                  maxTime={this.state.maxTime}
-                  showGrid={this.props.infographicDefinitions.lineChartConfig.showGrid}
-                >
-                    <ChartRow height={this.props.infographicDefinitions.lineChartConfig.chartRowHeight}>
-                        <YAxis 
-                          id="axis1"
-                          max={this.state.sparklineDataMax}
-                          {...this.props.infographicDefinitions.lineChartConfig.yAxis}
-                        />
-                        <Charts>
-                            <LineChart 
-                              axis="axis1"
-                              series={this.state.sparklineData}
-                              columns={this.state.lineChartColumns}
-                              interpolation={this.props.infographicDefinitions.lineChartConfig.interpolation}
-                              highlight={this.state.highlight}
-                              onHighlightChange={highlight => this.setState({ highlight })}
-                              selection={this.state.selection}
-                              onSelectionChange={selection => this.setState({ selection })}
-                            />
-                        </Charts>
-                    </ChartRow>
-                </ChartContainer>
-              </Resizable>
-            }
-          </div>
-
+          {Parser(this.props.infographicDefinitions.title)}
+          <hr className="datamap-hr"/>
           <Pie
             data={this.state.data}
-            width={500}
-            height={500}
+            width={400}
+            height={400}
             onClick={this.onClick}
             margin={{
                 "top": 80,
@@ -348,8 +359,65 @@ class PieChartInfographic extends React.Component {
             motionDamping={15}
             isInteractive={true}
         /> 
+        </div>
+        <p className='datamap-infographic-header-params'> 
+              {this.props.infographicDefinitions.subtitle} for <i className='datamap-infographic-header-text-bold'>{this.state.selectionName} Medical Speciality</i> in <i className='datamap-infographic-header-text-bold'>{this.state.selectedClassName}</i>
+            </p>
+        <div className="flex-box">
+        { !this.state.sparklineData ? null : 
+              <ChartContainer 
+                timeRange={this.state.timerange} 
+                enablePanZoom={this.state.enablePanZoom}
+                onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
+                trackerPosition={this.state.tracker}
+                onTrackerChanged={this.onTrackerChanged}
+                minTime={this.state.minTime}
+                maxTime={this.state.maxTime}
+                showGrid={this.props.infographicDefinitions.lineChartConfig.showGrid}
+                onChartResize={this.handleChartResize}
+                width={this.props.infographicDefinitions.lineChartConfig.width}
+              >
+                  <ChartRow 
+                    trackerInfoValues={this.state.trackerInfoValues}
+                    {...this.props.infographicDefinitions.lineChartConfig.chartRow}
+                  >
+                      <YAxis 
+                        id="axis1"
+                        max={this.state.sparklineDataMax}
+                        {...this.props.infographicDefinitions.lineChartConfig.yAxis}
+                      />
+                      <Charts>
+                          <LineChart 
+                            style={this.state.legendStyle}
+                            axis="axis1"
+                            series={this.state.sparklineData}
+                            columns={this.state.lineChartColumns}
+                            interpolation={this.props.infographicDefinitions.lineChartConfig.interpolation}
+                            highlight={this.state.highlight}
+                            onHighlightChange={this.onHighlightChange}
+                            selection={this.state.selection}
+                            onSelectionChange={this.onSelectionChange}
+                          />
+                      </Charts>
+                  </ChartRow>
+              </ChartContainer>
+            }
+          { !this.state.sparklineData ? null :
+            <div className="piechart-timeseries">
+              <Legend
+                  type="swatch"
+                  align="right"
+                  style={this.state.legendStyle}
+                  highlight={this.state.highlight}
+                  onHighlightChange={this.onHighlightChange}
+                  selection={this.state.selection}
+                  onSelectionChange={this.onSelectionChange}
+                  categories={this.state.categories}
+              />
+            </div>
+          }
           
-       
+        </div>
         </section>
     )
   }

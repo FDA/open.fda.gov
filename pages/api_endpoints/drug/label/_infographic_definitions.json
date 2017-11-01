@@ -1,11 +1,33 @@
 {
-  "title": "Drugs Labels by Type and Categories of Administering Routes Year Over Year (YOY)",
-  "queries": {
+  "title": "<p class='heatmap-infographic-header'><i class='datamap-infographic-header-text-bold'> Drugs Labels </i>: Type vs. Categories of Administering Routes Change Year Over Year (YOY) %</p>",
+  "queries1": {
     "otc": "openfda.product_type:otc",
     "prescription": "openfda.product_type:prescription",
     "lactose": "inactive_ingredient:lactose",
     "bleeding": "boxed_warning:bleeding",
     "all": ""
+  }, 
+  "queries": {
+    "otc": {
+      "query": "openfda.product_type:otc",
+      "name": "Over the Counter Drugs"
+    },
+    "prescription": {
+      "query": "openfda.product_type:prescription",
+      "name": "Prescription Drugs"
+    },
+    "lactose": {
+      "query": "inactive_ingredient:lactose",
+      "name": "Lactose Ingredient"
+    },
+    "bleeding": {
+      "query": "boxed_warning:bleeding",
+      "name": "Warning of Bleeding"
+    },
+    "all": {
+      "query": "",
+      "name": "All Drugs"
+    }
   }, 
   "defaults": {
     "xKey":"SUBLINGUAL",
@@ -19,6 +41,26 @@
   "heatMapConfig":{
     "keyFormat": "Query: ${this.yKey.charAt(0).toUpperCase() + this.yKey.slice(1).toLowerCase()}\n Route: ${this.xKey.charAt(0).toUpperCase() + this.xKey.slice(1).toLowerCase()}",
     "valueFormatter": "${this.value}%",
+
+    "colorCodes": {
+    "greens": ["#c2e2a5", "#9cc677", "#7bba4d", "#4aaa01", "#177d00"],
+    "reds":["#ffa1a4","#ff7c80","#fe5057", "#ED182B", "#bd0000"],
+    "zero": "#C7C7C7"
+  },
+    "colorScales": {
+      "missingValue": "-",
+      "zero": "#C7C7C7",
+      "negative": {
+        "colors": ["#E1D735", "#FF0000", "#FF8383", "#ED182B"],
+        "range": [-1000,-501,-500,-1],
+        "extremity": "#177d00"
+      },
+      "positive":{
+        "colors": ["#8FFF9C", "#ff7c80", "#7bba4d", "#4aaa01"],
+        "range": [1,500,501,1000],
+        "extremity": "#bd0000"
+      }
+    },
     "height": 350,
     "width": 900,
     "indexBy": "_type",
@@ -66,6 +108,23 @@
     "cellHoverOpacity": 1,
     "cellHoverOthersOpacity": 0.5
   },
+  "slider": {
+    "style": {
+      "float": "left",
+      "height": "350px"
+    },
+    "handleStyle": {
+      "borderColor": "black"
+    },
+    "trackStyle": {
+      "backgroundColor": "#8C8C8C",
+      "width": 5
+    },
+    "dotStyle": {
+      "backgroundColor": "white",
+      "borderColor": "black"
+    }
+  },
   "chartConfig": {
     "width": 800,
     "showGrid": true,
@@ -75,6 +134,14 @@
         "min": 0,
         "width": 100,
         "type": "linear"
+    },
+    "chartRow": {
+      "height": 200,
+      "trackerInfoHeight": 40,
+      "trackerInfoWidth": 110,
+      "trackerTimeFormat": "%Y",
+      "timeFormat": "%Y",
+      "trackerShowTime": true
     },
     "interpolation": "curveBasis",
     "lineStyle": {

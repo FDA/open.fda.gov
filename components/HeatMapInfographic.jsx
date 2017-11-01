@@ -10,6 +10,7 @@ import { Series } from 'pandas-js';
 import { HeatMap } from 'nivo'
 import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable } from "react-timeseries-charts"
 import { TimeSeries, TimeRange, sum } from "pondjs";
+import Parser from 'html-react-parser';
 
 import _ from 'lodash';
 import 'rc-slider/assets/index.css';
@@ -44,7 +45,6 @@ class HeatMapInfographic extends React.Component {
 
     this.state = {
       API_LINK: API_LINK,
-      title: this.props.infographicDefinitions.title,
       api: this.props.api,
       selection:  null,
       tracker:   null,
@@ -67,12 +67,14 @@ class HeatMapInfographic extends React.Component {
       enablePanZoom: false,
       defaultTimeRange: new TimeRange([minTime, now]),
       _rows: [],
-      original_rows: []
+      original_rows: [],
+      trackerInfoValues: "",
     }
 
     this.changeValue = this.changeValue.bind(this)
     this.onClick = this.onClick.bind(this)
     this.togglePanZoom = this.togglePanZoom.bind(this)
+    this.onTrackerChanged = this.onTrackerChanged.bind(this)
   }
 
   componentDidMount () {
@@ -96,7 +98,7 @@ class HeatMapInfographic extends React.Component {
   }
 
   _getAllData () {
-    const l = Object.values(this.state.queries),
+    const l = Object.values(this.state.queries).map(q => q.query),
           urls = [],
           that = this;
 
@@ -262,7 +264,7 @@ class HeatMapInfographic extends React.Component {
   onClick(node, event){
     if(node.value === '-') return
     var xKey = this.state.xTerms[node['xKey']],
-        yKey = this.state.queries[node['yKey'].toLowerCase()] === "" ? "" :  ("+AND+" + this.state.queries[node['yKey'].toLowerCase()]),
+        yKey = this.props.infographicDefinitions.queries[node["yKey"]].query.toLowerCase() === "" ? "" :  ("+AND+" + this.props.infographicDefinitions.queries[node["yKey"]].query.toLowerCase()),
         url = `${this.state.API_LINK}${this.state.api}.json?search=${this.props.infographicDefinitions.countBy}:` + xKey + yKey + `&count=${this.props.dateField}`,
         that = this;
 
@@ -275,7 +277,7 @@ class HeatMapInfographic extends React.Component {
             let x = i.time.slice(0,4) + '-' + i.time.slice(4,6) + '-' + i.time.slice(6,8)
             return [new Date(x), i.count]
        }) 
-      }).yearlyRollup({
+      }).monthlyRollup({
         aggregation: {
           value: {
             value: sum()
@@ -289,7 +291,7 @@ class HeatMapInfographic extends React.Component {
         sparklindDataMax: series.max(),
         timerange: new TimeRange(that.state.minTime, new Date(that.state.currentValue+1, 1,20)),
         currentXkey: node['xKey'].charAt(0).toUpperCase() + node['xKey'].slice(1).toLowerCase(),
-        currentYkey: node['yKey'].charAt(0).toUpperCase() + node['yKey'].slice(1).toLowerCase()
+        currentYkey: that.props.infographicDefinitions.queries[node["yKey"]].name
       })
     })
 
@@ -302,6 +304,23 @@ class HeatMapInfographic extends React.Component {
       timerange: new TimeRange(this.state.minTime, new Date(d+1, 1,20))
     })
   }
+  onTrackerChanged(tracker, selection) {
+    let index;
+    try{
+      index = this.state.sparklineData.bisect(tracker);
+    } catch (e) {
+      return;
+    }
+
+    var trackerInfoValues = [{
+        label: "value", 
+        value: this.state.sparklineData.at(index).get("value").toString()
+    }]
+    this.setState({
+      trackerInfoValues,
+      tracker
+    })
+  }
 
   togglePanZoom (){
     this.setState({
@@ -311,6 +330,10 @@ class HeatMapInfographic extends React.Component {
 
   render (): ?React.Element {
     if (!this.state.data) return <span />
+
+      // <div className="heatmap-header">
+      //       <p className="interactive-infographic-center"> Selected Year - <i className="interactive-infographic-bold">{this.state.currentValue}</i></p>
+      //     </div>
 
     const handle = (props) => {
       const { value, dragging, index, ...restProps } = props;
@@ -329,65 +352,86 @@ class HeatMapInfographic extends React.Component {
 
     return (
         <section className='float-r infographic-container'>
-        <h3 className="datamap-infographic-header-title">{this.state.title} </h3>
-          <div className="heatmap-header">
-            <p className="interactive-infographic-center"> Selected Year - <i className="interactive-infographic-bold">{this.state.currentValue}</i></p>
-            <Slider 
-              className="interactive-infographic-left"
-              min={this.state.min} 
-              max={this.state.max} 
-              defaultValue={this.state.defaultValue}
-              marks={this.state.slider_marks}
-              handle={handle} 
-              onAfterChange={this.changeValue}
-              step={this.state.step}
-            />
+
+          {Parser(this.props.infographicDefinitions.title)}
+          <hr className="datamap-hr"/>
+          <br/><br/>
+          
+          <div className="flex-box">
+            <div className="infographic-slider">
+                <Slider
+                  min={this.state.min}
+                  max={this.state.max}
+                  defaultValue={this.state.defaultValue}
+                  marks={this.state.slider_marks}
+                  onAfterChange={this.changeValue}
+                  step={this.state.step}
+                  handle={handle}
+                  vertical={true}
+                  {...this.props.infographicDefinitions.slider}
+                />
+            </div>
+            <div style={{paddingLeft:50}}>
+              <HeatMap
+                data={this.state.data}
+                keys={this.state.keys}
+                onClick={this.onClick}
+                {...this.props.infographicDefinitions.heatMapConfig}
+              />
+            </div>
           </div>
-          <HeatMap
-            data={this.state.data}
-            keys={this.state.keys}
-            onClick={this.onClick}
-            {...this.props.infographicDefinitions.heatMapConfig}
-          />
-          <button className="heatmap-infographic-zoom-button" onClick={this.togglePanZoom }> { this.state.enablePanZoom ? 'Disable' : 'Enable' } Zoom</button>
-          { !this.state.sparklineData ? null : 
-            <h3 className="interactive-infographic-center"> {this.props.infographicDefinitions.yName}: {this.state.currentYkey}, {this.props.infographicDefinitions.xName}: {this.state.currentXkey} </h3> 
-          }
-          { !this.state.sparklineData ? null : 
-            <Resizable>
-              <ChartContainer 
-                timeRange={this.state.timerange} 
-                width={this.props.infographicDefinitions.chartConfig.width}
-                enablePanZoom={this.state.enablePanZoom}
-                onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
-                trackerPosition={this.state.tracker}
-                onTrackerChanged={tracker => this.setState({ tracker })}
-                minTime={this.state.minTime}
-                maxTime={this.state.maxTime}
-                showGrid={this.props.infographicDefinitions.chartConfig.showGrid}
-              >
-                  <ChartRow height={this.props.infographicDefinitions.chartConfig.chartRowHeight}>
-                      <YAxis 
-                        id="axis1"
-                        max={this.state.sparklindDataMax}
-                        {...this.props.infographicDefinitions.chartConfig.yAxis}
-                      />
-                      <Charts>
-                          <LineChart 
-                            axis="axis1"
-                            series={this.state.sparklineData}
-                            style={this.props.infographicDefinitions.chartConfig.lineStyle}
-                            interpolation={this.props.infographicDefinitions.chartConfig.interpolation}
-                            highlight={this.state.highlight}
-                            onHighlightChange={highlight => this.setState({ highlight })}
-                            selection={this.state.selection}
-                            onSelectionChange={selection => this.setState({ selection })}
+          <br/><br/>
+
+          <div>
+            <button className="heatmap-infographic-zoom-button" onClick={this.togglePanZoom }> { this.state.enablePanZoom ? 'Disable' : 'Enable' } Zoom</button>
+            { !this.state.sparklineData ? null : 
+              <h3 className="interactive-infographic-center"> 
+                <span className="interactive-infographic-underline">{this.props.infographicDefinitions.yName}</span>: {this.state.currentYkey},&nbsp;
+                <span className="interactive-infographic-underline">{this.props.infographicDefinitions.xName}</span>: {this.state.currentXkey} 
+              </h3> 
+            }
+
+            { !this.state.sparklineData ? null : 
+              <div style={{paddingTop:20}}>
+                <Resizable>
+                  <ChartContainer 
+                    timeRange={this.state.timerange} 
+                    width={this.props.infographicDefinitions.chartConfig.width}
+                    enablePanZoom={this.state.enablePanZoom}
+                    onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
+                    trackerPosition={this.state.tracker}
+                    onTrackerChanged={this.onTrackerChanged}
+                    minTime={this.state.minTime}
+                    maxTime={this.state.maxTime}
+                    showGrid={this.props.infographicDefinitions.chartConfig.showGrid}
+                  >
+                      <ChartRow 
+                        trackerInfoValues={this.state.trackerInfoValues}
+                        {...this.props.infographicDefinitions.chartConfig.chartRow}
+                      >
+                          <YAxis 
+                            id="axis1"
+                            max={this.state.sparklindDataMax}
+                            {...this.props.infographicDefinitions.chartConfig.yAxis}
                           />
-                      </Charts>
-                  </ChartRow>
-              </ChartContainer>
-            </Resizable>
-          }
+                          <Charts>
+                              <LineChart 
+                                axis="axis1"
+                                series={this.state.sparklineData}
+                                style={this.props.infographicDefinitions.chartConfig.lineStyle}
+                                interpolation={this.props.infographicDefinitions.chartConfig.interpolation}
+                                highlight={this.state.highlight}
+                                onHighlightChange={highlight => this.setState({ highlight })}
+                                selection={this.state.selection}
+                                onSelectionChange={selection => this.setState({ selection })}
+                              />
+                          </Charts>
+                      </ChartRow>
+                  </ChartContainer>
+                </Resizable>
+              </div>
+            }
+          </div>
         </section>
     )
   }

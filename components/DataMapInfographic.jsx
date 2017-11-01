@@ -2,7 +2,8 @@
 
 import React from 'react'
 
-import { LongTextFormatter, DeviceFormatter, EventDescriptionFormatter} from '../utils/formatters'
+import { LongTextFormatter, DeviceFormatter, EventDescriptionFormatter, ShortTextFormatter} from '../utils/formatters'
+import {InfographicLegend} from 'components/InfographicLegend'
 import { Bar, Line, HeatMap } from 'nivo'
 import $ from "jquery"
 import { TimeSeries, sum} from "pondjs";
@@ -50,6 +51,7 @@ class DataMapInfographic extends React.Component {
     this.LongTextFormatter = LongTextFormatter
     this.DeviceFormatter = DeviceFormatter
     this.EventDescriptionFormatter = EventDescriptionFormatter
+    this.ShortTextFormatter = ShortTextFormatter
   
     const dataGridProperties = this.props.infographicDefinitions.gridConfig.dataGridProperties.map((value) => {
       if(value.formatter !== undefined){
@@ -295,24 +297,65 @@ class DataMapInfographic extends React.Component {
         onlyValues = Object.values(data);
 
     var minValue = Math.min.apply(null, onlyValues),
-            maxValue = Math.max.apply(null, onlyValues);
-    
-    var paletteScaleRed = d3.scale.linear()
-            .domain([-100, 0])
-            .range(["#A4CE86","#63C61B"]);
+        maxValue = Math.max.apply(null, onlyValues),
+        paletteScaleGreen1 = d3.scale.linear()
+            .domain([ -500, -1])
+            .interpolate(d3.interpolateHcl)
+            .range([d3.rgb(this.props.infographicDefinitions.colorCodes.greens[1]), d3.rgb(this.props.infographicDefinitions.colorCodes.greens[0])]),
+        paletteScaleGreen2 = d3.scale.linear()
+            .domain([ -1000, -501])
+            .interpolate(d3.interpolateHcl)
+            .range([d3.rgb(this.props.infographicDefinitions.colorCodes.greens[2]), d3.rgb(this.props.infographicDefinitions.colorCodes.greens[1])]),
+        paletteScaleRed1 = d3.scale.linear()
+            .domain([1, 500])
+            .interpolate(d3.interpolateHcl)
+            .range([d3.rgb(this.props.infographicDefinitions.colorCodes.reds[0]), d3.rgb(this.props.infographicDefinitions.colorCodes.reds[1])]),
+        zeroGreen = this.props.infographicDefinitions.colorCodes.zero,
+        positiveFivehundredTOthousand = this.props.infographicDefinitions.colorCodes.reds[2],
+        negativeFivehundredTOthousand = this.props.infographicDefinitions.colorCodes.greens[2],
+        extremeGreen = this.props.infographicDefinitions.colorCodes.greens[3],
+        extremeRed = this.props.infographicDefinitions.colorCodes.reds[3];
 
-    var paletteScaleGreen = d3.scale.linear()
-            .domain([0, 200])
-            .range(["#DA6A6A","#D72020"])
+      console.log(this.props.infographicDefinitions.colorCodes.greens[0], this.props.infographicDefinitions.colorCodes.greens[1])
+      console.log(2)
 
 
     var f = function(val){
       var res = null;
-      if(val < 100){
-        res = paletteScaleRed(val)
-      } else if (val >= 0){
-        res = paletteScaleGreen(val)
-      } 
+      // 0
+      if (val === 0){
+        res = zeroGreen;
+      }
+      // REDS
+      else if(val > 0){
+          // 1 - 500
+         if(val < 501){
+            res = paletteScaleRed1(val)
+          }
+          // 501 - 1000
+          else if (val > 501 && val < 1001){
+            res = positiveFivehundredTOthousand;
+          } 
+          // 1000+
+          else {
+            res = extremeRed;
+          }
+      }
+      // GREENS
+      else if (val < 0){
+          // -1 - -500
+         if(val > -501){
+            res = paletteScaleGreen1(val)
+          } 
+          // -1000 - -500
+          else if ( val > -1001){
+            res = paletteScaleGreen2(val);
+          } 
+          // 1000+
+          else {
+            res = extremeGreen;
+          }
+      }
       return res;
     }
 
@@ -353,9 +396,20 @@ class DataMapInfographic extends React.Component {
       .catch(function(results){})
       .then(function(results) {
         var result = results === undefined ? that.props.infographicDefinitions.gridConfig.defaultData : results[0].results;
+        var finalData = []
+        result.forEach( item => {
+          var record = {}
+          that.props.infographicDefinitions.gridConfig.dataGridProperties.forEach( column => {
+            var val  = item[column.key]
+            column._getter !== undefined ? eval("val = item." + column._getter) : null;
+            record[column.key] = val
+          })
+          finalData.push(record)
+
+        })
         that.setState({
-          _rows : result,
-          original_rows: result,
+          _rows : finalData,
+          original_rows: finalData,
           selectedState: _id
         })
       })
@@ -405,9 +459,10 @@ class DataMapInfographic extends React.Component {
           <div>
             {Parser(this.props.infographicDefinitions.title)}
             <hr className="datamap-hr"/>
-            <div style={{paddingLeft:"25px", paddingTop: "25px"}}>
-              <Slider 
-                  min={this.state.min} 
+
+            <div className="infographic-slider">
+              <Slider
+                  min={this.state.min}
                   max={this.state.max}
                   defaultValue={this.state.defaultValue}
                   marks={this.state.slider_marks}
@@ -418,6 +473,9 @@ class DataMapInfographic extends React.Component {
                   {...this.props.infographicDefinitions.slider}
                 />
             </div>
+
+            <InfographicLegend {...this.props.infographicDefinitions.legend} />
+
             <div className="datamap-infographic">
               <Datamap
                 scope={this.props.infographicDefinitions.dataMapConfig.scope}
@@ -441,9 +499,10 @@ class DataMapInfographic extends React.Component {
               />
             </div>
             <p className='datamap-infographic-header-params'> 
-              Recalls for <i className='datamap-infographic-header-text-bold'>{this.props.infographicDefinitions.states[this.state.selectedState]}</i> in <i className='datamap-infographic-header-text-bold'>{this.state.currentValue}</i>
+              {this.props.infographicDefinitions.subtitle} for <i className='datamap-infographic-header-text-bold'>{this.props.infographicDefinitions.states[this.state.selectedState]}</i> in <i className='datamap-infographic-header-text-bold'>{this.state.currentValue}</i>
             </p>
             <div>
+            { !this.state._rows.length ? null : 
               <ReactDataGrid
                 columns={this.state.dataGridProperties}
                 rowGetter={this.rowGetter}
@@ -452,6 +511,7 @@ class DataMapInfographic extends React.Component {
                 onFilter={this.onGridRowsUpdated}
                 {...this.props.infographicDefinitions.gridConfig}
               />
+            }
             </div>
           </div>
         </section>

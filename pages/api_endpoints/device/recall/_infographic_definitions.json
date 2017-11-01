@@ -1,18 +1,26 @@
 {
-  "title": "Drugs Labels by Type and Categories of Administering Routes Year Over Year (YOY)",
+  "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Recalls</i>: By Risk Classes</p>",
+  "subtitle": "Device Recalls",
   "yName": "Query",
   "xName": "Route",
   "countBy": "openfda.device_class",
   "type": "PieChart",
   "startYear": 2003,
   "dateField": "event_date_terminated",
-  "subfield": "product_code",
+  "subfield": "openfda.medical_specialty_description",
   "classification_api": "/device/classification",
   "pieChartConfig":{},
   "lineChartConfig": {
-    "width": 200,
+    "width": 700,
     "showGrid": true,
-    "chartRowHeight": 200,
+    "chartRow": {
+      "height": 200,
+      "trackerInfoHeight": 40,
+      "trackerInfoWidth": 110,
+      "trackerTimeFormat": "%Y",
+      "timeFormat": "%Y",
+      "trackerShowTime": false
+    },
     "yAxis": {
         "label": "Count",
         "min": 0,

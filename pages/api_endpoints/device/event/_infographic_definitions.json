@@ -1,8 +1,8 @@
 {
   "selectedState": "VA",
-  "countBy": "state.exact",
-  "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Food Enforcement Recalls</i>: Year Over Year (YOY) Change % by State</p>",
-  "subtitle": "Recalls",
+  "countBy": "device.manufacturer_d_state.exact",
+  "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Event</i>: Year Over Year (YOY) Change % by State</p>",
+  "subtitle": "Adverse Events",
   "type": "DataMap",
   "ipURL": "https:\/\/freegeoip.net/json/?callback=",
   "colorCodes": {
@@ -10,7 +10,7 @@
     "reds":["#ffa1a4","#ff7c80","#fe5057", "#ED182B", "#bd0000"],
     "zero": "#C7C7C7"
   },
-    "legend": {
+  "legend": {
       "title": "YOY Change %",
       "styles": {
         "float": "right" ,
@@ -19,32 +19,32 @@
       },
       "ranges": [
         {
-            "color": "#4aaa01",
-            "name": "> 1001%"
+          "color": "#4aaa01",
+          "name": "> 1001%"
         },
         {
-            "color":  "#7bba4d",
-            "name":  "501% to 1000%"
+          "color":  "#7bba4d",
+          "name":  "501% to 1000%"
         },
         {
-            "color": "#c2e2a5",
-            "name": "1% to 500%"
+          "color": "#c2e2a5",
+          "name": "1% to 500%"
         },
         {
-            "color": "#C7C7C7",
-            "name": "0% (No Change)"
+          "color": "#C7C7C7",
+          "name": "0% (No Change)"
         },
         {
-            "color": "#ffa1a4",
-            "name": "-1% to -500%"
+          "color": "#ffa1a4",
+          "name": "-1% to -500%"
         },
         {
-            "color":  "#fe5057",
-            "name":  "-501% to -1000%"
+          "color":  "#fe5057",
+          "name":  "-501% to -1000%"
         },
         {
-            "color": "#ED182B",
-            "name": "< -1001%"
+          "color": "#ED182B",
+          "name": "< -1001%"
         }
       ]
   },
@@ -65,8 +65,8 @@
       "borderColor": "black"
     }
   },
-  "dateField": "report_date",
-  "startYear": 2012,
+  "dateField": "date_of_event",
+  "startYear": 1992,
   "dataMapConfig": {
     "geographyConfigInfo": {
       "highlightBorderColor": "#FFFFFF",
@@ -100,39 +100,52 @@
     "headerRowHeight": 30,
     "rowHeight": 75,
     "minHeight": 400, 
-    "minWidth": 1010,
+    "minWidth": 1020,
     "dataGridProperties": [
-      { 
-        "key": "state",
+        { 
+        "key": "manufacturer_d_state",
+        "_getter": "device[0].manufacturer_d_state",
         "name": "State",
         "width":50,
         "sortable": true 
       },
       { 
-        "key": "recalling_firm",
+        "key": "manufacturer_contact_l_name",
         "name": "Recalling Firm",
         "width":150,
         "sortable": true,
         "formatter": "LongTextFormatter"
       },
+      
       { 
-        "key": "reason_for_recall",
-        "name": "Reason",
-        "width":350,
-        "locked": true,
+        "key": "generic_name",
+        "_getter": "device[0].generic_name",
+        "name": "Device Name",
+        "width":200,
+        "sortable": true,
         "formatter": "LongTextFormatter"
       },
       { 
-        "key": "product_description",
-        "name": "Product Description",
+        "key": "mdr_text",
+        "name": "Event Description",
         "width":350,
-        "formatter": "LongTextFormatter"
+        "formatter": "EventDescriptionFormatter"
       },
       { 
-        "key": "status",
-        "name": "Status",
-        "width":100,
+        "key": "report_source_code",
+        "subfield": "text",
+        "name": "Source",
+        "formatter": "LongTextFormatter",
+        "width":125,
         "sortable": true
+      },
+      { 
+        "key": "medical_specialty_description",
+        "_getter": "device[0].openfda.medical_specialty_description",
+        "name": "Specialty",
+        "width":125,
+        "sortable": true,
+        "formatter": "ShortTextFormatter"
       }
     ],
     "defaultData": [{"reason_for_recall": "No Data Found"},{},{},{},{},{}]
