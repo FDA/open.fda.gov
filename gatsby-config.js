@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `openFDA`,
   },
   plugins: [
     {
@@ -10,6 +10,7 @@ module.exports = {
         name: "pages",
       },
     },
+    `gatsby-plugin-stylus`,
     `gatsby-plugin-react-helmet`
   ],
 }

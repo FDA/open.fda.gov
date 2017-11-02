@@ -53,7 +53,9 @@ const links: Array<Object> = [
   },
 ]
 
-const aCx: string = 'clr-white inline-block underline pad-r-2 m-marg-b-2 t-marg-b-1 smallest underline'
+const aCx: string = 'clr-white inline-block small'
+const hhsCx = 'col pad-r-1 flex-box align-end dir-column m-marg-t-2 m-marg-l-2 hhs'
+const hhsACx = 'clr-white relative hhs'
 
 // PreFooter should remain stateless
 // although, it technically isn't pure
@@ -62,19 +64,12 @@ const Footer = () => (
   <footer
     id='footer'
     className='bg-primary-darker relative row'>
-    <div
-      className='container flex-box no-wrap pad-t-3 pad-b-3'
-      style={{
-        minHeight: '400px',
-      }}>
+    <div className='container flex-box just-between no-wrap pad-t-3 pad-b-3 footer-container'>
       <ul
         aria-label='FDA address and phone number'
-        className='col marg-r-3 clr-white small'
-        tabIndex={0}
-        style={{
-          maxWidth: '235px',
-        }}>
-        <li className='marg-b-2 t-marg-b-3'>
+        className='col d-2 clr-white small footer-left'
+        tabIndex={0}>
+        <li className='marg-b-1'>
           <a href='https://www.fda.gov/'>
             <img
               alt='Go to FDA website'
@@ -87,7 +82,7 @@ const Footer = () => (
         <li>10903 New Hampshire Avenue</li>
         <li>Silver Spring, MD 20993</li>
         <li>1-888-INFO-FDA (1-888-463-6332)</li>
-        <li className='m-marg-t-1 marg-t-2'>
+        <li>
           <a
             className={aCx}
             href='http://www.fda.gov/AboutFDA/ContactFDA/default.htm'>
@@ -96,14 +91,14 @@ const Footer = () => (
         </li>
       </ul>
       <nav
-        className='col m-marg-t-2'
+        className='d-2 m-marg-t-2'
         aria-label='FDA links'>
-        <ul className='flex-box flex-wrap dir-row'>
+        <ul className='link-columns'>
           {
             links.map((item: Object, i: number) => (
               <li
                 key={i}
-                className='col grow-none no-marg m-3'>
+                className='marg-b-1'>
                 <a
                   className={aCx}
                   rel='noopener noreferrer'
@@ -115,14 +110,30 @@ const Footer = () => (
             ))
           }
         </ul>
-        <p
-          className='small clr-white'
-          style={{
-            marginTop: '26px'
-          }}>
-          Some links on this website may direct you to non-FDA locations. FDA does not endorse or guarantee the integrity of information on these external sites.
-        </p>
       </nav>
+      <div className="flex-row dir-column footer-right">
+        <p className='small clr-white italic'>
+          Some links on this website may direct you to non-FDA locations. FDA does not endorse or guarantee the
+          integrity of information on these external sites.
+        </p>
+        <div className={hhsCx}>
+          <a
+            href='http://www.hhs.gov/'
+            className={hhsACx}
+            rel='noopener noreferrer'
+            target='_blank'>
+            <img
+              className='absolute top'
+              alt='Go to HHS website'
+              height='16px'
+              width='15px'
+              src='/img/l_HHS_white.png'
+            />
+            U.S. Department of Health and Human Services
+          </a>
+          <strong className='clr-white row txt-r'>Food and Drug Administration</strong>
+        </div>
+      </div>
     </div>
   </footer>
 )

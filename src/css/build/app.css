@@ -997,10 +997,13 @@ li.usage-api-li {
     order: 1;
   }
   .d-2 {
-    width: 32%;
+    width: 33%;
   }
   .d-ord-2 {
     order: 2;
+  }
+  .d-40 {
+    width: 40%;
   }
   .d-3 {
     width: 49%;
@@ -2378,6 +2381,31 @@ li.usage-api-li {
 .status-content-bg {
   padding: 3px 10px;
 }
+.footer-container {
+  min-height: 400px;
+}
+.footer-left {
+  max-width: 275px;
+  line-height: 24px;
+  margin-right: 40px;
+}
+.footer-left li:not(:first-child) {
+  margin-left: 40px;
+}
+.link-columns {
+  columns: 2;
+  color: #fff;
+}
+.footer-right {
+  width: 25%;
+}
+.footer-right p {
+  margin-bottom: 60px;
+  text-align: right;
+}
+.footer-right img {
+  left: -21px;
+}
 .hero-text-box {
   text-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
@@ -2581,6 +2609,12 @@ li.usage-api-li {
 }
 .fda-logo {
   width: 225px;
+}
+.nav-bar-divider-line {
+  border-right: 3px solid rgba(0,0,0,0.1);
+  margin: 0px 15px;
+  height: 50px;
+  width: 1px;
 }
 .dropdown {
   position: relative;

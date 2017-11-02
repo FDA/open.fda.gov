@@ -10,9 +10,6 @@ import Link from 'gatsby-link'
 
 const linkCx: string = 'sub-menu-item no-underline'
 
-const hhsCx = 'col pad-r-1 flex-box align-end dir-column m-marg-t-2 m-marg-l-2 hhs'
-const hhsACx = 'clr-white relative hhs'
-
 const hamStyl: Object = Object.freeze({
   borderRadius: '5px',
   height: '3px',
@@ -64,54 +61,30 @@ const Nav = (props: tPROPS) => {
         className='visually-hidden'>
         Skip navigation, go to start of content
       </a>
-      <div className='bg-primary-darker m-ord-2 fda-bar'>
-        <div className='container smallest clr-white pad-t-1 pad-b-1 flex-row dir-row align-center'>
-          <a
-            href='https://www.fda.gov/'
-            className='col self-start'
-            rel='noopener noreferrer'
-            target='_blank'
-            style={{
-              verticalAlign: 'text-top'
-            }}>
-            <img
-              alt='Go to FDA website'
-              width='320px'
-              src='/img/gov-fda-new-white.svg'
-              className='fda-logo'
-            />
-          </a>
-          <div className={hhsCx}>
-            <a
-              href='http://www.hhs.gov/'
-              className={hhsACx}
-              rel='noopener noreferrer'
-              target='_blank'>
-              <img
-                className='absolute top'
-                style={{
-                  left: '-21px',
-                }}
-                alt='Go to HHS website'
-                height='16px'
-                width='15px'
-                src='/img/l_HHS_white.png'
-              />
-              U.S. Department of Health and Human Services
-            </a>
-            <strong className='row txt-r'>Food and Drug Administration</strong>
-          </div>
-        </div>
-      </div>
       <div className='container dir-column m-ord-1 m-pad-b-1 m-pad-t-1 nav-bar'>
         <div className={showMobileNav ? 'dir-column relative': 'flex-row relative'}>
           <div
-            className='container d-2 align-center logo-wrapper relative'
+            className='container d-40 align-center logo-wrapper relative'
             style={{
               display: 'flex',
               minHeight: '35px',
               marginLeft: '0'
             }}>
+            <a
+              href='https://www.fda.gov/'
+              rel='noopener noreferrer'
+              target='_blank'
+              style={{
+                verticalAlign: 'text-top'
+              }}>
+              <img
+                alt='Go to FDA website'
+                width='320px'
+                src='/img/FDA_logo_blue.png'
+                className='fda-logo'
+              />
+            </a>
+            <div className="nav-bar-divider-line"/>
             <Link
               className='open-fda-logo'
               to='/'>

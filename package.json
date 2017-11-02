@@ -1,11 +1,21 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "open-fda-gov",
+  "description": "openFDA website",
+  "version": "2.0.0",
+  "author": "Jack Finch <jack.finch@semanticbits.com>",
+  "scripts": {
+    "dev:css": "stylus -w ./src/css/app.styl -o ./src/css/build/app.css -I ./node-modules/nib",
+    "dev:site": "gatsby develop -p 3000",
+    "build": "gatsby build",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FDA/open.fda.gov.git"
+  },
   "dependencies": {
     "babel-eslint": "^8.0.1",
-    "chart.js": "^2.7.1",
+    "chart.js": "1.1.1",
     "classnames": "^2.2.5",
     "copy-webpack-plugin": "^4.2.0",
     "dateformat": "^3.0.2",
@@ -16,13 +26,9 @@
     "gatsby": "^1.9.73",
     "gatsby-link": "^1.6.22",
     "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-stylus": "^1.1.10",
     "gatsby-remark-copy-linked-files": "^1.0.0-beta.6",
-    "gatsby-remark-images": "^1.0.0-beta.6",
-    "gatsby-remark-prismjs": "^1.0.0-beta.6",
-    "gatsby-remark-responsive-iframe": "^1.0.0-beta.6",
-    "gatsby-remark-smartypants": "^1.0.0-beta.6",
     "gatsby-source-filesystem": "^2.0.0-alpha.1",
-    "gatsby-transformer-remark": "^1.0.0-beta.6",
     "jquery": "^3.2.1",
     "localforage": "^1.5.2",
     "marked": "^0.3.6",
@@ -41,13 +47,6 @@
   ],
   "license": "MIT",
   "main": "n/a",
-  "scripts": {
-    "dev:css": "stylus -w ./src/css/app.styl -o ./src/css/build/app.css -I ./node-modules/nib",
-    "dev:site": "gatsby develop -p 3000",
-    "build": "gatsby build",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "devDependencies": {
     "prettier": "^1.7.4"
   }
