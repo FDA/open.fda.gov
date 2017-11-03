@@ -18,7 +18,7 @@
     },
     "lactose": {
       "query": "inactive_ingredient:lactose",
-      "name": "Lactose Ingredient"
+      "name": "Lactose  as an Ingredient"
     },
     "bleeding": {
       "query": "boxed_warning:bleeding",
@@ -41,12 +41,16 @@
   "heatMapConfig":{
     "keyFormat": "Query: ${this.yKey.charAt(0).toUpperCase() + this.yKey.slice(1).toLowerCase()}\n Route: ${this.xKey.charAt(0).toUpperCase() + this.xKey.slice(1).toLowerCase()}",
     "valueFormatter": "${this.value}%",
-
     "colorCodes": {
-    "greens": ["#c2e2a5", "#9cc677", "#7bba4d", "#4aaa01", "#177d00"],
-    "reds":["#ffa1a4","#ff7c80","#fe5057", "#ED182B", "#bd0000"],
-    "zero": "#C7C7C7"
-  },
+      "greens": ["#c2e2a5", "#9cc677", "#7bba4d", "#4aaa01", "#177d00"],
+      "reds":["#ffa1a4","#ff7c80","#fe5057", "#ED182B", "#bd0000"],
+      "zero": "#C7C7C7"
+    },
+    "theme": {
+      "axis": {
+       "fontSize": 15
+      }
+    },
     "colorScales": {
       "missingValue": "-",
       "zero": "#C7C7C7",
@@ -67,8 +71,8 @@
     "margin": {
         "top": 25,
         "right": 25,
-        "bottom": 60,
-        "left": 60
+        "bottom": 80,
+        "left": 165
     },
     "minValue": -100,
     "maxValue": 100,
@@ -85,7 +89,7 @@
         "legendOffset": 36
     },
     "axisLeft": {
-        "orient": "left",
+        "orient": "right",
         "tickSize": 5,
         "tickPadding": 5,
         "tickRotation": 0,
@@ -130,7 +134,7 @@
     "showGrid": true,
     "chartRowHeight": 200,
     "yAxis": {
-        "label": "Count",
+        "label": "Drug Count",
         "min": 0,
         "width": 100,
         "type": "linear"

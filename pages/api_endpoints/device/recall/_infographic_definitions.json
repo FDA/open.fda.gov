@@ -9,7 +9,47 @@
   "dateField": "event_date_terminated",
   "subfield": "openfda.medical_specialty_description",
   "classification_api": "/device/classification",
-  "pieChartConfig":{},
+  "pieChartConfig": {
+    "width": 250,
+    "height": 250,
+    "margin": {
+      "top": 15,
+      "right": 15,
+      "bottom": 15,
+      "left": 15
+    },
+    "theme": {
+      "axis": {
+       "fontSize": 15
+      }
+    },
+    "sortByValue": false,
+    "innerRadius": 0.5,
+    "padAngle": 0.7,
+    "cornerRadius": 3,
+    "colors": "set2",
+    "colorBy": "id",
+    "borderWidth":0,
+    "borderColor": "inherit:darker(0.6)",
+    "enableRadialLabels": false,
+    "radialLabel": "label",
+    "radialLabelsSkipAngle":90,
+    "radialLabelsTextXOffset": 1,
+    "radialLabelsTextColor": "#333333",
+    "radialLabelsLinkOffset": 0,
+    "radialLabelsLinkDiagonalLength": 16,
+    "radialLabelsLinkHorizontalLength": 24,
+    "radialLabelsLinkStrokeWidth": 1,
+    "radialLabelsLinkColor": "inherit",
+    "enableSlicesLabels": true,
+    "sliceLabel": "pct",
+    "slicesLabelsSkipAngle": 10,
+    "slicesLabelsTextColor": "#FFFFFF",
+    "animate": true,
+    "motionStiffness": 90,
+    "motionDamping": 15,
+    "isInteractive": true
+  },
   "lineChartConfig": {
     "width": 700,
     "showGrid": true,
@@ -22,7 +62,7 @@
       "trackerShowTime": false
     },
     "yAxis": {
-        "label": "Count",
+        "label": "Device Recalls",
         "min": 0,
         "width": 50,
         "type": "linear"

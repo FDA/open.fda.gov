@@ -233,7 +233,6 @@ class PieChartInfographic extends React.Component {
 
           // set style according to categories
           var legendStyle = styler(columns.map((column,idx)=> {
-            console.log(colorRange(idx), idx)
             return {
               key: column,
               color: customColorsList[idx],
@@ -262,6 +261,7 @@ class PieChartInfographic extends React.Component {
     // console.log(highlight)
     // this.setState({ highlight })
   }
+
   onSelectionChange(selection) {
     this.setState({ 
       selection,
@@ -269,6 +269,7 @@ class PieChartInfographic extends React.Component {
     })
     this.onTrackerChanged(this.state.tracker, selection)
   }
+
   onTrackerChanged(tracker, selection) {
     if(!this.state.categories || !this.state.sparklineData){
       return;
@@ -323,46 +324,13 @@ class PieChartInfographic extends React.Component {
           <hr className="datamap-hr"/>
           <Pie
             data={this.state.data}
-            width={400}
-            height={400}
             onClick={this.onClick}
-            margin={{
-                "top": 80,
-                "right": 80,
-                "bottom": 80,
-                "left": 80
-            }}
-            sortByValue={false}
-            innerRadius={0.5}
-            padAngle={0.7}
-            cornerRadius={3}
-            colors="d310"
-            colorBy="id"
-            borderWidth={0}
-            borderColor="inherit:darker(0.6)"
-            enableRadialLabels={false}
-            radialLabel="label"
-            radialLabelsSkipAngle={90}
-            radialLabelsTextXOffset={1}
-            radialLabelsTextColor="#333333"
-            radialLabelsLinkOffset={0}
-            radialLabelsLinkDiagonalLength={16}
-            radialLabelsLinkHorizontalLength={24}
-            radialLabelsLinkStrokeWidth={1}
-            radialLabelsLinkColor="inherit"
-            enableSlicesLabels={true}
-            sliceLabel="pct"
-            slicesLabelsSkipAngle={10}
-            slicesLabelsTextColor="#FFFFFF"
-            animate={true}
-            motionStiffness={90}
-            motionDamping={15}
-            isInteractive={true}
+            {...this.props.infographicDefinitions.pieChartConfig}
         /> 
         </div>
         <p className='datamap-infographic-header-params'> 
-              {this.props.infographicDefinitions.subtitle} for <i className='datamap-infographic-header-text-bold'>{this.state.selectionName} Medical Speciality</i> in <i className='datamap-infographic-header-text-bold'>{this.state.selectedClassName}</i>
-            </p>
+          {this.props.infographicDefinitions.subtitle} for <i className='datamap-infographic-header-text-bold'>{this.state.selectionName} Medical Speciality</i> in <i className='datamap-infographic-header-text-bold'>{this.state.selectedClassName}</i>
+        </p>
         <div className="flex-box">
         { !this.state.sparklineData ? null : 
               <ChartContainer 

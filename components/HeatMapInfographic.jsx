@@ -82,8 +82,7 @@ class HeatMapInfographic extends React.Component {
       this.setState({
         all_data: res.data,
         keys: res.keys,
-        data: res.data[this.state.defaultValue],
-        timeseries: res.timeseries,
+        data: res.data[this.state.defaultValue]
       })
       this.onClick(this.props.infographicDefinitions.defaults)
     })
@@ -239,7 +238,7 @@ class HeatMapInfographic extends React.Component {
         var data = [];
         Object.keys(response).forEach(function(k){
           const f = {
-            "_type": k
+            "_type": that.props.infographicDefinitions.queries[k].name
           }
           Object.keys(response[k]).forEach(function(category, index){
             var yoy = response[k][category][idx];
@@ -252,8 +251,7 @@ class HeatMapInfographic extends React.Component {
 
       return { 
         "data": yearsObj,
-        "keys": keys,
-        "timeseries": response
+        "keys": keys
       }
     })
 
@@ -293,6 +291,9 @@ class HeatMapInfographic extends React.Component {
         currentXkey: node['xKey'].charAt(0).toUpperCase() + node['xKey'].slice(1).toLowerCase(),
         currentYkey: that.props.infographicDefinitions.queries[node["yKey"]].name
       })
+
+      that.onTrackerChanged(that.state.tracker)
+
     })
 
   }
@@ -304,7 +305,7 @@ class HeatMapInfographic extends React.Component {
       timerange: new TimeRange(this.state.minTime, new Date(d+1, 1,20))
     })
   }
-  onTrackerChanged(tracker, selection) {
+  onTrackerChanged(tracker) {
     let index;
     try{
       index = this.state.sparklineData.bisect(tracker);
@@ -371,7 +372,7 @@ class HeatMapInfographic extends React.Component {
                   {...this.props.infographicDefinitions.slider}
                 />
             </div>
-            <div style={{paddingLeft:50}}>
+            <div className="heatmap-infographic">
               <HeatMap
                 data={this.state.data}
                 keys={this.state.keys}
@@ -385,10 +386,10 @@ class HeatMapInfographic extends React.Component {
           <div>
             <button className="heatmap-infographic-zoom-button" onClick={this.togglePanZoom }> { this.state.enablePanZoom ? 'Disable' : 'Enable' } Zoom</button>
             { !this.state.sparklineData ? null : 
-              <h3 className="interactive-infographic-center"> 
-                <span className="interactive-infographic-underline">{this.props.infographicDefinitions.yName}</span>: {this.state.currentYkey},&nbsp;
+              <p className="interactive-infographic-center"> 
+                <span className="interactive-infographic-underline">{this.props.infographicDefinitions.yName}</span>: {this.state.currentYkey}<br/>
                 <span className="interactive-infographic-underline">{this.props.infographicDefinitions.xName}</span>: {this.state.currentXkey} 
-              </h3> 
+              </p> 
             }
 
             { !this.state.sparklineData ? null : 
