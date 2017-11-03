@@ -1,0 +1,251 @@
+/**
+ * Global styles, the starting point. No classes or ids.
+ * contains our resets, link styling, default font sizes, etc
+*/
+
+/**
+ * GLOBAL RESET
+ * global reset addresses *most* inconsistencies
+ * @requires nib
+ */
+global-reset()
+
+/**
+ * HTML5 RESET
+ * fixes issues with html5 elements not rendering on old browsers
+ * @requires nib
+ */
+reset-html5()
+
+// reset box sizing globally
+// without this padding
+// doesn't work 'correctly'
+// @stylint off
+*,
+*:before,
+*:after
+  box-sizing: border-box
+// @stylint on
+
+/**
+ * universal baseline
+ * 1 font-smoothing makes our text sharp
+ * 2 wont work on firefox unfortunately
+ * 3 this setting can speed up font rendering significantly, esp on mobile
+ * 4 remove click delay on microsoft devices
+ */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section
+  display: block
+
+body
+  line-height: 1
+
+
+html
+  -moz-osx-font-smoothing: grayscale // 1
+  -ms-text-size-adjust: 100%
+  -webkit-font-smoothing: antialiased // 1
+  -webkit-osx-font-smoothing: grayscale // 1`
+  -webkit-overflow-scrolling: touch
+  -webkit-text-size-adjust: 100%
+  background-color: $clrWhite
+  color: $clrBase
+  font-family: $sans
+  font-size: $pSize
+  font-weight: 300
+  overflow-x: hidden // 2
+  text-rendering: optimizeSpeed // 3
+  touch-action: manipulation // 4
+
+  // look perty above mobile
+  @media $bpTab
+    text-rendering: optimizeLegibility
+
+a
+  color: $clrPrimary
+  cursor: pointer
+  text-decoration: none
+
+p
+  color: $clrBase
+  font-size: $pSize
+  line-height: $pLH
+  margin-bottom: 20px
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  font-family: $serif
+  font-weight: 700
+
+h1,
+.font-size-1
+  {$font-size-1}
+
+h2,
+.font-size-2
+  {$font-size-2}
+
+h3,
+.font-size-3
+  {$font-size-3}
+
+h4,
+.font-size-4
+  {$font-size-4}
+
+h5,
+.font-size-5
+  {$font-size-5}
+
+small,
+.small
+  {$small}
+
+// reset
+ul,
+ol,
+li
+  list-style: none
+
+// set uswds rules
+li.bullet
+  display: table-row
+  &:before
+    content: '\2022'
+    display: table-cell
+    padding-right: 8px
+
+// set uswds rules
+li.counter
+  counter-increment: table-ol
+  &:before
+    content: counter(table-ol) '.'
+    display: table-cell
+    padding-right: 8px
+    text-align: right
+
+// make sure form elements
+// show up as 'interactive'
+// across various browsers
+select,
+input[type='submit'],
+button,
+svg
+  cursor: pointer
+
+// increase tracking for legibility
+button,
+input,
+select,
+option,
+textarea
+  letter-spacing: .025em
+
+// 1 reset annoying default styles, etc
+//   caret is needed for safari / ios
+button,
+select,
+option
+  -webkit-appearance: caret
+  appearance: none
+
+.btn,
+button
+  border: 0
+  border-radius: 5px
+  color: $clrGrayDark
+  background: transparent
+  cursor: pointer
+  display: inline-block
+  font-family: $sans
+  font-size: $pSize
+  outline: 0
+  padding: 15px 20px
+  position: relative
+  transition: opacity .35 ease-in-out
+
+  &:focus,
+  &:active
+    box-shadow: 0 0 3px $clrPrimary, 0 0 7px $clrPrimary
+
+select,
+.select
+  appearance: none
+  background: $clrWhite
+  border-radius: 0
+  color: $clrGrayDark
+  display: block
+  font-family: inherit
+  font-size: $h4Size
+  padding: 7px
+  width: 100%
+
+// basic responsive img rules
+// 1 no extra space after img
+// 2 keep aspect ratio
+// 3 don't break out of elements
+img,
+iframe,
+video
+  display: block // 1
+  height: auto // 2
+  max-width: 100% // 3
+
+strong
+  font-weight: 700
+
+pre,
+code
+  background: $clrGrayLightest
+  color: $clrBase
+  font-family: $mono
+  font-size: $smallSize
+
+  // we use the light gray as a
+  // bg color in some places, which
+  // results in code blocks blending
+  // in too much. so, this helper class
+  // reverses the color so they 'pop' more
+  .reverse-pre &
+    background: $clrGrayDark
+    color: $clrGrayLightest
+
+code
+  border-radius: 3px
+  display: inline-block
+  padding: 0 5px
+  white-space: pre-wrap
+
+li.usage-api-li
+  list-style: disc outside none
