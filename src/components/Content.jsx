@@ -4,9 +4,6 @@ import React from 'react'
 import marked from 'marked'
 import cx from 'classnames'
 
-import Datasets from './Datasets'
-import Downloads from './Downloads'
-import MultipleProductTable from './MultipleProductTable'
 import RenderContentObject from './RenderContentObject'
 
 type tPROPS = {
@@ -40,6 +37,7 @@ const Content = (props: tPROPS) => {
       }}>
       {
         content.map((words: string|Object, i) => {
+          //console.log("words mapped: ", words, typeof words, Object.keys(words))
           // lies, IT IS NOT WORDS
           // basically, stuff like disclaimer
           // or examples, or fields we want to render
@@ -54,10 +52,12 @@ const Content = (props: tPROPS) => {
                 examples={examples}
                 fields={fields}
                 explorers={explorers}
+                meta={meta}
                 key={i}
               />
             )
           }
+          console.log("words that are words: ", words)
 
           // stringified markdown -> html
           const html: string = marked(words)
@@ -68,42 +68,6 @@ const Content = (props: tPROPS) => {
             'font-size-5 marg-t-2 marg-b-2': html.indexOf('<p>') !== -1,
           })
 
-          // kind of a weird way to do this
-          // but, it might be easier for non-technical
-          // people to understand that they just type
-          // 'downloads' to render that section
-          if (words === 'downloads') {
-            return (
-              <Downloads
-                k={i}
-                meta={meta}
-                key={i}
-              />
-            )
-          }
-
-          // as far as i can tell we just
-          // have the one 'image' for drug/event
-          if (words === 'datasets') {
-            return (
-              <Datasets
-                k={i}
-                meta={meta}
-                key={i}
-              />
-            )
-          }
-
-          // as far as i can tell we just
-          // have the one 'image' for drug/event
-          if (words === 'image') {
-            return (
-              <MultipleProductTable
-                k={i}
-                key={i}
-              />
-            )
-          }
 
           // below is where we handle just plain normal text
           // but we need to handle some edge cases first

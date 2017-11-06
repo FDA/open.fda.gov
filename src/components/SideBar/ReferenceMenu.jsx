@@ -59,6 +59,7 @@ const ReferenceMenu = (props: Object) => {
       {
         content.map((c: string|Object, i: number) => {
           if (typeof c === 'object') {
+            //console.log("c in refMenu: ", c)
             return (
               <RenderContentObject
                 key={i}
@@ -80,16 +81,16 @@ const ReferenceMenu = (props: Object) => {
           // we're looping over all the content
           // and we just want to pull out the
           // headers to link to, not every line
-          if (c.indexOf('##') === -1) return
+          if (c.startsWith('#') === false) return
 
           // get header level from counting '#'
-          const level: number = c.split('#').length - 1
+          const level: number = (c.match(/#/g)||[]).length
 
           const btnCx = cx({
             'menu-item row': true,
-            'weight-600': level < 3,
-            'depth-2': level === 3,
-            'depth-3': level > 3
+            'weight-600': level < 2,
+            'depth-2': level === 2,
+            'depth-3 display-none': level > 2
           })
 
           return (

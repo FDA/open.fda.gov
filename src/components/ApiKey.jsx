@@ -10,7 +10,7 @@ import ApiKeyContainer from '../containers/ApiKeyContainer'
 const ApiKey = (props: Object) => (
   <section
     key={props.k}
-    className='marg-t-3 clearfix'>
+    className='marg-t-2 clearfix'>
     <div className='flex-box'>
       <div className='col grow-none'>
         {

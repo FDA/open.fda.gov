@@ -24,7 +24,7 @@ type tPROPS = {
 };
 
 const wrapperCx = cx({
-  'container t-marg-t-3 marg-b-3 relative row content-wrapper': true,
+  'container marg-b-3 relative row content-wrapper': true,
 })
 
 // add fixed positioning functinality to reference sidebar
@@ -41,6 +41,7 @@ const ContentWrapper = (props: tPROPS) => {
     meta
   } = props
 
+  console.log("content in wrapper: ", content)
   let fieldsMapped: Object = {}
   let fieldsFlattened: Object = {}
   if (explorers && fields) {
