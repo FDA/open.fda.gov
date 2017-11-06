@@ -17,12 +17,18 @@
   right: 0
   bottom: 0
   margin: auto 270px
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 5px 15px rgba(0,0,0,.5);
-  border: 1px solid rgba(0,0,0,.2);
-  border-radius: 6px;
-  overflow: auto;
-  outline: none;
+  background: rgba(255, 255, 255, 1)
+  box-shadow: 0 5px 15px rgba(0,0,0,.5)
+  border: 1px solid rgba(0,0,0,.2)
+  border-radius: 6px
+  overflow: auto
+  outline: none
+
+.main-nav-bar
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1)
+  z-index: 100
+  position: fixed
+  width: 100%
 
 .modal-container button
   margin: auto
@@ -45,10 +51,10 @@
   width: 95%
 
 .fda-logo
-  width: 225px
+  width: 180px
 
 .nav-bar-divider-line
-  border-right: 3px solid rgba(0,0,0,0.1)
+  border-right: 1px solid rgba(0,0,0,0.1)
   margin: 0px 15px
   height: 50px
   width: 1px
@@ -76,8 +82,7 @@
 
 .menu-container
   > div
-    margin-right: 20px
-
+    margin-left: 10px
 
 .menu-header
   display: block
@@ -125,6 +130,13 @@
   -webkit-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
   -moz-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
   box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf
+
+.open-fda-logo
+  width: 180px
+
+.nav-logos
+  display: flex
+  align-items: center
 
 @media $bpTabRange
 

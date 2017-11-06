@@ -253,13 +253,25 @@ button {
   outline: 0;
   padding: 15px 20px;
   position: relative;
-  transition: opacity 0.35 ease-in-out;
 }
 .btn:focus,
 button:focus,
 .btn:active,
 button:active {
   box-shadow: 0 0 3px #007cba, 0 0 7px #007cba;
+}
+.btn .btn,
+button .btn {
+  letter-spacing: 1px;
+}
+.btn-icon-right {
+  transition: all 0.2s linear;
+}
+.btn-icon-right i {
+  transition: all 0.2s linear;
+}
+.btn-icon-right:hover i {
+  transform: translateX(4px);
 }
 select,
 .select {
@@ -303,6 +315,9 @@ code {
 }
 li.usage-api-li {
   list-style: disc outside none;
+}
+.body-container {
+  padding-top: 85px;
 }
 .col {
   display: inline-block;
@@ -2196,7 +2211,7 @@ li.usage-api-li {
   flex-wrap: wrap;
 }
 .small-blog-container {
-  max-height: 310px;
+  max-height: 280px;
 }
 .blog-item {
   width: 23%;
@@ -2205,7 +2220,7 @@ li.usage-api-li {
   transition: all 0.2s linear;
   border-radius: 6px;
   background: #fff;
-  height: 250px;
+  height: 224px;
 }
 .blog-item:hover {
   box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
@@ -2219,8 +2234,15 @@ li.usage-api-li {
   display: flex;
   flex-direction: column;
 }
+.time-stamp {
+  font-size: 13px;
+  font-weight: bold;
+  color: #9499a5;
+  letter-spacing: 1px;
+}
 .breadcrumb {
   padding: 0.5em 0;
+  font-size: 0.8rem;
 }
 .cat-menu-item {
   display: block;
@@ -2241,7 +2263,7 @@ li.usage-api-li {
 }
 .cat-menu-underbar {
   border-top: 4px solid #fff;
-  margin: -10px 0px 5px 0.5em;
+  margin: -12px 0px 5px 0.5em;
   bottom: 0;
   height: 1px;
   width: calc(100% - 39px);
@@ -2444,8 +2466,11 @@ li.usage-api-li {
   height: 100%;
   display: block;
   z-index: 0;
-  background-color: rgba(0,124,186,0.7);
-  box-shadow: inset 0 10px 10px rgba(0,0,0,0.2);
+  background: #005990;
+  background: -moz-linear-gradient(-45deg, #005990 1%, #05abe0 100%);
+  background: -webkit-linear-gradient(-45deg, #005990 1%, #05abe0 100%);
+  background: linear-gradient(135deg, #005990 1%, #05abe0 100%);
+  opacity: 0.8;
 }
 .homepage-hero > div {
   display: flex;
@@ -2479,7 +2504,7 @@ li.usage-api-li {
   overflow: hidden;
 }
 .half-hero > div {
-  margin: 30px 60px;
+  margin: 60px;
 }
 .area-chart-container {
   background-image: url("/img/area-chart.svg");
@@ -2507,7 +2532,8 @@ li.usage-api-li {
   overflow: hidden;
 }
 .blue-code-container > div {
-  margin: 60px;
+  margin: 60px 0;
+  width: 50%;
 }
 .center-heading {
   max-width: 100%;
@@ -2589,6 +2615,12 @@ li.usage-api-li {
   overflow: auto;
   outline: none;
 }
+.main-nav-bar {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+}
 .modal-container button {
   margin: auto;
 }
@@ -2610,10 +2642,10 @@ li.usage-api-li {
   width: 95%;
 }
 .fda-logo {
-  width: 225px;
+  width: 180px;
 }
 .nav-bar-divider-line {
-  border-right: 3px solid rgba(0,0,0,0.1);
+  border-right: 1px solid rgba(0,0,0,0.1);
   margin: 0px 15px;
   height: 50px;
   width: 1px;
@@ -2640,7 +2672,7 @@ li.usage-api-li {
   flex: auto;
 }
 .menu-container > div {
-  margin-right: 20px;
+  margin-left: 10px;
 }
 .menu-header {
   display: block;
@@ -2688,6 +2720,13 @@ li.usage-api-li {
   -webkit-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf;
   -moz-box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf;
   box-shadow: 0 0 3px #3e94cf, 0 0 7px #3e94cf;
+}
+.open-fda-logo {
+  width: 180px;
+}
+.nav-logos {
+  display: flex;
+  align-items: center;
 }
 @media (min-width: 641px) and (max-width: 1023px) {
   .fda-bar {

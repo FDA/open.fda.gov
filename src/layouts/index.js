@@ -15,7 +15,9 @@ class Layout extends React.Component {
           <Nav
             meta={this.props.meta}
           />
-          {this.props.children()}
+          <div className="body-container">
+            {this.props.children()}
+          </div>
           <Footer />
         </div>
       </DocumentTitle>

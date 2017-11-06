@@ -54,7 +54,7 @@ const Nav = (props: tPROPS) => {
   })
 
   return (
-    <nav className='bg-white clr-gray flex-box dir-column'>
+    <nav className='bg-white clr-gray flex-box dir-column main-nav-bar'>
       <Disclaimer validated={validated} handleCloseModal={handleCloseModal} showModal={showModal} />
       <a
         href='#hero'
@@ -70,28 +70,18 @@ const Nav = (props: tPROPS) => {
               minHeight: '35px',
               marginLeft: '0'
             }}>
-            <a
-              href='https://www.fda.gov/'
-              rel='noopener noreferrer'
-              target='_blank'
-              style={{
-                verticalAlign: 'text-top'
-              }}>
+            <Link
+              className="nav-logos"
+              to='/'>
               <img
                 alt='Go to FDA website'
-                width='320px'
                 src='/img/FDA_logo_blue.png'
                 className='fda-logo'
               />
-            </a>
-            <div className="nav-bar-divider-line"/>
-            <Link
-              className='open-fda-logo'
-              to='/'>
+              <div className="nav-bar-divider-line"/>
               <img
+                className='open-fda-logo'
                 alt='Go to openFDA homepage'
-                height='34px'
-                width='189px'
                 src='/img/l_openFDA.png'
               />
             </Link>

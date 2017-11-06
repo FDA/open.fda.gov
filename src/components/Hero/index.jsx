@@ -39,7 +39,7 @@ const Hero = (props: tPROPS) => {
   } = props
 
   const heroCx = cx({
-    'flex-box relative dir-column': true,
+    'flex-box overflow-hidden relative dir-column': true,
     'bg-gray': type !== 'dataset' && type !== 'endpoint',
     'bg-primary': type === 'dataset'
   })
@@ -56,6 +56,12 @@ const Hero = (props: tPROPS) => {
     device: '/img/stethoscope.png',
     drug: '/img/pill-bottle.png',
     animal_and_veterinary: '/img/dog.png'
+  }
+
+  const bg_image_style = {
+    food: {height: '300px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '100%', top: '-20px'},
+    device: {height: '300px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '100%', top: '-30px'},
+    drug: {height: '350px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '120%', top: '-65px'}
   }
 
   if ('path' in props) {
@@ -114,7 +120,7 @@ const Hero = (props: tPROPS) => {
             })
           }
         </div>
-        <img src={bg_image[cat_name]} style={{height: '240px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '120%', bottom: '-25px'}}/>
+        <img src={bg_image[cat_name]} style={bg_image_style[cat_name]}/>
       </div>
     </section>
   )

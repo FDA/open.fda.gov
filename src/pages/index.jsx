@@ -13,7 +13,7 @@ const INDEX = () => (
         <h2>Open Access to FDA Data</h2>
         <div className="divider-line"></div>
         <p style={{color: "white"}}>APIs and file downloads for FDA data, including adverse events, product labeling, and enforcement reports.</p>
-        <Link className="btn weight-700 bg-white" style={{color: "#00B1CB"}} to='/getting_started/api_basics/'>
+        <Link className="btn btn-icon-right weight-700 bg-white" style={{color: "#00B1CB"}} to='/getting_started/api_basics/'>
           Learn More<i className="fa fa-arrow-right marg-l-1"/>
         </Link>
       </div>
@@ -26,7 +26,7 @@ const INDEX = () => (
         <NounBox noun_name="drugs"/>
         <NounBox noun_name="animal_and_veterinary"/>
       </div>
-      <Link className="btn marg-b-2 txt-c clr-primary weight-700" to='/api_endpoints/'>
+      <Link className="btn btn-icon-right marg-b-2 txt-c clr-primary weight-700" to='/api_endpoints/'>
         VIEW ALL<i className="fa fa-angle-right marg-l-1"/>
       </Link>
     </section>
@@ -36,7 +36,7 @@ const INDEX = () => (
           <h3 className="marg-b-1">API Usage Statistics</h3>
           <span>This site also offers an overview of the usage of API endpoints by the community.</span>
           <div>
-            <Link className="btn marg-t-2 weight-700 bg-white" style={{color: "#00B1CB"}} to='/about/statistics/'>
+            <Link className="btn btn-icon-right marg-t-2 weight-700 bg-white" style={{color: "#00B1CB"}} to='/about/statistics/'>
               VIEW USAGE ACTIVITY<i className="fa fa-arrow-right marg-l-1"/>
             </Link>
           </div>
@@ -47,7 +47,7 @@ const INDEX = () => (
           <h3 className="marg-b-1">Download OpenFDA Data</h3>
           <span>The endpoints' data may be downloaded in zipped JSON format.</span>
           <div>
-            <Link className="btn marg-t-2 weight-700 clr-white" style={{backgroundColor: "#007CBA"}} to='/about/downloads/'>
+            <Link className="btn btn-icon-right marg-t-2 weight-700 clr-white" style={{backgroundColor: "#007CBA"}} to='/about/downloads/'>
               DOWNLOAD ENDPOINTS<i className="fa fa-arrow-right marg-l-1"/>
             </Link>
           </div>
@@ -58,7 +58,7 @@ const INDEX = () => (
     <div>
       <h3>Citizen Science and Crowdsourcing</h3>
       <p style={{color: "white"}}>View some examples created by the community using OpenFDA data.</p>
-      <Link className="btn weight-700 bg-white" style={{color: "#007CBA"}} to='/community/'>
+      <Link className="btn btn-icon-right weight-700 bg-white" style={{color: "#007CBA"}} to='/community/'>
         SHOW ME MORE<i className="fa fa-arrow-right marg-l-1"/>
       </Link>
     </div>
