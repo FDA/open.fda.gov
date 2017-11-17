@@ -89,9 +89,99 @@ const Nav = (props: tPROPS) => {
             <strong className='row'>Food and Drug Administration</strong>
           </div>
         </div>
-      </div>
-      <div className='pad-t-2 bg-secondary-darkest m-ord-3'>
-        <p className='clr-white weight-600 container smallest'>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='clr-white underline' to='/terms/'> Terms of Service</Link></p>
+        <div
+            className={navCx}>
+
+          <div className='menu-container' role='navigation'>
+            <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
+              <Link
+                  title='Home'
+                  to='/'
+                  className={showMobileNav ? 'display-none': activeDropdown=='Home' ? 'menu-header emphasis': 'menu-header'}
+              >Home</Link>
+            </div>
+            <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
+                <span
+                    title='openFDA'
+                    className={activeDropdown=='openFDA' ? 'menu-header emphasis': 'menu-header'}
+                    onTouchStart={toggleDropdownContent}
+                >openFDA</span>
+              <div className={activeDropdown=='openFDA' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                <div className='sub-menu-container' role='navigation'>
+                  <Link className={linkCx} to='/about/'>About</Link>
+                  <Link className={linkCx} to='/updates/'>Updates</Link>
+                  <Link className={linkCx} to='/api/status/'>API status</Link>
+                  <Link className={linkCx} to='/api/statistics/'>API usage statistics</Link>
+                  <Link className={linkCx} to='/downloads/'>Downloads</Link>
+                </div>
+              </div>
+            </div>
+            <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
+                <span
+                    title='Learn'
+                    className={activeDropdown=='Learn' ? 'menu-header emphasis': 'menu-header'}
+                    onTouchStart={toggleDropdownContent}
+                >Learn</span>
+              <div className={activeDropdown=='Learn' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                <div className='sub-menu-container' role='navigation'>
+                  <Link className={linkCx} to='/api/'>API basics</Link>
+                  <Link className={linkCx} to='/api/reference/'>API reference</Link>
+                  <Link className={linkCx} to='/research/'>Research tools</Link>
+                </div>
+              </div>
+            </div>
+            <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
+                <span
+                    title='API Endpoints'
+                    className={activeDropdown=='API Endpoints' ? 'menu-header emphasis': 'menu-header'}
+                    onTouchStart={toggleDropdownContent}
+                >API Endpoints</span>
+              <div className={activeDropdown=='API Endpoints' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                <div className='sub-menu-container' role='navigation'>
+                  <Link className={linkCx} to='/drug/'>Drugs</Link>
+                  <Link className={linkCx} to='/device/'>Devices</Link>
+                  <Link className={linkCx} to='/food/'>Foods</Link>
+                  <Link className={linkCx} to='/other/'>Other</Link>
+                </div>
+              </div>
+            </div>
+            <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
+                <span
+                    title='Community'
+                    className={activeDropdown=='Community' ? 'menu-header emphasis': 'menu-header'}
+                    onTouchStart={toggleDropdownContent}
+                >Community</span>
+              <div className={activeDropdown=='Community' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                <div className='sub-menu-container' role='navigation'>
+                  <a
+                      className={`${linkCx} link-external`}
+                      href='https://github.com/FDA'
+                      rel='noopener noreferrer'
+                      target='_blank'>
+                    Source code (GitHub)
+                  </a>
+                  <a
+                      className={`${linkCx} link-external`}
+                      href='https://opendata.stackexchange.com/questions/tagged/openfda'
+                      rel='noopener noreferrer'
+                      target='_blank'>
+                    Q&A (StackExchange)
+                  </a>
+                  <a
+                      className={`${linkCx} link-external`}
+                      href='https://twitter.com/openFDA'
+                      rel='noopener noreferrer'
+                      target='_blank'>
+                    @openFDA (Twitter)
+                  </a>
+                  <Link
+                      className={linkCx}
+                      to='/community/'>openFDA Apps</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className='container m-pad-b-2 dir-column m-ord-1 m-pad-t-2' style={{width: '100%'}}>
         <div className='flex-row relative'>
@@ -99,7 +189,7 @@ const Nav = (props: tPROPS) => {
             className='container t-2 logo-wrapper relative'
             style={{
               display: 'flex',
-              minHeight: '35px',
+              minHeight: '51px',
             }}>
             <Link
               className='open-fda-logo'
@@ -153,97 +243,11 @@ const Nav = (props: tPROPS) => {
             style={{
               maxWidth: '845px',
             }}>
-            <div className='menu-container' role='navigation'>
-              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
-                <Link
-                  title='Home'
-                  to='/'
-                  className={showMobileNav ? 'display-none': activeDropdown=='Home' ? 'menu-header emphasis': 'menu-header'}
-                >Home</Link>
-              </div>
-              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
-                <span
-                  title='openFDA'
-                  className={activeDropdown=='openFDA' ? 'menu-header emphasis': 'menu-header'}
-                  onTouchStart={toggleDropdownContent}
-                >openFDA</span>
-                <div className={activeDropdown=='openFDA' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                  <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/about/'>About</Link>
-                    <Link className={linkCx} to='/updates/'>Updates</Link>
-                    <Link className={linkCx} to='/api/status/'>API status</Link>
-                    <Link className={linkCx} to='/api/statistics/'>API usage statistics</Link>
-                    <Link className={linkCx} to='/downloads/'>Downloads</Link>
-                  </div>
-                </div>
-              </div>
-              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
-                <span
-                  title='Learn'
-                  className={activeDropdown=='Learn' ? 'menu-header emphasis': 'menu-header'}
-                  onTouchStart={toggleDropdownContent}
-                >Learn</span>
-              <div className={activeDropdown=='Learn' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                <div className='sub-menu-container' role='navigation'>
-                  <Link className={linkCx} to='/api/'>API basics</Link>
-                  <Link className={linkCx} to='/api/reference/'>API reference</Link>
-                  <Link className={linkCx} to='/research/'>Research tools</Link>
-                </div>
-              </div>
-              </div>
-              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
-                <span
-                  title='API Endpoints'
-                  className={activeDropdown=='API Endpoints' ? 'menu-header emphasis': 'menu-header'}
-                  onTouchStart={toggleDropdownContent}
-                >API Endpoints</span>
-                <div className={activeDropdown=='API Endpoints' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                  <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/drug/'>Drugs</Link>
-                    <Link className={linkCx} to='/device/'>Devices</Link>
-                    <Link className={linkCx} to='/food/'>Foods</Link>
-                    <Link className={linkCx} to='/other/'>Other</Link>
-                  </div>
-                </div>
-              </div>
-              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
-                <span
-                  title='Community'
-                  className={activeDropdown=='Community' ? 'menu-header emphasis': 'menu-header'}
-                  onTouchStart={toggleDropdownContent}
-                >Community</span>
-                <div className={activeDropdown=='Community' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                  <div className='sub-menu-container' role='navigation'>
-                    <a
-                      className={`${linkCx} link-external`}
-                      href='https://github.com/FDA'
-                      rel='noopener noreferrer'
-                      target='_blank'>
-                      Source code (GitHub)
-                    </a>
-                    <a
-                      className={`${linkCx} link-external`}
-                      href='https://opendata.stackexchange.com/questions/tagged/openfda'
-                      rel='noopener noreferrer'
-                      target='_blank'>
-                      Q&A (StackExchange)
-                    </a>
-                    <a
-                      className={`${linkCx} link-external`}
-                      href='https://twitter.com/openFDA'
-                      rel='noopener noreferrer'
-                      target='_blank'>
-                      @openFDA (Twitter)
-                    </a>
-                    <Link
-                      className={linkCx}
-                      to='/community/'>openFDA Apps</Link>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
+      </div>
+      <div className='pad-t-2 m-ord-3 bg-cool-blue' >
+        <p className='clr-white weight-600 container smallest'>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='clr-white underline' to='/terms/'> Terms of Service</Link></p>
       </div>
     </nav>
   )
