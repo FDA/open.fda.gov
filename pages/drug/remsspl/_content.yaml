@@ -1,0 +1,10 @@
+- "## About REMS SPL"
+- REMS are programs designed to help ensure that drugs with serious risks are used safely and information about their procedures and supporting documents are submitted to FDA in the [Structured Product Labeling (SPL) format](http://labels.fda.gov/). The labeling is a "living document" that changes over time to reflect increased knowledge about the safety and effectiveness of the drug.
+- REMS with Elements to Assure Safe Use (ETASU) place certain requirements on healthcare providers and patients to make sure the drug is used safely.
+- The openFDA REMS SPL API returns data from these submissions. The labels are broken into sections, such as rems unclassified section, rems goals, rems elements, products, attached documents and so forth. A number of parties play a role in REMS design and implementation like sponsor (document & design; assess), FDA (review, modify and approve), distributors, dispensers, institutions, prescribers, patients - for adoption.
+- "getting-started"
+- "downloads"
+- "### How to search this endpoint"
+- "Make API calls to `https://api.fda.gov/drug/remsspl.json` using search parameters for [fields specific to the rems spl endpoint.](/drug/remsspl/reference/)"
+- queryExplorer: oneLabel
+- queryExplorer: boxedWarning

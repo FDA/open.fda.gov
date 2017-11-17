@@ -1,0 +1,90 @@
+- "## About"
+- Note that the effective_time of labeling is used to calculate how current data is. Some labeling is dated in the future, and that is reflected in the calculation above.
+- The openFDA drug product labeling API returns data from the [FDA Structured Product Labeling](https://open.fda.gov/data/spl/) (SPL) dataset. This dataset contains structured documentation about regulated products, submitted by manufacturers to FDA. OpenFDA uses the latest available bulk downloads, which have the latest version of every structured product labeling document for products that are actively marketed.
+- "### What is structured product labeling?"
+- Drug manufacturers and distributors submit documentation about their products to FDA. Labeling contains a summary of the essential scientific information needed for the safe and effective use of the drug.
+- The openFDA drug product labeling API returns data from these submissions for both prescription and over-the-counter (OTC) drugs. The labeling is broken into sections, such as indications for use (prescription drugs) or purpose (OTC drugs), adverse reactions, and so forth. There is considerable variation between drug products, since the information required for safe and effective use varies with the unique characteristics of each drug product.
+- "downloads"
+- "## Anatomy of a response"
+- "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."
+- example: anatomy
+- "### Meta"
+- "For non-`count` queries, the `meta` section includes a disclaimer, a link to the openFDA data license, and information about the results that follow."
+- example: meta
+- fields:
+  - meta.disclaimer
+  - meta.license
+  - meta.last_updated
+  - meta.results.skip
+  - meta.results.limit
+  - meta.results.total
+- "### Results"
+- "For non-`count` queries, the `results` section includes matching REMS SPL data returned by the API."
+- "Each SPL record consists of three sets of fields:"
+- ul:
+  - "Standard SPL fields, including unique identifiers."
+  - "REMS data containing related documents, goals, elements and products."
+  - "An **openFDA** section: An annotation with additional product identifiers, such as UPC and brand name, of the drug products listed in the products."
+- "Here are common REMS SPL sections you may see:"
+- ul:
+  - "`related_documents` referenced by `set_id`"
+  - "`rems_elements` describing `medication_guide`,`implementation_system`, `submission_assessments` and `rems_summary` "
+  - "`rems_goals` outlining the `goals`"
+  - "`products` outlining the `manufactured_product` and `marketing_info`"
+- "## Field-by-field description"
+- This page groups fields conceptually for ease of reference. In API results, fields will be ordered naturally as in the product labeling submission.
+- "### ID and version"
+- "All REMS SPL records contain these fields, which uniquely identify individual records."
+- example: results
+- fields:
+  - set_id
+  - id
+  - version
+  - effective_time
+  - title
+- "### Related documents"
+- fields:
+  - set_id
+- "### SPL unclassified section"
+- fields:
+  - content
+- "### REMS goals"
+- fields:
+  - goal
+- "### Medication guide"
+- fields:
+  - guide_information
+- "### REMS elements"
+- fields:
+  - patient_met_condition
+  - prescriber_documented_safe_use_condition
+  - safe_use_monitoring
+  - implementation
+  - rems_submission_assessments_timetable
+- "### REMS summary"
+- fields:
+  - healthcare_providers_unclassified_section
+  - patients_unclassified_section
+- "### Substance administration"
+- fields:
+  - stakeholder_name
+  - stakeholder_code
+  - requirement_name
+  - reference_id
+- "### REMS Material"
+- fields:
+  - name
+  - reference
+- "### REMS products"
+- fields:
+  - generic_name
+  - brand_name
+  - package_type
+  - approval_holder_org
+  - application_number
+- "### OpenFDA fields"
+- Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.
+- OpenFDA features harmonization of drug identifiers, to make it easier to connect REMS SPL records to other drug information. Drug products that appear in FAERS records are joined to the NDC dataset first on brand name, and if there is no brand name, on generic name. If that is succesful, further links are established to other datasets. The linked data is listed as an `openfda` annotation in the patient.drug section of a result.
+- fields:
+  - openfda
+- "datasets"

@@ -10,3 +10,7 @@
   title: Drug recall enforcement reports
   description:
     - "Drug product recall enforcement reports."
+- url: /drug/remsspl/
+  title: REMS SPL
+  description:
+    - "Risk Evaluation and Mitigation Strategy (REMS), for drugs or biologic products represented by the related document(s) SPL."

@@ -1,0 +1,8 @@
+documentTitle: openFDA › Drugs › Drug Rems SPL API Reference
+name: Drug Rems SPL Reference
+description: ""
+datasets:
+  - SPL
+label: Drug Rems SPL API Reference
+path: /drug/remsspl/reference
+type: endpoint

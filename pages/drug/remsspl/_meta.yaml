@@ -1,0 +1,10 @@
+documentTitle: openFDA › Drugs › Rems SPL API
+name: Rems SPL
+description: ""
+datasets:
+  - SPL
+label: Rems SPL
+path: /drug/remsspl
+start: 20160707
+dateConstraintKey: effective_time
+type: endpoint

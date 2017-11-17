@@ -1,0 +1,18 @@
+oneLabel:
+  params:
+    - search for all records with effective_time between Jun 01, 2016 and Dec 31, 2016.
+    - limit to 1 record.
+  query: 'http://2221e8d2.ngrok.io/drug/remsspl.json?search=effective_time:[20160601+TO+20161231]&limit=1'
+  description:
+    - This query searches for all records in a certain date range, and asks for a single one.
+    - See the [reference](/drug/label/reference/) for more about effective_time. Brackets [ ] are used to specify a range for date, number, or string fields.
+  title: One REMS SPL record
+boxedWarning:
+  params:
+  - search for all records with a boxed_warning field.
+  - limit to 1 record.
+  query: 'http://2221e8d2.ngrok.io/drug/remsspl.json?search=_exists_:rems_elements.medication_guide'
+  description:
+    - This query searches for rems spl with a medication guide, and returns one result.
+    - The `_exists_` search modifier lets you search for records that contain a specific field, no matter what its contents are. See the [API basics page](/api/) for more details.
+  title: REMS SPL record with a medication guide
