@@ -5,6 +5,4 @@ description: "An animal drug adverse event is submitted to the FDA to report an 
 datasets:
   - FAERS
 path: /animalandveterinary/event
-start: 20040101
-dateConstraintKey: receivedate
 type: endpoint

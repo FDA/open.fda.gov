@@ -13,5 +13,5 @@
       searchParam: 'primary_reporter:"Veterinarian"'
     - title: "Where outcome was 'Death'"
       searchParam: 'outcome.medical_status:"Died"'
-  dateConstraint: original_receive_date
+  dateConstraint:
   type: Line

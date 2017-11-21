@@ -129,37 +129,6 @@ properties:
         description: "Active ingredients for the veterinary medicinal product."
         type: object
         properties:
-          dose:
-            description: "The actual dose administered to the animal involved in the adverse event, e.g., number of tablets, number of boluses, amount of feed, quantity of solution, etc."
-            format:
-            is_exact: false
-            possible_values:
-            type: object
-            properties:
-              denominator:
-                description: "This describes the dose by individual animal, weight, volume, etc."
-                format:
-                is_exact: false
-                possible_values:
-                type: float
-              denominator_unit:
-                description: "This describes the dose by individual animal, weight, volume, etc. "
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              numerator:
-                description: "This is the quantity/volume of the actual dose given, e.g., number of tablets, number of boluses, amount of feed, quantity of solution, etc"
-                format:
-                is_exact: false
-                possible_values:
-                type: float
-              numerator_unit:
-                description: "These are the units that qualify the numeric value for dose."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
           name:
             description: "Name of the active ingredient."
             format:
@@ -214,36 +183,6 @@ properties:
         is_exact: false
         possible_values:
         type: string
-      dose:
-        description: "The actual dose administered to the animal involved in the adverse event."
-        format:
-        is_exact: false
-        possible_values:
-        properties:
-          denominator:
-            description: "This describes the dose by individual animal, weight, volume, etc."
-            format:
-            is_exact: false
-            possible_values:
-            type: float
-          denominator_unit:
-            description: "This describes the dose by individual animal, weight, volume, etc. "
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          numerator:
-            description: "This is the quantity/volume of the actual dose given, e.g., number of tablets, number of boluses, amount of feed, quantity of solution, etc"
-            format:
-            is_exact: false
-            possible_values:
-            type: float
-          numerator_unit:
-            description: "These are the units that qualify the numeric value for dose."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
       first_exposure_date:
         description: "The date (day, month and year) on which the animal was first treated with the veterinary medicinal product."
         format: date
@@ -345,12 +284,6 @@ properties:
               is_exact: true
               possible_values:
               type: string
-          dosage_form:
-            description: "The labeled dosage form of the veterinary medicinal product(s) involved in the adverse event."
-            format:
-            is_exact: true
-            possible_values:
-            type: string
           generic_name:
             type: array
             items:
@@ -359,12 +292,6 @@ properties:
               is_exact: true
               possible_values:
               type: string
-          is_original_packager:
-            description: "Original packager of the veterinary medicinal product."
-            format:
-            is_exact: false
-            possible_values:
-            type: boolean
           manufacturer_name:
             type: array
             items:
@@ -373,52 +300,12 @@ properties:
               is_exact: true
               possible_values:
               type: string
-          nui:
-            type: array
-            items:
-              description: "Unique Identifier Code of the veterinary medicinal product involved in the adverse event."
-              format:
-              is_exact: false
-              possible_values:
-              type: string
           package_ndc:
             type: array
             items:
               description: "National Drug Code for the package containing veterinary medicinal products involved in an adverse event."
               format:
               is_exact: false
-              possible_values:
-              type: string
-          pharm_class_cs:
-            type: array
-            items:
-              description: "Chemical structure classification of the veterinary medicinal product’s pharmacologic class."
-              format:
-              is_exact: true
-              possible_values:
-              type: string
-          pharm_class_epc:
-            type: array
-            items:
-              description: "Established pharmacologic class associated with an approved indication of an active moiety that the FDA has determined to be scientifically valid and clinically meaningful."
-              format:
-              is_exact: true
-              possible_values:
-              type: string
-          pharm_class_moa:
-            type: array
-            items:
-              description: "Mechanism of action of the veterinary medicinal product—molecular, subcellular, or cellular functional activity—of the drug’s established pharmacologic class."
-              format:
-              is_exact: true
-              possible_values:
-              type: string
-          pharm_class_pe:
-            type: array
-            items:
-              description: "Physiologic effect or pharmacodynamics effect—tissue, organ, or organ system functional activity—of the drug’s established pharmacologic class."
-              format:
-              is_exact: true
               possible_values:
               type: string
           product_ndc:
@@ -437,14 +324,6 @@ properties:
               is_exact: true
               possible_values:
               type: string
-          route:
-            type: array
-            items:
-              description: "Route by which the veterinary medicinal product was administered."
-              format:
-              is_exact: true
-              possible_values:
-              type: string
           rxcui:
             type: array
             items:
@@ -453,18 +332,6 @@ properties:
               is_exact: false
               possible_values:
               type: string
-          rxstring:
-            description: "The RxString of an RxConcept."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          rxtty:
-            description: "The term type of an RxConcept."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
           spl_id:
             type: array
             items:
@@ -489,20 +356,6 @@ properties:
               is_exact: true
               possible_values:
               type: string
-          unii:
-            type: array
-            items:
-              description: "A non-proprietary, free, unique, unambiguous, non semantic, alphanumeric identifier based on a substance’s molecular structure and/or descriptive information."
-              format:
-              is_exact: false
-              possible_values:
-              type: string
-          upc:
-            description: "Universal Product Code of the veterinary medicinal product."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
       previous_ae_to_drug:
         description: "A list of values (Yes, No, Unknown, or Not Applicable) describing whether or not the affected animal(s) experienced an adverse event when exposed to the veterinary medicinal product on a date previous to this adverse event report."
         format:
@@ -587,65 +440,6 @@ properties:
         is_exact: true
         possible_values:
         type: string
-  meta:
-    format:
-    type: object
-    description: 'This section contains a disclaimer and license information. The field `last_updated` indicates when the data files were exported.'
-    possible_values:
-    properties:
-      type: object
-      disclaimer:
-        format:
-        is_exact: false
-        type: string
-        pattern:
-        description: "Important details notes about openFDA data and limitations of the dataset."
-        possible_values:
-      license:
-        format:
-        is_exact: false
-        type: string
-        pattern:
-        description: "Link to a web page with license terms that govern data within openFDA."
-        possible_values:
-      terms:
-        format:
-        is_exact: false
-        type: string
-        pattern:
-        description: "Link to a web page with terms that govern data within openFDA."
-        possible_values:
-      last_updated:
-        format: date
-        is_exact: false
-        type: string
-        pattern:
-        description: "The last date when this openFDA endpoint was updated. Note that this does not correspond to the most recent record for the endpoint or dataset. Rather, it is the last time the openFDA API was itself updated."
-        possible_values:
-      results:
-        type: object
-        properties:
-          skip:
-            format: int64
-            is_exact: false
-            type: number
-            pattern:
-            description: "Offset (page) of results, defined by the `skip` [query parameter](/api/)."
-            possible_values:
-          limit:
-            format: int64
-            is_exact: false
-            type: number
-            pattern:
-            description: "Number of records in this return, defined by the `limit` [query parameter](/api/). If there is no `limit` parameter, the API returns one result."
-            possible_values:
-          total:
-            format: int64
-            is_exact: false
-            type: number
-            pattern:
-            description: "Total number of records matching the search criteria."
-            possible_values:
   number_of_animals_affected:
     description: "Total number of animals affected by the adverse event, whether through direct or indirect exposure (e.g. treated during pregnancy or lactation, commingled, infection spread, etc.)."
     format:
