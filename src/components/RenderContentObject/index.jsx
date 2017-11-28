@@ -7,6 +7,7 @@ import Highlight from 'react-highlight'
 
 import Fields from './Fields'
 import QueryExplorer from '../QueryExplorer'
+import ContentAccordion from '../ContentAccordion'
 
 const linkCx: string = 'b-b-1 clr-primary-alt-dark block font-size-5 pad-1 pad-l-2 txt-l row'
 
@@ -18,6 +19,9 @@ type tPROPS = {
   fields: Object;
   isMenu: boolean;
   onClick: Function;
+  meta: Object;
+  toggleSection: Function;
+  activeHeader: Array<string>;
 };
 
 // called by Content
@@ -40,6 +44,9 @@ const RenderContentObject = (props: tPROPS) => {
     explorers,
     // fields from content.yaml, for rendering a reference
     fields,
+    meta,
+    toggleSection,
+    activeHeader,
     // these 2 only used by ReferenceMenu
     // isMenu is used to parse content for the sidebarMenu
     // onClick just scrolls the page without messing up the url
@@ -75,27 +82,62 @@ const RenderContentObject = (props: tPROPS) => {
     // if not just a straight string
     // loop over array and pull out headers
     if (isList) {
+      let key_text = key.replace(/(#+ )/, '')
+
+      // get header level from counting '#'
+      let level: number = (key.match(/#/g)||[]).length
+
+      const btnCx = cx({
+        'menu-item row': true,
+        'weight-600': level < 2,
+        'depth-2': level === 2,
+        'depth-3 display-none': level > 2
+      })
+
       return (
         <div key={`menu-${k}`}>
+          {key.startsWith('#') &&
+            <button
+              className={btnCx}
+              style={{
+                background: 'transparent'
+              }}
+              key={`header-${k}`}
+              // called by ReferenceMenu
+              onClick={onClick}>
+              {key_text}
+            </button>
+          }
           {
             obj[key].map((content: string, i) => {
-              // ## About -> About
-              const html: string = content.replace(/(#+ )/, '')
+              if (typeof content === 'object') {
+                return (
+                  <RenderContentObject
+                    k={i}
+                    obj={content}
+                    key={i}
+                    isMenu
+                  />
+                )
+              } else {
+                if (content.indexOf('##') === -1) return
+                let level = (content.match(/#/g)||[]).length
 
-              if (content.indexOf('##') === -1) return
+                const html: string = content.replace(/(#+ )/, '')
 
-              return (
-                <button
-                  className={linkCx}
-                  style={{
-                    background: 'transparent',
-                  }}
-                  key={i}
-                  // called by ReferenceMenu
-                  onClick={onClick}>
-                  {html}
-                </button>
-              )
+                return (
+                  <button
+                    className={btnCx}
+                    style={{
+                      background: 'transparent',
+                    }}
+                    key={i}
+                    // called by ReferenceMenu
+                    onClick={onClick}>
+                    {html}
+                  </button>
+                )
+              }
             })
           }
         </div>
@@ -117,69 +159,6 @@ const RenderContentObject = (props: tPROPS) => {
     )
   }
 
-  const sectionCx: string = cx({
-    'bg-secondary-lightest marg-t-2 marg-b-2 pad-2 pad-b-1': key === 'disclaimer',
-  })
-
-  const hdrCx: string = cx({
-    'font-size-2': true,
-    'marg-t-3 marg-b-2': key !== 'disclaimer',
-  })
-
-  // list is maybe a bad term
-  // we just mean a non-field Array
-  // but sometimes we have literal lists
-  if (isList) {
-
-    // like so. if marked as an actual list
-    // render a unordered list
-    if (key === 'ul') {
-      return (
-        <ul key={k}>
-          {
-            obj[key].map((content: string, j) => {
-              // stringified markdown -> html
-              const html: string = marked(content)
-
-              return (
-                <li
-                  key={j}
-                  className='bullet pad-1 pad-r-2 pad-l-2 relative'
-                  dangerouslySetInnerHTML={{__html: html}}
-                />
-              )
-            })
-          }
-        </ul>
-      )
-    }
-
-    // else we have a section
-    // that will have an array of content
-    // related to that section
-    return (
-      <section
-        key={`${lowerKey}-${k}`}
-        id={`${lowerKey}-${k}`}
-        className={sectionCx}>
-        <h3 className={hdrCx}>{key}</h3>
-        {
-          // the actual p tags and such
-          obj[key].map((content: string, j) => {
-            // stringified markdown -> html
-            const html: string = marked(content)
-
-            return (
-              <div
-                key={j}
-                dangerouslySetInnerHTML={{__html: html}}
-              />
-            )
-          })
-        }
-      </section>
-    )
-  }
 
   // if example render PRE
   // examples are the big, hardcoded code blocks
@@ -227,6 +206,50 @@ const RenderContentObject = (props: tPROPS) => {
         originalQuery={data.query}
         params={data.params}
         title={data.title}
+      />
+    )
+  }
+
+  // list is maybe a bad term
+  // we just mean a non-field Array
+  // but sometimes we have literal lists
+  if (isList) {
+
+    // like so. if marked as an actual list
+    // render a unordered list
+    if (key === 'ul') {
+      return (
+        <ul key={k}>
+          {
+            obj[key].map((content: string, j) => {
+              // stringified markdown -> html
+              const html: string = marked(content)
+
+              return (
+                <li
+                  key={j}
+                  className='bullet pad-1 pad-r-2 pad-l-2 relative'
+                  dangerouslySetInnerHTML={{__html: html}}
+                />
+              )
+            })
+          }
+        </ul>
+      )
+    }
+
+    // else we have a section
+    // that will have an array of content
+    // related to that section
+    return (
+      <ContentAccordion
+        k={k}
+        obj={obj}
+        examples={examples}
+        fields={fields}
+        explorers={explorers}
+        meta={meta}
+        key={k}
       />
     )
   }

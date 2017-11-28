@@ -130,5 +130,21 @@
         "reactionmeddrapt": "POLYTRAUMATISM"
       }
     ]
+  },
+  "count": {
+    "results": [
+      {
+        "term": "DRUG INEFFECTIVE",
+        "count": 32584
+      },
+      {
+        "term": "NAUSEA",
+        "count": 27541
+      },
+      {
+        "term": "FATIGUE",
+        "count": 23341
+      }
+    ]
   }
 }

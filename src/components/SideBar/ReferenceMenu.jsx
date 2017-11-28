@@ -54,7 +54,7 @@ const ReferenceMenu = (props: Object) => {
         // stick to bottom if near footer
         height: 'initial',
         // to account for the gradient overflow
-        paddingTop: !isFixed && !isBottom && '25px'
+        paddingTop: !isFixed && !isBottom && '85px'
       }}>
       {
         content.map((c: string|Object, i: number) => {
@@ -80,16 +80,16 @@ const ReferenceMenu = (props: Object) => {
           // we're looping over all the content
           // and we just want to pull out the
           // headers to link to, not every line
-          if (c.indexOf('##') === -1) return
+          if (c.startsWith('#') === false) return
 
           // get header level from counting '#'
-          const level: number = c.split('#').length - 1
+          const level: number = (c.match(/#/g)||[]).length
 
           const btnCx = cx({
             'menu-item row': true,
-            'weight-600': level < 3,
-            'depth-2': level === 3,
-            'depth-3': level > 3
+            'weight-600': level < 2,
+            'depth-2': level === 2,
+            'depth-3 display-none': level > 2
           })
 
           return (
@@ -113,7 +113,7 @@ const ReferenceMenu = (props: Object) => {
           className={'bottom left right sb-gradient '}
           style={{
             background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%)',
-            height: '100px',
+            height: '85px',
           }}
         />
       }

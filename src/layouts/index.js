@@ -1,5 +1,4 @@
 import React from "react"
-import Link from "gatsby-link"
 import DocumentTitle from 'react-document-title'
 
 import Nav from '../components/Nav'
@@ -15,7 +14,9 @@ class Layout extends React.Component {
           <Nav
             meta={this.props.meta}
           />
-          {this.props.children()}
+          <div className="body-container">
+            {this.props.children()}
+          </div>
           <Footer />
         </div>
       </DocumentTitle>

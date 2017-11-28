@@ -35,6 +35,7 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
     }
 
     _toggleDropdownContent (e) {
+      console.log("e is: ", e)
       let title = e.target.getAttribute('title')
       if (this.state.activeDropdown != title) {
         this.setState({

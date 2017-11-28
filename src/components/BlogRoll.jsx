@@ -43,7 +43,7 @@ const BlogRoll = (props: tPROPS) => {
   let tally: number = 0 | 0
 
   return (
-    <section className='blog-bg'>
+    <section className='blog-bg body-bg-offwhite'>
       <h2 className="center-heading" style={{margin: '30px 30px 10px'}}><span>Latest News & Updates</span></h2>
       <ul
         aria-label='openFDA updates'
@@ -93,7 +93,7 @@ const BlogRoll = (props: tPROPS) => {
                 className='marg-l-1 marg-r-1 marg-t-2 marg-b-2 blog-item'>
                 <Link className='pad-3 relative full-height blog-text-item' style={{paddingTop: "30px"}}to={update.path}>
                   <Async promise={title} then={(val) => <h2 className='blog-header clr-primary-darker'>{val}</h2>}/>
-                  <div className='clr-gray-light marg-b-1 t-marg-t-05'>{formattedDate}</div>
+                  <div className='clr-gray-light marg-b-1 t-marg-t-05 time-stamp'>{formattedDate}</div>
                   <p className="smallest txt-overflow-ellipsis">{desc}</p>
                   <span className="absolute bottom pad-b-2 weight-700 clr-primary">READ MORE <i className="fa fa-angle-right"/></span>
                 </Link>
@@ -104,7 +104,7 @@ const BlogRoll = (props: tPROPS) => {
       </ul>
       {small === true &&
         <Link
-        className='pad-b-3 weight-700 clr-primary'
+        className='btn-icon-right pad-b-3 weight-700 clr-primary'
         to='/about/updates/'>
         VIEW ALL <i className="fa fa-angle-right"/>
         </Link>}

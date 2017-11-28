@@ -193,11 +193,23 @@ button
   outline: 0
   padding: 15px 20px
   position: relative
-  transition: opacity .35 ease-in-out
 
   &:focus,
   &:active
     box-shadow: 0 0 3px $clrPrimary, 0 0 7px $clrPrimary
+
+  .btn
+    letter-spacing: 1px
+
+.btn-icon-right
+  transition: all 0.2s linear
+
+  i
+    transition: all 0.2s linear
+  &:hover
+    i
+      transform: translateX(4px)
+
 
 select,
 .select
@@ -249,3 +261,6 @@ code
 
 li.usage-api-li
   list-style: disc outside none
+
+.body-container
+  padding-top: 85px

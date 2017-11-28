@@ -127,7 +127,7 @@ const EndpointBox = (props: tPROPS) => {
           <h3 className="txt-c clr-primary-darker">{ep_title[noun_name][endpoint_name]}</h3>
           <span className="marg-1 clr-black">{description[noun_name][endpoint_name]}</span>
         </div>
-        <span className="btn clr-primary weight-700">LEARN MORE<i className="fa fa-angle-right marg-l-1"/></span>
+        <span className="btn btn-icon-right clr-primary weight-700">LEARN MORE<i className="fa fa-angle-right marg-l-1"/></span>
       </Link>
     </section>
   )
