@@ -66,7 +66,7 @@ const ContentWrapper = (props: tPROPS) => {
       }
       <section className={wrapperCx}>
         {
-          meta.type != 'update' &&
+          meta.type !== 'update' &&
           <ComposedSidebar
             className='m-hide'
             reference={content}

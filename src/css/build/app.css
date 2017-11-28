@@ -2405,6 +2405,11 @@ li.usage-api-li {
 .status-content-bg {
   padding: 3px 10px;
 }
+.explorer {
+  border: 2px solid #808080;
+  height: 600px;
+  overflow: scroll;
+}
 .footer-container {
   min-height: 400px;
 }
@@ -2925,7 +2930,7 @@ html -webkit-scrollbar {
     bottom: 0px;
   }
   .sb-fixed {
-    top: 25px;
+    top: 85px;
   }
 }
 @media (min-width: 1024px) {

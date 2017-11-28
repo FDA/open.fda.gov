@@ -7,9 +7,7 @@ import Highlight from 'react-highlight'
 
 import Fields from './Fields'
 import QueryExplorer from '../QueryExplorer'
-import Datasets from '../Datasets'
-import Downloads from '../Downloads'
-import MultipleProductTable from '../MultipleProductTable'
+import ContentAccordion from '../ContentAccordion'
 
 const linkCx: string = 'b-b-1 clr-primary-alt-dark block font-size-5 pad-1 pad-l-2 txt-l row'
 
@@ -22,6 +20,8 @@ type tPROPS = {
   isMenu: boolean;
   onClick: Function;
   meta: Object;
+  toggleSection: Function;
+  activeHeader: Array<string>;
 };
 
 // called by Content
@@ -45,6 +45,8 @@ const RenderContentObject = (props: tPROPS) => {
     // fields from content.yaml, for rendering a reference
     fields,
     meta,
+    toggleSection,
+    activeHeader,
     // these 2 only used by ReferenceMenu
     // isMenu is used to parse content for the sidebarMenu
     // onClick just scrolls the page without messing up the url
@@ -80,7 +82,6 @@ const RenderContentObject = (props: tPROPS) => {
     // if not just a straight string
     // loop over array and pull out headers
     if (isList) {
-      //console.log("isMenu, isList: key, then obj: ", key, obj)
       let key_text = key.replace(/(#+ )/, '')
 
       // get header level from counting '#'
@@ -122,7 +123,6 @@ const RenderContentObject = (props: tPROPS) => {
                 if (content.indexOf('##') === -1) return
                 let level = (content.match(/#/g)||[]).length
 
-                //console.log("isList content: ", content)
                 const html: string = content.replace(/(#+ )/, '')
 
                 return (
@@ -159,9 +159,6 @@ const RenderContentObject = (props: tPROPS) => {
     )
   }
 
-  const sectionCx: string = cx({
-    'bg-secondary-lightest marg-t-2 marg-b-2 pad-2 pad-b-1': key === 'disclaimer',
-  })
 
   // if example render PRE
   // examples are the big, hardcoded code blocks
@@ -241,103 +238,19 @@ const RenderContentObject = (props: tPROPS) => {
       )
     }
 
-    // stringified markdown -> html
-    const key_html: string = marked(key)
-
-    const wrapperCx: string = cx({
-      'font-size-2 weight-700 marg-b-2 marg-t-3': key_html.indexOf('<h') !== -1
-    })
-
     // else we have a section
     // that will have an array of content
     // related to that section
     return (
-      <section
-        key={`${lowerKey}-${k}`}
-        id={`${lowerKey}-${k}`}
-        className={sectionCx}>
-        <div
-          key={k}
-          className={wrapperCx}
-          dangerouslySetInnerHTML={{__html: key_html}}
-        />
-        {
-          // the actual p tags and such
-          obj[key].map((content: string|Object, j) => {
-            if (typeof content === 'object') {
-              //console.log("content in RCO section: ", content)
-              return (
-                <RenderContentObject
-                  k={j}
-                  obj={content}
-                  examples={examples}
-                  fields={fields}
-                  explorers={explorers}
-                  meta={meta}
-                  key={j}
-                />
-              )
-            } else {
-              // stringified markdown -> html
-              const html: string = marked(content)
-
-              // kind of a weird way to do this
-              // but, it might be easier for non-technical
-              // people to understand that they just type
-              // 'downloads' to render that section
-              if (content === 'downloads') {
-                return (
-                  <Downloads
-                    k={j}
-                    meta={meta}
-                    key={j}
-                  />
-                )
-              }
-
-              // as far as i can tell we just
-              // have the one 'image' for drug/event
-              if (content === 'datasets') {
-                return (
-                  <Datasets
-                    k={j}
-                    meta={meta}
-                    key={j}
-                  />
-                )
-              }
-
-              // as far as i can tell we just
-              // have the one 'image' for drug/event
-              if (content === 'multipleProductTable') {
-                return (
-                  <MultipleProductTable
-                    k={j}
-                    key={j}
-                  />
-                )
-              }
-
-              if (content.includes("image=")){
-                return (
-                  <img
-                    src={content.split("=")[0]}
-                    key={j}
-                    className='fda-logo'
-                  />
-                )
-              }
-
-              return (
-                <div
-                  key={j}
-                  dangerouslySetInnerHTML={{__html: html}}
-                />
-              )
-            }
-          })
-        }
-      </section>
+      <ContentAccordion
+        k={k}
+        obj={obj}
+        examples={examples}
+        fields={fields}
+        explorers={explorers}
+        meta={meta}
+        key={k}
+      />
     )
   }
 

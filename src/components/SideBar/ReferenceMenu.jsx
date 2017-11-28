@@ -54,12 +54,11 @@ const ReferenceMenu = (props: Object) => {
         // stick to bottom if near footer
         height: 'initial',
         // to account for the gradient overflow
-        paddingTop: !isFixed && !isBottom && '25px'
+        paddingTop: !isFixed && !isBottom && '85px'
       }}>
       {
         content.map((c: string|Object, i: number) => {
           if (typeof c === 'object') {
-            //console.log("c in refMenu: ", c)
             return (
               <RenderContentObject
                 key={i}
@@ -114,7 +113,7 @@ const ReferenceMenu = (props: Object) => {
           className={'bottom left right sb-gradient '}
           style={{
             background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%)',
-            height: '100px',
+            height: '85px',
           }}
         />
       }

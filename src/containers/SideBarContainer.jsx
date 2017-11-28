@@ -81,7 +81,7 @@ const SideBarContainer = function (ComposedSideBar: ReactClass): ReactClass {
         // element menu height +
         // 50 for 25px margin above el and
         // for a 25px spacer at the bottom
-        if ((elementBottomPos >= (runwayEnd - 25))) {
+        if ((elementBottomPos >= (runwayEnd - 85))) {
           bottom = true
           fixed = false
         }
