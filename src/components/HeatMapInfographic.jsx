@@ -8,7 +8,7 @@ import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
 import { Series } from 'pandas-js';
 import { HeatMap } from 'nivo'
-import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable } from "react-timeseries-charts"
+import { Charts, ChartContainer, ChartRow, styler, YAxis, LineChart,Resizable } from "react-timeseries-charts"
 import { TimeSeries, TimeRange, sum } from "pondjs";
 import Parser from 'html-react-parser';
 
@@ -28,7 +28,6 @@ class HeatMapInfographic extends React.Component {
 
     if(
         this.props.api === undefined || 
-        this.props.dateField === undefined || 
         this.props.infographicDefinitions === undefined 
       ) {
       throw "Invalid Props"
@@ -52,16 +51,18 @@ class HeatMapInfographic extends React.Component {
       timerange:  null,
       queries:  this.props.infographicDefinitions.queries,
       xTerms: [],
+      xTermsReverse: [],
       step: 1,
       min: this.props.infographicDefinitions.startYear+1,
       max: currentYear,
-      defaultValue: currentYear,
+      defaultValue: this.props.infographicDefinitions.defaults.year,
       currentValue: currentYear,
       startYear: this.props.infographicDefinitions.startYear,
       endYear: currentYear,
       countBy: this.props.infographicDefinitions.countBy,
       slider_marks: slider_marks,
       years: years,
+      lineStyle: this.props.infographicDefinitions.chartConfig.lineStyle,
       minTime: minTime,
       maxTime: now,
       enablePanZoom: false,
@@ -70,6 +71,7 @@ class HeatMapInfographic extends React.Component {
       original_rows: [],
       trackerInfoValues: "",
     }
+
 
     this.changeValue = this.changeValue.bind(this)
     this.onClick = this.onClick.bind(this)
@@ -85,6 +87,11 @@ class HeatMapInfographic extends React.Component {
         data: res.data[this.state.defaultValue]
       })
       this.onClick(this.props.infographicDefinitions.defaults)
+      $(".rc-slider-mark").css("font-size",this.props.infographicDefinitions.slider.style.fontSize)
+      $(".rc-slider-mark").css("font-size",this.props.infographicDefinitions.slider.style.fontSize)
+      $("text").css("font-size",this.props.infographicDefinitions.heatMapConfig.theme.fontSize)
+      $("text").css("font-family",this.props.infographicDefinitions.heatMapConfig.theme.fontFamily)
+      $("text").css("fill",this.props.infographicDefinitions.heatMapConfig.theme.fontColor)
     })
   }
 
@@ -103,7 +110,7 @@ class HeatMapInfographic extends React.Component {
 
     l.forEach(function(param){
       that.state.years.forEach(function(year){
-        var url = `${that.state.API_LINK}${that.state.api}.json?search=${that.props.dateField}[${year}0101+TO+${year}1231]`
+        var url = `${that.state.API_LINK}${that.state.api}.json?search=${that.props.infographicDefinitions.dateField}[${year}0101+TO+${year}1231]`
         if(param != ""){
           url += "+AND+" + param
         }
@@ -114,9 +121,8 @@ class HeatMapInfographic extends React.Component {
 
     const emptyYearsArray = this.state.years.map(y => 0);
 
-    let filesPromise = Promise.resolve([]);
     const itemPromises = urls.map(this.fetchJSON);
-    filesPromise = Promise.all(itemPromises).then((results) => {
+    return Promise.all(itemPromises).then((results) => {
       var d = [],
           e = {},
           allResult = {}, 
@@ -144,10 +150,17 @@ class HeatMapInfographic extends React.Component {
           })
         }
 
-        var terms = item.results.map(v => {
-          var d = v.term.split('(')
-          that.state.xTerms[d[0]] = v.term
-          return d[0]
+        var results = item.results.filter( res => {
+          return res.term.indexOf("/") == -1 && res.term !== "None"
+        })
+
+        var terms = results.map(v => {
+          var d = v.term.split('('),
+              renamedTerm = that.props.infographicDefinitions.xTerms[v.term],
+              term = (renamedTerm === undefined ?  d[0] : renamedTerm);
+          that.state.xTerms[d[0]] = term;
+          that.state.xTermsReverse[term] = d[0];
+          return term
         });
 
         // define data structure
@@ -170,8 +183,9 @@ class HeatMapInfographic extends React.Component {
 
         // now that data structure has been built, add the data to timeseries for
         // coresponding year
-        item.results.forEach(function(v){
-          var term = v.term.split('(')[0]
+        results.forEach(function(v){
+          var d = v.term.split('(')[0];
+          var term = that.state.xTerms[d];
           final[s][term][yearPosition] = v.count
         })        
 
@@ -241,8 +255,9 @@ class HeatMapInfographic extends React.Component {
             "_type": that.props.infographicDefinitions.queries[k].name
           }
           Object.keys(response[k]).forEach(function(category, index){
-            var yoy = response[k][category][idx];
-            f[category] = Math.floor(yoy * 100);
+            var yoy = response[k][category][idx],
+                shortenedCategory = category.slice(0,1) + category.slice(1,100).toLowerCase()
+            f[shortenedCategory] = Math.floor(yoy * 100);
           })
           data.push(f)
         })
@@ -251,24 +266,29 @@ class HeatMapInfographic extends React.Component {
 
       return { 
         "data": yearsObj,
-        "keys": keys
+        "keys": keys.map(value => value.slice(0,1) + value.slice(1,100).toLowerCase())
       }
     })
-
-    return filesPromise
-
   }
 
   onClick(node, event){
     if(node.value === '-') return
-    var yQueryInfo = _.find(this.props.infographicDefinitions.queries, 'name', node["yKey"]),
-        xKey = this.state.xTerms[node['xKey']],
+    let yQueryInfo;
+    if (node["yKey"].toLowerCase().split(' ')[0] === "all"){
+      yQueryInfo = this.props.infographicDefinitions.queries["all"]
+    } else {
+      yQueryInfo = _.find(this.props.infographicDefinitions.queries, function(o) {
+        return o.name === node["yKey"];
+      })
+    }
+    var xKey = this.state.xTermsReverse[node['xKey'].toUpperCase()],
         yKey = yQueryInfo.query.toLowerCase() === "" ? "" :  ("+AND+" + yQueryInfo.query.toLowerCase()),
-        url = `${this.state.API_LINK}${this.state.api}.json?search=${this.props.infographicDefinitions.countBy}:` + xKey + yKey + `&count=${this.props.dateField}`,
-        that = this;
+        url = `${this.state.API_LINK}${this.state.api}.json?search=${this.props.infographicDefinitions.countBy}:` + xKey + yKey + `&count=${this.props.infographicDefinitions.dateField}`,
+        that = this,
+        key = node['key'],
+        color = node['color'];
 
-    let filesPromise = Promise.resolve([]);
-    filesPromise = Promise.all([url].map(this.fetchJSON)).then(function(results) {
+    Promise.all([url].map(this.fetchJSON)).then(function(results) {
       var series = new TimeSeries({
         name: "timeseries",
         columns: ["time","value"],
@@ -285,7 +305,15 @@ class HeatMapInfographic extends React.Component {
         toTimeEvents : true
       })
 
+      var lineStyle = styler([{
+          key: "value",
+          color: color,
+          width: 5
+        }])
+
+
       that.setState({
+        lineStyle,
         sparklineData: series,
         sparklindDataMax: series.max(),
         timerange: new TimeRange(that.state.minTime, new Date(that.state.currentValue+1, 1,20)),
@@ -295,8 +323,18 @@ class HeatMapInfographic extends React.Component {
 
       that.onTrackerChanged(that.state.tracker)
 
-    })
+      // adjust the y positioning of the y axis label
+      var vals = $("text").filter(function () {
+        return $(this).attr("transform") == "rotate(-90)"
+      })
+      if(vals.length){
+        $(vals[0]).attr("x",that.props.infographicDefinitions.heatMapConfig.theme.yAxisPositioning)
+      }
 
+      $("text").css("font-family",that.props.infographicDefinitions.heatMapConfig.theme.fontFamily)
+      $("text").css("fill",that.props.infographicDefinitions.heatMapConfig.theme.fontColor)
+
+    })
   }
 
   changeValue (d){
@@ -315,7 +353,7 @@ class HeatMapInfographic extends React.Component {
     }
 
     var trackerInfoValues = [{
-        label: "value", 
+        label: "Value", 
         value: this.state.sparklineData.at(index).get("value").toString()
     }]
     this.setState({
@@ -336,6 +374,8 @@ class HeatMapInfographic extends React.Component {
       // <div className="heatmap-header">
       //       <p className="interactive-infographic-center"> Selected Year - <i className="interactive-infographic-bold">{this.state.currentValue}</i></p>
       //     </div>
+
+    $('text').css('fill', this.props.infographicDefinitions.chartConfig.font.color)
 
     const handle = (props) => {
       const { value, dragging, index, ...restProps } = props;
@@ -388,8 +428,8 @@ class HeatMapInfographic extends React.Component {
             <button className="heatmap-infographic-zoom-button" onClick={this.togglePanZoom }> { this.state.enablePanZoom ? 'Disable' : 'Enable' } Zoom</button>
             { !this.state.sparklineData ? null : 
               <p className="interactive-infographic-center"> 
-                <span className="interactive-infographic-underline">{this.props.infographicDefinitions.yName}</span>: {this.state.currentYkey}<br/>
-                <span className="interactive-infographic-underline">{this.props.infographicDefinitions.xName}</span>: {this.state.currentXkey} 
+                <span className="interactive-infographic-subtitle">{this.props.infographicDefinitions.yName}</span>: {this.state.currentYkey}<br/>
+                <span className="interactive-infographic-subtitle">{this.props.infographicDefinitions.xName}</span>: {this.state.currentXkey} 
               </p> 
             }
 
@@ -420,7 +460,7 @@ class HeatMapInfographic extends React.Component {
                               <LineChart 
                                 axis="axis1"
                                 series={this.state.sparklineData}
-                                style={this.props.infographicDefinitions.chartConfig.lineStyle}
+                                style={this.state.lineStyle}
                                 interpolation={this.props.infographicDefinitions.chartConfig.interpolation}
                                 highlight={this.state.highlight}
                                 onHighlightChange={highlight => this.setState({ highlight })}

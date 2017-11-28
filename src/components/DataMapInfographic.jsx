@@ -102,13 +102,22 @@ class DataMapInfographic extends React.Component {
       this.setState({
         keys: res.keys,
         data: this._get_dataset(this.state.defaultValue),
-        timeseries: res.timeseries
+        timeseries: res.timeseries,
+        selectedState: this.props.infographicDefinitions.selectedState
       })
+      this.mapOnClick()
       // use ajax request to get IP address and state
-      const p2 = Promise.resolve(this.fetchJSON(this.props.infographicDefinitions.ipURL)).then( (res) => {
-        this.setState({selectedState: res.region_code})
-        this.mapOnClick()
-      });
+      Promise.resolve(this.fetchJSON(this.props.infographicDefinitions.ipURL)).then( (res) => {
+        var options = ["",undefined,null]
+        if(options.indexOf(res.region_code) === -1){
+          this.setState({selectedState: res.region_code})
+          this.mapOnClick()
+        }
+      })
+
+      $(".rc-slider-mark").css("font-size",this.props.infographicDefinitions.slider.style.fontSize)
+
+
     })
   }
 
@@ -128,8 +137,7 @@ class DataMapInfographic extends React.Component {
 
     const emptyYearsArray = this.state.years.map(y => 0);
 
-    let filesPromise = Promise.resolve([]);
-    filesPromise = Promise.all(urls.map(this.fetchJSON)).then(function(results) {
+    return Promise.all(urls.map(this.fetchJSON)).then(function(results) {
         var d = [],
             e = {},
             allResult = {}, 
@@ -157,7 +165,12 @@ class DataMapInfographic extends React.Component {
             })
           }
 
-          var terms = item.results.filter(function(v) {
+          var filteredResults = item.results.map( v => {
+            v.term = v.term.toUpperCase()
+            return v
+          })
+
+          var terms = filteredResults.filter(function(v) {
             if (!v.term || v.term === "*") {
               return false;
             }
@@ -171,7 +184,9 @@ class DataMapInfographic extends React.Component {
           // define data structure
           if(final[s] == undefined){
             var local_dict = {}
-            terms.forEach(function(term){
+            var all = new Set(Object.keys(that.props.infographicDefinitions.states))
+            terms.map(t => all.add(t))
+            all.forEach(function(term){
               local_dict[term] = $.extend(true, [], emptyYearsArray)
             })
             final[s] = local_dict;
@@ -188,7 +203,7 @@ class DataMapInfographic extends React.Component {
 
           // now that data structure has been built, add the data to timeseries for
           // coresponding year
-          item.results.filter(function(v) {
+          filteredResults.filter(function(v) {
             if (!v.term || v.term === "*") {
               return false;
             }
@@ -220,8 +235,6 @@ class DataMapInfographic extends React.Component {
             }
           })
         })
-
-
 
         Object.keys(final).forEach(function(k){
           response[k] = {}
@@ -271,9 +284,6 @@ class DataMapInfographic extends React.Component {
         "timeseries": response
       }
     })
-
-    return filesPromise
-
   }
 
   changeValue (d){
@@ -313,9 +323,6 @@ class DataMapInfographic extends React.Component {
         negativeFivehundredTOthousand = this.props.infographicDefinitions.colorCodes.greens[2],
         extremeGreen = this.props.infographicDefinitions.colorCodes.greens[3],
         extremeRed = this.props.infographicDefinitions.colorCodes.reds[3];
-
-      console.log(this.props.infographicDefinitions.colorCodes.greens[0], this.props.infographicDefinitions.colorCodes.greens[1])
-      console.log(2)
 
 
     var f = function(val){
@@ -389,11 +396,25 @@ class DataMapInfographic extends React.Component {
     $('.react-grid-HeaderCell-sortable--ascending').find("span").hide()
     $('.react-grid-HeaderCell-sortable--descending').find("span").hide()
 
-    let filesPromise = Promise.resolve([]);
-    filesPromise = Promise.all(urls.map(this.fetchJSON))
+    Promise.all(urls.map(this.fetchJSON))
       .catch(function(results){})
       .then(function(results) {
-        var result = results === undefined ? that.props.infographicDefinitions.gridConfig.defaultData : results[0].results;
+        let result;
+        let totalAvailableResults;
+        let rowsFound;
+
+        // use default data
+        if(results === undefined){
+          totalAvailableResults = 0
+          result = that.props.infographicDefinitions.gridConfig.defaultData;
+          rowsFound = 0;
+        } else {
+          // continue
+          totalAvailableResults = results[0].meta.results.total;
+          result = results[0].results;
+          rowsFound = results[0].results.length;
+        }
+
         var finalData = []
         result.forEach( item => {
           var record = {}
@@ -405,7 +426,10 @@ class DataMapInfographic extends React.Component {
           finalData.push(record)
 
         })
+
         that.setState({
+          totalAvailableResults,
+          rowsFound,
           _rows : finalData,
           original_rows: finalData,
           selectedState: _id
@@ -454,9 +478,9 @@ class DataMapInfographic extends React.Component {
 
     return (
         <section className='infographic-container'>
-          <div>
-            {Parser(this.props.infographicDefinitions.title)}
-            <hr className="datamap-hr"/>
+        {Parser(this.props.infographicDefinitions.title)}
+        <hr className="datamap-hr"/>
+          <div className="flex-box">
 
             <div className="infographic-slider">
               <Slider
@@ -471,8 +495,6 @@ class DataMapInfographic extends React.Component {
                   {...this.props.infographicDefinitions.slider}
                 />
             </div>
-
-            <InfographicLegend {...this.props.infographicDefinitions.legend} />
 
             <div className="datamap-infographic">
               <Datamap
@@ -496,8 +518,20 @@ class DataMapInfographic extends React.Component {
                 {...this.props.infographicDefinitions.dataMapConfig}
               />
             </div>
+
+            <InfographicLegend {...this.props.infographicDefinitions.legend} />
+          </div>
+          <div>
             <p className='datamap-infographic-header-params'> 
-              {this.props.infographicDefinitions.subtitle} for <i className='datamap-infographic-header-text-bold'>{this.props.infographicDefinitions.states[this.state.selectedState]}</i> in <i className='datamap-infographic-header-text-bold'>{this.state.currentValue}</i>
+              {this.props.infographicDefinitions.subtitle} for 
+              <i className='datamap-infographic-header-text-bold'>
+                &nbsp;{this.props.infographicDefinitions.states[this.state.selectedState]}&nbsp;
+              </i> 
+              in 
+              <i className='datamap-infographic-header-text-bold'>
+                &nbsp;{this.state.currentValue}
+              </i>
+              &nbsp;(first {this.state.rowsFound} of {this.state.totalAvailableResults})
             </p>
             <div>
             { !this.state._rows.length ? null : 

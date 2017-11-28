@@ -7,6 +7,7 @@ import explorers from './_explorers.yaml'
 import infographics from './_infographics.yaml'
 import fields from './_fields.yaml'
 import meta from './_meta.yaml'
+import infographicDefinitions from './_infographic_definitions.json'
 import examples from './_examples.json'
 
 export default () => (
@@ -15,6 +16,7 @@ export default () => (
     examples={examples}
     explorers={explorers}
     infographics={infographics}
+    infographicDefinitions={infographicDefinitions}
     fields={fields}
     meta={meta}
   />

@@ -16,6 +16,7 @@
   "dependencies": {
     "babel-eslint": "^8.0.1",
     "chart.js": "1.1.1",
+    "calculate-size": "latest",
     "classnames": "^2.2.5",
     "copy-webpack-plugin": "^4.2.0",
     "dateformat": "^3.0.2",
@@ -32,6 +33,7 @@
     "html-react-parser": "0.4.0",
     "loader-utils": "^1.0.2",
     "jquery": "^3.2.1",
+    "recharts": "1.0.0-beta.0",
     "localforage": "^1.5.2",
     "marked": "^0.3.6",
     "matchmedia": "^0.1.2",

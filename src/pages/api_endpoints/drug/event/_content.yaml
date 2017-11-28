@@ -6,6 +6,7 @@
 - "image"
 - "Any number of the drugs may be marked as *suspect* if thought to be responsible for one or more of the reactions, but that information is not validated. *Concomitant* drugs are those which are not suspected of causing one or more of the reactions. Many drug products appear frequently in adverse event reports simply because they are commonly taken by many people in the population, not because they are responsible for more adverse events."
 - "Reports contain varying levels of detail about the drug products involved, indications for use, route of administration, and dose."
+- visualization
 - "### How to search this endpoint"
 - "Make API calls to `https://api.fda.gov/drug/event.json` using search parameters for fields specific to the drug adverse events endpoint."
 - queryExplorer: oneReport

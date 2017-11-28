@@ -5,6 +5,7 @@ import React from 'react'
 import HeatMapInfographic from '../components/HeatMapInfographic'
 import DataMapInfographic from '../components/DataMapInfographic'
 import PieChartInfographic from '../components/PieChartInfographic'
+import GridInfographic from '../components/GridInfographic'
 
 type tPROPS = {
   meta: Array<Object|string>;
@@ -40,7 +41,14 @@ const InteractiveInfographic = (props: tPROPS) => {
           infographicDefinitions={infographicDefinitions}
         />
       )
-  }
+  } else if (infographicDefinitions.type == "Grid") {
+      return (
+        <GridInfographic
+          api={meta.api_path}
+          infographicDefinitions={infographicDefinitions}
+        />
+      )
+  } 
 }
 
 InteractiveInfographic.displayName = 'components/InteractiveInfographic'

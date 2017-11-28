@@ -1,63 +1,22 @@
 {
-  "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Recalls</i> by Risk Class (Low, Moderate, High)</p>",
+  "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device UDIs</i> by Risk Class (Low, Moderate, High)</p>",
   "subtitle": "Device Recalls",
   "yName": "Query",
   "xName": "Route",
-  "countBy": "openfda.device_class",
   "type": "PieChart",
-  "startYear": 2003,
-  "dateField": "event_date_terminated",
-  "subfield": "openfda.medical_specialty_description",
+  "startYear": 2014,
+  "countBy": "product_codes.openfda.device_class",
+  "dateField": "publish_date",
+  "subfield": "product_codes.openfda.medical_specialty_description.exact",
   "classification_api": "/device/classification",
   "lineLimiter": 7,
-  "pieChartConfigOld": {
-    "width": 250,
-    "height": 250,
-    "margin": {
-      "top": 15,
-      "right": 15,
-      "bottom": 15,
-      "left": 15
-    },
-    "theme": {
-      "axis": {
-       "fontSize": 15
-      }
-    },
-    "sortByValue": false,
-    "innerRadius": 0.5,
-    "padAngle": 0.7,
-    "cornerRadius": 3,
-    "colors": "set2",
-    "colorBy": "id",
-    "borderWidth":0,
-    "borderColor": "inherit:darker(0.6)",
-    "enableRadialLabels": false,
-    "radialLabel": "label",
-    "radialLabelsSkipAngle":90,
-    "radialLabelsTextXOffset": 1,
-    "radialLabelsTextColor": "#333333",
-    "radialLabelsLinkOffset": 0,
-    "radialLabelsLinkDiagonalLength": 16,
-    "radialLabelsLinkHorizontalLength": 24,
-    "radialLabelsLinkStrokeWidth": 1,
-    "radialLabelsLinkColor": "inherit",
-    "enableSlicesLabels": true,
-    "sliceLabel": "pct",
-    "slicesLabelsSkipAngle": 10,
-    "slicesLabelsTextColor": "#FFFFFF",
-    "animate": true,
-    "motionStiffness": 90,
-    "motionDamping": 15,
-    "isInteractive": true
-  },
   "xTitle": "Medical Speciality",
   "yTitle": "Risk",
   "xLengendCoordinate": -35,
   "dataFunction": "_getAllData",
   "defs": {
-    "1": "Class I (low to moderate risk)",
     "2": "Class II \n(moderate to high risk)",
+    "1": "Class I (low to moderate risk)",
     "3": "Class III (high risk)",
     "U": "Unclassified",
     "N": "Not classified",
@@ -75,7 +34,7 @@
   "pieChartConfig": {
     "default": {
       "id":2,
-      "index":0
+      "index": 2
     },
     "radius": {
       "cx": 305,
@@ -84,15 +43,16 @@
       "outerRadius": 80
     },
     "textLabel": ["Percentage", "by Class"],
-    "width": 500,
+    "width": 450,
     "widthReset": 365,
-    "height": 500,
-    "viewBox": "140 100 510 510",
+    "height": 450,
+    "sort": "ascending",
+    "viewBox": "110 100 510 510",
     "fill": "#8884d8",
     "textColor": "#000000",
     "colors": [
-      "#0088FE",
       "#00C49F",
+      "#0088FE",
       "#d62728",
       "#FFBB28"
     ],

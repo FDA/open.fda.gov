@@ -2,7 +2,7 @@ import React from 'react'
 
 const InfographicLegend = React.createClass({
   propTypes: {
-    ranges:React.PropTypes.object.isRequired,
+    ranges:React.PropTypes.array.isRequired,
     styles: React.PropTypes.object.isRequired,
     title: React.PropTypes.string.isRequired
   },
@@ -16,8 +16,8 @@ const InfographicLegend = React.createClass({
           <p className="infographic-legend-title"> {this.props.title}</p>
           <table className="infographic-legend-table">
             <tbody>
-              { this.props.ranges.map(obj => 
-                  <tr><td>
+              { this.props.ranges.map( (obj, index) => 
+                  <tr key={index}><td>
                       <span className="infographic-legend-tr" style={this.getStyle(obj.color)}>&nbsp;</span>&nbsp; {obj.name}
                   </td></tr>
               )}

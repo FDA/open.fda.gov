@@ -1,7 +1,7 @@
 {
   "selectedState": "VA",
   "countBy": "state.exact",
-  "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Food Enforcement Recalls</i>: Year Over Year (YOY) Change % by State</p>",
+  "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Drug Enforcement Recalls</i>: Year Over Year (YOY) Change % by State</p>",
   "subtitle": "Recalls",
   "type": "DataMap",
   "ipURL": "https:\/\/freegeoip.net/json/?callback=",

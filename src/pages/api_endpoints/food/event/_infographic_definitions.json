@@ -1,61 +1,55 @@
 {
-  "title": "<p class='heatmap-infographic-header'><i class='datamap-infographic-header-text-bold'> Drugs Labels </i>: Percent Change in Drug Administration Route Type, Year Over Year (YOY) </p>",
-  "queries1": {
-    "otc": "openfda.product_type:otc",
-    "prescription": "openfda.product_type:prescription",
-    "lactose": "inactive_ingredient:lactose",
-    "bleeding": "boxed_warning:bleeding",
-    "all": ""
-  }, 
-  "queries": {
-    "otc": {
-      "query": "openfda.product_type:otc",
-      "name": "Over the Counter Drugs"
+  "title": "<p class='heatmap-infographic-header'><i class='datamap-infographic-header-text-bold'> Food Adverse Reports </i>: Percent Change in Outcomes By Industry, Year Over Year (YOY) </p>",
+  "queries":   {
+    "Unconv Diet": {
+      "query": "products.industry_name:Unconv Diet",
+      "name": "Vitamins"
     },
-    "prescription": {
-      "query": "openfda.product_type:prescription",
-      "name": "Prescription Drugs"
+    "Cosmetics": {
+      "query": "products.industry_name:Cosmetics",
+      "name": "Cosmetics"
     },
-    "lactose": {
-      "query": "inactive_ingredient:lactose",
-      "name": "Lactose as an Ingredient"
+    "Nuts": {
+      "query": "products.industry_name:Nuts",
+      "name": "Nuts"
     },
-    "bleeding": {
-      "query": "boxed_warning:bleeding",
-      "name": "Warning of Bleeding"
+    "Seafood Prod": {
+      "query": "products.industry_name:Seafood Prod",
+      "name": "Fish/Seafood Products"
+    },
+    "Soft Drink": {
+      "query": "products.industry_name:Soft Drink",
+      "name": "Soft Drinks"
     },
     "all": {
       "query": "",
-      "name": "All Drugs"
+      "name": "All Industries"
     }
-  }, 
-  "defaults": {
-    "xKey":"Sublingual",
-    "yKey":"Lactose as an Ingredient",
-    "color": "rgb(103, 179, 45)",
-    "key": "Sublingual.Lactose as an Ingredient",
-    "year": 2017
   },
-  "xTerms": [],
-  "yName": "Drug Category",
-  "xName": "Administration Route",
-  "countBy": "openfda.route.exact",
-  "dateField": "effective_time",
+  "defaults": {
+    "xKey":"Death",
+    "yKey":"Cosmetics",
+    "color": "rgb(103, 179, 45)",
+    "key": "Death.Cosmetics",
+    "year": 2016
+  },
+  "xTerms": {
+    "REQ. INTERVENTION TO PRVNT PERM. IMPRMNT.": "REQ. INTERVENTION"
+  },
+  "yName": "Industry Name",
+  "xName": "Outcome",
+  "countBy": "outcomes.exact",
   "type": "HeatMap",
-  "startYear": 2009,
+  "startYear": 2004,
+  "dateField": "date_created",
   "heatMapConfig":{
-    "keyFormat": "Query: ${this.yKey.charAt(0).toUpperCase() + this.yKey.slice(1).toLowerCase()}\n Route: ${this.xKey.charAt(0).toUpperCase() + this.xKey.slice(1).toLowerCase()}",
+    "keyFormat": "Industry: ${this.yKey.charAt(0).toUpperCase() + this.yKey.slice(1).toLowerCase()}\n Outcome: ${this.xKey.charAt(0).toUpperCase() + this.xKey.slice(1).toLowerCase()}",
     "valueFormatter": "${this.value}%",
-    "colorCodes": {
-      "greens": ["#c2e2a5", "#9cc677", "#7bba4d", "#4aaa01", "#177d00"],
-      "reds":["#ffa1a4","#ff7c80","#fe5057", "#ED182B", "#bd0000"],
-      "zero": "#C7C7C7"
-    },
     "theme": {
       "fontSize": 13,
       "fontFamily": "Merriweather,Georgia,serif",
       "fontColor": "#000000",
-      "yAxisPositioning": -60
+      "yAxisPositioning": -30
     },
     "colorScales": {
       "missingValue": "-",
@@ -72,13 +66,13 @@
       },
       "isYOY": true
     },
-    "height": 420,
+    "height": 400,
     "width": 985,
     "indexBy": "_type",
     "margin": {
         "top": 25,
         "right": 25,
-        "bottom": 80,
+        "bottom": 140,
         "left": 168
     },
     "minValue": -100,
@@ -145,7 +139,7 @@
       "color": "#000000"
     },
     "yAxis": {
-        "label": "Number of Drugs",
+        "label": "Number of Food Reports",
         "min": 0,
         "width": 100,
         "type": "linear",
