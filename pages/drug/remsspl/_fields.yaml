@@ -825,15 +825,22 @@ properties:
     is_exact: false
     possible_values:
     type: string
+  related_spl_document_set_id:
+      description: "REMS append the related document(s) with more detail on how to evaluate and manage risks regarding the product described in the related
+                    document(s). The related document(s) SPL document is referred to by its setId"
+      format:
+      is_exact: false
+      possible_values:
+      type: string
   title:
     description: "There is a title with the 'Risk Evaluation and Mitigation Strategy (REMS)' followed by [Drug/Class Name] REMS Program."
     format:
     is_exact: false
     possible_values:
     type: string
-  content:
+  record_details:
     items:
-      description: "The procedures that Health Care Providers who prescribe or dispense Suboxone/Subutex  must follow:"
+      description: "Key points of what is covered in the REMS SPL record"
       format:
       is_exact: false
       possible_values:
@@ -841,7 +848,7 @@ properties:
     type: array
   goal:
     items:
-      description: "Lists the goals  of  the  REMS  for  SUBOXONE  sublingual  film,  SUBOXONE  sublingual  tablets  and   SUBUTEX  sublingual  tablets:"
+      description: "Lists the goals  of  the  REMS  for  SUBOXONE  sublingual  film,  SUBOXONE  sublingual  tablets  and   SUBUTEX  sublingual  tablets."
       format:
       is_exact: false
       possible_values:
@@ -849,7 +856,7 @@ properties:
     type: array
   guide_information:
     items:
-      description: "Information about location of REMS medication guide(s):"
+      description: "Information about location of REMS medication guide(s)."
       format:
       is_exact: false
       possible_values:
@@ -857,7 +864,7 @@ properties:
     type: array
   patient_met_condition:
     items:
-      description: "Outlines the conditions the patients must meet:"
+      description: "Outlines the conditions the patients must meet."
       format:
       is_exact: false
       possible_values:
@@ -865,7 +872,7 @@ properties:
     type: array
   prescriber_documented_safe_use_condition:
     items:
-      description: "Prescriber documented REMS safe use conditions for the medication:"
+      description: "Prescriber documented REMS safe use conditions for the medication."
       format:
       is_exact: false
       possible_values:
@@ -873,7 +880,7 @@ properties:
     type: array
   safe_use_monitoring:
     items:
-      description: "Describes the steps for patient monitoring and lists the appended materials:"
+      description: "Describes the steps for patient monitoring and lists the appended materials."
       format:
       is_exact: false
       possible_values:
@@ -881,7 +888,7 @@ properties:
     type: array
   implementation:
     items:
-      description: "Describes the safety measures the sponsor will implement:"
+      description: "Describes the safety measures the sponsor will implement."
       format:
       is_exact: false
       possible_values:
@@ -889,7 +896,7 @@ properties:
     type: array
   rems_submission_assessments_timetable:
     items:
-      description: "Description of the timetable for submissions assessments to FDA by the sponsor:"
+      description: "Description of the timetable for submissions assessments to FDA by the sponsor."
       format:
       is_exact: false
       possible_values:
@@ -897,7 +904,7 @@ properties:
     type: array
   healthcare_providers_unclassified_section:
     items:
-      description: "Summary of the procedures that Health Care Providers who prescribe or dispense the medication must follow:"
+      description: "Summary of the procedures that Health Care Providers who prescribe or dispense the medication must follow."
       format:
       is_exact: false
       possible_values:
@@ -905,7 +912,7 @@ properties:
     type: array
   patients_unclassified_section:
     items:
-      description: "Summary of the counseling and monirtoring procedures that patients who are prescribed the medication must follow:"
+      description: "Summary of the counseling and monitoring procedures that patients who are prescribed the medication must follow."
       format:
       is_exact: false
       possible_values:
@@ -913,7 +920,7 @@ properties:
     type: array
   stakeholder_name:
     items:
-      description: "The name of the stakeholder for the requirement in substance administration:"
+      description: "The name of the stakeholder for the requirement in substance administration."
       format:
       is_exact: false
       possible_values:
@@ -921,7 +928,7 @@ properties:
     type: array
   stakeholder_code:
     items:
-      description: "The code of the stakeholder for the requirement in substance administration:"
+      description: "The code of the stakeholder for the requirement in substance administration."
       format:
       is_exact: false
       possible_values:
@@ -929,7 +936,7 @@ properties:
     type: array
   requirement_name:
     items:
-      description: "The name of the requirement in substance administration:"
+      description: "The name of the requirement in substance administration."
       format:
       is_exact: false
       possible_values:
@@ -937,7 +944,7 @@ properties:
     type: array
   reference_id:
     items:
-      description: "References the procedural step the healthcare provider or the patient should undertake:"
+      description: "References the procedural step the healthcare provider or the patient should undertake."
       format:
       is_exact: false
       possible_values:
@@ -945,7 +952,7 @@ properties:
     type: array
   name:
     items:
-      description: "The name of the appended REMS material that are part of the program:"
+      description: "The name of the appended REMS material that are part of the program."
       format:
       is_exact: false
       possible_values:
@@ -953,7 +960,7 @@ properties:
     type: array
   reference:
     items:
-      description: "The location of the appended REMS material that are part of the program:"
+      description: "The location of the appended REMS material that are part of the program."
       format:
       is_exact: false
       possible_values:
@@ -968,17 +975,25 @@ properties:
       type: string
     type: array
   brand_name:
-    type: string
+          type: array
+          items:
+            format:
+            is_exact: true
+            type: string
+            pattern:
+            description: "Brand or trade name of the drug product."
+            possible_values:
+  sponsor_name:
     items:
+      description: "The name of the sponsor for the drug."
       format:
-      is_exact: true
-      type: string
-      pattern:
-      description: "Brand or trade name of the drug product."
+      is_exact: false
       possible_values:
+      type: string
+    type: array
   package_type:
     items:
-      description: "The package type of the drug:"
+      description: "The package type of the drug."
       format:
       is_exact: false
       possible_values:
@@ -986,7 +1001,7 @@ properties:
     type: array
   approval_holder_org:
     items:
-      description: "The organization that holds the drug approval:"
+      description: "The organization that holds the drug approval."
       format:
       is_exact: false
       possible_values:
@@ -1003,7 +1018,7 @@ properties:
       possible_values:
   material_name:
     items:
-      description: "Information about location of REMS medication guide(s):"
+      description: "Information about location of REMS medication guide(s)."
       format:
       is_exact: false
       possible_values:
@@ -1011,7 +1026,7 @@ properties:
     type: array
   material_reference:
     items:
-      description: "Information about location of REMS medication guide(s):"
+      description: "Information about location of REMS medication guide(s)."
       format:
       is_exact: false
       possible_values:
@@ -1131,7 +1146,7 @@ properties:
       type: string
     type: array
   version:
-    description: "A sequentially increasing number identifying the particular version of a document, starting with `1`."
+    description: "A sequentially increasing number identifying the particular version of a document, starting with 1."
     format:
     is_exact: false
     possible_values:

@@ -1,10 +1,13 @@
 - "## About REMS SPL"
-- REMS are programs designed to help ensure that drugs with serious risks are used safely and information about their procedures and supporting documents are submitted to FDA in the [Structured Product Labeling (SPL) format](http://labels.fda.gov/). The labeling is a "living document" that changes over time to reflect increased knowledge about the safety and effectiveness of the drug.
-- REMS with Elements to Assure Safe Use (ETASU) place certain requirements on healthcare providers and patients to make sure the drug is used safely.
-- The openFDA REMS SPL API returns data from these submissions. The labels are broken into sections, such as rems unclassified section, rems goals, rems elements, products, attached documents and so forth. A number of parties play a role in REMS design and implementation like sponsor (document & design; assess), FDA (review, modify and approve), distributors, dispensers, institutions, prescribers, patients - for adoption.
-- "getting-started"
+- The Food and Drug Administration Amendments Act of 2007 gave FDA the authority to require a Risk Evaluation and Mitigation Strategy (REMS) from manufacturers to ensure that the benefits of a drug or biological product outweigh its risks. A REMs may be required by the FDA as part of the approval of a new product, or for an approved product when new safety information arises. Essentially, a REMS is a safety strategy to manage a known or potential serious risk associated with a medicine and to enable patients to have continued access to such medicines by managing their safe use. Each REMS has specific safety measures unique to the safety risks associated with a particular drug or class of drugs.
+- The FDA has begun accepting REMS in Structured Product Labeling (SPL) format to facilitate making REMS information available within existing healthcare systems and workflows. SPL can be used to capture and present REMS information in a format that is easily shared with stakeholders and readily incorporated into health information technology.
+- For more information about REMS, see the [FDA Basics Webinar - A Brief Overview of REMS](https://www.fda.gov/AboutFDA/Transparency/Basics/ucm325201.htm).
+- The openFDA REMS SPL API returns REMS data that has been submitted to the FDA electronically using the REMS SPL format.
 - "downloads"
 - "### How to search this endpoint"
 - "Make API calls to `https://api.fda.gov/drug/remsspl.json` using search parameters for [fields specific to the rems spl endpoint.](/drug/remsspl/reference/)"
-- queryExplorer: oneLabel
-- queryExplorer: boxedWarning
+- queryExplorer: effectiveTime
+- queryExplorer: medicationGuide
+- queryExplorer: setID
+- queryExplorer: sponsorName
+- queryExplorer: brandName
