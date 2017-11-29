@@ -2410,6 +2410,12 @@ li.usage-api-li {
   height: 600px;
   overflow: scroll;
 }
+.field_name {
+  display: inline-block;
+  padding: 10px 15px;
+  line-height: 1em;
+  color: #666;
+}
 .footer-container {
   min-height: 400px;
 }

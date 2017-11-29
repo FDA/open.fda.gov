@@ -48,7 +48,7 @@ const _renderLi = (props: tLiProps) => {
   if (field_keys.indexOf("type") === -1) {
     return (
       render_object({
-        fields: field_keys,
+        fields: field,
         updateSelected,
         selectedField: key,
         i: i
@@ -145,7 +145,7 @@ function render_object(props) {
     borderRadius: '3px',
     padding: '2px 5px'
   }
-  const colCx = 'col marg-b-1 sub-menu-item'
+  console.log("fields: ", fields)
 
   return (
     <div className='row marg-t-2' key={i}>
@@ -154,17 +154,22 @@ function render_object(props) {
         style={labelStyl}>
         Navigate the fields:
       </div>
-      <ul className='flex-box dir-column flex-wrap marg-l-2'>
+      <ul className='flex-box dir-column flex-wrap marg-l-2 marg-r-2'>
         {
-          fields.map((v: string, k) => (
+          Object.keys(fields).map((v: string, k) => (
             <li
               key={k}>
+              {console.log("v is: ", v)}
               <button
-                className={colCx}
+                className='marg-b-1 field_name'
                 title={selectedField === "fields" ? v: selectedField.concat(".", v)}
                 onClick={updateSelected}>
                 {v}
               </button>
+              {
+                fields[v]['type'] &&
+                <span className='pad-1 hljs-string inline-block'>{fields[v]['type']}</span>
+              }
             </li>
           ))
         }
@@ -230,7 +235,7 @@ const FieldExplorer = (props: tPROPS) => {
       {
         selectedField === 'fields' ?
           render_object({
-            fields: Object.keys(fields.properties),
+            fields: fields.properties,
             updateSelected,
             selectedField,
             i: k

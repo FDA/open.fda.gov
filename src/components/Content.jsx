@@ -57,7 +57,6 @@ const Content = (props: tPROPS) => {
               />
             )
           }
-          console.log("words that are words: ", words)
 
           // stringified markdown -> html
           const html: string = marked(words)

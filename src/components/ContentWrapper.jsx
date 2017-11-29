@@ -41,7 +41,6 @@ const ContentWrapper = (props: tPROPS) => {
     meta
   } = props
 
-  console.log("content in wrapper: ", content)
   let fieldsMapped: Object = {}
   let fieldsFlattened: Object = {}
   if (explorers && fields) {
