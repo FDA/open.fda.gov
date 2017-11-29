@@ -37,6 +37,7 @@
     "nib": "^1.1.2",
     "react-autosuggest": "^9.3.2",
     "react-chartjs": "^0.8.0",
+    "react-custom-scrollbars": "^4.2.1",
     "react-document-title": "^2.0.3",
     "react-highlight": "^0.10.0",
     "react-modal": "^3.1.0",

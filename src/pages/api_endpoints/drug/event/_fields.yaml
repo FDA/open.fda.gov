@@ -739,6 +739,7 @@ properties:
     description: "Encoding format of the `transmissiondate` field. Always set to 102 (YYYYMMDD)."
     possible_values:
   receiver:
+    type: object
     description: "Information on the organization receiving the report."
     properties:
       receiverorganization:

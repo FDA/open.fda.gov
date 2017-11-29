@@ -1,7 +1,8 @@
 import React from 'react'
 import marked from 'marked'
-import Select from 'react-select';
-import 'react-select/dist/react-select.css';
+import Scrollbars from 'react-custom-scrollbars'
+import Select from 'react-select'
+import 'react-select/dist/react-select.css'
 import Values from './RenderContentObject/Values'
 import yamlGet from '../utils/yamlGet'
 import FieldExplorerContainer from '../containers/FieldExplorerContainer'
@@ -60,7 +61,7 @@ const _renderLi = (props: tLiProps) => {
 
   return (
     <div
-      className='flex-box flex-wrap dir-column pad-t-2 pad-l-2 pad-b-2 b-t-light-1'
+      className='flex-box flex-wrap dir-column pad-2 b-t-light-1'
       key={i}>
       <div className={divCx}>
         <pre className='pad-1 hljs-string inline-block'>
@@ -145,7 +146,6 @@ function render_object(props) {
     borderRadius: '3px',
     padding: '2px 5px'
   }
-  console.log("fields: ", fields)
 
   return (
     <div className='row marg-t-2' key={i}>
@@ -159,9 +159,8 @@ function render_object(props) {
           Object.keys(fields).map((v: string, k) => (
             <li
               key={k}>
-              {console.log("v is: ", v)}
               <button
-                className='marg-b-1 field_name'
+                className='marg-b-1 field-name'
                 title={selectedField === "fields" ? v: selectedField.concat(".", v)}
                 onClick={updateSelected}>
                 {v}
@@ -224,30 +223,34 @@ const FieldExplorer = (props: tPROPS) => {
   let field_names = get_fields(fields.properties)
 
   return (
-    <section key={k} className="explorer">
-      <Select
-        name="form-field-name"
-        value={selectedField}
-        options={field_names}
-        onChange={updateField}
-        resetValue="fields"
-      />
-      {
-        selectedField === 'fields' ?
-          render_object({
-            fields: fields.properties,
-            updateSelected,
-            selectedField,
-            i: k
-          }):
-          _renderLi({
-            field: yamlGet(selectedField, fields),
-            updateSelected,
-            key: selectedField,
-            i: k,
-            isFDA: false
-          })
-      }
+    <section key={k} className="field-explorer">
+      <div className="field-explorer-border">
+        <Select
+          name="form-field-name"
+          value={selectedField}
+          options={field_names}
+          onChange={updateField}
+          resetValue="fields"
+        />
+        <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={500}>
+          {
+            selectedField === 'fields' ?
+              render_object({
+                fields: fields.properties,
+                updateSelected,
+                selectedField,
+                i: k
+              }):
+              _renderLi({
+                field: yamlGet(selectedField, fields),
+                updateSelected,
+                key: selectedField,
+                i: k,
+                isFDA: false
+              })
+          }
+        </Scrollbars>
+      </div>
     </section>
   )
 }
