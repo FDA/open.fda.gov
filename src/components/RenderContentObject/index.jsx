@@ -89,9 +89,9 @@ const RenderContentObject = (props: tPROPS) => {
 
       const btnCx = cx({
         'menu-item row': true,
-        'weight-600': level < 2,
-        'depth-2': level === 2,
-        'depth-3 display-none': level > 2
+        'weight-600': level < 3,
+        'depth-2': level === 3,
+        'depth-3 display-none': level > 3
       })
 
       return (
@@ -121,7 +121,6 @@ const RenderContentObject = (props: tPROPS) => {
                 )
               } else {
                 if (content.indexOf('##') === -1) return
-                let level = (content.match(/#/g)||[]).length
 
                 const html: string = content.replace(/(#+ )/, '')
 

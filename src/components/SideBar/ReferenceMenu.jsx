@@ -54,7 +54,7 @@ const ReferenceMenu = (props: Object) => {
         // stick to bottom if near footer
         height: 'initial',
         // to account for the gradient overflow
-        paddingTop: !isFixed && !isBottom && '85px'
+        paddingTop: !isFixed && !isBottom && '40px'
       }}>
       {
         content.map((c: string|Object, i: number) => {

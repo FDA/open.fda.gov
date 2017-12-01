@@ -1,0 +1,292 @@
+properties:
+  address_1:
+    description: "Delivery address of the applicant."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  address_2:
+    description: "Delivery address of the applicant."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  advisory_committee:
+    description: "Code under which the product was originally classified, based on the product code. This is a historical designation for the group that initially placed a device into Class I, Class II, or Class III following the medical device amendments of May 28, 1976. Two letters indicate the medical specialty panel that was responsible for classifying the product (e.g. GU)."
+    format:
+    is_exact: true
+    possible_values:
+      type: one_of
+      value:
+        'AN': "Anesthesiology"
+        'CV': "Cardiovascular"
+        'CH': "Clinical Chemistry"
+        'DE': "Dental"
+        'EN': "Ear, Nose, Throat"
+        'GU': "Gastroenterology, Urology"
+        'HO': "General Hospital"
+        'HE': "Hematology"
+        'IM': "Immunology"
+        'MI': "Microbiology"
+        'NE': "Neurology"
+        'OB': "Obstetrics/Gynecology"
+        'OP': "Ophthalmic"
+        'OR': "Orthopedic"
+        'PA': "Pathology"
+        'PM': "Physical Medicine"
+        'RA': "Radiology"
+        'SU': "General, Plastic Surgery"
+        'TX': "Clinical Toxicology"
+    type: string
+  advisory_committee_description:
+    description: "Full spelling of the Advisory Committee abbreviation (e.g. Gastroenterology and Urology Devices Panel of the Medical Devices Advisory Committee). (note that `&` and `and` have been removed from the descriptions as they conflicted with the API syntax)"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  applicant:
+    description: "The manufacturer of record or third party who submits a 510(k) submission. Also known as sponsor. Please note, before Aug 14, 2014, this could be either the manufacturer who submitted the 510k, the third party OR the consultant; after Aug 14, 2014, it is always the manufacturer."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  city:
+    description: "City of the delivery address of the applicant."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  clearance_type:
+    description: "Denotes the submission method utilized for the submission of the 510(k)."
+    format:
+    is_exact: true
+    possible_values:
+      type: one_of
+      value:
+        'traditional': 'Traditional'
+        'special': 'Special'
+        'post': 'Post'
+        'nse': 'NSE'
+        'direct': 'Direct'
+        'track': 'Track'
+        'dual': 'Dual'
+    type: string
+  contact:
+    description: "Per 21 CFR 807.3(e), this is the official correspondent designated by the owner or operator of an establishment as responsible for the following: (1) The annual registration of the establishment and (2) Contact with the Food and Drug Administration for device listing; and (3) Maintenance and submission of a current list of officers and directors to the Food and Drug Administration upon the request of the Commissioner; and (4) The receipt of pertinent correspondence from the Food and Drug Administration directed to and involving the owner or operator and/or any of the firm’s : establishments; and (5) The annual certification of medical device reports required by 804.30 of this chapter or forwarding the certification form to the person designated by the firm as responsible for the certification. For 510ks received before Aug 14, 2014, this could be either the contact from the manufacturer who submitted the 510k, the third party OR the consultant; after Aug 14, 2014, it is always the Applicant (manufacturer)"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  country_code:
+    description: "The numeric 2 character code (ISO 3166-1 alpha-2) that designates the country of a postal delivery location (also known as country code)."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  date_received:
+    description: "Date that the FDA Document Control Center received the submission."
+    format: date
+    is_exact: false
+    possible_values:
+    type: string
+  decision_code:
+    description: "Four letter codes that denote the specific substantial equivalence decision rendered by FDA on a specific 510(k)."
+    format:
+    is_exact: true
+    possible_values:
+      type: one_of
+      value:
+        'SEKD': 'Substantially Equivalent - Kit with Drugs'
+        'SESD': 'Substantially Equivalent with Drug'
+        'SESE': 'Substantially Equivalent'
+        'SESK': 'Substantially Equivalent - Kit'
+        'SESP': 'Substantially Equivalent - Postmarket Surveillance Required'
+        'SESU': 'Substantially Equivalent - With Limitations'
+        'SESR': 'Potential Recall'
+    type: string
+  decision_date:
+    description: "This is the date on which FDA rendered a final decision on a 510(k) submission."
+    format: date
+    is_exact: false
+    possible_values:
+    type: string
+  decision_description:
+    description: "This is the full spelling associated with the abbreviated decision code (e.g. Substantially Equivalent - Postmarket Surveillance Required)."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  device_name:
+    description: "This is the proprietary name of the cleared device (trade name)."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  expedited_review_flag:
+    description: "Qualifying products are eligible for ‘priority review’ by CDRH in one of four possible review tracks if it is intended to treat or diagnose a life-threatening or irreversibly debilitating disease or condition and is: (1) A breakthrough technology or; (2) there is no alternative means of treatment or diagnosis; or (3) The device offers significant, clinically meaningful advantages over existing approved alternatives; or (4) the availability of the device is in the best interest of patients."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  k_number:
+    description: "FDA-assigned premarket notification number, including leading letters. Leading letters “BK” indicates 510(k) clearance, or Premarket Notification, cleared by Center for Biologics Evaluation and Research. Leading letters “DEN” indicates De Novo, or Evaluation of Automatic Class III Designation. Leading letter “K” indicates 510(k) clearance, or Premarket Notification."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  openfda:
+    properties:
+      device_class:
+        description: "A risk based classification system for all medical devices ((Federal Food, Drug, and Cosmetic Act, section 513)"
+        format:
+        is_exact: false
+        possible_values:
+          type: one_of
+          value:
+            '1': "Class I (low to moderate risk): general controls"
+            '2': "Class II (moderate to high risk): general controls and special controls"
+            '3': "Class III (high risk): general controls and Premarket Approval (PMA)"
+            'U': "Unclassified"
+            'N': "Not classified"
+            'F': "HDE"
+        type: string
+      device_name:
+        description: "This is the proprietary name, or trade name, of the cleared device."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      fei_number:
+        items:
+          description: "Facility identifier assigned to facility by the FDA Office of Regulatory Affairs."
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        type: array
+      medical_specialty_description:
+        description: "Regulation Medical Specialty is assigned based on the regulation (e.g. 21 CFR Part 888 is Orthopedic Devices) which is why Class 3 devices lack the “Regulation Medical Specialty” field."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      registration_number:
+        items:
+          description:
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        type: array
+      regulation_number:
+        items:
+          description: "The classification regulation in the Code of Federal Regulations (CFR) under which the device is identified, described, and formally classified (Code of Federal regulations Title 21, 862.00 through 892.00). The classification regulation covers various aspects of design, clinical evaluation, manufacturing, packaging, labeling, and postmarket surveillance of the specific medical device."
+          format:
+          is_exact: true
+          possible_values:
+            type: reference
+            value:
+              name: "CFR database"
+              link: "http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/cfrsearch.cfm"
+          type: string
+        type: array
+    type: object
+  postal_code:
+    description: "A series of letters and/or digits, sometimes including spaces or punctuation, included in a postal address for the purpose of sorting mail. In the United States, this is a Zip code (below)."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  product_code:
+    description: "A three-letter identifier assigned to a device category. Assignment is based upon the medical device classification designated under 21 CFR Parts 862-892, and the technology and intended use of the device. Occasionally these codes are changed over time."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  review_advisory_committee:
+    description: "Known as the “510(k) Review Panel” since 2014, this helps define the review division within CDRH in which the 510(k) would be reviewed, if it were reviewed today; this is derived from the procode and is always the same as the “Review Panel” field in the Device Classification database."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  state:
+    description: "This is the state of record of U.S. based applicants."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  statement_or_summary:
+    description: "A statement or summary can be provided per 21 CFR 807.3(n) and (o). A 510(k) summary, submitted under section 513(i) of the act, of the safety and effectiveness information contained in a premarket notification submission upon which a determination of substantial equivalence can be based. Safety and effectiveness information refers to safety and effectiveness data and information supporting a finding of substantial equivalence, including all adverse safety and effectiveness. The 510(k) Statement is a statement, made under section 513(i) of the act, asserting that all information in a premarket notification submission regarding safety and effectiveness will be made available within 30 days of request by any person if the device described in the premarket notification submission is determined to be substantially equivalent. The information to be made available will be a duplicate of the premarket notification submission, including any adverse safety and effectiveness information, but excluding all patient identifiers, and trade secret or confidential commercial information, as defined in 21 CFR 20.61."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  third_party_flag:
+    description: "Eligibility for a manufacturer to utilize a contracted Accredited Person in lieu of direct submission to FDA yielding a streamlined review process. Criteria in section 523(b)(3) of 21 U.S.C. 360m(b)."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'Y': Yes
+        'N': No
+    type: string
+  zip_code:
+    description: 'Portion of address that designates the U.S. zip code of applicant.'
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  meta:
+    format:
+    type: object
+    description: 'This section contains a disclaimer and license information. The field `last_updated` indicates when the data files were exported.'
+    possible_values:
+    properties:
+      type: object
+      disclaimer:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Important details notes about openFDA data and limitations of the dataset."
+        possible_values:
+      license:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Link to a web page with license terms that govern data within openFDA."
+        possible_values:
+      last_updated:
+        format: date
+        is_exact: false
+        type: string
+        pattern:
+        description: "The last date when this openFDA endpoint was updated. Note that this does not correspond to the most recent record for the endpoint or dataset. Rather, it is the last time the openFDA API was itself updated."
+        possible_values:
+      results:
+        type: object
+        properties:
+          skip:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Offset (page) of results, defined by the `skip` [query parameter](/api/)."
+            possible_values:
+          limit:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Number of records in this return, defined by the `limit` [query parameter](/api/). If there is no `limit` parameter, the API returns one result."
+            possible_values:
+          total:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Total number of records matching the search criteria."
+            possible_values:
+type: object

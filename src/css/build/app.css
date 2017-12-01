@@ -2409,7 +2409,7 @@ li.usage-api-li {
   height: 550px;
 }
 .field-explorer-border {
-  border: 2px solid #808080;
+  border: 1px solid #ccc;
 }
 .field-name {
   display: inline-block;
@@ -2420,6 +2420,13 @@ li.usage-api-li {
 .field-name:hover {
   background-color: #007cba;
   color: #fff;
+}
+.field-list {
+  width: 40%;
+}
+.field-list-item {
+  display: flex;
+  justify-content: space-between;
 }
 .footer-container {
   min-height: 400px;

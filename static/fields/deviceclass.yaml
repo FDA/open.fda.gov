@@ -1,0 +1,175 @@
+properties:
+  definition:
+    description: "Compositional definition of a medical device, based on the input of nomenclature experts, incorporating the definition of components of a device."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  device_class:
+    description: "A risk based classification system for all medical devices ((Federal Food, Drug, and Cosmetic Act, section 513)."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        '1': "Class I (low to moderate risk): general controls"
+        '2': "Class II (moderate to high risk): general controls and special controls"
+        '3': "Class III (high risk): general controls and Premarket Approval (PMA)"
+        'U': "Unclassified"
+        'N': "Not classified"
+        'F': "HDE"
+    type: string
+  device_name:
+    description: "This is the proprietary name, or trade name, of the cleared device"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  gmp_exempt_flag:
+    description: "An indication the device is exempt from Good Manufacturing Processes CFR 820. U.S. zip code of the Applicant. See [here](http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpcd/315.cfm) for more detail."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'Y': "Exempt due to Good Manufacturing Practice (GMP)/Quality System"
+        'N': "Not exempt due to Good Manufacturing Practice (GMP)/Quality System"
+    type: string
+  implant_flag:
+    description: "An indicator that the device is placed into a surgically or naturally formed cavity of the human body. Intended to remain implanted for 30 days or more; or the Commissioner makes a determination (that the device is to be considered implanted)."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'Y': "Device is implantable"
+        'N': "Device is not implantable"
+    type: string
+  life_sustain_support_flag:
+    description: "An indicator that the device is essential to, or yields information that is essential to, the restoration or continuation of a bodily function important to the continuation of human life."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'Y': "Device is used for life sustaining purposes."
+        'N': "Device is not used for life sustaining purposes"
+    type: string
+  medical_specialty:
+    description: "Regulation Medical Specialty is assigned based on the regulation (e.g. 21 CFR Part 888 is Orthopedic Devices) which is why Class 3 devices lack the “Regulation Medical Specialty” field. Two letters indicating the medical specialty panel responsible for reviewing the product. See [link](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/ucm051668.htm#medicalspecialty) for further detail."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'AN': "Anesthesiology"
+        'CV': "Cardiovascular"
+        'CH': "Clinical Chemistry"
+        'DE': "Dental"
+        'EN': "Ear, Nose, Throat"
+        'GU': "Gastroenterology, Urology"
+        'HO': "General Hospital"
+        'HE': "Hematology"
+        'IM': "Immunology"
+        'MI': "Microbiology"
+        'NE': "Neurology"
+        'OB': "Obstetrics/Gynecology"
+        'OP': "Ophthalmic"
+        'OR': "Orthopedic"
+        'PA': "Pathology"
+        'PM': "Physical Medicine"
+        'RA': "Radiology"
+        'SU': "General, Plastic Surgery"
+        'TX': "Clinical Toxicology"
+    type: string
+  medical_specialty_description:
+    description: "Same as above but with the codes replaced with a human readable description. Note that & and and have been removed from the descriptions as they conflicted with the API syntax)."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  openfda:
+    properties:
+      fei_number:
+        items:
+          description: "Facility identifier assigned to facility by the FDA Office of Regulatory Affairs."
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        type: array
+      registration_number:
+        items:
+          description: "Facility identifier assigned to facility by the FDA Office of Regulatory Affairs."
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        type: array
+    type: object
+  product_code:
+    description: "A three-letter identifier assigned to a device category. Assignment is based upon the medical device classification designated under 21 CFR Parts 862-892, and the technology and intended use of the device. Occasionally these codes are changed over time."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  regulation_number:
+    description: "The classification regulation in the Code of Federal Regulations (CFR) under which the device is identified, described, and formally classified (Code of Federal regulations Title 21, 862.00 through 892.00). The classification regulation covers various aspects of design, clinical evaluation, manufacturing, packaging, labeling, and postmarket surveillance of the specific medical device."
+    format:
+    is_exact: true
+    possible_values:
+      type: reference
+      value:
+        name: "CFR database"
+        link: "http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/cfrsearch.cfm"
+    type: string
+  review_code:
+    description: "Documentation forthcoming."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  review_panel:
+    description: "Known as the “510(k) Review Panel” since 2014, this helps define the review division within CDRH in which the 510(k) would be reviewed, if it were reviewed today; this is derived from the procode and is always the same as the “Review Advisory Committee” field in the 510(k) database."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  submission_type_id:
+    description: "The submission type (510(k), PMA, 510(k) Exempt) to which a product code is limited, or “Contact ODE” if its limitations (if any) are undetermined."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        '1': "510(K)"
+        '2': "PMA"
+        '3': "Contact ODE"
+        '4': "510(K) Exempt"
+    type: string
+  third_party_flag:
+    description: "Eligibility for a manufacturer to utilize a contracted Accredited Person in lieu of direct submission to FDA. By law, FDA must in turn issue a final determination within 30 days after receiving the recommendation of an Accredited Person (yielding a streamlined review process)."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'Y': "Device is a candidate for a third party review program"
+        'N': "Device is not a candidate for a third party review program"
+    type: string
+  unclassified_reason:
+    description: "This indicates the reason why a device is unclassified (e.g. Pre-Amendment)."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        '1': "Pre-Amendment"
+        '2': "IDE"
+        '3': "For Export Only"
+        '4': "Unknown"
+        '5': "Guidance Under Development"
+        '6': "Enforcement Discretion"
+        '7': "Not FDA Regulated"
+    type: string
+type: object

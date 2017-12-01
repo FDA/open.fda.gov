@@ -10,6 +10,12 @@ module.exports = {
         name: "pages",
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: ["gatsby-remark-copy-linked-files"],
+      },
+    },
     `gatsby-plugin-stylus`,
     `gatsby-plugin-react-helmet`
   ],

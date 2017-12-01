@@ -5,7 +5,10 @@ import Select from 'react-select'
 import 'react-select/dist/react-select.css'
 import Values from './RenderContentObject/Values'
 import yamlGet from '../utils/yamlGet'
+import FieldDownload from './FieldDownload'
 import FieldExplorerContainer from '../containers/FieldExplorerContainer'
+import foodeventpdf from '../../static/img/foodevent_reference.pdf'
+import { withPrefix } from 'gatsby-link'
 
 const _renderLi = (props: tLiProps) => {
   const {
@@ -141,23 +144,14 @@ function render_object(props) {
     updateSelected,
     i
   } = props
-  const labelCx: string = 'bg-primary-alt-lightest clr-gray inline-block sans weight-600 small marg-l-2 marg-b-1'
-  const labelStyl: Object = {
-    borderRadius: '3px',
-    padding: '2px 5px'
-  }
 
   return (
     <div className='row marg-t-2' key={i}>
-      <div
-        className={labelCx}
-        style={labelStyl}>
-        Navigate the fields:
-      </div>
-      <ul className='flex-box dir-column flex-wrap marg-l-2 marg-r-2'>
+      <ul className='field-list flex-box dir-column flex-wrap marg-l-2 marg-r-2'>
         {
           Object.keys(fields).map((v: string, k) => (
             <li
+              className="field-list-item"
               key={k}>
               <button
                 className='marg-b-1 field-name'
@@ -196,6 +190,7 @@ function get_fields(fields, prefix) {
 type tPROPS = {
   k: number;
   fields: Object;
+  meta: Object;
   selectedField: string;
   updateField: Function;
   updateSelected: Function;
@@ -215,6 +210,7 @@ const FieldExplorer = (props: tPROPS) => {
     k,
     // big pre blocks (code examples) on some pages
     fields,
+    meta,
     selectedField,
     updateField,
     updateSelected
@@ -224,15 +220,16 @@ const FieldExplorer = (props: tPROPS) => {
 
   return (
     <section key={k} className="field-explorer">
-      <div className="field-explorer-border">
         <Select
           name="form-field-name"
           value={selectedField}
           options={field_names}
           onChange={updateField}
+          placeholder="Search the fields"
           resetValue="fields"
         />
-        <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={500}>
+        <div className='sans weight-600 marg-t-2 marg-b-1'>Navigate the fields:</div>
+        <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={500} className="field-explorer-border">
           {
             selectedField === 'fields' ?
               render_object({
@@ -250,10 +247,10 @@ const FieldExplorer = (props: tPROPS) => {
               })
           }
         </Scrollbars>
-      </div>
+      <FieldDownload meta={meta} k={k}/>
     </section>
   )
 }
 
-FieldExplorer.displayName = 'components/RenderContentObject'
+FieldExplorer.displayName = 'components/FieldExplorer'
 export default FieldExplorerContainer(FieldExplorer)

@@ -5,7 +5,7 @@
   "author": "Jack Finch <jack.finch@semanticbits.com>",
   "scripts": {
     "dev:css": "stylus -w ./src/css/app.styl -o ./src/css/build/app.css -I ./node-modules/nib",
-    "dev:site": "gatsby develop -p 3000",
+    "dev:site": "gatsby develop -H 127.0.0.1 -p 3000",
     "build": "gatsby build",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'"
   },
@@ -27,7 +27,7 @@
     "gatsby-link": "^1.6.22",
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-stylus": "^1.1.10",
-    "gatsby-remark-copy-linked-files": "^1.0.0-beta.6",
+    "gatsby-remark-copy-linked-files": "^1.5.22",
     "gatsby-source-filesystem": "^2.0.0-alpha.1",
     "immutability-helper": "^2.5.0",
     "jquery": "^3.2.1",

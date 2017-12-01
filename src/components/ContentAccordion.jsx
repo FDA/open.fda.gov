@@ -130,6 +130,7 @@ const ContentAccordion = (props: tPROPS) => {
                   <FieldExplorer
                     k={j}
                     fields={fields}
+                    meta={meta}
                     key={j}
                   />
                 )
