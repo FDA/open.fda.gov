@@ -247,6 +247,7 @@ const FieldExplorer = (props: tPROPS) => {
               })
           }
         </Scrollbars>
+      <h4 className="marg-t-2">Download the Fields Reference Document:</h4>
       <FieldDownload meta={meta} k={k}/>
     </section>
   )
