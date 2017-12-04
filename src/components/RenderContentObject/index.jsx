@@ -16,6 +16,10 @@ type tPROPS = {
   k: number;
   examples: Object;
   explorers: Object;
+  infographics: Object;
+  infographicDefinitions: Object;
+  fieldsMapped: Object;
+  fieldsFlattened: Object;
   fields: Object;
   isMenu: boolean;
   onClick: Function;
@@ -51,6 +55,10 @@ const RenderContentObject = (props: tPROPS) => {
     // isMenu is used to parse content for the sidebarMenu
     // onClick just scrolls the page without messing up the url
     isMenu,
+    infographics,
+    infographicDefinitions,
+    fieldsMapped,
+    fieldsFlattened,
     onClick,
   } = props
 
@@ -247,6 +255,10 @@ const RenderContentObject = (props: tPROPS) => {
         obj={obj}
         examples={examples}
         fields={fields}
+        infographics={infographics}
+        fieldsMapped={fieldsMapped}
+        fieldsFlattened={fieldsFlattened}
+        infographicDefinitions={infographicDefinitions}
         explorers={explorers}
         meta={meta}
         key={k}

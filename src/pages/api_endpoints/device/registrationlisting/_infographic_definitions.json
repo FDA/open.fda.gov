@@ -8,7 +8,7 @@
   "xName": "Administration Route",
   "type": "Grid",
   "xTermLimit":15,
-  "yLabel": "Count of Listings, Manufacturer Type",
+  "yLabel": "Number of Listings by Manufacturer Type",
   "xLabel": "Number of Listings by Medical Specialty",
   "defs": {
     "Manufacture Medical Device": "Medical Device Manufacturer",

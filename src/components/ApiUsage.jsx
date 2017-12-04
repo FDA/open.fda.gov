@@ -116,10 +116,10 @@ const ApiUsage = (props:tPROPS) => {
     }
 
     fetchStats () {
-
-      xhrGET(API_LINK + "/usage.json?prefix=" + this.state.prefix, (data) => {
-        this.handleUsageResponse(data)
-      }, false)
+      var that = this
+      fetch(`${API_LINK}/usage.json?prefix=${this.state.prefix}`).then( response => {
+        response.json().then( data => that.handleUsageResponse(data))
+      })
     }
     docCount (typeName:string):string {
       return this.formatNumber(this.state.indexInfo[typeName])
@@ -159,7 +159,9 @@ const ApiUsage = (props:tPROPS) => {
             <div>
               <table className="table-sm table-bordered">
                 <tbody>
-                  <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Drugs</strong></td></tr>
+                  <tr className="bg-primary-darkest clr-white">
+                    <td colSpan="2"><strong>Drugs</strong></td>
+                  </tr>
                   <tr><td>Labeling</td><td>{this.docCount('druglabel')}</td></tr>
                   <tr><td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td></tr>
                   <tr><td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td></tr>
@@ -190,11 +192,13 @@ const ApiUsage = (props:tPROPS) => {
               <h2 className='txt-c marg-t-2'>API Calls in the Past 30 Days: {this.totalCount('lastThirtyDayUsage')}</h2>
               <div className='italic txt-c t-6 smallest'> {this.state.dynamicDisclaimer}</div>
               <div className='marg-l-1'>
+
+                
                 <Line data={this.state.data}
                       options={{
-                    animation: true,
-                    maintainAspectRatio: false,
-                  }}
+                        animation: true,
+                        maintainAspectRatio: false,
+                      }}
                       height={600}
                       width={size}
                 />

@@ -1,5 +1,5 @@
 {
-  "title": "<p class='heatmap-infographic-header'><i class='datamap-infographic-header-text-bold'> Food Adverse Reports </i>: Percent Change in Outcomes By Industry, Year Over Year (YOY) </p>",
+  "title": "<p class='heatmap-infographic-header'><i class='datamap-infographic-header-text-bold'> Food Adverse Event Reports </i>: Year Over Year (YOY) % Change in Outcomes By Industry</p>",
   "queries":   {
     "Unconv Diet": {
       "query": "products.industry_name:Unconv Diet",
@@ -36,6 +36,9 @@
   "xTerms": {
     "REQ. INTERVENTION TO PRVNT PERM. IMPRMNT.": "REQ. INTERVENTION"
   },
+  "xTermsFormatting": {
+    "Visited an er": "Visited an ER"
+  },
   "yName": "Industry Name",
   "xName": "Outcome",
   "countBy": "outcomes.exact",
@@ -43,7 +46,7 @@
   "startYear": 2004,
   "dateField": "date_created",
   "heatMapConfig":{
-    "keyFormat": "Industry: ${this.yKey.charAt(0).toUpperCase() + this.yKey.slice(1).toLowerCase()}\n Outcome: ${this.xKey.charAt(0).toUpperCase() + this.xKey.slice(1).toLowerCase()}",
+    "keyFormat": "Industry: ${this.yKey}\n Outcome: ${this.xKey}",
     "valueFormatter": "${this.value}%",
     "theme": {
       "fontSize": 13,

@@ -155,9 +155,18 @@ class HeatMapInfographic extends React.Component {
         })
 
         var terms = results.map(v => {
+          // rename terms
           var d = v.term.split('('),
               renamedTerm = that.props.infographicDefinitions.xTerms[v.term],
               term = (renamedTerm === undefined ?  d[0] : renamedTerm);
+
+          term = term.slice(0,1).toUpperCase() + term.slice(1,100).toLowerCase();
+
+          if(that.props.infographicDefinitions.xTermsFormatting !== undefined){
+            var reformatted = that.props.infographicDefinitions.xTermsFormatting[term]
+            term = reformatted === undefined ?  term :  reformatted;
+          }
+
           that.state.xTerms[d[0]] = term;
           that.state.xTermsReverse[term] = d[0];
           return term
@@ -256,8 +265,8 @@ class HeatMapInfographic extends React.Component {
           }
           Object.keys(response[k]).forEach(function(category, index){
             var yoy = response[k][category][idx],
-                shortenedCategory = category.slice(0,1) + category.slice(1,100).toLowerCase()
-            f[shortenedCategory] = Math.floor(yoy * 100);
+                shortenedCategory = category.slice(0,1) + category.slice(1,100).toLowerCase();
+            f[category] = Math.floor(yoy * 100);
           })
           data.push(f)
         })
@@ -266,7 +275,7 @@ class HeatMapInfographic extends React.Component {
 
       return { 
         "data": yearsObj,
-        "keys": keys.map(value => value.slice(0,1) + value.slice(1,100).toLowerCase())
+        "keys": keys
       }
     })
   }
@@ -281,7 +290,7 @@ class HeatMapInfographic extends React.Component {
         return o.name === node["yKey"];
       })
     }
-    var xKey = this.state.xTermsReverse[node['xKey'].toUpperCase()],
+    var xKey = this.state.xTermsReverse[node['xKey']],
         yKey = yQueryInfo.query.toLowerCase() === "" ? "" :  ("+AND+" + yQueryInfo.query.toLowerCase()),
         url = `${this.state.API_LINK}${this.state.api}.json?search=${this.props.infographicDefinitions.countBy}:` + xKey + yKey + `&count=${this.props.infographicDefinitions.dateField}`,
         that = this,

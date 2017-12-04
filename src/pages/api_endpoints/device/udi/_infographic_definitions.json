@@ -10,14 +10,14 @@
   "subfield": "product_codes.openfda.medical_specialty_description.exact",
   "classification_api": "/device/classification",
   "lineLimiter": 7,
-  "xTitle": "Medical Speciality",
+  "xTitle": " Medical Speciality ",
   "yTitle": "Risk",
   "xLengendCoordinate": -35,
   "dataFunction": "_getAllData",
   "defs": {
-    "2": "Class II \n(moderate to high risk)",
-    "1": "Class I (low to moderate risk)",
-    "3": "Class III (high risk)",
+    "2": "Class II \n(moderate to high)",
+    "1": "Class I (low to moderate)",
+    "3": "Class III (high)",
     "U": "Unclassified",
     "N": "Not classified",
     "f": "HDE"

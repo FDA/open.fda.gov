@@ -43,7 +43,8 @@ const InfographicExplorer = (props: tPROPS) => {
       className='b-b-1 m-hide t-show marg-b-3 pad-b-3'>
       <a
         href='#start-of-content'
-        className='visually-hidden'>
+        className='visually-hidden'
+      >
         Skip visualization explorer.
       </a>
       <p className='small no-marg clr-base weight-600 pad-t-2 pad-b-1'>
@@ -55,7 +56,7 @@ const InfographicExplorer = (props: tPROPS) => {
         value={query}
         readOnly
       />
-      <aside className='flex-box'>
+      <aside className='flex-row'>
         <div className={`${paramsCx} t-marg-r-1`}>
           <p className='small weight-600 marg-b-1'>
             <span className='clr-primary-darker'>search=&nbsp;</span>
@@ -106,6 +107,7 @@ const InfographicExplorer = (props: tPROPS) => {
                   outline: 0,
                   padding: '7px',
                   width: '100%',
+                  WebkitAppearance: "none"
                 }}>
                 {
                   Object.keys(fieldsFlattened).map((field: string, i) => (

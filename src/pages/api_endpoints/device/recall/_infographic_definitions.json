@@ -51,14 +51,14 @@
     "motionDamping": 15,
     "isInteractive": true
   },
-  "xTitle": "Medical Speciality",
+  "xTitle": " Medical Speciality ",
   "yTitle": "Risk",
   "xLengendCoordinate": -35,
   "dataFunction": "_getAllData",
   "defs": {
-    "1": "Class I (low to moderate risk)",
-    "2": "Class II \n(moderate to high risk)",
-    "3": "Class III (high risk)",
+    "1": "Class I (low to moderate)",
+    "2": "Class II \n(moderate to high)",
+    "3": "Class III (high)",
     "U": "Unclassified",
     "N": "Not classified",
     "f": "HDE"

@@ -1,7 +1,7 @@
 {
   "selectedState": "VA",
   "countBy": "device.manufacturer_d_state.exact",
-  "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Event</i>: Year Over Year (YOY) Change % by State</p>",
+  "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i>: Year Over Year (YOY) % Change by State</p>",
   "subtitle": "Adverse Events",
   "type": "DataMap",
   "ipURL": "https:\/\/freegeoip.net/json/?callback=",
@@ -11,7 +11,7 @@
     "zero": "#C7C7C7"
   },
   "legend": {
-      "title": "YOY Change %",
+      "title": "YOY % Change",
       "styles": {
         "float": "right" ,
         "paddingTop": 100,

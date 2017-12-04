@@ -8,8 +8,8 @@
   "xName": "Administration Route",
   "type": "Grid",
   "xTermLimit":15,
-  "yLabel": "Count of Devices, Submission Type",
-  "xLabel": "Number of Devices, by Medical Specialty",
+  "yLabel": "Count of Devices by Submission Type",
+  "xLabel": "Count of Devices by Medical Specialty",
   "defs": {
     "1":"510(K)",
     "2": "PMA",

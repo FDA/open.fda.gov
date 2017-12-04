@@ -6,14 +6,19 @@ import cx from 'classnames'
 
 import RenderContentObject from './RenderContentObject'
 import InteractiveInfographic from './InteractiveInfographic'
+import InfographicContainer from '../containers/InfographicContainer'
 
 type tPROPS = {
   content: Array<Object|string>;
   examples: Array<Object>;
   explorers: Object;
+  infographicDefinitions: Object;
+  infographics: Object;
   fields: Object;
   showMenu: boolean;
   meta: Object;
+  fieldsMapped: Object;
+  fieldsFlattened: Object;
 };
 
 
@@ -25,6 +30,9 @@ const Content = (props: tPROPS) => {
     content,
     examples,
     infographicDefinitions,
+    infographics,
+    fieldsMapped,
+    fieldsFlattened,
     explorers,
     fields,
     showMenu,
@@ -54,21 +62,15 @@ const Content = (props: tPROPS) => {
                 examples={examples}
                 fields={fields}
                 explorers={explorers}
+                fieldsMapped={fieldsMapped}
+                fieldsFlattened={fieldsFlattened}
+                infographicDefinitions={infographicDefinitions}
+                infographics={infographics}
                 meta={meta}
                 key={i}
               />
             )
           }
-          console.log("words that are words: ", words)
-
-          // stringified markdown -> html
-          const html: string = marked(words)
-
-          // if header, add header class, etc
-          const wrapperCx: string = cx({
-            'font-size-2 weight-700 marg-b-2 marg-t-3': html.indexOf('<h') !== -1,
-            'font-size-5 marg-t-2 marg-b-2': html.indexOf('<p>') !== -1,
-          })
 
           if (words === 'visualization') {
             console.log('words: visualization', meta)
@@ -81,6 +83,26 @@ const Content = (props: tPROPS) => {
               />
             )
           }
+
+          if (words === 'infographic') {
+            console.log('words: visualization', meta)
+            return (
+              <InfographicContainer
+                { ...props }
+              />
+            )
+          }
+
+          console.log("words that are words: ", words)
+
+          // stringified markdown -> html
+          const html: string = marked(words)
+
+          // if header, add header class, etc
+          const wrapperCx: string = cx({
+            'font-size-2 weight-700 marg-b-2 marg-t-3': html.indexOf('<h') !== -1,
+            'font-size-5 marg-t-2 marg-b-2': html.indexOf('<p>') !== -1,
+          })
 
 
           // below is where we handle just plain normal text

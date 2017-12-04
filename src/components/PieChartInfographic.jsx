@@ -378,7 +378,9 @@ class PieChartInfographic extends React.Component {
   }
 
   onSelectionChange(selection) {
-    var selectionName = selection
+    var selectionName = this.props.infographicDefinitions.selectionPostFix !== undefined ? 
+                        selection +  this.props.infographicDefinitions.selectionPostFix : 
+                        selection;
 
     this.setState({ 
       selection,
@@ -481,7 +483,7 @@ class PieChartInfographic extends React.Component {
           Number of &nbsp;
             <i className='datamap-infographic-header-text-bold'>
               {this.state.selectionName} 
-            </i> &nbsp;
+            </i>
             {this.props.infographicDefinitions.xTitle}
             {this.props.infographicDefinitions.subtitle},
             <i className='datamap-infographic-header-text-bold'>

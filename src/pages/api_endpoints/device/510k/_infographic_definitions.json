@@ -2,7 +2,7 @@
   "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</p>",
   "subtitle": "",
   "countBy": "device_class",
-  "xTitle": "Medical Speciality",
+  "xTitle": " Medical Speciality Device 510(k)s",
   "yTitle": "Risk",
   "type": "PieChart",
   "startYear": 1975,
@@ -13,9 +13,9 @@
   "xLengendCoordinate": -35,
   "dataFunction": "_getAllData",
   "defs": {
-    "2": "Class II \n(moderate to high risk)",
-    "1": "Class I (low to moderate risk)",
-    "3": "Class III (high risk)",
+    "2": "Class II \n(moderate to high)",
+    "1": "Class I (low to moderate)",
+    "3": "Class III (high)",
     "U": "Unclassified",
     "N": "Not classified"
   },

@@ -1,6 +1,9 @@
 {
   "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Drug Adverse Events</i> by Type of Seriousness </p>",
   "subtitle": "Device Recalls",
+  "yTitle": "Indication",
+  "xTitle": "",
+  "selectionPostFix": "-Related ",
   "yName": "Query",
   "xName": "Route",
   "countBy": "patient.drug.drugindication.exact",
@@ -17,8 +20,6 @@
     "seriousnesslifethreatening": "Life Threatening",
     "seriousnessother": "Other"
   },
-  "yTitle": "Indication",
-  "xTitle": "Related",
   "dataFunction": "_getAllDataByFields",
   "fields":{
     "subsetField": "serious",

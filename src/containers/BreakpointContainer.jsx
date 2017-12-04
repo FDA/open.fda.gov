@@ -22,9 +22,7 @@ type tSTATE = {
  * @param {Object} props [any static props we want to pass through]
  * @returns {ReactClass} [A Pure Component wrapped in a stateful one]
  */
-const BreakpointContainer = function (
-  ComposedComponent: ReactClass,
-  props: void|Object = {}): ReactClass {
+const BreakpointContainer = function (ComposedComponent: ReactClass, props: void|Object = {}): ReactClass {
 
   class HOC extends React.Component {
     state: tSTATE = {

@@ -2,7 +2,7 @@
   "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device PMAs</i> by FDA decision</p>",
   "subtitle": "",
   "countBy": "decision_code",
-  "xTitle": "PMAs",
+  "xTitle": " PMAs",
   "yTitle": "Status",
   "type": "PieChart",
   "startYear": 1985,

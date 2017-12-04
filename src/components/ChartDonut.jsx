@@ -86,7 +86,7 @@ const ChartDonut = (props: tPROPS) => {
 
   const legendCx = cx({
     'col t-range-6 d-3 marg-t-2 d-marg-l-2': true,
-    'd-pad-l-2 overflow-scroll donut-legend': true,
+    'd-pad-l-2 donut-legend': true,
   })
 
   const wrapperCx = cx({

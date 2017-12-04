@@ -1,5 +1,5 @@
 {
-  "title": "<p class='heatmap-infographic-header'><i class='datamap-infographic-header-text-bold'> Drugs Labels </i>: Percent Change in Drug Administration Route Type, Year Over Year (YOY) </p>",
+  "title": "<p class='heatmap-infographic-header'><i class='datamap-infographic-header-text-bold'> Drugs Labels </i>: Year Over Year (YOY) % Change in Drug Administration Route Type </p>",
   "queries1": {
     "otc": "openfda.product_type:otc",
     "prescription": "openfda.product_type:prescription",
@@ -44,7 +44,7 @@
   "type": "HeatMap",
   "startYear": 2009,
   "heatMapConfig":{
-    "keyFormat": "Query: ${this.yKey.charAt(0).toUpperCase() + this.yKey.slice(1).toLowerCase()}\n Route: ${this.xKey.charAt(0).toUpperCase() + this.xKey.slice(1).toLowerCase()}",
+    "keyFormat": "Query: ${this.yKey}\n Route: ${this.xKey}",
     "valueFormatter": "${this.value}%",
     "colorCodes": {
       "greens": ["#c2e2a5", "#9cc677", "#7bba4d", "#4aaa01", "#177d00"],
