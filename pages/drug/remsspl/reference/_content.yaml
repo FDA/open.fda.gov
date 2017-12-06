@@ -56,20 +56,15 @@
   - guide_information
 - "### REMS elements"
 - fields:
-  - patient_met_condition
-  - prescriber_documented_safe_use_condition
+  - safe_use_conditions
   - safe_use_monitoring
   - implementation
   - rems_submission_assessments_timetable
-- "### REMS summary"
-- fields:
-  - healthcare_providers_unclassified_section
-  - patients_unclassified_section
 - "### Substance administration"
 - fields:
   - stakeholder_name
   - stakeholder_code
-  - requirement_name
+  - requirement
   - reference_id
 - "### REMS material"
 - fields:
