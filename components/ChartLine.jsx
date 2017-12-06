@@ -58,7 +58,9 @@ const _getRecordsByYear = (data: Array<Object>, years: Array<string>) => {
 
   data.forEach(d => {
     const year: string = d.time.slice(0, 4)
-    return dataByYear[year].push(d)
+    if (dataByYear[year]) {
+      return dataByYear[year].push(d)
+    }
   })
 
   return dataByYear

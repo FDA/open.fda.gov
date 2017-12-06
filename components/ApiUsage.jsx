@@ -7,8 +7,8 @@ import Table from './Table'
 
 
 type tPROPS = {
-    accessSinceLaunch: string,
-    dynamicDisclaimer: string
+  accessSinceLaunch: string,
+  dynamicDisclaimer: string
 };
 
 
@@ -116,6 +116,74 @@ const ApiUsage = (props:tPROPS) => {
 
     fetchStats () {
 
+
+      this.state = {
+        lastThirtyDayUsage: 0,
+        sinceLaunchUsage: props.accessSinceLaunch,
+        dynamicDisclaimer: props.dynamicDisclaimer,
+        clickEndpointDisclaimer: props.clickEndpointDisclaimer,
+        data: null,
+        prefix: "1/api.fda.gov/",
+        breadcrumbs: ["1/api.fda.gov/"]
+      }
+    }
+
+    componentDidMount () {
+      this.fetchStats()
+    }
+
+    handleUsageResponse (data) {
+
+      const graphData = {
+        labels: [],
+        datasets: [
+          {
+            fillColor: "rgba(172,194,132,0.4)",
+            strokeColor: "#ACC26D",
+            pointColor: "#ACC26D",
+            pointStrokeColor: "#9DB86D",
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: '#112e51',
+            data: []
+          }
+        ],
+        table: null
+      }
+
+      if (data) {
+
+        graphData.table = data.table
+
+        data.stats.forEach(function (stat) {
+          graphData.labels.push(stat.day)
+          graphData.datasets[0].data.push(stat.totalCount)
+        })
+
+      }
+      this.state.indexInfo = data.indexInfo
+      this.state.lastThirtyDayUsage = data.lastThirtyDayUsage
+
+      this.state.data = graphData
+      this.setState(this.state)
+    }
+    refreshPrefix (evt) {
+      this.state.prefix = evt.target.getAttribute('data-prefix')
+      this.refreshBreadcrumbs()
+      this.fetchStats()
+    }
+    refreshBreadcrumbs () {
+
+      const i = this.state.breadcrumbs.indexOf(this.state.prefix)
+      if (i < 0) {
+        this.state.breadcrumbs.push(this.state.prefix)
+      }
+      else if (i < (this.state.breadcrumbs.length - 1)) {
+        this.state.breadcrumbs = this.state.breadcrumbs.slice(0, i + 1)
+      }
+    }
+
+    fetchStats () {
+
       xhrGET("https://api.fda.gov/usage.json?prefix=" + this.state.prefix, (data) => {
         this.handleUsageResponse(data)
       }, false)
@@ -155,29 +223,34 @@ const ApiUsage = (props:tPROPS) => {
               <div className='marg-t-2 b-t-2 pad-t-2'>
                 <h5 className='font-size-3 txt-c'>Size of Dataset</h5>
 
-            <div>
-              <table className="table-sm table-bordered">
-                <tbody>
-                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Drugs</strong></td></tr>
-                  <tr> <td>Labeling</td><td>{this.docCount('druglabel')}</td> </tr>
-                  <tr> <td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td> </tr>
-                  <tr> <td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td> </tr>
+                <div>
+                  <table className='table-sm table-bordered'>
+                    <tbody>
+                    <tr className='bg-primary-darkest clr-white'> <td colSpan='2'><strong>Animal & Veterinary</strong></td></tr>
+                    <tr> <td>Animal Drug Adverse Event Reports</td><td>{this.docCount('animalandveterinarydrugevent')}</td> </tr>
 
-                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Foods</strong></td></tr>
-                  <tr> <td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td> </tr>
-                  <tr> <td>Enforcement Reports</td><td>{this.docCount('foodenforcement')}</td> </tr>
+                    <tr className='bg-primary-darkest clr-white'> <td colSpan='2'><strong>Foods</strong></td></tr>
+                    <tr> <td>Enforcement Reports</td><td>{this.docCount('foodenforcement')}</td> </tr>
+                    <tr> <td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td> </tr>
 
-                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Devices</strong></td></tr>
-                  <tr> <td>Classifications</td><td>{this.docCount('deviceclass')}</td> </tr>
-                  <tr> <td>Registration and listing</td><td>{this.docCount('devicereglist')}</td> </tr>
-                  <tr> <td>Premarket Approvals (PMAs)</td><td>{this.docCount('devicepma')}</td> </tr>
-                  <tr> <td>510Ks</td><td>{this.docCount('deviceclearance')}</td> </tr>
-                  <tr> <td>Recalls</td><td>{this.docCount('devicerecall')}</td> </tr>
-                  <tr> <td>Adverse Event Reports</td><td>{this.docCount('deviceevent')}</td> </tr>
-                  <tr> <td>UDIs</td><td>{this.docCount('deviceudi')}</td> </tr>
-                  <tr> <td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td> </tr>
-                  </tbody>
-                </table>
+                    <tr className='bg-primary-darkest clr-white'> <td colSpan='2'><strong>Human Drugs</strong></td></tr>
+                    <tr> <td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td> </tr>
+                    <tr> <td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td> </tr>
+                    <tr> <td>Labeling</td><td>{this.docCount('druglabel')}</td> </tr>
+
+                    <tr className='bg-primary-darkest clr-white'> <td colSpan='2'><strong>Medical Devices</strong></td></tr>
+                    <tr> <td>Classifications</td><td>{this.docCount('deviceclass')}</td> </tr>
+                    <tr> <td>510Ks</td><td>{this.docCount('deviceclearance')}</td> </tr>
+                    <tr> <td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td> </tr>
+                    <tr> <td>Adverse event reports</td><td>{this.docCount('deviceevent')}</td> </tr>
+                    <tr> <td>Premarket Approvals (PMAs)</td><td>{this.docCount('devicepma')}</td> </tr>
+                    <tr> <td>Recalls</td><td>{this.docCount('devicerecall')}</td> </tr>
+                    <tr> <td>Registration and listing</td><td>{this.docCount('devicereglist')}</td> </tr>
+                    <tr> <td>UDIs</td><td>{this.docCount('deviceudi')}</td> </tr>
+                    </tbody>
+                  </table>
+
+
 
                 </div>
 

@@ -1,4 +1,10 @@
 -
+  url: /data/adae/
+  title: ADAE
+  description:
+    - The primary purpose for maintaining the CVM ADE database is to provide an early warning or signaling system to CVM for adverse effects not detected during pre-market testing of FDA-approved animal drugs and for monitoring the performance of drugs not approved for use in animals.
+    - See the [ADE web site](http://www.fda.gov/AnimalVeterinary/SafetyHealth/ProductSafetyInformation/ucm055369.htm) for download information.
+-
   url: /data/faers/
   title: FAERS
   description:
