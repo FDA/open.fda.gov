@@ -598,16 +598,14 @@ properties:
     possible_values:
     type: string
   treated_for_ae:
-    description: "A list of values (Yes, No, Unknown, or Not Applicable) describing whether or not the human or animal affected received treatment in response to the adverse event."
+    description: "A list of values (T or F) describing whether or not the human or animal affected received treatment in response to the adverse event."
     format:
     is_exact: false
     possible_values:
       type: one_of
       value:
-        Yes: "Human or animal was treated."
-        No: "Human or animal was not treated."
-        Unknown: "Information is not available."
-        Not Applicable: "The veterinary medicinal product was neither stopped nor re-introduced."
+        T: "Human or animal was treated."
+        F: "Human or animal was not treated."
     type: boolean
   type_of_information:
     description: "A list of values regarding the type of information in the report."
