@@ -1,20 +1,19 @@
 import React from 'react'
-import foodeventpdf from '../../static/fields/foodevent_reference.pdf'
 
 const pdfDownloadMap: Object = Object.freeze({
-  'foodevent': foodeventpdf,
-  'foodenforcement': 'food/enforcement',
-  'drugevent': 'drug/event',
-  'druglabel': 'drug/label',
-  'drugenforcement': 'drug/enforcement',
-  'deviceevent': 'device/event',
-  'devicerecall': 'device/recall',
-  'deviceclass': 'device/classification',
-  'devicereglist': 'device/registrationlisting',
-  'deviceclearance': 'device/510k',
-  'devicepma': 'device/pma',
-  'deviceudi': 'device/udi',
-  'deviceenforcement': 'device/enforcement'
+  'foodevent': '/fields/foodevent_reference.pdf',
+  'foodenforcement': '/fields/foodenforcement_reference.pdf',
+  'drugevent': '/fields/drugevent_reference.pdf',
+  'druglabel': '/fields/druglabel_reference.pdf',
+  'drugenforcement': '/fields/drugenforcement_reference.pdf',
+  'deviceevent': '/fields/deviceevent_reference.pdf',
+  'devicerecall': '/fields/devicerecall_reference.pdf',
+  'deviceclass': '/fields/deviceclass_reference.pdf',
+  'devicereglist': '/fields/devicereglist_reference.pdf',
+  'deviceclearance': '/fields/deviceclearance_reference.pdf',
+  'devicepma': '/fields/devicepma_reference.pdf',
+  'deviceudi': '/fields/deviceudi_reference.pdf',
+  'deviceenforcement': '/fields/deviceenforcement_reference.pdf'
 })
 
 const xlsxDownloadMap: Object = Object.freeze({
