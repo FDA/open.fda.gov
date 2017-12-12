@@ -1,7 +1,8 @@
 - "## Overview":
   - "The openFDA drug adverse event API returns data that has been collected from the [FDA Adverse Event Reporting System (FAERS)](/data/faers/), a database that contains information on adverse event and medication error reports submitted to FDA."
   - "[infographic here]"
-  - "#### Key information":
+
+  - "#### Key facts":
     - ul:
       - "**Source of the data:** [FDA Adverse Event Reporting System (FAERS)](/data/faers/)"
       - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
@@ -59,7 +60,7 @@
       - "Unless otherwise specified, the API will return only one matching record for a search. You can specify the number of records to be returned by using the limit parameter. The maximum limit allowed is 99 for any single API call. If no limit is set, the API will return one matching record."
 
   - "#### Some advanced topics":
-    - "It is possible to construct very complex queries using the openFDA API. See the [API Basics page](/getting_started/api_basics/) to learn more about all the available query parameters; how to handle quotations, spaces, phrase matches, and groupings; how to search on dates and ranges; and more."
+    - "It is possible to construct very complex queries using the openFDA API. See the [API Basics page](/getting_started/api_basics/) to learn more about all the available query parameters, how to handle quotations, spaces, phrase matches, and groupings, how to search on dates and ranges, and more."
     - "Here are a few additional tips just to get you started"
     - ul:
       - "`search=field:term+AND+field:term`: Search for records that match both terms"

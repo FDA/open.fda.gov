@@ -45,5 +45,23 @@
     "code_info": "Lot numbers and exp dates:  10108716  31-Mar-2013, \n10111510  30-Apr-2013, 10113801  31-May-2013, 10113839  30-Apr-2013, 10115616  31-Aug-2013",
     "openfda": {},
     "initial_firm_notification": "Letter"
+  },
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2017-12-02"
+    },
+    "results": [
+      {
+        "term": "Voluntary: Firm Initiated",
+        "count": 7623
+      },
+      {
+        "term": "Voluntary: FDA Requested",
+        "count": 13
+      }
+    ]
   }
 }

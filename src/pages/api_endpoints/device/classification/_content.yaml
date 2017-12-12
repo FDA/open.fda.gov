@@ -1,39 +1,62 @@
-- "## About device classification"
-- "The U.S. Food and Drug Administration (FDA) regulates medical devices in the United States. Medical devices range from simple tongue depressors and bedpans to complex programmable pacemakers and laser surgical devices. In addition, medical devices include in vitro diagnostic products, such as general purpose lab equipment, reagents, and test kits, which may include monoclonal antibody technology. Certain electronic radiation emitting products with medical application and claims meet the definition of medical device. Examples include diagnostic ultrasound products, x-ray machines, and medical lasers."
-- "The Product Classification dataset contains medical device names, their associated product codes, their medical specialty areas (panels) and their classification. The name and product code identify the generic category of a device for FDA. The product code assigned to a device is based upon the medical device product classification designated under 21 CFR Parts 862-892."
-- "The Food and Drug Administration (FDA) has established classifications for approximately 1,700 different generic types of devices and grouped them into 16 medical specialties referred to as panels. Each of these generic types of devices is assigned to one of three regulatory classes based on the level of control necessary to assure the safety and effectiveness of the device."
-- "For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/default.htm)."
-- "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/device/classification.json` using search parameters for fields specific to the device classification endpoint."
-- queryExplorer: oneDevice
-- queryExplorer: nob
-- queryExplorer: topFei
-- "## Data reference"
-- "### Downloads"
-- "downloads"
-- "## How records are organized"
-- example: header
-- example: openfda
-- "## Results"
-- "For non-`count` queries, the `results` section includes matching device classification records returned by the API."
-- "## Field-by-field reference"
-- fields:
-  - regulation_number
-  - life_sustain_support_flag
-  - definition
-  - review_code
-  - submission_type_id
-  - third_party_flag
-  - implant_flag
-  - medical_specialty
-  - medical_specialty_description
-  - device_class
-  - device_name
-  - product_code
-  - review_panel
-  - unclassified_reason
-  - gmp_exempt_flag
-- "### OpenFDA"
-- "The `openfda` section of each document is determined by looking at the product_code value."
-- fields:
-  - openfda
+- "## Overview":
+  - "Most medical devices can be classified by finding the matching description of the device in Title 21 of the Code of Federal Regulations (CFR), Parts 862-892."
+  - "The Food and Drug Administration (FDA) has established classifications for approximately 1,700 different generic types of devices and grouped them into 16 medical specialties referred to as panels. Each of these generic types of devices is assigned to one of three regulatory classes based on the level of control necessary to assure the safety and effectiveness of the device."
+  - "The **openFDA Device Classification API** contains medical device names, their associated product codes, their medical specialty areas (panels) and their classification. The name and product code identify the generic category of a device for FDA. The product code assigned to a device is based upon the medical device product classification designated under 21 CFR Parts 862-892."
+  - "For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/default.htm)."
+
+  - "[infographic here]"
+
+  - "### Responsible use of the data":
+    - "Adverse event reports submitted to FDA do not undergo extensive validation or verification. Therefore, **a causal relationship cannot be established between product and reactions listed in a report.** While a suspected relationship *may* exist, it is not medically validated and should not be the sole source of information for clinical decision making or other assumptions about the safety or efficacy of a product."
+    - "Additionally, it is important to remember that adverse event reports represent a small percentage of total usage numbers of a product. Common products may have a higher number of adverse events due to the higher total number of people using the product. In recent years the FDA has undertaken efforts to increase collection of adverse events. Increases in the total number of adverse events is likely caused by improved reporting."
+
+  - "### Disclaimer":
+    - "This data should not be used as a method to collect data to issue alerts to the public, nor should it be used to track the lifecycle of a recall. FDA seeks publicity about a recall only when it believes the public needs to be alerted to a serious hazard. FDA works with industry and our state partners to publish press releases and other public notices about recalls that may potentially present a significant or serious risk to the consumer or user of the product. Subscribe to this Recall/Safety Alert feed here."
+    - "Further, FDA does not update the status of a recall after the recall has been classified according to its level of hazard. As such, the status of a recall (open, completed, or terminated) will remain unchanged after published in the Enforcement Reports."
+
+- "## How to use the API":
+  - "Getting started with and learning how to use the API is relatively straightforward. Here are some recommended steps:"
+  - "*1.* If you haven’t already, [read the API Basics page](/getting_started/api_basics/)."
+  - "*2.* Review the [list of searchable fields](#searchable-fields) available in the drug adverse event dataset."
+  - "*3.* Try out the Device Classification API using the [interactive examples](#using-the-interactive-chart-to-learn-the-API) and tools below."
+  - "Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the [API Reference page](/getting_started/api_basics/reference/)."
+
+  - "### Making a simple API call":
+    - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."
+    - "In the example below, we are searching the records in the drug adverse events endpoint for matches with 'NOB' in the 'product_code' field. We are requesting to see the first 5 records that match."
+    - "image=/pages/img/drug_event_query.png"
+
+  - "#### Some key pointers":
+    - ul:
+      - "An openFDA API query always begins with the base endpoint, which in this case is: https://api.fda.gov/device/classification.json"
+      - "Searches have a special syntax: `search=field:term`."
+      - "Unless otherwise specified, the API will return only one matching record for a search. You can specify the number of records to be returned by using the limit parameter. The maximum limit allowed is 99 for any single API call. If no limit is set, the API will return one matching record."
+
+  - "#### Some advanced topics":
+    - "It is possible to construct very complex queries using the openFDA API. See the [API Basics page](/getting_started/api_basics/) to learn more about all the available query parameters, how to handle quotations, spaces, phrase matches, and groupings, how to search on dates and ranges, and more."
+    - "Here are a few additional tips just to get you started"
+    - ul:
+      - "`search=field:term+AND+field:term`: Search for records that match both terms"
+      - "`search=field:term+field:term`: Search for records that match either of the two terms"
+      - "`count=field`: Use the count parameter to count how often a term appears in the dataset"
+      - "`search=field:term&count=another_field`: Search for matching records. Then within that set of records, count the number of times that the unique values of a field appear. Instead of looking at individual records, you can use the [count] parameter to count how often certain terms (like drug names or patient reactions) appear in the matching set of records."
+
+  - "### Example API Queries":
+    - "To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box."
+    - queryExplorer: oneDevice
+    - queryExplorer: nob
+    - queryExplorer: topFei
+
+  - "### Explore the API with an interactive chart":
+    - "Use the interactive chart below to explore the dataset and to learn how you can construct different API queries."
+
+  - "### Understanding the API Results":
+    - "For `search` queries (such as: [https://api.fda.gov/device/classification.json?search=regulation_number:872.6855&limit=1](https://api.fda.gov/device/classification.json?search=regulation_number:872.6855&limit=1)), the `results` section includes matching adverse event reports returned by the API."
+    - "For count queries (such as: [https://api.fda.gov/device/classification.json?count=openfda.fei_number](https://api.fda.gov/device/classification.json?count=openfda.fei_number)), the results section will look something like the following:"
+    - example: count
+
+- "## Download the dataset":
+  - "downloads"
+
+- "## Searchable Fields":
+  - "FieldExplorer"

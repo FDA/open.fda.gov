@@ -1,57 +1,60 @@
-- "## About device 510(k)"
-- "The premarket notification dataset contains details about specific products and the original sponsors of premarket notification applications. It also contains administrative and tracking information about the applications and receipt and decision dates."
-- "A 510(k) is a premarket submission made to FDA to demonstrate that the device to be marketed is at least as safe and effective, that is, substantially equivalent, to a legally marketed device (21 CFR 807.92(a)(3)) that is not subject to PMA. Submitters must compare their device to one or more similar legally marketed devices and make and support their substantial equivalency claims. A legally marketed device, as described in 21 CFR 807.92(a)(3), is a device that was legally marketed prior to May 28, 1976 (preamendments device), for which a PMA is not required, or a device which has been reclassified from Class III to Class II or I, or a device which has been found substantially equivalent through the 510(k) process. The legally marketed device(s) to which equivalence is drawn is commonly known as the “predicate.”"
-- "For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/PremarketSubmissions/PremarketNotification510k/default.htm)."
-- "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/device/510k.json` using search parameters for fields specific to the device recalls endpoint."
-- queryExplorer: advisoryCommittee
-- queryExplorer: regulationNumber
-- queryExplorer: topCountryCodes
-- "## Data reference"
-- "### Downloads"
-- "downloads"
-- "### How records are organized"
-- "Example:"
-- example: record
-- "## Anatomy of a response"
-- "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."
-- example: anatomy
-- "### Meta"
-- "For non-`count` queries, the `meta` section includes a disclaimer, a link to the openFDA data license, and information about the results that follow."
-- example: meta
-- fields:
-  - meta.disclaimer
-  - meta.license
-  - meta.last_updated
-  - meta.results.skip
-  - meta.results.limit
-  - meta.results.total
-- "### Results"
-- "For non-`count` queries, the `results` section includes matching adverse event reports returned by the API."
-- "## Field-by-field reference"
-- fields:
-  - k_number
-  - clearance_type
-  - zip_code
-  - decision_code
-  - decision_description
-  - statement_or_summary
-  - date_received
-  - third_party_flag
-  - state
-  - address_1
-  - address_2
-  - contact
-  - country_code
-  - city
-  - review_advisory_committee
-  - advisory_committee
-  - advisory_committee_description
-  - device_name
-  - product_code
-  - postal_code
-  - applicant
-  - decision_date
-- "## OpenFDA"
-- fields:
-  - openfda
+- "## Overview":
+  - "A 510(k) is a premarket submission made to FDA to demonstrate that the device to be marketed is at least as safe and effective, that is, substantially equivalent, to a legally marketed device (21 CFR 807.92(a)(3)) that is not subject to PMA. Submitters must compare their device to one or more similar legally marketed devices and make and support their substantial equivalency claims. A legally marketed device, as described in 21 CFR 807.92(a)(3), is a device that was legally marketed prior to May 28, 1976 (preamendments device), for which a PMA is not required, or a device which has been reclassified from Class III to Class II or I, or a device which has been found substantially equivalent through the 510(k) process. The legally marketed device(s) to which equivalence is drawn is commonly known as the “predicate.”"
+  - "The **openFDA Device 510(k) Clearances API** contains details about specific products and the original sponsors of premarket notification applications. It also contains administrative and tracking information about the applications and receipt and decision dates."
+  - "For additional information, please visit the FDA's [Premarket Notification 510(k) page](https://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/PremarketSubmissions/PremarketNotification510k/default.htm)."
+
+  - "#### Key facts":
+    - ul:
+      - "**Source of the data:** "
+      - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
+      - "**What time period is covered in this API:** "
+      - "**How often is the data in this API updated:** "
+      - "**Date last updated:** 11/17/2017"
+
+  - "### Responsible use of the data":
+    - "Adverse event reports submitted to FDA do not undergo extensive validation or verification. Therefore, **a causal relationship cannot be established between product and reactions listed in a report.** While a suspected relationship *may* exist, it is not medically validated and should not be the sole source of information for clinical decision making or other assumptions about the safety or efficacy of a product."
+    - "Additionally, it is important to remember that adverse event reports represent a small percentage of total usage numbers of a product. Common products may have a higher number of adverse events due to the higher total number of people using the product. In recent years the FDA has undertaken efforts to increase collection of adverse events. Increases in the total number of adverse events is likely caused by improved reporting."
+
+- "## How to use the API":
+  - "Getting started with and learning how to use the API is relatively straightforward. Here are some recommended steps:"
+  - "*1.* If you haven’t already, [read the API Basics page](/getting_started/api_basics/)."
+  - "*2.* Review the [list of searchable fields](#searchable-fields) available in the drug adverse event dataset."
+  - "*3.* Try out the Device 510k API using the [interactive examples](#using-the-interactive-chart-to-learn-the-API) and tools below."
+  - "Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the [API Reference page](/getting_started/api_basics/reference/)."
+
+  - "### Making a simple API call":
+    - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."
+    - "In the example below, we are searching the records in the drug adverse events endpoint for matches with 'cv' in the 'advisory_committee' field. We are requesting to see the first 5 records that match."
+    - "image=/pages/img/device_clearance_query.png"
+
+  - "#### Some key pointers":
+    - ul:
+      - "An openFDA API query always begins with the base endpoint, which in this case is: https://api.fda.gov/device/510k.json"
+      - "Searches have a special syntax: `search=field:term`."
+      - "Unless otherwise specified, the API will return only one matching record for a search. You can specify the number of records to be returned by using the limit parameter. The maximum limit allowed is 99 for any single API call. If no limit is set, the API will return one matching record."
+
+  - "#### Some advanced topics":
+    - "It is possible to construct very complex queries using the openFDA API. See the [API Basics page](/getting_started/api_basics/) to learn more about all the available query parameters, how to handle quotations, spaces, phrase matches, and groupings, how to search on dates and ranges, and more."
+    - "Here are a few additional tips just to get you started"
+    - ul:
+      - "`search=field:term+AND+field:term`: Search for records that match both terms"
+      - "`search=field:term+field:term`: Search for records that match either of the two terms"
+      - "`count=field`: Use the count parameter to count how often a term appears in the dataset"
+      - "`search=field:term&count=another_field`: Search for matching records. Then within that set of records, count the number of times that the unique values of a field appear. Instead of looking at individual records, you can use the [count] parameter to count how often certain terms (like drug names or patient reactions) appear in the matching set of records."
+
+  - "### Example API Queries":
+    - "To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box."
+    - queryExplorer: advisoryCommittee
+    - queryExplorer: regulationNumber
+    - queryExplorer: topCountryCodes
+
+  - "### Understanding the API Results":
+    - "For `search` queries (such as: [https://api.fda.gov/device/510k.json?search=regulation_number:872.6855&limit=1](https://api.fda.gov/device/510k.json?search=regulation_number:872.6855&limit=1)), the `results` section includes matching device 510k records returned by the API."
+    - "For count queries (such as: [https://api.fda.gov/device/510k.json?count=openfda.fei_number](https://api.fda.gov/device/510k.json?count=openfda.fei_number)), the results section will look something like the following:"
+    - example: count
+
+- "## Download the dataset":
+  - "downloads"
+
+- "## Searchable Fields":
+  - "FieldExplorer"

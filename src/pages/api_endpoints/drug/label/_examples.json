@@ -43,5 +43,23 @@
         "effective_time": "20140423"
       }
     ]
+  },
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2017-12-02"
+    },
+    "results": [
+      {
+        "term": "HUMAN OTC DRUG",
+        "count": 55849
+      },
+      {
+        "term": "HUMAN PRESCRIPTION DRUG",
+        "count": 33489
+      }
+    ]
   }
 }
