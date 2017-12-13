@@ -29,6 +29,7 @@
     "gatsby-plugin-stylus": "^1.1.10",
     "gatsby-remark-copy-linked-files": "^1.5.22",
     "gatsby-source-filesystem": "^2.0.0-alpha.1",
+    "gatsby-transformer-remark": "^1.7.24",
     "immutability-helper": "^2.5.0",
     "jquery": "^3.2.1",
     "localforage": "^1.5.2",
