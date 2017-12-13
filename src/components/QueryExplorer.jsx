@@ -94,7 +94,7 @@ const QueryExplorer = (props: tPROPS) => {
         showResult &&
         <button
           aria-label='Close result of query'
-          className={btnCx}
+          className='bg-secondary-dark hvr-bg-secondary-darkest clr-white marg-t-2 marg-b-2'
           onClick={toggleQuery}
           style={{
             marginLeft: '10px',

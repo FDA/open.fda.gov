@@ -7,5 +7,7 @@ npm-debug.log
 npm-debug.log.2000580574
 npm-debug.log.931881047
 .gitignore
-.DS_Store
 /src/css/build/app.css
+.DS_Store
+package-lock.json
+.cache/

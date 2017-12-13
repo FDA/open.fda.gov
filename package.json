@@ -5,7 +5,7 @@
   "author": "Jack Finch <jack.finch@semanticbits.com>",
   "scripts": {
     "dev:css": "stylus -w ./src/css/app.styl -o ./src/css/build/app.css -I ./node-modules/nib",
-    "dev:site": "gatsby develop -p 3000",
+    "dev:site": "gatsby develop -H 127.0.0.1 -p 3000",
     "build": "gatsby build --verbose",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'"
   },
@@ -44,6 +44,7 @@
     "rc-slider": "8.3.1",
     "react-autosuggest": "^9.3.2",
     "react-chartjs": "^0.8.0",
+    "react-custom-scrollbars": "^4.2.1",
     "react-datamaps": "git+ssh://git@github.com:debovis/react-datamaps.git",
     "react-document-title": "^2.0.3",
     "react-highlight": "^0.10.0",

@@ -11,7 +11,7 @@ type tPROPS = {
 const EndpointStatus = ({ data, fullPath, }: tPROPS) => {
   var date = new Date(data.last_updated)
   return (
-    <section className='flex-box just-between b-b-1 bg-gray-lightest m-hide marg-b-2 pad-b-2 pad-t-2 pad-l-4 pad-r-4'>
+    <section className='flex-box just-between b-b-1 bg-gray-lightest m-hide pad-b-2 pad-t-2 pad-l-4 pad-r-4'>
       <div>
         <span className='weight-700'>Endpoint: </span>
         <span className='status-content'>{fullPath}</span>
