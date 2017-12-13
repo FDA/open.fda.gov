@@ -19,15 +19,15 @@
       },
       "ranges": [
         {
-          "color": "#4aaa01",
+          "color": "#ED182B",
           "name": "> 1001%"
         },
         {
-          "color":  "#7bba4d",
+          "color":  "#fe5057",
           "name":  "501% to 1000%"
         },
         {
-          "color": "#c2e2a5",
+          "color": "#ffa1a4",
           "name": "1% to 500%"
         },
         {
@@ -35,15 +35,15 @@
           "name": "0% (No Change)"
         },
         {
-          "color": "#ffa1a4",
+          "color": "#c2e2a5",
           "name": "-1% to -500%"
         },
         {
-          "color":  "#fe5057",
+          "color":  "#7bba4d",
           "name":  "-501% to -1000%"
         },
         {
-          "color": "#ED182B",
+          "color": "#4aaa01",
           "name": "< -1001%"
         }
       ]
@@ -101,39 +101,38 @@
     "rowHeight": 75,
     "minHeight": 400, 
     "minWidth": 1020,
-    "dataGridProperties": [
-        { 
-          "key": "state",
-          "name": "State",
-          "width":50,
-          "sortable": true 
-        },
-        { 
-          "key": "recalling_firm",
-          "name": "Recalling Firm",
-          "width":150,
-          "sortable": true,
-          "formatter": "LongTextFormatter"
-        },
-        { 
-          "key": "reason_for_recall",
-          "name": "Reason",
-          "width":350,
-          "locked": true,
-          "formatter": "LongTextFormatter"
-        },
-        { 
-          "key": "product_description",
-          "name": "Product Description",
-          "width":350,
-          "formatter": "LongTextFormatter"
-        },
-        { 
-          "key": "status",
-          "name": "Status",
-          "width":100,
-          "sortable": true
-        }
+    "pagination": false,
+    "reactTableColumns": [
+      {
+        "Header": "State",
+        "accessor": "state",
+        "width":50,
+        "className": "long-text-formatter"
+      },
+      {
+        "Header": "Recalling Firm",
+        "accessor": "recalling_firm",
+        "width":150,
+        "className": "long-text-formatter"
+      },
+      {
+        "Header": "Reason",
+        "accessor": "reason_for_recall",
+        "width":350,
+        "className": "long-text-formatter"
+      },
+      {
+        "Header": "Product Description",
+        "accessor": "product_description",
+        "width": 350,
+        "className": "long-text-formatter"
+      },
+      {
+        "Header": "Status",
+        "accessor": "status",
+        "width": 100,
+        "className": "long-text-formatter"
+      }
     ],
     "defaultData": [{"reason_for_recall": "No Data Found"},{},{},{},{},{}]
   },

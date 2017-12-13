@@ -2,28 +2,16 @@
 
 import React from 'react'
 
-import { LongTextFormatter, DeviceFormatter, EventDescriptionFormatter, ShortTextFormatter} from '../utils/formatters'
 import {InfographicLegend} from './InfographicLegend'
-import { Bar, Line, HeatMap } from 'nivo'
-import $ from "jquery"
-import { TimeSeries, sum} from "pondjs";
-import Tooltip from 'rc-tooltip';
-import Slider from 'rc-slider';
-import { Series, DataFrame } from 'pandas-js';
+import {default as $} from "jquery";
+import { Series } from 'pandas-js';
 import { API_LINK } from '../constants/api'
 import _ from 'lodash';
-import 'rc-slider/assets/index.css';
-import 'rc-tooltip/assets/bootstrap.css';
-import Datamap from 'react-datamaps';
-import ReactDataGrid from 'react-data-grid';
-import Parser from 'html-react-parser';
-
-
-window.$ = $;
-
-const createSliderWithTooltip = Slider.createSliderWithTooltip;
-const Range = createSliderWithTooltip(Slider.Range);
-const Handle = Slider.Handle;
+import { default as Tooltip } from 'rc-tooltip';
+import { default as Slider } from 'rc-slider';
+import { default as Datamap } from 'react-datamaps';
+import { default as Parser } from 'html-react-parser';
+import { default as ReactTable } from "react-table";
 
 
 class DataMapInfographic extends React.Component {
@@ -46,17 +34,6 @@ class DataMapInfographic extends React.Component {
       return result;
     }, {})
 
-    this.LongTextFormatter = LongTextFormatter
-    this.DeviceFormatter = DeviceFormatter
-    this.EventDescriptionFormatter = EventDescriptionFormatter
-    this.ShortTextFormatter = ShortTextFormatter
-  
-    const dataGridProperties = this.props.infographicDefinitions.gridConfig.dataGridProperties.map((value) => {
-      if(value.formatter !== undefined){
-        value.formatter = this[value.formatter];
-      } 
-      return value;
-    }, this)    
 
     this.state = {
       api: this.props.api,
@@ -73,14 +50,15 @@ class DataMapInfographic extends React.Component {
       slider_marks: slider_marks,
       years: years,
       selectedState: null,
-      dataGridProperties: dataGridProperties,
       _rows: [],
       original_rows: [],
       bubbles: [{
         radius: 5,
         centered: this.props.infographicDefinitions.selectedState,
         fillColor: "#080808"
-      }]
+      }],
+      ReactDataGrid: null,
+      isLoaded: false
     };
 
 
@@ -121,9 +99,10 @@ class DataMapInfographic extends React.Component {
     })
   }
 
-  fetchJSON (url: string): Object {  
+  fetchJSON (url: string): Object {
+    const jQuery = $;
     return new Promise((resolve, reject) => {
-      $.getJSON(url)
+      jQuery.getJSON(url)
         .done((json) => resolve(json, url))
         .fail((xhr, status, err) => reject(status + err.message));
     });
@@ -260,7 +239,6 @@ class DataMapInfographic extends React.Component {
                 YOYs.push(z);
               }
             })
-
             response[k][category] = YOYs;
           })
       })
@@ -390,7 +368,7 @@ class DataMapInfographic extends React.Component {
       currentValue = this.state.currentValue  
     }
     var urls = [
-      `${that.state.API_LINK}${that.state.api}.json?search=${that.state.dateField}:[${currentValue}0101+TO+${currentValue}1231]+AND+${that.state.countBy}:${_id}&limit=100`
+      `${that.state.API_LINK}${that.state.api}.json?search=${that.state.dateField}:[${currentValue}0101+TO+${currentValue}1231]+AND+${that.state.countBy}:"${_id}"&limit=100`
       ];
 
     $('.react-grid-HeaderCell-sortable--ascending').find("span").hide()
@@ -414,17 +392,28 @@ class DataMapInfographic extends React.Component {
           result = results[0].results;
           rowsFound = results[0].results.length;
         }
-
-        var finalData = []
+        var finalData = [];
         result.forEach( item => {
           var record = {}
-          that.props.infographicDefinitions.gridConfig.dataGridProperties.forEach( column => {
-            var val  = item[column.key]
-            column._getter !== undefined ? eval("val = item." + column._getter) : null;
-            record[column.key] = val
+          that.props.infographicDefinitions.gridConfig.reactTableColumns.forEach( column => {
+            let val = "";
+            // we need to access a key with type of array
+            if(column.baseObject !== undefined){
+                // is there any data in the baseObject
+                var baseObject = item[column.baseObject] !== undefined && item[column.baseObject].length ? item[column.baseObject][0]: "";
+                // directly call subObject
+                if(column.subObject === undefined){
+                    val = baseObject[column.accessor] || ""
+                } else if(baseObject[column.subObject] !== undefined){
+                    // if subobject defined, use it
+                    val = baseObject[column.subObject][column.accessor]
+                }
+            } else {
+                val = item[column.accessor] || ""
+            }
+            record[column.accessor] = val.length >= 200 ? val.slice(0,200) + '...' : val
           })
           finalData.push(record)
-
         })
 
         that.setState({
@@ -460,8 +449,12 @@ class DataMapInfographic extends React.Component {
   }
 
   render (): ?React.Element {
+    if (!this.state.data) return <span />
 
     const handle = (props) => {
+      const createSliderWithTooltip = Slider.createSliderWithTooltip;
+      const Range = createSliderWithTooltip(Slider.Range);
+      const Handle = Slider.Handle;
       const { value, dragging, index, ...restProps } = props;
       return (
         <Tooltip
@@ -525,23 +518,25 @@ class DataMapInfographic extends React.Component {
             <p className='datamap-infographic-header-params'> 
               {this.props.infographicDefinitions.subtitle} for 
               <i className='datamap-infographic-header-text-bold'>
-                &nbsp;{this.props.infographicDefinitions.states[this.state.selectedState]}&nbsp;
+                {' '}{this.props.infographicDefinitions.states[this.state.selectedState]}{' '}
               </i> 
               in 
               <i className='datamap-infographic-header-text-bold'>
-                &nbsp;{this.state.currentValue}
+                {' '}{this.state.currentValue}
               </i>
-              &nbsp;(first {this.state.rowsFound} of {this.state.totalAvailableResults})
+              {' '}(first {this.state.rowsFound} of {this.state.totalAvailableResults})
             </p>
             <div>
             { !this.state._rows.length ? null : 
-              <ReactDataGrid
-                columns={this.state.dataGridProperties}
-                rowGetter={this.rowGetter}
-                rowsCount={this.state._rows.length}
-                onGridSort={this.handleGridSort}
-                onFilter={this.onGridRowsUpdated}
-                {...this.props.infographicDefinitions.gridConfig}
+              <ReactTable
+                data={this.state._rows}
+                columns={this.props.infographicDefinitions.gridConfig.reactTableColumns}
+                defaultPageSize={this.state._rows.length}
+                showPagination={false}
+                style={{
+                  height: "400px"
+                }}
+                className="-striped -highlight"
               />
             }
             </div>

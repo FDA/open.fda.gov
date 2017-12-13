@@ -19,32 +19,32 @@
       },
       "ranges": [
         {
-            "color": "#4aaa01",
-            "name": "> 1001%"
+          "color": "#ED182B",
+          "name": "> 1001%"
         },
         {
-            "color":  "#7bba4d",
-            "name":  "501% to 1000%"
+          "color":  "#fe5057",
+          "name":  "501% to 1000%"
         },
         {
-            "color": "#c2e2a5",
-            "name": "1% to 500%"
+          "color": "#ffa1a4",
+          "name": "1% to 500%"
         },
         {
-            "color": "#C7C7C7",
-            "name": "0% (No Change)"
+          "color": "#C7C7C7",
+          "name": "0% (No Change)"
         },
         {
-            "color": "#ffa1a4",
-            "name": "-1% to -500%"
+          "color": "#c2e2a5",
+          "name": "-1% to -500%"
         },
         {
-            "color":  "#fe5057",
-            "name":  "-501% to -1000%"
+          "color":  "#7bba4d",
+          "name":  "-501% to -1000%"
         },
         {
-            "color": "#ED182B",
-            "name": "< -1001%"
+          "color": "#4aaa01",
+          "name": "< -1001%"
         }
       ]
   },
@@ -101,38 +101,37 @@
     "rowHeight": 75,
     "minHeight": 400, 
     "minWidth": 1010,
-    "dataGridProperties": [
-      { 
-        "key": "state",
-        "name": "State",
+    "pagination": false,
+    "reactTableColumns": [
+      {
+        "Header": "State",
         "width":50,
-        "sortable": true 
+        "accessor": "state",
+        "className": "long-text-formatter"
       },
-      { 
-        "key": "recalling_firm",
-        "name": "Recalling Firm",
+      {
+        "Header": "Recalling Firm",
         "width":150,
-        "sortable": true,
-        "formatter": "LongTextFormatter"
+        "accessor": "recalling_firm",
+        "className": "long-text-formatter"
       },
-      { 
-        "key": "reason_for_recall",
-        "name": "Reason",
+      {
+        "Header": "Reason",
         "width":350,
-        "locked": true,
-        "formatter": "LongTextFormatter"
+        "accessor": "reason_for_recall",
+        "className": "long-text-formatter"
       },
-      { 
-        "key": "product_description",
-        "name": "Product Description",
+      {
+        "Header": "Product Description",
         "width":350,
-        "formatter": "LongTextFormatter"
+        "accessor": "product_description",
+        "className": "long-text-formatter"
       },
-      { 
-        "key": "status",
-        "name": "Status",
+      {
+        "Header": "Status",
         "width":100,
-        "sortable": true
+        "accessor": "status",
+        "className": "long-text-formatter"
       }
     ],
     "defaultData": [{"reason_for_recall": "No Data Found"},{},{},{},{},{}]

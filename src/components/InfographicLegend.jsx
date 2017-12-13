@@ -18,7 +18,7 @@ const InfographicLegend = React.createClass({
             <tbody>
               { this.props.ranges.map( (obj, index) => 
                   <tr key={index}><td>
-                      <span className="infographic-legend-tr" style={this.getStyle(obj.color)}>&nbsp;</span>&nbsp; {obj.name}
+                      <span className="infographic-legend-tr" style={this.getStyle(obj.color)}>{' '}</span>{'  '}{obj.name}
                   </td></tr>
               )}
             </tbody>

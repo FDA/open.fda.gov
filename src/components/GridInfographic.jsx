@@ -3,14 +3,14 @@
 import React from 'react'
 
 import { API_LINK } from '../constants/api'
-import $ from "jquery"
-import Tooltip from 'rc-tooltip';
-import Slider from 'rc-slider';
 import { Series } from 'pandas-js';
 import { HeatMap } from 'nivo'
 import { Charts, ChartContainer, ChartRow, styler, YAxis, LineChart,Resizable } from "react-timeseries-charts"
 import { TimeSeries, TimeRange, sum } from "pondjs";
-import Parser from 'html-react-parser';
+import {default as Parser } from 'html-react-parser';
+import {default as $ } from "jquery"
+import {default as Tooltip } from 'rc-tooltip';
+import {default as Slider } from 'rc-slider';
 
 import _ from 'lodash';
 import 'rc-slider/assets/index.css';

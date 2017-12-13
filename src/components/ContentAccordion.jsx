@@ -46,6 +46,8 @@ const ContentAccordion = (props: tPROPS) => {
     // json data from _infographic_efinitions, json configuration 
     // for interactive infographics
     infographicDefinitions,
+    fieldsMapped,
+    fieldsFlattened,
     infographics,
     meta
   } = props

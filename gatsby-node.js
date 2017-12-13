@@ -7,3 +7,11 @@ exports.modifyWebpackConfig = function (config, env) {
   ]]);
   return config;
 }
+exports.modifyWebpackConfig = ({ config, stage }) => {
+  if (stage === "build-html") {
+    config.loader("null", {
+      test: /datamaps/,
+      loader: "null-loader",
+    })
+  }
+}

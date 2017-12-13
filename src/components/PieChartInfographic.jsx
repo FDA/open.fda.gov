@@ -8,12 +8,12 @@ import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable, styler, L
 import { API_LINK } from '../constants/api'
 import _ from 'lodash';
 import Parser from 'html-react-parser';
-
+import {default as $} from "jquery";
 import TwoLevelPieChart from './InteractivePie';
 import { PieChart, Pie, Sector } from "Recharts";
 import calculateSize from 'calculate-size';
 
-window.$ = $;
+
 
 class PieChartInfographic extends React.Component {
 
@@ -222,7 +222,9 @@ class PieChartInfographic extends React.Component {
                 if(idx > 0){
                   term += " "
                 }
-                term += word[0].toUpperCase() + word.slice(1,word.length).toLowerCase().replace('.','')
+                if(word && word.length){
+                  term += word[0].toUpperCase() + word.slice(1,word.length).toLowerCase().replace('.','')
+                }
               })
 
               terms[term] = value.term
