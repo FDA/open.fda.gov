@@ -1,0 +1,42 @@
+.tab
+    overflow: hidden
+    background-color: #f1f1f1
+    display:flex
+    align-items:stretch
+    justify-content:baseline
+    border:1px solid #ccc
+
+.tab button
+    border: none
+    outline: none
+    cursor: pointer
+    padding: 14px 16px
+    transition: 0.3s
+    flex-grow: 1
+    justify-content: center
+
+.tab button:hover
+    background-color: #f7f7f7
+
+.tab button.active
+    background-color: white
+    box-shadow: inset 0 -4px 0 0 #0af, inset 1px 0 0 0 #ccc, inset -1px 0 0 0 #ccc
+
+.tab button:first-child
+    box-shadow: inset 1px 0 0 0 #ccc
+
+.tab button.tab.active:first-child
+    box-shadow: inset 0 -4px 0 0 #0af, inset 1px 0 0 0 #ccc, inset -1px 0 0 0 #ccc
+
+.tab button.tab.active:last-child
+    box-shadow: inset 0 -4px 0 0 #0af, inset 1px 0 0 0 #ccc
+
+.tab-content 
+    border: 1px solid #ccc
+    border-top: none
+
+.tab-content aside   
+    background: rgb(246, 246, 246)
+    border-bottom: 0px
+    border-right: 1px solid #ccc
+    border-left: 1px solid #ccc

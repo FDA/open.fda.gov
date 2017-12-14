@@ -17,6 +17,7 @@ type tPROPS = {
   content: Array<Object|string>;
   explorers: Object;
   infographics: Array<Object>;
+  infographicDefinitions: Object;
   fields: Object;
   hideMenu: boolean;
   meta: Object;
@@ -38,6 +39,8 @@ const ContentWrapper = (props: tPROPS) => {
     content,
     explorers,
     fields,
+    infographics,
+    infographicDefinitions,
     meta
   } = props
 
@@ -78,6 +81,8 @@ const ContentWrapper = (props: tPROPS) => {
           }}>
           <Content
             { ...props }
+            fieldsMapped={fieldsMapped}
+            fieldsFlattened={fieldsFlattened}
           />
         </div>
       </section>

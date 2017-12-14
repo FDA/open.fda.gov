@@ -29,6 +29,8 @@ type tPROPS = {
   recordsTotal: number;
   searchParam: string;
   type: string;
+  handler: Function;
+  container: Object;
 };
 
 const Infographic = (props: tPROPS) => {
@@ -42,6 +44,8 @@ const Infographic = (props: tPROPS) => {
     recordsTotal,
     searchParam,
     type,
+    handler,
+    container,
   } = props
 
   const {
@@ -92,6 +96,17 @@ const Infographic = (props: tPROPS) => {
     selected: searchParam,
   })
 
+  const tabs = props.infographics;
+
+
+  //   data: infographicKeys,
+  // // update which infographic we're looking at
+  // handler: this._sidebarToggle.bind(this),
+  // // the current active infographic
+  // selected: this.state.selected,
+  // // sidebar header
+  // title: 'Explore the data',
+
   return (
     <section>
       {
@@ -117,7 +132,22 @@ const Infographic = (props: tPROPS) => {
         className='visually-hidden'>
         Skip visualization options. Go to data visualization
       </a>
-      <div className='flex-box'>
+
+      <div className="tab">
+        {
+          Object.keys(tabs).map((value,i) => {
+            return <button 
+                    onClick={() => { handler(tabs[value])} }
+                    key={i}
+                    className={container.state.selected === value ? "tab active": "tab"}
+                  >
+                  {tabs[value].short}
+                  </button>
+          })
+        }
+      </div>
+
+      <div className='flex-row tab-content'>
         <aside
           className='col no-marg m-pad-b-1 pad-2 t-2'
           style={{

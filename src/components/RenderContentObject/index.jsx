@@ -16,6 +16,10 @@ type tPROPS = {
   k: number;
   examples: Object;
   explorers: Object;
+  infographics: Object;
+  infographicDefinitions: Object;
+  fieldsMapped: Object;
+  fieldsFlattened: Object;
   fields: Object;
   isMenu: boolean;
   onClick: Function;
@@ -52,6 +56,10 @@ const RenderContentObject = (props: tPROPS) => {
     // onClick just scrolls the page without messing up the url
     isMenu,
     onClick,
+    infographics,
+    infographicDefinitions,
+    fieldsMapped,
+    fieldsFlattened
   } = props
 
   // there should only be one key
@@ -246,6 +254,10 @@ const RenderContentObject = (props: tPROPS) => {
         obj={obj}
         examples={examples}
         fields={fields}
+        infographics={infographics}
+        fieldsMapped={fieldsMapped}
+        fieldsFlattened={fieldsFlattened}
+        infographicDefinitions={infographicDefinitions}
         explorers={explorers}
         meta={meta}
         key={k}

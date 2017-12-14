@@ -5,6 +5,8 @@
 - "Each year, the FDA receives several hundred thousand medical device reports (MDRs) of suspected device-associated deaths, serious injuries and malfunctions. The FDA uses MDRs to monitor device performance, detect potential device-related safety issues, and contribute to benefit-risk assessments of these products. The MAUDE database houses MDRs submitted to the FDA by mandatory reporters (manufacturers, importers and device user facilities) and by voluntary reporters (such as health care professionals, patients, and consumers)."
 - "Although MDRs are a valuable source of information, this passive surveillance system has limitations, including the potential submission of incomplete, inaccurate, untimely, unverified, or biased data. In addition, the incidence or prevalence of an event cannot be determined from this reporting system alone due to potential under-reporting of events and lack of information about frequency of device use. Because of this, MDRs comprise only one of the FDA’s several important postmarket surveillance data sources."
 - "See the [MAUDE dataset page](/data/maude/) for more details."
+- visualization
+- infographic
 - "### How to search this endpoint"
 - "Make API calls to `https://api.fda.gov/device/event.json` using search parameters for fields specific to the device adverse events endpoint."
 - queryExplorer: oneReport

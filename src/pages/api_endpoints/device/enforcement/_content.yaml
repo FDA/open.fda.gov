@@ -5,6 +5,8 @@
 - "An enforcement report contains information on actions taken in connection with FDA regulatory activities. The data served by this API endpoint includes enforcement reports about device product recalls."
 - "This API should not be used as a method to collect data to issue alerts to the public. FDA seeks publicity about a recall only when it believes the public needs to be alerted to a serious hazard. FDA works with industry and our state partners to publish press releases and other public notices about recalls that may potentially present a significant or serious risk to the consumer or user of the product. Subscribe to this Recall/Safety Alert feed here."
 - "Whereas not all recalls are announced in the media or on our recall press release page all FDA-monitored recalls go into FDA’s Enforcement Report once they are classified according to the level of hazard involved.  For more information, see FDA 101: Product Recalls from First Alert to Effectiveness Checks."
+- visualization
+- infographic
 - "### How to search this endpoint"
 - "Make API calls to `https://api.fda.gov/device/enforcement.json` using search parameters for fields specific to the device enforcement endpoint."
 - queryExplorer: oneReport

@@ -1,0 +1,89 @@
+{
+  "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</p>",
+  "subtitle": "",
+  "countBy": "device_class",
+  "xTitle": " Medical Speciality Device 510(k)s",
+  "yTitle": "Risk",
+  "type": "PieChart",
+  "startYear": 1975,
+  "dateField": "date_received",
+  "subfield": "advisory_committee_description.exact",
+  "classification_api": "/device/classification",
+  "lineLimiter": 7,
+  "xLengendCoordinate": -35,
+  "dataFunction": "_getAllData",
+  "defs": {
+    "2": "Class II \n(moderate to high)",
+    "1": "Class I (low to moderate)",
+    "3": "Class III (high)",
+    "U": "Unclassified",
+    "N": "Not classified"
+  },
+  "excludeFields": [],
+  "tooltip": {
+    "fontSize": "11px",
+    "font": "Merriweather,Georgia,serif"
+  },
+  "pieChartConfig": {
+    "default": {
+      "id":"2",
+      "index": 4
+    },
+    "radius": {
+      "cx": 305,
+      "cy": 200,
+      "innerRadius": 60,
+      "outerRadius": 80
+    },
+    "textLabel": ["Percentage", "by Class"],
+    "width": 450,
+    "widthReset": 365,
+    "height": 450,
+    "sort": "ascending",
+    "viewBox": "140 75 510 510",
+    "fill": "#8884d8",
+    "textColor": "#000000",
+    "colors": [
+      "#d62728",
+      "#FFBB28",
+      "#0088FE",
+      "#00C49F"
+    ],
+    "margin":{ 
+      "top": 5,
+      "right": 5,
+      "bottom": 5, 
+      "left": 10 
+    }
+  },
+  "lineChartConfig": {
+    "width": 700,
+    "showGrid": true,
+    "chartRow": {
+      "height": 200,
+      "trackerInfoWidth": 105
+    },
+    "font": {
+      "color":"#000000"
+    },
+    "customColorsList": [
+      "#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c",
+      "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5",
+      "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+      "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+    ],
+    "yAxis": {
+        "label": "Number of Device Recalls",
+        "min": 0,
+        "width": 50,
+        "type": "linear"
+    },
+    "interpolation": "curveBasis",
+    "lineStyle": {
+        "value": {
+            "stroke": "#a02c2c",
+            "opacity": 0.2
+        }
+    }
+  }
+}

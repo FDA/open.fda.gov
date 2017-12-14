@@ -7,7 +7,7 @@ import Values from './RenderContentObject/Values'
 import yamlGet from '../utils/yamlGet'
 import FieldDownload from './FieldDownload'
 import FieldExplorerContainer from '../containers/FieldExplorerContainer'
-import foodeventpdf from '../../static/img/foodevent_reference.pdf'
+// import foodeventpdf from '../../static/img/foodevent_reference.pdf'
 import { withPrefix } from 'gatsby-link'
 
 const _renderLi = (props: tLiProps) => {

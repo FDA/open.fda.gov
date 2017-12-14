@@ -1,0 +1,172 @@
+{
+  "title": "<p class='heatmap-infographic-header'><i class='datamap-infographic-header-text-bold'> Food Adverse Event Reports </i>: Year Over Year (YOY) % Change in Outcomes By Industry</p>",
+  "queries":   {
+    "Unconv Diet": {
+      "query": "products.industry_name:Unconv Diet",
+      "name": "Vitamins"
+    },
+    "Cosmetics": {
+      "query": "products.industry_name:Cosmetics",
+      "name": "Cosmetics"
+    },
+    "Nuts": {
+      "query": "products.industry_name:Nuts",
+      "name": "Nuts"
+    },
+    "Seafood Prod": {
+      "query": "products.industry_name:Seafood Prod",
+      "name": "Fish/Seafood Products"
+    },
+    "Soft Drink": {
+      "query": "products.industry_name:Soft Drink",
+      "name": "Soft Drinks"
+    },
+    "all": {
+      "query": "",
+      "name": "All Industries"
+    }
+  },
+  "defaults": {
+    "xKey":"Death",
+    "yKey":"Cosmetics",
+    "color": "rgb(103, 179, 45)",
+    "key": "Death.Cosmetics",
+    "year": 2016
+  },
+  "xTerms": {
+    "REQ. INTERVENTION TO PRVNT PERM. IMPRMNT.": "REQ. INTERVENTION"
+  },
+  "xTermsFormatting": {
+    "Visited an er": "Visited an ER"
+  },
+  "yName": "Industry Name",
+  "xName": "Outcome",
+  "countBy": "outcomes.exact",
+  "type": "HeatMap",
+  "startYear": 2004,
+  "dateField": "date_created",
+  "heatMapConfig":{
+    "keyFormat": "Industry: ${this.yKey}\n Outcome: ${this.xKey}",
+    "valueFormatter": "${this.value}%",
+    "theme": {
+      "fontSize": 13,
+      "fontFamily": "Merriweather,Georgia,serif",
+      "fontColor": "#000000",
+      "yAxisPositioning": -30
+    },
+    "colorScales": {
+      "missingValue": "-",
+      "zero": "#C7C7C7",
+      "negative": {
+        "colors": ["#E1D735", "#FF0000", "#FF8383", "#ED182B"],
+        "range": [-1000,-501,-500,-1],
+        "extremity": "#177d00"
+      },
+      "positive":{
+        "colors": ["#8FFF9C", "#ff7c80", "#7bba4d", "#4aaa01"],
+        "range": [1,500,501,1000],
+        "extremity": "#bd0000"
+      },
+      "isYOY": true
+    },
+    "height": 400,
+    "width": 985,
+    "indexBy": "_type",
+    "margin": {
+        "top": 25,
+        "right": 25,
+        "bottom": 140,
+        "left": 168
+    },
+    "minValue": -100,
+    "maxValue": 100,
+    "forceSquare": false,
+    "sizeVariation": 0,
+    "padding": 0,
+    "colors": "nivo",
+    "axisBottom": {
+        "orient": "bottom",
+        "tickSize": 5,
+        "tickPadding": 5,
+        "tickRotation": -35,
+        "legendPosition": "center",
+        "legendOffset": 36
+    },
+    "axisLeft": {
+        "orient": "right",
+        "tickSize": 5,
+        "tickPadding": 5,
+        "tickRotation": 0,
+        "legendPosition": "center",
+        "legendOffset": -40
+    },
+    "enableGridX": false,
+    "enableGridY": true,
+    "cellShape": "rect",
+    "cellOpacity": 1,
+    "cellBorderWidth": 1,
+    "cellBorderColor": "inherit:darker(2)",
+    "enableLabels": true,
+    "labelTextColor": "inherit:darker(5)",
+    "animate": true,
+    "motionStiffness": 120,
+    "motionDamping": 9,
+    "isInteractive": true,
+    "hoverTarget": "rowColumn",
+    "cellHoverOpacity": 1,
+    "cellHoverOthersOpacity": 0.5
+  },
+  "slider": {
+    "style": {
+      "float": "left",
+      "height": "365px",
+      "fontSize": "15px"
+    },
+    "handleStyle": {
+      "borderColor": "black"
+    },
+    "trackStyle": {
+      "backgroundColor": "#8C8C8C",
+      "width": 5
+    },
+    "dotStyle": {
+      "backgroundColor": "white",
+      "borderColor": "black"
+    }
+  },
+  "chartConfig": {
+    "width": 800,
+    "showGrid": true,
+    "chartRowHeight": 200,
+    "font": {
+      "color": "#000000"
+    },
+    "yAxis": {
+        "label": "Number of Food Reports",
+        "min": 0,
+        "width": 100,
+        "type": "linear",
+        "labels": {
+          "labelColor": "#000000",
+          "labelWidth": 10,
+          "labelWeight":90
+        }
+    },
+    "chartRow": {
+      "height": 200,
+      "trackerInfoHeight": 40,
+      "trackerInfoWidth": 110,
+      "trackerTimeFormat": "%Y",
+      "timeFormat": "%Y",
+      "trackerShowTime": true
+    },
+    "interpolation": "curveBasis",
+    "lineStyle": {
+        "value": {
+            "stroke": "#a02c2c",
+            "opacity": 0.2,
+            "width":2
+        }
+    }
+  }
+}

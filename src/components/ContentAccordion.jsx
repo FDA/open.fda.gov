@@ -6,12 +6,18 @@ import Downloads from './Downloads'
 import MultipleProductTable from './MultipleProductTable'
 import RenderContentObject from './RenderContentObject'
 import FieldExplorer from './FieldExplorer'
+import InteractiveInfographic from './InteractiveInfographic'
+import InfographicContainer from '../containers/InfographicContainer'
 
 type tPROPS = {
   obj: Object;
   k: number;
   examples: Object;
   explorers: Object;
+  infographicDefinitions: Object;
+  infographics: Object;
+  fieldsMapped: Object;
+  fieldsFlattened: Object;
   fields: Object;
   meta: Object;
 };
@@ -36,6 +42,12 @@ const ContentAccordion = (props: tPROPS) => {
     explorers,
     // fields from content.yaml, for rendering a reference
     fields,
+    // json data from _infographic_definitions, json configuration 
+    // for interactive infographics
+    infographicDefinitions,
+    fieldsMapped,
+    fieldsFlattened,
+    infographics,
     meta
   } = props
 
@@ -130,6 +142,31 @@ const ContentAccordion = (props: tPROPS) => {
                   <FieldExplorer
                     k={j}
                     fields={fields}
+                    meta={meta}
+                    key={j}
+                  />
+                )
+              }
+
+              if (content === 'infographic' && infographics) {
+                console.log('content: infographic', meta)
+                return (
+                  <InfographicContainer
+                    { ...props }
+                    infographics={infographics}
+                    k={j}
+                    meta={meta}
+                    key={j}
+                  />
+                )
+              }
+
+              if (content === 'visualization') {
+                console.log('content: visualization', meta)
+                return (
+                  <InteractiveInfographic
+                    infographicDefinitions={infographicDefinitions}
+                    k={j}
                     meta={meta}
                     key={j}
                   />
