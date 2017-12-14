@@ -35,6 +35,7 @@ const Disclaimer = (props: tPROPS) => {
       overlayClassName='modal-overlay'
       contentLabel="Disclaimer Modal"
       shouldCloseOnOverlayClick={false}
+      ariaHideApp={false}
     >
       <h4 className="modal-header">Disclaimer</h4>
       <div className='modal-body'>
