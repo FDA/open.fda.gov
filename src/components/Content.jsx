@@ -5,14 +5,20 @@ import marked from 'marked'
 import cx from 'classnames'
 
 import RenderContentObject from './RenderContentObject'
+import InteractiveInfographic from './InteractiveInfographic'
+import InfographicContainer from '../containers/InfographicContainer'
 
 type tPROPS = {
   content: Array<Object|string>;
   examples: Array<Object>;
   explorers: Object;
+  infographicDefinitions: Object;
+  infographics: Object;
   fields: Object;
   showMenu: boolean;
   meta: Object;
+  fieldsMapped: Object;
+  fieldsFlattened: Object;
 };
 
 
@@ -23,6 +29,10 @@ const Content = (props: tPROPS) => {
   const {
     content,
     examples,
+    infographicDefinitions,
+    infographics,
+    fieldsMapped,
+    fieldsFlattened,
     explorers,
     fields,
     showMenu,
@@ -52,7 +62,31 @@ const Content = (props: tPROPS) => {
                 examples={examples}
                 fields={fields}
                 explorers={explorers}
+                fieldsMapped={fieldsMapped}
+                fieldsFlattened={fieldsFlattened}
+                infographicDefinitions={infographicDefinitions}
+                infographics={infographics}
                 meta={meta}
+                key={i}
+              />
+            )
+          }
+
+          if (words === 'visualization') {
+            return (
+              <InteractiveInfographic
+                infographicDefinitions={infographicDefinitions}
+                k={i}
+                meta={meta}
+                key={i}
+              />
+            )
+          }
+
+          if (words === 'infographic') {
+            return (
+              <InfographicContainer
+                { ...props }
                 key={i}
               />
             )

@@ -1,0 +1,175 @@
+{
+  "title": "<p class='heatmap-infographic-header'><i class='datamap-infographic-header-text-bold'> Drugs Labels </i>: Year Over Year (YOY) % Change in Drug Administration Route Type </p>",
+  "queries1": {
+    "otc": "openfda.product_type:otc",
+    "prescription": "openfda.product_type:prescription",
+    "lactose": "inactive_ingredient:lactose",
+    "bleeding": "boxed_warning:bleeding",
+    "all": ""
+  }, 
+  "queries": {
+    "otc": {
+      "query": "openfda.product_type:otc",
+      "name": "Over the Counter Drugs"
+    },
+    "prescription": {
+      "query": "openfda.product_type:prescription",
+      "name": "Prescription Drugs"
+    },
+    "lactose": {
+      "query": "inactive_ingredient:lactose",
+      "name": "Lactose as an Ingredient"
+    },
+    "bleeding": {
+      "query": "boxed_warning:bleeding",
+      "name": "Warning of Bleeding"
+    },
+    "all": {
+      "query": "",
+      "name": "All Drugs"
+    }
+  }, 
+  "defaults": {
+    "xKey":"Sublingual",
+    "yKey":"Lactose as an Ingredient",
+    "color": "rgb(103, 179, 45)",
+    "key": "Sublingual.Lactose as an Ingredient",
+    "year": 2017
+  },
+  "xTerms": [],
+  "yName": "Drug Category",
+  "xName": "Administration Route",
+  "countBy": "openfda.route.exact",
+  "dateField": "effective_time",
+  "type": "HeatMap",
+  "startYear": 2009,
+  "heatMapConfig":{
+    "keyFormat": "Query: ${this.yKey}\n Route: ${this.xKey}",
+    "valueFormatter": "${this.value}%",
+    "colorCodes": {
+      "greens": ["#c2e2a5", "#9cc677", "#7bba4d", "#4aaa01", "#177d00"],
+      "reds":["#ffa1a4","#ff7c80","#fe5057", "#ED182B", "#bd0000"],
+      "zero": "#C7C7C7"
+    },
+    "theme": {
+      "fontSize": 13,
+      "fontFamily": "Merriweather,Georgia,serif",
+      "fontColor": "#000000",
+      "yAxisPositioning": -60
+    },
+    "colorScales": {
+      "missingValue": "-",
+      "zero": "#C7C7C7",
+      "negative": {
+        "colors": ["#E1D735", "#FF0000", "#FF8383", "#ED182B"],
+        "range": [-1000,-501,-500,-1],
+        "extremity": "#177d00"
+      },
+      "positive":{
+        "colors": ["#8FFF9C", "#ff7c80", "#7bba4d", "#4aaa01"],
+        "range": [1,500,501,1000],
+        "extremity": "#bd0000"
+      },
+      "isYOY": true
+    },
+    "height": 420,
+    "width": 985,
+    "indexBy": "_type",
+    "margin": {
+        "top": 25,
+        "right": 25,
+        "bottom": 80,
+        "left": 168
+    },
+    "minValue": -100,
+    "maxValue": 100,
+    "forceSquare": false,
+    "sizeVariation": 0,
+    "padding": 0,
+    "colors": "nivo",
+    "axisBottom": {
+        "orient": "bottom",
+        "tickSize": 5,
+        "tickPadding": 5,
+        "tickRotation": -35,
+        "legendPosition": "center",
+        "legendOffset": 36
+    },
+    "axisLeft": {
+        "orient": "right",
+        "tickSize": 5,
+        "tickPadding": 5,
+        "tickRotation": 0,
+        "legendPosition": "center",
+        "legendOffset": -40
+    },
+    "enableGridX": false,
+    "enableGridY": true,
+    "cellShape": "rect",
+    "cellOpacity": 1,
+    "cellBorderWidth": 1,
+    "cellBorderColor": "inherit:darker(2)",
+    "enableLabels": true,
+    "labelTextColor": "inherit:darker(5)",
+    "animate": true,
+    "motionStiffness": 120,
+    "motionDamping": 9,
+    "isInteractive": true,
+    "hoverTarget": "rowColumn",
+    "cellHoverOpacity": 1,
+    "cellHoverOthersOpacity": 0.5
+  },
+  "slider": {
+    "style": {
+      "float": "left",
+      "height": "365px",
+      "fontSize": "15px"
+    },
+    "handleStyle": {
+      "borderColor": "black"
+    },
+    "trackStyle": {
+      "backgroundColor": "#8C8C8C",
+      "width": 5
+    },
+    "dotStyle": {
+      "backgroundColor": "white",
+      "borderColor": "black"
+    }
+  },
+  "chartConfig": {
+    "width": 800,
+    "showGrid": true,
+    "chartRowHeight": 200,
+    "font": {
+      "color": "#000000"
+    },
+    "yAxis": {
+        "label": "Number of Drugs",
+        "min": 0,
+        "width": 100,
+        "type": "linear",
+        "labels": {
+          "labelColor": "#000000",
+          "labelWidth": 10,
+          "labelWeight":90
+        }
+    },
+    "chartRow": {
+      "height": 200,
+      "trackerInfoHeight": 40,
+      "trackerInfoWidth": 110,
+      "trackerTimeFormat": "%Y",
+      "timeFormat": "%Y",
+      "trackerShowTime": true
+    },
+    "interpolation": "curveBasis",
+    "lineStyle": {
+        "value": {
+            "stroke": "#a02c2c",
+            "opacity": 0.2,
+            "width":2
+        }
+    }
+  }
+}

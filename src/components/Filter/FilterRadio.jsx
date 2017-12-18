@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react'
-import RadioGroup from 'react-radio-group'
+import {RadioGroup, Radio} from 'react-radio-group'
 
 type PROPS = {
   filters: Array<Object>;
@@ -28,45 +28,37 @@ const FilterRadio = ({ filters, onChange, selected }: PROPS) => {
       selectedValue={selected}
       onChange={_onChange}>
       {
-        /* eslint-disable */
-        (Radio: ReactClass) => {
-          Radio.displayName = 'Radio Filter Button'
-
-          return (
-            <fieldset
-              id='params-filter'
-              tabIndex={0}
-              style={{
-                border: 0,
-                margin: 0,
-                padding: 0,
-              }}>
-              <legend className='visually-hidden'>
-                Filter records using example parameters for current visualization.
-              </legend>
-              {
-                filters.map((filter: Object, i) => (
-                  <label
-                    className='clr-gray cursor-pointer smallest weight-600 row block pad-b-1'
-                    tabIndex={0}
-                    role='option'
-                    key={i}
-                    style={{
-                      cursor: 'pointer',
-                    }}>
-                    <Radio
-                      tabIndex={-1}
-                      className='marg-r-1'
-                      value={filter.searchParam}
-                    />
-                    {filter.title}
-                  </label>
-                ))
-              }
-            </fieldset>
-          )
-        }
-        /* eslint-enable */
+          <fieldset
+            id='params-filter'
+            tabIndex={0}
+            style={{
+              border: 0,
+              margin: 0,
+              padding: 0,
+            }}>
+            <legend className='visually-hidden'>
+              Filter records using example parameters for current visualization.
+            </legend>
+            {
+              filters.map((filter: Object, i) => (
+                <label
+                  className='clr-gray cursor-pointer smallest weight-600 row block pad-b-1'
+                  tabIndex={0}
+                  role='option'
+                  key={i}
+                  style={{
+                    cursor: 'pointer',
+                  }}>
+                  <Radio
+                    tabIndex={-1}
+                    className='marg-r-1'
+                    value={filter.searchParam}
+                  />
+                  {filter.title}
+                </label>
+              ))
+            }
+          </fieldset>
       }
     </RadioGroup>
   )

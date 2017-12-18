@@ -4,7 +4,6 @@ import React from 'react'
 
 import SideBar from '../components/SideBar'
 import Infographic from '../components/Infographic'
-import InfographicExplorer from '../components/InfographicExplorer'
 import xhrGET from '../utils/xhr'
 import { API_LINK } from '../constants/api'
 
@@ -336,27 +335,25 @@ class InfographicContainer extends React.Component {
   }
 
   /**
-   * @description onClick handler for the explore the data sidebar
-   * @param  {Object} e [event object]
+   * @description onClick handler for the explore infographic tabbed options
+   * @param  {Object} choice [object]
    * @return {void} [just updates state]
    */
-  _sidebarToggle (e: Object) {
-    if (!e) return
+  _tabToggle (choice: Object) {
+    if (!choice) return
 
-    const current: string = e.target.value ?
-      e.target.value :
-      e.target.textContent
+    const selected: string = choice.short
 
     this.setState({
       // explorer object
-      current: this.state.infographics[current],
+      current: this.state.infographics[selected],
       // text value, for menu select
-      selected: current,
+      selected: selected,
     })
 
     // Update the infographic
-    const nextSearchParam: string = this.state.infographics[current].filters[0].searchParam
-    const nextCountParam: string = this.state.infographics[current].countParam
+    const nextSearchParam: string = this.state.infographics[selected].filters[0].searchParam
+    const nextCountParam: string = this.state.infographics[selected].countParam
     this._update(nextSearchParam, nextCountParam)
   }
 
@@ -367,38 +364,20 @@ class InfographicContainer extends React.Component {
     const infographicKeys: Array<string> = Object.keys(this.state.infographics)
 
     return (
-      <div className='flex-box'>
-        <SideBar
-          menu={{
-            // for pulling out explorer buttons
-            data: infographicKeys,
-            // update which infographic we're looking at
-            handler: this._sidebarToggle.bind(this),
-            // the current active infographic
-            selected: this.state.selected,
-            // sidebar header
-            title: 'Explore the data',
-          }}
-        />
-        <section className='float-r infographic-container'>
+        <section className='float-r infographic-container infographic-container-pad-1'>
           <Infographic
             { ...this.props }
             { ...this.state }
-            onSearchChange={this._update.bind(this)}
+            onSearchChangeUpdate={this._update.bind(this)}
+            onSearchChange={this._onSearchChange.bind(this)}
             records={this.state.matchingRecords}
+            handler={this._tabToggle.bind(this)}
+            onKeyPress={this._onKeyPress.bind(this)}
+            onCountChange={this._onCountChange.bind(this)}
+            onCountChangeAndUpdate={this._onCountChangeAndUpdate.bind(this)}
+            container={this}
           />
-          <div className='m-hide'>
-            <InfographicExplorer
-              { ...this.props }
-              { ...this.state }
-              onKeyPress={this._onKeyPress.bind(this)}
-              onSearchChange={this._onSearchChange.bind(this)}
-              onCountChange={this._onCountChange.bind(this)}
-              onCountChangeAndUpdate={this._onCountChangeAndUpdate.bind(this)}
-            />
-          </div>
         </section>
-      </div>
     )
   }
 }

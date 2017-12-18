@@ -2040,6 +2040,8 @@ li.usage-api-li {
   height: 15px;
   pointer-events: none;
   position: absolute;
+  right: 10px;
+  top: 12px;
   width: 15px;
   z-index: 2;
 }
@@ -2290,7 +2292,7 @@ li.usage-api-li {
 @media (min-width: 641px) {
   .infographic-container {
     max-width: 1100px;
-    width: 75%;
+    width: 100%;
   }
 }
 @media (max-width: 640px) {
@@ -2611,6 +2613,202 @@ li.usage-api-li {
   .down-arrows-container {
     background-image: none;
   }
+}
+.tab {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: stretch;
+  justify-content: baseline;
+  border: 1px solid #ccc;
+}
+.tab button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  flex-grow: 1;
+  justify-content: center;
+}
+.tab button:hover {
+  background-color: #f7f7f7;
+}
+.tab button.active {
+  background-color: #fff;
+  box-shadow: inset 0 -4px 0 0 #0af, inset 1px 0 0 0 #ccc, inset -1px 0 0 0 #ccc;
+}
+.tab button:first-child {
+  box-shadow: inset 1px 0 0 0 #ccc;
+}
+.tab button.tab.active:first-child {
+  box-shadow: inset 0 -4px 0 0 #0af, inset 1px 0 0 0 #ccc, inset -1px 0 0 0 #ccc;
+}
+.tab button.tab.active:last-child {
+  box-shadow: inset 0 -4px 0 0 #0af, inset 1px 0 0 0 #ccc;
+}
+.tab-content {
+  border: 1px solid #ccc;
+  border-top: none;
+}
+.tab-content aside {
+  background: #f6f6f6;
+  border-bottom: 0px;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+.long-text-formatter {
+  word-break: breakall;
+  white-space: normal !important;
+  overflow: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.datamap-infographic-header {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 21px;
+  font-style: normal;
+}
+.heatmap-infographic-header {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 22px;
+  font-style: normal;
+}
+.datamap-infographic-header-params {
+  font-family: Merriweather, Georgia, serif;
+  white-space: nowrap;
+  font-size: 22px;
+  padding-top: 20px;
+}
+.pie-infographic-header-params {
+  font-family: Merriweather, Georgia, serif;
+  white-space: nowrap;
+  font-size: 16px;
+  padding-left: 320px;
+}
+.datamap-hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+.datamap-infographic-header-text-bold {
+  font-weight: bold;
+  font-style: normal;
+  white-space: nowrap;
+}
+.datamap-infographic {
+  position: relative;
+  left: 3%;
+  padding-bottom: 10px;
+}
+.datamap-infographic-header-title {
+  font-size: 21px;
+  position: relative;
+  left: 22%;
+}
+.datamap-infographic-empty-data {
+  text-align: center;
+  padding-left: 325px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.heatmap-infographic-header-title {
+  font-size: 21px;
+  position: relative;
+  left: 7%;
+}
+.heatmap-infographic {
+  padding-left: 50px;
+}
+.heatmap-header {
+  width: 600px;
+  margin: 50px;
+  padding-left: 200px;
+}
+.interactive-infographic-center {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 17px;
+}
+.interactive-infographic-subtitle {
+  font-weight: bold;
+}
+.interactive-infographic-left {
+  float: left;
+}
+.interactive-infographic-bold {
+  font-weight: bold;
+  white-space: nowrap;
+}
+.heatmap-infographic-zoom-button {
+  float: right;
+  font-family: Merriweather, Georgia, serif;
+  border-style: double;
+  border-width: 2px;
+  font-size: 15px;
+  padding: 8px 10px 10px 10px;
+  background-color: #d3d3d3;
+}
+.infographic-legend-table {
+  border-spacing: 0.5em;
+  font-family: Merriweather, Georgia, serif;
+  font-size: 15px;
+}
+.infographic-legend-title {
+  font-family: Merriweather, Georgia, serif;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 7px;
+}
+.infographic-legend-tr {
+  height: 25px;
+  padding-right: 15px;
+  width: 25px;
+  display: inline-block;
+}
+.infographic-chart-legend {
+  height: 200px;
+  width: 250px;
+  overflow-y: scroll;
+}
+.piechart-legend {
+  float: right;
+  font-family: Merriweather, Georgia, serif;
+  font-size: 14px;
+}
+.piechart-container {
+  height: 230px;
+}
+.piechart-centered-title {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 14px;
+}
+.piechart-label {
+  font-family: Merriweather, Georgia, serif;
+  font-size: 14px;
+}
+.infographic-slider {
+  font-family: Merriweather, Georgia, serif;
+  padding-left: 25px;
+  padding-top: 29px;
+}
+.grid-infographic-ylabel {
+  padding-top: 1px;
+  padding-left: 14px;
+  transform-origin: left top 0;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: Merriweather, Georgia, serif;
+}
+.grid-infographic-xlabel {
+  float: right;
+  padding-right: 287px;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: Merriweather, Georgia, serif;
 }
 .modal-overlay {
   position: fixed;

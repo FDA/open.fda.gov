@@ -1,6 +1,6 @@
 - "## Overview":
   - "The openFDA drug adverse event API returns data that has been collected from the [FDA Adverse Event Reporting System (FAERS)](/data/faers/), a database that contains information on adverse event and medication error reports submitted to FDA."
-  - "[infographic here]"
+  - visualization
 
   - "#### Key facts":
     - ul:
@@ -15,7 +15,7 @@
     - "Read more about FAERS here:"
     - ul:
       - "[Questions and Answers on FDA's Adverse Event Reporting System (FAERS)](https://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/)"
-    - "[infographic here]"
+    - infographic
 
   - "#### How adverse event reports are collected":
     - "Adverse events are collected through a series of **safety reports**. Each is identified by a 8-digit string (for instance, `6176304-1`). The first 7 digits (before the hyphen) identify the individual report, and the last digit (after the hyphen) is a checksum. Rather than updating individual records in FAERS, subsequent updates are submitted in seperate reports."

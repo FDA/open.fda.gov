@@ -1,11 +1,10 @@
 import React from 'react'
-import Charts from 'react-chartjs'
-const Line:ReactClass = Charts.Line
-import xhrGET from '../utils/xhr'
+import { TimeSeries, TimeRange} from "pondjs"
+import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable, styler, Legend, TimeMarker } from "react-timeseries-charts"
 import bp from '../constants/breakpoints'
 import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
-
+import {default as $} from 'jquery'
 
 type tPROPS = {
     accessSinceLaunch: string,
@@ -57,8 +56,41 @@ const ApiUsage = (props:tPROPS) => {
         clickEndpointDisclaimer: props.clickEndpointDisclaimer,
         data: null,
         prefix: "1/" + API_NAME + "/",
-        breadcrumbs: ["1/" + API_NAME + "/"]
+        breadcrumbs: ["1/" + API_NAME + "/"],
+        width: 1100,
+        showGrid: true,
+        interpolation: "curveBasis",
+        chartRow: {
+          "height": 500,
+          "trackerInfoWidth": 105
+        },
+        enablePanZoom: false,
+        yAxis: {
+          "label": "Number of API Calls",
+          "width": 50,
+          "type": "linear"
+        },
+        customColorsList: [
+          "#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c",
+          "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5",
+          "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+          "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+        ],
+        selection:  null,
+        tracker:   null,
+        trackerInfoValues: [],
+        trackerTimeFormat: "%D",
+        fontSize: "11px",
+        font: "Merriweather,Georgia,serif",
+        color:"#000000",
+        yLegendCoordinate: -200,
+        toolTipLabel: "API Calls",
+        columns: ["value"]
       }
+
+      this.onHighlightChange = this.onHighlightChange.bind(this)
+      this.onSelectionChange = this.onSelectionChange.bind(this)
+      this.onTrackerChanged = this.onTrackerChanged.bind(this)
     }
 
     componentDidMount () {
@@ -87,12 +119,50 @@ const ApiUsage = (props:tPROPS) => {
 
         graphData.table = data.table
 
+        var dataz = [],
+              minTime = null,
+              maxTime = null,
+              values = [],
+              max = null,
+              min = null,
+              that = this;
+
         data.stats.forEach(function (stat) {
           graphData.labels.push(stat.day)
+          dataz.push( [ new Date(stat.day), stat.totalCount])
           graphData.datasets[0].data.push(stat.totalCount)
         })
+        if (dataz.length){
+          minTime = dataz[0][0]
+          maxTime = dataz[dataz.length-1][0]
+          maxTime.setDate(maxTime.getDate() + 1)
+          max = Math.max(...dataz.map(v => v[1]))
+          min = Math.min(...dataz.map(v => v[1]))
+        }
 
+        // set style according to categories
+        var legendStyle = styler(this.state.columns.map((column,idx)=> {
+          return {
+            key: column,
+            color: that.state.customColorsList[0],
+            width: 3
+          }
+        }))
+
+        var series = new TimeSeries({
+          name: "timeseries",
+          columns: ["time"].concat(this.state.columns),
+          points: dataz
+        })
       }
+
+      this.state.series = series
+      this.state.style = legendStyle
+      this.state.max = max
+      this.state.min = min
+      this.state.minTime = minTime
+      this.state.maxTime = maxTime
+      this.state.timerange = new TimeRange(minTime, maxTime)
       this.state.indexInfo = data.indexInfo
       this.state.lastThirtyDayUsage = data.lastThirtyDayUsage
 
@@ -104,6 +174,7 @@ const ApiUsage = (props:tPROPS) => {
       this.refreshBreadcrumbs()
       this.fetchStats()
     }
+
     refreshBreadcrumbs () {
 
       const i = this.state.breadcrumbs.indexOf(this.state.prefix)
@@ -116,10 +187,14 @@ const ApiUsage = (props:tPROPS) => {
     }
 
     fetchStats () {
-
-      xhrGET(API_LINK + "/usage.json?prefix=" + this.state.prefix, (data) => {
-        this.handleUsageResponse(data)
-      }, false)
+      var that = this
+      fetch(`${API_LINK}/usage.json?prefix=${this.state.prefix}`)
+        .then( response => {
+          response.json()
+        .then( data => 
+          that.handleUsageResponse(data)
+        )
+      })
     }
     docCount (typeName:string):string {
       return this.formatNumber(this.state.indexInfo[typeName])
@@ -132,6 +207,32 @@ const ApiUsage = (props:tPROPS) => {
       return this.formatNumber(this.state[typeName])
     }
 
+    onHighlightChange () {}
+    onChartResize () {}
+    onSelectionChange(selection) {
+      this.setState({ 
+        selection
+      })
+    }
+
+    onTrackerChanged(tracker, selection) {
+      if( !this.state.series){
+        return;
+      }
+      let index;
+      try{
+        index = this.state.series.bisect(tracker);
+      } catch (e) {
+        return;
+      }
+      const trackerEvent = this.state.series.at(index);
+      const value = trackerEvent.toJSON().data["value"]
+
+      this.setState({
+        trackerInfoValues: [{label: this.state.toolTipLabel, value: `${value}` }],
+        tracker
+      })
+    }
 
     render () {
       if (this.state.data) {
@@ -144,6 +245,17 @@ const ApiUsage = (props:tPROPS) => {
           }
           return p
         }
+
+      $("text").css("font-family",this.state.fontFamily)
+      $('text').css('fill', this.state.color)
+      $('text').css('font-size', this.state.fontSize)
+
+      var vals = $("text").filter(function () {
+        return $(this).attr("transform") == "rotate(-90)"
+      })
+      if(vals.length){
+        $(vals[0]).attr("x",this.state.yLegendCoordinate)
+      }
 
         return (
           <div className='flex-box'>
@@ -159,7 +271,9 @@ const ApiUsage = (props:tPROPS) => {
             <div>
               <table className="table-sm table-bordered">
                 <tbody>
-                  <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Drugs</strong></td></tr>
+                  <tr className="bg-primary-darkest clr-white">
+                    <td colSpan="2"><strong>Drugs</strong></td>
+                  </tr>
                   <tr><td>Labeling</td><td>{this.docCount('druglabel')}</td></tr>
                   <tr><td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td></tr>
                   <tr><td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td></tr>
@@ -190,14 +304,49 @@ const ApiUsage = (props:tPROPS) => {
               <h2 className='txt-c marg-t-2'>API Calls in the Past 30 Days: {this.totalCount('lastThirtyDayUsage')}</h2>
               <div className='italic txt-c t-6 smallest'> {this.state.dynamicDisclaimer}</div>
               <div className='marg-l-1'>
-                <Line data={this.state.data}
-                      options={{
-                    animation: true,
-                    maintainAspectRatio: false,
-                  }}
-                      height={600}
-                      width={size}
-                />
+                
+                { !this.state.series ? null : 
+                  <ChartContainer 
+                    timeRange={this.state.timerange} 
+                    enablePanZoom={this.state.enablePanZoom}
+                    onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
+                    trackerPosition={this.state.tracker}
+                    minTime={this.state.minTime}
+                    maxTime={this.state.maxTime}
+                    showGrid={this.state.showGrid}
+                    width={this.state.width}
+                    onTrackerChanged={this.onTrackerChanged}
+                    onChartResize={this.handleChartResize}
+                  >
+                      <ChartRow 
+                        trackerInfoValues={this.state.trackerInfoValues}
+                        trackerTime={this.state.tracker}
+                        trackerTimeFormat={this.state.trackerTimeFormat}
+                        timeFormat={this.state.trackerTimeFormat}
+                        {...this.state.chartRow}
+                      >
+                          <YAxis 
+                            id="axis1"
+                            max={this.state.max}
+                            min={this.state.min}
+                            {...this.state.yAxis}
+                          />
+                          <Charts>
+                              <LineChart 
+                                axis="axis1"
+                                style={this.state.style}
+                                series={this.state.series}
+                                columns={this.state.columns}
+                                highlight={this.state.highlight}
+                                selection={this.state.selection}
+                                interpolation={this.state.interpolation}
+                                onHighlightChange={this.onHighlightChange}
+                                onSelectionChange={this.onSelectionChange}
+                              />
+                          </Charts>
+                      </ChartRow>
+                  </ChartContainer>
+                }
 
               </div>
               <h3 className='txt-c marg-t-3 b-t-light-1'>API Calls in Past 30 Days by Dataset</h3>
@@ -207,7 +356,18 @@ const ApiUsage = (props:tPROPS) => {
                   this.state.breadcrumbs.map((b, i) => {
                     if ((this.state.breadcrumbs.length - 1) > i) {
                       // render link
-                      return (<span key={i}> {(i > 0 ? ' > ' : '') } <a key={'p' + i} onClick={(e) => this.refreshPrefix(e)} data-prefix={b}>{b.substring(0, b.length - 1).split('/').pop()}</a></span>)
+                      return (
+                        <span key={i}> 
+                          {(i > 0 ? ' > ' : '') } 
+                          <a 
+                            key={'p' + i} 
+                            onClick={(e) => this.refreshPrefix(e)} 
+                            data-prefix={b}
+                          >
+                            {b.substring(0, b.length - 1).split('/').pop()}
+                          </a>
+                        </span>
+                      )
                     }
                     else {
                       // render without link
