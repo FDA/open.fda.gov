@@ -25,13 +25,18 @@ type tPROPS = {
   fields: Object;
   nextCountParam: string;
   onSearchChange: Function;
+  onSearchChangeUpdate: Function;
   records: number;
   recordsTotal: number;
   searchParam: string;
   type: string;
   handler: Function;
+  onCountChange: Function;
+  onKeyPress: Function;
+  onCountChangeAndUpdate: Function;
   container: Object;
 };
+
 
 const Infographic = (props: tPROPS) => {
   const {
@@ -40,12 +45,16 @@ const Infographic = (props: tPROPS) => {
     fields,
     nextCountParam,
     onSearchChange,
+    onSearchChangeUpdate,
     records,
     recordsTotal,
     searchParam,
     type,
     handler,
     container,
+    onCountChange,
+    onKeyPress,
+    onCountChangeAndUpdate
   } = props
 
   const {
@@ -92,11 +101,13 @@ const Infographic = (props: tPROPS) => {
   // add breakpoint logic to filter
   const FilterWithState: ReactClass = BPContainer(Filter, {
     filters: filters,
-    onChange: onSearchChange,
+    onChange: onSearchChangeUpdate,
     selected: searchParam,
   })
 
-  const tabs = props.infographics;
+  const tabs = props.infographics
+  const paramsCx: string = 'col t-3 t-marg-t-2'
+  const textAreaCx: string = 'bg-gray-dark clr-gray-lightest block row pad-1 small mono'
 
 
   //   data: infographicKeys,
@@ -107,159 +118,225 @@ const Infographic = (props: tPROPS) => {
   // // sidebar header
   // title: 'Explore the data',
 
+  // onSearchChangeUpdate={this._update.bind(this)}
+  // onSearchChange={this._onSearchChange.bind(this)}
+
   return (
-    <section>
-      {
-        title &&
-        <h2
-          className='font-size-2 marg-b-2'
-          tabIndex={0}>
-          {title}
-        </h2>
-      }
-      {
-        description &&
-        description.map((para, i) =>
-          <div
-            key={i}
-            tabIndex={0}
-            dangerouslySetInnerHTML={{__html: marked(para)}}>
-          </div>
-        )
-      }
-      <a
-        href='#chartWrapper'
-        className='visually-hidden'>
-        Skip visualization options. Go to data visualization
-      </a>
-
-      <div className="tab">
+      <section>
         {
-          Object.keys(tabs).map((value,i) => {
-            return <button 
-                    onClick={() => { handler(tabs[value])} }
-                    key={i}
-                    className={container.state.selected === value ? "tab active": "tab"}
-                  >
-                  {tabs[value].short}
-                  </button>
-          })
-        }
-      </div>
-
-      <div className='flex-row tab-content'>
-        <aside
-          className='col no-marg m-pad-b-1 pad-2 t-2'
-          style={{
-            background: '#f6f6f6',
-            borderBottom: bp.mob ? '1px solid #e4e2e0' : 0,
-            borderRight: '1px solid #e4e2e0',
-          }}>
-          <FilterWithState />
-          <p
-            className='b-t-1 small weight-600 marg-t-1 marg-b-1 pad-t-1'
-            style={{
-              letterSpacing: '0.025em',
-            }}
+          title &&
+          <h2
+            className='font-size-2 marg-b-2'
             tabIndex={0}>
-            <span className='clr-gray-dark weight-600'>{records}&nbsp;</span>
-            records match these search parameters
-          </p>
-          <a
-            href='#params-filter'
-            className='visually-hidden'>
-            Return to parameters filter
-          </a>
-          <span className='m-hide'>
-            <ChartDonut
-              colors={[
-                '#5b616b',
-                '#C6C7CA',
-              ]}
-              data={[
-                {
-                  term: 'Total records',
-                  count: records,
-                },
-                {
-                  term: 'Matching records',
-                  count: recordsTotal - records,
-                }
-              ]}
-              size='100px'
-            />
-          </span>
-        </aside>
-        <div
-          className='col dir-column bg-gray-lightest t-4 m-pad-t-1 pad-2'
-          tabIndex={0}
-          id='chartWrapper'>
-          {
-            data.error &&
-            <span className='clr-secondary weight-600 txt-c'>
-              Request returned no response.<br />
-              Change your search and/or count parameters and try again
-            </span>
-          }
-          {
-            !fieldDefinition &&
-            <span className='clr-secondary weight-600 txt-c'>
-              No Field Definition found in fields yaml.<br />
-              Please fix the missing field and try again
-            </span>
-          }
-          {
-            !error &&
-            <div className='col row reverse-pre b-b-1 marg-b-2'>
-              <p>
-                <strong>{nextCountParam}</strong><br />
-                {
-                  fieldDefinition &&
-                  fieldDefinition.description &&
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: markedFieldDef,
-                    }}
-                  />
-                }
-              </p>
+            {title}
+          </h2>
+        }
+        {
+          description &&
+          description.map((para, i) =>
+            <div
+              key={i}
+              tabIndex={0}
+              dangerouslySetInnerHTML={{__html: marked(para)}}>
             </div>
-          }
+          )
+        }
+        <a
+          href='#chartWrapper'
+          className='visually-hidden'>
+          Skip visualization options. Go to data visualization
+        </a>
+
+        <div className="tab">
           {
-            !error &&
-            type === 'Bar' &&
-            <ChartBar
-              data={data.results}
-              fields={fields}
-              countParam={nextCountParam}
-            />
-          }
-          {
-            !error &&
-            (type === 'Pie' || type === 'Donut') &&
-            <ChartDonut
-              countParam={nextCountParam}
-              data={data.results}
-              fields={fields}
-              hasLegend
-              records={records}
-              size={`${!bp.desk ? size - 40 : size - 240}px`}
-            />
-          }
-          {
-            !error &&
-            type === 'Line' &&
-            <ChartLine
-              countParam={nextCountParam}
-              data={data.results}
-              fields={fields}
-              height={`${size / 2}px`}
-              width={`${size}px`}
-            />
+            Object.keys(tabs).map((value,i) => {
+              return <button 
+                      onClick={() => { handler(tabs[value])} }
+                      key={i}
+                      className={container.state.selected === value ? "tab active": "tab"}
+                    >
+                    {tabs[value].short}
+                    </button>
+            })
           }
         </div>
-      </div>
-    </section>
+
+        <div className='flex-row tab-content'>
+          <aside
+            className='col no-marg m-pad-b-1 pad-2 t-2'
+            style={{
+              background: '#f6f6f6',
+              borderBottom: bp.mob ? '1px solid #e4e2e0' : 0,
+              borderRight: '2px solid #e4e2e0',
+            }}>
+            <p className="infographic-header">
+              View:
+            </p>
+            <div
+              className='select-wrap'
+              style={{
+                marginTop: '10px',
+              }}>
+              <label>
+                <span className='visually-hidden'>
+                  Select a count parameter to filter by
+                </span>
+                <select
+                  className='select clr-primary'
+                  value={props.countParam}
+                  onChange={onCountChangeAndUpdate}
+                  // inline because of uncss
+                  // client side only code not picked up
+                  style={{
+                    appearance: 'none',
+                    background: '#fff',
+                    border: '1px solid #0af',
+                    borderRadius: 0,
+                    display: 'block',
+                    fontFamily: 'inherit',
+                    fontSize: '14px',
+                    outline: 0,
+                    padding: '7px',
+                    width: '100%',
+                    WebkitAppearance: "none"
+                  }}>
+                  {
+                    Object.keys(props.fieldsFlattened).map((field: string, i) => (
+                      <option
+                        key={i}
+                        value={field}>
+                        {field}
+                      </option>
+                    ))
+                  }
+                </select>
+              </label>
+            </div>
+
+            <p className="infographic-header">
+              <br/>
+              Filter:
+            </p>
+            <FilterWithState />
+
+            <br/>
+            <div>
+              <p className="infographic-header">
+                Custom search parameter:
+              </p>
+              <p className="infographic-subheader">
+                Type in a custom search parameter, <br/>
+                and then press Enter to update the chart
+              </p>
+              <div className={`${paramsCx} t-marg-r-1 marg-b-1`} style={{width: "100%"}}>
+                <textarea
+                  aria-label='Search parameter'
+                  className={textAreaCx}
+                  value={props.nextSearchParam}
+                  onChange={onSearchChange}
+                  onKeyPress={onKeyPress}
+                >
+                  i.e. search=device
+                </textarea>
+              </div>
+              <p
+                className='b-t-1 small marg-t-1 marg-b-1 pad-t-1'
+                style={{
+                  letterSpacing: '0.025em',
+                  fontSize: 14
+                }}
+                tabIndex={0}
+              >
+                {records}{' '}records match these search parameters
+              </p>
+            </div>
+            <a
+              href='#params-filter'
+              className='visually-hidden'>
+              Return to parameters filter
+            </a>
+          </aside>
+
+          <div
+            className='col dir-column bg-gray-lightest t-4 m-pad-t-1 pad-2'
+            tabIndex={0}
+            id='chartWrapper'>
+            {
+              data.error &&
+              <span className='clr-secondary weight-600 txt-c'>
+                Request returned no response.<br />
+                Change your search and/or count parameters and try again
+              </span>
+            }
+            {
+              !fieldDefinition &&
+              <span className='clr-secondary weight-600 txt-c'>
+                No Field Definition found in fields yaml.<br />
+                Please fix the missing field and try again
+              </span>
+            }
+            {
+              !error &&
+              <div className='col row reverse-pre b-b-1 marg-b-2'>
+                <p>
+                  <strong>{nextCountParam}</strong><br />
+                  {
+                    fieldDefinition &&
+                    fieldDefinition.description &&
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: markedFieldDef,
+                      }}
+                    />
+                  }
+                </p>
+              </div>
+            }
+            {
+              !error &&
+              type === 'Bar' &&
+              <ChartBar
+                data={data.results}
+                fields={fields}
+                countParam={nextCountParam}
+              />
+            }
+            {
+              !error &&
+              (type === 'Pie' || type === 'Donut') &&
+              <ChartDonut
+                countParam={nextCountParam}
+                data={data.results}
+                fields={fields}
+                hasLegend
+                records={records}
+                size={`${!bp.desk ? size - 40 : size - 240}px`}
+              />
+            }
+            {
+              !error &&
+              type === 'Line' &&
+              <ChartLine
+                countParam={nextCountParam}
+                data={data.results}
+                fields={fields}
+                height={`${size / 2}px`}
+                width={`${size}px`}
+              />
+            }
+            <p className='small no-marg clr-base weight-600 pad-t-2 pad-b-1'>
+              current query
+            </p>
+            <textarea
+              aria-label='Current query'
+              className={textAreaCx}
+              value={props.query}
+              rows={3}
+              readOnly
+            />
+          </div>
+        </div>
+      </section>
   )
 }
 

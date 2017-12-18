@@ -52,7 +52,6 @@ class PieChartInfographic extends React.Component {
 
     // functions
     this.onClick = this.onClick.bind(this)
-    this.onHighlightChange = this.onHighlightChange.bind(this)
     this.onSelectionChange = this.onSelectionChange.bind(this)
     this.onTrackerChanged = this.onTrackerChanged.bind(this)
     this.handleChartResize = this.handleChartResize.bind(this)
@@ -178,14 +177,6 @@ class PieChartInfographic extends React.Component {
   }
 
   onClick (data, event){
-    ////
-    // 1) get product codes - https://api.fda.gov/device/recall.json?search=openfda.device_class:2&count=product_code
-    // 2) for product_code in product_codes[:10]:
-    //  use api to define product code
-    //  3) for each product code get the timeseries 
-    // 2) for each product code create a line and name it with device classification 
-    //
-    /////
     if(this.state.classSelection === data.id){
       return
     }
@@ -374,11 +365,6 @@ class PieChartInfographic extends React.Component {
       })
   }
 
-  onHighlightChange (highlight){
-    // console.log(highlight)
-    // this.setState({ highlight })
-  }
-
   onSelectionChange(selection) {
     var selectionName = this.props.infographicDefinitions.selectionPostFix !== undefined ? 
                         selection +  this.props.infographicDefinitions.selectionPostFix : 
@@ -388,10 +374,6 @@ class PieChartInfographic extends React.Component {
       selection,
       selectionName: selectionName
     })
-
-    // calculate size of div for tooltip, add 35 for numbers
-    // const size = calculateSize(selectionName, this.props.infographicDefinitions.tooltip)
-    // $($('rect')[2]).css("width",size.width+35)
 
     this.onTrackerChanged(this.state.tracker, selection)
   }
@@ -532,7 +514,6 @@ class PieChartInfographic extends React.Component {
                             columns={this.state.lineChartColumns}
                             interpolation={this.props.infographicDefinitions.lineChartConfig.interpolation}
                             highlight={this.state.highlight}
-                            onHighlightChange={this.onHighlightChange}
                             selection={this.state.selection}
                             onSelectionChange={this.onSelectionChange}
                           />
@@ -548,7 +529,6 @@ class PieChartInfographic extends React.Component {
                   align="right"
                   style={this.state.legendStyle}
                   highlight={this.state.highlight}
-                  onHighlightChange={this.onHighlightChange}
                   selection={this.state.selection}
                   onSelectionChange={this.onSelectionChange}
                   categories={this.state.categories}

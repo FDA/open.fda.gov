@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "babel-eslint": "^8.0.1",
-    "calculate-size": "latest",
+    "calculate-size": "1.1.1",
     "chart.js": "1.1.1",
     "classnames": "^2.2.5",
     "copy-webpack-plugin": "^4.2.0",
@@ -34,7 +34,7 @@
     "html-react-parser": "0.4.0",
     "immutability-helper": "^2.5.0",
     "jquery": "^3.2.1",
-    "loader-utils": "^1.0.2",
+    "loader-utils": "1.0.2",
     "localforage": "^1.5.2",
     "marked": "^0.3.6",
     "matchmedia": "^0.1.2",
@@ -53,9 +53,9 @@
     "react-promise": "^2.0.0",
     "react-radio-group": "^3.0.2",
     "react-select": "^1.0.0-rc.10",
-    "react-table": "^6.7.4",
+    "react-table": "6.7.4",
     "react-timeseries-charts": "0.12.8",
-    "recharts": "^1.0.0-beta.0",
+    "recharts": "1.0.0-beta.0",
     "stylus": "^0.54.5"
   },
   "keywords": [

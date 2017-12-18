@@ -73,7 +73,6 @@ const Content = (props: tPROPS) => {
           }
 
           if (words === 'visualization') {
-            console.log('words: visualization', meta)
             return (
               <InteractiveInfographic
                 infographicDefinitions={infographicDefinitions}
@@ -85,10 +84,10 @@ const Content = (props: tPROPS) => {
           }
 
           if (words === 'infographic') {
-            console.log('words: visualization', meta)
             return (
               <InfographicContainer
                 { ...props }
+                key={i}
               />
             )
           }

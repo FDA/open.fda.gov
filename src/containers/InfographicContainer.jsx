@@ -4,7 +4,6 @@ import React from 'react'
 
 import SideBar from '../components/SideBar'
 import Infographic from '../components/Infographic'
-import InfographicExplorer from '../components/InfographicExplorer'
 import xhrGET from '../utils/xhr'
 import { API_LINK } from '../constants/api'
 
@@ -365,25 +364,19 @@ class InfographicContainer extends React.Component {
     const infographicKeys: Array<string> = Object.keys(this.state.infographics)
 
     return (
-        <section className='float-r infographic-container' style={{paddingTop: 25}}>
+        <section className='float-r infographic-container infographic-container-pad-1'>
           <Infographic
             { ...this.props }
             { ...this.state }
-            onSearchChange={this._update.bind(this)}
+            onSearchChangeUpdate={this._update.bind(this)}
+            onSearchChange={this._onSearchChange.bind(this)}
             records={this.state.matchingRecords}
             handler={this._tabToggle.bind(this)}
+            onKeyPress={this._onKeyPress.bind(this)}
+            onCountChange={this._onCountChange.bind(this)}
+            onCountChangeAndUpdate={this._onCountChangeAndUpdate.bind(this)}
             container={this}
           />
-          <div className='m-hide'>
-            <InfographicExplorer
-              { ...this.props }
-              { ...this.state }
-              onKeyPress={this._onKeyPress.bind(this)}
-              onSearchChange={this._onSearchChange.bind(this)}
-              onCountChange={this._onCountChange.bind(this)}
-              onCountChangeAndUpdate={this._onCountChangeAndUpdate.bind(this)}
-            />
-          </div>
         </section>
     )
   }
