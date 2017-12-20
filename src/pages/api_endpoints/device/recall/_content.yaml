@@ -1,44 +1,70 @@
-- "## About device recalls"
-- "A recall is an action taken to address a problem with a medical device that violates FDA law. Recalls occur when a medical device is defective, when it could be a risk to health, or when it is both defective and a risk to health. Recall as defined in 21 CFR 7.3(g) is “a firm’s removal or correction of a marketed product that the Food and Drug Administration considers to be in violation of the laws it administers and against which the agency would initiate legal action, e.g., seizure. Recall does not include a market withdrawal or a stock recovery.” If a firm conducts a recall to reduce a risk to health, the firm is required to submit a written report to the FDA with the information described in 21 CFR 806.10."
-- "For additional information, see [here](http://www.fda.gov/MedicalDevices/Safety/ListofRecalls/ucm329946.htm)."
-- visualization
-- infographic
-- "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/device/recall.json` using search parameters for fields specific to the device recalls endpoint."
-- queryExplorer: oneReport
-- queryExplorer: regulationNumber
-- queryExplorer: topProductCodes
-- "## Data reference"
-- "### Downloads"
-- "downloads"
-- "### How records are organized"
-- "Example:"
-- example: record
-- "## Anatomy of a response"
-- "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."
-- example: anatomy
-- "### Meta"
-- "For non-`count` queries, the `meta` section includes a disclaimer, a link to the openFDA data license, and information about the results that follow."
-- example: meta
-- fields:
-  - meta.disclaimer
-  - meta.license
-  - meta.last_updated
-  - meta.results.skip
-  - meta.results.limit
-  - meta.results.total
-- "### Results"
-- "For non-`count` queries, the `results` section includes matching adverse event reports returned by the API."
-- "## Field-by-field reference"
-- fields:
-  - event_date_terminated
-  - firm_fei_number
-  - product_code
-  - res_event_number
-  - root_cause_description
-  - k_numbers
-  - pma_numbers
-  - other_submission_description
-- "## OpenFDA"
-- fields:
-  - openfda
+- "## Overview":
+  - "A recall is an action taken to address a problem with a medical device that violates FDA law. Recalls occur when a medical device is defective, when it could be a risk to health, or when it is both defective and a risk to health."
+  - "Recall as defined in 21 CFR 7.3(g) is “a firm’s removal or correction of a marketed product that the Food and Drug Administration considers to be in violation of the laws it administers and against which the agency would initiate legal action, e.g., seizure. Recall does not include a market withdrawal or a stock recovery.” If a firm conducts a recall to reduce a risk to health, the firm is required to submit a written report to the FDA with the information described in 21 CFR 806.10."
+  - "For additional background information about medical device recalls, see [here](https://www.fda.gov/MedicalDevices/Safety/ListofRecalls/ucm329946.htm)."
+  - visualization
+
+  - "#### Key facts":
+    - ul:
+      - "**Source of the data:**"
+      - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
+      - "**What time period is covered in this API:** 2002 to present"
+      - "**How often is the data in this API updated:**"
+      - "**Date last updated:** 11/17/2007"
+
+  - "### Responsible use of the data":
+    - "Adverse event reports submitted to FDA do not undergo extensive validation or verification. Therefore, **a causal relationship cannot be established between product and reactions listed in a report.** While a suspected relationship *may* exist, it is not medically validated and should not be the sole source of information for clinical decision making or other assumptions about the safety or efficacy of a product."
+    - "Additionally, it is important to remember that adverse event reports represent a small percentage of total usage numbers of a product. Common products may have a higher number of adverse events due to the higher total number of people using the product. In recent years the FDA has undertaken efforts to increase collection of adverse events. Increases in the total number of adverse events is likely caused by improved reporting."
+
+  - "### Disclaimer":
+    - "This data should not be used as a method to collect data to issue alerts to the public, nor should it be used to track the lifecycle of a recall. FDA seeks publicity about a recall only when it believes the public needs to be alerted to a serious hazard. FDA works with industry and our state partners to publish press releases and other public notices about recalls that may potentially present a significant or serious risk to the consumer or user of the product. Subscribe to this [Recall/Safety Alert feed here](http://www.fda.gov/AboutFDA/ContactFDA/StayInformed/RSSFeeds/Recalls/rss.xml)."
+    - "Further, FDA does not update the status of a recall after the recall has been classified according to its level of hazard. As such, the status of a recall (open, completed, or terminated) will remain unchanged after published in the Enforcement Reports."
+    - "When necessary, the FDA will make corrections or changes to recall information previously disclosed in a past Enforcement Report for various reasons. For instance, the firm may discover that the initial recall should be expanded to include more batches or lots of the same recalled product than formerly reported. For more information about corrections or changes implemented, please refer to the [Enforcement Report’s Changes to Past Enforcement Reports page](http://www.fda.gov/Safety/Recalls/EnforcementReports/ucm345487.htm)."
+
+- "## How to use the API":
+  - "Getting started with and learning how to use the API is relatively straightforward. Here are some recommended steps:"
+  - "*1.* If you haven’t already, [read the API Basics page](/getting_started/api_basics/)."
+  - "*2.* Review the [list of searchable fields](#searchable-fields) for this dataset."
+  - "*3.* Try out the Device Recall API using the [interactive examples](#using-the-interactive-chart-to-learn-the-API) and tools below."
+  - "Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the [API Reference page](/getting_started/api_basics/reference/)."
+
+  - "### Making a simple API call":
+    - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."
+    - "In the example below, we are searching the records in the drug adverse events endpoint for matches with 'Device Design' in the 'root_case_description' field. We are requesting to see the first 5 records that match."
+    - "image=/img/device_recall_query.png"
+
+  - "#### Some key pointers":
+    - ul:
+      - "An openFDA API query always begins with the base endpoint, which in this case is: https://api.fda.gov/device/recall.json"
+      - "Searches have a special syntax: `search=field:term`."
+      - "Unless otherwise specified, the API will return only one matching record for a search. You can specify the number of records to be returned by using the limit parameter. The maximum limit allowed is 99 for any single API call. If no limit is set, the API will return one matching record."
+
+  - "#### Some advanced topics":
+    - "It is possible to construct very complex queries using the openFDA API. See the [API Basics page](/getting_started/api_basics/) to learn more about all the available query parameters, how to handle quotations, spaces, phrase matches, and groupings, how to search on dates and ranges, and more."
+    - "Here are a few additional tips just to get you started"
+    - ul:
+      - "`search=field:term+AND+field:term`: Search for records that match both terms"
+      - "`search=field:term+field:term`: Search for records that match either of the two terms"
+      - "`count=field`: Use the count parameter to count how often a term appears in the dataset"
+      - "`search=field:term&count=another_field`: Search for matching records. Then within that set of records, count the number of times that the unique values of a field appear. Instead of looking at individual records, you can use the [count] parameter to count how often certain terms (like drug names or patient reactions) appear in the matching set of records."
+
+  - "### Example API Queries":
+    - "To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box."
+    - queryExplorer: oneReport
+    - queryExplorer: regulationNumber
+    - queryExplorer: topProductCodes
+
+  - "### Explore the API with an interactive chart":
+    - "Use the interactive chart below to explore the dataset and to learn how you can construct different API queries."
+
+  - "### Understanding the API Results":
+    - 'For `search` queries (such as: [https://api.fda.gov/device/recall.json?search=product_code:FOZ](https://api.fda.gov/device/recall.json?search=product_code:FOZ), the `results` section includes matching recall reports returned by the API.'
+    - example: anatomy
+    - "For count queries (such as: [https://api.fda.gov/device/recall.json?count=product_code)](https://api.fda.gov/device/recall.json?count=product_code))), the results section will look something like the following:"
+    - example: count
+
+- "## Download the dataset":
+  - "downloads"
+
+- "## Searchable Fields":
+  - "FieldExplorer"

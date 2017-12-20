@@ -45,5 +45,27 @@
     "code_info": "all products that has a plant code of \"38-25\".",
     "openfda": {},
     "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit"
+  },
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2017-12-02"
+    },
+    "results": [
+      {
+        "term": "Voluntary: Firm Initiated",
+        "count": 14149
+      },
+      {
+        "term": "FDA Mandated",
+        "count": 282
+      },
+      {
+        "term": "Voluntary: FDA Requested",
+        "count": 9
+      }
+    ]
   }
 }
