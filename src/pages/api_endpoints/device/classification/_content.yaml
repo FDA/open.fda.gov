@@ -4,7 +4,7 @@
   - "The **openFDA Device Classification API** contains medical device names, their associated product codes, their medical specialty areas (panels) and their classification. The name and product code identify the generic category of a device for FDA. The product code assigned to a device is based upon the medical device product classification designated under 21 CFR Parts 862-892."
   - "For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/default.htm)."
   - visualization
-  - infographic
+  
 
   - "### Responsible use of the data":
     - "Adverse event reports submitted to FDA do not undergo extensive validation or verification. Therefore, **a causal relationship cannot be established between product and reactions listed in a report.** While a suspected relationship *may* exist, it is not medically validated and should not be the sole source of information for clinical decision making or other assumptions about the safety or efficacy of a product."
@@ -20,6 +20,8 @@
   - "*2.* Review the [list of searchable fields](#searchable-fields) available in the drug adverse event dataset."
   - "*3.* Try out the Device Classification API using the [interactive examples](#using-the-interactive-chart-to-learn-the-API) and tools below."
   - "Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the [API Reference page](/getting_started/api_basics/reference/)."
+
+  - infographic
 
   - "### Making a simple API call":
     - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."
