@@ -56,6 +56,7 @@
     "react-table": "6.7.4",
     "react-timeseries-charts": "0.12.8",
     "recharts": "1.0.0-beta.0",
+    "scroll-into-view": "^1.9.1",
     "stylus": "^0.54.5"
   },
   "keywords": [

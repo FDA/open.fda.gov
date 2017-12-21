@@ -7,6 +7,7 @@ import $ from 'jquery'
 import ARIA from '../../constants/aria'
 import RenderContentObject from '../RenderContentObject'
 import ApiKey from '../ApiKey'
+var scrollIntoView = require('scroll-into-view');
 
 /**
  * @description [semantic menu means no links. we don't leave the page]
@@ -22,9 +23,14 @@ const _scrollIntoView = e => {
   // but, it works and is easy, and isn't visible to the user
   const id: string = e.target.textContent.replace(/(\s|\W)/g, '-').toLowerCase()
   const el: ?Object = document.getElementById(id)
-  return el && el.scrollIntoView({
-    behavior: 'smooth',
-    block: 'center'
+  scrollIntoView(el, {
+    align:{
+      top: 0.16,
+      left: 0
+    },
+    ease: function(value){
+      return 1 - Math.pow(1 - value, value / 5);
+    }
   })
 }
 
