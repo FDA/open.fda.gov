@@ -65,6 +65,7 @@
 
   - "### Explore the API with an interactive chart":
     - "Use the interactive chart below to explore the dataset and to learn how you can construct different API queries."
+    - infographic
 
   - "### Understanding the API Results":
     - 'For `search` queries (such as: [https://api.fda.gov/device/enforcement.json?search=classification:"Class+III"](https://api.fda.gov/device/enforcement.json?search=classification:"Class+III"), the `results` section includes matching enforcement reports returned by the API.'

@@ -26,7 +26,7 @@
   - "### Making a simple API call":
     - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."
     - "In the example below, we are searching the records in the drug adverse events endpoint for matches with 'HQY' in the 'products.product_code' field. We are requesting to see the first 5 records that match."
-    - "image=/pages/img/device_reglist_query.png"
+    - "image=/img/device_reglist_query.png"
 
   - "#### Some key pointers":
     - ul:

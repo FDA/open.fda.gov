@@ -149,7 +149,6 @@ const ContentAccordion = (props: tPROPS) => {
               }
 
               if (content === 'infographic' && infographics) {
-                console.log('content: infographic', meta)
                 return (
                   <InfographicContainer
                     { ...props }
@@ -162,7 +161,6 @@ const ContentAccordion = (props: tPROPS) => {
               }
 
               if (content === 'visualization') {
-                console.log('content: visualization', meta)
                 return (
                   <InteractiveInfographic
                     infographicDefinitions={infographicDefinitions}
@@ -176,9 +174,8 @@ const ContentAccordion = (props: tPROPS) => {
               if (content.includes("image=")){
                 return (
                   <img
-                    src={content.split("=")[0]}
+                    src={content.split("=")[1]}
                     key={j}
-                    className='fda-logo'
                   />
                 )
               }

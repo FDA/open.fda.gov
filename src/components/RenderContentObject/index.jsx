@@ -124,6 +124,7 @@ const RenderContentObject = (props: tPROPS) => {
                     k={i}
                     obj={content}
                     key={i}
+                    onClick={onClick}
                     isMenu
                   />
                 )
@@ -150,20 +151,6 @@ const RenderContentObject = (props: tPROPS) => {
         </div>
       )
     }
-
-    // else just return title cased header
-    // onClick === _scrollIntoView in ReferenceMenu
-    return (
-      <button
-        className={linkCx}
-        key={`menu-${k}`}
-        style={{
-          background: 'transparent',
-        }}
-        onClick={onClick}>
-        {key}
-      </button>
-    )
   }
 
 

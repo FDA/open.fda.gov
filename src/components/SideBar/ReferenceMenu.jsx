@@ -24,8 +24,7 @@ const _scrollIntoView = e => {
   const el: ?Object = document.getElementById(id)
   return el && el.scrollIntoView({
     behavior: 'smooth',
-    block: 'start',
-    inline: 'nearest'
+    block: 'center'
   })
 }
 
