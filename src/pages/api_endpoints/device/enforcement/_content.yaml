@@ -2,14 +2,14 @@
   - "The openFDA device enforcement reports API returns data from the FDA Recall Enterprise System (RES), a database that contains information on recall event information submitted to FDA. Currently, this data covers publicly releasable records from 2004-present. The data is updated weekly."
   - "The procedures followed to input recall information into RES when FDA learns of a recall event are outlined in Chapter 7 of FDA’s Regulatory Procedure Manual. The Regulatory Procedures Manual is a reference manual for FDA personnel. It provides FDA personnel with information on internal procedures to be used in processing domestic and import regulatory and enforcement matters."
   - visualization
+  - infographic
 
-  - "#### Key facts":
+  - "### Key facts":
     - ul:
       - "**Source of the data:** [FDA Recall Enterprise System (RES)](/data/res/)"
       - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
       - "**What time period is covered in this API:** 2004 to present"
       - "**How often is the data in this API updated:** Weekly."
-      - "**Date last updated:** 11/17/2007"
 
   - "#### Additional Information About Medical Device Recalls and Enforcement Reports":
     - "Recalls are an appropriate alternative method for removing or correcting marketed consumer products, their labeling, and/or promotional literature that violate the laws administered by the Food and Drug Administration (FDA). Recalls afford equal consumer protection but generally are more efficient and timely than formal administrative or civil actions, especially when the product has been widely distributed."

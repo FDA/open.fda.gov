@@ -1,6 +1,7 @@
 - "## Overview":
   - "This is the openFDA API endpoint for all food product recalls monitored by the FDA. The openFDA food enforcement reports API returns data from the [FDA Recall Enterprise System (RES)](/data/res/), a database that contains information on recall event information submitted to FDA. Currently, this data covers publically releasable records from 2004-present. The data is updated weekly."
   - visualization
+  - infographic
 
   - "#### Key facts":
     - ul:
@@ -8,7 +9,6 @@
       - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
       - "**What time period is covered in this API:** 2004 to present"
       - "**How often is the data in this API updated:** Weekly."
-      - "**Date last updated:** 11/17/2007"
 
   - "#### Additional Information About Food Recalls and Enforcement Reports":
     - "When an FDA-regulated product is either defective or potentially harmful, recalling that product—removing it from the market or correcting the problem—is the most effective means for protecting the public."

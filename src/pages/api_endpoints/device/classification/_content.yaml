@@ -6,6 +6,13 @@
   - visualization
   - infographic
 
+  - "### Key facts":
+    - ul:
+      - "**Source of the data:** "
+      - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
+      - "**What time period is covered in this API:** "
+      - "**How often is the data in this API updated:** "
+
   - "### Responsible use of the data":
     - "Adverse event reports submitted to FDA do not undergo extensive validation or verification. Therefore, **a causal relationship cannot be established between product and reactions listed in a report.** While a suspected relationship *may* exist, it is not medically validated and should not be the sole source of information for clinical decision making or other assumptions about the safety or efficacy of a product."
     - "Additionally, it is important to remember that adverse event reports represent a small percentage of total usage numbers of a product. Common products may have a higher number of adverse events due to the higher total number of people using the product. In recent years the FDA has undertaken efforts to increase collection of adverse events. Increases in the total number of adverse events is likely caused by improved reporting."
@@ -24,7 +31,7 @@
   - "### Making a simple API call":
     - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."
     - "In the example below, we are searching the records in the drug adverse events endpoint for matches with 'NOB' in the 'product_code' field. We are requesting to see the first 5 records that match."
-    - "image=/img/device_classification.png"
+    - "image=/img/device_classification_query.png"
 
   - "#### Some key pointers":
     - ul:

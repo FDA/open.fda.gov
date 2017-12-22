@@ -1,6 +1,7 @@
 - "## Overview":
   - "The openFDA food, dietary supplements, and cosmetic adverse event API returns data from the [Center for Food Safety and Applied Nutrition Adverse Event Reporting System (CAERS)](/data/caers/), a database that contains information on adverse event and product complaint reports submitted to FDA for foods, dietary supplements, and cosmetics. The database is designed to support CFSAN's safety surveillance program."
   - visualization
+  - infographic
 
   - "#### Key facts":
     - ul:
@@ -8,7 +9,6 @@
       - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
       - "**What time period is covered in this API:** 2004 to present"
       - "**How often is the data in this API updated:** Quarterly."
-      - "**Date last updated:** 11/17/2007"
 
   - "#### Additional Information About Food, Dietary Supplement, and Cosmetic Adverse Events":
     - "The U.S. Food and Drug Administration (FDA) regulates food products in the United States, working to assure that the food supply is safe, sanitary, wholesome, and honestly labeled. FDA's responsibility covers all domestic and imported food except meat, poultry, and frozen, dried, and liquid eggs, and the labeling of alcoholic beverages (above 7% alcohol). It even includes dietary supplements, bottled water, food additives, infant formulas, and other food products. The FDA also regulates all cosmetic products and ingredients in the United States, including hair products, makeup, soaps, and lotions."

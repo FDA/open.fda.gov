@@ -3,6 +3,14 @@
   - "The procedures followed to input recall information into RES when FDA learns of a recall event are outlined in [Chapter 7 of FDA’s Regulatory Procedure Manual](http://www.fda.gov/ICECI/ComplianceManuals/RegulatoryProceduresManual/ucm177304.htm). The Regulatory Procedures Manual is a reference manual for FDA personnel. It provides FDA personnel with information on internal procedures to be used in processing domestic and import regulatory and enforcement matters."
   - visualization
   - infographic
+
+  - "### Key facts":
+    - ul:
+      - "**Source of the data:**"
+      - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
+      - "**What time period is covered in this API:** 2002 to present"
+      - "**How often is the data in this API updated:**"
+
   - "#### Additional Information About Drug Recall Enforcement Reports":
     - "When an FDA-regulated product is either defective or potentially harmful, recalling that product—removing it from the market or correcting the problem—is the most effective means for protecting the public."
     - "Recalls are almost always voluntary, meaning a company discovers a problem and recalls a product on its own. Other times a company recalls a product after FDA raises concerns. Only in rare cases will FDA request or order a recall. But in every case, FDA's role is to oversee a company's strategy, classify the recalled products according to the level of hazard involved, and assess the adequacy of the recall. Recall information is posted in the Enforcement Reports once the products are classified."
