@@ -17,6 +17,7 @@ properties:
       type: string
       pattern: ^[0-9]{11}$
       description: "The NDC11 is a transformed version of the segmented NDC code using the algorithm defined by the National Council for Prescription Drug Programs (NCPDP). Three segment NHRIC codes have also been transformed following the same algorithm. Two segment NHRIC and ISBT codes have not been transformed."
+      hide: true
       possible_values:
   proprietary_name:
     type: array
@@ -53,6 +54,7 @@ properties:
       type: string
       pattern:
       description: "Some types of marketing categories may be associated with FDA assigned numbers (e.g., NDA123456) or regulatory citations (e.g., part348)."
+      hide: true
       possible_values:
   product_type:
     type: array
@@ -94,6 +96,7 @@ properties:
     format:
     type: object
     description: 'This section contains a disclaimer and license information. The field `last_updated` indicates when the data files were exported.'
+    hide: true
     possible_values:
     properties:
       type: object
@@ -103,6 +106,7 @@ properties:
         type: string
         pattern:
         description: "Important details notes about openFDA data and limitations of the dataset."
+        hide: true
         possible_values:
       license:
         format:
@@ -110,6 +114,7 @@ properties:
         type: string
         pattern:
         description: "Link to a web page with license terms that govern data within openFDA."
+        hide: true
         possible_values:
       last_updated:
         format: date
@@ -117,6 +122,7 @@ properties:
         type: string
         pattern:
         description: "The last date when this openFDA endpoint was updated. Note that this does not correspond to the most recent record for the endpoint or dataset. Rather, it is the last time the openFDA API was itself updated."
+        hide: true
         possible_values:
       results:
         type: object
@@ -127,6 +133,7 @@ properties:
             type: number
             pattern:
             description: "Offset (page) of results, defined by the `skip` [query parameter](/api/)."
+            hide: true
             possible_values:
           limit:
             format: int64
@@ -134,6 +141,7 @@ properties:
             type: number
             pattern:
             description: "Number of records in this return, defined by the `limit` [query parameter](/api/). If there is no `limit` parameter, the API returns one result."
+            hide: true
             possible_values:
           total:
             format: int64
@@ -141,5 +149,6 @@ properties:
             type: number
             pattern:
             description: "Total number of records matching the search criteria."
+            hide: true
             possible_values:
 type: object
