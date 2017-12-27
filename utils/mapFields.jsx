@@ -39,6 +39,11 @@ const getFieldNamesAndChartTypes = function (fields: Object): Object {
       return
     }
 
+    const hidden: boolean = (val.items && val.items.hide)
+    if (hidden) {
+      return
+    }
+
     // because of recursion
     // we should be looking at an individual field at this point
     // if not array/object, checking .is_exact is enough

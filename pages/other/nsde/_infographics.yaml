@@ -5,14 +5,10 @@
     - "NSDE provides marketing information for OTC and prescription drugs for both humans and animals, as demonstrated below."
   countParam: "product_type"
   filters:
-    - title: "All NSDE product types"
+    - title: "All NSDE records by product type"
       searchParam: ''
-    - title: "Human Drugs on the market"
-      searchParam: '(product_type:"HUMAN OTC DRUG"+product_type:"HUMAN PRESCRIPTION DRUG")+AND+_missing_:"marketing_end_date"'
-    - title: "Human Drugs off the market"
-      searchParam: '(product_type:"HUMAN OTC DRUG"+product_type:"HUMAN PRESCRIPTION DRUG")+AND+_exists_:"marketing_end_date"'
-    - title: "Animal Drugs on the market"
-      searchParam: '(product_type:"OTC ANIMAL DRUG"+product_type:"PRESCRIPTION ANIMAL DRUG")+AND+_missing_:"marketing_end_date"'
-    - title: "Animal Drugs off the market"
-      searchParam: '(product_type:"OTC ANIMAL DRUG"+product_type:"PRESCRIPTION ANIMAL DRUG")+AND+_exists_:"marketing_end_date"'
+    - title: "Drugs on the market"
+      searchParam: '_missing_:"marketing_end_date"'
+    - title: "Drugs off the market"
+      searchParam: '_exists_:"marketing_end_date"'
   type: Line

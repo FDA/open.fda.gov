@@ -3,16 +3,17 @@ properties:
     type: array
     items:
       format:
-      is_exact: true
+      is_exact: false
       type: string
       pattern: ^[0-9]{5,4}-[0-9]{4,3}-[0-9]{1,2}$
       description: "This number, known as the NDC, identifies the labeler, product, and trade package size. The first segment, the labeler code, is assigned by the FDA. A labeler is any firm that manufactures (including repackers or relabelers), or distributes (under its own name) the drug."
+      hide: true
       possible_values:
   package_ndc11:
     type: array
     items:
       format:
-      is_exact: true
+      is_exact: false
       type: string
       pattern: ^[0-9]{11}$
       description: "The NDC11 is a transformed version of the segmented NDC code using the algorithm defined by the National Council for Prescription Drug Programs (NCPDP). Three segment NHRIC codes have also been transformed following the same algorithm. Two segment NHRIC and ISBT codes have not been transformed."
@@ -21,7 +22,7 @@ properties:
     type: array
     items:
       format:
-      is_exact: true
+      is_exact: false
       type: string
       pattern:
       description: "Also known as the trade name. It is the name of the product chosen by the author."
@@ -30,7 +31,7 @@ properties:
     type: array
     items:
       format:
-      is_exact: true
+      is_exact: false
       type: string
       pattern:
       description: "This column contains the dosage form as manufactured."
@@ -39,7 +40,7 @@ properties:
     type: array
     items:
       format:
-      is_exact: true
+      is_exact: false
       type: string
       pattern:
       description: "The author chooses a category that most closely describes the FDA regulations for marketing the product."
@@ -57,7 +58,7 @@ properties:
     type: array
     items:
       format:
-      is_exact: true
+      is_exact: false
       type: string
       pattern:
       description: "The author chooses a type that most closely describes the product (e.g., Vaccine) associated with the SPL document."
@@ -84,7 +85,7 @@ properties:
     type: array
     items:
       format:
-      is_exact: true
+      is_exact: false
       type: string
       pattern:
       description: "The National Council for Prescription Drug Programs (NCPDP) developed the Billing Unit Standard to assist in consistent and accurate billing of pharmaceutical products. Information on the NCPDP Billing Unit Standard may be found at http://www.ncpdp.org/PDF/BUS_overview.pdfdisclaimer icon. This column may contain a NCPDP Billing Unit (GM, ML or EA)."
