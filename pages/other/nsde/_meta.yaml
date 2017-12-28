@@ -1,0 +1,10 @@
+documentTitle: openFDA › Other › NSDE API
+name: NSDE
+description: ""
+datasets:
+  - NSDE
+label: NSDE
+path: /other/nsde
+start: 20090601
+dateConstraintKey: marketing_start_date
+type: endpoint

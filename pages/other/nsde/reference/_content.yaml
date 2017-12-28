@@ -1,0 +1,40 @@
+- "## About"
+- The openFDA NSDE API returns data from the [FDA Comprehensive NDC SPL Data Elements](https://www.fda.gov/forindustry/datastandards/structuredproductlabeling/ucm240580.htm) (NSDE) file. This file is for products in final marketed form.
+- "downloads"
+- "## Anatomy of a response"
+- "This is a simulated openFDA API return for a non-`count` query. It is divided into two high-level sections, `meta` and `results`."
+- example: anatomy
+- "### Meta"
+- "For non-`count` queries, the `meta` section includes a disclaimer, a link to the openFDA data license, and information about the results that follow."
+- example: meta
+- fields:
+  - meta.disclaimer
+  - meta.license
+  - meta.last_updated
+  - meta.results.skip
+  - meta.results.limit
+  - meta.results.total
+- "### Results"
+- "For non-`count` queries, the `results` section includes matching adverse event reports returned by the API."
+- "#### Field order"
+- Fields are ordered naturally, as they were found in the original document. Expect variation in field order from product to product.
+- "## Field-by-field reference"
+- Fields and their contents will vary from product to product. There are major differences between prescription drugs and OTC drugs, for example. The following descriptions are as accurate as possible but do not cover all the potential variation among field contents.
+- This page groups fields conceptually for ease of reference. In API results, fields will be ordered naturally as in the product labeling submission.
+- "### Product Information"
+- "These fields relate to the product itself."
+- example: results
+- fields:
+  - package_ndc
+  - package_ndc11
+  - dosage_form
+  - product_type
+  - proprietary_name
+  - application_number_or_citation
+- "### Marketing Information"
+- fields:
+  - marketing_category
+  - marketing_start_date
+  - marketing_end_date
+  - billing_unit
+- "datasets"
