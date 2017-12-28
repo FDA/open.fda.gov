@@ -21,6 +21,10 @@ export default ({ route }: PROPS) => (
       <table>
         <tbody style={{fontFamily: "times-new-roman"}}>
           <tr>
+            <td><Link to="/other/nsde/">New openFDA Dataset:  NSDE – Medicare Part D Prescription Drug Event Editing & Coverage Gap Discount Program</Link></td>
+            <td>December 28, 2017</td>
+          </tr>
+          <tr>
             <td><Link to="/update/openfda-limit-increased/">OpenFDA Query Result Limit Increased</Link></td>
             <td>August 29, 2017</td>
           </tr>
