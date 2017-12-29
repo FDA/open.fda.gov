@@ -5,11 +5,7 @@
   - infographic
 
   - "### Key facts":
-    - ul:
-      - "**Source of the data:**"
-      - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
-      - "**What time period is covered in this API:** 2002 to present"
-      - "**How often is the data in this API updated:**"
+    - key_facts
 
   - "#### Additional Information About Drug Recall Enforcement Reports":
     - "When an FDA-regulated product is either defective or potentially harmful, recalling that product—removing it from the market or correcting the problem—is the most effective means for protecting the public."

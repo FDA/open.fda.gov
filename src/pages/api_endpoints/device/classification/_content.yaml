@@ -7,11 +7,7 @@
   - infographic
 
   - "### Key facts":
-    - ul:
-      - "**Source of the data:** "
-      - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
-      - "**What time period is covered in this API:** "
-      - "**How often is the data in this API updated:** "
+    - key_facts
 
   - "### Responsible use of the data":
     - "Adverse event reports submitted to FDA do not undergo extensive validation or verification. Therefore, **a causal relationship cannot be established between product and reactions listed in a report.** While a suspected relationship *may* exist, it is not medically validated and should not be the sole source of information for clinical decision making or other assumptions about the safety or efficacy of a product."

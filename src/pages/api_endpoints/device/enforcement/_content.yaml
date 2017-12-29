@@ -5,11 +5,7 @@
   - infographic
 
   - "### Key facts":
-    - ul:
-      - "**Source of the data:** [FDA Recall Enterprise System (RES)](/data/res/)"
-      - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
-      - "**What time period is covered in this API:** 2004 to present"
-      - "**How often is the data in this API updated:** Weekly."
+    - key_facts
 
   - "#### Additional Information About Medical Device Recalls and Enforcement Reports":
     - "Recalls are an appropriate alternative method for removing or correcting marketed consumer products, their labeling, and/or promotional literature that violate the laws administered by the Food and Drug Administration (FDA). Recalls afford equal consumer protection but generally are more efficient and timely than formal administrative or civil actions, especially when the product has been widely distributed."

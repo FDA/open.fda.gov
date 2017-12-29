@@ -4,11 +4,7 @@
   - infographic
 
   - "### Key facts":
-    - ul:
-      - "**Source of the data:** [FDA Adverse Event Reporting System (FAERS)](/data/faers/)"
-      - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
-      - "**What time period is covered in this API:** Currently, this API includes publically releasable records submitted to the FDA through FAERS since 2004"
-      - "**How often is the data in this API updated:** Quarterly. However, please be advised that the data in this API may lag by 3 months or more at any given time, depending on when the quarterly FAERS data is released."
+    - key_facts
 
   - "#### About FAERS data":
     - "An adverse event is submitted to the FDA to report any undesirable experience associated with the use of a medical product in a patient. For drugs, this includes serious drug side effects, product use errors, product quality problems, and therapeutic failures for prescription or over-the-counter medicines and medicines administered to hospital patients or at outpatient infusion centers."

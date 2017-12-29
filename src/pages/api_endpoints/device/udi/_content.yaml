@@ -6,11 +6,7 @@
   - infographic
 
   - "### Key facts":
-    - ul:
-      - "**Source of the data:** "
-      - "**Changes to the source data:** OpenFDA annotates the original records with [special fields](#openfda-fields) and converts the data into JSON, which is a widely used machine readable format."
-      - "**What time period is covered in this API:** "
-      - "**How often is the data in this API updated:** "
+    - key_facts
 
   - "### Responsible use of the data":
     - "Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products. We may limit or otherwise restrict your access to the API in line with our [Terms of Service](http://open.fda.gov-website-redesign.s3-website-us-east-1.amazonaws.com/terms/)"

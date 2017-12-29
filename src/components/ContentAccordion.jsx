@@ -6,6 +6,7 @@ import Downloads from './Downloads'
 import MultipleProductTable from './MultipleProductTable'
 import RenderContentObject from './RenderContentObject'
 import FieldExplorer from './FieldExplorer'
+import KeyFacts from './RenderContentObject/KeyFacts'
 import InteractiveInfographic from './InteractiveInfographic'
 import InfographicContainer from '../containers/InfographicContainer'
 
@@ -175,6 +176,16 @@ const ContentAccordion = (props: tPROPS) => {
                 return (
                   <img
                     src={content.split("=")[1]}
+                    key={j}
+                  />
+                )
+              }
+
+              if (content.includes('key_facts')){
+                return (
+                  <KeyFacts
+                    noun_name={meta.api_path.split("/")[1]}
+                    endpoint_name={meta.api_path.split("/")[2]}
                     key={j}
                   />
                 )
