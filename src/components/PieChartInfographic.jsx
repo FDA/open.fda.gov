@@ -29,7 +29,7 @@ class PieChartInfographic extends React.Component {
 
 
     const now = new Date()
-    const currentYear = now.getFullYear()
+    const currentYear = 2017
     const maxTime = new Date(currentYear+1,1,1)
     const minTime = new Date(this.props.infographicDefinitions.startYear,1,1);
 

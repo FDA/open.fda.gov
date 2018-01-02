@@ -27,7 +27,7 @@ class DataMapInfographic extends React.Component {
     }
     const startYear = this.props.infographicDefinitions.startYear
     const now = new Date()
-    const currentYear = now.getFullYear()
+    const currentYear = 2017
     const years = _.range(startYear, currentYear+1)
     const slider_marks = years.slice(1,100).reduce(function(result, item, index, array) {
       result[item] = item;
