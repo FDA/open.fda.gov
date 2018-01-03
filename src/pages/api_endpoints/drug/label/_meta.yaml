@@ -1,6 +1,6 @@
 documentTitle: openFDA › Drugs › Labeling API
 name: Drug Labeling
-description: ""
+description: "Drug product information provided by manufacturers and distributors in the Structured Product Label (SPL) format."
 datasets:
   - SPL
 label: Drug labeling
