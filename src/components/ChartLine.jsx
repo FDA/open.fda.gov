@@ -3,7 +3,7 @@
 import React from 'react'
 import Charts from 'react-chartjs'
 import get from 'lodash/get'
-import ChartBar from './ChartBar'
+import { default as ChartBar } from './ChartBar'
 
 const Line: ReactClass = Charts.Line
 
@@ -82,12 +82,21 @@ const _getChartData = (years: Array<string>, totalsByYear: Array<number>) => {
     labels: years,
     datasets: [{
       data: totalsByYear,
-      fillColor: 'rgba(17, 46, 81, .3)',
-      strokeColor: '#112e51',
-      pointColor: '#112e51',
+      // area fill color and transparency
+      fillColor: 'rgba(107, 218, 255, .3)',
+      // line color
+      strokeColor: '#1ECFFF',
+      // point color
+      pointColor: '#1ECFFF',
       pointStrokeColor: '#112e51',
       pointHighlightFill: '#fff',
       pointHighlightStroke: '#112e51',
+      // fillColor: 'rgba(17, 46, 81, .3)', B22222
+      // strokeColor: '#112e51',
+      // pointColor: '#112e51',
+      // pointStrokeColor: '#112e51',
+      // pointHighlightFill: '#fff',
+      // pointHighlightStroke: '#112e51',
     }],
   }
 }
@@ -96,11 +105,9 @@ type PROPS = {
   countParam: string;
   data: Array<Object>;
   height: string;
-  fields: Array<Object>;
   width: string;
+  fields: Array<Object>;
 };
-
-let previousChartData: Object = {}
 
 
 /**
@@ -111,93 +118,94 @@ let previousChartData: Object = {}
  * @param  {boolean} fields     [all data for endpoint]
  * @param  {number} width       [width in px to render]
  */
-const ChartLine = ({ countParam, data, height, fields, width, }: PROPS) => {
-  const years: Array<string> = _getYearsInData(data)
-  let recordsByYear: Object = {}
-  let totalsByYear: Array<number> = [0]
+// const ChartLine = ({ countParam, data, height, fields, width, }: PROPS) => {
 
-  // not every line chart is necessarily date based
-  if (years) {
-    recordsByYear = _getRecordsByYear(data, years)
-    totalsByYear = _getTotalsByYear(recordsByYear)
+class ChartLine extends React.Component {
+
+  constructor (props: Object) {
+    super(props)
   }
 
-  // we keep track so we don't redraw unnecessarily
-  // chartjs normally takes care of this on it's own
-  // but because we toggle animations on / off to prevent
-  // sluggishness / bugginess with big datasets
-  // we have to check ourselves and then force redraw
-  // sometimes this results in non-responsiveness
-  // but it is better than the alternative -
-  // sluggishness that persists until the user refreshes
-  const currChartData: Object = previousChartData
-  const nextChartData: Object = _getChartData(years, totalsByYear)
-  previousChartData = nextChartData
+  render (): ?React.Element {
+    let previousChartData: Object = {}
+    const years: Array<string> = _getYearsInData(this.props.data)
+    let recordsByYear: Object = {}
+    let totalsByYear: Array<number> = [0]
+    const height = parseInt(this.props.height)
+    const width = parseInt(this.props.width)
 
-  let dataChanged: boolean = false
-  const cData: Array<number> = get(currChartData, 'datasets[0].data')
-  const nData: Array<number> = get(nextChartData, 'datasets[0].data')
+    // not every line chart is necessarily date based
+    if (years) {
+      recordsByYear = _getRecordsByYear(this.props.data, years)
+      totalsByYear = _getTotalsByYear(recordsByYear)
+    }
 
-  if (cData && nData) {
-    // if we have both current and next chart data
-    // we iterate over the dataset, and if -anything-
-    // is not the same, we update
-    dataChanged = cData.some((d, i) => nData[i] !== d)
-  }
+    // we keep track so we don't redraw unnecessarily
+    // chartjs normally takes care of this on it's own
+    // but because we toggle animations on / off to prevent
+    // sluggishness / bugginess with big datasets
+    // we have to check ourselves and then force redraw
+    // sometimes this results in non-responsiveness
+    // but it is better than the alternative -
+    // sluggishness that persists until the user refreshes
+    const currChartData: Object = previousChartData
+    const nextChartData: Object = _getChartData(years, totalsByYear)
+    previousChartData = nextChartData
 
-  // if something wrong happened with the years
-  // try and fall back to a bar chart
-  if (!years) {
+    let dataChanged: boolean = false
+    const cData: Array<number> = get(currChartData, 'datasets[0].data')
+    const nData: Array<number> = get(nextChartData, 'datasets[0].data')
+
+    if (cData && nData) {
+      // if we have both current and next chart data
+      // we iterate over the dataset, and if -anything-
+      // is not the same, we update
+      dataChanged = cData.some((d, i) => nData[i] !== d)
+    }
+
+    // if something wrong happened with the years
+    // try and fall back to a bar chart
+    if (!years) {
+      return (
+        <ChartBar
+          {...this.props}
+        />
+      )
+    }
+    
     return (
-      <ChartBar
-        countParam={countParam}
-        data={data}
-        fields={fields}
-      />
+      <span>
+
+        <Line
+          data={nextChartData}
+          height={height}
+          width={width}
+          redraw={dataChanged}
+        />
+        <a
+          className='visually-hidden'
+          href='#infoExplorer'>
+          Skip Line Chart. Go to visualization query explorer.
+        </a>
+        <ul aria-label='Line Chart. Query result records by year.'>
+          {
+            years &&
+            years.length > 0 &&
+            years.map((year: string, i: number) => {
+              return (
+                <li
+                  className='visually-hidden'
+                  key={i}
+                  tabIndex={0}>
+                  Year: {year}. Records: {totalsByYear[i]}.
+                </li>
+              )
+            })
+          }
+        </ul>
+      </span>
     )
   }
-
-  return (
-    <span>
-      <Line
-        // needed. destroy and redo chart on change
-        // this lets us toggle the animation property correctly
-        data={nextChartData}
-        options={{
-          // charts with large datasets can really chug
-          // but, doesn't really work as needed since
-          // chartjs doesn't let you toggle animation on and off
-          // willy nilly, it just lets you set it initially
-          // which is why we use the redraw prop
-          animation: nextChartData.labels.length < 50,
-        }}
-        height={height}
-        width={width}
-      />
-      <a
-        className='visually-hidden'
-        href='#infoExplorer'>
-        Skip Line Chart. Go to visualization query explorer.
-      </a>
-      <ul aria-label='Line Chart. Query result records by year.'>
-        {
-          years &&
-          years.length > 0 &&
-          years.map((year: string, i: number) => {
-            return (
-              <li
-                className='visually-hidden'
-                key={i}
-                tabIndex={0}>
-                Year: {year}. Records: {totalsByYear[i]}.
-              </li>
-            )
-          })
-        }
-      </ul>
-    </span>
-  )
 }
 
-ChartLine.displayName = 'components/ChartLine'
 export default ChartLine

@@ -12,6 +12,11 @@ import { default as Slider } from 'rc-slider';
 import { default as Datamap } from 'react-datamaps';
 import { default as Parser } from 'html-react-parser';
 import { default as ReactTable } from "react-table";
+import 'whatwg-fetch'
+
+Object.entries = x =>
+  Object.keys(x).reduce((y, z) =>
+    y.push([z, x[z]]) && y, []);
 
 
 class DataMapInfographic extends React.Component {
@@ -26,29 +31,14 @@ class DataMapInfographic extends React.Component {
       throw "Invalid Props"
     }
     const startYear = this.props.infographicDefinitions.startYear
-    const now = new Date()
-    const currentYear = 2017
-    const years = _.range(startYear, currentYear+1)
-    const slider_marks = years.slice(1,100).reduce(function(result, item, index, array) {
-      result[item] = item;
-      return result;
-    }, {})
-
 
     this.state = {
       api: this.props.api,
       API_LINK: API_LINK,
-      dateField: this.props.infographicDefinitions.dateField,
-      defaultValue: currentYear, 
-      currentValue: currentYear,
-      max: currentYear,
-      startYear: startYear,
-      endYear: currentYear,
-      countBy: this.props.infographicDefinitions.countBy,
       min: startYear+1,
       step: 1,
-      slider_marks: slider_marks,
-      years: years,
+      slider_marks: null,
+      years: null,
       selectedState: null,
       _rows: [],
       original_rows: [],
@@ -96,6 +86,9 @@ class DataMapInfographic extends React.Component {
       $(".rc-slider-mark").css("font-size",this.props.infographicDefinitions.slider.style.fontSize)
 
 
+    }).catch(res => {
+        console.log(res)
+        console.log("DataMapInfographic data did not load")
     })
   }
 
@@ -110,158 +103,191 @@ class DataMapInfographic extends React.Component {
 
   _getAllData () {
     const that = this;
-    var urls = this.state.years.map(year => 
-      `${that.state.API_LINK}${that.state.api}.json?search=${that.state.dateField}:[${year}0101+TO+${year}1231]&count=${that.state.countBy}`
-    ,that)
 
-    const emptyYearsArray = this.state.years.map(y => 0);
+    let download_url = `${API_LINK}/download.json`
+    return fetch(download_url)
+      .then(res => res.json())
+      .then(res => {
 
-    return Promise.all(urls.map(this.fetchJSON)).then(function(results) {
-        var d = [],
-            e = {},
-            allResult = {}, 
-            final = {},
-            keys = [],
-            response = {},
-            yearsObj = {};
+        const apiParts = that.state.api.split('/')
+        const latestDataDate = new Date(res.results[apiParts[1]][apiParts[2]].export_date)
+        const latestYear = latestDataDate.getFullYear()
 
-        results.forEach(function(item, index) {
-          var url = urls[index],
-              urlSplit = url.split("&")[0].split("AND+"),
-              s = urlSplit.length == 1 ? "all" : urlSplit[1].split(':')[1],
-              dayRegex = /\d{1,8}/,
-              dayRegexMatch = url.match(dayRegex),
-              year = null,
-              yearPosition = null;
-          
-          if(dayRegexMatch.length){
-            year = parseInt(dayRegexMatch[0].slice(0,4))
+        ////////
+        // we set the min to be currentyear - 1 due to YOY analysis
+        // _.range is exclusive of max value, therefore use +1
+        const years = _.range(that.state.min-1, latestYear+1)
+        const slider_marks = years.slice(1,100).reduce(function(result, item, index, array) {
+          result[item] = item;
+          return result;
+        }, {})
 
-            that.state.years.forEach(function(y, idx){
-              if(y == year){
-                yearPosition = idx;
-              }
-            })
-          }
-
-          var filteredResults = item.results.map( v => {
-            v.term = v.term.toUpperCase()
-            return v
-          })
-
-          var terms = filteredResults.filter(function(v) {
-            if (!v.term || v.term === "*") {
-              return false;
-            }
-            return true;
-          }).map(v => {
-            var d = v.term.split('(')
-            return d[0]
-          });
-
-
-          // define data structure
-          if(final[s] == undefined){
-            var local_dict = {}
-            var all = new Set(Object.keys(that.props.infographicDefinitions.states))
-            terms.map(t => all.add(t))
-            all.forEach(function(term){
-              local_dict[term] = $.extend(true, [], emptyYearsArray)
-            })
-            final[s] = local_dict;
-          } 
-          // add extra categories
-          else {
-            terms.forEach(function(term){
-              // term not found
-              if(final[s][term] == undefined){
-                final[s][term] = $.extend(true, [], emptyYearsArray)
-              }
-            })
-          }
-
-          // now that data structure has been built, add the data to timeseries for
-          // coresponding year
-          filteredResults.filter(function(v) {
-            if (!v.term || v.term === "*") {
-              return false;
-            }
-            return true;
-          }).forEach(function(v){
-            var term = v.term.split('(')[0]
-            final[s][term][yearPosition] = v.count
-          })        
-
+        this.setState({
+            slider_marks: slider_marks,
+            years: years,
+            defaultValue: latestYear,
+            currentValue: latestYear,
+            max: latestYear,
+            startYear: latestYear,
+            endYear: latestYear
         })
+        //////
 
-        var sorter = {};
-        Object.keys(final.all).forEach(function(key){
-          var sum = final.all[key].reduce(function (a, b) {
-            return a + b;
-          }, 0);
-          sorter[key] = sum;
-        })
+        const urlPrefix = `${that.state.API_LINK}${that.state.api}.json?search=${that.props.infographicDefinitions.dateField}`,
+              urlPostfix = `&count=${that.props.infographicDefinitions.countBy}`
 
-        var sorted_keys = Object.keys(sorter).sort(function(a,b){return sorter[a]-sorter[b]}).reverse();
+        const urls = years.filter(y => 
+          y <= latestYear
+        ).map(year => `${urlPrefix}:[${year}0101+TO+${year}1231]${urlPostfix}`)
 
-        sorted_keys.forEach(function(key, idx){
-          keys.push(key)
-          Object.keys(final).forEach(function(category){
-            // remove keys after limit
-            // make sure we fill keys with empty array if not already covered...
-            if (final[category][key] == undefined){
-              final[category][key] = $.extend(true, [], emptyYearsArray)
-            }
-          })
-        })
+        const emptyYearsArray = years.map(y => 0);
 
-        Object.keys(final).forEach(function(k){
-          response[k] = {}
-          Object.keys(final[k]).forEach(function(category){
-            const original_series = new Series(final[k][category])
-            var r = original_series.diff().shift(-1)
+        return Promise.all(urls.map(this.fetchJSON)).then(function(results) {
+          var d = [],
+              e = {},
+              allResult = {}, 
+              final = {},
+              keys = [],
+              response = {},
+              yearsObj = {};
 
-            var g = _.zip(r._data._tail.array, original_series._data)
+          results.forEach(function(item, index) {
+            var url = urls[index],
+                urlSplit = url.split("&")[0].split("AND+"),
+                s = urlSplit.length == 1 ? "all" : urlSplit[1].split(':')[1],
+                dayRegex = /\d{1,8}/,
+                dayRegexMatch = url.match(dayRegex),
+                year = null,
+                yearPosition = null;
             
-            var YOYs = [];
+            if(dayRegexMatch.length){
+              year = parseInt(dayRegexMatch[0].slice(0,4))
 
-            g.forEach(function(zipped){
-              if(zipped[0] != null){
-                var z = null;
-                if(zipped[0] > 0 && zipped[1] == 0){
-                  z = 1
-                } else if (zipped[0] == 0 && zipped[1] == 0){
-                  z = 0
-                } else {
-                  z = zipped[0]/zipped[1];
+              that.state.years.forEach(function(y, idx){
+                if(y == year){
+                  yearPosition = idx;
                 }
+              })
+            }
 
-                YOYs.push(z);
+            var filteredResults = item.results.map( v => {
+              v.term = v.term.toUpperCase()
+              return v
+            })
+
+            var terms = filteredResults.filter(function(v) {
+              if (!v.term || v.term === "*") {
+                return false;
+              }
+              return true;
+            }).map(v => {
+              var d = v.term.split('(')
+              return d[0]
+            });
+
+
+            // define data structure
+            if(final[s] == undefined){
+              var local_dict = {}
+              var all = new Set(Object.keys(that.props.infographicDefinitions.states))
+              terms.map(t => all.add(t))
+              all.forEach(function(term){
+                local_dict[term] = $.extend(true, [], emptyYearsArray)
+              })
+              final[s] = local_dict;
+            } 
+            // add extra categories
+            else {
+              terms.forEach(function(term){
+                // term not found
+                if(final[s][term] == undefined){
+                  final[s][term] = $.extend(true, [], emptyYearsArray)
+                }
+              })
+            }
+
+            // now that data structure has been built, add the data to timeseries for
+            // coresponding year
+            filteredResults.filter(function(v) {
+              if (!v.term || v.term === "*") {
+                return false;
+              }
+              return true;
+            }).forEach(function(v){
+              var term = v.term.split('(')[0]
+              final[s][term][yearPosition] = v.count
+            })
+          })
+
+          var sorter = {};
+          Object.keys(final.all).forEach(function(key){
+            var sum = final.all[key].reduce(function (a, b) {
+              return a + b;
+            }, 0);
+            sorter[key] = sum;
+          })
+
+          var sorted_keys = Object.keys(sorter).sort(function(a,b){return sorter[a]-sorter[b]}).reverse();
+
+          sorted_keys.forEach(function(key, idx){
+            keys.push(key)
+            Object.keys(final).forEach(function(category){
+              // remove keys after limit
+              // make sure we fill keys with empty array if not already covered...
+              if (final[category][key] == undefined){
+                final[category][key] = $.extend(true, [], emptyYearsArray)
               }
             })
-            response[k][category] = YOYs;
           })
-      })
 
-      that.state.years.slice(1,100).forEach(function(y,idx){
-        var data = [];
-        Object.keys(response).forEach(function(k){
-          const f = {}
-          Object.keys(response[k]).forEach(function(category, index){
-            var yoy = response[k][category][idx];
-            f[category] = Math.floor(yoy * 100)
+          Object.keys(final).forEach(function(k){
+              response[k] = {}
+              Object.keys(final[k]).forEach(function(category){
+                const original_series = new Series(final[k][category])
+                var r = original_series.diff().shift(-1)
+
+                var g = _.zip(r._data._tail.array, original_series._data)
+                
+                var YOYs = [];
+
+                g.forEach(function(zipped){
+                  if(zipped[0] != null){
+                    var z = null;
+                    if(zipped[0] > 0 && zipped[1] == 0){
+                      z = 1
+                    } else if (zipped[0] == 0 && zipped[1] == 0){
+                      z = 0
+                    } else {
+                      z = zipped[0]/zipped[1];
+                    }
+
+                    YOYs.push(z);
+                  }
+                })
+                response[k][category] = YOYs;
+              })
           })
-          data.push(f)
+
+          that.state.years.slice(1,100).forEach(function(y,idx){
+            var data = [];
+            Object.keys(response).forEach(function(k){
+              const f = {}
+              Object.keys(response[k]).forEach(function(category, index){
+                var yoy = response[k][category][idx];
+                f[category] = Math.floor(yoy * 100)
+              })
+              data.push(f)
+            })
+            yearsObj[y] = data;
+          })
+
+          return { 
+            "data": yearsObj,
+            "keys": keys,
+            "timeseries": response
+          }
         })
-        yearsObj[y] = data;
       })
-
-      return { 
-        "data": yearsObj,
-        "keys": keys,
-        "timeseries": response
-      }
-    })
   }
 
   changeValue (d){
@@ -280,7 +306,9 @@ class DataMapInfographic extends React.Component {
     var all_data = (all_data !== undefined) ? all_data[d][0] : undefined,
         data = (this.state.all_data[d] !== undefined) ? this.state.all_data[d][0] : all_data,
         dataset = {},
-        onlyValues = Object.values(data);
+        onlyValues = Object.keys(data).map(function(key) {
+            return data[key];
+        });
 
     var minValue = Math.min.apply(null, onlyValues),
         maxValue = Math.max.apply(null, onlyValues),
@@ -342,6 +370,7 @@ class DataMapInfographic extends React.Component {
       return res;
     }
 
+
     // fill dataset in appropriate format
     Object.entries(data).forEach(function(obj){
         dataset[obj[0]] = { numberOfThings: obj[1], fillColor: f(obj[1]) };
@@ -368,7 +397,7 @@ class DataMapInfographic extends React.Component {
       currentValue = this.state.currentValue  
     }
     var urls = [
-      `${that.state.API_LINK}${that.state.api}.json?search=${that.state.dateField}:[${currentValue}0101+TO+${currentValue}1231]+AND+${that.state.countBy}:"${_id}"&limit=100`
+      `${that.state.API_LINK}${that.state.api}.json?search=${that.props.infographicDefinitions.dateField}:[${currentValue}0101+TO+${currentValue}1231]+AND+${that.props.infographicDefinitions.countBy}:"${_id}"&limit=100`
       ];
 
     $('.react-grid-HeaderCell-sortable--ascending').find("span").hide()

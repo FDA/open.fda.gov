@@ -6,6 +6,8 @@ import SideBar from '../components/SideBar'
 import Infographic from '../components/Infographic'
 import xhrGET from '../utils/xhr'
 import { API_LINK } from '../constants/api'
+import { default as $ } from "jquery"
+import 'whatwg-fetch'
 
 type tSTATE = {
   countParam: string;
@@ -156,82 +158,55 @@ class InfographicContainer extends React.Component {
    * @returns {Promise} [like all async methods, returns a promise]
    */
   _fetchQueryAndUpdate (searchParam: string, countParam: string) {
-    const _handleQueryResponse = data => {
-      this.setState({
-        data,
+
+    let download_url = `${API_LINK}/download.json`
+    fetch(download_url)
+      .then(res => res.json())
+      .then(res => {
+          const range: string = this._getFilterRange(res)
+          const search: string = this._getFilterSearch(searchParam, range)
+          const query: string = `${API_LINK}${this.props.meta.api_path}.json?${search}count=${countParam}`
+
+          const urls = [
+            `${API_LINK}${this.props.meta.api_path}.json?${search}`,
+            query
+          ];
+          Promise.all(urls.map($.getJSON)).then((results) => {
+            const recordsTotal: number = results[0].meta.results.total
+
+            // Get total number of records on the first call
+            // matching will always === total records first time
+            if (this.state.recordsTotal === 0) {
+              this.setState({
+                recordsTotal,
+              })
+            }
+
+            // has to be here because async
+            // don't want to set searchParam and then do
+            // the above check, we'd never update
+            this.setState({
+              matchingRecords: recordsTotal,
+              // for to update the selected radio, query field, etc
+              searchParam,
+              data: results[1],
+              // update the count param
+              countParam,
+              // update complete string for current query field
+              query,
+              // what type of chart to render
+              // we default to greater specificity (ie, defined by field)
+              // but we also fall back to the current explorer default
+              type: this.props.fieldsFlattened[countParam] || this.state.current.type,
+            })
+          }).catch(res => {
+            console.log(res.responseText, res.status)
+            this.setState({ data: res.responseJSON})
+          })
       })
-    }
-
-    const _handleRecordsResponse = recordsData => {
-      const recordsTotal: number = recordsData.meta.results.total
-
-      // Get total number of records on the first call
-      // matching will always === total records first time
-      if (this.state.recordsTotal === 0) {
-        this.setState({
-          matchingRecords: recordsTotal,
-          recordsTotal,
-        })
-      }
-      // else we're filtering via search
-      else if (this.state.searchParam !== searchParam) {
-        this.setState({
-          matchingRecords: recordsTotal,
-        })
-      }
-
-      // has to be here because async
-      // don't want to set searchParam and then do
-      // the above check, we'd never update
-      this.setState({
-        // for to update the selected radio, query field, etc
-        searchParam,
-      })
-    }
-
-    const _handleDownloadResponse = downloadData => {
-      // drug/event or whatever
-      const endpoint: string = this.props.meta.api_path
-      // search range to help filter out bunk data
-      // or nothing, if we don't filter this query
-      // see _explorers yaml for this endpoint
-      const range: string = this._getFilterRange(downloadData)
-      // complete search field. with or without range
-      const search: string = this._getFilterSearch(searchParam, range)
-      // the entire query, api endpoint + search params + count params
-      const query: string = API_LINK + `${endpoint}.json?${search}count=${countParam}`
-
-      // results data is unfortunately not included when filtering
-      // by count params, so we need to make an additional request
-      // to update records only when searchParams change
-
-      // the entire query, api endpoint + search params
-      // we do not want to include count parameters when counting total records
-      const recordsQuery: string = API_LINK + `${endpoint}.json?${search}`
-
-      this.setState({
-        // update the count param
-        countParam,
-        // update complete string for current query field
-        query,
-        // what type of chart to render
-        // we default to greater specificity (ie, defined by field)
-        // but we also fall back to the current explorer default
-        type: this.props.fieldsFlattened[countParam] || this.state.current.type,
-      })
-
-      xhrGET(recordsQuery, _handleRecordsResponse)
-      xhrGET(query, _handleQueryResponse)
-    }
-
-    // 2 ways to get last updated date
-    // query downloads.json and find the key that matches your endpoint
-    // or make a request, check the meta of that request, and then
-    // make another request with the date in the search field
-    // i prefer to just make the download request (which gets cached anyway)
-    let download_link = API_LINK + '/download.json'
-    xhrGET(download_link, _handleDownloadResponse)
   }
+
+
 
   /**
    * @description [when typing in search field in info explorer

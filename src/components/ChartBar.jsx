@@ -26,8 +26,7 @@ const _renderBars = (data: Array<Object>, fieldValues: Object, show: number) => 
         className='pad-r-1 pad-b-2'
         tabIndex={0}
         key={i}>
-        {
-            (typeof term === 'string' || typeof term === 'number') &&
+        { (typeof term === 'string' || typeof term === 'number') &&
           <div className='clr-gray small weight-600'>
             <span className='clr-gray-dark'>
               {`${term}`.toLowerCase()}
@@ -35,8 +34,7 @@ const _renderBars = (data: Array<Object>, fieldValues: Object, show: number) => 
             &nbsp;{result.count}&nbsp;records
           </div>
         }
-        {
-          !term &&
+        { !term &&
           <div className='clr-gray small weight-600'>
             &nbsp;{result.count}&nbsp;records
           </div>
@@ -44,7 +42,7 @@ const _renderBars = (data: Array<Object>, fieldValues: Object, show: number) => 
         <span
           className='inline-block bar'
           style={{
-            background: 'linear-gradient(to right, #112e51 0%, #112e51 50%, #205493 100%)',
+            background: 'linear-gradient(to right, #6FE0FF 0%, #2DB5DA 50%, #0097C0 100%)',
             borderRadius: '16px',
             height: '7px',
             maxWidth: '100%',
@@ -73,23 +71,35 @@ type tPROPS = {
  * @param  {string} countParam [countParam to filter by]
  * @param  {number} show       [number of bars to render]
  */
-const ChartBar = ({ data = [{count: 0}], fields, countParam, show = 10 }: tPROPS) => {
-  const fieldValues: Object = getFieldValues(countParam, fields)
+// const ChartBar = ({ data = [{count: 0}], fields, countParam, show = 10 }: tPROPS) => {
 
-  return (
-    <ul
-      className='col row'
-      aria-label='Bar Chart'>
-      <li className='visually-hidden'>
-        <a
-          href='#infoExplorer'>
-          Skip Bar Chart. Go to visualization query explorer.
-        </a>
-      </li>
-      {_renderBars(data, fieldValues, show)}
-    </ul>
-  )
+class ChartBar extends React.Component {
+
+  constructor (props: Object) {
+    super(props)
+  }
+
+  static defaultProps = {
+    show: 10
+ };
+
+  render (): ?React.Element {
+    const fieldValues: Object = getFieldValues(this.props.countParam, this.props.fields)
+
+    return (
+      <ul
+        className='col row'
+        aria-label='Bar Chart'>
+        <li className='visually-hidden'>
+          <a
+            href='#infoExplorer'>
+            Skip Bar Chart. Go to visualization query explorer.
+          </a>
+        </li>
+        {_renderBars(this.props.data, fieldValues, this.props.show)}
+      </ul>
+    )
+  }
 }
 
-ChartBar.displayName = 'component/ChartBar'
 export default ChartBar

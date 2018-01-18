@@ -1,8 +1,6 @@
 - "## Overview":
   - "The **openFDA registration and listing API** contains the location of medical device establishments and the devices manufactured at those establishments. Owners or operators of places of business (also called establishments or facilities) that are involved in the production and distribution of medical devices intended for use in the United States are required to register annually with the FDA. This process is known as establishment registration. Most foreign and domestic establishments that are required to register with the FDA are also required to list the devices that are made there for commercial distribution."
   - "For additional information, please visit the [FDA's Device Registrations and Listings page](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/RegistrationandListing/default.htm)."
-  - visualization
-  - infographic
 
   - "### Key facts":
     - key_facts
@@ -17,6 +15,8 @@
   - "*2.* Review the [list of searchable fields](#searchable-fields) available in the drug adverse event dataset."
   - "*3.* Try out the Device Registration Listing API using the [interactive examples](#using-the-interactive-chart-to-learn-the-API) and tools below."
   - "Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the [API Reference page](/getting_started/api_basics/reference/)."
+
+  - infographic
 
   - "### Making a simple API call":
     - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."

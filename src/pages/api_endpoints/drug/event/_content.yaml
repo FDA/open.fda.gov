@@ -12,7 +12,6 @@
     - "Read more about FAERS here:"
     - ul:
       - "[Questions and Answers on FDA's Adverse Event Reporting System (FAERS)](https://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/)"
-    - infographic
 
   - "#### How adverse event reports are collected":
     - "Adverse events are collected through a series of **safety reports**. Each is identified by a 8-digit string (for instance, `6176304-1`). The first 7 digits (before the hyphen) identify the individual report, and the last digit (after the hyphen) is a checksum. Rather than updating individual records in FAERS, subsequent updates are submitted in seperate reports."
@@ -44,6 +43,8 @@
   - "*2.* Review the [list of searchable fields](#searchable-fields) available in the drug adverse event dataset."
   - "*3.* Try out the Drug Adverse Event API using the [interactive examples](#using-the-interactive-chart-to-learn-the-API) and tools below."
   - "Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the [API Reference page](/getting_started/api_basics/reference/)."
+
+  - infographic
 
   - "### Making a simple API call":
     - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."

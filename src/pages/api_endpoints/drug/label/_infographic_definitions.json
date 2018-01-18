@@ -1,175 +1,313 @@
 {
-  "title": "<p class='heatmap-infographic-header'><i class='datamap-infographic-header-text-bold'> Drugs Labels </i>: Year Over Year (YOY) % Change in Drug Administration Route Type </p>",
-  "queries1": {
-    "otc": "openfda.product_type:otc",
-    "prescription": "openfda.product_type:prescription",
-    "lactose": "inactive_ingredient:lactose",
-    "bleeding": "boxed_warning:bleeding",
-    "all": ""
-  }, 
-  "queries": {
-    "otc": {
-      "query": "openfda.product_type:otc",
-      "name": "Over the Counter Drugs"
-    },
-    "prescription": {
-      "query": "openfda.product_type:prescription",
-      "name": "Prescription Drugs"
-    },
-    "lactose": {
-      "query": "inactive_ingredient:lactose",
-      "name": "Lactose as an Ingredient"
-    },
-    "bleeding": {
-      "query": "boxed_warning:bleeding",
-      "name": "Warning of Bleeding"
-    },
-    "all": {
-      "query": "",
-      "name": "All Drugs"
-    }
-  }, 
-  "defaults": {
-    "xKey":"Sublingual",
-    "yKey":"Lactose as an Ingredient",
-    "color": "rgb(103, 179, 45)",
-    "key": "Sublingual.Lactose as an Ingredient",
-    "year": 2017
-  },
-  "xTerms": [],
-  "yName": "Drug Category",
-  "xName": "Administration Route",
-  "countBy": "openfda.route.exact",
-  "dateField": "effective_time",
-  "type": "HeatMap",
-  "startYear": 2009,
-  "heatMapConfig":{
-    "keyFormat": "Query: ${this.yKey}\n Route: ${this.xKey}",
-    "valueFormatter": "${this.value}%",
-    "colorCodes": {
-      "greens": ["#c2e2a5", "#9cc677", "#7bba4d", "#4aaa01", "#177d00"],
-      "reds":["#ffa1a4","#ff7c80","#fe5057", "#ED182B", "#bd0000"],
-      "zero": "#C7C7C7"
-    },
-    "theme": {
-      "fontSize": 13,
-      "fontFamily": "Merriweather,Georgia,serif",
-      "fontColor": "#000000",
-      "yAxisPositioning": -60
-    },
-    "colorScales": {
-      "missingValue": "-",
-      "zero": "#C7C7C7",
-      "negative": {
-        "colors": ["#E1D735", "#FF0000", "#FF8383", "#ED182B"],
-        "range": [-1000,-501,-500,-1],
-        "extremity": "#177d00"
-      },
-      "positive":{
-        "colors": ["#8FFF9C", "#ff7c80", "#7bba4d", "#4aaa01"],
-        "range": [1,500,501,1000],
-        "extremity": "#bd0000"
-      },
-      "isYOY": true
-    },
-    "height": 420,
-    "width": 985,
-    "indexBy": "_type",
-    "margin": {
-        "top": 25,
-        "right": 25,
-        "bottom": 80,
-        "left": 168
-    },
-    "minValue": -100,
-    "maxValue": 100,
-    "forceSquare": false,
-    "sizeVariation": 0,
-    "padding": 0,
-    "colors": "nivo",
-    "axisBottom": {
-        "orient": "bottom",
-        "tickSize": 5,
-        "tickPadding": 5,
-        "tickRotation": -35,
-        "legendPosition": "center",
-        "legendOffset": 36
-    },
-    "axisLeft": {
-        "orient": "right",
-        "tickSize": 5,
-        "tickPadding": 5,
-        "tickRotation": 0,
-        "legendPosition": "center",
-        "legendOffset": -40
-    },
-    "enableGridX": false,
-    "enableGridY": true,
-    "cellShape": "rect",
-    "cellOpacity": 1,
-    "cellBorderWidth": 1,
-    "cellBorderColor": "inherit:darker(2)",
-    "enableLabels": true,
-    "labelTextColor": "inherit:darker(5)",
-    "animate": true,
-    "motionStiffness": 120,
-    "motionDamping": 9,
-    "isInteractive": true,
-    "hoverTarget": "rowColumn",
-    "cellHoverOpacity": 1,
-    "cellHoverOthersOpacity": 0.5
-  },
-  "slider": {
-    "style": {
-      "float": "left",
-      "height": "365px",
-      "fontSize": "15px"
-    },
-    "handleStyle": {
-      "borderColor": "black"
-    },
-    "trackStyle": {
-      "backgroundColor": "#8C8C8C",
-      "width": 5
-    },
-    "dotStyle": {
-      "backgroundColor": "white",
-      "borderColor": "black"
-    }
-  },
-  "chartConfig": {
-    "width": 800,
-    "showGrid": true,
-    "chartRowHeight": 200,
+  "globalDefs": {
+    "startYear": 2009,
+    "api": "/drug/event",
     "font": {
-      "color": "#000000"
+      "color":"#000000",
+      "fontFamily": "Merriweather,Georgia,serif"
     },
-    "yAxis": {
-        "label": "Number of Drugs",
+    "tooltip": {
+      "fontSize": "11px",
+      "font": "Merriweather,Georgia,serif"
+    },
+    "pieChartConfig": {
+      "fill": "#8884d8",
+      "colors": [
+        "#0088FE",
+        "#1ECFFF",
+        "#00C49F",
+        "#FFBB28",
+        "#d62728"
+      ]
+    },
+    "lineChartConfig": {
+      "interpolation": "curveLinear",
+      "width": 700,
+      "showGrid": true,
+      "chartRow": {
+        "height": 200,
+        "trackerInfoWidth": 130
+      },
+      "yAxis": {
+        "label": "Number of Drug Labels",
         "min": 0,
-        "width": 100,
-        "type": "linear",
-        "labels": {
-          "labelColor": "#000000",
-          "labelWidth": 10,
-          "labelWeight":90
+        "width": 50,
+        "type": "linear"
+      },
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "infoWidth":50,
+        "markerRadius": 4,
+        "markerStyle":{
+          "fill": "black"
         }
-    },
-    "chartRow": {
-      "height": 200,
-      "trackerInfoHeight": 40,
-      "trackerInfoWidth": 110,
-      "trackerTimeFormat": "%Y",
-      "timeFormat": "%Y",
-      "trackerShowTime": true
-    },
-    "interpolation": "curveBasis",
-    "lineStyle": {
-        "value": {
-            "stroke": "#a02c2c",
-            "opacity": 0.2,
-            "width":2
-        }
+      },
+      "colors": [
+        "#1f77b4", "#ff3300", "#ff7f0e", "#ff33cc", "#2ca02c",
+        "#006666", "#00d899", "#990099", "#9467bd", "#c5b0d5",
+        "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+        "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+      ]
     }
-  }
+  },
+  "choices": [
+    {
+      "type": "PieChart",
+      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Drug Labels</i> by Product Type, Administation Route </div>",
+      "subtitle": "Device Labels",
+      "yTitle": "Product Type",
+      "xTitle": "",
+      "selectionPostFix": " ",
+      "countBy": "openfda.product_type.exact",
+      "dateField": "effective_time",
+      "subfield": "openfda.route.exact",
+      "subfieldLabel": "Route",
+      "lineLimiter": 8,
+      "defs": {
+        "HUMAN OTC DRUG": "OTC",
+        "HUMAN PRESCRIPTION DRUG": "PRESCRIPTION"
+      },
+      "dataFunction": "_getAllData",
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "HUMAN OTC DRUG",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 100 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    },
+    {
+      "type": "PieChart",
+      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Drug Labels</i> by Product Type, Mechanism of Action </div>",
+      "subtitle": "Device Labels",
+      "yTitle": "Product Type",
+      "xTitle": "",
+      "selectionPostFix": " ",
+      "countBy": "openfda.product_type.exact",
+      "dateField": "effective_time",
+      "subfield": "openfda.pharm_class_moa.exact",
+      "subfieldLabel": "Mechanism of action of the drug",
+      "subfield_filter": " [MoA]",
+      "lineLimiter": 5,
+      "defs": {
+        "HUMAN OTC DRUG": "OTC",
+        "HUMAN PRESCRIPTION DRUG": "PRESCRIPTION"
+      },
+      "dataFunction": "_getAllData",
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "HUMAN OTC DRUG",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 100 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    },
+    {
+      "type": "PieChart",
+      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Drug Labels</i> by Product Type, Pharmacologic Class </div>",
+      "subtitle": "Device Labels",
+      "yTitle": "Product Type",
+      "xTitle": "",
+      "selectionPostFix": " ",
+      "countBy": "openfda.product_type.exact",
+      "dateField": "effective_time",
+      "subfield": "openfda.pharm_class_epc.exact",
+      "subfieldLabel": "Established pharmacologic class",
+      "subfield_filter": " [EPC]",
+      "lineLimiter": 5,
+      "defs": {
+        "HUMAN OTC DRUG": "OTC",
+        "HUMAN PRESCRIPTION DRUG": "PRESCRIPTION"
+      },
+      "dataFunction": "_getAllData",
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "HUMAN OTC DRUG",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 100 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    },
+    {
+      "type": "PieChart",
+      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Drug Labels</i> by Product Type, Physiologic Effect </div>",
+      "subtitle": "Device Labels",
+      "yTitle": "Product Type",
+      "xTitle": "",
+      "selectionPostFix": " ",
+      "countBy": "openfda.product_type.exact",
+      "dateField": "effective_time",
+      "subfieldLabel": "Physiologic effect",
+      "subfield": "openfda.pharm_class_pe.exact",
+      "subfield_filter": " [PE]",
+      "lineLimiter": 5,
+      "defs": {
+        "HUMAN OTC DRUG": "OTC",
+        "HUMAN PRESCRIPTION DRUG": "PRESCRIPTION"
+      },
+      "dataFunction": "_getAllData",
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "HUMAN OTC DRUG",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 100 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    },
+    {
+      "type": "PieChart",
+      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Drug Labels</i> by Product Type, Brand Name </div>",
+      "subtitle": "Device Labels",
+      "yTitle": "Product Type",
+      "xTitle": "",
+      "selectionPostFix": " ",
+      "countBy": "openfda.product_type.exact",
+      "dateField": "effective_time",
+      "subfield": "openfda.brand_name.exact",
+      "subfieldLabel": "Brand Name",
+      "lineLimiter": 8,
+      "defs": {
+        "HUMAN OTC DRUG": "OTC",
+        "HUMAN PRESCRIPTION DRUG": "PRESCRIPTION"
+      },
+      "excludedTerms": [
+        "OXYGEN"
+      ],
+      "dataFunction": "_getAllData",
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "HUMAN OTC DRUG",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 100 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    },
+    {
+      "type": "PieChart",
+      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Drug Labels</i> by Product Type, Generic Name</div>",
+      "subtitle": "Device Labels",
+      "yTitle": "Product Type",
+      "xTitle": "",
+      "selectionPostFix": " ",
+      "countBy": "openfda.product_type.exact",
+      "dateField": "effective_time",
+      "subfield": "openfda.generic_name.exact",
+      "subfieldLabel": "Generic Name",
+      "lineLimiter": 8,
+      "defs": {
+        "HUMAN OTC DRUG": "OTC",
+        "HUMAN PRESCRIPTION DRUG": "PRESCRIPTION"
+      },
+      "dataFunction": "_getAllData",
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "HUMAN OTC DRUG",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 100 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    }
+  ]
 }

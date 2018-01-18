@@ -3,7 +3,6 @@
   - "UDIs are unique numeric or alphanumeric codes that consist of two parts—a device identifier (DI) and a production identifier (PI). UDIs are intended to increase electronic tracking abilities for devices involved in adverse events. Submission to the GUDID database is required for manufacturers of medical devices. The FDA is establishing the unique device identification system to adequately identify devices sold in the U.S.- from manufacturing through distribution to patient use."
   - "To learn more about UDIs, see the [FDA's General information about UDI page](https://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm)."
   - visualization
-  - infographic
 
   - "### Key facts":
     - key_facts
@@ -17,6 +16,8 @@
   - "*2.* Review the [list of searchable fields](#searchable-fields) for this dataset."
   - "*3.* Try out the Device UDI API using the [interactive examples](#using-the-interactive-chart-to-learn-the-API) and tools below."
   - "Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the [API Reference page](/getting_started/api_basics/reference/)."
+
+  - infographic
 
   - "### Making a simple API call":
     - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."

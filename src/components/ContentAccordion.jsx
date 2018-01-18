@@ -22,7 +22,7 @@ type tPROPS = {
   fields: Object;
   meta: Object;
 };
-
+  
 // called by Content
 // normally _content.yaml contains string content that
 // we either render out directly, or use as a flag

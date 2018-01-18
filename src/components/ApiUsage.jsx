@@ -5,6 +5,7 @@ import bp from '../constants/breakpoints'
 import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
+import 'whatwg-fetch'
 
 type tPROPS = {
     accessSinceLaunch: string,

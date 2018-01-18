@@ -3,8 +3,6 @@
   - "The Food and Drug Administration (FDA) has established classifications for approximately 1,700 different generic types of devices and grouped them into 16 medical specialties referred to as panels. Each of these generic types of devices is assigned to one of three regulatory classes based on the level of control necessary to assure the safety and effectiveness of the device."
   - "The **openFDA Device Classification API** contains medical device names, their associated product codes, their medical specialty areas (panels) and their classification. The name and product code identify the generic category of a device for FDA. The product code assigned to a device is based upon the medical device product classification designated under 21 CFR Parts 862-892."
   - "For additional information, see [here](http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/default.htm)."
-  - visualization
-  - infographic
 
   - "### Key facts":
     - key_facts
@@ -23,6 +21,8 @@
   - "*2.* Review the [list of searchable fields](#searchable-fields) available in the drug adverse event dataset."
   - "*3.* Try out the Device Classification API using the [interactive examples](#using-the-interactive-chart-to-learn-the-API) and tools below."
   - "Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the [API Reference page](/getting_started/api_basics/reference/)."
+
+  - infographic
 
   - "### Making a simple API call":
     - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."

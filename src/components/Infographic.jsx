@@ -5,7 +5,7 @@ import marked from 'marked'
 
 import ChartBar from './ChartBar'
 import ChartDonut from './ChartDonut'
-import ChartLine from './ChartLine'
+import {default as ChartLine} from './ChartLine'
 import Filter from './Filter'
 
 import bp from '../constants/breakpoints'
@@ -268,15 +268,15 @@ const Infographic = (props: tPROPS) => {
                 Change your search and/or count parameters and try again
               </span>
             }
-            {
-              !fieldDefinition &&
+            
+            { !fieldDefinition &&
               <span className='clr-secondary weight-600 txt-c'>
                 No Field Definition found in fields yaml.<br />
                 Please fix the missing field and try again
               </span>
             }
-            {
-              !error &&
+
+            { !error &&
               <div className='col row reverse-pre b-b-1 marg-b-2'>
                 <p>
                   <strong>{nextCountParam}</strong><br />
@@ -292,36 +292,34 @@ const Infographic = (props: tPROPS) => {
                 </p>
               </div>
             }
-            {
-              !error &&
-              type === 'Bar' &&
+
+            { !error && type === 'Bar' &&
               <ChartBar
                 data={data.results}
                 fields={fields}
                 countParam={nextCountParam}
               />
             }
-            {
-              !error &&
-              (type === 'Pie' || type === 'Donut') &&
+
+            { !error && (type === 'Pie' || type === 'Donut') &&
               <ChartDonut
                 countParam={nextCountParam}
                 data={data.results}
                 fields={fields}
                 hasLegend
+                divSize={`${!bp.desk ? size - 40 : size - 240}px`}
                 records={records}
-                size={`${!bp.desk ? size - 40 : size - 240}px`}
+                size={`${!bp.desk ? size - 180 : size - 380}px`}
               />
             }
-            {
-              !error &&
-              type === 'Line' &&
+
+            { !error && type === 'Line' &&
               <ChartLine
                 countParam={nextCountParam}
                 data={data.results}
                 fields={fields}
-                height={`${size / 2}px`}
-                width={`${size}px`}
+                height={`${size / 2}`}
+                width={`${size}`}
               />
             }
             <p className='small no-marg clr-base weight-600 pad-t-2 pad-b-1'>

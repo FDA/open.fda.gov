@@ -36,6 +36,8 @@
   - "*3.* Try out the Drug Enforcement API using the [interactive examples](#using-the-interactive-chart-to-learn-the-API) and tools below."
   - "Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the [API Reference page](/getting_started/api_basics/reference/)."
 
+  - infographic
+
   - "### Making a simple API call":
     - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."
     - "In the example below, we are searching the records in the drug recall enforcement report endpoint for matches with 'Class III' in the 'classification' field. We are requesting to see the first 5 records that match."

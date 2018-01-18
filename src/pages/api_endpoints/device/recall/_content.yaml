@@ -3,7 +3,6 @@
   - "Recall as defined in 21 CFR 7.3(g) is “a firm’s removal or correction of a marketed product that the Food and Drug Administration considers to be in violation of the laws it administers and against which the agency would initiate legal action, e.g., seizure. Recall does not include a market withdrawal or a stock recovery.” If a firm conducts a recall to reduce a risk to health, the firm is required to submit a written report to the FDA with the information described in 21 CFR 806.10."
   - "For additional background information about medical device recalls, see [here](https://www.fda.gov/MedicalDevices/Safety/ListofRecalls/ucm329946.htm)."
   - visualization
-  - infographic
 
   - "### Key facts":
     - key_facts
@@ -23,6 +22,8 @@
   - "*2.* Review the [list of searchable fields](#searchable-fields) for this dataset."
   - "*3.* Try out the Device Recall API using the [interactive examples](#using-the-interactive-chart-to-learn-the-API) and tools below."
   - "Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the [API Reference page](/getting_started/api_basics/reference/)."
+
+  - infographic
 
   - "### Making a simple API call":
     - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."

@@ -4,7 +4,6 @@
   - "Class III devices are those that support or sustain human life, are of substantial importance in preventing impairment of human health, or that present a potential, unreasonable risk of illness or injury. Due to the level of risk associated with Class III devices, FDA has determined that general and special controls alone are insufficient to assure the safety and effectiveness of class III devices."
   - "For additional information, please visit the [FDA's Premarket Approval (PMA) page](https://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/PremarketSubmissions/PremarketApprovalPMA/default.htm)."
   - visualization
-  - infographic
 
   - "### Key facts":
     - key_facts
@@ -19,6 +18,8 @@
   - "*2.* Review the [list of searchable fields](#searchable-fields) available in the drug adverse event dataset."
   - "*3.* Try out the Device PMA API using the [interactive examples](#using-the-interactive-chart-to-learn-the-API) and tools below."
   - "Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the [API Reference page](/getting_started/api_basics/reference/)."
+
+  - infographic
 
   - "### Making a simple API call":
     - "You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key."

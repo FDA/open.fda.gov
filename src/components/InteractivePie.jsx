@@ -19,7 +19,8 @@ const renderActiveShape = (props) => {
           percent, 
           value,
           pct,
-          name
+          name,
+          textLabel
         } = props;
 
   const sin = Math.sin(-RADIAN * midAngle);
@@ -31,7 +32,7 @@ const renderActiveShape = (props) => {
   const ex = mx + (cos >= 0 ? 1 : -1) * 22;
   const ey = my;
   const textAnchor = cos >= 0 ? 'start' : 'end';
-  const subName = name.split('(')[0]
+  const subName = name !== undefined && typeof name == 'string' ? name.split('(')[0] : ''
 
 
   return (
@@ -71,11 +72,21 @@ class TwoLevelPieChart extends React.Component {
     super(props)
     
     this.state = {
-      activeIndex: props.default.index || 0,
-    };
+      activeIndex: null
+    }
 
     this.onPieEnter = this.onPieEnter.bind(this)
     this.onPieClick = this.onPieClick.bind(this)
+  }
+
+  componentDidMount () {
+    const activeIndex = this.props.default.index || 0;
+    this.state = {
+      activeIndex: activeIndex
+    }
+    this.props.parent.setState({
+      activeIndex
+    })
   }
 
   onPieEnter(data, index) {
@@ -91,6 +102,9 @@ class TwoLevelPieChart extends React.Component {
     this.setState({
       activeIndex: index,
     });
+    this.props.parent.setState({
+      activeIndex: index
+    })
     if(this.props.onClick!== undefined){
       this.props.onClick(data, index)
     }
@@ -102,7 +116,8 @@ class TwoLevelPieChart extends React.Component {
         width={this.props.width} 
         height={this.props.height}
       >
-        <Pie 
+        <Pie
+          ref="interactivePie"
           dataKey="value"
           activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
@@ -113,6 +128,7 @@ class TwoLevelPieChart extends React.Component {
           outerRadius={this.props.radius.outerRadius}
           fill={this.props.fill}
           onClick={this.onPieClick}
+          textLabel={this.props.textLabel}
         >
           {
             this.props.data.map((entry, index) => <Cell key={index} fill={ this.props.colors[index % this.props.colors.length] } />)

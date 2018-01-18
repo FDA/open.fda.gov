@@ -9,7 +9,7 @@ const Doughnut: ReactClass = Charts.Doughnut
 
 const _getChartColor = function (i: number): string {
   const colors: Array<string> = [
-    '#025181',
+    '#1ECFFF',
     '#4874bd',
     '#9bdaf1',
     '#2e8540',
@@ -57,6 +57,7 @@ type tPROPS = {
   hasLegend: boolean;
   records: number;
   size: string;
+  divSize: string;
 };
 
 /**
@@ -75,6 +76,7 @@ const ChartDonut = (props: tPROPS) => {
     data,
     fields,
     hasLegend,
+    divSize,
     size,
   } = props
 
@@ -96,23 +98,25 @@ const ChartDonut = (props: tPROPS) => {
 
   return (
     <div className={wrapperCx}>
-      <Doughnut
-        data={chartData}
-        height={size}
-        options={{
-          percentageInnerCutout: 60,
-          animationEasing: 'easeInOutQuint',
-          // 20 frames at 60fps == 350ms
-          animationSteps: 20,
-          segmentShowStroke: false,
-        }}
-        width={size}
-      />
+      <div style={{ width: divSize, paddingBottom: 70, paddingTop: 30, display: 'flex', justifyContent: 'center'}}>
+        <Doughnut
+          data={chartData}
+          height={size}
+          options={{
+            percentageInnerCutout: 60,
+            animationEasing: 'easeInOutQuint',
+            // 20 frames at 60fps == 350ms
+            animationSteps: 20,
+            segmentShowStroke: false,
+          }}
+          width={size}
+        />
+      </div>
       {
         hasLegend &&
         <ul className={legendCx}>
           {
-            chartData.map((d: Object, i) => {
+            chartData.slice(0,7).map((d: Object, i) => {
               // get % of records that the current field matches
               const porCiento: number = (d.value / total) * 100 | 0
 

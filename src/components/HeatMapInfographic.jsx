@@ -30,13 +30,6 @@ class HeatMapInfographic extends React.Component {
       throw "Invalid Props"
     }
     
-    const now = new Date()
-    const currentYear = 2017
-    const years = _.range(this.props.infographicDefinitions.startYear, currentYear+1)
-    const slider_marks = years.slice(1,100).reduce(function(result, item, index, array) {
-      result[item] = item;
-      return result;
-    }, {})
     const minTime = new Date(this.props.infographicDefinitions.startYear,1,1);
 
     this.state = {
@@ -51,19 +44,18 @@ class HeatMapInfographic extends React.Component {
       xTermsReverse: [],
       step: 1,
       min: this.props.infographicDefinitions.startYear+1,
-      max: currentYear,
-      defaultValue: this.props.infographicDefinitions.defaults.year,
-      currentValue: currentYear,
       startYear: this.props.infographicDefinitions.startYear,
-      endYear: currentYear,
-      countBy: this.props.infographicDefinitions.countBy,
-      slider_marks: slider_marks,
-      years: years,
+      defaultValue: this.props.infographicDefinitions.defaults.year,
+      max: null,
+      currentValue: null,
+      endYear: null,
+      slider_marks: null,
+      years: null,
       lineStyle: this.props.infographicDefinitions.chartConfig.lineStyle,
       minTime: minTime,
-      maxTime: now,
+      maxTime: null,
+      defaultTimeRange: new TimeRange([minTime, null]),
       enablePanZoom: false,
-      defaultTimeRange: new TimeRange([minTime, now]),
       _rows: [],
       original_rows: [],
       trackerInfoValues: "",
@@ -101,180 +93,218 @@ class HeatMapInfographic extends React.Component {
   }
 
   _getAllData () {
-    const l = Object.values(this.state.queries).map(q => q.query),
-          urls = [],
-          that = this;
+    const that = this
 
-    l.forEach(function(param){
-      that.state.years.forEach(function(year){
-        var url = `${that.state.API_LINK}${that.state.api}.json?search=${that.props.infographicDefinitions.dateField}[${year}0101+TO+${year}1231]`
-        if(param != ""){
-          url += "+AND+" + param
-        }
-        url += `&count=${that.state.countBy}`
-        urls.push(url)
-      })
-    })
+    let download_url = `${API_LINK}/download.json`
+    return fetch(download_url)
+      .then(res => res.json())
+      .then(res => {
 
-    const emptyYearsArray = this.state.years.map(y => 0);
+        const apiParts = that.state.api.split('/')
+        const latestDataDate = new Date(res.results[apiParts[1]][apiParts[2]].export_date)
+        const latestYear = latestDataDate.getFullYear()
 
-    const itemPromises = urls.map(this.fetchJSON);
-    return Promise.all(itemPromises).then((results) => {
-      var d = [],
-          e = {},
-          allResult = {}, 
-          final = {},
-          keys = [],
-          response = {},
-          yearsObj = {};
+        ////////
+        // we set the min to be currentyear - 1 due to YOY analysis
+        // _.range is exclusive of max value, therefore use +1
+        const years = _.range(that.state.min-1, latestYear+1)
+        const slider_marks = years.slice(1,100).reduce(function(result, item, index, array) {
+          result[item] = item;
+          return result;
+        }, {})
 
-      results.forEach(function(item, index) {
-        var url = urls[index],
-            urlSplit = url.split("&")[0].split("AND+"),
-            s = urlSplit.length == 1 ? "all" : urlSplit[1].split(':')[1],
-            dayRegex = /\d{1,8}/,
-            dayRegexMatch = url.match(dayRegex),
-            year = null,
-            yearPosition = null;
-        
-        if(dayRegexMatch.length){
-          year = parseInt(dayRegexMatch[0].slice(0,4))
-
-          that.state.years.forEach(function(y, idx){
-            if(y == year){
-              yearPosition = idx;
-            }
-          })
-        }
-
-        var results = item.results.filter( res => {
-          return res.term.indexOf("/") == -1 && res.term !== "None"
+        that.setState({
+          maxTime: latestDataDate,
+          defaultTimeRange: new TimeRange([that.state.minTime, latestDataDate]),
+          max: latestYear,
+          currentValue: latestYear,
+          endYear: latestYear,
+          slider_marks: slider_marks,
+          years: years,
+          max: latestYear,
+          currentValue: latestYear,
+          endYear: latestYear
         })
 
-        var terms = results.map(v => {
-          // rename terms
-          var d = v.term.split('('),
-              renamedTerm = that.props.infographicDefinitions.xTerms[v.term],
-              term = (renamedTerm === undefined ?  d[0] : renamedTerm);
+        /////////
 
-          term = term.slice(0,1).toUpperCase() + term.slice(1,100).toLowerCase();
+        const l = Object.keys(that.state.queries)
+                  .map(key => that.state.queries[key].query),
+              urls = []
+              
 
-          if(that.props.infographicDefinitions.xTermsFormatting !== undefined){
-            var reformatted = that.props.infographicDefinitions.xTermsFormatting[term]
-            term = reformatted === undefined ?  term :  reformatted;
-          }
+        const urlPrefix = `${that.state.API_LINK}${that.state.api}.json?search=${that.props.infographicDefinitions.dateField}`,
+              urlPostfix = `&count=${that.props.infographicDefinitions.countBy}`
 
-          that.state.xTerms[d[0]] = term;
-          that.state.xTermsReverse[term] = v.term;
-          return term
-        });
-
-        // define data structure
-        if(final[s] == undefined){
-          var local_dict = {}
-          terms.forEach(function(term){
-            local_dict[term] = $.extend(true, [], emptyYearsArray)
-          })
-          final[s] = local_dict;
-        } 
-        // add extra categories
-        else {
-          terms.forEach(function(term){
-            // term not found
-            if(final[s][term] == undefined){
-              final[s][term] = $.extend(true, [], emptyYearsArray)
+        l.forEach(function(param){
+          years.forEach(function(year){
+            var url = `${urlPrefix}[${year}0101+TO+${year}1231]`
+            if(param != ""){
+              url += "+AND+" + param
             }
+            url += urlPostfix
+            urls.push(url)
           })
-        }
-
-        // now that data structure has been built, add the data to timeseries for
-        // coresponding year
-        results.forEach(function(v){
-          var d = v.term.split('(')[0];
-          var term = that.state.xTerms[d];
-          final[s][term][yearPosition] = v.count
-        })        
-
-      })
-
-      var sorter = {};
-      Object.keys(final.all).forEach(function(key){
-        var sum = final.all[key].reduce(function (a, b) {
-          return a + b;
-        }, 0);
-        sorter[key] = sum;
-      })
-
-      var sorted_keys = Object.keys(sorter).sort(function(a,b){return sorter[a]-sorter[b]}).reverse();
-
-      sorted_keys.forEach(function(key, idx){
-        if(idx <= 15){
-          keys.push(key)
-        }
-        Object.keys(final).forEach(function(category){
-          // remove keys after limit
-          if(idx > 15){
-            delete final[category][key]
-          } 
-          // make sure we fill keys with empty array if not already covered...
-          else {
-            if (final[category][key] == undefined){
-              final[category][key] = $.extend(true, [], emptyYearsArray)
-            }
-          }
         })
-      })
 
-      Object.keys(final).forEach(function(k){
-        response[k] = {}
-        Object.keys(final[k]).forEach(function(category){
-          const original_series = new Series(final[k][category])
-          var r = original_series.diff().shift(-1)
+        const emptyYearsArray = years.map(y => 0);
 
-          var g = _.zip(r._data._tail.array, original_series._data)
-          
-          var YOYs = [];
+        return Promise.all(urls.map(this.fetchJSON)).then((results) => {
+          var d = [],
+              e = {},
+              allResult = {}, 
+              final = {},
+              keys = [],
+              response = {},
+              yearsObj = {};
 
-          g.forEach(function(zipped){
-            if(zipped[0] != null){
-              var z = null;
-              if(zipped[0] > 0 && zipped[1] == 0){
-                z = 1
-              } else if (zipped[0] == 0 && zipped[1] == 0){
-                z = 0
-              } else {
-                z = zipped[0]/zipped[1];
+          results.forEach(function(item, index) {
+            var url = urls[index],
+                urlSplit = url.split("&")[0].split("AND+"),
+                s = urlSplit.length == 1 ? "all" : urlSplit[1].split(':')[1],
+                dayRegex = /\d{1,8}/,
+                dayRegexMatch = url.match(dayRegex),
+                year = null,
+                yearPosition = null;
+            
+            if(dayRegexMatch.length){
+              year = parseInt(dayRegexMatch[0].slice(0,4))
+
+              that.state.years.forEach(function(y, idx){
+                if(y == year){
+                  yearPosition = idx;
+                }
+              })
+            }
+
+            var results = item.results.filter( res => {
+              return res.term.indexOf("/") == -1 && res.term !== "None"
+            })
+
+            var terms = results.map(v => {
+              // rename terms
+              var d = v.term.split('('),
+                  renamedTerm = that.props.infographicDefinitions.xTerms[v.term],
+                  term = (renamedTerm === undefined ?  d[0] : renamedTerm);
+
+              term = term.slice(0,1).toUpperCase() + term.slice(1,100).toLowerCase();
+
+              if(that.props.infographicDefinitions.xTermsFormatting !== undefined){
+                var reformatted = that.props.infographicDefinitions.xTermsFormatting[term]
+                term = reformatted === undefined ?  term :  reformatted;
               }
 
-              YOYs.push(z);
+              that.state.xTerms[d[0]] = term;
+              that.state.xTermsReverse[term] = v.term;
+              return term
+            });
+
+            // define data structure
+            if(final[s] == undefined){
+              var local_dict = {}
+              terms.forEach(function(term){
+                local_dict[term] = $.extend(true, [], emptyYearsArray)
+              })
+              final[s] = local_dict;
+            } 
+            // add extra categories
+            else {
+              terms.forEach(function(term){
+                // term not found
+                if(final[s][term] == undefined){
+                  final[s][term] = $.extend(true, [], emptyYearsArray)
+                }
+              })
             }
+
+            // now that data structure has been built, add the data to timeseries for
+            // coresponding year
+            results.forEach(function(v){
+              var d = v.term.split('(')[0];
+              var term = that.state.xTerms[d];
+              final[s][term][yearPosition] = v.count
+            })
           })
 
-          response[k][category] = YOYs;
-        })
-      })
+          var sorter = {};
+          Object.keys(final.all).forEach(function(key){
+            var sum = final.all[key].reduce(function (a, b) {
+              return a + b;
+            }, 0);
+            sorter[key] = sum;
+          })
 
-      that.state.years.slice(1,100).forEach(function(y,idx){
-        var data = [];
-        Object.keys(response).forEach(function(k){
-          const f = {
-            "_type": that.props.infographicDefinitions.queries[k].name
+          var sorted_keys = Object.keys(sorter).sort(function(a,b){return sorter[a]-sorter[b]}).reverse();
+
+          sorted_keys.forEach(function(key, idx){
+            if(idx <= 15){
+              keys.push(key)
+            }
+            Object.keys(final).forEach(function(category){
+              // remove keys after limit
+              if(idx > 15){
+                delete final[category][key]
+              } 
+              // make sure we fill keys with empty array if not already covered...
+              else {
+                if (final[category][key] == undefined){
+                  final[category][key] = $.extend(true, [], emptyYearsArray)
+                }
+              }
+            })
+          })
+
+          Object.keys(final).forEach(function(k){
+            response[k] = {}
+            Object.keys(final[k]).forEach(function(category){
+              const original_series = new Series(final[k][category])
+              var r = original_series.diff().shift(-1)
+
+              var g = _.zip(r._data._tail.array, original_series._data)
+              
+              var YOYs = [];
+
+              g.forEach(function(zipped){
+                if(zipped[0] != null){
+                  var z = null;
+                  if(zipped[0] > 0 && zipped[1] == 0){
+                    z = 1
+                  } else if (zipped[0] == 0 && zipped[1] == 0){
+                    z = 0
+                  } else {
+                    z = zipped[0]/zipped[1];
+                  }
+
+                  YOYs.push(z);
+                }
+              })
+
+              response[k][category] = YOYs;
+            })
+          })
+
+          that.state.years.slice(1,100).forEach(function(y,idx){
+            var data = [];
+            Object.keys(response).forEach(function(k){
+              const f = {
+                "_type": that.props.infographicDefinitions.queries[k].name
+              }
+              Object.keys(response[k]).forEach(function(category, index){
+                var yoy = response[k][category][idx],
+                    shortenedCategory = category.slice(0,1) + category.slice(1,100).toLowerCase();
+                f[category] = Math.floor(yoy * 100);
+              })
+              data.push(f)
+            })
+            yearsObj[y] = data;
+          })
+
+          return { 
+            "data": yearsObj,
+            "keys": keys
           }
-          Object.keys(response[k]).forEach(function(category, index){
-            var yoy = response[k][category][idx],
-                shortenedCategory = category.slice(0,1) + category.slice(1,100).toLowerCase();
-            f[category] = Math.floor(yoy * 100);
-          })
-          data.push(f)
         })
-        yearsObj[y] = data;
       })
-
-      return { 
-        "data": yearsObj,
-        "keys": keys
-      }
-    })
   }
 
   onClick(node, event){
@@ -317,11 +347,10 @@ class HeatMapInfographic extends React.Component {
           width: 5
         }])
 
-
       that.setState({
         lineStyle,
         sparklineData: series,
-        sparklindDataMax: series.max(),
+        sparklindDataMax: series.max() <= 5 ? 5: series.max(),
         timerange: new TimeRange(that.state.minTime, new Date(that.state.currentValue+1, 1,20)),
         currentXkey: node['xKey'].charAt(0).toUpperCase() + node['xKey'].slice(1).toLowerCase(),
         currentYkey: yQueryInfo.name
@@ -350,6 +379,7 @@ class HeatMapInfographic extends React.Component {
       timerange: new TimeRange(this.state.minTime, new Date(d+1, 1,20))
     })
   }
+
   onTrackerChanged(tracker) {
     let index;
     try{
@@ -399,7 +429,7 @@ class HeatMapInfographic extends React.Component {
     };
 
     return (
-        <section className='infographic-container'>
+        <section className='infographic-container heatmap-border'>
 
           {Parser(this.props.infographicDefinitions.title)}
           <hr className="datamap-hr"/>
@@ -430,7 +460,7 @@ class HeatMapInfographic extends React.Component {
           </div>
           <br/><br/>
 
-          <div>
+          <div className='heatmap-line-chart'>
             <button className="heatmap-infographic-zoom-button" onClick={this.togglePanZoom }> { this.state.enablePanZoom ? 'Disable' : 'Enable' } Zoom</button>
             { !this.state.sparklineData ? null : 
               <p className="interactive-infographic-center"> 

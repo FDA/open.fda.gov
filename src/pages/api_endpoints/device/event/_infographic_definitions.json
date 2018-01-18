@@ -1,202 +1,359 @@
 {
-  "selectedState": "VA",
-  "countBy": "device.manufacturer_d_state.exact",
-  "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i>: Year Over Year (YOY) % Change by State</p>",
-  "subtitle": "Adverse Events",
-  "type": "DataMap",
-  "ipURL": "https:\/\/freegeoip.net/json/?callback=",
-  "colorCodes": {
-    "greens": ["#c2e2a5", "#9cc677", "#7bba4d", "#4aaa01", "#177d00"],
-    "reds":["#ffa1a4","#ff7c80","#fe5057", "#ED182B", "#bd0000"],
-    "zero": "#C7C7C7"
-  },
-  "legend": {
-      "title": "YOY % Change",
-      "styles": {
-        "float": "right" ,
-        "paddingTop": 100,
-        "borderSpacing": ".5em"
-      },
-      "ranges": [
-        {
-          "color": "#ED182B",
-          "name": "> 1001%"
-        },
-        {
-          "color":  "#fe5057",
-          "name":  "501% to 1000%"
-        },
-        {
-          "color": "#ffa1a4",
-          "name": "1% to 500%"
-        },
-        {
-          "color": "#C7C7C7",
-          "name": "0% (No Change)"
-        },
-        {
-          "color": "#c2e2a5",
-          "name": "-1% to -500%"
-        },
-        {
-          "color":  "#7bba4d",
-          "name":  "-501% to -1000%"
-        },
-        {
-          "color": "#4aaa01",
-          "name": "< -1001%"
-        }
+  "globalDefs": {
+    "startYear": 2012,
+    "api": "/drug/enforcement",
+    "font": {
+      "color":"#000000",
+      "fontFamily": "Merriweather,Georgia,serif"
+    },
+    "tooltip": {
+      "fontSize": "11px",
+      "font": "Merriweather,Georgia,serif"
+    },
+    "pieChartConfig": {
+      "fill": "#8884d8",
+      "colors": [
+        "#0088FE",
+        "#1ECFFF",
+        "#00C49F",
+        "#FFBB28",
+        "#d62728"
       ]
-  },
-  "slider": {
-    "style": {
-      "float": "left",
-      "height": "350px"
     },
-    "handleStyle": {
-      "borderColor": "black"
-    },
-    "trackStyle": {
-      "backgroundColor": "#8C8C8C",
-      "width": 5
-    },
-    "dotStyle": {
-      "backgroundColor": "white",
-      "borderColor": "black"
+    "lineChartConfig": {
+      "interpolation": "curveLinear",
+      "width": 700,
+      "showGrid": true,
+      "chartRow": {
+        "height": 200,
+        "trackerInfoWidth": 130
+      },
+      "yAxis": {
+        "label": "Number of Device Events",
+        "min": 0,
+        "width": 50,
+        "type": "linear"
+      },
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "infoWidth":50,
+        "markerRadius": 4,
+        "markerStyle":{
+          "fill": "black"
+        }
+      },
+      "colors": [
+        "#1f77b4", "#ff3300", "#ff7f0e", "#ff33cc", "#2ca02c",
+        "#006666", "#00d899", "#990099", "#9467bd", "#c5b0d5",
+        "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+        "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+      ]
     }
   },
-  "dateField": "date_of_event",
-  "startYear": 1992,
-  "dataMapConfig": {
-    "geographyConfigInfo": {
-      "highlightBorderColor": "#FFFFFF",
-      "highlightFillColor": "rgb(44,205,255)",
-      "popupTemplate": "<div class='hoverinfo'>${this.geography.properties.name}\nYOY change %: ${this.this.state.currentValue} => ${this.data.numberOfThings}%",
-      "highlightBorderWidth": 3
-    },
-    "fills": {
-      "defaultFill": "#FFFFFF"
-    },
-    "height": 400,
-    "width": 800,
-    "scope": "usa",
-    "bubblesConfig": {
-      "borderWidth": 3,
-      "borderOpacity": 1,
-      "borderColor": "#080808",
-      "popupOnHover": false,
-      "fillOpacity": 1,
-      "animate": false,
-      "highlightOnHover": true,
-      "highlightFillColor": "#FFFFFF",
-      "exitDelay": 100
-    },
-    "updateChoroplethOptions":{
-      "reset": true
-    }
-  },
-  "gridConfig": {
-    "rowScrollTimeout": 0,
-    "headerRowHeight": 30,
-    "rowHeight": 75,
-    "minHeight": 400, 
-    "minWidth": 1020,
-    "pagination": false,
-    "reactTableColumns": [
-      {
-        "Header": "State",
-        "baseObject": "device",
-        "accessor": "manufacturer_d_state",
-        "width":50,
-        "className": "long-text-formatter"
+  "choices": [
+    {
+      "type": "PieChart",
+      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Event Type, Amount of Usage</div>",
+      "subtitle": "",
+      "yTitle": "Event",
+      "xTitle": "",
+      "selectionPostFix": " ",
+      "countBy": "event_type.exact",
+      "dateField": "date_received",
+      "subfield": "previous_use_code.exact",
+      "subfieldLabel": "Amount of Usage",
+      "lineLimiter": 8,
+      "defs": {
+        "Malfunction": "Malfunction",
+        "Injury": "Injury",
+        "Death": "Death",
+        "Other": "Other",
+        "No answer provided": "No answer provided"
       },
-      {
-        "Header": "Recalling Firm",
-        "accessor": "manufacturer_contact_l_name",
-        "width":150,
-        "className": "long-text-formatter"
+      "dataFunction": "_getAllData",
+      "excludedTerms": ["*"],
+      "excludeFields": [
+        "No answer provided"  
+      ],
+      "acceptedTerms": {
+        "N": "No",
+        "I": "Initial use",
+        "R": "Reuse",
+        "U": "Unknown"
       },
-      {
-        "Header": "Device Name",
-        "baseObject": "device",
-        "accessor": "generic_name",
-        "width":225,
-        "className": "long-text-formatter"
-      },
-      {
-        "Header": "Event Description",
-        "baseObject": "mdr_text",
-        "width":320,
-        "accessor": "text",
-        "className": "long-text-formatter"
-      },
-      {
-        "Header": "Source",
-        "width":150,
-        "accessor": "report_source_code",
-        "className": "long-text-formatter"
-      },
-      {
-        "Header": "Speciality",
-        "width":125,
-        "baseObject": "device",
-        "subObject": "openfda",
-        "accessor": "medical_specialty_description",
-        "className": "long-text-formatter"
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "Malfunction",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 100 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
       }
-    ],
-    "defaultData": [{"device": [{"generic_name": "No Data Found"}]},{},{},{},{},{}]
-  },
-  "states": {
-    "MT": "Montana", 
-    "CT": "Connecticut", 
-    "TX": "Texas", 
-    "VT": "Vermont", 
-    "FL": "Florida", 
-    "NV": "Nevada", 
-    "SD": "South Dakota", 
-    "UT": "Utah", 
-    "SC": "South Carolina", 
-    "WV": "West Virginia", 
-    "WY": "Wyoming", 
-    "IA": "Iowa", 
-    "NY": "New York", 
-    "WA": "Washington", 
-    "ND": "North Dakota", 
-    "NE": "Nebraska", 
-    "NC": "North Carolina", 
-    "WI": "Wisconsin", 
-    "HI": "Hawaii", 
-    "NM": "New Mexico", 
-    "NJ": "New Jersey", 
-    "LA": "Louisiana", 
-    "NH": "New Hampshire", 
-    "AZ": "Arizona", 
-    "DE": "Delaware", 
-    "AR": "Arkansas", 
-    "AK": "Alaska", 
-    "CA": "California", 
-    "AL": "Alabama", 
-    "CO": "Colorado", 
-    "MN": "Minnesota", 
-    "ME": "Maine", 
-    "GA": "Georgia", 
-    "RI": "Rhode Island", 
-    "PA": "Pennsylvania", 
-    "OR": "Oregon", 
-    "MS": "Mississippi", 
-    "VA": "Virginia", 
-    "MO": "Missouri", 
-    "OH": "Ohio", 
-    "OK": "Oklahoma", 
-    "KY": "Kentucky", 
-    "MA": "Massachusetts", 
-    "MI": "Michigan", 
-    "ID": "Idaho", 
-    "TN": "Tennessee", 
-    "MD": "Maryland", 
-    "IN": "Indiana", 
-    "KS": "Kansas", 
-    "IL": "Illinois"
-  }
+    },
+    {
+      "type": "PieChart",
+      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Product Type, Generic Name</div>",
+      "subtitle": "",
+      "yTitle": "Event",
+      "xTitle": "Remedial Action",
+      "selectionPostFix": " ",
+      "countBy": "event_type.exact",
+      "dateField": "date_received",
+      "subfield": "remedial_action.exact",
+      "subfieldLabel": "Remedial Action",
+      "lineLimiter": 8,
+      "defs": {
+        "Malfunction": "Malfunction",
+        "Injury": "Injury",
+        "Death": "Death",
+        "Other": "Other",
+        "No answer provided": "No answer provided"
+      },
+      "dataFunction": "_getAllData",
+      "excludedTerms": ["*"],
+      "excludeFields": [
+        "No answer provided"  
+      ],
+      "acceptedTerms": {
+        "PATIENT MONITORING": "Patient Monitoring",
+        "INVALID DATA": "Invalid Data",
+        "RECALL": "Recall",
+        "REPAIR": "Repair",
+        "REPLACE": "Replace",
+        "RELABELING": "Relabeling",
+        "OTHER": "Other",
+        "NOTIFICATION": "Notification",
+        "INSPECTION": "Inspection"
+      },
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "Death",
+          "index": 2
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 100 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    },
+    {
+      "type": "PieChart",
+      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Event Type, Single Use</div>",
+      "subtitle": "",
+      "yTitle": "Event",
+      "xTitle": "Single Use",
+      "selectionPostFix": " ",
+      "countBy": "event_type.exact",
+      "dateField": "date_received",
+      "subfield": "single_use_flag.exact",
+      "subfieldLabel": "Single Use",
+      "lineLimiter": 8,
+      "defs": {
+        "Malfunction": "Malfunction",
+        "Injury": "Injury",
+        "Death": "Death",
+        "Other": "Other",
+        "No answer provided": "No answer provided"
+      },
+      "dataFunction": "_getAllData",
+      "excludedTerms": ["*",""],
+      "excludeFields": [
+        "No answer provided"  
+      ],
+      "acceptedTerms": {
+        "Y": "Yes",
+        "N": "No"
+      },
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "Injury",
+          "index": 1
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 100 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    },
+    {
+      "type": "PieChart",
+      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Event Type, Report Source</div>",
+      "subtitle": "",
+      "yTitle": "Type",
+      "xTitle": "Source",
+      "selectionPostFix": " ",
+      "yName": "Query",
+      "xName": "Route",
+      "countBy": "event_type.exact",
+      "dateField": "date_received",
+      "subfield": "report_source_code.exact",
+      "subfieldLabel": "Report Source",
+      "lineLimiter": 8,
+      "defs": {
+        "Malfunction": "Malfunction",
+        "Injury": "Injury",
+        "Death": "Death",
+        "Other": "Other",
+        "No answer provided": "No answer provided"
+      },
+      "dataFunction": "_getAllData",
+      "excludedTerms": ["*",""],
+      "excludeFields": [
+        "No answer provided"  
+      ],
+      "acceptedTerms": {
+        "MANUFACTURER REPORT": "Manufacturer report",
+        "VOLUNTARY REPORT": "Voluntary report",
+        "USER FACILITY REPORT": "User Facility report",
+        "DISTRIBUTOR REPORT": "Distributor report"
+      },
+      "tooltip": {
+        "fontSize": "11px",
+        "font": "Merriweather,Georgia,serif"
+      },
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "Injury",
+          "index": 1
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 100 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    },
+    {
+      "type": "PieChart",
+      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Event Type, Reporter Occupation</div>",
+      "subtitle": "",
+      "yTitle": "Event",
+      "xTitle": "Reporter",
+      "selectionPostFix": " ",
+      "countBy": "event_type.exact",
+      "dateField": "date_received",
+      "subfield": "reporter_occupation_code.exact",
+      "subfieldLabel": "Initial reporter occupation",
+      "lineLimiter": 7,
+      "defs": {
+        "Malfunction": "Malfunction",
+        "Injury": "Injury",
+        "Death": "Death",
+        "Other": "Other",
+        "No answer provided": "No answer provided"
+      },
+      "dataFunction": "_getAllData",
+      "excludedTerms": ["*",""],
+      "excludeFields": [
+        "No answer provided"  
+      ],
+      "acceptedTerms": {
+        "ATTORNEY": "Attorney",
+        "HEALTH PROFESSIONAL": "Health Professional",
+        "UNKNOWN": "Unknown",
+        "SERVICE AND TESTING PERSONNEL": "Service And Testing Personnel",
+        "MEDICAL TECHNOLOGIST": "Medical Technologist",
+        "NURSE": "Nurse",
+        "PATIENT": "Patient",
+        "BIOMEDICAL ENGINEER": "Biomedical Engineer",
+        "AUDIOLOGIST": "Audiologistservice Personnel",
+        "SERVICE PERSONNEL": "Respiratory Therapist",
+        "PHARMACIST": "Pharmacist",
+        "PHYSICIAN": "Physician",
+        "RISK MANAGER": "Risk Manager",
+        "NO INFORMATION": "No Information",
+        "OTHER": "Other",
+        "OTHER HEALTH CARE PROFESSIONAL": "Other Health Care Professional",
+        "INVALID DATA": "Invalid Data",
+        "NOT APPLICABLE": "Not Applicable",
+        "PATIENT FAMILY MEMBER OR FRIEND": "Patient Family Member Or Friend",
+        "DENTIST": "Dentist"
+      },
+      "tooltip": {
+        "fontSize": "11px",
+        "font": "Merriweather,Georgia,serif"
+      },
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "Death",
+          "index": 2
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 100 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    }
+  ]
 }
