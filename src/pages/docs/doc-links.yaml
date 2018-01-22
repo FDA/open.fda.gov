@@ -70,7 +70,7 @@
           link: /docs/drug/label/download/
         - title: Searchable fields
           link: /docs/drug/label/searchable-fields
-    - title: Adverse Event Reports
+    - title: Adverse Events
       collapse: true
       items:
         - title: Overview
@@ -87,3 +87,181 @@
           link: /docs/drug/event/download/
         - title: Searchable fields
           link: /docs/drug/event/searchable-fields
+
+- title: Device API Endpoints
+  collapse: true
+  items:
+    - title: 510(k)
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/device/510k/
+        - title: How to use the API
+          link: /docs/device/510k/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/device/510k/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/device/510k/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/device/510k/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/device/510k/download/
+        - title: Searchable fields
+          link: /docs/device/510k/searchable-fields/
+    - title: Classification
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/device/classification/
+        - title: How to use the API
+          link: /docs/device/classification/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/device/classification/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/device/classification/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/device/classification/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/device/classification/download/
+        - title: Searchable fields
+          link: /docs/device/classification/searchable-fields/
+    - title: Recall Enforcement Reports
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/device/enforcement/
+        - title: How to use the API
+          link: /docs/device/enforcement/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/device/enforcement/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/device/enforcement/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/device/enforcement/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/device/enforcement/download/
+        - title: Searchable fields
+          link: /docs/device/enforcement/searchable-fields/
+    - title: Adverse Events
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/device/event/
+        - title: How to use the API
+          link: /docs/device/event/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/device/event/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/device/event/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/device/event/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/device/event/download/
+        - title: Searchable fields
+          link: /docs/device/event/searchable-fields/
+    - title: Pre-market Approval
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/device/pma/
+        - title: How to use the API
+          link: /docs/device/pma/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/device/pma/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/device/pma/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/device/pma/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/device/pma/download/
+        - title: Searchable fields
+          link: /docs/device/pma/searchable-fields/
+    - title: Recalls
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/device/recall/
+        - title: How to use the API
+          link: /docs/device/recall/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/device/recall/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/device/recall/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/device/recall/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/device/recall/download/
+        - title: Searchable fields
+          link: /docs/device/recall/searchable-fields/
+    - title: Registrations and Listings
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/device/registrationlistion/
+        - title: How to use the API
+          link: /docs/device/registrationlistion/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/device/registrationlistion/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/device/registrationlistion/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/device/registrationlistion/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/device/registrationlistion/download/
+        - title: Searchable fields
+          link: /docs/device/registrationlistion/searchable-fields/
+    - title: Unique Device Identifier
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/device/udi/
+        - title: How to use the API
+          link: /docs/device/udi/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/device/udi/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/device/udi/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/device/udi/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/device/udi/download/
+        - title: Searchable fields
+          link: /docs/device/udi/searchable-fields/
+
+- title: Food API Endpoints
+  collapse: true
+  items:
+    - title: Recall Enforcement Reports
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/food/enforcement/
+        - title: How to use the API
+          link: /docs/food/enforcement/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/food/enforcement/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/food/enforcement/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/food/enforcement/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/food/enforcement/download/
+        - title: Searchable fields
+          link: /docs/food/enforcement/searchable-fields/
+    - title: Adverse Event Reports
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/food/event/
+        - title: How to use the API
+          link: /docs/food/event/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/food/event/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/food/event/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/food/event/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/food/event/download/
+        - title: Searchable fields
+          link: /docs/food/event/searchable-fields/
