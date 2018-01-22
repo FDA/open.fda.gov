@@ -23,7 +23,7 @@ const _renderLi = (props: tLiProps) => {
   let values: ?Object = null
   // of strings
   let type2: string = ''
-  // description text, can have markdown
+  // description text, can have docs
   let desc: string = ''
   // query syntax pattern
   let pattern: string = ''

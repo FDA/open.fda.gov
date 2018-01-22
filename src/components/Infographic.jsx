@@ -92,7 +92,7 @@ const Infographic = (props: tPROPS) => {
   const fieldDefinition: void|Object = yamlGet(nextCountParam, fields)
   const error: boolean = data.error || !fieldDefinition
 
-  // if fieldDef has description, then markdown-ify it
+  // if fieldDef has description, then docs-ify it
   const markedFieldDef: string = fieldDefinition &&
     fieldDefinition.description ?
       `${marked(fieldDefinition.description)}` :

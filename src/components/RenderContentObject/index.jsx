@@ -173,6 +173,7 @@ const RenderContentObject = (props: tPROPS) => {
 
   // if fields use fields object and Fields Component to render
   if (key === 'fields') {
+    console.log("objkey: ", obj[key])
     return (
       <Fields
         k={k}

@@ -1,0 +1,34 @@
+{
+  "downloadQuery": {
+    "meta": {
+    "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+    "license": "http://open.fda.gov/license",
+    "last_updated": "2015-12-19"
+    },
+    "results": {
+      "device": {
+        "event": {
+          "total_records": 33128,
+          "export_date": "2015-12-19",
+          "partitions": [
+            {
+              "size_mb": "0.56",
+              "records": 795,
+              "display_name": "2012 q2 (all)",
+              "file": "http://download.open.fda.gov/device/event/2012q2/device-event-0001-of-0001.json.zip"
+            },
+            {
+              "size_mb": "0.58",
+              "records": 825,
+              "display_name": "2012 q3 (all)",
+              "file": "http://download.open.fda.gov/device/event/2012q3/device-event-0001-of-0001.json.zip"
+            },
+            {
+              "…": "…"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

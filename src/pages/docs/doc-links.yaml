@@ -1,0 +1,89 @@
+- title: API Basics
+  items:
+    - title: About the openFDA API
+      link: /docs/
+    - title: Try the API
+      link: /docs/try-the-api/
+    - title: Anatomy of a response
+      link: /docs/anatomy-of-a-response/
+    - title: OpenFDA fields
+      link: /docs/openfda-fields/
+
+- title: Construct the query
+  items:
+  - title: Query parameters
+    link: /docs/query-parameters/
+  - title: Query syntax
+    link: /docs/query-syntax/
+  - title: Advanced syntax
+    link: /docs/advanced-syntax/
+  - title: Dates and ranges
+    link: /docs/dates-and-ranges/
+  - title: Missing values
+    link: /docs/missing-values/
+  - title: Timeseries
+    link: /docs/timeseries/
+
+- title: Download the API
+  items:
+  - title: Downloads
+    link: /docs/downloads/
+  - title: Download API fields
+    link: /docs/download-api-fields/
+  - title: Authentication
+    link: /docs/authentication/
+
+- title: Drug API Endpoints
+  collapse: true
+  items:
+    - title: Enforcement Reports
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/drug/enforcement/
+        - title: How to use the API
+          link: /docs/drug/enforcement/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/drug/enforcement/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/drug/enforcement/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/drug/enforcement/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/drug/enforcement/download/
+        - title: Searchable fields
+          link: /docs/drug/enforcement/searchable-fields/
+    - title: Product Labeling
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/drug/label/
+        - title: How to use the API
+          link: /docs/drug/label/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/drug/label/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/drug/label/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/drug/label/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/drug/label/download/
+        - title: Searchable fields
+          link: /docs/drug/label/searchable-fields
+    - title: Adverse Event Reports
+      collapse: true
+      items:
+        - title: Overview
+          link: /docs/drug/event/
+        - title: How to use the API
+          link: /docs/drug/event/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /docs/drug/event/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /docs/drug/event/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /docs/drug/event/understanding-the-api-results/
+        - title: Download the dataset
+          link: /docs/drug/event/download/
+        - title: Searchable fields
+          link: /docs/drug/event/searchable-fields

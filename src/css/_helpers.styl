@@ -270,8 +270,10 @@ for $key, $value in $uswds-colors
     font-weight: bolder
     padding-left: 15px
 
-  &:hover
-    background-color: $clrGrayLightest
+  a
+    &:hover
+      background-color: $clrGrayLightest
+
 
 // normally we use the LinkExternal component for this
 // but when parsing arbitrary markdown (ie, the content yamls)

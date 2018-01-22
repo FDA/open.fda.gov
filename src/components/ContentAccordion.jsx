@@ -61,7 +61,7 @@ const ContentAccordion = (props: tPROPS) => {
   const key: string = Object.keys(obj)[0]
   // normalize the key
   const lowerKey: string = key.toLowerCase()
-  // stringified markdown -> html
+  // stringified docs -> html
   const key_html: string = marked(key)
   const wrapperCx: string = 'font-size-2 weight-700 marg-b-2 marg-t-3'
   const sectionCx: string = cx({
@@ -98,7 +98,7 @@ const ContentAccordion = (props: tPROPS) => {
                 />
               )
             } else {
-              // stringified markdown -> html
+              // stringified docs -> html
               const html: string = marked(content)
 
               // kind of a weird way to do this

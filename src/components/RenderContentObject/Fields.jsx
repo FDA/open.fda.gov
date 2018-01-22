@@ -46,7 +46,7 @@ const _renderLi = (props: tLiProps) => {
   let values: ?Object = null
   // of strings
   let type2: string = ''
-  // description text, can have markdown
+  // description text, can have docs
   let desc: string = ''
   // query syntax pattern
   let pattern: string = ''
@@ -103,19 +103,19 @@ const _renderLi = (props: tLiProps) => {
           <div>
             <p>This is an <code className='inline-block'>.exact</code> field. It has been indexed both as its exact string content, and also tokenized.</p>
             <ul>
-              <li className='bullet'>
+              <li>
                 <p><code className='hljs-string inline-block'>search={key}:"FOO+BAR"</code><br />
                 Searches for records where either <code className='inline-block'>FOO</code> or <code className='inline-block'>BAR</code> appear anywhere in this field.</p>
               </li>
-              <li className='bullet'>
+              <li>
                 <p><code className='hljs-string inline-block'>search={key}.exact:"FOO+BAR"</code><br />
                 Searches for records where exactly and only <code className='inline-block'>FOO BAR</code> appears in this field.</p>
               </li>
-              <li className='bullet'>
+              <li>
                 <p><code className='hljs-string inline-block'>count={key}</code><br />
                 Counts the tokenized values of this field. Instances of <code className='inline-block'>FOO</code> and <code className='inline-block'>BAR</code> are counted separately.</p>
               </li>
-              <li className='bullet'>
+              <li>
                 <p><code className='hljs-string inline-block'>count={key}.exact</code><br />
                 Counts the exact values of this field. <code className='inline-block'>FOO BAR</code>, <code className='inline-block'>BAR FOO</code>, <code className='inline-block'>FOO</code>, and <code className='inline-block'>BAR</code> would all be counted separately, along with other combinations that contain these terms.</p>
               </li>
@@ -225,11 +225,14 @@ const Fields = ({ data, fields, k }: tPROPS) => {
   })
 
   return (
-    <ul
-      key={k}
-      className='marg-t-2'>
-      {fieldData}
-    </ul>
+    <section>
+      <ul
+        key={k}
+        className='marg-t-2'
+        style={{marginLeft:"0"}}>
+        {fieldData}
+      </ul>
+    </section>
   )
 }
 

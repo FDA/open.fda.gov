@@ -1,0 +1,100 @@
+{
+  "globalDefs": {
+    "startYear": 2012,
+    "api": "/drug/enforcement",
+    "font": {
+      "color":"#000000",
+      "fontFamily": "Merriweather,Georgia,serif"
+    },
+    "tooltip": {
+      "fontSize": "11px",
+      "font": "Merriweather,Georgia,serif"
+    },
+    "pieChartConfig": {
+      "fill": "#8884d8",
+      "colors": [
+        "#0088FE",
+        "#1ECFFF",
+        "#00C49F",
+        "#FFBB28",
+        "#d62728"
+      ]
+    },
+    "lineChartConfig": {
+      "interpolation": "curveLinear",
+      "width": 700,
+      "showGrid": true,
+      "chartRow": {
+        "height": 200,
+        "trackerInfoWidth": 130
+      },
+      "yAxis": {
+        "label": "Number of Drug Reports",
+        "min": 0,
+        "width": 50,
+        "type": "linear"
+      },
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "infoWidth":50,
+        "markerRadius": 4,
+        "markerStyle":{
+          "fill": "black"
+        }
+      },
+      "colors": [
+        "#1f77b4", "#ff3300", "#ff7f0e", "#ff33cc", "#2ca02c",
+        "#006666", "#00d899", "#990099", "#9467bd", "#c5b0d5",
+        "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+        "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+      ]
+    }
+  },
+  "choices": [
+    {
+      "type": "PieChart",
+      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Drug Enforcement Report</i> by Classification, State </div>",
+      "subtitle": "Device Enforcement Reports",
+      "yTitle": "Hazard",
+      "xTitle": "",
+      "selectionPostFix": " ",
+      "countBy": "classification.exact",
+      "dateField": "report_date",
+      "subfield": "state.exact",
+      "subfieldLabel": "State",
+      "lineLimiter": 15,
+      "defs": {
+        "Class II": "Class II",
+        "Class I": "Class I",
+        "Class III": "Class III",
+        "Not Yet Classified": "Unclassified"
+      },
+      "dataFunction": "_getAllData",
+      "xLegendCoordinate": -30,
+      "excludedTerms": [""],
+      "pieChartConfig": {
+        "default": {
+          "id":"Class I",
+          "index": 2
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Class"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 100 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    }
+  ]
+}

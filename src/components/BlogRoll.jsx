@@ -39,7 +39,7 @@ const BlogRoll = (props: tPROPS) => {
   // this is useful because not everything in
   // sortedPosts will get rendered. actually,
   // most won't get rendered, since posts
-  // are really just any markdown file
+  // are really just any docs file
   let tally: number = 0 | 0
 
   return (

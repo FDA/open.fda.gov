@@ -102,40 +102,42 @@ const KeyFacts = (props: tPROPS) => {
   }
 
   return (
-    <ul className="key-facts">
-      <li>
-        <i className="fa fa-database"/>
-        <div className="label">Source of the data:</div>
-        <div className="value">
-          {
-            source_link[noun_name].hasOwnProperty(endpoint_name) &&
-            <Link to={source_link[noun_name][endpoint_name]}>
-              {source[noun_name][endpoint_name]}
-            </Link>
-          }
-          {
-            !(source_link[noun_name].hasOwnProperty(endpoint_name)) &&
-            source[noun_name][endpoint_name]
-          }
-        </div>
-      </li>
-      <li>
-        <i className="fa fa-edit"/>
-        <div className="label">Changes to the source data:</div>
-        <div className="value">OpenFDA annotates the original records with <a href="#searchable-fields">special fields </a>
-          and converts the data into JSON, which is a widely used machine readable format.</div>
-      </li>
-      <li>
-        <i className="fa fa-calendar"/>
-        <div className="label">Time period covered in this API:</div>
-        <div className="value">{time_period[noun_name][endpoint_name]}</div>
-      </li>
-      <li>
-        <i className="fa fa-refresh"/>
-        <div className="label">Frequency of API updates:</div>
-        <div className="value">{frequency[noun_name][endpoint_name]}</div>
-      </li>
-    </ul>
+    <section>
+      <ul className="key-facts">
+        <li>
+          <i className="fa fa-database"/>
+          <div className="label">Source of the data:</div>
+          <div className="value">
+            {
+              source_link[noun_name].hasOwnProperty(endpoint_name) &&
+              <Link to={source_link[noun_name][endpoint_name]}>
+                {source[noun_name][endpoint_name]}
+              </Link>
+            }
+            {
+              !(source_link[noun_name].hasOwnProperty(endpoint_name)) &&
+              source[noun_name][endpoint_name]
+            }
+          </div>
+        </li>
+        <li>
+          <i className="fa fa-edit"/>
+          <div className="label">Changes to the source data:</div>
+          <div className="value">OpenFDA annotates the original records with <a href="#searchable-fields">special fields </a>
+            and converts the data into JSON, which is a widely used machine readable format.</div>
+        </li>
+        <li>
+          <i className="fa fa-calendar"/>
+          <div className="label">Time period covered in this API:</div>
+          <div className="value">{time_period[noun_name][endpoint_name]}</div>
+        </li>
+        <li>
+          <i className="fa fa-refresh"/>
+          <div className="label">Frequency of API updates:</div>
+          <div className="value">{frequency[noun_name][endpoint_name]}</div>
+        </li>
+      </ul>
+    </section>
   )
 }
 

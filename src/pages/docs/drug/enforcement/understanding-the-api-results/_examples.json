@@ -1,0 +1,67 @@
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    }
+  },
+  "result": {
+    "reason_for_recall": "Labeling: Incorrect or Missing Lot and/or Expiration date; The Lot and/or Expiration date on the tube may not be legible in this lot..",
+    "status": "Ongoing",
+    "distribution_pattern": "Nationwide and Puerto Rico, and Panama.\nMilitary distribution made.",
+    "product_quantity": "99,660  tubes",
+    "recall_initiation_date": "2013-02-19",
+    "state": "NE",
+    "event_id": "64372",
+    "product_type": "Drugs",
+    "product_description": "Target Up & Up, athlete's foot cream, full prescription strength, terbinafine hydrochloride 1% antifungal, 30 g (1 oz), compare to active ingredient in Lamisil, NDC 0067-6382-30 & UPC code: 300676382302 (Novartis) Target NDC 1167-3401-04, Distributed by Target Corp., Minneapolis, MN.",
+    "country": "US",
+    "city": "Lincoln",
+    "recalling_firm": "Novartis Consumer Health",
+    "report_date": "2013-06-12",
+    "voluntary_mandated": "Voluntary: Firm Initiated",
+    "classification": "Class III",
+    "code_info": "Lot numbers and exp dates:  10108716  31-Mar-2013, \n10111510  30-Apr-2013, 10113801  31-May-2013, 10113839  30-Apr-2013, 10115616  31-Aug-2013",
+    "openfda": {},
+    "initial_firm_notification": "Letter"
+  },
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2017-12-02"
+    },
+    "results": [
+      {
+        "term": "Voluntary: Firm Initiated",
+        "count": 7623
+      },
+      {
+        "term": "Voluntary: FDA Requested",
+        "count": 13
+      }
+    ]
+  }
+}

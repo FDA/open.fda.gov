@@ -135,7 +135,7 @@ class GridInfographic extends React.Component {
     if (!this.state.data.length) return <span />
 
     return (
-        <section className='infographic-container'>
+        <section>
 
           {Parser(this.props.infographicDefinitions.title)}
           <hr className="datamap-hr"/>

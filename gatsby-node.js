@@ -1,12 +1,13 @@
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require(`path`)
 
 exports.modifyWebpackConfig = function (config, env) {
   config.config.plugin('inventory-copy-plugin', CopyWebpackPlugin, [[
     { from: path.join(__dirname, 'src/pages/data.json') , to: path.join(__dirname, 'public/data.json')}
   ]]);
   return config;
-}
+};
+
 exports.modifyWebpackConfig = ({ config, stage }) => {
   if (stage === "build-html") {
     config.loader("null", {
@@ -14,4 +15,50 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
       loader: "null-loader",
     })
   }
+};
+
+const { createFilePath } = require(`gatsby-source-filesystem`)
+
+exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
+  const { createNodeField } = boundActionCreators
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
+}
+
+exports.createPages = ({ graphql, boundActionCreators }) => {
+  const { createPage } = boundActionCreators
+  return new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allMarkdownRemark {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `
+    ).then(result => {
+      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        createPage({
+          path: node.fields.slug,
+          component: path.resolve(`./src/templates/docs-markdown.js`),
+          context: {
+            // Data passed to context is available in page queries as GraphQL variables.
+            slug: node.fields.slug,
+          },
+        })
+      })
+      resolve()
+    })
+  })
 }

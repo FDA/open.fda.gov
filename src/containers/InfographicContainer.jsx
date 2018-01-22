@@ -339,7 +339,7 @@ class InfographicContainer extends React.Component {
     const infographicKeys: Array<string> = Object.keys(this.state.infographics)
 
     return (
-        <section className='float-r infographic-container infographic-container-pad-1'>
+        <div>
           <Infographic
             { ...this.props }
             { ...this.state }
@@ -352,7 +352,7 @@ class InfographicContainer extends React.Component {
             onCountChangeAndUpdate={this._onCountChangeAndUpdate.bind(this)}
             container={this}
           />
-        </section>
+        </div>
     )
   }
 }
