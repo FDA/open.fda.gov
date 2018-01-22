@@ -9,3 +9,5 @@ class FourOhFour extends React.Component {
     )
   }
 }
+
+export default FourOhFour
