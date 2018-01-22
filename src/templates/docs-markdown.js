@@ -1,6 +1,4 @@
 import React from "react";
-import DocSidebar from "../components/DocSidebar"
-import docSidebar from "../pages/docs/doc-links.yaml"
 
 export default function Template({
  data, // this prop will be injected by the GraphQL query below.

@@ -1,7 +1,7 @@
 import React from "react"
 import Link from "gatsby-link"
 import cx from 'classnames'
-import DocSidebarContainer from "../containers/DocSidebarContainer";
+import ComposedDocSidebar from "../containers/DocSidebarContainer";
 
 
 const Section = props => (
@@ -121,4 +121,4 @@ class DocSidebar extends React.Component {
 }
 
 DocSidebar.displayName = 'components/DocSidebar'
-export default DocSidebarContainer(DocSidebar)
+export default ComposedDocSidebar(DocSidebar)

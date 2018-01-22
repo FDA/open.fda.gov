@@ -1,7 +1,6 @@
 /* @flow */
 
 import React from 'react'
-import DocSidebar from "../components/DocSidebar";
 
 type tSTATE = {
   activeHeader: boolean;
@@ -9,10 +8,10 @@ type tSTATE = {
 };
 
 
-const DocSidebarContainer = function (DocSidebar: ReactClass): ReactClass {
+const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClass {
   class HOC extends React.Component {
     state: tSTATE = {
-      activeHeader: ["test"]
+      activeHeader: [" "]
     };
 
     _toggleSection (e) {
@@ -37,7 +36,7 @@ const DocSidebarContainer = function (DocSidebar: ReactClass): ReactClass {
 
     render(): React.Element {
       return (
-        <DocSidebar
+        <ComposedDocSidebar
           {...this.props}
           {...this.state}
           toggleSection={this._toggleSection.bind(this)}

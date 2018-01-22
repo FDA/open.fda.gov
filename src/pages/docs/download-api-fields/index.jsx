@@ -17,7 +17,7 @@ class IndexRoute extends React.Component {
     const endpoint_fields = [
       "total_records",
       "export_date",
-      "partition"
+      "partitions"
     ]
 
     const partitions_fields = [

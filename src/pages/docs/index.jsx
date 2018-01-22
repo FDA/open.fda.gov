@@ -1,9 +1,6 @@
 import React from "react"
 import Link from "gatsby-link"
 
-import DocSidebar from "../../components/DocSidebar"
-import docsSidebar from "./doc-links.yaml"
-
 class IndexRoute extends React.Component {
   render() {
     return (
