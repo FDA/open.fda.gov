@@ -29,14 +29,6 @@ class IndexRoute extends React.Component {
           meta={meta}
         />
 
-        <InfographicContainer
-          fieldsMapped={fieldsMapped}
-          fieldsFlattened={fieldsFlattened}
-          fields={fields}
-          infographics={infographics}
-          meta={meta}
-        />
-
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
           endpoint_name={meta.api_path.split("/")[2]}
