@@ -161,6 +161,7 @@ class InteractiveInfographic extends React.Component {
             onChange={this.handleChange}
             placeholder="Search the fields"
             resetValue="fields"
+            clearable={false}
           />
         </div>
         {this.state.infographic}

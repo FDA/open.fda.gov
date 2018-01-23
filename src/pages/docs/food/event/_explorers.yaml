@@ -1,0 +1,28 @@
+oneReport:
+  title: One adverse event report
+  description:
+    - This query searches for all records in a certain date range, and asks for a single one.
+    - See the [header fields reference](/food/event/reference/) for more about date_started. Brackets [ ] are used to specify a range for date, number, or string fields.
+  params:
+    - search for all records with receivedate between Jan 01, 2004 and Jan 1, 2016.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/food/event.json?search=date_started:[20040101+TO+20160101]&limit=1'
+industry:
+  title: One adverse event report involving a product from a certain industry
+  description:
+    - 'This query searches records listing a product associated with a certain industry, and returns a single record.'
+  params:
+    - search for all records where products.industry_code (FDA industry code) contains 23 (Nuts/Edible Seed).
+    - limit to 1 record.
+  query: 'https://api.fda.gov/food/event.json?search=products.industry_code:23&limit=1'
+reaction:
+  title: Count of consumer reactions
+  description:
+    - This query is similar to the prior one, but returns a count of the 1000 most frequently reported consumer reactions.
+    - count the field reaction.exact (consumer reactions).
+    - The suffix .exact is required by openFDA to count the unique full phrases in the field reactions. Without it, the API will count each word in that field individually—difficulty sleeping would be counted as separate values, difficulty and sleeping.
+    - See the [reaction reference](/food/event/reference/) for more about consumer reactions in adverse event records.
+  params:
+    - search for all records where products.industry_code (FDA industry code) contains 23 (cereal prep/breakfast food).
+    - limit to 1 record.
+  query: 'https://api.fda.gov/food/event.json?search=products.industry_code:23&count=reactions.exact'

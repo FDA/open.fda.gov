@@ -1,0 +1,163 @@
+{
+  "globalDefs": {
+    "startYear": 2014,
+    "api": "/food/event",
+    "font": {
+      "color":"#000000",
+      "fontFamily": "Merriweather,Georgia,serif"
+    },
+    "tooltip": {
+      "fontSize": "11px",
+      "font": "Merriweather,Georgia,serif"
+    },
+    "pieChartConfig": {
+      "fill": "#8884d8",
+      "colors": [
+        "#0088FE",
+        "#1ECFFF",
+        "#00C49F",
+        "#FFBB28",
+        "#d62728"
+      ]
+    },
+    "lineChartConfig": {
+      "interpolation": "curveLinear",
+      "width": 700,
+      "showGrid": true,
+      "chartRow": {
+        "height": 200,
+        "trackerInfoWidth": 130
+      },
+      "yAxis": {
+        "label": "Number of Food Events",
+        "min": 0,
+        "width": 50,
+        "type": "linear"
+      },
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "infoWidth":50,
+        "markerRadius": 4,
+        "markerStyle":{
+          "fill": "black"
+        }
+      },
+      "colors": [
+        "#1f77b4", "#ff3300", "#ff7f0e", "#ff33cc", "#2ca02c",
+        "#006666", "#00d899", "#990099", "#9467bd", "#c5b0d5",
+        "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+        "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+      ]
+    }
+  },
+  "choices": [
+    {
+      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Food Adverse Event Reports</i> by Reactions, Outcomes </p>",
+      "subtitle": "",
+      "xTitle": " Reports",
+      "yTitle": "Reaction",
+      "type": "PieChart",
+      "countBy": "reactions.exact",
+      "dateField": "date_started",
+      "subfield": "outcomes.exact",
+      "subfieldLabel": "Outcomes",
+      "lineLimiter": 7,
+      "xLegendCoordinate": -20,
+      "dataFunction": "_getAllData",
+      "defs": {
+        "DIARRHOEA": "Diarrhoea",
+        "VOMITING": "Vomiting",
+        "NAUSEA": "Nausea",
+        "ABDOMINAL PAIN": "Abdominal Pain",
+        "MALAISE": "Malaise",
+        "OVARIAN CANCER": "Ovarian Cancer",
+        "CHOKING": "Choking",
+        "HEADACHE": "Headache"
+      },
+      "pieChartConfig": {
+        "default": {
+          "id": "DIARRHOEA",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Reaction"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "sort": "descending",
+        "categoryLimiter":  7,
+        "viewBox": "115 90 510 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 10 
+        }
+      }
+    },
+    {
+      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Food Adverse Event Reports</i> by Reactions, Industry Name</p>",
+      "subtitle": "",
+      "xTitle": " Reports ",
+      "yTitle": "Reaction",
+      "type": "PieChart",
+      "countBy": "reactions.exact",
+      "dateField": "date_started",
+      "subfield": "products.industry_name.exact",
+      "subfieldLabel": "Industry Name",
+      "lineLimiter": 7,
+      "xLegendCoordinate": -20,
+      "dataFunction": "_getAllData",
+      "defs": {
+        "DIARRHOEA": "Diarrhoea",
+        "VOMITING": "Vomiting",
+        "NAUSEA": "Nausea",
+        "ABDOMINAL PAIN": "Abdominal Pain",
+        "MALAISE": "Malaise",
+        "OVARIAN CANCER": "Ovarian Cancer",
+        "CHOKING": "Choking",
+        "HEADACHE": "Headache",
+        "HYPERSENSITIVITY": "HYPERSENSITIVITY",
+        "ABDOMINAL PAIN UPPER": "ABDOMINAL PAIN UPPER",
+        "DYSPNOEA": "DYSPNOEA",
+        "DIZZINESS": "DIZZINESS",
+        "PRURITUS": "PRURITUS",
+        "PAIN": "PAIN"
+      },
+      "excludeFields": [
+        "CHOKING",
+        "OVARIAN CANCER"
+      ],
+      "pieChartConfig": {
+        "default": {
+          "id": "DIARRHOEA",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Reaction"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "sort": "descending",
+        "categoryLimiter":  7,
+        "viewBox": "110 90 510 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 10 
+        }
+      }
+    }
+  ]
+}

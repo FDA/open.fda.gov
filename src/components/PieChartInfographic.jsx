@@ -624,19 +624,7 @@ class PieChartInfographic extends React.Component {
   }
 }
 
-// <EventMarker
-//                             type="point"
-//                             axis="axis1"
-//                             event={this.state.trackerEvent}
-//                             column={this.state.selectionName}
-//                             markerLabel={this.state.trackerValue}
-//                             markerLabelAlign="left"
-//                             markerLabelStyle={{ fill: "#2db3d1", stroke: "white" }}
-//                             markerRadius={3}
-//                             markerStyle={{ fill: "#2db3d1" }}
-//                         />
 
-
-  export default PieChartInfographic
+export default PieChartInfographic
 
 
