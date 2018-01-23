@@ -1,0 +1,65 @@
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    }
+  },
+  "tables": {
+    "results": [
+      {
+        "how_supplied": "...",
+        "how_supplied_table": "<table>...</table>"
+      }
+    ]
+  },
+  "results": {
+    "results": [
+      {
+        "set_id": "e71151ba-f2f4-4e95-9256-3db361d40a54",
+        "id": "93321bf0-d58d-4ac1-bfa7-cb033ca9df85",
+        "version": "2",
+        "effective_time": "20140423"
+      }
+    ]
+  },
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2017-12-02"
+    },
+    "results": [
+      {
+        "term": "HUMAN OTC DRUG",
+        "count": 55849
+      },
+      {
+        "term": "HUMAN PRESCRIPTION DRUG",
+        "count": 33489
+      }
+    ]
+  }
+}

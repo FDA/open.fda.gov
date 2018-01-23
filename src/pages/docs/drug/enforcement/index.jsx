@@ -3,20 +3,11 @@ import Link from "gatsby-link"
 
 import KeyFacts from '../../../../components/RenderContentObject/KeyFacts'
 import InteractiveInfographic from '../../../../components/InteractiveInfographic'
-import InfographicContainer from '../../../../containers/InfographicContainer'
-
-import infographics from './_infographics.yaml'
 import infographic_definitions from './_infographic_definitions.json'
-import fields from './_fields.yaml'
 import meta from './_meta.yaml'
-import mapFields from "../../../../utils/mapFields";
-import flattenFields from "../../../../utils/flattenFields";
 
 class IndexRoute extends React.Component {
   render() {
-
-    let fieldsMapped = mapFields(fields.properties)
-    let fieldsFlattened = flattenFields(fieldsMapped)
 
     return (
       <section className="doc-content">

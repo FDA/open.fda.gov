@@ -1,0 +1,54 @@
+- title: "Prescription and over-the-counter (OTC) drug labeling"
+  short: "Submissions over time"
+  dataset: SPL
+  description:
+    - "The openFDA drug product labeling API provides data for prescription and over-the-counter (OTC) drug labeling. Since mid-2009, labeling has been posted publicly in the [Structured Product Labeling (SPL) format](/data/spl/)."
+    - "This chart shows labeling submissions over time, by looking at their 'effective dates.' The search is limited to dates since June 2009, which excludes a small number of older submissions."
+  countParam: "effective_time"
+  filters:
+    - title: "All drug labeling submissions"
+      searchParam: ""
+    - title: "Over-the-counter drug labeling"
+      searchParam: "openfda.product_type:otc"
+    - title: "Prescription drug labeling"
+      searchParam: "openfda.product_type:prescription"
+    - title: "Lactose is an inactive ingredient"
+      searchParam: "inactive_ingredient:lactose"
+    - title: "Labeling has a Boxed Warning"
+      searchParam: "_exists_:boxed_warning"
+  type: Line
+  dateConstraint: effective_time
+- title: "Routes of administration"
+  short: "Routes of administration"
+  dataset: SPL
+  description:
+    - "Most drug product labeling describes a drug with a single route of administration—oral, intravenous, topical, and so forth. Click the buttons below to see the top routes of administration noted in various kinds of drug product labeling."
+  countParam: "openfda.route.exact"
+  filters:
+    - title: "All drug labeling submissions"
+      searchParam: ""
+    - title: "Over-the-counter drug labeling"
+      searchParam: "openfda.product_type:otc"
+    - title: "Prescription drug labeling"
+      searchParam: "openfda.product_type:prescription"
+    - title: "Indication or purpose notes the word migraine"
+      searchParam: 'indications_and_usage:"migraine"+purpose:"migraine"'
+    - title: "Labeling has a Boxed Warning with the word bleeding in it"
+      searchParam: "boxed_warning:bleeding"
+  type: Line
+  dateConstraint: false
+- title: "Drug interactions noted in labeling"
+  short: "Drug interactions"
+  dataset: SPL
+  description:
+    - Drug product labeling must indicate known interactions with foods and other drug products. This chart shows top classes of drugs whose labeling notes caffeine, grapefruit, or alcohol in the interactions section.
+  countParam: "openfda.pharm_class_epc.exact"
+  filters:
+    - title: "Labeling noting caffeine in the interactions section"
+      searchParam: "drug_interactions:caffeine"
+    - title: "Labeling noting grapefruit juice in the interactions section"
+      searchParam: 'drug_interactions:"grapefruit"+juice'
+    - title: "Labeling noting alcohol in the interactions section"
+      searchParam: "drug_interactions:alcohol"
+  type: Line
+  dateConstraint: false

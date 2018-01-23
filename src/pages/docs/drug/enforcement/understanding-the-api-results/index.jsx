@@ -13,8 +13,8 @@ class IndexRoute extends React.Component {
         <p>For <code>search</code> queries (such as: <a href="https://api.fda.gov/drug/enforcement.json?limit=1">https://api.fda.gov/drug/enforcement.json?limit=1</a>), the <code>results</code> section includes matching enforcement reports returned by the API.</p>
         <p>Each enforcement report consists of two major sections:</p>
         <ul>
-          <li><b>Enforcement report data:</b> General information about the enforcement report.</li>
-          <li><b>An openfda section:</b> An annotation with additional product identifiers, such as UPC and brand name, of the drug products listed in the enforcement report, if available.</li>
+          <li><strong>Enforcement report data:</strong> General information about the enforcement report.</li>
+          <li><strong>An openfda section:</strong> An annotation with additional product identifiers, such as UPC and brand name, of the drug products listed in the enforcement report, if available.</li>
         </ul>
         <p>The data format of RES enforcement reports changed in June 2012. In openFDA API results, reports from before that time do not contain the following fields:</p>
         <ul>

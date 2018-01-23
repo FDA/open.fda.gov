@@ -1,0 +1,29 @@
+oneReport:
+  title: One adverse event report
+  description:
+    - This query searches for all records in a certain date range, and asks for a single one. See the header fields reference for more about receivedate. Brackets `[ ]` are used to specify a range for date, number, or string fields.
+    - See the [header fields reference](/drug/event/reference/) for more about receivedate. Brackets `[ ]` are used to specify a range for date, number, or string fields.
+  params:
+    - search for all records with receivedate between Jan 01, 2004 and Dec 31, 2008. limit to 1 record.
+    - see the header fields reference for more about receivedate. Brackets [ ] are used to specify a range for date, number, or string fields.
+  query: 'https://api.fda.gov/drug/event.json?search=receivedate:[20040101+TO+20081231]&limit=1'
+pharmacologic:
+  title: One adverse event report with a drug from a certain pharmacologic class
+  description:
+    - 'This query searches records listing a drug of a certain pharmacologic class, and returns a single record. A record returned by this query may have multiple drugs listed. At least one of the drugs belongs to the pharmacologic class. See the openFDA fields reference for more about the kinds of searches they enable. Double quotation marks `" "` surround phrases that must match exactly. The plus sign + is used in place of a space character ` `.'
+    - A record returned by this query may have multiple drugs listed. At least one of the drugs belongs to the pharmacologic class. See the [openFDA fields reference](/drug/event/reference/) for more about the kinds of searches they enable.
+    - 'Double quotation marks `" "` surround phrases that must match exactly. The plus sign + is used in place of a space character.'
+  params:
+  - search for all records with receivedate between Jan 01, 2004 and Dec 31, 2008. limit to 1 record.
+  - see the header fields reference for more about receivedate. Brackets [ ] are used to specify a range for date, number, or string fields.
+  query: 'https://api.fda.gov/drug/event.json?search=patient.drug.openfda.pharm_class_epc:"nonsteroidal+anti-inflammatory+drug"&limit=1'
+reaction:
+  title: Count of patient reactions
+  description:
+    - This query is similar to the prior one, but returns a count of the 1000 most frequently reported patient reactions. Multiple drugs in the records may match this class, and the drugs from this class may not be those which caused the associated adverse patient reactions. The suffix .exact is required by openFDA to count the unique full phrases in the field patient.reaction.reactionmeddrapt. Without it, the API will count each word in that field individually—difficulty sleeping would be counted as separate values, difficulty and sleeping. See the patient reaction reference for more about patient reactions in adverse event records.
+    - The suffix .exact is required by openFDA to count the unique full phrases in the field patient.reaction.reactionmeddrapt. Without it, the API will count each word in that field individually—difficulty sleeping would be counted as separate values, difficulty and sleeping.
+    - See the [patient reaction reference](/drug/event/reference/) for more about patient reactions in adverse event records.
+  params:
+  - search for all records with receivedate between Jan 01, 2004 and Dec 31, 2008. limit to 1 record.
+  - see the header fields reference for more about receivedate. Brackets `[ ]` are used to specify a range for date, number, or string fields.
+  query: 'https://api.fda.gov/drug/event.json?search=patient.drug.openfda.pharm_class_epc:"nonsteroidal+anti-inflammatory+drug"&count=patient.reaction.reactionmeddrapt.exact'
