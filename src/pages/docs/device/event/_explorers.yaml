@@ -1,0 +1,27 @@
+oneReport:
+  title: One adverse event report
+  description:
+    - This query searches for all records in a certain date range, and asks for a single one. See the header fields reference for more about `date_received`. Brackets `[ ]` are used to specify a range for date, number, or string fields.
+    - See the [header fields reference](/device/event/reference/) for more about date_received. Brackets `[ ]` are used to specify a range for date, number, or string fields.
+  params:
+    - search for all records with `date_received` between Jan 01, 2013 and Dec 31, 2014. limit to 1 record.
+    - see the header fields reference for more about `date_received`. Brackets [ ] are used to specify a range for date, number, or string fields.
+  query: 'https://api.fda.gov/device/event.json?search=date_received:[20130101+TO+20141231]&limit=1'
+genericName:
+  title: One report involving an x-ray device
+  description:
+    - This query searches for records matching a certain search term, and asks for a single one.
+    - See the [reference](/device/event/reference/) for more fields you can use to narrow searches for device adverse event reports.
+  params:
+    - search for all records with `device.generic_name` (generic device name) contains x-ray
+  query: 'https://api.fda.gov/device/event.json?search=device.generic_name:x-ray&limit=1'
+topEvents:
+  title: Count of top event types associated with x-ray devices
+  description:
+    - This query is similar to the prior one, but returns a count of the most frequently reported event types.
+    - The suffix .exact is required by openFDA to count the unique full phrases in the field `event_type`. Without it, the API will count each word in that field individually—*No answer provided* would be counted as separate values, No and answer and provided.
+    - See the [reference](/device/event/reference/) for more fields you can use to count and understand the nature of device adverse event reports.
+  params:
+    - search for all records with `device.generic_name` (generic device name) contains x-ray
+    - count the field `event_type` (outcomes associated with an adverse event report)
+  query: 'https://api.fda.gov/device/event.json?search=device.generic_name:x-ray&count=event_type.exact'

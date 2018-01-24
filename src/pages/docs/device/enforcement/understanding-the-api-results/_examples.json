@@ -1,0 +1,49 @@
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    }
+  },
+  "result": {
+    "reason_for_recall": "One lot of the 010-55-030, 6.5 mm Cancellous Bone Screw was recalled because a product complaint identified a mislabeling of the device.  Although the package label indicates Size 30mm, the screw dimension is actually 25mm.",
+    "status": "Ongoing",
+    "distribution_pattern": "Nationwide Distribution including AR, CA, FL, ID, OK, PA, TX, and UT.",
+    "product_quantity": "18 devices",
+    "recall_initiation_date": "20120716",
+    "state": "TX",
+    "event_id": "62561",
+    "product_type": "Devices",
+    "product_description": "djo surgical Screw 6.5 mm, Sz 25mm, low profile.\n\nProduct is intended for the fixation of the acetabular shell or fracture repair",
+    "country": "US",
+    "city": "Austin",
+    "recalling_firm": "Encore Medical, Lp",
+    "report_date": "20120815",
+    "voluntary_mandated": "Voluntary: Firm Initiated",
+    "classification": "Class II",
+    "code_info": "Lot 007A1037, Ref 010-55-25.",
+    "openfda": {},
+    "initial_firm_notification": "Letter"
+  }
+}

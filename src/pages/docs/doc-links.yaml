@@ -197,19 +197,19 @@
       collapse: true
       items:
         - title: Overview
-          link: /docs/device/registrationlistion/
+          link: /docs/device/registrationlisting/
         - title: How to use the API
-          link: /docs/device/registrationlistion/how-to-use-the-endpoint/
+          link: /docs/device/registrationlisting/how-to-use-the-endpoint/
         - title: Example API queries
-          link: /docs/device/registrationlistion/example-api-queries/
+          link: /docs/device/registrationlisting/example-api-queries/
         - title: Explore the API with an interactive chart
-          link: /docs/device/registrationlistion/explore-the-api-with-an-interactive-chart/
+          link: /docs/device/registrationlisting/explore-the-api-with-an-interactive-chart/
         - title: Understanding the API Results
-          link: /docs/device/registrationlistion/understanding-the-api-results/
+          link: /docs/device/registrationlisting/understanding-the-api-results/
         - title: Download the dataset
-          link: /docs/device/registrationlistion/download/
+          link: /docs/device/registrationlisting/download/
         - title: Searchable fields
-          link: /docs/device/registrationlistion/searchable-fields/
+          link: /docs/device/registrationlisting/searchable-fields/
     - title: Unique Device Identifier
       collapse: true
       items:

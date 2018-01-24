@@ -1,0 +1,307 @@
+{
+  "globalDefs": {
+    "startYear": 2009,
+    "api": "/drug/event",
+    "font": {
+      "color":"#000000",
+      "fontFamily": "Merriweather,Georgia,serif"
+    },
+    "tooltip": {
+      "fontSize": "11px",
+      "font": "Merriweather,Georgia,serif"
+    },
+    "pieChartConfig": {
+      "fill": "#8884d8",
+      "colors": [
+        "#0088FE",
+        "#1ECFFF",
+        "#00C49F",
+        "#FFBB28",
+        "#d62728"
+      ]
+    },
+    "lineChartConfig": {
+      "interpolation": "curveLinear",
+      "width": 700,
+      "showGrid": true,
+      "chartRow": {
+        "height": 200,
+        "trackerInfoWidth": 130
+      },
+      "yAxis": {
+        "label": "Number of Device 510(k)",
+        "min": 0,
+        "width": 50,
+        "type": "linear"
+      },
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "infoWidth":50,
+        "markerRadius": 4,
+        "markerStyle":{
+          "fill": "black"
+        }
+      },
+      "colors": [
+        "#1f77b4", "#ff3300", "#ff7f0e", "#ff33cc", "#2ca02c",
+        "#006666", "#00d899", "#990099", "#9467bd", "#c5b0d5",
+        "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+        "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+      ]
+    }
+  },
+  "choices": [
+    {
+      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</p>",
+      "subtitle": "",
+      "countBy": "device_class",
+      "xTitle": " Medical Speciality Device 510(k)s",
+      "yTitle": "Risk",
+      "type": "PieChart",
+      "dateField": "date_received",
+      "subfield": "advisory_committee_description.exact",
+      "subfieldLabel": "Advisory Committee",
+      "dataFunction": "_getAllData",
+      "lineLimiter": 7,
+      "xLegendCoordinate": -35,
+      "defs": {
+        "2": "Class II \n(moderate to high)",
+        "1": "Class I (low to moderate)",
+        "3": "Class III (high)",
+        "U": "Unclassified",
+        "N": "Not classified"
+      },
+      "api": "/device/510k",
+      "excludeFields": [],
+      "pieChartConfig": {
+        "default": {
+          "id":"2",
+          "index": 4
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Class"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "sort": "ascending",
+        "viewBox": "140 75 510 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 10 
+        }
+      }
+    },
+    {
+      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</p>",
+      "subtitle": "",
+      "countBy": "device_class",
+      "xTitle": " Medical Speciality Device 510(k)s",
+      "yTitle": "Risk",
+      "type": "PieChart",
+      "dateField": "date_received",
+      "subfield": "applicant.exact",
+      "subfieldLabel": "Manufacturer of Record",
+      "dataFunction": "_getAllData",
+      "lineLimiter": 7,
+      "xLegendCoordinate": -35,
+      "defs": {
+        "2": "Class II \n(moderate to high)",
+        "1": "Class I (low to moderate)",
+        "3": "Class III (high)",
+        "U": "Unclassified",
+        "N": "Not classified"
+      },
+      "api": "/device/510k",
+      "excludeFields": [],
+      "pieChartConfig": {
+        "default": {
+          "id":"2",
+          "index": 4
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Class"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "sort": "ascending",
+        "viewBox": "140 75 510 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 10 
+        }
+      }
+    },
+    {
+      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</p>",
+      "subtitle": "",
+      "countBy": "device_class",
+      "xTitle": " Medical Speciality Device 510(k)s",
+      "yTitle": "Risk",
+      "type": "PieChart",
+      "dateField": "date_received",
+      "subfield": "device_name.exact",
+      "subfieldLabel": "Device Name",
+      "dataFunction": "_getAllData",
+      "lineLimiter": 7,
+      "xLegendCoordinate": -35,
+      "defs": {
+        "2": "Class II \n(moderate to high)",
+        "1": "Class I (low to moderate)",
+        "3": "Class III (high)",
+        "U": "Unclassified",
+        "N": "Not classified"
+      },
+      "excludeFields": [
+        "U"
+      ],
+      "api": "/device/510k",
+      "excludeFields": [],
+      "pieChartConfig": {
+        "default": {
+          "id":"2",
+          "index": 4
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Class"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "sort": "ascending",
+        "viewBox": "140 75 510 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 10 
+        }
+      }
+    },
+    {
+      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</p>",
+      "subtitle": "",
+      "countBy": "device_class",
+      "xTitle": " Medical Speciality Device 510(k)s",
+      "yTitle": "Risk",
+      "type": "PieChart",
+      "dateField": "date_received",
+      "subfield": "decision_code.exact",
+      "subfieldLabel": "Decision Code",
+      "dataFunction": "_getAllData",
+      "lineLimiter": 7,
+      "xLegendCoordinate": -35,
+      "defs": {
+        "2": "Class II \n(moderate to high)",
+        "1": "Class I (low to moderate)",
+        "3": "Class III (high)",
+        "U": "Unclassified",
+        "N": "Not classified"
+      },
+      "api": "/device/510k",
+      "excludeFields": [],
+      "acceptedTerms": {
+        "SEKD": "SE - Kit with Drugs",
+        "SESD": "SE with Drug",
+        "SESE": "SE",
+        "SESK": "SE - Kit",
+        "SESP": "SE - Postmarket Surveillance Required",
+        "SESU": "SE - With Limitations",
+        "SESR": "Potential Recall"
+      },
+      "pieChartConfig": {
+        "default": {
+          "id":"2",
+          "index": 4
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Class"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "sort": "ascending",
+        "viewBox": "140 75 510 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 10 
+        }
+      }
+    },
+    {
+      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</p>",
+      "subtitle": "",
+      "countBy": "device_class",
+      "xTitle": " Medical Speciality Device 510(k)s",
+      "yTitle": "Risk",
+      "type": "PieChart",
+      "dateField": "date_received",
+      "subfield": "state.exact",
+      "subfieldLabel": "State",
+      "dataFunction": "_getAllData",
+      "lineLimiter": 15,
+      "xLegendCoordinate": -35,
+      "defs": {
+        "2": "Class II \n(moderate to high)",
+        "1": "Class I (low to moderate)",
+        "3": "Class III (high)",
+        "U": "Unclassified",
+        "N": "Not classified"
+      },
+      "api": "/device/510k",
+      "excludeFields": [
+        ""
+      ],
+      "excludedTerms": [
+        ""
+      ],
+      "pieChartConfig": {
+        "default": {
+          "id":"2",
+          "index": 4
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Class"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "sort": "ascending",
+        "viewBox": "140 75 510 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 10 
+        }
+      }
+    }
+  ]
+}

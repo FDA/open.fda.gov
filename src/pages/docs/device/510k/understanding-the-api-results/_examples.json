@@ -1,0 +1,152 @@
+{
+  "record": {
+    "third_party_flag": "N",
+    "city": "PORTLAND",
+    "advisory_committee_description": "Immunology",
+    "address_1": "217 READ ST.",
+    "address_2": "P.O. BOX 9731",
+    "statement_or_summary": "",
+    "product_code": "KTN",
+    "openfda": {
+      "device_name": "System, Test, Infectious Mononucleosis",
+      "registration_number": [
+        "3008776041",
+        "1031428",
+        "1017835",
+        "2030633",
+        "8044007",
+        "2023336",
+        "2027969",
+        "9610746",
+        "2030538",
+        "1641328",
+        "2435505",
+        "3005641941",
+        "2424478",
+        "3032705",
+        "2025932",
+        "1119779",
+        "1524213",
+        "3010392988",
+        "1616487",
+        "2950880",
+        "3003917514",
+        "1319679",
+        "1649661",
+        "3008741972",
+        "2000007960",
+        "2250030",
+        "2024674",
+        "1832216",
+        "2246703",
+        "2244821",
+        "2247139",
+        "3002792284",
+        "8010096"
+      ],
+      "fei_number": [
+        "",
+        "3008776041",
+        "1031428",
+        "1017835",
+        "1000520007",
+        "1000119795",
+        "1641328",
+        "3005641941",
+        "2424478",
+        "2246703",
+        "3002806557",
+        "1000135116",
+        "1000125596",
+        "3001501421",
+        "1000122189",
+        "3000210620",
+        "1119779",
+        "1524213",
+        "3010392988",
+        "1616487",
+        "3001451797",
+        "3002701146",
+        "3003917514",
+        "3008741972",
+        "2000007960",
+        "2250030",
+        "2024674",
+        "1000136749",
+        "1832216",
+        "3000107480",
+        "2244821",
+        "2025932",
+        "3002792284"
+      ],
+      "device_class": "2",
+      "medical_specialty_description": "Immunology",
+      "regulation_number": "866.5640"
+    },
+    "zip_code": "04103",
+    "applicant": "VENTREX LABORATORIES, INC.",
+    "decision_code": "SESE",
+    "decision_date": "1987-06-29",
+    "country_code": "US",
+    "device_name": "VENTRESCREEN (TM) MONO",
+    "advisory_committee": "IM",
+    "expedited_review_flag": "",
+    "contact": "JAMES W CHAMPLIN",
+    "state": "ME",
+    "review_advisory_committee": "IM",
+    "k_number": "K872032",
+    "date_received": "1987-05-27",
+    "postal_code": "04103",
+    "clearance_type": "Traditional",
+    "decision_description": "Substantially Equivalent"
+  },
+  "anatomy": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    },
+    "results": [
+      { }
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    }
+  },
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2017-12-02"
+    },
+    "results": [
+      {
+        "term": "",
+        "count": 622
+      },
+      {
+        "term": "3005747797",
+        "count": 541
+      },
+      {
+        "term": "3010041511",
+        "count": 475
+      }
+    ]
+  }
+}

@@ -102,8 +102,9 @@ const KeyFacts = (props: tPROPS) => {
   }
 
   return (
-    <section>
-      <ul className="key-facts">
+    <section className="key-facts">
+      <h3>Key Facts</h3>
+      <ul>
         <li>
           <i className="fa fa-database"/>
           <div className="label">Source of the data:</div>
