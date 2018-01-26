@@ -15,7 +15,7 @@
     - title: "Contraindications include Hepatic Insufficiency"
       searchParam: 'contraindications:"hepatic insufficiency"'
   type: Line
-  dateConstraint: effective_time
+  dateConstraint: false
 - title: "Animal Drug interactions noted in labeling"
   short: "Animal Drug interactions"
   dataset: SPL
