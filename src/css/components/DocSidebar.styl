@@ -25,7 +25,6 @@
   font-size: $pSize
   text-align: left
   padding: 10px 10px 10px 0px
-  cursor: pointer
 
   &.depth-2,
   &.depth-3
@@ -40,11 +39,16 @@
   &:hover
     background-color: $clrGrayLightest
 
+  &.sidebar-cross::before,
+  &.sidebar-cross::after
+    left: 1px
+
 .sidebar-item
   border-bottom: none
   box-shadow: none
   font-weight: normal
   position: relative
+  cursor: pointer
 
   &:before
     content: ' '
@@ -67,16 +71,18 @@
     background: $clrPrimary
     transform: scale(1)
 
-.sidebar-header {
-  position: relative;
+.sidebar-cross {
+  position: relative
+  cursor: pointer
 }
-.sidebar-header::before,
-.sidebar-header::after {
+
+.sidebar-cross::before,
+.sidebar-cross::after {
   content: '';
   display: block;
   position: absolute;
   top: 50%;
-  left: 1px;
+  left: -20px;
   width: 11px;
   height: 3px;
   margin-top: -1px;
@@ -88,19 +94,19 @@
   transition: all 0.25s;
 }
 
-.sidebar-header::before {
+.sidebar-cross::before {
   -webkit-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
   opacity: 0;
 }
-.sidebar-header.collapsed::before {
+.sidebar-cross.collapsed::before {
   -webkit-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
   opacity: 1;
 }
-.sidebar-header.collapsed::after {
+.sidebar-cross.collapsed::after {
   -webkit-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);

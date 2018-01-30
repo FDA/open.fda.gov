@@ -3,31 +3,74 @@
 import React from 'react'
 
 type tSTATE = {
-  activeHeader: boolean;
+  activeHeader: Array;
   toggleSection: boolean;
 };
+
+function checkArray(arr, path) {
+  let activeHeader = []
+  console.log(arr.length)
+  for (var i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i].items)) {
+      let header = checkObject(arr[i], path)[0]
+      if (typeof header != 'undefined') {
+        activeHeader.push(header)
+      }
+    }
+    if (path === arr[i].link) {
+      return [true, activeHeader]
+    }
+  }
+  return [false, activeHeader]
+}
+
+function checkObject(obj, path) {
+  const activeHeaders = []
+  let active = checkArray(obj.items, path)
+  let id = obj.id
+  if (active[0] === true) {
+    activeHeaders.push(id)
+  }
+  if (active[1].length > 0) {
+    activeHeaders.push(...active[1])
+  }
+  if (path.includes(obj.link)) {
+    activeHeaders.push(id)
+  }
+  return activeHeaders
+}
 
 
 const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClass {
   class HOC extends React.Component {
     state: tSTATE = {
-      activeHeader: [" "]
-    };
+      activeHeader: []
+    }
+
+    componentDidMount () {
+      let activeHeaders = this.state.activeHeader
+      const yaml = this.props.yaml
+      let returnedHeaders = []
+      for (let i = 0; i < yaml.length; i++) {
+        returnedHeaders.push(checkObject(yaml[i], window.location.pathname))
+      }
+      for (let i = 0; i < returnedHeaders.length; i++ ) {
+        returnedHeaders[i].length > 0 && (activeHeaders = activeHeaders.concat(returnedHeaders[i]))
+      }
+      this.setState({
+        activeHeader: activeHeaders
+      })
+    }
 
     _toggleSection (e) {
       let activeHeader = this.state.activeHeader.slice()
       let title = e.target.getAttribute('title')
-      console.log("title container: ", title, activeHeader)
       if (activeHeader.indexOf(title) === -1) {
-        console.log("not in header: ")
         activeHeader.push(title)
-        console.log("short push: ", activeHeader)
         this.setState({
           activeHeader: activeHeader
         })
-        console.log("after push: ", this.state.activeHeader)
       } else {
-        console.log("in header to remove: ")
         this.setState({
           activeHeader: activeHeader.filter(t => t !== title)
         })
