@@ -9,7 +9,6 @@ type tSTATE = {
 
 function checkArray(arr, path) {
   let activeHeader = []
-  console.log(arr.length)
   for (var i = 0; i < arr.length; i++) {
     if (Array.isArray(arr[i].items)) {
       let header = checkObject(arr[i], path)[0]

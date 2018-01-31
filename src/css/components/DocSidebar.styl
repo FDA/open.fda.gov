@@ -10,6 +10,7 @@
   height: calc(100vh - 85px)
   -webkit-overflow-scrolling: touch
 
+
 .doc-sidebar::-webkit-scrollbar
   width: 6px
   height: 6px
@@ -43,6 +44,7 @@
   &.sidebar-cross::after
     left: 1px
 
+
 .sidebar-item
   border-bottom: none
   box-shadow: none
@@ -59,8 +61,12 @@
     transform: scale(0.1)
     height: 6px
     width: 6px
-    margin-top: 4px
-    left: -1em
+    margin-top: 5px
+    left: 0.3em
+
+  &.depth-3::before
+    left: 0.9em
+
 
 .sidebar-item-active
   font-weight: bold
@@ -71,43 +77,46 @@
     background: $clrPrimary
     transform: scale(1)
 
-.sidebar-cross {
+
+.sidebar-cross
   position: relative
   cursor: pointer
-}
+  font-size: 17px
+
 
 .sidebar-cross::before,
-.sidebar-cross::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: -20px;
-  width: 11px;
-  height: 3px;
-  margin-top: -1px;
-  background-color: #000;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  -webkit-transition: all 0.25s;
-  transition: all 0.25s;
-}
+.sidebar-cross::after
+  content: ''
+  display: block
+  position: absolute
+  top: 50%
+  left: -20px
+  width: 11px
+  height: 3px
+  margin-top: -1px
+  background-color: #aaa
+  -webkit-transform-origin: 50% 50%
+  -ms-transform-origin: 50% 50%
+  transform-origin: 50% 50%
+  -webkit-transition: all 0.25s
+  transition: all 0.25s
 
-.sidebar-cross::before {
-  -webkit-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  opacity: 0;
-}
-.sidebar-cross.collapsed::before {
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-  opacity: 1;
-}
-.sidebar-cross.collapsed::after {
-  -webkit-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
+
+.sidebar-cross::before
+  -webkit-transform: rotate(-90deg)
+  -ms-transform: rotate(-90deg)
+  transform: rotate(-90deg)
+  opacity: 0
+
+
+.sidebar-cross.collapsed::before
+  -webkit-transform: rotate(0deg)
+  -ms-transform: rotate(0deg)
+  transform: rotate(0deg)
+  opacity: 1
+
+
+.sidebar-cross.collapsed::after
+  -webkit-transform: rotate(-90deg)
+  -ms-transform: rotate(-90deg)
+  transform: rotate(-90deg)
