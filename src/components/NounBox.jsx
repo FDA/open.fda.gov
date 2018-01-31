@@ -35,24 +35,18 @@ const NounBox = (props: tPROPS) => {
     drugs: "Drugs",
     animal_and_veterinary: "Animal and Veterinary"
   }
-  const bg_image = {
-    food: '/img/apple.png',
-    medical_devices: '/img/stethoscope.png',
-    drugs: '/img/pill-bottle.png',
-    animal_and_veterinary: '/img/dog.png'
-  }
-  const bg_image_color = {
-    food: {background: "linear-gradient(to bottom right, rgba(189, 213, 120, 1), rgba(106, 186, 69, 1))"},
-    medical_devices: {background: "linear-gradient(to bottom right, rgba(255, 198, 59, 1), rgba(243, 117, 73, 1))"},
-    drugs: {background: "linear-gradient(to bottom right, rgba(220, 141, 188, 1), rgba(153, 88, 163, 1))"},
-    animal_and_veterinary: {background: "linear-gradient(to bottom right, rgba(255, 229, 107, 1), rgba(251, 170, 24, 1))"}
-  }
 
-  const icon = {
-    food: <div className="icon" style={{backgroundColor:"#E1F1DA"}}><i className="fa fa-3x fa-leaf" style={{color: "#6ABA45"}}/></div>,
-    medical_devices: <div className="icon" style={{backgroundColor:"#FEDFCF"}}><i className="fa fa-3x fa-stethoscope absolute" style={{color: "#F37549"}}/></div>,
-    drugs: <div className="icon" style={{backgroundColor:"#EBDEED"}}><i className="fa fa-3x fa-medkit absolute" style={{color: "#9958A3"}}/></div>,
-    animal_and_veterinary: <div className="icon" style={{backgroundColor:"#FEEED1"}}><i className="fa fa-3x fa-paw absolute" style={{color: "#FBAA18"}}/></div>
+  const bg_image = {
+    food: '/img/grocery-bag.svg',
+    medical_devices: '/img/stethoscope.svg',
+    drugs: '/img/crucible.svg',
+    animal_and_veterinary: '/img/pet-meds.svg'
+  }
+  const bg_color = {
+    food: {backgroundColor: "#1FA02B"},
+    medical_devices: {backgroundColor: "#F37549"},
+    drugs: {backgroundColor: "#9958A3"},
+    animal_and_veterinary: {backgroundColor: "#007CBA"}
   }
 
   const noun_path = {
@@ -64,18 +58,14 @@ const NounBox = (props: tPROPS) => {
 
   return (
     <section
-      id='endpoint_box' className="noun-card marg-2">
-      <Link className="noun-box" to={noun_path[noun_name]}>
-        <div className="bg-img-container" style={bg_image_color[noun_name]}>
-          <img src={bg_image[noun_name]}/>
-        </div>
-        <div className="absolute" style={{paddingBottom:"50px"}}>
-          {icon[noun_name]}
+      id='noun_card' className='noun-card marg-2'>
+      <Link className='noun-box' style={bg_color[noun_name]} to={noun_path[noun_name]}>
+        <div className='bg-img-container'>
+          <img className='icon' src={bg_image[noun_name]}/>
         </div>
         <div className='flex-row dir-column m-pad-t-2 m-pad-b-2 noun-text-box no-flex-wrap'>
-          <h3 className="txt-c clr-primary-darker pad-t-4">{noun_title[noun_name]}</h3>
-          <span className="clr-black marg-1">{description[noun_name]}</span>
-          <span className="btn clr-primary weight-700">LEARN MORE<i className="fa fa-angle-right marg-l-1"/></span>
+          <h3 className='txt-c clr-white pad-t-4'>{noun_title[noun_name]}</h3>
+          <span className='clr-white marg-1'>{description[noun_name]}</span>
         </div>
       </Link>
     </section>
