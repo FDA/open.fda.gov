@@ -23,91 +23,96 @@ type tPROPS = {
   small: boolean
 };
 
-/**
- * @description [reverse chron list of blog posts for home and /updates/]
- */
-const BlogRoll = (props: tPROPS) => {
+
+const BlogPosts = (props: tPROPS) => {
   const {
     small
   } = props
 
   // filter out posts without a valid date
   // and also sort them reverse chron
-  const sortedUpdates: Array<Object> = _sortUpdates(updates.updates)
-
-  // increment for every actually rendered post
-  // this is useful because not everything in
-  // sortedPosts will get rendered. actually,
-  // most won't get rendered, since posts
-  // are really just any docs file
-  let tally: number = 0 | 0
+  let sortedUpdates: Array<Object> = _sortUpdates(updates.updates)
+  if (small === true) {
+    sortedUpdates = sortedUpdates.slice(0, 3)
+  }
 
   return (
-    <section className='blog-bg body-bg-offwhite'>
-      <h2 className="center-heading" style={{margin: '30px 30px 10px'}}><span>Latest News & Updates</span></h2>
-      <ul
-        aria-label='openFDA updates'
-        tabIndex={0}
-        className={'container blog-container ' + (small === true ?  'overflow-hidden small-blog-container' : '')}>
-        {
-          sortedUpdates.map((update: Object, i: number) => {
-            const {
-              desc,
-              date
-            } = update
+    <ul
+      aria-label='openFDA updates'
+      tabIndex={0}
+      className={'blog-container ' + (small === true ?  'overflow-hidden small-blog-container' : '')}>
+      {
+        sortedUpdates.map((update: Object, i: number) => {
+          const {
+            desc,
+            date
+          } = update
 
-            let title = new Promise(function(resolve, reject){
-              if (update.title.length > 40) {
-                resolve((get(update, 'title')).substring(0, 40) + '...')
-              } else {
-                resolve(update.title)
-              }
-            })
-
-            // level refers to header level. h1, h2, etc
-            // we start at 2, because h1 is the hero section
-            // and then we proceed from there
-            // we do this so we have a logical order of headers
-            // h1 -> h2 -> h3 and so on til we get to h6
-            let level: number = tally === 0 ? 2 : (tally + 2)
-            // cheap way to keep capped at h6
-            if (level > 6) {
-              level = 6
+          let title = new Promise(function (resolve, reject) {
+            if (update.title.length > 40) {
+              resolve((get(update, 'title')).substring(0, 40) + '...')
+            } else {
+              resolve(update.title)
             }
+          })
 
-            // don't remove me
-            // i keep track of the amount
-            // of actually rendered blog posts
-            tally += 1
+          // Post date, if available
+          let formattedDate = ''
+          if (date.length > 0) {
+            formattedDate = dateFormat(date, 'mmmm d, yyyy').toUpperCase()
+          }
 
-
-            // Post date, if available
-            let formattedDate = ''
-            if (date.length > 0) {
-              formattedDate = dateFormat(date, 'mmmm d, yyyy').toUpperCase()
-            }
-
-            return (
-              <li
-                key={i}
-                className='marg-l-1 marg-r-1 marg-t-2 marg-b-2 blog-item'>
-                <Link className='pad-3 relative full-height blog-text-item' style={{paddingTop: "30px"}}to={update.path}>
+          return (
+            <li
+              key={i}
+              className='blog-item'>
+              <Link className='relative full-height blog-text-item' to={update.path}>
+                <div>
                   <Async promise={title} then={(val) => <h2 className='blog-header clr-primary-darker'>{val}</h2>}/>
                   <div className='clr-gray-light marg-b-1 t-marg-t-05 time-stamp'>{formattedDate}</div>
-                  <p className="smallest txt-overflow-ellipsis">{desc}</p>
-                  <span className="absolute bottom pad-b-2 weight-700 clr-primary">READ MORE <i className="fa fa-angle-right"/></span>
-                </Link>
-              </li>
-            )
-          })
+                  <p className='smallest txt-overflow-ellipsis'>{desc}</p>
+                  {
+                    small === false &&
+                    <span className='absolute bottom pad-b-2 weight-700 clr-primary'>READ MORE <i
+                      className='fa fa-angle-right'/></span>
+                  }
+                </div>
+                {
+                  small === true &&
+                  <i className='fa fa-angle-right fa-2x clr-light-blue'/>
+                }
+              </Link>
+            </li>
+          )
+        })
+      }
+    </ul>
+  )
+}
+
+
+/**
+ * @description [reverse chron list of blog posts for home and /updates/]
+*/
+const BlogRoll = (props: tPROPS) => {
+  const {
+    small
+  } = props
+
+  return (
+    <section className={'body-bg-offwhite ' + (small === true ? 'blog-list' : 'blog-cards')}>
+      <div>
+        <h2 className='clr-primary blog-header'>Latest News & Updates</h2>
+        {
+          small === true &&
+            <Link
+              className='btn-icon-right weight-700 clr-light-blue blog-header'
+              to='/about/updates/'>
+              VIEW ALL <i className='fa fa-angle-right'/>
+            </Link>
         }
-      </ul>
-      {small === true &&
-        <Link
-        className='btn-icon-right pad-b-3 weight-700 clr-primary'
-        to='/about/updates/'>
-        VIEW ALL <i className="fa fa-angle-right"/>
-        </Link>}
+      </div>
+      <BlogPosts {...props} />
     </section>
   )
 }

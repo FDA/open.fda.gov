@@ -14,59 +14,54 @@ const INDEX = () => (
           <h2>Open-source APIs</h2>
           <h6>and</h6>
           <h2>Developer Community for FDA Data</h2>
-          <Link className="btn btn-icon-right marg-t-1 weight-700 bg-white" style={{color: "#00B1CB"}} to='/docs/'>
-            Learn More<i className="fa fa-arrow-right marg-l-1"/>
+          <Link className='btn btn-icon-right marg-t-1 weight-700 bg-white clr-primary-darker' to='/docs/'>
+            Learn More<i className='fa fa-arrow-right marg-l-1'/>
           </Link>
         </div>
       </section>
       <section className='body-bg-offwhite flex-box dir-column just-center'>
         <div className='flex-row just-center align-center flex-wrap marg-t-1'>
-          <NounBox noun_name="food"/>
-          <NounBox noun_name="medical_devices"/>
-          <NounBox noun_name="drugs"/>
-          <NounBox noun_name="animal_and_veterinary"/>
+          <NounBox noun_name='food'/>
+          <NounBox noun_name='medical_devices'/>
+          <NounBox noun_name='drugs'/>
+          <NounBox noun_name='animal_and_veterinary'/>
         </div>
-        <Link className="btn btn-icon-right txt-c clr-primary weight-700" to='/api_endpoints/'>
-          VIEW ALL<i className="fa fa-angle-right marg-l-1"/>
+        <Link className='btn btn-icon-right txt-c clr-primary weight-700' to='/api_endpoints/'>
+          VIEW ALL<i className='fa fa-angle-right marg-l-1'/>
         </Link>
       </section>
     </section>
-    <section className='flex-box just-between'>
-      <div className="relative half-hero area-chart-container">
-        <div>
-          <h3 className="marg-b-1">API Usage Statistics</h3>
-          <span>This site also offers an overview of the usage of API endpoints by the community.</span>
-          <div>
-            <Link className="btn btn-icon-right marg-t-2 weight-700 bg-white" style={{color: "#00B1CB"}} to='/about/statistics/'>
-              VIEW USAGE ACTIVITY<i className="fa fa-arrow-right marg-l-1"/>
-            </Link>
+    <section className='container flex-row pad-b-3'>
+      <section className='flex-box dir-column just-between pad-r-1 homepage-link-list'>
+        <Link className='link-card btn btn-icon-right weight-700' to='/about/statistics/'>
+          <img className='' src='/img/line-graph.svg'/>
+          <div className='flex-box dir-column marg-l-1 marg-r-1'>
+            <h3 className='marg-b-1 clr-primary-darker'>View API Usage Statistics</h3>
+            <p className='smallest'>This site also offers an overview of the usage of API endpoints by the community.</p>
           </div>
-        </div>
-      </div>
-      <div className="relative clr-primary-darker half-hero down-arrows-container">
-        <div>
-          <h3 className="marg-b-1">Download OpenFDA Data</h3>
-          <span>The endpoints' data may be downloaded in zipped JSON format.</span>
-          <div>
-            <Link className="btn btn-icon-right marg-t-2 weight-700 clr-white" style={{backgroundColor: "#007CBA"}} to='/about/downloads/'>
-              DOWNLOAD ENDPOINTS<i className="fa fa-arrow-right marg-l-1"/>
-            </Link>
+          <i className='fa fa-angle-right fa-2x marg-l-1'/>
+        </Link>
+        <Link className='link-card btn btn-icon-right weight-700' to='/about/statistics/'>
+          <img className='' src='/img/download.svg'/>
+          <div className='flex-box dir-column marg-l-1 marg-r-1'>
+            <h3 className='marg-b-1 clr-primary-darker'>Download OpenFDA Data</h3>
+            <p className='smallest'>The endpoints' data may be downloaded in zipped JSON format.</p>
           </div>
-        </div>
-      </div>
+          <i className='fa fa-angle-right fa-2x marg-l-1'/>
+        </Link>
+        <Link className='link-card btn btn-icon-right weight-700' to='/about/statistics/'>
+          <img className='' src='/img/lightbulb.svg'/>
+          <div className='flex-box dir-column marg-l-1 marg-r-1'>
+            <h3 className='marg-b-1 clr-primary-darker'>View Community Apps</h3>
+            <p className='smallest'>OpenFDA features an open user community for sharing open source code, examples, and ideas.</p>
+          </div>
+          <i className='fa fa-angle-right fa-2x marg-l-1'/>
+        </Link>
+      </section>
+      <BlogRoll
+        small={true}
+      />
     </section>
-  <section className='flex-box just-center blue-code-container'>
-    <div>
-      <h3>Citizen Science and Crowdsourcing</h3>
-      <p style={{color: "white"}}>View some examples created by the community using OpenFDA data.</p>
-      <Link className="btn btn-icon-right weight-700 bg-white" style={{color: "#007CBA"}} to='/community/'>
-        SHOW ME MORE<i className="fa fa-arrow-right marg-l-1"/>
-      </Link>
-    </div>
-  </section>
-  <BlogRoll
-    small={true}
-  />
   </section>
 )
 
