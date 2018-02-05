@@ -4,6 +4,8 @@ import React from 'react'
 
 import { PieChart, Pie, Cell, Sector , Legend} from "Recharts";
 
+// refer to http://jsfiddle.net/ro31mjuf/
+
 const RADIAN = Math.PI / 180;
                                   
 const renderActiveShape = (props) => {
@@ -37,8 +39,24 @@ const renderActiveShape = (props) => {
 
   return (
     <g>
-      <text x={cx} y={cy-10} dy={8} textAnchor="middle" id="textLabel1" className="piechart-centered-title"></text>
-      <text x={cx} y={cy+10} dy={8} textAnchor="middle" id="textLabel2" className="piechart-centered-title"></text>
+      <text 
+        x={cx} 
+        y={cy-10} 
+        dy={8} 
+        textAnchor="middle" 
+        id="textLabel1" 
+        className="piechart-centered-title"
+      >
+      </text>
+      <text 
+        x={cx}
+        y={cy+10}
+        dy={8}
+        textAnchor="middle"
+        id="textLabel2"
+        className="piechart-centered-title"
+      >
+      </text>
       
       <Sector
         cx={cx}
@@ -61,7 +79,7 @@ const renderActiveShape = (props) => {
       <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none"/>
       <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none"/>
       <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333" className="piechart-label">{`${subName}`}</text>
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey+15} textAnchor={textAnchor} fill={fill} className="piechart-label">{`${pct}`}</text>
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey+15} textAnchor={textAnchor} fill="#333" className="piechart-label">{`${pct}`}</text>
     </g>
   );
 };

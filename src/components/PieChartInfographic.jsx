@@ -11,8 +11,96 @@ import Parser from 'html-react-parser';
 import {default as $} from "jquery";
 import TwoLevelPieChart from './InteractivePie';
 import { PieChart, Pie, Sector } from "Recharts";
+import Select from 'react-select'
 import calculateSize from 'calculate-size';
 import 'whatwg-fetch'
+import createClass from 'create-react-class';
+import PropTypes from 'prop-types';
+
+
+const stringOrNode = PropTypes.oneOfType([
+  PropTypes.string,
+  PropTypes.node,
+]);
+
+const GravatarOption = createClass({
+  propTypes: {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    isDisabled: PropTypes.bool,
+    isFocused: PropTypes.bool,
+    isSelected: PropTypes.bool,
+    onFocus: PropTypes.func,
+    onSelect: PropTypes.func,
+    option: PropTypes.object.isRequired,
+  },
+  handleMouseDown (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.props.onSelect(this.props.option, event);
+  },
+  handleMouseEnter (event) {
+    this.props.onFocus(this.props.option, event);
+  },
+  handleMouseMove (event) {
+    if (this.props.isFocused) return;
+    this.props.onFocus(this.props.option, event);
+  },
+  render () {
+    let gravatarStyle = {
+      borderRadius: 3,
+      display: 'inline-block',
+      marginRight: 10,
+      position: 'relative',
+      top: -2,
+      verticalAlign: 'middle',
+    };
+    return (
+      <div className={this.props.className}
+        onMouseDown={this.handleMouseDown}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseMove={this.handleMouseMove}
+        title={this.props.option.title}>
+        <input type="checkbox" checked={this.props.option.isSelected}/>
+          <div style={{
+              width: 20, 
+              height: 20, 
+              backgroundColor: this.props.option.color,
+              display: 'inline-block',
+              paddingTop: 5 
+            }}>
+          </div>
+          {"  "}{ this.props.option.label }
+      </div>
+    );
+  }
+});
+
+const GravatarValue = createClass({
+  propTypes: {
+    children: PropTypes.node,
+    placeholder: stringOrNode,
+    value: PropTypes.object,
+    ref: PropTypes.any
+  },
+  render () {
+    var gravatarStyle = {
+      borderRadius: 3,
+      display: 'inline-block',
+      marginRight: 10,
+      position: 'relative',
+      top: -2,
+      verticalAlign: 'middle',
+    };
+    return (
+      <div className="Select-value" title={this.props.value.title}>
+        <span className="Select-value-label select-label">
+            Select <i className="select-placeholder">{this.props.placeholder}</i> to Compare
+        </span>
+      </div>
+    );
+  }
+});
 
 
 class PieChartInfographic extends React.Component {
@@ -35,24 +123,32 @@ class PieChartInfographic extends React.Component {
       minTime: minTime,
       maxTime: null,
       selection:  null,
+      selected: [],
+      reverseProductLabels: null,
       tracker:   null,
       trackerValue: null,
       trackerEvent: null,
       sparklineData:  null,
       lineChartColumns: [],
       trackerInfoValues: "",
-      trackerTimeFormat:"%Y",
+      infoHeight: 0,
       activeIndex: null,
+      choosenColumn: null,
+      columnStyles: null,
       lineChartLoaded: 0,
       width: this.props.globalDefs.lineChartConfig.width
     };
 
     // functions
     this.onClick = this.onClick.bind(this)
-    this.onSelectionChange = this.onSelectionChange.bind(this)
-    this.onTrackerChanged = this.onTrackerChanged.bind(this)
+    this.onClose = this.onClose.bind(this)
+    // this.removeSelected = this.removeSelected.bind(this)
     this.handleChartResize = this.handleChartResize.bind(this)
     this.handleTrackerChanged = this.handleTrackerChanged.bind(this)
+    this.renderOption = this.renderOption.bind(this)
+    this.onSelectionChange = this.onSelectionChange.bind(this)
+    this.setTextStyle = this.setTextStyle.bind(this)
+
   }
   componentWillReceiveProps(){
     
@@ -70,8 +166,10 @@ class PieChartInfographic extends React.Component {
               latestDataDate = new Date(download_res.results[apiParts[1]][apiParts[2]].export_date),
               latestYear = latestDataDate.getFullYear()
         
+        const currentDate = new Date()
+
         that.setState({
-          maxTime: new Date(latestYear+1,3,1)
+          maxTime: new Date(currentDate.getFullYear(), 12,1)
         })
 
         that[that.props.infographicDefinitions.dataFunction]().then((res) => {
@@ -201,6 +299,9 @@ class PieChartInfographic extends React.Component {
     if(this.state.activeIndex === index && this.state.lineChartLoaded > 0){
       return
     }
+    this.setState({
+      sparklineData: null
+    })
 
     const that = this;
 
@@ -295,9 +396,17 @@ class PieChartInfographic extends React.Component {
             })
           }
           //////
-          columns = columns.slice(0,that.props.infographicDefinitions.lineLimiter)
+          const useProductCodes = (that.props.globalDefs.productCodes !== undefined && that.props.infographicDefinitions.useProductCodes)
+          columns = columns.slice(0,that.props.infographicDefinitions.lineLimiter).map( column => {
+            if(useProductCodes){
+              var fullProductCode = that.props.globalDefs.productCodes[column.toUpperCase()]
+              column = fullProductCode === undefined ? column : fullProductCode
+            }
+
+            return column.slice(0,55)
+          })
           
-          const dataset = []
+          const listOfSeries = []
 
           for (var i = 0, len = results.length; i < len; i++) {
             var series = new TimeSeries({
@@ -308,87 +417,61 @@ class PieChartInfographic extends React.Component {
               }).map(function(i){
                   let x = i.time.slice(0,4) + '-' + i.time.slice(4,6) + '-' + i.time.slice(6,8)
                   return [new Date(x), i.count]
-             })
+              })
             }).monthlyRollup({
               aggregation: {
-                value: {
-                  value: sum()
-                }
+                value: { value: sum() }
               },
               toTimeEvents : true
             }).toJSON()
+
             if(series !== undefined){
-              dataset.push(series.points)
+              listOfSeries.push(series.points)
             }
           }
 
-          var dataKeys = {};
-
-          dataset.forEach( arr => {
+          // get all timestamps
+          // use obj to avoid duplicates
+          var timestamps = {};
+          // for each column of aggregated points
+          listOfSeries.forEach( arr => {
             arr.forEach( val => {
-              dataKeys[val[0]] = 0 
+              // add timestamp for each series to timestamps with default 0
+              timestamps[val[0]] = 0 
             })
           })
-
-          var dataKeys = Object.keys(dataKeys).sort();
-
-          var keysPosition = {};
-          dataKeys.forEach( (key, i) => keysPosition[key] = i );
+          var timestamps = Object.keys(timestamps).sort();
+          var timestampsPosition = {};
+          timestamps.forEach( (key, i) => timestampsPosition[key] = i );
+          ///
 
           // normalize
-          const items = []
-          dataset.forEach( arr => {
-            const item = new Array(dataKeys.length).fill(0);
+          const normalizedSeries = []
+          listOfSeries.forEach( arr => {
+            const normalizedSerie = new Array(timestamps.length).fill(0);
 
             arr.forEach( val => {
-              var key = val[0],
+              var timestamp = val[0],
                   value = val[1],
-                  index = keysPosition[key];
-              item[index] = value
+                  index = timestampsPosition[timestamp];
+
+              // add the value for the timestamp in item array
+              normalizedSerie[index] = value
             })
-            items.push(item)
+            normalizedSeries.push(normalizedSerie)
           })
 
-          var final = [];
-
-
           // transpose..... from list of points per series, to a list of points per timestamp
-          var findMax = []
-          var rows = []
-          for (var i = 0, len_i = items[0].length; i < len_i; i++) {
-            var row = []
-            for (var j = 0, len_j = items.length; j < len_j; j++) {
-              var val = items[j][i] || 0
-              row.push(val)
-              findMax.push(val)
-            }
-            rows.push(row)
-          }
-          dataKeys.forEach( (key, i) => {
-            var int = parseInt(key)
-            if(int > 0){
-              final.push([int].concat(rows[i])) 
-            }
-          });
+          var res = this.transpose(timestamps, normalizedSeries)
+
+          var final = res.final,
+              findMax = res.findMax,
+              rows = res.rows;
 
           var series = new TimeSeries({
             name: "timeseries",
             columns: ["time"].concat(columns),
             points: final.sort( (a,b) => a[0] - b[0])
-          })
-
-          // set categories
-          var categories = columns.map(column => {
-            let label = column === "" ? "" : column[0].toUpperCase() + column.slice(1,column.length);
-            if(that.props.globalDefs.productCodes !== undefined){
-              let code = that.props.globalDefs.productCodes[column.toUpperCase()]
-              label = !code ? label.toUpperCase() : code
-            }
-            return {
-              key: column,
-              label: label,
-              value: null
-            }
           })
 
           // set style according to categories
@@ -399,20 +482,48 @@ class PieChartInfographic extends React.Component {
               width: 2
             }
           }))
+          var legendStyle1 = legendStyle.lineChartStyle()
+          Object.keys(legendStyle1).forEach(value => {
+            legendStyle1[value].selected.opacity = 0
+            legendStyle1[value].normal.opacity = 0
+            legendStyle1[value].highlighted.opacity = 0
+            legendStyle1[value].muted.opacity = 0
+          })
 
+          var columnStyles = Object.keys(legendStyle1).map(column => {
+            let formattedColumn = ""
+            if(column.length){
+              formattedColumn = column[0].toUpperCase() + column.slice(1,column.length)
+            }
+            return {
+              label: formattedColumn,
+              color: legendStyle1[column].normal.stroke,
+              isSelected: false
+            }
+          })
+
+          var allMaxes = {}
+          _.zip(columnStyles.map(s => s.label), normalizedSeries).forEach(value => {
+            allMaxes[value[0]] = Math.max(...value[1])
+          })
 
           that.setState({
-            legendStyle,
-            categories,
+            allMaxes,
+            columnStyles,
+            legendStyle: legendStyle1,
             timerange: new TimeRange(new Date(series.toJSON().points[0][0]), that.state.maxTime),
             selectedClassName: that.props.infographicDefinitions.defs[data.id],
             sparklineData: series,
             sparklineDataMax: Math.max(...findMax),
             lineChartColumns: ["time"].concat(columns),
             lineChartLoaded: that.state.lineChartLoaded += 1
+          },function(){
+            this.DOMNode.setState({isOpen: true})
           })
 
-          this.onSelectionChange(categories[0].key)
+          columnStyles.slice(0,3).forEach( styl =>{
+            this.onSelectionChange(styl)  
+          })
 
           if(that.refs){
             that.refs.child.setState({
@@ -420,7 +531,7 @@ class PieChartInfographic extends React.Component {
             })
           }
 
-          
+          this.setPieChartText()
           var vals = $("text").filter(function () {
               return $(this).attr("transform") == "rotate(-90)"
           })
@@ -431,93 +542,165 @@ class PieChartInfographic extends React.Component {
       })
   }
 
-  onSelectionChange(selection) {
+  transpose (timestamps, normalizedSeries){
+    // transpose..... from list of points per series, to a list of points per timestamp
+    var findMax = [],
+        final = [],
+        rows = [];
+    for (var i = 0, len_i = normalizedSeries[0].length; i < len_i; i++) {
+      var row = []
+      for (var j = 0, len_j = normalizedSeries.length; j < len_j; j++) {
+        var val = normalizedSeries[j][i] || 0
+        row.push(val)
+        findMax.push(val)
+      }
+      rows.push(row)
+    }
+    timestamps.forEach( (key, i) => {
+      var int = parseInt(key)
+      if(int > 0){
+        final.push([int].concat(rows[i])) 
+      }
+    });
+    return {
+      findMax: findMax,
+      final: final,
+      rows: rows
+    }
+  }
+
+  onSelectionChange (selectionObj) {
+    var selection = selectionObj.label;
     var selectionName = this.props.infographicDefinitions.selectionPostFix !== undefined ? 
                         selection +  this.props.infographicDefinitions.selectionPostFix : 
                         selection;
 
-    this.setState({ 
-      selection,
-      selectionName: selectionName
+    let toggle = null
+    let selected = []
+    let maxes = []
+    const columnStyles = this.state.columnStyles.map(obj => {
+      if(obj.label === selection){
+        obj.isSelected = obj.isSelected ? false : true
+        toggle = obj.isSelected ? 1 : 0;
+      }
+      if(obj.isSelected){
+        selected.push(obj.label)
+        maxes.push(this.state.allMaxes[obj.label])
+      }
+      return obj
     })
 
-    this.onTrackerChanged(this.state.tracker, selection)
+    // var legendStyle1 = styler(this.state.sparklineData.columns().map((column,idx)=> {
+    //   return {
+    //     key: column,
+    //     color: this.props.globalDefs.lineChartConfig.colors[idx],
+    //     width: 2
+    //   }
+    // }))
+
+    const legendStyle = {}
+    Object.keys(this.state.legendStyle).map(columnName => {
+      var obj = this.state.legendStyle[columnName]
+      if(selection === columnName){
+        if(toggle){
+          obj.normal.opacity       = toggle
+          obj.selected.opacity     = toggle
+          obj.highlighted.opacity  = toggle
+        } else {
+          obj.normal.opacity       = 0.005
+          obj.selected.opacity     = 0.005
+          obj.highlighted.opacity  = 0.005
+        }
+
+      }
+      legendStyle[columnName] = obj
+    })
+
+    this.setState({
+      sparklineDataMax: maxes.length ? Math.max(...maxes)+Math.round(Math.random() * 100, 2)/100 : 10,
+      sparklineData: this.state.sparklineData,
+      choosenColumn: selectionObj,
+      selection,
+      selected,
+      legendStyle,
+      columnStyles,
+      selectionName: selectionName
+    }, function(){
+      this.setTextStyle()
+      this.setPieChartText()
+    })
+  }
+
+  setTextStyle(){
+    $("text").css("font-family",this.props.globalDefs.font.fontFamily)
+    $('text').css('fill', this.props.globalDefs.font.color)
   }
 
   handleTrackerChanged(t) {
-      if (t) {
-          const e = this.state.sparklineData.atTime(t);
-          const eventTime = new Date(
-              e.begin().getTime() + (e.end().getTime() - e.begin().getTime()) / 2
-          );
-          const eventValue = e.toJSON().data[this.state.selection]
-          const v = `${eventValue}`;
-          this.setState({
-            tracker: eventTime, 
-            trackerValue: v, 
-            trackerEvent: e 
-          });
-      } else {
-          this.setState({ tracker: null, trackerValue: null, trackerEvent: null });
-      }
-  }
+    if (t) {
+      const e = this.state.sparklineData.atTime(t);
+      const eventTime = new Date(
+          e.begin().getTime() + (e.end().getTime() - e.begin().getTime()) / 2
+      )
 
-  onTrackerChanged(tracker, selection) {
-    if(!this.state.categories || !this.state.sparklineData){
-      return;
-    }
-    let index;
-    let trackerEvent;
-    try{
-      index = this.state.sparklineData.bisect(tracker);
-      trackerEvent = this.state.sparklineData.at(index+1);
-    } catch (e) {
-      return;
-    }
-    
-    var highlight = this.state.highlight;
-    var selection = selection || this.state.selection;
-
-    var categories = [],
-        trackerInfoValues = [];
-    this.state.categories.forEach((value, idx) => {
-      // var num = trackerEvent.get(value.key)
-      var num = trackerEvent.toJSON().data[value.key]
-      // value.value = num
+      const eventData = e.toJSON().data;
       
-      categories.push(value)
-      if(value.key === selection){
-        var label = value.key.length > 0 ?  value.key[0].toUpperCase() + value.key.slice(1,value.key.length) : "";
-        trackerInfoValues.push({
-          label: label,
-          value: num.toString()
-        })
-      }
-    })
+      let infoValues = this.state.selected.map( label => {
+          return {
+            label : label.length < 20 ? label : label.slice(0,20) + " ... ",
+            value: eventData[label]
+          }
+      })
+      const defaultInfoValues = [
+        {
+          label: "Refer to legend below",
+          value: ""
+        }
+      ]
+      // Show only 5 labels
+      infoValues = infoValues.length > 5 ? defaultInfoValues : infoValues;
+      const infoHeight = infoValues.length <= 5 ? (infoValues.length * 10 + 30) : 0;
 
+      // const eventValue = e.toJSON().data[this.state.selection]
+      // const v = `${eventValue}`;
 
-    this.setState({
-      categories,
-      trackerInfoValues,
-      tracker
-    })
+      // const size = calculateSize(this.state.selection + " : " + eventValue, this.props.globalDefs.tooltip)
 
-    // const size = calculateSize(`${trackerInfoValues[0].label}: ${trackerInfoValues[0].value}`, this.props.infographicDefinitions.tooltip)
-    // // setTimeout(() => this.setChartStyles(size),5)
+      this.setState({
+        tracker: eventTime, 
+        trackerEvent: e,
+        trackerInfoValues: infoValues,
+        infoHeight: infoHeight
+      }, this.setTextStyle())
+
+    } else {
+        this.setState({ tracker: null, trackerValue: null, trackerEvent: null });
+    }
   }
 
-  // setChartStyles(size){
-  //   $($('rect')[2]).css("width",size.width+15)
-  //   var vals = $("[style*='pointer-events']").filter(function () {
-  //       return $(this).css('pointer-events') == 'none' && this.nodeName == "g" && $(this).find("text").length
-  //   })
-  //   if(vals.length){
-  //     $(vals[0]).find("text").css("fill",this.props.infographicDefinitions.lineChartConfig.font.color)
-  //   }
-  //}
+  renderOption (option){
+    return (
+      <div>
+        <input type="checkbox" checked={this.props.isSelected} onChange={() => {} }/>
+        <div style={{
+            width: 20, 
+            height: 20, 
+            backgroundColor: option.color,
+            display: 'inline-block',
+            paddingTop: 5 
+          }}>
+        </div>
+            {"  "}{option.label}
+      </div>
+    );
+  }
 
   handleChartResize(width){
     this.setState({width})
+  }
+
+  onClose (){
+    this.DOMNode.setState({isOpen: true})
   }
 
   render (): ?React.Element {
@@ -527,31 +710,34 @@ class PieChartInfographic extends React.Component {
       $('.recharts-surface').each(function () { $(this)[0].setAttribute('viewBox', viewBox) });
       $('.recharts-wrapper').width(this.props.infographicDefinitions.pieChartConfig.widthReset)
       this.setPieChartText()
-      $(".sc-bdVaJa .cXgeQK").css("padding-top","2px")
-      $("text").css("font-family",this.props.globalDefs.font.fontFamily)
-      $('text').css('fill', this.props.globalDefs.font.color)
 
     return (
         <section className='infographic-container'>
         <div>
-          {Parser(this.props.infographicDefinitions.title)}
+          <p className='datamap-infographic-header'>
+            {Parser(this.props.infographicDefinitions.title)}
+            <i className="infographic-dropdown">{' '}View by:{' '}</i>
+          </p>
           <hr className="datamap-hr"/>
-          
         </div>
 
 
-        <p className='pie-infographic-header-params'> 
-          Number of &nbsp;
-            <i className='datamap-infographic-header-text-bold'>
-              {this.state.selectionName} 
-            </i>
-            {this.props.infographicDefinitions.xTitle}
-            {this.props.infographicDefinitions.subtitle},
-            <i className='datamap-infographic-header-text-bold'>
-               &nbsp;{this.state.selectedClassName}
-            </i>&nbsp;
-            {this.props.infographicDefinitions.yTitle}&nbsp;
-        </p>
+        <div className='pie-infographic-headers' style={{height:40}}>
+          <p className="piechart-title">
+            Each <i className="bold-font">{this.props.infographicDefinitions.pieChartCategoryName}</i> <br/>
+            as % of all <i className="bold-font">{this.props.infographicDefinitions.pieChartApiName}</i>
+          </p>
+
+
+          <p>
+            Display of {this.props.globalDefs.apiName}{' by '}
+            <i className='datamap-infographic-header-text-bold'>{this.props.parent.state.choice.subfieldLabel}</i>
+            {' '} for{' '}
+            <i className='datamap-infographic-header-text-bold'>{this.state.selectedClassName}</i> 
+            {this.props.infographicDefinitions.yTitle}
+          </p>
+        </div>
+
         <div className="flex-box piechart-container">
           <TwoLevelPieChart
             onClick={this.onClick}
@@ -561,70 +747,110 @@ class PieChartInfographic extends React.Component {
             {...this.props.globalDefs.pieChartConfig}
             {...this.props.infographicDefinitions.pieChartConfig}
           />
-        { !this.state.sparklineData ? null : 
-              <ChartContainer 
-                timeRange={this.state.timerange} 
-                enablePanZoom={this.state.enablePanZoom}
-                onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
-                trackerPosition={this.state.tracker}
-                onTrackerChanged={this.handleTrackerChanged}
-                minTime={this.state.minTime}
-                maxTime={this.state.maxTime}
-                showGrid={this.props.globalDefs.lineChartConfig.showGrid}
-                onChartResize={this.handleChartResize}
-                width={this.props.globalDefs.lineChartConfig.width}
-              >
-                  <ChartRow
-                    {...this.props.globalDefs.lineChartConfig.chartRow}
-                  >
-                      <YAxis 
-                        id="axis1"
-                        max={this.state.sparklineDataMax}
-                        {...this.props.globalDefs.lineChartConfig.yAxis}
-                      />
-                      <Charts>
-                          <LineChart 
-                            style={this.state.legendStyle}
-                            axis="axis1"
-                            series={this.state.sparklineData}
-                            columns={this.state.lineChartColumns}
-                            interpolation={this.props.globalDefs.lineChartConfig.interpolation}
-                            highlight={this.state.highlight}
-                            selection={this.state.selection}
-                            onSelectionChange={this.onSelectionChange}
-                          />
-                          <EventMarker
-                            type="flag"
-                            axis="axis1"
-                            event={this.state.trackerEvent}
-                            column={this.state.selection}
-                            info={[{ label: "", value: this.state.trackerValue }]}
-                            {...this.props.globalDefs.lineChartConfig.eventMarker}
+          { !this.state.sparklineData ? 
+                <img src="/img/ajax_loader_gray_512.gif" height="25%"/> : 
+                <ChartContainer 
+                  timeRange={this.state.timerange} 
+                  enablePanZoom={this.state.enablePanZoom}
+                  onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
+                  trackerPosition={this.state.tracker}
+                  onTrackerChanged={this.handleTrackerChanged}
+                  minTime={this.state.minTime}
+                  maxTime={this.state.maxTime}
+                  showGrid={this.props.globalDefs.lineChartConfig.showGrid}
+                  onChartResize={this.handleChartResize}
+                  width={this.props.globalDefs.lineChartConfig.width}
+                  timeAxisStyle={this.props.globalDefs.lineChartConfig.chartContainer}
+                >
+                    <ChartRow
+                      {...this.props.globalDefs.lineChartConfig.chartRow}
+                    >
+                        <YAxis 
+                          id="axis1"
+                          max={this.state.sparklineDataMax}
+                          {...this.props.globalDefs.lineChartConfig.yAxis}
                         />
-                      </Charts>
-                  </ChartRow>
-              </ChartContainer>
-            }
+                        <Charts>
+                            <LineChart 
+                              style={this.state.legendStyle}
+                              axis="axis1"
+                              series={this.state.sparklineData}
+                              columns={this.state.lineChartColumns}
+                              interpolation={this.props.globalDefs.lineChartConfig.interpolation}
+                              onSelectionChange={this.onSelectionChange}
+                            />
+                              <EventMarker
+                                type="flag"
+                                axis="axis1"
+                                event={this.state.trackerEvent}
+                                column={this.state.selection}
+                                infoHeight={this.state.infoHeight}
+                                infoWidth={175}
+                                info={this.state.trackerInfoValues}
+                                {...this.props.globalDefs.lineChartConfig.eventMarker}
+                              />
+                        </Charts>
+                    </ChartRow>
+                </ChartContainer>
+          }
         </div>
         { !this.state.sparklineData ? null :
+          <div className="flex-box" style={{ justifyContent: "flex-end"}}>
+
             <div className="piechart-legend">
-              <Legend
-                  type="swatch"
-                  align="right"
-                  style={this.state.legendStyle}
-                  highlight={this.state.highlight}
-                  selection={this.state.selection}
-                  onSelectionChange={this.onSelectionChange}
-                  categories={this.state.categories}
+              <Select
+                name="toggle"
+                value={this.state.choosenColumn}
+                optionComponent={GravatarOption}
+                arrowRenderer={()=>{<span></span>}}
+                menuStyle={{"max-height": "130px"}}
+                options={this.state.columnStyles}
+                onChange={this.onSelectionChange}
+                placeholder="Search the fields"
+                resetValue="label"
+                isOpen={true}
+                ref={(ref)=>{this.DOMNode = ref}}
+                removeSelected={false}
+                valueComponent={GravatarValue}
+                clearable={false}
+                closeOnSelect={false}
+                onClose={this.onClose}
+                placeholder={this.props.parent.state.choice.subfieldLabel}
               />
             </div>
-          }
+          </div>
+        }
         </section>
     )
   }
 }
 
 
+// <p className='pie-infographic-header-params'> 
+//     Display of {' '} <i className='datamap-infographic-header-text-bold'> {this.state.selectionName} </i> 
+//     {this.props.infographicDefinitions.xTitle} {this.props.infographicDefinitions.subtitle},
+//     <i className='datamap-infographic-header-text-bold'> {' '}{this.state.selectedClassName} </i>{' '} {this.props.infographicDefinitions.yTitle}{' '}
+// </p>
+
+// optionRenderer={this.renderOption}
+// valueRenderer={this.renderOption}
+
+// <Legend
+//     type="swatch"
+//     align="right"
+//     style={this.state.legendStyle}
+//     highlight={this.state.highlight}
+//     selection={this.state.selection}
+//     onSelectionChange={this.onSelectionChange}
+//     categories={this.state.categories}
+// />
+
 export default PieChartInfographic
+
+
+
+
+
+
 
 

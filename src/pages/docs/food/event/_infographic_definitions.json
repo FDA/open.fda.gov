@@ -1,6 +1,6 @@
 {
   "globalDefs": {
-    "startYear": 2014,
+    "startYear": 2013,
     "api": "/food/event",
     "font": {
       "color":"#000000",
@@ -31,7 +31,7 @@
       "yAxis": {
         "label": "Number of Food Events",
         "min": 0,
-        "width": 50,
+        "width": 80,
         "type": "linear"
       },
       "eventMarker": {

@@ -464,8 +464,8 @@ class HeatMapInfographic extends React.Component {
             <button className="heatmap-infographic-zoom-button" onClick={this.togglePanZoom }> { this.state.enablePanZoom ? 'Disable' : 'Enable' } Zoom</button>
             { !this.state.sparklineData ? null : 
               <p className="interactive-infographic-center"> 
-                <span className="interactive-infographic-subtitle">{this.props.infographicDefinitions.yName}</span>: {this.state.currentYkey}<br/>
-                <span className="interactive-infographic-subtitle">{this.props.infographicDefinitions.xName}</span>: {this.state.currentXkey} 
+                <span className="bold-font">{this.props.infographicDefinitions.yName}</span>: {this.state.currentYkey}<br/>
+                <span className="bold-font">{this.props.infographicDefinitions.xName}</span>: {this.state.currentXkey} 
               </p> 
             }
 

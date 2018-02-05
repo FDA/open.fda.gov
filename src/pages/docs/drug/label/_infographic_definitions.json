@@ -31,8 +31,9 @@
       "yAxis": {
         "label": "Number of Drug Labels",
         "min": 0,
-        "width": 50,
-        "type": "linear"
+        "width": 80,
+        "type": "linear",
+        "labelOffset": -10
       },
       "eventMarker": {
         "infoTimeFormat":"%m-%Y",
