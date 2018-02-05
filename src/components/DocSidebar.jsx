@@ -4,23 +4,31 @@ import cx from 'classnames'
 import ComposedDocSidebar from "../containers/DocSidebarContainer";
 
 
-const Section = props => (
-  <div className="pad-l-1 pad-b-4">
-    <h3>
-      {props.title}
-    </h3>
-    <SectionLinks
-      {...props}
-      title={props.title}
-      isTutorial={props.title === `Tutorial`}
-    />
-  </div>
-)
+const Section = props => {
+  let isHeader = false
+  let long_title = props.id
+  if (props.collapse === true) {
+    isHeader = true
+  }
+  return (
+    <div className='pad-l-1 pad-b-2'>
+      <h3 className={isHeader ? ("row sidebar-cross" + (props.activeHeader.indexOf(long_title) > -1 ? ' ': ' collapsed')): ' '}
+        title={long_title}
+        onClick={props.toggleSection}>
+        {props.title}
+      </h3>
+      <SectionLinks
+        {...props}
+        isTutorial={long_title === `Tutorial`}
+      />
+    </div>
+  )
+}
 
 const SectionLinks = props => {
 
   return (
-    <ul>
+    <ul className={props.collapse ? (props.activeHeader.indexOf(props.id) > -1 ? 'display-block': 'display-none') : ' '}>
       {props.items.map((item, index) => (
         <SectionLink
           node={item}
@@ -45,18 +53,21 @@ const SectionLink = props => {
   }
 
   let item = props.node
-  // If the last character is a * then the doc page is still in draft
-  let isDraft = item.title.slice(-1) === `*`
-  let title = isDraft ? item.title.slice(0, -1) : item.title
+  let title =  item.title
+  let link = item.link
+  let long_title = title
 
   let isHeader = false
   if (Object.keys(item).indexOf("link") === -1) {
     isHeader = true
+    long_title = item.id
+  } else {
+    long_title = link.split('/').slice(2, -1).join('_')
   }
   const itemCx = cx({
     'row': true,
     'sidebar-item': !isHeader,
-    'sidebar-header': isHeader,
+    'sidebar-header sidebar-cross': isHeader,
     'depth-2': !props.isChild,
     'depth-3': props.isChild,
   })
@@ -64,29 +75,29 @@ const SectionLink = props => {
   return (
     <li>
       {Object.keys(item).indexOf("link") === -1 ? (
-        <span className={itemCx + (props.activeHeader.indexOf(title) > -1 ? ' ': ' collapsed')}
-              title={title}
-              onClick={props.toggleSection}>
+        <span className={itemCx + (props.activeHeader.indexOf(long_title) > -1 ? ' ': ' collapsed')}
+          title={long_title}
+          onClick={props.toggleSection}>
           {title}
         </span>
-        ) : item.link.charAt(0) === `#` ? (
-          <a href={item.link} className={itemCx}>
-            {title}
-          </a>
-        ) : (
-          <Link
-            to={item.link}
-            key={item.title}
-            className={itemCx}
-            activeClassName="sidebar-item-active"
-            exact
-          >
-            {title}
-          </Link>
-        )
+      ) : link.charAt(0) === `#` ? (
+        <a href={link} className={itemCx}>
+          {title}
+        </a>
+      ) : (
+        <Link
+          to={link}
+          key={link}
+          className={itemCx}
+          activeClassName='sidebar-item-active'
+          exact
+        >
+          {title}
+        </Link>
+      )
       }
       {childnodes ?
-        <ul className={item.collapse ? (props.activeHeader.indexOf(title) > -1 ? 'display-block': 'display-none') : ' '}>
+        <ul className={item.collapse ? (props.activeHeader.indexOf(long_title) > -1 ? 'display-block': 'display-none') : ' '}>
           {childnodes}
         </ul> : null}
     </li>
@@ -101,10 +112,7 @@ class DocSidebar extends React.Component {
     return (
       <div className="doc-sidebar">
         {menu.map((section, index) => (
-          <div
-            key={index}
-
-          >
+          <div key={index}>
             <Section
               {...section}
               title={section.title}

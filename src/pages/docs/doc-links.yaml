@@ -1,4 +1,6 @@
 - title: API Basics
+  id: api-basics
+  collapse: true
   items:
     - title: About the openFDA API
       link: /docs/
@@ -10,6 +12,8 @@
       link: /docs/openfda-fields/
 
 - title: Construct the query
+  id: construct-the-query
+  collapse: true
   items:
   - title: Query parameters
     link: /docs/query-parameters/
@@ -25,6 +29,8 @@
     link: /docs/timeseries/
 
 - title: Download the API
+  id: download-the-api
+  collapse: true
   items:
   - title: Downloads
     link: /docs/downloads/
@@ -34,9 +40,12 @@
     link: /docs/authentication/
 
 - title: Drug API Endpoints
+  id: drug-api-endpoints
+  link: /drug/
   collapse: true
   items:
-    - title: Enforcement Reports
+    - title: Recall Enforcement Reports
+      id: drug-recall-enforcement-reports
       collapse: true
       items:
         - title: Overview
@@ -54,6 +63,7 @@
         - title: Searchable fields
           link: /docs/drug/enforcement/searchable-fields/
     - title: Product Labeling
+      id: drug-product-labeling
       collapse: true
       items:
         - title: Overview
@@ -71,6 +81,7 @@
         - title: Searchable fields
           link: /docs/drug/label/searchable-fields
     - title: Adverse Events
+      id: drug-adverse-events
       collapse: true
       items:
         - title: Overview
@@ -89,9 +100,12 @@
           link: /docs/drug/event/searchable-fields
 
 - title: Device API Endpoints
+  id: device-api-endpoints
+  link: /device/
   collapse: true
   items:
     - title: 510(k)
+      id: device-510(k)
       collapse: true
       items:
         - title: Overview
@@ -109,6 +123,7 @@
         - title: Searchable fields
           link: /docs/device/510k/searchable-fields/
     - title: Classification
+      id: device-classification
       collapse: true
       items:
         - title: Overview
@@ -126,6 +141,7 @@
         - title: Searchable fields
           link: /docs/device/classification/searchable-fields/
     - title: Recall Enforcement Reports
+      id: device-recall-enforcement-reports
       collapse: true
       items:
         - title: Overview
@@ -143,6 +159,7 @@
         - title: Searchable fields
           link: /docs/device/enforcement/searchable-fields/
     - title: Adverse Events
+      id: device-adverse-events
       collapse: true
       items:
         - title: Overview
@@ -160,6 +177,7 @@
         - title: Searchable fields
           link: /docs/device/event/searchable-fields/
     - title: Pre-market Approval
+      id: device-pre-market-approval
       collapse: true
       items:
         - title: Overview
@@ -177,6 +195,7 @@
         - title: Searchable fields
           link: /docs/device/pma/searchable-fields/
     - title: Recalls
+      id: device-recalls
       collapse: true
       items:
         - title: Overview
@@ -194,6 +213,7 @@
         - title: Searchable fields
           link: /docs/device/recall/searchable-fields/
     - title: Registrations and Listings
+      id: device-registrations-and-listings
       collapse: true
       items:
         - title: Overview
@@ -211,6 +231,7 @@
         - title: Searchable fields
           link: /docs/device/registrationlisting/searchable-fields/
     - title: Unique Device Identifier
+      id: device-unique-device-identifier
       collapse: true
       items:
         - title: Overview
@@ -229,9 +250,12 @@
           link: /docs/device/udi/searchable-fields/
 
 - title: Food API Endpoints
+  id: food-api-endpoints
+  link: /food/
   collapse: true
   items:
     - title: Recall Enforcement Reports
+      id: food-recall-enforcement-reports
       collapse: true
       items:
         - title: Overview
@@ -248,8 +272,9 @@
           link: /docs/food/enforcement/download/
         - title: Searchable fields
           link: /docs/food/enforcement/searchable-fields/
-    - title: Adverse Event Reports
+    - title: Adverse Events
       collapse: true
+      id: food-adverse-events
       items:
         - title: Overview
           link: /docs/food/event/

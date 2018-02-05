@@ -12,6 +12,6 @@ export default () => (
     <Hero
       title='OpenFDA updates'
     />
-    <BlogRoll/>
+    <BlogRoll small={false}/>
   </section>
 )

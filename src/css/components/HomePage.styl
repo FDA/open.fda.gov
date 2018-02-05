@@ -1,29 +1,21 @@
+.container-homepage
+  width: 1140px
+  margin: 0 auto
+  padding-bottom: 40px
+
 .homepage-hero
   position: relative
-  height: 500px
-  width: 100%
+  height: 538px
+  width: 50%
   color: white
-  background-image: url('/img/developer.png')
+  margin-top: 30px
+  background-image: url('/img/binary-tunnel.jpg')
   background-size: cover
-  background-position: 0 40%
+  background-position: center
   background-repeat: no-repeat
   overflow: hidden
+  border-radius: 6px
   text-shadow: 0 4px 6px rgba(0,0,0,0.5)
-
-.homepage-hero:before
-  position: absolute
-  content:" "
-  top:0
-  left:0
-  width:100%
-  height:100%
-  display: block
-  z-index:0
-  background: #005990;
-  background: -moz-linear-gradient(-45deg, #005990 1%, #05abe0 100%)
-  background: -webkit-linear-gradient(-45deg, #005990 1%,#05abe0 100%)
-  background: linear-gradient(135deg, #005990 1%,#05abe0 100%)
-  opacity: 0.8
 
 .homepage-hero > div
   display: flex
@@ -31,13 +23,25 @@
   align-items: center
   justify-content: center
   text-align: center
-  width: 30%
+  background: rgba(black, 0.5)
+  width: 100%
+  height: 35%
   z-index: 1
+
+  h3
+    font-size: 26px
+    margin-bottom: 10px
+
+  h6
+    margin-bottom: 10px
 
 .homepage-hero .btn
   text-shadow: none
   box-shadow: 0 4px 7px rgba(0,0,0,0.3)
   text-transform: uppercase
+
+.noun-box-container
+  width: 50%
 
 .divider-line
   width: 100px
@@ -47,46 +51,27 @@
   margin: 20px auto
   box-shadow: 0 4px 7px rgba(0,0,0,0.9)
 
-.half-hero
-  width: 50%
-  min-height: 350px
-  background-size: cover
-  background-position: 0 100%
-  background-repeat: no-repeat
-  justify-content: flex-end
-  overflow: hidden
+.link-card
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  position: relative
+  background-color: white
+  border: solid thin #ccc
 
-.half-hero > div
-  margin: 60px
+  > div
+    width: 100%
 
-.area-chart-container
-  background-image: url('/img/area-chart.svg')
-  background-color: #00B1CB
-  color: white
-  margin-right: 2px
-  background-position: 0 8px
+  img
+    color: #00B1CB
+    height: 75px
 
-.down-arrows-container
-  background-image: url('/img/down-arrows.svg')
-  background-color: #DEF1F5
-  margin-left: 2px
-  background-position: 0px 45px
+  p
+    font-weight: 300
 
-.blue-code-container
-  background-image: url('/img/blue-code.jpg')
-  background-size: 50%
-  background-position: 0 50%
-  background-color: #0C58B6
-  background-repeat: no-repeat
-  color: white
-  height: 270px
-  justify-content: flex-end
-  margin-top: 4px
-  overflow: hidden
-
-.blue-code-container > div
-  margin: 60px 0
-  width: 50%
+  i
+    color: #00B1CB
 
 .center-heading
   max-width: 100%

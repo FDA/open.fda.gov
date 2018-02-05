@@ -1,6 +1,9 @@
 import React from "react"
 import Link from "gatsby-link"
 
+import APIUseSteps from "../../../../../components/APIUseSteps"
+import APIQueryBreakdown from "../../../../../components/APIQueryBreakdown"
+
 
 class IndexRoute extends React.Component {
   render() {
@@ -9,17 +12,13 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>How to use the API</h2>
         <p>Getting started with and learning how to use the API is relatively straightforward. Here are some recommended steps:</p>
-        <ol>
-          <li>If you haven’t already, read the <Link to="/docs/">API Basics</Link> documentation.</li>
-          <li>Review the <Link to="/docs/device/enforcement/searchable-fields">list of searchable fields</Link> available in the Device Enforcement dataset.</li>
-          <li>Try out the Device Enforcement API using the <Link to="/docs/device/enforcement/explore-the-api-with-an-interactive-chart/">interactive examples</Link>.</li>
-        </ol>
+        <APIUseSteps endpoint_name='Device Enforcement' endpoint_path='/docs/device/enforcement/'/>
         <p>Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the <Link to="/docs/authentication/">Authentication</Link> documentation.</p>
 
         <h3>Making a simple API Call</h3>
         <p>You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key.</p>
         <p>In the example below, we are searching the records in the Device Enforcement endpoint for matches with <code>Class III</code> in the <code>classification</code> field. We are requesting to see the first 5 records that match."</p>
-        <p>placeholder for new image component</p>
+        <APIQueryBreakdown endpoint_path='/device/enforcement.json' query='classification:"Class III"'/>
 
         <h3>Some key pointers</h3>
         <ul>
