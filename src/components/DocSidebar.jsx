@@ -11,7 +11,7 @@ const Section = props => {
     isHeader = true
   }
   return (
-    <div className="pad-l-1 pad-b-2">
+    <div className='pad-l-1 pad-b-2'>
       <h3 className={isHeader ? ("row sidebar-cross" + (props.activeHeader.indexOf(long_title) > -1 ? ' ': ' collapsed')): ' '}
         title={long_title}
         onClick={props.toggleSection}>
@@ -89,7 +89,7 @@ const SectionLink = props => {
           to={link}
           key={link}
           className={itemCx}
-          activeClassName="sidebar-item-active"
+          activeClassName='sidebar-item-active'
           exact
         >
           {title}

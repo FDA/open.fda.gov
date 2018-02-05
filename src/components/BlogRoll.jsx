@@ -102,7 +102,7 @@ const BlogRoll = (props: tPROPS) => {
   return (
     <section className={'body-bg-offwhite ' + (small === true ? 'blog-list' : 'blog-cards')}>
       <div>
-        <h2 className='clr-primary blog-header'>Latest News & Updates</h2>
+        <h2 className={small === true ? 'clr-primary blog-header' : 'center-heading'}><span>Latest News & Updates</span></h2>
         {
           small === true &&
             <Link

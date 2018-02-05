@@ -8,19 +8,19 @@ import BlogRoll from '../components/BlogRoll'
 // homepage
 const INDEX = () => (
   <section className='body-bg-offwhite'>
-    <section className='container flex-row marg-b-3'>
+    <section className='container-homepage flex-row align-start'>
       <section className='flex-box align-center just-center homepage-hero'>
         <div>
-          <h2>Open-source APIs</h2>
+          <h3>Open-source APIs</h3>
           <h6>and</h6>
-          <h2>Developer Community for FDA Data</h2>
+          <h3>Developer Community for FDA Data</h3>
           <Link className='btn btn-icon-right marg-t-1 weight-700 bg-white clr-primary-darker' to='/docs/'>
             Learn More<i className='fa fa-arrow-right marg-l-1'/>
           </Link>
         </div>
       </section>
-      <section className='body-bg-offwhite flex-box dir-column just-center'>
-        <div className='flex-row just-center align-center flex-wrap marg-t-1'>
+      <section className='noun-box-container flex-box dir-column just-center'>
+        <div className='flex-row just-center align-center flex-wrap marg-t-2'>
           <NounBox noun_name='food'/>
           <NounBox noun_name='medical_devices'/>
           <NounBox noun_name='drugs'/>
@@ -31,7 +31,7 @@ const INDEX = () => (
         </Link>
       </section>
     </section>
-    <section className='container flex-row pad-b-3'>
+    <section className='container-homepage flex-row'>
       <section className='flex-box dir-column just-between pad-r-1 homepage-link-list'>
         <Link className='link-card btn btn-icon-right weight-700' to='/about/statistics/'>
           <img className='' src='/img/line-graph.svg'/>

@@ -93,33 +93,34 @@ const Nav = (props: tPROPS) => {
                 marginTop: '5px',
                 transform: 'rotate(0deg)',
                 width: '36px',
-              }}>
-                <span
-                  className='absolute bg-primary block row'
-                  style={{
-                    ...hamStyl,
-                    transform: showMobileNav ?
-                      'translate3d(0, 10px, 0) rotate(45deg)' :
-                      'translate3d(0, 0, 0) rotate(0deg)',
-                  }}
-                />
-                <span
-                  className='absolute bg-primary block row'
-                  style={{
-                    ...hamStyl,
-                    transform: 'translate3d(0, 10px, 0)',
-                    opacity: showMobileNav ? 0 : 1,
-                  }}
-                />
-                <span
-                  className='absolute bg-primary block row'
-                  style={{
-                    ...hamStyl,
-                    transform: showMobileNav ?
-                      'translate3d(0, 10px, 0) rotate(-45deg)' :
-                      'translate3d(0, 20px, 0) rotate(0deg)',
-                  }}
-                />
+              }}
+            >
+              <span
+                className='absolute bg-primary block row'
+                style={{
+                  ...hamStyl,
+                  transform: showMobileNav ?
+                    'translate3d(0, 10px, 0) rotate(45deg)' :
+                    'translate3d(0, 0, 0) rotate(0deg)',
+                }}
+              />
+              <span
+                className='absolute bg-primary block row'
+                style={{
+                  ...hamStyl,
+                  transform: 'translate3d(0, 10px, 0)',
+                  opacity: showMobileNav ? 0 : 1,
+                }}
+              />
+              <span
+                className='absolute bg-primary block row'
+                style={{
+                  ...hamStyl,
+                  transform: showMobileNav ?
+                    'translate3d(0, 10px, 0) rotate(-45deg)' :
+                    'translate3d(0, 20px, 0) rotate(0deg)',
+                }}
+              />
             </div>
           </div>
           <div className={navCx}>
@@ -151,39 +152,25 @@ const Nav = (props: tPROPS) => {
               </div>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
-                title='Getting Started'
-                className={activeDropdown==='Getting Started' ? 'menu-header emphasis': path.includes('getting_started') ? 'menu-header emphasis': 'menu-header'}
-                onTouchStart={toggleDropdownContent}
-                >Getting Started <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
-                <div className={path.includes('getting_started') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
-                <div className={activeDropdown==='Getting Started' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                  title='Documentation'
+                  className={activeDropdown==='Getting Started' ? 'menu-header emphasis': path.includes('docs') ? 'menu-header emphasis': 'menu-header'}
+                  onTouchStart={toggleDropdownContent}
+                >Documentation<i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
+                <div className={path.includes('docs') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
+                <div className={activeDropdown==='Documentation' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/getting_started/api_basics/'>API basics</Link>
-                    <Link className={linkCx} to='/getting_started/api_basics/reference/'>API reference</Link>
-                    <Link className={linkCx} to='/getting_started/research/'>Research tools</Link>
+                    <Link className={linkCx} to='/docs/'>API basics</Link>
+                    <Link className={linkCx} to='/docs/drug/'>Drug Endpoints</Link>
+                    <Link className={linkCx} to='/docs/device/'>Device Endpoints</Link>
+                    <Link className={linkCx} to='/docs/food/'>Food Endpoints</Link>
                   </div>
                 </div>
               </div>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
-                title='API Endpoints'
-                className={activeDropdown==='API Endpoints' ? 'menu-header emphasis': path.includes('api_endpoints') ? 'menu-header emphasis': 'menu-header'}
-                onTouchStart={toggleDropdownContent}
-                >API Endpoints <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none': '')}/></span>
-                <div className={path.includes('api_endpoints') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
-                <div className={activeDropdown==='API Endpoints' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                  <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/api_endpoints/drug/'>Drugs</Link>
-                    <Link className={linkCx} to='/api_endpoints/device/'>Devices</Link>
-                    <Link className={linkCx} to='/api_endpoints/food/'>Foods</Link>
-                  </div>
-                </div>
-              </div>
-              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
-                <span
-                title='Community'
-                className={activeDropdown==='Community' ? 'menu-header emphasis': path.includes('community') ? 'menu-header emphasis': 'menu-header'}
-                onTouchStart={toggleDropdownContent}
+                  title='Community'
+                  className={activeDropdown==='Community' ? 'menu-header emphasis': path.includes('community') ? 'menu-header emphasis': 'menu-header'}
+                  onTouchStart={toggleDropdownContent}
                 >Community <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none': '')}/></span>
                 <div className={path.includes('community') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown==='Community' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
@@ -209,9 +196,8 @@ const Nav = (props: tPROPS) => {
                       target='_blank'>
                       @openFDA (Twitter)
                     </a>
-                    <Link
-                      className={linkCx}
-                      to='/community/'>openFDA Apps</Link>
+                    <Link className={linkCx} to='/community/'>openFDA Apps</Link>
+                    <Link className={linkCx} to='/community/research/'>Research tools</Link>
                   </div>
                 </div>
               </div>

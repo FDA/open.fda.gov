@@ -28,6 +28,16 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
       })
     }
 
+
+
+    componentWillUpdate () {
+      if (this.state.path !== window.location.pathname) {
+        this.setState({
+          path: window.location.pathname
+        })
+      }
+    }
+
     _toggleMobileNav () {
       this.setState({
         showMobileNav: !this.state.showMobileNav,
@@ -36,7 +46,7 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
 
     _toggleDropdownContent (e) {
       console.log("e is: ", e)
-      let title = e.target.getAttribute('title')
+      const title = e.target.getAttribute('title')
       if (this.state.activeDropdown != title) {
         this.setState({
           activeDropdown: title
@@ -49,7 +59,7 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
     }
 
     _hideDropdownContent () {
-      if (this.state.showMobileNav == false) {
+      if (this.state.showMobileNav === false) {
         this.setState({
           activeDropdown: ' '
         })
@@ -57,8 +67,9 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
     }
 
     _showDropdownContent (e) {
-      if (this.state.showMobileNav == false) {
-        let title = e.target.getAttribute('title')
+      if (this.state.showMobileNav === false) {
+        console.log("state stuff: ", this.state.path, window.location.pathname)
+        const title = e.target.getAttribute('title')
         this.setState({
           activeDropdown: title
         })
@@ -73,7 +84,6 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
     }
 
     _handleCloseModal () {
-      console.log("in nav",this.state.showModal)
       this.setState({
         validated: true,
         showModal: false

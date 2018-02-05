@@ -1,0 +1,6 @@
+documentTitle: openFDA › Drugs
+label: API categories
+title: Drugs
+description: "The U.S. Food and Drug Administration (FDA) regulates over-the-counter and prescription drugs in the United States, including biological therapeutics and generic drugs. This work covers more than just medicines. For example, fluoride toothpaste, antiperspirants, dandruff shampoos, and sunscreens are all considered drugs."
+path: /api_endpoints/drug
+type: noun

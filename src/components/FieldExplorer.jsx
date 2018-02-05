@@ -218,33 +218,33 @@ const FieldExplorer = (props: tPROPS) => {
 
   return (
     <section key={k} className="field-explorer">
-        <Select
-          name="form-field-name"
-          value={selectedField}
-          options={field_names}
-          onChange={updateField}
-          placeholder="Search the fields"
-          resetValue="fields"
-        />
-        <div className='sans weight-600 marg-t-2 marg-b-1'>Navigate the fields:</div>
-        <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={500} className="field-explorer-border">
-          {
-            selectedField === 'fields' ?
-              render_object({
-                fields: fields.properties,
-                updateSelected,
-                selectedField,
-                i: k
-              }):
-              _renderLi({
-                field: yamlGet(selectedField, fields),
-                updateSelected,
-                key: selectedField,
-                i: k,
-                isFDA: false
-              })
-          }
-        </Scrollbars>
+      <Select
+        name="form-field-name"
+        value={selectedField}
+        options={field_names}
+        onChange={updateField}
+        placeholder="Search the fields"
+        resetValue="fields"
+      />
+      <div className='sans weight-600 marg-t-2 marg-b-1'>Navigate the fields:</div>
+      <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={500} className="field-explorer-border">
+        {
+          selectedField === 'fields' ?
+            render_object({
+              fields: fields.properties,
+              updateSelected,
+              selectedField,
+              i: k
+            }):
+            _renderLi({
+              field: yamlGet(selectedField, fields),
+              updateSelected,
+              key: selectedField,
+              i: k,
+              isFDA: false
+            })
+        }
+      </Scrollbars>
       <h4 className="marg-t-2">Download the Fields Reference Document:</h4>
       <FieldDownload meta={meta} k={k}/>
     </section>
