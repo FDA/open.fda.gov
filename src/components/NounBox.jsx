@@ -58,7 +58,7 @@ const NounBox = (props: tPROPS) => {
 
   return (
     <section
-      id='noun_card' className='noun-card marg-1'>
+      id='noun_card' className='noun-card'>
       <Link className='noun-box' style={bg_color[noun_name]} to={noun_path[noun_name]}>
         <div className='bg-img-container'>
           <img className='icon' src={bg_image[noun_name]}/>

@@ -34,6 +34,7 @@
 
   h6
     margin-bottom: 10px
+    font-family: "Source Sans Pro"
 
 .homepage-hero .btn
   text-shadow: none
@@ -42,6 +43,20 @@
 
 .noun-box-container
   width: 50%
+
+  > div
+    margin-top: 30px
+
+  .btn-icon-right
+    margin: 0 0 0 4%
+    background: white
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 9px
+    padding: 10px
+    transition: all 0.2s linear
+
+    &:hover
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px
+      transform: translateY(-4px)
 
 .divider-line
   width: 100px
@@ -59,19 +74,23 @@
   position: relative
   background-color: white
   border: solid thin #ccc
+  padding: 25px 20px
 
   > div
     width: 100%
 
   img
-    color: #00B1CB
-    height: 75px
+    height: 64px
 
   p
     font-weight: 300
+    margin-bottom: 0
 
   i
     color: #00B1CB
+
+  h3
+    font-size: 17px
 
 .center-heading
   max-width: 100%

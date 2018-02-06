@@ -66,7 +66,7 @@ const BlogPosts = (props: tPROPS) => {
             <li
               key={i}
               className='blog-item'>
-              <Link className='relative full-height blog-text-item' to={update.path}>
+              <Link className='relative full-height btn-icon-right blog-text-item' to={update.path}>
                 <div>
                   <Async promise={title} then={(val) => <h2 className='blog-header clr-primary-darker'>{val}</h2>}/>
                   <div className='clr-gray-light marg-b-1 t-marg-t-05 time-stamp'>{formattedDate}</div>
@@ -79,7 +79,7 @@ const BlogPosts = (props: tPROPS) => {
                 </div>
                 {
                   small === true &&
-                  <i className='fa fa-angle-right fa-2x clr-light-blue'/>
+                  <i className='fa fa-angle-right fa-2x'/>
                 }
               </Link>
             </li>
@@ -101,12 +101,12 @@ const BlogRoll = (props: tPROPS) => {
 
   return (
     <section className={'body-bg-offwhite ' + (small === true ? 'blog-list' : 'blog-cards')}>
-      <div>
+      <div className='blog-header-container'>
         <h2 className={small === true ? 'clr-primary blog-header' : 'center-heading'}><span>Latest News & Updates</span></h2>
         {
           small === true &&
             <Link
-              className='btn-icon-right weight-700 clr-light-blue blog-header'
+              className='btn-icon-right weight-700'
               to='/about/updates/'>
               VIEW ALL <i className='fa fa-angle-right'/>
             </Link>
