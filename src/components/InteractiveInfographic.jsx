@@ -97,72 +97,20 @@ class InteractiveInfographic extends React.Component {
 
   render (): ?React.Element {
 
-    // const tabs = this.props.infographicDefinitions.choices.length > 1 ? 
-    //     <div className="tab">
-    //       {
-    //         this.props.infographicDefinitions.choices.map((choice,i) => {
-    //           return (
-    //             <button 
-    //               key={i}
-    //               onClick={() => { this.toggleInfographic(choice) } }
-    //               className={this.state.choice.type === choice.type ? "tab active": "tab"}
-    //             >
-    //               Visualization Example #{i+1}
-    //             </button>
-    //           )
-    //         })
-    //       }
-    //     </div>
-    //   :   <span/>;
-
-    // select statement
-    // const selectOptons = 
-    //   (
-    //     <div className='select-wrap'>
-    //       <select
-    //       className='select clr-primary'
-    //       onChange={this.handleChange}
-    //       value={this.state.choice}
-    //       // inline because of uncss
-    //       // client side only code not picked up
-    //       style={{
-    //         appearance: 'none',
-    //         background: '#fff',
-    //         border: '1px solid #0af',
-    //         borderRadius: 0,
-    //         display: 'block',
-    //         fontFamily: 'inherit',
-    //         fontSize: '14px',
-    //         outline: 0,
-    //         float: 'right',
-    //         width: '20%',
-    //         WebkitAppearance: "none"
-    //       }}>
-    //       {
-    //        this.props.infographicDefinitions.choices.map((choice,i) => (
-    //           <option
-    //             key={i}
-    //             value={i}>
-    //             {choice.subfield}
-    //           </option>
-    //         ))
-    //       }
-    //     </select>
-    //   </div>
-    //   )
-
     return (
-      <div className="interactive-infographic-border">
+      <div id="infographic-border" className="interactive-infographic-border">
         <div className="interactive-infographic-select">
-          <Select
-            name="toggle"
-            value={this.state.choosenField}
-            options={this.state.options}
-            onChange={this.handleChange}
-            placeholder="Search the fields"
-            resetValue="fields"
-            clearable={false}
-          />
+          { this.state.choice !== null && this.state.choice.type !== "PieChart" ? null :
+            <Select
+              name="toggle"
+              value={this.state.choosenField}
+              options={this.state.options}
+              onChange={this.handleChange}
+              placeholder="Search the fields"
+              resetValue="fields"
+              clearable={false}
+            />
+          }
         </div>
         {this.state.infographic}
       </div>
@@ -173,17 +121,3 @@ class InteractiveInfographic extends React.Component {
 
 InteractiveInfographic.displayName = 'components/InteractiveInfographic'
 export default InteractiveInfographic
-
-
-
-        // {
-        //   Object.keys(tabs).map((value,i) => {
-        //     return <button 
-        //             onClick={() => { handler(tabs[value])} }
-        //             key={i}
-        //             className={this.state.selected === value ? "tab active": "tab"}
-        //           >
-        //           {tabs[value].short}
-        //           </button>
-        //   })
-        // }

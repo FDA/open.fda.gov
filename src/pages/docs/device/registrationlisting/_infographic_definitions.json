@@ -1,7 +1,7 @@
 {
   "choices": [
     {
-      "title": "<p class='heatmap-infographic-header'><i class='datamap-infographic-header-text-bold'> Device Registration and Listings </i>: by Manufacturer Type and Medical Specialty</p>",  
+      "title": "<i><i class='datamap-infographic-header-text-bold'> Device Registration and Listings </i>: by Manufacturer Type and Medical Specialty</i>",  
       "defaults": {
       },
       "xField": "establishment_type.exact",
@@ -29,6 +29,7 @@
         "transform": "rotate(270deg) translateX(-40%) translateY(50%)"
       },
       "gridConfig":{
+        "borderHeight": 680,
         "transform": "translate(250,10)",
         "keyFormat": "Manufacturer Type: ${this.yKey.charAt(0).toUpperCase() + this.yKey.slice(1).toLowerCase()}\n Medical Specialty: ${this.xKey.charAt(0).toUpperCase() + this.xKey.slice(1).toLowerCase()}\n",
         "valueFormatter": "${this.value}",

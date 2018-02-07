@@ -607,14 +607,6 @@ class PieChartInfographic extends React.Component {
       return obj
     })
 
-    // var legendStyle1 = styler(this.state.sparklineData.columns().map((column,idx)=> {
-    //   return {
-    //     key: column,
-    //     color: this.props.globalDefs.lineChartConfig.colors[idx],
-    //     width: 2
-    //   }
-    // }))
-
     const legendStyle = {}
     Object.keys(this.state.legendStyle).map(columnName => {
       var obj = this.state.legendStyle[columnName]
@@ -739,7 +731,7 @@ class PieChartInfographic extends React.Component {
         </div>
 
 
-        <div className='pie-infographic-headers' style={{height:40}}>
+        <div className='pie-infographic-headers'>
           <p className="piechart-title">
             Each <i className="bold-font">{this.props.infographicDefinitions.pieChartCategoryName}</i> <br/>
             as % of all <i className="bold-font">{this.props.infographicDefinitions.pieChartApiName}</i>
@@ -769,8 +761,11 @@ class PieChartInfographic extends React.Component {
             {...this.props.infographicDefinitions.pieChartConfig}
           />
           { !this.state.sparklineData ? 
-                <img src="/img/ajax_loader_gray_512.gif" height="25%"/> : 
-                <ChartContainer 
+                <div className="infographic-loading-div">
+                  <img src="/img/loading.gif" className="infographic-loading-img"/>
+                </div> 
+                : 
+                <ChartContainer
                   timeRange={this.state.timerange} 
                   enablePanZoom={this.state.enablePanZoom}
                   onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
@@ -813,8 +808,7 @@ class PieChartInfographic extends React.Component {
           }
         </div>
         { !this.state.sparklineData ? null :
-          <div className="flex-box" style={{ justifyContent: "flex-end"}}>
-
+          <div className="flex-box piechart-legend-div">
             <div className="piechart-legend">
               <Select
                 name="toggle"
@@ -844,29 +838,7 @@ class PieChartInfographic extends React.Component {
 }
 
 
-// <p className='pie-infographic-header-params'> 
-//     Display of {' '} <i className='datamap-infographic-header-text-bold'> {this.state.selectionName} </i> 
-//     {this.props.infographicDefinitions.xTitle} {this.props.infographicDefinitions.subtitle},
-//     <i className='datamap-infographic-header-text-bold'> {' '}{this.state.selectedClassName} </i>{' '} {this.props.infographicDefinitions.yTitle}{' '}
-// </p>
-
-// optionRenderer={this.renderOption}
-// valueRenderer={this.renderOption}
-
-// <Legend
-//     type="swatch"
-//     align="right"
-//     style={this.state.legendStyle}
-//     highlight={this.state.highlight}
-//     selection={this.state.selection}
-//     onSelectionChange={this.onSelectionChange}
-//     categories={this.state.categories}
-// />
-
 export default PieChartInfographic
-
-
-
 
 
 
