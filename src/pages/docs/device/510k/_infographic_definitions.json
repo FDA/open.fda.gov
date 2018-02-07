@@ -2,6 +2,7 @@
   "globalDefs": {
     "startYear": 2009,
     "api": "/drug/event",
+    "apiName": "510(k)s",
     "font": {
       "color":"#000000",
       "fontFamily": "Merriweather,Georgia,serif"
@@ -21,38 +22,75 @@
       ]
     },
     "lineChartConfig": {
-      "interpolation": "curveLinear",
-      "width": 700,
-      "showGrid": true,
       "chartRow": {
         "height": 200,
         "trackerInfoWidth": 130
       },
+      "chartContainer": {
+        "width": 700,
+        "showGrid": true,
+        "format": "year",
+        "timeAxisStyle": {
+          "labels": {
+            "labelColor": "black",
+            "labelWeight": 150,
+            "labelSize": 13
+          },
+          "axis": {
+            "axisColor": "grey",
+            "axisWidth": 1
+          }
+        }
+      },
       "yAxis": {
         "label": "Number of Device 510(k)",
         "min": 0,
-        "width": 50,
-        "type": "linear"
-      },
-      "eventMarker": {
-        "infoTimeFormat":"%m-%Y",
-        "infoWidth":50,
-        "markerRadius": 4,
-        "markerStyle":{
-          "fill": "black"
+        "width": 70,
+        "type": "linear",
+        "labelOffset": 0,
+        "style": {
+          "labelFont": "Merriweather,Georgia,serif",
+          "labels": { 
+            "labelColor": "#000000", 
+            "labelWeight": 150, 
+            "labelSize": 11 
+          }, 
+          "axis": {
+            "axisColor": "#000000" 
+          } 
         }
       },
+      "lineChart": {
+        "interpolation": "curveBasis"
+      },
       "colors": [
-        "#1f77b4", "#ff3300", "#ff7f0e", "#ff33cc", "#2ca02c",
-        "#006666", "#00d899", "#990099", "#9467bd", "#c5b0d5",
+        "#1f77b4", "#00d899", "#ff3300", "#2ca02c", "#ff7f0e", 
+        "#006666", "#990099", "#9467bd", "#c5b0d5", "#ff33cc",
         "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
         "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
-      ]
+      ],
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "markerRadius": 0,
+        "markerStyle":{
+          "fill": "black"
+        },
+        "infoWidth": 175,
+        "infoStyle": { 
+          "fill": "white", 
+          "opacity": 0.90, 
+          "stroke": "#0000", 
+          "pointerEvents": "none" 
+        },
+        "markerLabelStyle": { 
+          "fill": "#000000" 
+        }
+      }
     }
   },
   "choices": [
     {
-      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</p>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</i>",
       "subtitle": "",
       "countBy": "device_class",
       "xTitle": " Medical Speciality Device 510(k)s",
@@ -61,8 +99,10 @@
       "dateField": "date_received",
       "subfield": "advisory_committee_description.exact",
       "subfieldLabel": "Advisory Committee",
+      "pieChartCategoryName": "Device Class",
+      "pieChartApiName": "Device 510(k)s",
       "dataFunction": "_getAllData",
-      "lineLimiter": 7,
+      "lineLimiter": 10,
       "xLegendCoordinate": -35,
       "defs": {
         "2": "Class II \n(moderate to high)",
@@ -99,7 +139,7 @@
       }
     },
     {
-      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</p>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</i>",
       "subtitle": "",
       "countBy": "device_class",
       "xTitle": " Medical Speciality Device 510(k)s",
@@ -108,6 +148,8 @@
       "dateField": "date_received",
       "subfield": "applicant.exact",
       "subfieldLabel": "Manufacturer of Record",
+      "pieChartCategoryName": "Device Class",
+      "pieChartApiName": "Device 510(k)s",
       "dataFunction": "_getAllData",
       "lineLimiter": 7,
       "xLegendCoordinate": -35,
@@ -146,7 +188,7 @@
       }
     },
     {
-      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</p>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</i>",
       "subtitle": "",
       "countBy": "device_class",
       "xTitle": " Medical Speciality Device 510(k)s",
@@ -155,6 +197,8 @@
       "dateField": "date_received",
       "subfield": "device_name.exact",
       "subfieldLabel": "Device Name",
+      "pieChartCategoryName": "Device Class",
+      "pieChartApiName": "Device 510(k)s",
       "dataFunction": "_getAllData",
       "lineLimiter": 7,
       "xLegendCoordinate": -35,
@@ -196,7 +240,7 @@
       }
     },
     {
-      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</p>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</i>",
       "subtitle": "",
       "countBy": "device_class",
       "xTitle": " Medical Speciality Device 510(k)s",
@@ -205,6 +249,8 @@
       "dateField": "date_received",
       "subfield": "decision_code.exact",
       "subfieldLabel": "Decision Code",
+      "pieChartCategoryName": "Device Class",
+      "pieChartApiName": "Device 510(k)s",
       "dataFunction": "_getAllData",
       "lineLimiter": 7,
       "xLegendCoordinate": -35,
@@ -252,7 +298,7 @@
       }
     },
     {
-      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</p>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</i>",
       "subtitle": "",
       "countBy": "device_class",
       "xTitle": " Medical Speciality Device 510(k)s",
@@ -261,6 +307,8 @@
       "dateField": "date_received",
       "subfield": "state.exact",
       "subfieldLabel": "State",
+      "pieChartCategoryName": "Device Class",
+      "pieChartApiName": "Device 510(k)s",
       "dataFunction": "_getAllData",
       "lineLimiter": 15,
       "xLegendCoordinate": -35,

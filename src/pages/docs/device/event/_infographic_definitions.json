@@ -2,6 +2,7 @@
   "globalDefs": {
     "startYear": 2012,
     "api": "/drug/enforcement",
+    "apiName": "Events",
     "font": {
       "color":"#000000",
       "fontFamily": "Merriweather,Georgia,serif"
@@ -21,45 +22,84 @@
       ]
     },
     "lineChartConfig": {
-      "interpolation": "curveLinear",
-      "width": 700,
-      "showGrid": true,
       "chartRow": {
         "height": 200,
         "trackerInfoWidth": 130
       },
+      "chartContainer": {
+        "width": 700,
+        "showGrid": true,
+        "format": "year",
+        "timeAxisStyle": {
+          "labels": {
+            "labelColor": "black",
+            "labelWeight": 150,
+            "labelSize": 13
+          },
+          "axis": {
+            "axisColor": "grey",
+            "axisWidth": 1
+          }
+        }
+      },
       "yAxis": {
         "label": "Number of Device Events",
         "min": 0,
-        "width": 50,
-        "type": "linear"
-      },
-      "eventMarker": {
-        "infoTimeFormat":"%m-%Y",
-        "infoWidth":50,
-        "markerRadius": 4,
-        "markerStyle":{
-          "fill": "black"
+        "width": 70,
+        "type": "linear",
+        "labelOffset": 0,
+        "style": {
+          "labelFont": "Merriweather,Georgia,serif",
+          "labels": { 
+            "labelColor": "#000000", 
+            "labelWeight": 150, 
+            "labelSize": 11 
+          }, 
+          "axis": {
+            "axisColor": "#000000" 
+          } 
         }
       },
+      "lineChart": {
+        "interpolation": "curveBasis"
+      },
       "colors": [
-        "#1f77b4", "#ff3300", "#ff7f0e", "#ff33cc", "#2ca02c",
-        "#006666", "#00d899", "#990099", "#9467bd", "#c5b0d5",
+        "#1f77b4", "#00d899", "#ff3300", "#2ca02c", "#ff7f0e", 
+        "#006666", "#990099", "#9467bd", "#c5b0d5", "#ff33cc",
         "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
         "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
-      ]
+      ],
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "markerRadius": 0,
+        "markerStyle":{
+          "fill": "black"
+        },
+        "infoWidth": 175,
+        "infoStyle": { 
+          "fill": "white", 
+          "opacity": 0.90, 
+          "stroke": "#0000", 
+          "pointerEvents": "none" 
+        },
+        "markerLabelStyle": { 
+          "fill": "#000000" 
+        }
+      }
     }
   },
   "choices": [
     {
       "type": "PieChart",
-      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Event Type, Amount of Usage</div>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Event Type</i>",
       "subtitle": "",
       "yTitle": "Event",
       "xTitle": "",
       "selectionPostFix": " ",
       "countBy": "event_type.exact",
       "dateField": "date_received",
+      "pieChartCategoryName": "Event Type",
+      "pieChartApiName": "Device Adverse Events",
       "subfield": "previous_use_code.exact",
       "subfieldLabel": "Amount of Usage",
       "lineLimiter": 8,
@@ -97,7 +137,7 @@
         "width": 450,
         "widthReset": 365,
         "height": 450,
-        "viewBox": "90 100 540 510",
+        "viewBox": "90 70 540 510",
         "margin":{ 
           "top": 5,
           "right": 5,
@@ -108,13 +148,15 @@
     },
     {
       "type": "PieChart",
-      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Product Type, Generic Name</div>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Product Type</i>",
       "subtitle": "",
       "yTitle": "Event",
       "xTitle": "Remedial Action",
       "selectionPostFix": " ",
       "countBy": "event_type.exact",
       "dateField": "date_received",
+      "pieChartCategoryName": "Event Type",
+      "pieChartApiName": "Device Adverse Events",
       "subfield": "remedial_action.exact",
       "subfieldLabel": "Remedial Action",
       "lineLimiter": 8,
@@ -157,7 +199,7 @@
         "width": 450,
         "widthReset": 365,
         "height": 450,
-        "viewBox": "90 100 540 510",
+        "viewBox": "90 70 540 510",
         "margin":{ 
           "top": 5,
           "right": 5,
@@ -168,12 +210,14 @@
     },
     {
       "type": "PieChart",
-      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Event Type, Single Use</div>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Event Type</i>",
       "subtitle": "",
       "yTitle": "Event",
       "xTitle": "Single Use",
       "selectionPostFix": " ",
       "countBy": "event_type.exact",
+      "pieChartCategoryName": "Event Type",
+      "pieChartApiName": "Device Adverse Events",
       "dateField": "date_received",
       "subfield": "single_use_flag.exact",
       "subfieldLabel": "Single Use",
@@ -210,7 +254,7 @@
         "width": 450,
         "widthReset": 365,
         "height": 450,
-        "viewBox": "90 100 540 510",
+        "viewBox": "90 70 540 510",
         "margin":{ 
           "top": 5,
           "right": 5,
@@ -221,7 +265,7 @@
     },
     {
       "type": "PieChart",
-      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Event Type, Report Source</div>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Event Type</i>",
       "subtitle": "",
       "yTitle": "Type",
       "xTitle": "Source",
@@ -229,6 +273,8 @@
       "yName": "Query",
       "xName": "Route",
       "countBy": "event_type.exact",
+      "pieChartCategoryName": "Event Type",
+      "pieChartApiName": "Device Adverse Events",
       "dateField": "date_received",
       "subfield": "report_source_code.exact",
       "subfieldLabel": "Report Source",
@@ -271,7 +317,7 @@
         "width": 450,
         "widthReset": 365,
         "height": 450,
-        "viewBox": "90 100 540 510",
+        "viewBox": "90 70 540 510",
         "margin":{ 
           "top": 5,
           "right": 5,
@@ -282,12 +328,14 @@
     },
     {
       "type": "PieChart",
-      "title": "<div class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Event Type, Reporter Occupation</div>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device Adverse Events</i> by Event Type</i>",
       "subtitle": "",
       "yTitle": "Event",
       "xTitle": "Reporter",
       "selectionPostFix": " ",
       "countBy": "event_type.exact",
+      "pieChartCategoryName": "Event Type",
+      "pieChartApiName": "Device Adverse Events",
       "dateField": "date_received",
       "subfield": "reporter_occupation_code.exact",
       "subfieldLabel": "Initial reporter occupation",
@@ -346,7 +394,7 @@
         "width": 450,
         "widthReset": 365,
         "height": 450,
-        "viewBox": "90 100 540 510",
+        "viewBox": "90 70 540 510",
         "margin":{ 
           "top": 5,
           "right": 5,

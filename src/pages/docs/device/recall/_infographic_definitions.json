@@ -9,23 +9,26 @@
         "fontFamily": "Merriweather,Georgia,serif"
       },
       "lineChartConfig": {
-        "width": 700,
-        "showGrid": true,
         "chartRow": {
           "height": 200,
           "trackerInfoWidth": 130
         },
         "chartContainer": {
-           "labels": {
-               "labelColor": "black",
-               "labelWeight": 150,
-               "labelSize": 13
-           },
-           "axis": {
-               "axisColor": "grey",
-               "axisWidth": 1
-           }
-       },
+          "width": 700,
+          "showGrid": true,
+          "format": "year",
+          "timeAxisStyle": {
+            "labels": {
+              "labelColor": "black",
+              "labelWeight": 150,
+              "labelSize": 13
+            },
+            "axis": {
+              "axisColor": "grey",
+              "axisWidth": 1
+            }
+          }
+        },
         "yAxis": {
           "label": "Number of Device Recalls",
           "min": 0,
@@ -44,9 +47,12 @@
             } 
           }
         },
+        "lineChart": {
+          "interpolation": "curveBasis"
+        },
         "colors": [
-          "#1f77b4", "#ff3300", "#ff7f0e", "#ff33cc", "#2ca02c",
-          "#006666", "#00d899", "#990099", "#9467bd", "#c5b0d5",
+          "#1f77b4", "#00d899", "#ff3300", "#2ca02c", "#ff7f0e", 
+          "#006666", "#990099", "#9467bd", "#c5b0d5", "#ff33cc",
           "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
           "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
         ],
@@ -56,6 +62,7 @@
           "markerStyle":{
             "fill": "black"
           },
+          "infoWidth": 175,
           "infoStyle": { 
             "fill": "white", 
             "opacity": 0.90, 
@@ -70,11 +77,7 @@
       "pieChartConfig": {
         "fill": "#8884d8",
         "colors": [
-          "#0088FE",
-          "#1ECFFF",
-          "#00C49F",
-          "#FFBB28",
-          "#d62728"
+          "#0088FE","#1ECFFF","#00C49F","#FFBB28","#d62728","#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
         ]
       },
       "productCodes":{
@@ -83,7 +86,7 @@
   },
   "choices": [
     {
-      "title": "<i class='datamap-infographic-header-text-bold'>Device Recalls</i> by Medical Speciality",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device Recalls </i> by Medical Speciality</i>",
       "subtitle": "",
       "xTitle": "",
       "yTitle": " Speciality",
@@ -94,7 +97,7 @@
       "subfieldLabel": "Device Name",
       "pieChartCategoryName": "Medical Speciality",
       "pieChartApiName": "Device Recalls",
-      "lineLimiter": 7,
+      "lineLimiter": 10,
       "xLegendCoordinate": -35,
       "dataFunction": "_getAllData",
       "useProductCodes": false,
@@ -125,13 +128,6 @@
         "Rongeur"
       ],
       "excludedTerms":[
-        "I.V. START KIT",
-        "RONGEUR",
-        "BARIATRIC BED",
-        "CARDIOPULMONARY BYPASS CATHETER KIT",
-        "EPIDURAL ANESTHESIA KIT",
-        "ENCEPHALOGRAM TELEMETRY SYSTEM",
-        "GRAM POSITIVE IDENTIFICATION PANEL"
       ],
       "pieChartConfig": {
         "default": {
@@ -159,7 +155,7 @@
       }
     },
     {
-      "title": "<i class='datamap-infographic-header-text-bold'>Device Recall</i> by Medical Speciality",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device Recall</i> by Medical Speciality</i>",
       "subtitle": "",
       "api": "/device/recall",
       "countBy": "openfda.medical_specialty_description.exact",
@@ -202,13 +198,6 @@
         "Rongeur"
       ],
       "excludedTerms":[
-        "I.V. START KIT",
-        "RONGEUR",
-        "BARIATRIC BED",
-        "CARDIOPULMONARY BYPASS CATHETER KIT",
-        "EPIDURAL ANESTHESIA KIT",
-        "ENCEPHALOGRAM TELEMETRY SYSTEM",
-        "GRAM POSITIVE IDENTIFICATION PANEL"
       ],
       "pieChartConfig": {
         "default": {

@@ -2,6 +2,7 @@
   "globalDefs": {
     "startYear": 2012,
     "api": "/food/enforcement",
+    "apiName": "Reports",
     "font": {
       "color":"#000000",
       "fontFamily": "Merriweather,Georgia,serif"
@@ -21,38 +22,75 @@
       ]
     },
     "lineChartConfig": {
-      "interpolation": "curveLinear",
-      "width": 700,
-      "showGrid": true,
       "chartRow": {
         "height": 200,
         "trackerInfoWidth": 130
       },
-      "yAxis": {
-        "label": "Number of Food Enforcement Reports",
-        "min": 0,
-        "width": 50,
-        "type": "linear"
-      },
-      "eventMarker": {
-        "infoTimeFormat":"%m-%Y",
-        "infoWidth":50,
-        "markerRadius": 4,
-        "markerStyle":{
-          "fill": "black"
+      "chartContainer": {
+        "width": 700,
+        "showGrid": true,
+        "format": "year",
+        "timeAxisStyle": {
+          "labels": {
+            "labelColor": "black",
+            "labelWeight": 150,
+            "labelSize": 13
+          },
+          "axis": {
+            "axisColor": "grey",
+            "axisWidth": 1
+          }
         }
       },
+      "yAxis": {
+        "label": "Number of Reports",
+        "min": 0,
+        "width": 70,
+        "type": "linear",
+        "labelOffset": 0,
+        "style": {
+          "labelFont": "Merriweather,Georgia,serif",
+          "labels": { 
+            "labelColor": "#000000", 
+            "labelWeight": 150, 
+            "labelSize": 11 
+          }, 
+          "axis": {
+            "axisColor": "#000000" 
+          } 
+        }
+      },
+      "lineChart": {
+        "interpolation": "curveBasis"
+      },
       "colors": [
-        "#1f77b4", "#ff3300", "#ff7f0e", "#ff33cc", "#2ca02c",
-        "#006666", "#00d899", "#990099", "#9467bd", "#c5b0d5",
+        "#1f77b4", "#00d899", "#ff3300", "#2ca02c", "#ff7f0e", 
+        "#006666", "#990099", "#9467bd", "#c5b0d5", "#ff33cc",
         "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
         "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
-      ]
+      ],
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "markerRadius": 0,
+        "markerStyle":{
+          "fill": "black"
+        },
+        "infoWidth": 175,
+        "infoStyle": { 
+          "fill": "white", 
+          "opacity": 0.90, 
+          "stroke": "#0000", 
+          "pointerEvents": "none" 
+        },
+        "markerLabelStyle": { 
+          "fill": "#000000" 
+        }
+      }
     }
   },
   "choices": [
     {
-      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Food Recall Enforcement Reports</i> by Classification, State</p>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Food Recall Enforcement Reports</i> by Classification</i>",
       "subtitle": "",
       "xTitle": " Food Recall Reports ",
       "yTitle": "Hazard",
@@ -61,6 +99,8 @@
       "dateField": "report_date",
       "subfield": "state.exact",
       "subfieldLabel": "State",
+      "pieChartCategoryName": "Classification",
+      "pieChartApiName": "Food Enforcement Reports",
       "lineLimiter": 15,
       "xLegendCoordinate": -35,
       "dataFunction": "_getAllData",
@@ -90,7 +130,7 @@
         "height": 450,
         "sort": "descending",
         "categoryLimiter":  7,
-        "viewBox": "110 80 510 510",
+        "viewBox": "110 65 510 510",
         "margin":{ 
           "top": 5,
           "right": 5,
@@ -100,7 +140,7 @@
       }
     },
     {
-      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Food Recall Enforcement Reports</i> by Classification, Recalling Firm</p>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Food Recall Enforcement Reports</i> by Classification</i>",
       "subtitle": "",
       "xTitle": " Food Recall Reports",
       "yTitle": "Hazard",
@@ -109,7 +149,9 @@
       "dateField": "report_date",
       "subfield": "recalling_firm.exact",
       "subfieldLabel": "Recalling Firm",
-      "lineLimiter": 7,
+      "pieChartCategoryName": "Classification",
+      "pieChartApiName": "Food Enforcement Reports",
+      "lineLimiter": 10,
       "xLegendCoordinate": -35,
       "dataFunction": "_getAllData",
       "defs": {
@@ -137,7 +179,7 @@
         "height": 450,
         "sort": "descending",
         "categoryLimiter":  7,
-        "viewBox": "110 80 510 510",
+        "viewBox": "110 65 510 510",
         "margin":{ 
           "top": 5,
           "right": 5,

@@ -1,7 +1,8 @@
 {
   "globalDefs": {
-    "startYear": 2014,
+    "startYear": 2010,
     "api": "/device/udi",
+    "apiName": "UDIs",
     "font": {
       "color":"#000000",
       "fontFamily": "Merriweather,Georgia,serif"
@@ -20,59 +21,145 @@
         "#d62728"
       ]
     },
-    "lineChartConfig": {
-      "interpolation": "curveLinear",
-      "width": 700,
-      "showGrid": true,
+   "lineChartConfig": {
       "chartRow": {
         "height": 200,
         "trackerInfoWidth": 130
       },
+      "chartContainer": {
+        "width": 700,
+        "showGrid": true,
+        "format": "year",
+        "timeAxisStyle": {
+          "labels": {
+            "labelColor": "black",
+            "labelWeight": 150,
+            "labelSize": 13
+          },
+          "axis": {
+            "axisColor": "grey",
+            "axisWidth": 1
+          }
+        }
+      },
       "yAxis": {
         "label": "Number of Device UDI",
         "min": 0,
-        "width": 50,
-        "type": "linear"
-      },
-      "eventMarker": {
-        "infoTimeFormat":"%m-%Y",
-        "infoWidth":50,
-        "markerRadius": 4,
-        "markerStyle":{
-          "fill": "black"
+        "width": 60,
+        "type": "linear",
+        "labelOffset": 0,
+        "style": {
+          "labelFont": "Merriweather,Georgia,serif",
+          "labels": { 
+            "labelColor": "#000000", 
+            "labelWeight": 150, 
+            "labelSize": 11 
+          }, 
+          "axis": {
+            "axisColor": "#000000" 
+          } 
         }
       },
+      "lineChart": {
+        "interpolation": "curveBasis"
+      },
       "colors": [
-        "#1f77b4", "#ff3300", "#ff7f0e", "#ff33cc", "#2ca02c",
-        "#006666", "#00d899", "#990099", "#9467bd", "#c5b0d5",
+        "#1f77b4", "#00d899", "#ff3300", "#2ca02c", "#ff7f0e", 
+        "#006666", "#990099", "#9467bd", "#c5b0d5", "#ff33cc",
         "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
         "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
-      ]
+      ],
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "markerRadius": 0,
+        "markerStyle":{
+          "fill": "black"
+        },
+        "infoWidth": 175,
+        "infoStyle": { 
+          "fill": "white", 
+          "opacity": 0.90, 
+          "stroke": "#0000", 
+          "pointerEvents": "none" 
+        },
+        "markerLabelStyle": { 
+          "fill": "#000000" 
+        }
+      }
     },
-    "productCodes": {"DZC": "Wire, Orthodontic", "DZE": "Implant, Endosseous, Root-Form", "JWH": "Prosthesis, Knee, Patellofemorotibial, Semi-Constrained, Cemented, Polymer/Metal/Polymer", "HSB": "Rod, Fixation, Intramedullary And Accessories", "HSD": "Prosthesis, Shoulder, Hemi-, Humeral, Metallic Uncemented", "MNI": "Orthosis, Spinal Pedicle Fixation", "OHD": "Gynecological Laparoscopic Kit", "KWS": "Prosthesis, Shoulder, Semi-Constrained, Metal/Polymer Cemented", "MQP": "Spinal Vertebral Body Replacement Device", "JOH": "Tube Tracheostomy And Tube Cuff", "FGE": "Stents, Drains And Dilators For The Biliary Ducts", "HSX": "Prosthesis, Knee, Femorotibial, Non-Constrained, Cemented, Metal/Polymer", "JOL": "Catheter And Tip, Suction", "HRY": "Prosthesis, Knee, Femorotibial, Semi-Constrained, Cemented, Metal/Polymer", "DQX": "Wire, Guide, Catheter", "HAE": "Rongeur, Manual", "HRS": "Plate, Fixation, Bone", "LPL": "Lenses, Soft Contact, Daily Wear", "DQA": "Oximeter", "DJG": "Enzyme Immunoassay, Opiates", "LPH": "Prosthesis, Hip, Semi-Constrained, Metal/Polymer, Porous Uncemented", "KNT": "Tubes, Gastrointestinal (And Accessories)", "DQO": "Catheter, Intravascular, Diagnostic", "LIT": "Catheter, Angioplasty, Peripheral, Transluminal", "LXT": "Appliance, Fixation, Nail/Blade/Plate Combination, Multiple Component, Metal Composite", "MAY": "Prosthesis,  Hip, Semi-Constrained, Metal/Ceramic/Polymer, Cemented Or Non-Porous Cemented, Osteophilic Finish", "MAX": "Intervertebral Fusion Device With Bone Graft, Lumbar", "OIY": "Prosthesis, Knee, Patellofemorotibial, Semi-Constrained, Cemented, Polymer + Additive/Metal/Polymer + Additive", "OVE": "Intervertebral Fusion Device With Integrated Fixation, Cervical", "LXH": "Orthopedic Manual Surgical Instrument", "JDI": "Prosthesis, Hip, Semi-Constrained, Metal/Polymer, Cemented", "JDW": "Pin, Fixation, Threaded", "GEX": "Powered Laser Surgical Instrument", "MNH": "Orthosis, Spondylolisthesis Spinal Fixation", "OJG": "Neurological Tray", "OSM": "Hearing Aid, Air Conduction With Wireless Technology", "GEI": "Electrosurgical, Cutting & Coagulation & Accessories", "OJK": "Eye Tray", "OJH": "Orthopedic Tray", "OVD": "Intervertebral Fusion Device With Integrated Fixation, Lumbar", "GCJ": "Laparoscope, General & Plastic Surgery", "LJS": "Catheter,Intravascular,Therapeutic,Long-Term Greater Than 30 Days", "DSA": "Cable, Transducer And Electrode, Patient, (Including Connector)", "KKX": null, "HTN": "Washer, Bolt Nut", "LRO": null, "KCT": "Sterilization Wrap Containers, Trays, Cassettes & Other Accessories", "LZO": "Prosthesis, Hip, Semi-Constrained, Metal/Ceramic/Polymer, Cemented Or Non-Porous, Uncemented", "GZT": "Retractor, Self-Retaining, For Neurosurgery", "HTY": "Pin, Fixation, Smooth", "NHA": "Abutment, Implant, Dental, Endosseous", "FSM": "Tray, Surgical, Instrument", "BZD": "Ventilator, Non-Continuous (Respirator)", "ILQ": "System, Communication, Powered", "FDE": "Laparoscopy Kit", "ODP": "Intervertebral Fusion Device With Bone Graft, Cervical", "HWC": "Screw, Fixation, Bone", "NJM": "Bracket, Ceramic, Orthodontic", "HWT": "Template", "FZX": "Guide, Surgical, Instrument", "ELM": "Denture, Plastic, Teeth", "JEY": "Plate, Bone", "NKB": "Thoracolumbosacral Pedicle Screw System", "NDP": "Accessories, Implant, Dental, Endosseous", "OEZ": "Cardiovascular Procedure Kit", "OES": "Cardiac Catheterization Kit", "OEQ": "Angiography/Angioplasty Kit", "MEH": "Prosthesis, Hip, Semi-Constrained, Uncemented, Metal/Polymer, Non-Porous, Calicum-Phosphate", "ITX": "Transducer, Ultrasonic, Diagnostic", "IYE": "Accelerator, Linear, Medical", "HQZ": "Frame, Spectacle", "MKJ": "Automated External Defibrillators (Non-Wearable)", "LWJ": "Prosthesis, Hip, Semi-Constrained, Metal/Polymer, Uncemented", "HQL": "Intraocular Lens", "EIH": "Powder, Porcelain", "MBL": "Prosthesis, Hip, Semi-Constrained, Uncemented, Metal/Polymer, Porous", "GYC": "Electrode, Cortical", "GAW": "Suture, Nonabsorbable, Synthetic, Polypropylene", "GAT": "Suture, Nonabsorbable, Synthetic, Polyethylene", "KWL": "Prosthesis, Hip, Hemi-, Femoral, Metal", "KWQ": "Appliance, Fixation, Spinal Intervertebral Body", "KWP": "Appliance, Fixation, Spinal Interlaminal", "GAM": "Suture, Absorbable, Synthetic, Polyglycolic Acid", "DYH": "Adhesive, Bracket And Tooth Conditioner, Resin", "KWY": "Prosthesis, Hip, Hemi-, Femoral, Metal/Polymer, Cemented Or Uncemented", "OSH": "Pedicle Screw Spinal System, Adolescent Idiopathic Scoliosis", "KWZ": "Prosthesis, Hip, Constrained, Cemented Or Uncemented, Metal/Polymer", "DYB": "Introducer, Catheter", "FPA": "Set, Administration, Intravascular", "KTT": "Appliance, Fixation, Nail/Blade/Plate Combination, Multiple Component", "EJF": "Bracket, Metal, Orthodontic", "DQY": "Catheter, Percutaneous", "ESD": "Hearing Aid, Air Conduction", "MBH": "Prosthesis, Knee, Patello/Femorotibial, Semi-Constrained, Uncemented, Porous, Coated, Polymer/Metal/Polymer", "DWL": "Stocking, Medical Support (To Prevent Pooling Of Blood In Legs)", "EBF": "Material, Tooth Shade, Resin", "EBG": "Crown And Bridge, Temporary, Resin", "NKG": "Orthosis, Cervical Pedicle Screw Spinal Fixation", "DXQ": "Blood Pressure Cuff", "DXC": "Clamp, Vascular"}
+   "productCodes": {
+    "DZC": "Wire, Orthodontic", "DZE": "Implant, Endosseous, Root-Form", "JWH": "Prosthesis, Knee, Patellofemorotibial, Semi-Constrained, Cemented, Polymer/Metal/Polymer", "HSB": "Rod, Fixation, Intramedullary And Accessories", "HSD": "Prosthesis, Shoulder, Hemi-, Humeral, Metallic Uncemented", "MNI": "Orthosis, Spinal Pedicle Fixation", "OHD": "Gynecological Laparoscopic Kit", "KWS": "Prosthesis, Shoulder, Semi-Constrained, Metal/Polymer Cemented", "MQP": "Spinal Vertebral Body Replacement Device", "JOH": "Tube Tracheostomy And Tube Cuff", "FGE": "Stents, Drains And Dilators For The Biliary Ducts", "HSX": "Prosthesis, Knee, Femorotibial, Non-Constrained, Cemented, Metal/Polymer", "JOL": "Catheter And Tip, Suction", "HRY": "Prosthesis, Knee, Femorotibial, Semi-Constrained, Cemented, Metal/Polymer", "DQX": "Wire, Guide, Catheter", "HAE": "Rongeur, Manual", "HRS": "Plate, Fixation, Bone", "LPL": "Lenses, Soft Contact, Daily Wear", "DQA": "Oximeter", "DJG": "Enzyme Immunoassay, Opiates", "LPH": "Prosthesis, Hip, Semi-Constrained, Metal/Polymer, Porous Uncemented", "KNT": "Tubes, Gastrointestinal (And Accessories)", "DQO": "Catheter, Intravascular, Diagnostic", "LIT": "Catheter, Angioplasty, Peripheral, Transluminal", "LXT": "Appliance, Fixation, Nail/Blade/Plate Combination, Multiple Component, Metal Composite", "MAY": "Prosthesis,  Hip, Semi-Constrained, Metal/Ceramic/Polymer, Cemented Or Non-Porous Cemented, Osteophilic Finish", "MAX": "Intervertebral Fusion Device With Bone Graft, Lumbar", "OIY": "Prosthesis, Knee, Patellofemorotibial, Semi-Constrained, Cemented, Polymer + Additive/Metal/Polymer + Additive", "OVE": "Intervertebral Fusion Device With Integrated Fixation, Cervical", "LXH": "Orthopedic Manual Surgical Instrument", "JDI": "Prosthesis, Hip, Semi-Constrained, Metal/Polymer, Cemented", "JDW": "Pin, Fixation, Threaded", "GEX": "Powered Laser Surgical Instrument", "MNH": "Orthosis, Spondylolisthesis Spinal Fixation", "OJG": "Neurological Tray", "OSM": "Hearing Aid, Air Conduction With Wireless Technology", "GEI": "Electrosurgical, Cutting & Coagulation & Accessories", "OJK": "Eye Tray", "OJH": "Orthopedic Tray", "OVD": "Intervertebral Fusion Device With Integrated Fixation, Lumbar", "GCJ": "Laparoscope, General & Plastic Surgery", "LJS": "Catheter,Intravascular,Therapeutic,Long-Term Greater Than 30 Days", "DSA": "Cable, Transducer And Electrode, Patient, (Including Connector)", "KKX": null, "HTN": "Washer, Bolt Nut", "LRO": null, "KCT": "Sterilization Wrap Containers, Trays, Cassettes & Other Accessories", "LZO": "Prosthesis, Hip, Semi-Constrained, Metal/Ceramic/Polymer, Cemented Or Non-Porous, Uncemented", "GZT": "Retractor, Self-Retaining, For Neurosurgery", "HTY": "Pin, Fixation, Smooth", "NHA": "Abutment, Implant, Dental, Endosseous", "FSM": "Tray, Surgical, Instrument", "BZD": "Ventilator, Non-Continuous (Respirator)", "ILQ": "System, Communication, Powered", "FDE": "Laparoscopy Kit", "ODP": "Intervertebral Fusion Device With Bone Graft, Cervical", "HWC": "Screw, Fixation, Bone", "NJM": "Bracket, Ceramic, Orthodontic", "HWT": "Template", "FZX": "Guide, Surgical, Instrument", "ELM": "Denture, Plastic, Teeth", "JEY": "Plate, Bone", "NKB": "Thoracolumbosacral Pedicle Screw System", "NDP": "Accessories, Implant, Dental, Endosseous", "OEZ": "Cardiovascular Procedure Kit", "OES": "Cardiac Catheterization Kit", "OEQ": "Angiography/Angioplasty Kit", "MEH": "Prosthesis, Hip, Semi-Constrained, Uncemented, Metal/Polymer, Non-Porous, Calicum-Phosphate", "ITX": "Transducer, Ultrasonic, Diagnostic", "IYE": "Accelerator, Linear, Medical", "HQZ": "Frame, Spectacle", "MKJ": "Automated External Defibrillators (Non-Wearable)", "LWJ": "Prosthesis, Hip, Semi-Constrained, Metal/Polymer, Uncemented", "HQL": "Intraocular Lens", "EIH": "Powder, Porcelain", "MBL": "Prosthesis, Hip, Semi-Constrained, Uncemented, Metal/Polymer, Porous", "GYC": "Electrode, Cortical", "GAW": "Suture, Nonabsorbable, Synthetic, Polypropylene", "GAT": "Suture, Nonabsorbable, Synthetic, Polyethylene", "KWL": "Prosthesis, Hip, Hemi-, Femoral, Metal", "KWQ": "Appliance, Fixation, Spinal Intervertebral Body", "KWP": "Appliance, Fixation, Spinal Interlaminal", "GAM": "Suture, Absorbable, Synthetic, Polyglycolic Acid", "DYH": "Adhesive, Bracket And Tooth Conditioner, Resin", "KWY": "Prosthesis, Hip, Hemi-, Femoral, Metal/Polymer, Cemented Or Uncemented", "OSH": "Pedicle Screw Spinal System, Adolescent Idiopathic Scoliosis", "KWZ": "Prosthesis, Hip, Constrained, Cemented Or Uncemented, Metal/Polymer", "DYB": "Introducer, Catheter", "FPA": "Set, Administration, Intravascular", "KTT": "Appliance, Fixation, Nail/Blade/Plate Combination, Multiple Component", "EJF": "Bracket, Metal, Orthodontic", "DQY": "Catheter, Percutaneous", "ESD": "Hearing Aid, Air Conduction", "MBH": "Prosthesis, Knee, Patello/Femorotibial, Semi-Constrained, Uncemented, Porous, Coated, Polymer/Metal/Polymer", "DWL": "Stocking, Medical Support (To Prevent Pooling Of Blood In Legs)", "EBF": "Material, Tooth Shade, Resin", "EBG": "Crown And Bridge, Temporary, Resin", "NKG": "Orthosis, Cervical Pedicle Screw Spinal Fixation", "DXQ": "Blood Pressure Cuff", "DXC": "Clamp, Vascular"
+    }
   },
   "choices": [
     {
-      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device UDIs</i> Unique Device Identification Database</p>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device UDIs</i> By Distribution Status</i>",
       "subtitle": "Devices",
       "xTitle": " Medical Speciality ",
-      "yTitle": "Risk",
+      "yTitle": "Distribution",
       "type": "PieChart",
       "countBy": "commercial_distribution_status.exact",
       "dateField": "publish_date",
+      "pieChartCategoryName": "Distribution Status",
+      "pieChartApiName": "Device UDIs",
+      "subfield": "product_codes.code.exact",
+      "subfieldLabel": "Product Codes",
+      "useProductCodes":true,
+      "lineLimiter": 7,
+      "xLegendCoordinate": -35,
+      "dataFunction": "_getAllData",
+      "defs": {
+        "In Commercial Distribution": "In",
+        "Not in Commercial Distribution": "Out"
+      },
+      "pieChartConfig": {
+        "default": {
+          "id": "In Commercial Distribution",
+          "index": 1
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "of Distribution"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "sort": "ascending",
+        "viewBox": "110 100 510 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 10 
+        }
+      }
+    },
+    {
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device UDIs</i> By Distribution Status</i>",
+      "subtitle": "Devices",
+      "xTitle": " Medical Speciality ",
+      "yTitle": "Distribution",
+      "type": "PieChart",
+      "countBy": "commercial_distribution_status.exact",
+      "dateField": "publish_date",
+      "pieChartCategoryName": "Distribution Status",
+      "pieChartApiName": "Device UDIs",
       "subfield": "company_name.exact",
       "subfieldLabel": "Company Name",
       "lineLimiter": 5,
       "xLegendCoordinate": -35,
       "dataFunction": "_getAllData",
       "defs": {
-        "In Commercial Distribution": "In Distribution",
-        "Not in Commercial Distribution": "Not in Distribution"
+        "In Commercial Distribution": "In",
+        "Not in Commercial Distribution": "Out"
       },
       "pieChartConfig": {
         "default": {
           "id": "In Commercial Distribution",
-          "index": 0
+          "index": 1
         },
         "radius": {
           "cx": 305,
@@ -80,7 +167,7 @@
           "innerRadius": 60,
           "outerRadius": 80
         },
-        "textLabel": ["Percentage", "by Class"],
+        "textLabel": ["Percentage", "of Distribution"],
         "width": 450,
         "widthReset": 365,
         "height": 450,
@@ -95,26 +182,28 @@
       }
     },
     {
-      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device UDIs</i> Unique Device Identification Database</p>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device UDIs</i> By Distribution Status</i>",
       "subtitle": "Devices",
       "xTitle": " Medical Speciality ",
-      "yTitle": "Risk",
+      "yTitle": "Distribution",
       "type": "PieChart",
       "countBy": "commercial_distribution_status.exact",
       "dateField": "publish_date",
+      "pieChartCategoryName": "Distribution Status",
+      "pieChartApiName": "Device UDIs",
       "subfield": "brand_name.exact",
       "subfieldLabel": "Brand Name",
       "lineLimiter": 7,
       "xLegendCoordinate": -35,
       "dataFunction": "_getAllData",
       "defs": {
-        "In Commercial Distribution": "In Distribution",
-        "Not in Commercial Distribution": "Not in Distribution"
+        "In Commercial Distribution": "In",
+        "Not in Commercial Distribution": "Out"
       },
       "pieChartConfig": {
         "default": {
           "id": "In Commercial Distribution",
-          "index": 0
+          "index": 1
         },
         "radius": {
           "cx": 305,
@@ -122,49 +211,7 @@
           "innerRadius": 60,
           "outerRadius": 80
         },
-        "textLabel": ["Percentage", "by Class"],
-        "width": 450,
-        "widthReset": 365,
-        "height": 450,
-        "sort": "ascending",
-        "viewBox": "110 100 510 510",
-        "margin":{ 
-          "top": 5,
-          "right": 5,
-          "bottom": 5, 
-          "left": 10 
-        }
-      }
-    },
-    {
-      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Device UDIs</i> Unique Device Identification Database</p>",
-      "subtitle": "Devices",
-      "xTitle": " Medical Speciality ",
-      "yTitle": "Risk",
-      "type": "PieChart",
-      "countBy": "commercial_distribution_status.exact",
-      "dateField": "publish_date",
-      "subfield": "product_codes.code.exact",
-      "subfieldLabel": "Product Codes",
-      "lineLimiter": 7,
-      "xLegendCoordinate": -35,
-      "dataFunction": "_getAllData",
-      "defs": {
-        "In Commercial Distribution": "In Distribution",
-        "Not in Commercial Distribution": "Not in Distribution"
-      },
-      "pieChartConfig": {
-        "default": {
-          "id": "In Commercial Distribution",
-          "index": 0
-        },
-        "radius": {
-          "cx": 305,
-          "cy": 200,
-          "innerRadius": 60,
-          "outerRadius": 80
-        },
-        "textLabel": ["Percentage", "by Class"],
+        "textLabel": ["Percentage", "of Distribution"],
         "width": 450,
         "widthReset": 365,
         "height": 450,

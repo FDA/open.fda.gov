@@ -6,6 +6,7 @@ import { TimeSeries, TimeRange, sum } from "pondjs";
 import { Series, DataFrame } from 'pandas-js';
 import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable, styler, Legend, TimeMarker, EventMarker } from "react-timeseries-charts"
 import { API_LINK } from '../constants/api'
+import states from '../pages/docs/states.json'
 import _ from 'lodash';
 import Parser from 'html-react-parser';
 import {default as $} from "jquery";
@@ -348,15 +349,13 @@ class PieChartInfographic extends React.Component {
             return hasInvalidChar && isAnAcceptedTerm && !excludedField
           }).map(value => {
               let term = ""
-              let value_term = value.term
+              let value_term = value.term.replace('.','')
 
               ///  filter out characters for linechart items that are not useful for frontend users //
               if(this.props.infographicDefinitions.subfield_filter){
                 value_term = value_term.replace(this.props.infographicDefinitions.subfield_filter, '')
               }
               /// 
-
-
 
               /// split by space and uppercase first letter, lowercase [0:]
               value_term.split(" ").forEach( (word,idx) => {
@@ -383,8 +382,24 @@ class PieChartInfographic extends React.Component {
           return `${that.state.API_LINK}${that.props.api}.json?search=${searchField}+AND+${that.props.infographicDefinitions.subfield}:"${dirtyValue}"&count=${that.props.infographicDefinitions.dateField}`
         }).slice(0,that.props.infographicDefinitions.lineLimiter)
 
-        let filesPromise = Promise.resolve([]);
-        filesPromise = Promise.all(timeseries_urls.map(this.fetchJSON)).then( results => {
+        Promise.all(timeseries_urls.map(this.fetchJSON).map(r => r.catch(e => e))).then( results => {
+
+
+          //// ERROR handing //////
+          const errors = results.map( (r, index) => {
+            if(typeof(r) !== "object"){
+              return index
+            }
+          }).filter(r => r !== undefined)
+
+          results = results.filter((r,index) => errors.indexOf(index) === -1)
+
+          columns = columns.filter((column, index) => errors.indexOf(index) === -1)
+
+          // columns = 
+
+          //// End ERROR handing //////
+
           var that = this;
 
           /// we only want to graph specific terms defined in acceptedTerms object
@@ -397,12 +412,14 @@ class PieChartInfographic extends React.Component {
           }
           //////
           const useProductCodes = (that.props.globalDefs.productCodes !== undefined && that.props.infographicDefinitions.useProductCodes)
+          const useStatesNames = (that.props.infographicDefinitions.subfield === "state.exact")
           columns = columns.slice(0,that.props.infographicDefinitions.lineLimiter).map( column => {
             if(useProductCodes){
               var fullProductCode = that.props.globalDefs.productCodes[column.toUpperCase()]
               column = fullProductCode === undefined ? column : fullProductCode
+            } else if (useStatesNames){
+              column = states.states[column.toUpperCase()]
             }
-
             return column.slice(0,55)
           })
           
@@ -448,7 +465,7 @@ class PieChartInfographic extends React.Component {
           // normalize
           const normalizedSeries = []
           listOfSeries.forEach( arr => {
-            const normalizedSerie = new Array(timestamps.length).fill(0);
+            const normalizedSerie = new Array(timestamps.length).fill(null);
 
             arr.forEach( val => {
               var timestamp = val[0],
@@ -730,10 +747,14 @@ class PieChartInfographic extends React.Component {
 
 
           <p>
-            Display of {this.props.globalDefs.apiName}{' by '}
+            Display of 
+            {' '}
+            <i className='datamap-infographic-header-text-bold'>{this.props.globalDefs.apiName}</i>             
+            {' by '}
             <i className='datamap-infographic-header-text-bold'>{this.props.parent.state.choice.subfieldLabel}</i>
-            {' '} for{' '}
+            {' '}for{' '}
             <i className='datamap-infographic-header-text-bold'>{this.state.selectedClassName}</i> 
+            {' '}
             {this.props.infographicDefinitions.yTitle}
           </p>
         </div>
@@ -757,10 +778,8 @@ class PieChartInfographic extends React.Component {
                   onTrackerChanged={this.handleTrackerChanged}
                   minTime={this.state.minTime}
                   maxTime={this.state.maxTime}
-                  showGrid={this.props.globalDefs.lineChartConfig.showGrid}
                   onChartResize={this.handleChartResize}
-                  width={this.props.globalDefs.lineChartConfig.width}
-                  timeAxisStyle={this.props.globalDefs.lineChartConfig.chartContainer}
+                  {...this.props.globalDefs.lineChartConfig.chartContainer}
                 >
                     <ChartRow
                       {...this.props.globalDefs.lineChartConfig.chartRow}
@@ -776,8 +795,8 @@ class PieChartInfographic extends React.Component {
                               axis="axis1"
                               series={this.state.sparklineData}
                               columns={this.state.lineChartColumns}
-                              interpolation={this.props.globalDefs.lineChartConfig.interpolation}
                               onSelectionChange={this.onSelectionChange}
+                              {...this.props.globalDefs.lineChartConfig.lineChart}
                             />
                               <EventMarker
                                 type="flag"
@@ -785,7 +804,6 @@ class PieChartInfographic extends React.Component {
                                 event={this.state.trackerEvent}
                                 column={this.state.selection}
                                 infoHeight={this.state.infoHeight}
-                                infoWidth={175}
                                 info={this.state.trackerInfoValues}
                                 {...this.props.globalDefs.lineChartConfig.eventMarker}
                               />
@@ -803,7 +821,7 @@ class PieChartInfographic extends React.Component {
                 value={this.state.choosenColumn}
                 optionComponent={GravatarOption}
                 arrowRenderer={()=>{<span></span>}}
-                menuStyle={{"max-height": "130px"}}
+                menuStyle={{maxHeight: 130  }}
                 options={this.state.columnStyles}
                 onChange={this.onSelectionChange}
                 placeholder="Search the fields"

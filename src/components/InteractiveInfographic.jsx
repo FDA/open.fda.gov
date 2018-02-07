@@ -153,7 +153,7 @@ class InteractiveInfographic extends React.Component {
 
     return (
       <div className="interactive-infographic-border">
-        <div style={{ float: 'right', width: '20%'}}>
+        <div className="interactive-infographic-select">
           <Select
             name="toggle"
             value={this.state.choosenField}

@@ -2,6 +2,7 @@
   "globalDefs": {
     "startYear": 2013,
     "api": "/food/event",
+    "apiName": "Events",
     "font": {
       "color":"#000000",
       "fontFamily": "Merriweather,Georgia,serif"
@@ -21,38 +22,75 @@
       ]
     },
     "lineChartConfig": {
-      "interpolation": "curveLinear",
-      "width": 700,
-      "showGrid": true,
       "chartRow": {
         "height": 200,
         "trackerInfoWidth": 130
       },
-      "yAxis": {
-        "label": "Number of Food Events",
-        "min": 0,
-        "width": 80,
-        "type": "linear"
-      },
-      "eventMarker": {
-        "infoTimeFormat":"%m-%Y",
-        "infoWidth":50,
-        "markerRadius": 4,
-        "markerStyle":{
-          "fill": "black"
+      "chartContainer": {
+        "width": 700,
+        "showGrid": true,
+        "format": "year",
+        "timeAxisStyle": {
+          "labels": {
+            "labelColor": "black",
+            "labelWeight": 150,
+            "labelSize": 13
+          },
+          "axis": {
+            "axisColor": "grey",
+            "axisWidth": 1
+          }
         }
       },
+      "yAxis": {
+        "label": "Number of Events",
+        "min": 0,
+        "width": 70,
+        "type": "linear",
+        "labelOffset": 0,
+        "style": {
+          "labelFont": "Merriweather,Georgia,serif",
+          "labels": { 
+            "labelColor": "#000000", 
+            "labelWeight": 150, 
+            "labelSize": 11 
+          }, 
+          "axis": {
+            "axisColor": "#000000" 
+          } 
+        }
+      },
+      "lineChart": {
+        "interpolation": "curveBasis"
+      },
       "colors": [
-        "#1f77b4", "#ff3300", "#ff7f0e", "#ff33cc", "#2ca02c",
-        "#006666", "#00d899", "#990099", "#9467bd", "#c5b0d5",
+        "#1f77b4", "#00d899", "#ff3300", "#2ca02c", "#ff7f0e", 
+        "#006666", "#990099", "#9467bd", "#c5b0d5", "#ff33cc",
         "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
         "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
-      ]
+      ],
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "markerRadius": 0,
+        "markerStyle":{
+          "fill": "black"
+        },
+        "infoWidth": 175,
+        "infoStyle": { 
+          "fill": "white", 
+          "opacity": 0.90, 
+          "stroke": "#0000", 
+          "pointerEvents": "none" 
+        },
+        "markerLabelStyle": { 
+          "fill": "#000000" 
+        }
+      }
     }
   },
   "choices": [
     {
-      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Food Adverse Event Reports</i> by Reactions, Outcomes </p>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Food Adverse Event Reports</i> by Reactions</i>",
       "subtitle": "",
       "xTitle": " Reports",
       "yTitle": "Reaction",
@@ -61,7 +99,9 @@
       "dateField": "date_started",
       "subfield": "outcomes.exact",
       "subfieldLabel": "Outcomes",
-      "lineLimiter": 7,
+      "pieChartCategoryName": "Reactions",
+      "pieChartApiName": "Food Adverse Event Reports",
+      "lineLimiter": 10,
       "xLegendCoordinate": -20,
       "dataFunction": "_getAllData",
       "defs": {
@@ -72,7 +112,8 @@
         "MALAISE": "Malaise",
         "OVARIAN CANCER": "Ovarian Cancer",
         "CHOKING": "Choking",
-        "HEADACHE": "Headache"
+        "HEADACHE": "Headache",
+        "HYPERSENSITIVITY": "Hypersensitivity"
       },
       "pieChartConfig": {
         "default": {
@@ -91,7 +132,7 @@
         "height": 450,
         "sort": "descending",
         "categoryLimiter":  7,
-        "viewBox": "115 90 510 510",
+        "viewBox": "100 70 510 510",
         "margin":{ 
           "top": 5,
           "right": 5,
@@ -101,7 +142,7 @@
       }
     },
     {
-      "title": "<p class='datamap-infographic-header'><i class='datamap-infographic-header-text-bold'>Food Adverse Event Reports</i> by Reactions, Industry Name</p>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Food Adverse Event Reports</i> by Reactions</i>",
       "subtitle": "",
       "xTitle": " Reports ",
       "yTitle": "Reaction",
@@ -110,7 +151,9 @@
       "dateField": "date_started",
       "subfield": "products.industry_name.exact",
       "subfieldLabel": "Industry Name",
-      "lineLimiter": 7,
+      "pieChartCategoryName": "Reactions",
+      "pieChartApiName": "Food Adverse Event Reports",
+      "lineLimiter": 10,
       "xLegendCoordinate": -20,
       "dataFunction": "_getAllData",
       "defs": {
@@ -122,7 +165,7 @@
         "OVARIAN CANCER": "Ovarian Cancer",
         "CHOKING": "Choking",
         "HEADACHE": "Headache",
-        "HYPERSENSITIVITY": "HYPERSENSITIVITY",
+        "HYPERSENSITIVITY": "Hypersensitivity",
         "ABDOMINAL PAIN UPPER": "ABDOMINAL PAIN UPPER",
         "DYSPNOEA": "DYSPNOEA",
         "DIZZINESS": "DIZZINESS",
@@ -150,7 +193,7 @@
         "height": 450,
         "sort": "descending",
         "categoryLimiter":  7,
-        "viewBox": "110 90 510 510",
+        "viewBox": "110 70 510 510",
         "margin":{ 
           "top": 5,
           "right": 5,
