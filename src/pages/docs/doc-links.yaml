@@ -10,6 +10,8 @@
       link: /docs/anatomy-of-a-response/
     - title: OpenFDA fields
       link: /docs/openfda-fields/
+    - title: Authentication
+      link: /docs/authentication/
 
 - title: Construct the query
   id: construct-the-query
@@ -36,8 +38,6 @@
     link: /docs/downloads/
   - title: Download API fields
     link: /docs/download-api-fields/
-  - title: Authentication
-    link: /docs/authentication/
 
 - title: Drug API Endpoints
   id: drug-api-endpoints
