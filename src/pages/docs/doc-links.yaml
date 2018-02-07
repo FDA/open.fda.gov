@@ -13,7 +13,7 @@
     - title: Authentication
       link: /docs/authentication/
 
-- title: Construct the query
+- title: Construct the Query
   id: construct-the-query
   collapse: true
   items:
