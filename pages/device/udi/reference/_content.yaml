@@ -29,8 +29,13 @@
   - is_pm_exempt
   - is_rx
   - is_single_use
+  - labeler_duns_number
   - mri_safety
+  - public_version_date
+  - public_version_number
+  - public_version_status
   - publish_date
+  - record_key
   - record_status
   - sterilization.is_sterile
   - sterilization.is_sterilization_prior_use
