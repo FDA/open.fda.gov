@@ -71,6 +71,12 @@
 - fields:
   - gmdn_terms.name
   - gmdn_terms.definition
+- "#### PMA Submissions"
+- "This section covers regulatory decisions regarding pre-market approvals."
+- fields:
+  - pma_submissions.submission_number
+  - pma_submissions.supplement_number
+  - pma_submissions.submission_type
 - "#### Storage and Handling"
 - "This section contains information on storage and handling related fields."
 - fields:

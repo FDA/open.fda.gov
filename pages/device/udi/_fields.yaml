@@ -409,6 +409,37 @@ properties:
        'MR Conditional': "MR Conditional"
        'Labeling does not contain MRI Safety Information': "Labeling does not contain MRI Safety Information"
     type: string
+  pma_submissions:
+    items:
+      properties:
+        submission_number:
+          description: "Number associated with the regulatory decision regarding the applicant’s legal right to market a medical device for the following submission types: 510(k), PMA, PDP, HDE, BLA, and NDA."
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        supplement_number:
+          description: "Number assigned by FDA to a supplemental application for approval of a change in a medical device with an approved PMA."
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        submission_type:
+          description: "Indicates the premarket submission type."
+          format:
+          is_exact: false
+          possible_values:
+            type: one_of
+            value:
+             '510(k)': "510(k)"
+             'PMA': "PMA"
+             'PDP': "PDP"
+             'HDE': "HDE"
+             'BLA': "BLA"
+             'NDA': "NDA"
+          type: string
+      type: object
+    type: array
   product_codes:
     items:
       properties:
