@@ -391,6 +391,12 @@ properties:
        'true': 'true'
        'false': 'false'
     type: boolean
+  labeler_duns_number:
+    description: "The DUNS Number is a unique nine-digit identifier for businesses. It is used to establish a D&B® business credit file, which is often referenced by lenders and potential business partners to help predict the reliability and/or financial stability of the company in question. [The Dun & Bradstreet disclaimer text to go here]"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
   mri_safety:
     description: "Indicates the MRI Safety Information, if any, that is present in the device labeling. Please see the ASTM F2503-13 standard for more information."
     format:
@@ -461,6 +467,30 @@ properties:
     is_exact: false
     possible_values:
     type: date
+  public_version_date:
+    description: "Auto assigned the day file is generated with Time Stamp; All existing records will have first date assigned the day download file is generated with this data element."
+    format: date
+    is_exact: false
+    possible_values:
+    type: date
+  public_version_number:
+    description: "Auto assigned version number, assigned just before file generation; All existing records will have version 1 assigned."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  public_version_status:
+    description: "Definition forthcoming."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  record_key:
+    description: "Current enhancements will allow the Primary DI to change after the DI record has been released to the public. To ensure records can be linked and managed, a record key will be provided; Unique alphanumeric value, auto generated."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
   record_status:
     description: "Indicates the status of the DI Record."
     format:
