@@ -55,6 +55,7 @@ class GridInfographic extends React.Component {
       $("text").css("font-size",this.props.infographicDefinitions.gridConfig.theme.fontSize)
       $("text").css("font-family",this.props.infographicDefinitions.gridConfig.theme.fontFamily)
       $("text").css("fill",this.props.infographicDefinitions.gridConfig.theme.fontColor)
+      $("#infographic-border").css("height",this.props.infographicDefinitions.gridConfig.borderHeight)
     })
   }
 
@@ -80,8 +81,7 @@ class GridInfographic extends React.Component {
     var urls = [`${this.state.API_LINK}${this.state.api}.json?count=${this.props.infographicDefinitions.xField}`]
     let xTerms = []
 
-    const itemPromises = urls.map(this.fetchJSON);
-    return Promise.all(itemPromises).then((results) => {
+    return Promise.all(urls.map(this.fetchJSON)).then((results) => {
 
       var that = this;
       xTerms = results[0].results.map((item) => {
@@ -134,14 +134,15 @@ class GridInfographic extends React.Component {
   render (): ?React.Element {
     if (!this.state.data.length) return <span />
 
-    return (
-        <section>
 
-          {Parser(this.props.infographicDefinitions.title)}
+    return (
+        <section className='infographic-container'>
+        <div>
+          <p className='datamap-infographic-header'>{Parser(this.props.infographicDefinitions.title)}</p>
           <hr className="datamap-hr"/>
-          <br/><br/>
+        </div>
           
-          <div className="flex-box">
+          <div className="flex-box piechart-container">
             <div className="heatmap-infographic">
             <p className="grid-infographic-ylabel" style={ this.props.infographicDefinitions.yLabelStyle }>
               {this.props.infographicDefinitions.yLabel}

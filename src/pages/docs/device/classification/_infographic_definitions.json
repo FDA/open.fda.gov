@@ -1,7 +1,7 @@
 {
   "choices": [
     {
-      "title": "<p class='heatmap-infographic-header'><i class='datamap-infographic-header-text-bold'> Device Classification</i>: by Submission Type</p>",  
+      "title": "<i><i class='datamap-infographic-header-text-bold'> Device Classification</i>: by Submission Type</i>",  
       "defaults": {},
       "xField": "submission_type_id",
       "yField": "medical_specialty_description",
@@ -22,6 +22,7 @@
         "transform": "rotate(270deg) translateX(-30%) translateY(50%)"
       },
       "gridConfig":{
+        "borderHeight": 470,
         "transform": "translate(190,10)",
         "keyFormat": "Manufacturer Type: ${this.yKey}\n Medical Specialty: ${this.xKey}\n",
         "valueFormatter": "${this.value}",
