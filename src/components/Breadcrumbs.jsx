@@ -135,7 +135,7 @@ const BreadCrumbs = (props: tPROPS) => {
                       </a>
                     :
                       <span className='clr-white marg-l-1'>
-                      {crumb}
+                        {crumb}
                       </span>
                   }
                 </span>

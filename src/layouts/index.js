@@ -14,23 +14,23 @@ class Layout extends React.Component {
     const hasSidebar = this.props.location.pathname.slice(0, 6) === `/docs/`
 
     return (
-      <DocumentTitle title="openFDA" key="openFDA">
+      <DocumentTitle title='openFDA' key='openFDA'>
         <div>
           <Nav
             meta={this.props.meta}
           />
           {
             hasSidebar &&
-            <div className="body-container">
+            <div className='body-container'>
               <DocSidebar inline yaml={docsSidebar} />
-              <div className="doc-container">
-                  {this.props.children()}
+              <div className='doc-container'>
+                {this.props.children()}
               </div>
             </div>
           }
           {
             !hasSidebar &&
-              <div className="body-container">
+              <div className='body-container'>
                 {this.props.children()}
               </div>
           }

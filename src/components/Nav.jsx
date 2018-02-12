@@ -61,15 +61,9 @@ const Nav = (props: tPROPS) => {
         className='visually-hidden'>
         Skip navigation, go to start of content
       </a>
-      <div className='container dir-column m-ord-1 m-pad-b-1 m-pad-t-1 nav-bar'>
+      <div className='container dir-column tab-pad-b-1 tab-pad-t-1 nav-bar'>
         <div className={showMobileNav ? 'dir-column relative': 'flex-row relative'}>
-          <div
-            className='container d-40 align-center logo-wrapper relative'
-            style={{
-              display: 'flex',
-              minHeight: '35px',
-              marginLeft: '0'
-            }}>
+          <div className='container d-40 align-center logo-wrapper relative'>
             <Link
               className="nav-logos"
               to='/'>
@@ -86,11 +80,10 @@ const Nav = (props: tPROPS) => {
               />
             </Link>
             <div
-              className='absolute top right d-hide'
+              className='absolute right d-hide'
               onClick={toggleMobileNav}
               style={{
                 height: '25px',
-                marginTop: '5px',
                 transform: 'rotate(0deg)',
                 width: '36px',
               }}
@@ -129,7 +122,7 @@ const Nav = (props: tPROPS) => {
                 <Link
                   title='Home'
                   to='/'
-                  className={showMobileNav ? 'display-none': activeDropdown==='Home' ? 'menu-header emphasis': path === '/' ? 'menu-header emphasis': 'menu-header'}
+                  className={activeDropdown==='Home' ? 'menu-header emphasis': path === '/' ? 'menu-header emphasis': 'menu-header'}
                 >Home</Link>
                 <div className={path === '/' ? 'menu-header-underbar': 'menu-header-underbar display-none'} style={{width: 'calc(100% - 2em)'}}/>
               </div>
@@ -205,7 +198,7 @@ const Nav = (props: tPROPS) => {
                 <button
                   title='Disclaimer'
                   onClick={handleOpenModal}
-                  className={showMobileNav ? 'display-none': activeDropdown==='Home' ? 'menu-header emphasis': 'menu-header'}
+                  className={activeDropdown==='Home' ? 'menu-header emphasis': 'menu-header'}
                 >Disclaimer</button>
               </div>
             </div>

@@ -4,7 +4,8 @@ import React from 'react'
 
 type tSTATE = {
   activeHeader: Array;
-  toggleSection: boolean;
+  path: string;
+  showMobileSidebar: boolean;
 };
 
 function checkArray(arr, path) {
@@ -43,7 +44,9 @@ function checkObject(obj, path) {
 const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClass {
   class HOC extends React.Component {
     state: tSTATE = {
-      activeHeader: []
+      activeHeader: [],
+      path: ' ',
+      showMobileSidebar: false,
     }
 
     componentDidMount () {
@@ -57,7 +60,23 @@ const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClas
         returnedHeaders[i].length > 0 && (activeHeaders = activeHeaders.concat(returnedHeaders[i]))
       }
       this.setState({
-        activeHeader: activeHeaders
+        activeHeader: activeHeaders,
+        path: window.location.pathname
+      })
+    }
+
+    componentWillUpdate () {
+      if (this.state.path !== window.location.pathname) {
+        this.setState({
+          path: window.location.pathname
+        })
+      }
+    }
+
+    _toggleMobileSidebar () {
+      console.log(this.state.showMobileSidebar)
+      this.setState({
+        showMobileSidebar: !this.state.showMobileSidebar
       })
     }
 
@@ -81,6 +100,7 @@ const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClas
         <ComposedDocSidebar
           {...this.props}
           {...this.state}
+          toggleMobileSidebar={this._toggleMobileSidebar.bind(this)}
           toggleSection={this._toggleSection.bind(this)}
         />
       )

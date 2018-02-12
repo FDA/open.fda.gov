@@ -25,6 +25,7 @@ const Section = props => {
   )
 }
 
+
 const SectionLinks = props => {
 
   return (
@@ -34,7 +35,6 @@ const SectionLinks = props => {
           node={item}
           children={item.items}
           key={index}
-          isInline={props.isInline}
           toggleSection={props.toggleSection}
           activeHeader={props.activeHeader}
         />
@@ -42,6 +42,7 @@ const SectionLinks = props => {
     </ul>
   )
 }
+
 
 const SectionLink = props => {
 
@@ -104,28 +105,78 @@ const SectionLink = props => {
   )
 }
 
-class DocSidebar extends React.Component {
-  render() {
-    const menu = this.props.yaml
-    const isInline = this.props.inline
 
-    return (
-      <div className="doc-sidebar">
-        {menu.map((section, index) => (
+const DocBreadcrumbs = props => {
+  let breadcrumb = "Choose a field"
+
+  if (typeof window === 'undefined') return <span>{breadcrumb}</span>
+
+  props.yaml.map((section: object, i) => {
+    section.items.map((item: object, j) => {
+      if (Object.keys(item).indexOf("items") > -1) {
+        item.items.map((subItem: object, k) => {
+          if (subItem.link === props.path) {
+            breadcrumb = subItem.title
+          }
+        })
+      }
+      if (item.link === props.path) {
+        breadcrumb = item.title
+      }
+    })
+  })
+  return (
+    <span>{breadcrumb}</span>
+  )
+}
+
+
+type tPROPS = {
+  activeHeader: string;
+  path: string;
+  yaml: object;
+  showMobileSidebar: boolean;
+  toggleSection: Function;
+  toggleMobileSidebar: Function;
+};
+
+
+const DocSidebar = (props: tPROPS) => {
+  const {
+    activeHeader,
+    path,
+    yaml,
+    showMobileSidebar,
+    toggleSection,
+    toggleMobileSidebar
+  } = props
+
+  const sidebarCx = cx({
+    'doc-sidebar': true,
+    'tab-hide': !showMobileSidebar
+  })
+
+  return (
+    <section>
+      <div className='doc-sidebar-mobile' onClick={toggleMobileSidebar}>
+        <DocBreadcrumbs path={path} yaml={yaml}/>
+        <i className='fa fa-angle-down fa-2x'/>
+      </div>
+      <div className={sidebarCx}>
+        {yaml.map((section, index) => (
           <div key={index}>
             <Section
               {...section}
               title={section.title}
               index={index}
-              isInline={isInline}
-              activeHeader={this.props.activeHeader}
-              toggleSection={this.props.toggleSection}
+              activeHeader={activeHeader}
+              toggleSection={toggleSection}
             />
           </div>
         ))}
       </div>
-    )
-  }
+    </section>
+  )
 }
 
 DocSidebar.displayName = 'components/DocSidebar'

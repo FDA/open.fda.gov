@@ -52,6 +52,11 @@
 .nav-bar
   width: 95%
 
+.logo-wrapper
+  display: flex
+  min-height: 50px
+  margin-left: 0
+
 .fda-logo
   width: 180px
 
@@ -65,7 +70,6 @@
   position: relative
   display: inline-block
   cursor: pointer
-  z-index: 200
 
 .dropdown-content
   position: absolute
@@ -90,7 +94,7 @@
   display: block
   position: relative
   margin-bottom: 0
-  padding: 1.5em 1.0em
+  padding: 1.5em 0.5em
   color: #666666
   line-height: 2em
 
@@ -99,10 +103,10 @@
 
 .menu-header-underbar
   border-top: 4px solid #00AAFF
-  margin: -25px 0px 21px 1em
+  margin: -1.5em 0px 21px 1em
   bottom: 0
   height: 1px
-  width: calc(100% - 55px)
+  width: calc(100% - 38px)
 
 .fa-angle-down
   padding-left: 0.5em
@@ -150,6 +154,12 @@
   .fda-bar
     margin-top: 55px
 
+  .fda-logo
+    display: none
+
+  .nav-bar-divider-line
+    display: none
+
 @media $tablet
   .nav-ul
     display: flex
@@ -164,14 +174,14 @@
     width: 100%
 
   .nav-bar
-    position: fixed
-    z-index: 100
     background: white
-    width: 100%
-    margin: 0 2.5vw
+
+  .menu-header
+    padding: 1em
 
   .menu-header-underbar
-    width: calc(100% - 1em)
+    margin: -1em 0px 21px 1em
+    width: calc(100% - 2em)
 
   .menu-container
     display: block
