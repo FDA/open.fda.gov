@@ -79,7 +79,7 @@ const SectionLink = props => {
       {Object.keys(item).indexOf("link") === -1 ? (
         <span className={itemCx + (props.activeHeader.indexOf(long_title) > -1 ? ' ': ' collapsed')}
           title={long_title}
-          onClick={props.toggleMobileSidebar}>
+          onClick={props.toggleSection}>
           {title}
         </span>
       ) : link.charAt(0) === `#` ? (
