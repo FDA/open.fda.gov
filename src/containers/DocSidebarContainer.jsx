@@ -74,7 +74,6 @@ const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClas
     }
 
     _toggleMobileSidebar () {
-      console.log(this.state.showMobileSidebar)
       this.setState({
         showMobileSidebar: !this.state.showMobileSidebar
       })

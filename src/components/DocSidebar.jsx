@@ -36,6 +36,7 @@ const SectionLinks = props => {
           children={item.items}
           key={index}
           toggleSection={props.toggleSection}
+          toggleMobileSidebar={props.toggleMobileSidebar}
           activeHeader={props.activeHeader}
         />
       ))}
@@ -78,11 +79,11 @@ const SectionLink = props => {
       {Object.keys(item).indexOf("link") === -1 ? (
         <span className={itemCx + (props.activeHeader.indexOf(long_title) > -1 ? ' ': ' collapsed')}
           title={long_title}
-          onClick={props.toggleSection}>
+          onClick={props.toggleMobileSidebar}>
           {title}
         </span>
       ) : link.charAt(0) === `#` ? (
-        <a href={link} className={itemCx}>
+        <a href={link} className={itemCx} onClick={props.toggleMobileSidebar}>
           {title}
         </a>
       ) : (
@@ -91,6 +92,7 @@ const SectionLink = props => {
           key={link}
           className={itemCx}
           activeClassName='sidebar-item-active'
+          onClick={props.toggleMobileSidebar}
           exact
         >
           {title}
@@ -171,6 +173,7 @@ const DocSidebar = (props: tPROPS) => {
               index={index}
               activeHeader={activeHeader}
               toggleSection={toggleSection}
+              toggleMobileSidebar={toggleMobileSidebar}
             />
           </div>
         ))}
