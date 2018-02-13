@@ -22,6 +22,7 @@ type tPROPS = {
   showMobileNav: boolean;
   showModal: boolean;
   toggleMobileNav: Function;
+  closeMobileNav: Function;
   toggleDropdownContent: Function;
   hideDropdownContent: Function;
   showDropdownContent: Function;
@@ -38,6 +39,7 @@ const Nav = (props: tPROPS) => {
     showMobileNav,
     showModal,
     toggleMobileNav,
+    closeMobileNav,
     toggleDropdownContent,
     hideDropdownContent,
     showDropdownContent,
@@ -123,6 +125,7 @@ const Nav = (props: tPROPS) => {
                   title='Home'
                   to='/'
                   className={activeDropdown==='Home' ? 'menu-header emphasis': path === '/' ? 'menu-header emphasis': 'menu-header'}
+                  onClick={closeMobileNav}
                 >Home</Link>
                 <div className={path === '/' ? 'menu-header-underbar': 'menu-header-underbar display-none'} style={{width: 'calc(100% - 1em)'}}/>
               </div>
@@ -135,11 +138,11 @@ const Nav = (props: tPROPS) => {
                 <div className={path.includes('about') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown==='About' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/about/introduction/'>What is openFDA?</Link>
-                    <Link className={linkCx} to='/about/updates/'>Updates</Link>
-                    <Link className={linkCx} to='/about/status/'>API status</Link>
-                    <Link className={linkCx} to='/about/statistics/'>API usage statistics</Link>
-                    <Link className={linkCx} to='/about/downloads/'>Downloads</Link>
+                    <Link className={linkCx} to='/about/introduction/' onClick={closeMobileNav}>What is openFDA?</Link>
+                    <Link className={linkCx} to='/about/updates/' onClick={closeMobileNav}>Updates</Link>
+                    <Link className={linkCx} to='/about/status/' onClick={closeMobileNav}>API status</Link>
+                    <Link className={linkCx} to='/about/statistics/' onClick={closeMobileNav}>API usage statistics</Link>
+                    <Link className={linkCx} to='/about/downloads/' onClick={closeMobileNav}>Downloads</Link>
                   </div>
                 </div>
               </div>
@@ -152,10 +155,10 @@ const Nav = (props: tPROPS) => {
                 <div className={path.includes('docs') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown==='Documentation' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/docs/'>API basics</Link>
-                    <Link className={linkCx} to='/docs/drug/'>Drug Endpoints</Link>
-                    <Link className={linkCx} to='/docs/device/'>Device Endpoints</Link>
-                    <Link className={linkCx} to='/docs/food/'>Food Endpoints</Link>
+                    <Link className={linkCx} to='/docs/' onClick={closeMobileNav}>API basics</Link>
+                    <Link className={linkCx} to='/docs/drug/' onClick={closeMobileNav}>Drug Endpoints</Link>
+                    <Link className={linkCx} to='/docs/device/' onClick={closeMobileNav}>Device Endpoints</Link>
+                    <Link className={linkCx} to='/docs/food/' onClick={closeMobileNav}>Food Endpoints</Link>
                   </div>
                 </div>
               </div>
@@ -171,6 +174,7 @@ const Nav = (props: tPROPS) => {
                     <a
                       className={`${linkCx} link-external`}
                       href='https://github.com/FDA'
+                      onClick={closeMobileNav}
                       rel='noopener noreferrer'
                       target='_blank'>
                       Source code (GitHub)
@@ -178,6 +182,7 @@ const Nav = (props: tPROPS) => {
                     <a
                       className={`${linkCx} link-external`}
                       href='https://opendata.stackexchange.com/questions/tagged/openfda'
+                      onClick={closeMobileNav}
                       rel='noopener noreferrer'
                       target='_blank'>
                       Q&A (StackExchange)
@@ -185,12 +190,13 @@ const Nav = (props: tPROPS) => {
                     <a
                       className={`${linkCx} link-external`}
                       href='https://twitter.com/openFDA'
+                      onClick={closeMobileNav}
                       rel='noopener noreferrer'
                       target='_blank'>
                       @openFDA (Twitter)
                     </a>
-                    <Link className={linkCx} to='/community/'>openFDA Apps</Link>
-                    <Link className={linkCx} to='/community/research/'>Research tools</Link>
+                    <Link className={linkCx} to='/community/' onClick={closeMobileNav}>openFDA Apps</Link>
+                    <Link className={linkCx} to='/community/research/' onClick={closeMobileNav}>Research tools</Link>
                   </div>
                 </div>
               </div>

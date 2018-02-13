@@ -44,6 +44,12 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
       })
     }
 
+    _closeMobileNav() {
+      this.setState({
+        showMobileNav: false
+      })
+    }
+
     _toggleDropdownContent (e) {
       console.log("e is: ", e)
       const title = e.target.getAttribute('title')
@@ -96,6 +102,7 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
           {...this.props}
           {...this.state}
           toggleMobileNav={this._toggleMobileNav.bind(this)}
+          closeMobileNav={this._closeMobileNav.bind(this)}
           toggleDropdownContent={this._toggleDropdownContent.bind(this)}
           hideDropdownContent={this._hideDropdownContent.bind(this)}
           showDropdownContent={this._showDropdownContent.bind(this)}
