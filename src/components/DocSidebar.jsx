@@ -50,7 +50,14 @@ const SectionLink = props => {
   let childnodes = null
   if (props.children) {
     childnodes = props.children.map((childnode, index) => (
-      <SectionLink key={index} node={childnode} children={childnode.items} isChild />
+      <SectionLink
+        key={index}
+        node={childnode}
+        children={childnode.items}
+        toggleSection={props.toggleSection}
+        toggleMobileSidebar={props.toggleMobileSidebar}
+        activeHeader={props.activeHeader}
+        isChild />
     ))
   }
 

@@ -14,7 +14,7 @@ export default () => (
     />
     <section className='body-bg-offwhite'>
       <div className="container blog-bg">
-        <h2 className="center-heading" style={{margin: '30px 30px 10px'}}><span>OpenFDA Powered Research Tools</span></h2>
+        <h2 className="center-heading" style={{padding: '30px 30px 10px'}}><span>OpenFDA Powered Research Tools</span></h2>
         <div className='blog-container'>
           {
             tools.map((tool, i) => (

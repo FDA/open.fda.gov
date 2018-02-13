@@ -95,8 +95,8 @@ const Infographic = (props: tPROPS) => {
   // if fieldDef has description, then docs-ify it
   const markedFieldDef: string = fieldDefinition &&
     fieldDefinition.description ?
-      `${marked(fieldDefinition.description)}` :
-      ''
+    `${marked(fieldDefinition.description)}` :
+    ''
 
   // add breakpoint logic to filter
   const FilterWithState: ReactClass = BPContainer(Filter, {
@@ -122,7 +122,12 @@ const Infographic = (props: tPROPS) => {
   // onSearchChange={this._onSearchChange.bind(this)}
 
   return (
-      <section>
+    <section>
+      <p className='infographic-mobile-disclaimer'>
+        The infographic is too large to fit in your screen.
+        Try flipping your device sideways or using a larger device.
+      </p>
+      <div className='infographic'>
         {
           title &&
           <h2
@@ -150,13 +155,12 @@ const Infographic = (props: tPROPS) => {
         <div className="tab">
           {
             Object.keys(tabs).map((value,i) => {
-              return <button 
-                      onClick={() => { handler(tabs[value])} }
-                      key={i}
-                      className={container.state.selected === value ? "tab active": "tab"}
-                    >
-                    {tabs[value].short}
-                    </button>
+              return <button
+                onClick={() => { handler(tabs[value])} }
+                key={i}
+                className={container.state.selected === value ? "tab active": "tab"}>
+                {tabs[value].short}
+              </button>
             })
           }
         </div>
@@ -268,7 +272,7 @@ const Infographic = (props: tPROPS) => {
                 Change your search and/or count parameters and try again
               </span>
             }
-            
+
             { !fieldDefinition &&
               <span className='clr-secondary weight-600 txt-c'>
                 No Field Definition found in fields yaml.<br />
@@ -334,7 +338,8 @@ const Infographic = (props: tPROPS) => {
             />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   )
 }
 
