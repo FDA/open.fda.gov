@@ -115,12 +115,6 @@ properties:
             is_exact: false
             possible_values:
             type: string
-  domestic_or_foreign:
-    description: "Domestic reports are those that involve an FDA-regulated veterinary medicinal product, regardless of the country in which the adverse event occurs. Foreign reports are those that involve a veterinary medicinal product that is the same as or similar to an FDA-regulated product but that is not the FDA-approved product."
-    format:
-    is_exact: false
-    possible_values:
-    type: string
   drug:
     desccription: "The drug taken while the event was experienced."
     type: object
@@ -611,12 +605,6 @@ properties:
     description: "A list of values regarding the type of information in the report."
     format:
     is_exact: true
-    possible_values:
-    type: string
-  type_of_submission:
-    description: "A list of values regarding the type of report being submitted."
-    format:
-    is_exact: false
     possible_values:
     type: string
   unique_aer_id_number:

@@ -22,6 +22,7 @@
   - "**Drugs:** Information on the drugs taken while the event was experienced"
   - "**Reactions:** Information on the reactions experienced by the patient"
 - "## Field-by-field reference"
+- 'Some data fields may contain the value MSK.  MSK  is a null value that means "masked."  MSK is used when there is information available for the value, but it has not been provided by the sender due to security, privacy, or other reasons.'
 - "### Header"
 - "General information about the adverse event."
 - example: header
@@ -32,10 +33,8 @@
   - receiver
   - primary_reporter
   - secondary_reporter
-  - type_of_submission
   - type_of_information
   - serious_ae
-  - domestic_or_foreign
 - "### Animal"
 - "Information about the animal(s) in the adverse event report."
 - example: animal
