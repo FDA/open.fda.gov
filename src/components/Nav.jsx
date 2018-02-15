@@ -170,7 +170,7 @@ const Nav = (props: tPROPS) => {
                 <div className={path.includes('tools') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown==='Tools' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/community/research/' onClick={closeMobileNav}>Research tools</Link>
+                    <Link className={linkCx} to='/tools/' onClick={closeMobileNav}>Research tools</Link>
                     <Link className={linkCx} to='/tools/downloads/' onClick={closeMobileNav}>Downloads</Link>
                   </div>
                 </div>
