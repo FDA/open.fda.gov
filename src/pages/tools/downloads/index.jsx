@@ -3,8 +3,8 @@
 import React from 'react'
 
 import Downloads from '../../../components/Downloads'
-import Hero from '../../../components/Hero'
-import SideBar from '../../../components/SideBar'
+import Hero from '../../../components/Hero/index'
+import SideBar from '../../../components/SideBar/index'
 import SideBarContainer from '../../../containers/SideBarContainer'
 
 import food_enforcement_meta from '../../api_endpoints/food/enforcement/_meta.yaml'
@@ -57,10 +57,10 @@ let downloads_list = Object.keys(endpoint_list).map((key: string, i: number) => 
 export default () => (
   <section>
     <Hero
-        label='Endpoint Downloads'
-        title='Downloads'
-        htmlDescription="true"
-        description="This page provides all available endpoint downloads."
+      label='Endpoint Downloads'
+      title='Downloads'
+      htmlDescription="true"
+      description="This page provides all available endpoint downloads."
     />
     <section className='container t-marg-t-3 marg-b-3 relative row content-wrapper'>
 
@@ -68,7 +68,7 @@ export default () => (
         downloads={Object.keys(endpoint_list)}
       />
 
-      <div className="float-r ref-content" style={{  maxWidth: '100%',}}>
+      <div className="float-r ref-content" style={{  maxWidth: '100%'}}>
         <ul id='downloads'>
           {downloads_list}
         </ul>

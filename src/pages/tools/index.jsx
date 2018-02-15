@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Hero from '../../../components/Hero/index'
-import ResearchBox from '../../../components/ResearchBox'
+import Hero from '../../components/Hero/index'
+import ResearchBox from '../../components/ResearchBox'
 import tools from './_tools.yaml'
 
 
@@ -13,8 +13,8 @@ export default () => (
       description='These sophisticated, interactive, and open-source applications demonstrate how openFDA APIs can be used for epidemiological research.'
     />
     <section className='body-bg-offwhite'>
-      <div className="container blog-bg">
-        <h2 className="center-heading" style={{padding: '30px 30px 10px'}}><span>OpenFDA Powered Research Tools</span></h2>
+      <div className='container blog-bg'>
+        <h2 className='center-heading' style={{padding: '30px 30px 10px'}}><span>OpenFDA Powered Research Tools</span></h2>
         <div className='blog-container'>
           {
             tools.map((tool, i) => (
