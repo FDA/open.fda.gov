@@ -8,7 +8,7 @@ import BlogRoll from '../components/BlogRoll'
 // homepage
 const INDEX = () => (
   <section className='body-bg-offwhite'>
-    <section className='container-homepage flex-row align-start'>
+    <section className='container-homepage align-start'>
       <section className='flex-box align-center just-center homepage-hero'>
         <div>
           <h3>Open-source APIs</h3>
@@ -20,9 +20,11 @@ const INDEX = () => (
         </div>
       </section>
       <section className='noun-box-container flex-box dir-column just-center'>
-        <div className='flex-row just-center align-center flex-wrap marg-t-2'>
+        <div className='flex-box dir-row just-between align-center flex-wrap'>
           <NounBox noun_name='food'/>
           <NounBox noun_name='medical_devices'/>
+        </div>
+        <div className='flex-box dir-row just-between align-center flex-wrap'>
           <NounBox noun_name='drugs'/>
           <NounBox noun_name='animal_and_veterinary'/>
         </div>
@@ -31,8 +33,8 @@ const INDEX = () => (
         </Link>
       </section>
     </section>
-    <section className='container-homepage flex-row'>
-      <section className='flex-box dir-column just-between pad-r-1 homepage-link-list'>
+    <section className='container-homepage'>
+      <section className='flex-box dir-column just-between homepage-link-list'>
         <Link className='link-card btn btn-icon-right weight-700' to='/about/statistics/'>
           <img className='' src='/img/line-graph.svg'/>
           <div className='flex-box dir-column marg-l-1 marg-r-1'>

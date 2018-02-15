@@ -22,13 +22,6 @@ const NounBox = (props: tPROPS) => {
     noun_name
   } = props
 
-  const description = {
-    food: "Ensuring that the nation's food supply is sanitary, wholesome, and honestly labeled",
-    medical_devices: "Overseeing medical devices from tongue depressors to surgical devices",
-    drugs: "Regulating over-the-counter and prescription drugs for people in the United States",
-    animal_and_veterinary: "Regulating over-the-counter and prescription products for animals in the United States"
-  }
-
   const noun_title = {
     food: "Food",
     medical_devices: "Medical Devices",
@@ -63,9 +56,8 @@ const NounBox = (props: tPROPS) => {
         <div className='bg-img-container'>
           <img className='icon' src={bg_image[noun_name]}/>
         </div>
-        <div className='flex-row dir-column m-pad-t-2 m-pad-b-2 noun-text-box no-flex-wrap'>
+        <div className='flex-row dir-column noun-text-box no-flex-wrap'>
           <h3 className='txt-c clr-white pad-t-4'>{noun_title[noun_name]}</h3>
-          <span className='clr-white marg-1'>{description[noun_name]}</span>
         </div>
       </Link>
     </section>
