@@ -102,7 +102,7 @@
       "subfieldLabel": "State",
       "pieChartCategoryName": "Classification",
       "pieChartApiName": "Drug Enforcement Reports",
-      "lineLimiter": 15,
+      "lineLimiter": 100,
       "defs": {
         "Class II": "Class II",
         "Class I": "Class I",
