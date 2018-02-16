@@ -172,6 +172,7 @@ const Nav = (props: tPROPS) => {
                   <div className='sub-menu-container' role='navigation'>
                     <Link className={linkCx} to='/tools/' onClick={closeMobileNav}>Research tools</Link>
                     <Link className={linkCx} to='/tools/downloads/' onClick={closeMobileNav}>Downloads</Link>
+                    <Link className={linkCx} to='/tools/dataexplorer/' onClick={closeMobileNav}>Dataset Explorer</Link>
                   </div>
                 </div>
               </div>
@@ -180,7 +181,9 @@ const Nav = (props: tPROPS) => {
                   title='Community'
                   className={activeDropdown==='Community' ? 'menu-header emphasis': path.includes('community') ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
-                >Community <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none': '')}/></span>
+                >
+                Community <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none': '')}/>
+                </span>
                 <div className={path.includes('community') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown==='Community' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
@@ -229,3 +232,5 @@ const Nav = (props: tPROPS) => {
 
 Nav.displayName = 'components/Nav'
 export default NavContainer(Nav)
+
+
