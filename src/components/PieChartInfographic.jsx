@@ -414,13 +414,15 @@ class PieChartInfographic extends React.Component {
           const useProductCodes = (that.props.globalDefs.productCodes !== undefined && that.props.infographicDefinitions.useProductCodes)
           const useStatesNames = (that.props.infographicDefinitions.subfield === "state.exact")
           columns = columns.slice(0,that.props.infographicDefinitions.lineLimiter).map( column => {
+            let cleanedColumnName = ""
             if(useProductCodes){
               var fullProductCode = that.props.globalDefs.productCodes[column.toUpperCase()]
-              column = fullProductCode === undefined ? column : fullProductCode
+              cleanedColumnName = fullProductCode === undefined ? column : fullProductCode
             } else if (useStatesNames){
-              column = states.states[column.toUpperCase()]
+              cleanedColumnName = states.states[column.toUpperCase()]
             }
-            return column.slice(0,55)
+            cleanedColumnName = !cleanedColumnName ? column : cleanedColumnName
+            return cleanedColumnName.slice(0,55)
           })
           
           const listOfSeries = []
