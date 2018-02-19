@@ -46,7 +46,7 @@
     "marked": "^0.3.6",
     "matchmedia": "^0.1.2",
     "nib": "^1.1.2",
-    "nivo": "git+ssh://git@github.com:debovis/nivo.git#add_template_label_heatmap1",
+    "nivo": "0.31.0",
     "pandas-js": "0.2.4",
     "pondjs": "0.8.7",
     "rc-slider": "8.3.1",
