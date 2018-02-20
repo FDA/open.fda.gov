@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Hero from '../../../components/Hero/index'
+import FilterComponent from '../../../components/FilterComponent'
 import meta from './_meta.yaml'
 import datasets from './_datasets.yaml'
 import Select from 'react-select'
@@ -36,12 +37,18 @@ class DataExplorer extends React.Component {
         />
         <section className='body-bg-offwhite'>
           <div className='container blog-bg'>
-            <div className='blog-container'>
+            <div style={{
+              display: "flex",
+              flexWrap: "wrap"
+            }}>
               <div style={{
-                height: 100,
+                height: 70,
                 width: 1000,
                 display:"flex",
-                paddingTop: 20
+                paddingTop: 20,
+                width: "100%",
+                borderBottom: 1,
+                borderBottomStyle: "solid"
               }}>
               <i style={{
                 fontSize: 22,
@@ -61,10 +68,9 @@ class DataExplorer extends React.Component {
                 placeholder="Search the fields"
               />
               </div>
-              <div>
-                
-
-              </div>
+              <FilterComponent
+                dataset={this.state.choosenDataset}
+              />
             </div>
           </div>
         </section>
@@ -75,3 +81,13 @@ class DataExplorer extends React.Component {
 
 
 export default DataExplorer
+
+
+
+
+
+
+
+
+
+
