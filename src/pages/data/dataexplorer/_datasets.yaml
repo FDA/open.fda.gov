@@ -2,3 +2,49 @@ names:
   animaldrugs:
     label: Animal Drug Labeling
     path: animaldrug
+    filters:
+      options: 
+        - label: Time Period
+          type: time_select
+          placeholder: Select Time Period
+          options: 
+              - Last 7 Days
+              - Last 30 Days
+              - YTD
+              - Last Year
+              - Last 5 Years
+              - All Available
+        - label: Active Ingredients
+          field: active_ingredient_exact
+          type: autocomplete
+          placeholder: Start typing to select Ingredient
+        - label: Product type
+          type: select
+          options:
+              - HUMAN OTC DRUG
+              - HUMAN PRESCRIPTION DRUG
+        - label: Brand Name
+          field: brand_name
+          type: autocomplete
+          placeholder: Start typing to select Brand Name
+        - label: Generic Name
+          field: generic_name_exact
+          type: autocomplete
+          placeholder: Start typing to select Generic Name
+        - label: Labler Name
+          type: autocomplete
+          placeholder: Start typing to select Labeler Name
+        - label: NDC Code
+          type: autocomplete
+          field: product_ndc
+          placeholder: E.g. 59822-1
+        - label: Application Number
+          type: autocomplete
+          field: status
+          placeholder: E.g. NADA14081
+        - label: Drug Approval Status
+          type: checkbox
+          field: status
+          options:
+              - Approved
+              - Unapproved

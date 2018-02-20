@@ -55,6 +55,7 @@
     "localforage": "^1.5.2",
     "marked": "^1.1.1",
     "matchmedia": "^0.1.2",
+    "moment": "2.20.1",
     "nib": "^1.1.2",
     "node-sass": "^4.14.1",
     "pandas-js": "0.2.4",
