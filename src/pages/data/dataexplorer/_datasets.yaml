@@ -2,6 +2,9 @@ names:
   animaldrugs:
     label: Animal Drug Labeling
     path: animaldrug
+    views:
+      listingLabels:
+        label: Listing of Labels
     filters:
       options: 
         - label: Time Period
@@ -29,7 +32,7 @@ names:
           placeholder: Start typing to select Brand Name
         - label: Generic Name
           field: generic_name_exact
-          type: autocomplete
+          type: genericNameAutocompleter
           placeholder: Start typing to select Generic Name
         - label: Labler Name
           type: autocomplete
@@ -48,3 +51,42 @@ names:
           options:
               - Approved
               - Unapproved
+
+  petfoodrecalls:
+    label: Petfood Recalls
+    path: petfoodrecalls
+    views:
+      lltView:
+        label: LLT Frequency
+      listingRecalls:
+        label: Listing of recalls
+    filters:
+      options:
+        - label: Time Period
+          type: time_select
+          placeholder: Select Time Period
+          options:
+              - YTD
+              - Last Year
+              - Last 5 Years
+              - All Available
+        - label: Product Name
+          field: product.product_name
+          type: autocomplete
+          placeholder: Start typing to select Product
+        - label: Brand Name
+          field: product.brand_name
+          type: autocomplete
+          placeholder: Start typing to select Brand
+        - label: Flavor
+          field: product.flavor_name
+          type: autocomplete
+          placeholder: Start typing to select Flavor
+        - label: Formulation
+          field: product.formulation_name
+          type: autocomplete
+          placeholder: Start typing to select Formulation
+        - label: Clinical Reaction
+          field: clinical_reaction
+          type: autocomplete
+          placeholder: Start typing to select Clnical Reaction
