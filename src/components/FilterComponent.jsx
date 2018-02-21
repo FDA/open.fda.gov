@@ -8,103 +8,13 @@ import 'rc-checkbox/assets/index.css'
 import _ from 'lodash'
 import Moment from 'moment'
 
-import AutoCompleteComponent from '../components/AutoCompleteComponent'
-
+import AutoCompleteComponent from './AutoComplete'
 
 // autocomplete
 // select
 // time_select
 // checkbox
 
-class AutoCompleteFilterComponent extends React.Component {
-
-    constructor(props: Object) {
-        super(props)
-
-        this.state = {}
-
-        this.getOptions = this.getOptions.bind(this)
-    }
-
-    componentDidMount() {
-        this.getOptions().then(result => {
-            this.setState({
-                options: result
-            })
-        })
-    }
-
-    //   render (): ?React.Element {
-    //     const field = this.props.option.field
-    //     const output = this.props.option.options.map((label, idx) => {
-    //         return (
-    //           <div key={"div" + idx}>
-    //             <p>
-    //               <label>
-    //                 <Checkbox
-    //                   key={"box" + idx}
-    //                   name={field}
-    //                   defaultChecked
-    //                   onChange={this.props.onChange}
-    //                   disabled={this.state.disabled}
-    //                 />
-    //                 &nbsp; {label}
-    //               </label>
-    //             </p>
-    //           </div>
-    //         )
-    //       })
-    //     return (
-    //       <div>
-    //         <br/>
-    //         <h3>{this.props.option.label}</h3>
-    //         <br/>
-    //         {
-    //           output
-    //         }
-    //       </div>
-    //     )
-    //   }
-    // }
-
-    getOptions(input) {
-
-        const brand_name_url = "http:\//ec2-54-211-65-171.compute-1.amazonaws.com:8000/drug/label.json?count=openfda.brand_name_exact"
-
-        return fetch(brand_name_url)
-            .then((response) => {
-                return response.json();
-            }).then((json) => {
-                const res = json.results.map(obj => {
-                    return {
-                        label: obj.term
-                    }
-                });
-                return res
-            })
-    }
-
-    render(): ?React.Element {
-        // onInputChange={this.onInputChange.bind(this)}
-
-        return (
-            <div>
-                <br/>
-                <h3>{this.props.option.label}</h3>
-                <br/>
-                <Select
-                    value={this.state.value}
-                    style={{
-                        width: 250
-                    }}
-                    placeholder={this.props.option.placeholder}
-                    options={this.state.options || []}
-                />
-
-            </div>
-        )
-    }
-}
 
 class SelectFilterComponent extends React.Component {
 
@@ -319,42 +229,41 @@ class FilterComponent extends React.Component {
     if(!this.props.dataset.filters.options || !this.props.dataset.filters.options.length) {
       return <span/>
     }
+    const endpoint = this.props.dataset.endpoint
+    const url = this.props.dataset.url
     const components = this.props.dataset.filters.options.map((option,idx) => {
       if(option.type === "time_select"){
         return (
           <TimeSelectFilterComponent
-            key={"filter" + idx}
+            key={`filter${idx}`}
             option={option}
           />
         )
       } else if(option.type === "select") {
         return (
           <SelectFilterComponent
-            key={"filter" + idx}
+            key={`filter${idx}`}
             option={option}
           />
         )
       } else if(option.type === "autocomplete") {
-        return (
-          <AutoCompleteFilterComponent
-            key={"filter" + idx}
-            option={option}
-          />
-
-        )
-      } else if(option.type === "genericNameAutocompleter") {
           return (
-              <div>
-                  <br/>
-                  <h3>{option.label}</h3>
-                  <br/>
-                  <AutoCompleteComponent fieldName={option.label}/>
-              </div>
+            <div key={`div${idx}`}>
+                <br/>
+                <h3>{option.label}</h3>
+                <br/>
+                <AutoCompleteComponent
+                  key={"filter" + idx}
+                  url={url}
+                  endpoint={endpoint}
+                  {...option}
+                />
+            </div>
           )
       } else if(option.type === "checkbox") {
         return (
           <CheckboxFilterComponent
-            key={"filter" + idx}
+            key={`filter${idx}`}
             option={option}
             onChange={this.onChange}
           />
