@@ -47,7 +47,7 @@
     "matchmedia": "^0.1.2",
     "moment": "2.20.1",
     "nib": "^1.1.2",
-    "nivo": "0.31.0",
+    "nivo": "git+ssh://git@github.com:debovis/nivo.git#add_template_label_heatmap1",
     "pandas-js": "0.2.4",
     "pondjs": "0.8.7",
     "rc-slider": "8.3.1",
@@ -68,6 +68,7 @@
     "recharts": "1.0.0-beta.0",
     "scroll-into-view": "^1.9.1",
     "stylus": "^0.54.5",
+    "with-query": "1.0.2",
     "whatwg-fetch": "2.0.3"
   },
   "keywords": [

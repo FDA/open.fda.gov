@@ -5,46 +5,59 @@ names:
     views:
       listingLabels:
         label: Listing of Labels
+    endpoint: drug/label.json
+    url: http://ec2-34-238-202-4.compute-1.amazonaws.com:8000
     filters:
       options: 
         - label: Time Period
           type: time_select
           placeholder: Select Time Period
-          options: 
+          options:
               - Last 7 Days
               - Last 30 Days
               - YTD
               - Last Year
               - Last 5 Years
               - All Available
-        - label: Active Ingredients
-          field: active_ingredient_exact
+        - label: Inactive Ingredients
+          field: inactive_ingredient
           type: autocomplete
-          placeholder: Start typing to select Ingredient
+          placeholder: Start typing to select Inactive Ingredient
+          limit: 100
+        - label: Active Ingredients
+          field: active_ingredient
+          type: autocomplete
+          placeholder: Start typing to select Active Ingredient
+          limit: 100
         - label: Product type
           type: select
           options:
               - HUMAN OTC DRUG
               - HUMAN PRESCRIPTION DRUG
         - label: Brand Name
-          field: brand_name
+          field: openfda.brand_name
           type: autocomplete
           placeholder: Start typing to select Brand Name
+          limit: 100
         - label: Generic Name
-          field: generic_name_exact
-          type: genericNameAutocompleter
+          field: openfda.generic_name
+          type: autocomplete
           placeholder: Start typing to select Generic Name
-        - label: Labler Name
+          limit: 100
+        - label: Labeler Name
           type: autocomplete
           placeholder: Start typing to select Labeler Name
+          limit: 100
         - label: NDC Code
           type: autocomplete
           field: product_ndc
           placeholder: E.g. 59822-1
+          limit: 100
         - label: Application Number
           type: autocomplete
           field: status
           placeholder: E.g. NADA14081
+          limit: 100
         - label: Drug Approval Status
           type: checkbox
           field: status
