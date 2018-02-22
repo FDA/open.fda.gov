@@ -2,7 +2,8 @@
 
 import React from 'react'
 import Hero from '../../../components/Hero/index'
-import FilterComponent from '../../../components/FilterComponent'
+import FilterComponent from '../../../components/Filter'
+import DatasetExplorerContentComponent from '../../../components/DatasetExplorerContent'
 import meta from './_meta.yaml'
 import datasets from './_datasets.yaml'
 import Select from 'react-select'
@@ -132,6 +133,9 @@ class DataExplorer extends React.Component {
                 />
               </div>
               <FilterComponent
+                dataset={this.state.choosenDataset}
+              />
+              <DatasetExplorerContentComponent
                 dataset={this.state.choosenDataset}
               />
             </div>

@@ -64,7 +64,78 @@ names:
           options:
               - Approved
               - Unapproved
-
+    columns:
+      - Header: NDC
+        accessor: product_ndc
+      - Header: Brand Name
+        accessor: openfda.brand_name
+      - Header: Generic Name
+        accessor: openfda.generic_name
+      - Header: Active Ingredients
+        accessor: active_ingredient
+      - Header: Inactive Ingredients
+        accessor: inactive_ingredient
+      - Header: Product Type
+        accessor: openfda.product_type
+      - Header: Effective Date
+        accessor: effective_time
+      - Header: Purpose
+        accessor: purpose
+        show: false
+      - Header: Keep out of reach of children
+        accessor: keep_out_of_reach_of_children
+        show: false
+      - Header: Warnings
+        accessor: warnings
+        show: false
+      - Header: Questions
+        accessor: questions
+        show: false
+      - Header: SPL Product Data Elements
+        accessor: spl_product_data_elements
+        show: false
+      - Header: SPL ID
+        accessor: openfda.spl_id
+        show: false
+      - Header: Substance Name
+        accessor: substance_name
+        show: false
+      - Header: Route
+        accessor: openfda.route
+        show: false
+      - Header: Is original packager
+        accessor: openfda.is_original_packager
+        show: false
+      - Header: SPL Set ID
+        accessor: openfda.spl_set_id
+        show: false
+      - Header: Manufacturer Name
+        accessor: openfda.manufacturer_name
+        show: false
+      - Header: UNII
+        accessor: openfda.unii
+        show: false
+      - Header: Dosage
+        accessor: dosage_and_administration
+        show: false
+      - Header: Pregnancy or breast feeding
+        accessor: pregnancy_or_breast_feeding
+        show: false
+      - Header: Stop Use
+        accessor: stop_use
+        show: false
+      - Header: Storage and Handling
+        accessor: storage_and_handling
+        show: false
+      - Header: Do Not Use
+        accessor: do_not_use
+        show: false
+      - Header: Package label principal display
+        accessor: package_label_principal_display_panel
+        show: false
+      - Header: Indications and Usage
+        accessor: indications_and_usage
+        show: false
   petfoodrecalls:
     label: Petfood Recalls
     path: petfoodrecalls

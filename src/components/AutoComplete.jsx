@@ -16,7 +16,7 @@ class AutoCompleteComponent extends React.Component {
         this.onChange = this.onChange.bind(this)
         this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this)
         this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this)
-        
+        this.onSuggestionSelected = this.onSuggestionSelected.bind(this)
     }
 
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
@@ -40,26 +40,26 @@ class AutoCompleteComponent extends React.Component {
             })
         )
         .then(res => res.json())
-        .then((json) => {
-          return json.results
-        })
-        .catch((err) => {
-          return []
-        })
+        .then((json) => json.results)
+        .catch((err) => [])
     }
 
     onSuggestionsFetchRequested(value){
         var that = this;
-        this.getSuggestions(value).then(result => {
+        const escapedValue = this.escapeRegexCharacters(value.value.trim())
+        this.getSuggestions(escapedValue).then(result => {
             if(!result){
                 return
             }
             that.setState({
                 suggestions: result,
-                value: value.value
+                value: escapedValue
             })
             console.log("suggestions are:", result);
         })
+    }
+    onSuggestionSelected(event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }){
+        console.log(event, suggestion)
     }
 
     getSuggestionValue(suggestion) {
@@ -67,13 +67,13 @@ class AutoCompleteComponent extends React.Component {
     }
 
     onChange (event, { newValue, method }) {
-        const value = this.escapeRegexCharacters(newValue.trim())
-        if(!value.length){
+        if(!newValue.length){
             this.setState({
                 suggestions: [],
-                value
+                value: newValue
             })
         }
+
     }
 
     onSuggestionsClearRequested (){
@@ -86,6 +86,7 @@ class AutoCompleteComponent extends React.Component {
         return (
             <Autosuggest
                 suggestions={this.state.suggestions}
+                onSuggestionSelected={this.onSuggestionSelected}
                 onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
                 onSuggestionsClearRequested={this.onSuggestionsClearRequested}
                 getSuggestionValue={this.getSuggestionValue}
