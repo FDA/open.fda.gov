@@ -168,24 +168,17 @@ class CheckboxFilterComponent extends React.Component {
 
   componentDidMount () {
   }
-  // - label: Drug Approval Status
-  // type: checkbox
-  // options:
-  //     - Approved
-  //     - Unapproved
-
 
   render (): ?React.Element {
     const field = this.props.option.field
     const output = this.props.option.options.map((label, idx) => {
         return (
-          <div key={"div" + idx}>
+          <div key={`div${idx}`}>
             <p>
               <label>
                 <Checkbox
-                  key={"box" + idx}
+                  key={`box${idx}`}
                   name={field}
-                  defaultChecked
                   onChange={this.props.onChange}
                   disabled={this.state.disabled}
                 />
@@ -197,12 +190,7 @@ class CheckboxFilterComponent extends React.Component {
       })
     return (
       <div>
-        <br/>
-        <h3>{this.props.option.label}</h3>
-        <br/>
-        {
-          output
-        }
+        { output }
       </div>
     )
   }
@@ -220,7 +208,7 @@ class FilterComponent extends React.Component {
   componentDidMount () {
   }
 
-  onChange(e) {
+  onChangeCheckbox(e) {
     console.log('Checkbox checked:', (e.target.checked));
   }
 
@@ -247,26 +235,31 @@ class FilterComponent extends React.Component {
           />
         )
       } else if(option.type === "autocomplete") {
-          return (
-            <div key={`div${idx}`}>
-                <br/>
-                <h3>{option.label}</h3>
-                <br/>
-                <AutoCompleteComponent
-                  key={"filter" + idx}
-                  url={url}
-                  endpoint={endpoint}
-                  {...option}
-                />
-            </div>
-          )
+        return (
+          <div key={`div${idx}`}>
+            <br/>
+            <h3>{option.label}</h3>
+            <br/>
+            <AutoCompleteComponent
+              key={"filter" + idx}
+              url={url}
+              endpoint={endpoint}
+              {...option}
+            />
+          </div>
+        )
       } else if(option.type === "checkbox") {
         return (
-          <CheckboxFilterComponent
-            key={`filter${idx}`}
-            option={option}
-            onChange={this.onChange}
-          />
+          <div key={`div${idx}`}>
+            <br/>
+            <h3>{option.label}</h3>
+            <br/>
+            <CheckboxFilterComponent
+              key={`filter${idx}`}
+              option={option}
+              onChange={this.onChangeCheckbox}
+            />
+          </div>
         )
       }
     })
