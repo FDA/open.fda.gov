@@ -7,7 +7,6 @@ import Select from 'react-select'
 import 'rc-checkbox/assets/index.css'
 import _ from 'lodash'
 import Moment from 'moment'
-
 import AutoCompleteComponent from './AutoComplete'
 
 
@@ -119,7 +118,11 @@ class TimeSelectFilterComponent extends React.Component {
         label = `${option} (${startdateLabel} - ${enddateLabel})`
         value = `[${startdateValue}+TO+${enddateValue}]`
       } else if(option === "All Available"){
+        const enddate = Moment().endOf('year')
+        const enddateValue = this.getFormattedDate(enddate, "value")
+
         label = `${option}`
+        value = `[19800101+TO+${enddateValue}]`
       }
       return {
         label: label,
@@ -254,12 +257,8 @@ class FilterComponent extends React.Component {
     super(props)
   
     this.state = {
-      filters: this.props.dataset.filters.options.map(option => {
-        option.value = null
-        return option
-      })
     }
-    this.updateData = this.updateData.bind(this)
+
     this.onChangeSelect = this.onChangeSelect.bind(this)
     this.onChangeCheckbox = this.onChangeCheckbox.bind(this)
   }
@@ -269,7 +268,7 @@ class FilterComponent extends React.Component {
 
   onChangeCheckbox(e) {
     const value = e.target.value.toLowerCase()
-    const currentValue = this.state.filters[e.target.idx].value
+    const currentValue = this.props.parent.state.filters[e.target.filterIdx].value
     let valueToSet = null
 
     if(currentValue === value){
@@ -277,10 +276,10 @@ class FilterComponent extends React.Component {
     } else {
       valueToSet = value
     }
-    this.state.filters[e.target.idx].value = valueToSet
+    this.props.parent.state.filters[e.target.filterIdx].value = valueToSet
 
-    this.setState({
-      filters: this.state.filters
+    this.props.parent.setState({
+      filters: this.props.parent.state.filters
     })
   }
   onChangeAutoComplete(){
@@ -288,25 +287,21 @@ class FilterComponent extends React.Component {
   }
 
   onChangeSelect(selectionObj, meta){
-    this.state.filters[selectionObj.idx].value = selectionObj.value
+    this.props.parent.state.filters[selectionObj.idx].value = selectionObj.value
 
-    this.setState({
-      filters: this.state.filters
+    this.props.parent.setState({
+      filters: this.props.parent.state.filters
     })
-  }
-
-  updateData(){
-    console.log(this)
   }
 
   render (): ?React.Element {
 
-    if(!this.props.dataset.filters.options || !this.props.dataset.filters.options.length) {
+    if(!this.props.parent.state.dataset.filters.options || !this.props.parent.state.dataset.filters.options.length) {
       return <span/>
     }
-    const endpoint = this.props.dataset.endpoint
-    const url = this.props.dataset.url
-    const components = this.props.dataset.filters.options.map((option,idx) => {
+    const endpoint = this.props.parent.state.dataset.endpoint
+    const url = this.props.parent.state.dataset.url
+    const components = this.props.parent.state.dataset.filters.options.map((option,idx) => {
       option.idx = idx
       if(option.type === "time_select"){
         return (
@@ -367,7 +362,7 @@ class FilterComponent extends React.Component {
           components
         }
         <button 
-          onClick={this.updateData}
+          onClick={this.props.parent.updateResults}
           style={{
             backgroundColor: "lightgrey"
           }}
