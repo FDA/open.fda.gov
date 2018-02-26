@@ -4,6 +4,7 @@ import React from 'react'
 import Hero from '../../../components/Hero/index'
 import FilterComponent from '../../../components/Filter'
 import DatasetExplorerContentComponent from '../../../components/DatasetExplorerContent'
+import DatasetRetrievalService from '../../../components/DatasetRetrieval'
 import meta from './_meta.yaml'
 import datasets from './_datasets.yaml'
 import Select from 'react-select'
@@ -23,23 +24,38 @@ class DataExplorer extends React.Component {
       return datasets.names[name]
     })
 
+    const dataset = options[0]
+
     this.state = {
       options: options,
-      choosenDataset: options[0],
-      view: options[0].views[0]
+      dataset: dataset,
+      view: dataset.views[0],
+      filters: dataset.filters.options.map(option => {
+        option.value = null
+        return option
+      }),
+      drs: new DatasetRetrievalService()
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleViewChange = this.handleViewChange.bind(this)
-
+    this.updateResults = this.updateResults.bind(this)
   }
   componentWillReceiveProps () {
 
   }
   componentDidMount () {
-    this.handleChange(this.state.choosenDataset)
+    this.handleChange(this.state.dataset)
     this.handleViewChange(this.state.view)
 
+  }
+
+  updateResults(){
+    const results = this.state.drs.convertFiltersToJson(this.state.filters)
+    console.log(results)
+  }
+  updateState(params){
+    this.setState(params)
   }
 
   handleChange (value) {
@@ -52,14 +68,14 @@ class DataExplorer extends React.Component {
     })
 
     this.setState({
-      choosenDataset: choice,
+      dataset: choice,
       view: choice.views[0]
     })
   }
 
   handleViewChange (value) {
     let choice = null
-    this.state.choosenDataset.views.forEach(obj => {
+    this.state.dataset.views.forEach(obj => {
       if (obj.label == value.label) {
         choice = obj
         console.log("choice is:" + choice.label)
@@ -106,7 +122,7 @@ class DataExplorer extends React.Component {
                   }}
                   clearable={false}
                   resetValue='label'
-                  value={this.state.choosenDataset}
+                  value={this.state.dataset}
                   name='toggle'
                   options={this.state.options}
                   onChange={this.handleChange}
@@ -127,16 +143,17 @@ class DataExplorer extends React.Component {
                   resetValue='label'
                   value={this.state.view}
                   name='toggle'
-                  options={this.state.choosenDataset.views}
+                  options={this.state.dataset.views}
                   onChange={this.handleViewChange}
                   placeholder='Select view'
                 />
               </div>
               <FilterComponent
-                dataset={this.state.choosenDataset}
+                parent={this}
               />
               <DatasetExplorerContentComponent
-                dataset={this.state.choosenDataset}
+                dataset={this.state.dataset}
+                filters={this.state.filters}
               />
             </div>
           </div>
