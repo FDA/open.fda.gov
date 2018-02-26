@@ -5,14 +5,10 @@ import React from 'react'
 import { default as ReactTable } from "react-table"
 
 import createClass from 'create-react-class'
-import PropTypes from 'prop-types'
 import Select from 'react-select'
+import FileSaver from 'file-saver'
+import Json2csvParser from 'json2csv'
 
-
-const stringOrNode = PropTypes.oneOfType([
-  PropTypes.string,
-  PropTypes.node,
-]);
 
 const GravatarOption = createClass({
   propTypes: {
@@ -52,38 +48,13 @@ const GravatarOption = createClass({
         onMouseEnter={this.handleMouseEnter}
         onMouseMove={this.handleMouseMove}
         title={this.props.option.title}>
-        <input type="checkbox" checked={this.props.option.isSelected}/>
-        {"  "}{ this.props.option.label }
+        <input type="checkbox" checked={this.props.option.show}/>
+        {"  "}{ this.props.option['Header'] }
       </div>
     );
   }
 });
 
-const GravatarValue = createClass({
-  propTypes: {
-    children: PropTypes.node,
-    placeholder: stringOrNode,
-    value: PropTypes.object,
-    ref: PropTypes.any
-  },
-  render () {
-    var gravatarStyle = {
-      borderRadius: 3,
-      display: 'inline-block',
-      marginRight: 10,
-      position: 'relative',
-      top: -2,
-      verticalAlign: 'middle',
-    };
-    return (
-      <div className="Select-value" title={this.props.value.title}>
-        <span className="Select-value-label select-label">
-            Select <i className="select-placeholder">{this.props.placeholder}</i> to Compare
-        </span>
-      </div>
-    );
-  }
-});
 
 
 class ResultsComponent extends React.Component {
@@ -91,7 +62,12 @@ class ResultsComponent extends React.Component {
    constructor (props: Object) {
     super(props)
 
-    const shownColumnsCount = this.props.dataset.columns.filter(c => c.show).length
+    let columns = this.props.dataset.columns
+    const shownColumnsCount = columns.filter(c => c.show).length
+    columns = columns.map((d,idx) => {
+      d.idx = idx
+      return d
+    })
 
     this.state = {
       _rows: [
@@ -740,13 +716,50 @@ class ResultsComponent extends React.Component {
           ]
         }
       ],
-      placeholder: `Manage Columns ${shownColumnsCount}/${this.props.dataset.columns.length}`,
-      choosenColumn: ""
+      columns: columns, 
+      placeholder: `Manage Columns ${shownColumnsCount}/${columns.length}`,
+      choosenColumn: "",
+      parser: new Json2csvParser.Parser()
     }
+    this.onColumnToggle = this.onColumnToggle.bind(this)
+    this.onExportChoosen = this.onExportChoosen.bind(this)
   }
 
-  onColumnToggle(){
+  onColumnToggle(selectionObj){
 
+    this.state.columns[selectionObj.idx].show = !selectionObj.show
+    const shownColumnsCount = this.state.columns.filter(c => c.show).length
+
+    this.setState({
+      columns: [...this.state.columns],
+      placeholder: `Manage Columns ${shownColumnsCount}/${this.state.columns.length}`
+    })
+  }
+  onExportChoosen(selectionObj){
+
+    if(selectionObj.label === "CSV"){
+      const fields = this.state.columns.filter(c => c.show).map(c => {
+        return {
+          label: c['Header'],
+          value: c.accessor
+        }
+      })
+      const opts = { 
+        fields,
+        doubleQuote: ""
+      };
+       
+      try {
+        const csv = this.state.parser.parse(this.state._rows);
+        var blob = new Blob([csv], {type: "text/plain;charset=utf-8"});
+        FileSaver.saveAs(blob, "download.csv");
+      } catch (err) {
+        console.error(err);
+      }
+    } else {
+      var blob = new Blob(this.state._rows.map(obj => JSON.stringify(obj)), {type: "text/plain;charset=utf-8"});
+      FileSaver.saveAs(blob, "download.json");
+    }
   }
 
   componentDidMount () {
@@ -768,31 +781,51 @@ class ResultsComponent extends React.Component {
           paddingBottom: 43
         }}>
           <p >{this.state._rows.length} results</p>
-           <Select
+          <div style={{
+            display: "flex"
+          }}>
+            <Select
               name="toggle"
               optionComponent={GravatarOption}
-              value={this.state.choosenColumn}
               menuStyle={{
                 maxHeight: 130
               }}
               style={{
                 width: 300
               }}
-              options={this.props.dataset.columns}
+              options={this.state.columns}
               onChange={this.onColumnToggle}
-              placeholder={this.state.placeholder}
-              resetValue="label"
+              resetValue="Header"
               ref={(ref)=>{this.DOMNode = ref}}
               removeSelected={false}
-              valueComponent={GravatarValue}
               clearable={false}
               closeOnSelect={false}
               placeholder={this.state.placeholder}
             />
+            <div style={{paddingLeft: 30}}>
+              <Select
+                name="toggle"
+                menuStyle={{
+                  maxHeight: 130
+                }}
+                style={{
+                  width: 80
+                }}
+                onChange={this.onExportChoosen}
+                options={this.props.dataset.exportOptions}
+                resetValue="Header"
+                ref={(ref)=>{this.DOMNode = ref}}
+                removeSelected={false}
+                clearable={false}
+                closeOnSelect={true}
+                placeholder={"Export"}
+              />
+            </div>
+          </div>
         </div>
         <ReactTable
           data={this.state._rows}
-          columns={this.props.dataset.columns}
+          columns={this.state.columns}
           defaultPageSize={this.state._rows.length}
           showPagination={false}
           style={{
@@ -860,7 +893,7 @@ class SelectedFiltersComponent extends React.Component {
 
   render (): ?React.Element {
     return (
-      <div style={{height:500}}>
+      <div style={{height:100}}>
         <h3>Selected Filters:</h3>
       </div>
     )

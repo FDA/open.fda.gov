@@ -11,6 +11,7 @@ names:
       options: 
         - label: Time Period
           type: time_select
+          field: effective_time
           placeholder: Select Time Period
           options:
               - Last 7 Days
@@ -67,18 +68,25 @@ names:
     columns:
       - Header: NDC
         accessor: product_ndc
+        show: true
       - Header: Brand Name
         accessor: openfda.brand_name
+        show: true
       - Header: Generic Name
         accessor: openfda.generic_name
+        show: true
       - Header: Active Ingredients
         accessor: active_ingredient
+        show: true
       - Header: Inactive Ingredients
         accessor: inactive_ingredient
+        show: true
       - Header: Product Type
         accessor: openfda.product_type
+        show: true
       - Header: Effective Date
         accessor: effective_time
+        show: true
       - Header: Purpose
         accessor: purpose
         show: false
@@ -136,6 +144,9 @@ names:
       - Header: Indications and Usage
         accessor: indications_and_usage
         show: false
+    exportOptions:
+      - label: CSV
+      - label: JSON
   petfoodrecalls:
     label: Petfood Recalls
     path: petfoodrecalls

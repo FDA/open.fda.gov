@@ -10,11 +10,6 @@ import Moment from 'moment'
 
 import AutoCompleteComponent from './AutoComplete'
 
-// autocomplete
-// select
-// time_select
-// checkbox
-
 
 class SelectFilterComponent extends React.Component {
 
@@ -40,15 +35,16 @@ class TimeSelectFilterComponent extends React.Component {
 
    constructor (props: Object) {
     super(props)
-  
+
     this.state = {
       options: []
     }
     this.getDateLabels = this.getDateLabels.bind(this)
+    this.onChange = this.onChange.bind(this)
   }
 
   componentDidMount () {
-    this.getDateLabels() 
+    this.getDateLabels()
   }
 
   getFormattedDate(d, style) {
@@ -65,7 +61,6 @@ class TimeSelectFilterComponent extends React.Component {
   getTimeValue(range){
 
   }
-
   // [${year}0101+TO+${year}1231]
   getDateLabels() {
     const options = this.props.option.options.map(option => {
@@ -128,14 +123,35 @@ class TimeSelectFilterComponent extends React.Component {
       }
       return {
         label: label,
-        value: value
+        value: value,
+        field: this.props.option.field,
+        idx: this.props.option.idx,
       }
     })
+    const defaultOption = options[options.length - 1]
 
     this.setState({
-      options: options
+      options: options,
+      defaultOption: defaultOption
+    }, this.onChange(defaultOption))
+
+  }
+
+  onChange(selectionObj){
+    this.setState({
+      value: selectionObj
     })
 
+    if(selectionObj === null){
+      selectionObj = this.state.defaultOption
+    }
+
+    if(this.props.onChange){
+      this.props.onChange(selectionObj, {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
+    }
   }
 
   render (): ?React.Element {
@@ -150,7 +166,9 @@ class TimeSelectFilterComponent extends React.Component {
               width:250
             }}
             placeholder={this.props.option.placeholder}
+            onChange={this.onChange}
             options={this.state.options || []}
+            clearable={false}
           />
       </div>
     )
@@ -162,14 +180,45 @@ class CheckboxFilterComponent extends React.Component {
    constructor (props: Object) {
     super(props)
   
-    this.state = {
-    }
+    this.state = {}
+    this.onChange = this.onChange.bind(this)
   }
 
   componentDidMount () {
+    const field = this.props.option.field
+    const states = {}
+    this.props.option.options.forEach(label => {
+      states[label] = 0
+    })
+    this.setState({
+      states
+    })
+  }
+
+  onChange(e){
+    const value = e.target.value
+    const states = {}
+    this.props.option.options.forEach(label => {
+      let choice = null
+      if(value === label){
+        const currentValue = this.state.states[label]
+        choice = !currentValue ? 1 : 0
+      }
+      states[label] = choice
+    })
+    this.setState({
+      states
+    })
+
+    if(this.props.onChange){
+      this.props.onChange(e)
+    }
   }
 
   render (): ?React.Element {
+    if(!this.state.states){
+      return (<span/>)
+    }
     const field = this.props.option.field
     const output = this.props.option.options.map((label, idx) => {
         return (
@@ -178,9 +227,12 @@ class CheckboxFilterComponent extends React.Component {
               <label>
                 <Checkbox
                   key={`box${idx}`}
-                  name={field}
-                  onChange={this.props.onChange}
-                  disabled={this.state.disabled}
+                  field={field}
+                  onChange={this.onChange}
+                  checked={this.state.states[label]}
+                  filterIdx={this.props.option.idx}
+                  value={label}
+                  idx={idx}
                 />
                 &nbsp; {label}
               </label>
@@ -202,14 +254,49 @@ class FilterComponent extends React.Component {
     super(props)
   
     this.state = {
+      filters: this.props.dataset.filters.options.map(option => {
+        option.value = null
+        return option
+      })
     }
+    this.updateData = this.updateData.bind(this)
+    this.onChangeSelect = this.onChangeSelect.bind(this)
+    this.onChangeCheckbox = this.onChangeCheckbox.bind(this)
   }
 
   componentDidMount () {
   }
 
   onChangeCheckbox(e) {
-    console.log('Checkbox checked:', (e.target.checked));
+    const value = e.target.value.toLowerCase()
+    const currentValue = this.state.filters[e.target.idx].value
+    let valueToSet = null
+
+    if(currentValue === value){
+      valueToSet = null
+    } else {
+      valueToSet = value
+    }
+    this.state.filters[e.target.idx].value = valueToSet
+
+    this.setState({
+      filters: this.state.filters
+    })
+  }
+  onChangeAutoComplete(){
+
+  }
+
+  onChangeSelect(selectionObj, meta){
+    this.state.filters[selectionObj.idx].value = selectionObj.value
+
+    this.setState({
+      filters: this.state.filters
+    })
+  }
+
+  updateData(){
+    console.log(this)
   }
 
   render (): ?React.Element {
@@ -220,11 +307,13 @@ class FilterComponent extends React.Component {
     const endpoint = this.props.dataset.endpoint
     const url = this.props.dataset.url
     const components = this.props.dataset.filters.options.map((option,idx) => {
+      option.idx = idx
       if(option.type === "time_select"){
         return (
           <TimeSelectFilterComponent
             key={`filter${idx}`}
             option={option}
+            onChange={this.onChangeSelect}
           />
         )
       } else if(option.type === "select") {
@@ -277,6 +366,13 @@ class FilterComponent extends React.Component {
         {
           components
         }
+        <button 
+          onClick={this.updateData}
+          style={{
+            backgroundColor: "lightgrey"
+          }}
+        >Update Data
+        </button>
       </div>
     )
   }
