@@ -3,7 +3,6 @@
 import React from 'react'
 
 import { TimeSeries, TimeRange, sum } from "pondjs";
-import { Series, DataFrame } from 'pandas-js';
 import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable, styler, Legend, TimeMarker, EventMarker } from "react-timeseries-charts"
 import { API_LINK } from '../constants/api'
 import states from '../pages/docs/states.json'
@@ -13,7 +12,6 @@ import {default as $} from "jquery";
 import TwoLevelPieChart from './InteractivePie';
 import { PieChart, Pie, Sector } from "Recharts";
 import Select from 'react-select'
-import calculateSize from 'calculate-size';
 import 'whatwg-fetch'
 import createClass from 'create-react-class';
 import PropTypes from 'prop-types';
@@ -674,8 +672,6 @@ class PieChartInfographic extends React.Component {
 
       // const eventValue = e.toJSON().data[this.state.selection]
       // const v = `${eventValue}`;
-
-      // const size = calculateSize(this.state.selection + " : " + eventValue, this.props.globalDefs.tooltip)
 
       this.setState({
         tracker: eventTime, 
