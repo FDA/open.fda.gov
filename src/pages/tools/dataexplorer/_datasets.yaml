@@ -6,7 +6,7 @@ names:
       listingLabels:
         label: Listing of Labels
     endpoint: drug/label.json
-    url: http://ec2-34-238-202-4.compute-1.amazonaws.com:8000
+    url: http://ec2-54-211-65-171.compute-1.amazonaws.com:8000
     filters:
       options: 
         - label: Time Period
@@ -22,43 +22,47 @@ names:
               - All Available
         - label: Inactive Ingredients
           field: inactive_ingredient
-          type: autocomplete
-          placeholder: Start typing to select Inactive Ingredient
+          type: select_autocomplete
+          remove_chars: inactive ingredients
+          can_query: false
+          placeholder: Select Inactive Ingredient
           limit: 100
         - label: Active Ingredients
           field: active_ingredient
-          type: autocomplete
-          placeholder: Start typing to select Active Ingredient
+          type: select_autocomplete
+          remove_chars: active ingredients
+          can_query: false
+          placeholder: Select Active Ingredient
+          limit: 100
+        - label: Brand Name
+          field: openfda.brand_name_exact
+          type: select_autocomplete
+          can_query: true
+          placeholder: Select Brand Name
+          limit: 100
+        - label: Generic Name
+          field: openfda.generic_name_exact
+          type: select_autocomplete
+          can_query: true
+          placeholder: Select Generic Name
+          limit: 100
+        - label: Manufacturer Name
+          type: select_autocomplete
+          field: openfda.manufacturer_name_exact
+          placeholder: Select Manufacturer Name
+          limit: 100
+          can_query: true
+        - label: NDC Code
+          type: select_autocomplete
+          can_query: true
+          field: openfda.product_ndc_exact
+          placeholder: E.g. 59822-1
           limit: 100
         - label: Product type
-          type: select
+          type: checkbox
           options:
               - HUMAN OTC DRUG
               - HUMAN PRESCRIPTION DRUG
-        - label: Brand Name
-          field: openfda.brand_name
-          type: autocomplete
-          placeholder: Start typing to select Brand Name
-          limit: 100
-        - label: Generic Name
-          field: openfda.generic_name
-          type: autocomplete
-          placeholder: Start typing to select Generic Name
-          limit: 100
-        - label: Labeler Name
-          type: autocomplete
-          placeholder: Start typing to select Labeler Name
-          limit: 100
-        - label: NDC Code
-          type: autocomplete
-          field: product_ndc
-          placeholder: E.g. 59822-1
-          limit: 100
-        - label: Application Number
-          type: autocomplete
-          field: status
-          placeholder: E.g. NADA14081
-          limit: 100
         - label: Drug Approval Status
           type: checkbox
           field: status
