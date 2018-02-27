@@ -4,7 +4,7 @@ import React from 'react'
 import Hero from '../../../components/Hero/index'
 import FilterComponent from '../../../components/Filter'
 import DatasetExplorerContentComponent from '../../../components/DatasetExplorerContent'
-import DatasetRetrievalService from '../../../components/DatasetRetrieval'
+import DataRetrievalService from '../../../components/DataRetrieval'
 import meta from './_meta.yaml'
 import datasets from './_datasets.yaml'
 import Select from 'react-select'
@@ -34,7 +34,9 @@ class DataExplorer extends React.Component {
         option.value = null
         return option
       }),
-      drs: new DatasetRetrievalService()
+      drs: new DataRetrievalService(dataset.url, dataset.endpoint),
+      sampleDocs: [],
+      _rows: []
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -48,11 +50,27 @@ class DataExplorer extends React.Component {
     this.handleChange(this.state.dataset)
     this.handleViewChange(this.state.view)
 
+    this.state.drs.getTopValuesByIterating().then(results => {
+      this.setState({
+        sampleDocs: results
+      })
+    })
+
   }
 
   updateResults(){
-    const results = this.state.drs.convertFiltersToJson(this.state.filters)
-    console.log(results)
+    // this.state.drs.getData(this.state.filters).then(results => {
+    //   console.log(results)
+    // })
+
+    const minimum = 0
+    const maximum = 150
+    const randomStart = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+
+    this.setState({
+      _rows : this.state.sampleDocs.slice(randomStart)
+    })
+
   }
   updateState(params){
     this.setState(params)
@@ -148,12 +166,14 @@ class DataExplorer extends React.Component {
                   placeholder='Select view'
                 />
               </div>
-              <FilterComponent
-                parent={this}
-              />
+              { !this.state.sampleDocs.length ? 
+                <span/> : 
+                <FilterComponent
+                  parent={this}
+                />
+              }
               <DatasetExplorerContentComponent
-                dataset={this.state.dataset}
-                filters={this.state.filters}
+                parent={this}
               />
             </div>
           </div>

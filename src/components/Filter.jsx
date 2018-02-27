@@ -30,6 +30,90 @@ class SelectFilterComponent extends React.Component {
   }
 }
 
+class SelectAutoCompleteFilterComponent extends React.Component {
+
+   constructor (props: Object) {
+    super(props)
+  
+    this.state = {
+    }
+    this.onChange = this.onChange.bind(this)
+  }
+
+  componentDidMount () {
+    const field = this.props.option.field
+    if(this.props.option.can_query){
+      this.props.parent.state.drs.getTopValues(field).then(options => {
+        this.setState({
+          options
+        })
+      })
+    } else {
+      let options = new Set()
+      this.props.parent.state.sampleDocs.forEach(doc => {
+        let value = doc[field]
+
+        if(value === undefined){
+          value = ""
+        }
+        if(value instanceof Array){
+          value = value[0]
+        }
+        if(this.props.option.remove_chars !== undefined){
+          value = value.toLowerCase().replace(this.props.option.remove_chars,"")
+        }
+        value.split(',').forEach(v =>{
+          options.add(v.trim())
+        })
+      })
+
+      const finalOptions = Array.from(options).map(v => {
+        return { 
+          label : v,
+          value: v
+        }
+      })
+
+      this.setState({
+        options: finalOptions
+      })
+    }
+  }
+
+  onChange(selectionObj){
+    this.setState({
+      value: selectionObj
+    })
+
+    if(this.props.onChange){
+      this.props.onChange(selectionObj, {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
+    }
+  }
+
+  render (): ?React.Element {
+    return (
+      <div key={"div" + parseInt(Math.random()*100)}>
+        <br/>
+        <h3>{this.props.option.label}</h3>
+        <br/>
+         <Select
+            value={this.state.value}
+            style={{
+              width:250
+            }}
+            placeholder={this.props.option.placeholder}
+            onChange={this.onChange}
+            options={this.state.options || []}
+            clearable={false}
+          />
+      </div>
+    )
+  }
+}
+
 class TimeSelectFilterComponent extends React.Component {
 
    constructor (props: Object) {
@@ -57,6 +141,7 @@ class TimeSelectFilterComponent extends React.Component {
     }
     return d.format(formatStr)
   }
+
   getTimeValue(range){
 
   }
@@ -264,6 +349,7 @@ class FilterComponent extends React.Component {
   }
 
   componentDidMount () {
+    
   }
 
   onChangeCheckbox(e) {
@@ -287,7 +373,7 @@ class FilterComponent extends React.Component {
   }
 
   onChangeSelect(selectionObj, meta){
-    this.props.parent.state.filters[selectionObj.idx].value = selectionObj.value
+    this.props.parent.state.filters[meta.idx].value = selectionObj.value
 
     this.props.parent.setState({
       filters: this.props.parent.state.filters
@@ -316,6 +402,16 @@ class FilterComponent extends React.Component {
           <SelectFilterComponent
             key={`filter${idx}`}
             option={option}
+            onChange={this.onChangeSelect}
+          />
+        )
+      } else if(option.type === "select_autocomplete") {
+        return (
+          <SelectAutoCompleteFilterComponent
+            key={`filter${idx}`}
+            option={option}
+            parent={this.props.parent}
+            onChange={this.onChangeSelect}
           />
         )
       } else if(option.type === "autocomplete") {
