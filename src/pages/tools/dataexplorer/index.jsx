@@ -31,7 +31,7 @@ class DataExplorer extends React.Component {
       dataset: dataset,
       view: dataset.views[0],
       filters: dataset.filters.options.map(option => {
-        option.value = null
+        option.value = []
         return option
       }),
       drs: new DataRetrievalService(dataset.url, dataset.endpoint),
@@ -170,7 +170,7 @@ class DataExplorer extends React.Component {
                 <span/> : 
                 <FilterComponent
                   parent={this}
-                />
+                />                
               }
               <DatasetExplorerContentComponent
                 parent={this}

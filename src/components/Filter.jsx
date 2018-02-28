@@ -36,8 +36,11 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     super(props)
   
     this.state = {
+      values: [],
+      elements: (<span/>)
     }
     this.onChange = this.onChange.bind(this)
+    this.removeValue = this.removeValue.bind(this)
   }
 
   componentDidMount () {
@@ -80,9 +83,90 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     }
   }
 
-  onChange(selectionObj){
+  removeValue(idx){
+    const currentValues = this.state.values
+
+    const selectionObj = {
+      label: this.state.values[idx],
+      value: this.state.values[idx]
+    }
+    currentValues.splice(idx, 1)
+
     this.setState({
-      value: selectionObj
+      values: currentValues,
+      elements: currentValues.map((value,idx) => {
+        return (
+          <div 
+            key={`value-${idx}`}
+            style={{
+              display: "flex",
+              paddingTop: 10
+            }}
+          >
+            <button onClick={() => this.removeValue(idx)}
+              style={{
+                padding: 0
+              }}
+            >
+              <i style={{
+                paddingRight: 10
+              }}>{value}</i>
+              <img src="/img/cancel_icon.png" style={{
+                height:20,
+                display: 'inline'
+              }}/>
+            </button>
+          </div>
+        )
+      })
+    })
+
+    this.props.onChange(selectionObj, {
+      field: this.props.option.field,
+      idx: this.props.option.idx
+    })
+  }
+
+  onChange(selectionObj){
+    const value = selectionObj.value
+    const currentValues = this.state.values
+    const currentIndex = currentValues.indexOf(value)
+
+    // contains value already
+    if( currentIndex > -1 ){
+      currentValues.splice(currentIndex, 1)
+    } else {
+      currentValues.push(value)
+    }
+
+    this.setState({
+      values: currentValues,
+      value: this.props.option.placeholder,
+      elements: currentValues.map((value,idx) => {
+        return (
+          <div 
+            key={`value-${idx}`}
+            style={{
+              display: "flex",
+              paddingTop: 10
+            }}
+          >
+            <button onClick={() => this.removeValue(idx)}
+              style={{
+                padding: 0
+              }}
+            >
+              <i style={{
+                paddingRight: 10
+              }}>{value}</i>
+              <img src="/img/cancel_icon.png" style={{
+                height:20,
+                display: 'inline'
+              }}/>
+            </button>
+          </div>
+        )
+      })
     })
 
     if(this.props.onChange){
@@ -94,6 +178,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
+
     return (
       <div key={"div" + parseInt(Math.random()*100)}>
         <br/>
@@ -109,10 +194,12 @@ class SelectAutoCompleteFilterComponent extends React.Component {
             options={this.state.options || []}
             clearable={false}
           />
+        {this.state.elements}
       </div>
     )
   }
 }
+
 
 class TimeSelectFilterComponent extends React.Component {
 
@@ -149,7 +236,7 @@ class TimeSelectFilterComponent extends React.Component {
   getDateLabels() {
     const options = this.props.option.options.map(option => {
       let label = ""
-      let value = ""
+      let value = []
       if(!true){}
       else if(option === "Last 7 Days"){
         const startdate = Moment().subtract(7, "days")
@@ -159,8 +246,8 @@ class TimeSelectFilterComponent extends React.Component {
         const startdateValue = this.getFormattedDate(startdate, "value")
         const enddateValue = this.getFormattedDate(enddate, "value")
 
-        value = `[${startdateValue}+TO+${enddateValue}]`
         label = `${option} (${startdateLabel} - ${enddateLabel})`
+        value = [`${startdateValue}`, `${enddateValue}`]
       } else if(option === "Last 30 Days"){
         const enddate = Moment()
         const startdate = Moment().subtract(30, "days")
@@ -170,7 +257,7 @@ class TimeSelectFilterComponent extends React.Component {
         const enddateValue = this.getFormattedDate(enddate, "value")
 
         label = `${option} (${startdateLabel} - ${enddateLabel})`
-        value = `[${startdateValue}+TO+${enddateValue}]`
+        value = [`${startdateValue}`, `${enddateValue}`]
       } else if(option === "YTD"){
         const startdate = Moment().startOf('year')
         const enddate = Moment()
@@ -179,8 +266,8 @@ class TimeSelectFilterComponent extends React.Component {
         const startdateValue = this.getFormattedDate(startdate, "value")
         const enddateValue = this.getFormattedDate(enddate, "value")
         
-        value = `[${startdateValue}+TO+${enddateValue}]`
         label = `${option} (${year})`
+        value = [`${startdateValue}`, `${enddateValue}`]
       } else if(option === "Last Year"){
         const startdate = Moment().startOf('year').subtract(1, "years")
         const enddate = Moment().endOf('year').subtract(1, "years")
@@ -189,8 +276,8 @@ class TimeSelectFilterComponent extends React.Component {
         const startdateValue = this.getFormattedDate(startdate, "value")
         const enddateValue = this.getFormattedDate(enddate, "value")
         
-        value = `[${startdateValue}+TO+${enddateValue}]`
         label = `${option} (${year})`
+        value = [`${startdateValue}`, `${enddateValue}`]
       } else if(option === "Last 5 Years"){
         const enddate = Moment().endOf('year')
         const startdate = Moment().startOf('year').subtract(5, "years")
@@ -201,13 +288,13 @@ class TimeSelectFilterComponent extends React.Component {
 
 
         label = `${option} (${startdateLabel} - ${enddateLabel})`
-        value = `[${startdateValue}+TO+${enddateValue}]`
+        value = [`${startdateValue}`, `${enddateValue}`]
       } else if(option === "All Available"){
         const enddate = Moment().endOf('year')
         const enddateValue = this.getFormattedDate(enddate, "value")
 
         label = `${option}`
-        value = `[19800101+TO+${enddateValue}]`
+        value = ["19800101", `${enddateValue}`]
       }
       return {
         label: label,
@@ -285,17 +372,13 @@ class CheckboxFilterComponent extends React.Component {
 
   onChange(e){
     const value = e.target.value
-    const states = {}
-    this.props.option.options.forEach(label => {
-      let choice = null
+    Object.keys(this.state.states).forEach(label => {
       if(value === label){
-        const currentValue = this.state.states[label]
-        choice = !currentValue ? 1 : 0
+        this.state.states[label] = (!this.state.states[label] ? 1 : 0)
       }
-      states[label] = choice
     })
     this.setState({
-      states
+      states: this.state.states
     })
 
     if(this.props.onChange){
@@ -354,15 +437,18 @@ class FilterComponent extends React.Component {
 
   onChangeCheckbox(e) {
     const value = e.target.value.toLowerCase()
-    const currentValue = this.props.parent.state.filters[e.target.filterIdx].value
-    let valueToSet = null
+    const currentValues = this.props.parent.state.filters[e.target.filterIdx].value
 
-    if(currentValue === value){
-      valueToSet = null
+    let valueToSet = null
+    const currentIndex = currentValues.indexOf(value)
+    // contains value already
+    if( currentIndex > -1 ){
+      currentValues.splice(currentIndex, 1)
     } else {
-      valueToSet = value
+      currentValues.push(value)
     }
-    this.props.parent.state.filters[e.target.filterIdx].value = valueToSet
+
+    this.props.parent.state.filters[e.target.filterIdx].value = currentValues
 
     this.props.parent.setState({
       filters: this.props.parent.state.filters
@@ -373,10 +459,29 @@ class FilterComponent extends React.Component {
   }
 
   onChangeSelect(selectionObj, meta){
-    this.props.parent.state.filters[meta.idx].value = selectionObj.value
+    const value = selectionObj.value
+    const currentValues = this.props.parent.state.filters[meta.idx].value
+    const currentIndex = currentValues.indexOf(value)
+
+    // contains value already
+    if( currentIndex > -1 ){
+      currentValues.splice(currentIndex, 1)
+    } else {
+      currentValues.push(value)
+    }
+
+    this.props.parent.state.filters[meta.idx].value = currentValues
 
     this.props.parent.setState({
       filters: this.props.parent.state.filters
+    })
+  }
+
+  onChangeTimeSelect(selectionObj, meta){
+    this.parent.state.filters[meta.idx].value = selectionObj.value
+
+    this.parent.setState({
+      filters: this.parent.state.filters
     })
   }
 
@@ -394,7 +499,8 @@ class FilterComponent extends React.Component {
           <TimeSelectFilterComponent
             key={`filter${idx}`}
             option={option}
-            onChange={this.onChangeSelect}
+            parent={this.props.parent}
+            onChange={this.onChangeTimeSelect}
           />
         )
       } else if(option.type === "select") {
@@ -446,7 +552,7 @@ class FilterComponent extends React.Component {
 
     return (
       <div style={{
-        height: "1000px",
+        height: "100%",
         width: 300,
         float: "left",
         borderRight: 1,
@@ -458,7 +564,7 @@ class FilterComponent extends React.Component {
           components
         }
         <button 
-          onClick={this.props.parent.updateResults}
+          onClick={() => this.props.parent.state.drs.getData(this.props.parent.state.filters) }
           style={{
             backgroundColor: "lightgrey"
           }}
