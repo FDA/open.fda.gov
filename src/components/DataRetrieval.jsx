@@ -9,29 +9,26 @@ class DataRetrievalService {
   constructor (url, endpoint) {
     this.url = url
     this.endpoint = endpoint
+
+    this.convertFiltersToJson = this.convertFiltersToJson.bind(this)
+    this.getTopValues = this.getTopValues.bind(this)
+    this.getTopValuesByIterating = this.getTopValuesByIterating.bind(this)
+    this.getData = this.getData.bind(this)
   }
 
   convertFiltersToJson(filters){
     const formattedFilters = {}
-    filters.forEach((filter,idx) => {
-      // {
-      //   "0": {
-      //     "key": "set_id",
-      //     "value": ["0000025c-6dbf-4af7-a741-5cbacaed519a"]
-      //   }
-      // }
-      if(filter.value){
+    filters.filter(filter => filter.value.length ).forEach((filter,idx) => {
         formattedFilters[`${idx}`] = {
           "key": filter.field,
-          "value": [filter.value]
+          "value": filter.value
         }
-      }
     })
     return {
       "data": {
         "queryJSON": {
           "searchType": "nonLLT",
-          "filters": formattedFilters
+          "filters": [formattedFilters]
         }
       }
     }
@@ -41,13 +38,16 @@ class DataRetrievalService {
     return fetch(
         withQuery(`${this.url}/${this.endpoint}`,{
             count: field
+        },{
+          mode: 'cors'
         })
     )
     .then(res => res.json())
     .then((json) => {
       const res = json.results.map(obj => {
         return { 
-          label: obj.term
+          label: obj.term,
+          value: obj.term
         }
       });
       return res
@@ -86,10 +86,11 @@ class DataRetrievalService {
     return fetch(`${this.url}/${this.endpoint}`, {
       body: JSON.stringify(data),
       headers: {
-        'content-type': 'application/json'
+        'Accept': 'application/json, text/plain, *\/*',
+        'Content-Type': 'text/plain'
       },
       method: 'POST',
-      mode: 'no-cors'
+      mode: 'cors'
     })
     .then(res => res.json())
     .then(res => {
@@ -100,3 +101,12 @@ class DataRetrievalService {
 }
 
 export default DataRetrievalService
+
+
+
+
+
+
+
+
+

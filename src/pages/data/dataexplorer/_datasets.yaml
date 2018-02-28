@@ -6,7 +6,7 @@ names:
       listingLabels:
         label: Listing of Labels
     endpoint: drug/label.json
-    url: http://ec2-54-211-65-171.compute-1.amazonaws.com:8000
+    url: http://ec2-34-239-135-224.compute-1.amazonaws.com:8000
     filters:
       options: 
         - label: Time Period
