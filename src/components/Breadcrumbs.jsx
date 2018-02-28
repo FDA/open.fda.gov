@@ -144,7 +144,7 @@ const BreadCrumbs = (props: tPROPS) => {
           }
         </div>
         {
-          path.includes('api_endpoints') &&
+          path.indexOf('api_endpoints') >= 0 &&
           <nav
             aria-label='Endpoint navigation.'
             className='flex-box align-center just-center dir-row responsive-header' style={{zIndex:1}}>
@@ -153,10 +153,10 @@ const BreadCrumbs = (props: tPROPS) => {
                 <div className="endpoint-dropdown" key={i} onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                   <span
                     title={cat}
-                    className={'cat-menu-item ' + (activeDropdown == cat ? 'clr-white': path.includes(cat) ? 'clr-white ': 'clr-muted-white ')}
+                    className={'cat-menu-item ' + (activeDropdown == cat ? 'clr-white': path.indexOf(cat) >= 0 ? 'clr-white ': 'clr-muted-white ')}
                     onTouchStart={toggleDropdownContent}
                   >{cat_map[cat]['title']}<i className="fa fa-angle-down"/></span>
-                  <div className={path.includes(cat) ? 'cat-menu-underbar' : 'cat-menu-underbar-hidden'}/>
+                  <div className={path.indexOf(cat) >= 0 ? 'cat-menu-underbar' : 'cat-menu-underbar-hidden'}/>
                   <div className={'dropdown-content ' + (activeDropdown == cat ? 'display-block' : 'display-none')}>
                     <div className='sub-menu-container' role='navigation'>
                       {
