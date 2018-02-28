@@ -132,10 +132,10 @@ const Nav = (props: tPROPS) => {
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                   title='About'
-                  className={activeDropdown==='About' ? 'menu-header emphasis': path.includes('about') ? 'menu-header emphasis': 'menu-header'}
+                  className={activeDropdown==='About' ? 'menu-header emphasis': path.indexOf('about') >= 0 ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
                 >About <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
-                <div className={path.includes('about') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
+                <div className={path.indexOf('about') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown==='About' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
                     <Link className={linkCx} to='/about/introduction/' onClick={closeMobileNav}>What is openFDA?</Link>
@@ -148,10 +148,10 @@ const Nav = (props: tPROPS) => {
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                   title='Docs'
-                  className={activeDropdown==='Docs' ? 'menu-header emphasis': path.includes('docs') ? 'menu-header emphasis': 'menu-header'}
+                  className={activeDropdown==='Docs' ? 'menu-header emphasis': path.indexOf('docs') >= 0 ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
                 >Docs<i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
-                <div className={path.includes('docs') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
+                <div className={path.indexOf('docs') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown==='Docs' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
                     <Link className={linkCx} to='/docs/' onClick={closeMobileNav}>API basics</Link>
@@ -164,10 +164,10 @@ const Nav = (props: tPROPS) => {
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                   title='Tools'
-                  className={activeDropdown==='Tools' ? 'menu-header emphasis': path.includes('tools') ? 'menu-header emphasis': 'menu-header'}
+                  className={activeDropdown==='Tools' ? 'menu-header emphasis': path.indexOf('tools') >= 0 ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
                 >Tools <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
-                <div className={path.includes('tools') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
+                <div className={path.indexOf('tools') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown==='Tools' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
                     <Link className={linkCx} to='/tools/' onClick={closeMobileNav}>Research tools</Link>
@@ -178,10 +178,10 @@ const Nav = (props: tPROPS) => {
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                   title='Community'
-                  className={activeDropdown==='Community' ? 'menu-header emphasis': path.includes('community') ? 'menu-header emphasis': 'menu-header'}
+                  className={activeDropdown==='Community' ? 'menu-header emphasis': path.indexOf('community') >= 0 ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
                 >Community <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none': '')}/></span>
-                <div className={path.includes('community') ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
+                <div className={path.indexOf('community') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown==='Community' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
                     <a
