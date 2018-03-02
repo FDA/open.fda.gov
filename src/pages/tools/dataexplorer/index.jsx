@@ -42,6 +42,7 @@ class DataExplorer extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleViewChange = this.handleViewChange.bind(this)
     this.updateResults = this.updateResults.bind(this)
+    this.getData = this.getData.bind(this)
   }
   componentWillReceiveProps () {
 
@@ -51,9 +52,9 @@ class DataExplorer extends React.Component {
     this.handleViewChange(this.state.view)
 
     this.state.drs.getTopValuesByIterating().then(results => {
-      this.setState({
-        sampleDocs: results
-      })
+      // this.setState({
+      //   sampleDocs: results
+      // })
     })
 
   }
@@ -72,6 +73,15 @@ class DataExplorer extends React.Component {
     })
 
   }
+
+  getData(){
+    this.state.drs.getData(this.state.filters).then(results => {
+      this.setState({
+        _rows: results.results
+      })
+    })
+  }
+
   updateState(params){
     this.setState(params)
   }
@@ -166,12 +176,10 @@ class DataExplorer extends React.Component {
                   placeholder='Select view'
                 />
               </div>
-              { !this.state.sampleDocs.length ? 
-                <span/> : 
+
                 <FilterComponent
                   parent={this}
                 />                
-              }
               <DatasetExplorerContentComponent
                 parent={this}
               />

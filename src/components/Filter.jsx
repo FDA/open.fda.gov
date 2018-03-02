@@ -4,10 +4,12 @@ import React from 'react'
 
 import Checkbox from 'rc-checkbox'
 import Select from 'react-select'
+import Async from 'react-select'
 import 'rc-checkbox/assets/index.css'
 import _ from 'lodash'
 import Moment from 'moment'
 import AutoCompleteComponent from './AutoComplete'
+import withQuery from 'with-query'
 
 
 class SelectFilterComponent extends React.Component {
@@ -37,14 +39,24 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   
     this.state = {
       values: [],
-      elements: (<span/>)
+      elements:  null,
+      url: this.props.parent.state.dataset.url,
+      endpoint: this.props.parent.state.dataset.endpoint
     }
     this.onChange = this.onChange.bind(this)
     this.removeValue = this.removeValue.bind(this)
+    this.escapeRegexCharacters = this.escapeRegexCharacters.bind(this)
+    this.onInputKeyDown = this.onInputKeyDown.bind(this)
+    this.getOptions = this.getOptions.bind(this)
   }
 
   componentDidMount () {
+    this.setState({
+      options: []
+    })
+
     const field = this.props.option.field
+    const autocomplete_field = this.props.option.autocomplete_field
     if(this.props.option.can_query){
       this.props.parent.state.drs.getTopValues(field).then(options => {
         this.setState({
@@ -127,6 +139,64 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     })
   }
 
+  getOptions(value, callback) {
+    if(value){
+      return fetch(
+          withQuery(`${this.state.url}/${this.state.endpoint}`,{
+              searchField: this.props.option.autocomplete_field,
+              searchText: value,
+              searchType: 'autocomplete',
+              limit: this.props.option.limit
+          })
+      )
+      .then(res => res.json())
+      .then((json) => {
+        var r = json.results.map(value => {
+          return {
+            value: value,
+            label: value
+          }
+        })
+        return {
+          'options': r
+        }
+      })
+      .catch((err) => {
+        return {
+          options: []
+        }
+      })
+    } else {
+      callback(null, {
+          options: this.state.options,
+          complete: true,
+      })
+    }
+  }
+
+  escapeRegexCharacters(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  onInputKeyDown(value){
+    const escapedValue = this.escapeRegexCharacters(value.trim())
+    this.getSuggestions(escapedValue).then(results => {
+        if(!results){
+            return
+        }
+        this.setState({
+            options: results.map(result => {
+              return {
+                value: result,
+                label: result
+              }
+            }),
+            value: escapedValue
+        })
+    })
+
+  }
+
   onChange(selectionObj){
     const value = selectionObj.value
     const currentValues = this.state.values
@@ -184,14 +254,14 @@ class SelectAutoCompleteFilterComponent extends React.Component {
         <br/>
         <h3>{this.props.option.label}</h3>
         <br/>
-         <Select
+         <Select.Async
             value={this.state.value}
             style={{
               width:250
             }}
             placeholder={this.props.option.placeholder}
             onChange={this.onChange}
-            options={this.state.options || []}
+            loadOptions={this.getOptions}
             clearable={false}
           />
         {this.state.elements}
@@ -454,8 +524,22 @@ class FilterComponent extends React.Component {
       filters: this.props.parent.state.filters
     })
   }
-  onChangeAutoComplete(){
+  onChangeAutoComplete(value, meta){
+    const currentValues = this.parent.state.filters[meta.idx].value
+    const currentIndex = currentValues.indexOf(value)
 
+    // contains value already
+    if( currentIndex > -1 ){
+      currentValues.splice(currentIndex, 1)
+    } else {
+      currentValues.push(value)
+    }
+
+    this.parent.state.filters[meta.idx].value = currentValues
+
+    this.parent.setState({
+      filters: this.parent.state.filters
+    })
   }
 
   onChangeSelect(selectionObj, meta){
@@ -528,9 +612,9 @@ class FilterComponent extends React.Component {
             <br/>
             <AutoCompleteComponent
               key={"filter" + idx}
-              url={url}
-              endpoint={endpoint}
-              {...option}
+              parent={this.props.parent}
+              onChange={this.onChangeAutoComplete}
+              option={option}
             />
           </div>
         )
@@ -564,7 +648,7 @@ class FilterComponent extends React.Component {
           components
         }
         <button 
-          onClick={() => this.props.parent.state.drs.getData(this.props.parent.state.filters) }
+          onClick={() => this.props.parent.getData()}
           style={{
             backgroundColor: "lightgrey"
           }}
