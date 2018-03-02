@@ -18,7 +18,7 @@ class DataRetrievalService {
 
   convertFiltersToJson(filters){
     const formattedFilters = {}
-    filters.filter(filter => filter.value.length ).forEach((filter,idx) => {
+    filters.filter(filter => filter.value.length && filter.field !== "effective_time").forEach((filter,idx) => {
         formattedFilters[`${idx}`] = {
           "key": filter.field,
           "value": filter.value
@@ -86,8 +86,7 @@ class DataRetrievalService {
     return fetch(`${this.url}/${this.endpoint}`, {
       body: JSON.stringify(data),
       headers: {
-        'Accept': 'application/json, text/plain, *\/*',
-        'Content-Type': 'text/plain'
+        "Content-Type": "application/json"
       },
       method: 'POST',
       mode: 'cors'

@@ -23,39 +23,45 @@ names:
         - label: Inactive Ingredients
           field: inactive_ingredient
           type: select_autocomplete
+          autocomplete_field: inactive_ingredient
           remove_chars: inactive ingredients
           can_query: false
-          placeholder: Select Inactive Ingredient
+          placeholder: Search Inactive Ingredient
           limit: 100
         - label: Active Ingredients
           field: active_ingredient
+          autocomplete_field: active_ingredient
           type: select_autocomplete
           remove_chars: active ingredients
           can_query: false
-          placeholder: Select Active Ingredient
+          placeholder: Search Active Ingredient
           limit: 100
         - label: Brand Name
           field: openfda.brand_name_exact
+          autocomplete_field: openfda.brand_name
           type: select_autocomplete
           can_query: true
-          placeholder: Select Brand Name
+          placeholder: Search Brand Name
           limit: 100
         - label: Generic Name
           field: openfda.generic_name_exact
+          autocomplete_field: openfda.generic_name
           type: select_autocomplete
           can_query: true
-          placeholder: Select Generic Name
+          placeholder: Search Generic Name
           limit: 100
         - label: Manufacturer Name
           type: select_autocomplete
           field: openfda.manufacturer_name_exact
-          placeholder: Select Manufacturer Name
+          autocomplete_field: openfda.manufacturer_name
+          placeholder: Search Manufacturer Name
           limit: 100
           can_query: true
         - label: NDC Code
           type: select_autocomplete
           can_query: true
           field: openfda.product_ndc_exact
+          autocomplete_field: openfda.product_ndc
           placeholder: E.g. 59822-1
           limit: 100
         - label: Product type
