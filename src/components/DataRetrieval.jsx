@@ -3,6 +3,7 @@
 
 import withQuery from 'with-query'
 import {default as $} from 'jquery'
+import Moment from 'moment'
 
 class DataRetrievalService {
 
@@ -17,18 +18,26 @@ class DataRetrievalService {
   }
 
   convertFiltersToJson(filters){
-    const formattedFilters = {}
-    filters.filter(filter => filter.value.length && filter.field !== "effective_time").forEach((filter,idx) => {
-        formattedFilters[`${idx}`] = {
-          "key": filter.field,
-          "value": filter.value
+    const formattedFilters = filters.filter(filter => filter.value.length).map((filter,idx) => {
+      var value = {
+        "query-type": filter.query_type,
+        "key": filter.field,
+        "value": filter.value
+      }
+      if(value["query-type"] == "range"){
+        value.value = {
+          "gte": Moment(value.value[0]).format('YYYYMMDD'),
+          "lte": Moment(value.value[1]).format('YYYYMMDD')
         }
+      }
+      return value
     })
+
     return {
       "data": {
         "queryJSON": {
           "searchType": "nonLLT",
-          "filters": [formattedFilters]
+          "filters": formattedFilters
         }
       }
     }

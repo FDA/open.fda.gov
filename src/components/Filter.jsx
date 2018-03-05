@@ -5,11 +5,14 @@ import React from 'react'
 import Checkbox from 'rc-checkbox'
 import Select from 'react-select'
 import Async from 'react-select'
-import 'rc-checkbox/assets/index.css'
 import _ from 'lodash'
 import Moment from 'moment'
 import AutoCompleteComponent from './AutoComplete'
 import withQuery from 'with-query'
+import DayPickerInput from 'react-day-picker/DayPickerInput'
+
+import 'rc-checkbox/assets/index.css'
+import 'react-day-picker/lib/style.css'
 
 
 class SelectFilterComponent extends React.Component {
@@ -420,6 +423,93 @@ class TimeSelectFilterComponent extends React.Component {
   }
 }
 
+class DatePickerFilterComponent extends React.Component {
+
+  constructor (props: Object) {
+    super(props)
+    
+    const startDay = Moment().subtract(1, "months").toDate()
+    const endDay = new Date()
+
+    this.state = {
+      startDay: startDay,
+      endDay: endDay,
+      isDisabled: false,
+    }
+
+    this.onChangeStart = this.onChangeStart.bind(this)
+    this.onChangeEnd = this.onChangeEnd.bind(this)
+  }
+
+  componentDidMount () {
+    if(this.props.onChangeStart){
+      this.props.onChangeStart(this.state.startDay, {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
+    }
+    if(this.props.onChangeEnd){
+      this.props.onChangeEnd(this.state.endDay, {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
+    }
+
+  }
+
+  onChangeStart(startDay, modifiers){
+    this.setState({
+      startDay,
+      isDisabled: modifiers.disabled === true,
+    })
+    if(this.props.onChangeStart){
+      this.props.onChangeStart(startDay, {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
+    }
+  }
+
+  onChangeEnd(endDay, modifiers){
+    this.setState({
+      endDay,
+      isDisabled: modifiers.disabled === true,
+    });
+    if(this.props.onChangeEnd){
+      this.props.onChangeEnd(endDay, {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
+    }
+  }
+
+  render (): ?React.Element {
+    return (
+      <div key={"div" + parseInt(Math.random()*100)}>
+        <p>Start Day:</p>
+        <DayPickerInput
+          value={this.state.startDay}
+          onDayChange={this.onChangeStart}
+          dayPickerProps={{
+            selectedDays: this.state.startDay
+          }}
+        />
+        <br/><br/>
+        <p>End Day:</p>
+        <DayPickerInput
+          value={this.state.endDay}
+          onDayChange={this.onChangeEnd}
+          dayPickerProps={{
+            selectedDays: this.state.endDay
+          }}
+        />
+      </div>
+    )
+  }
+}
+
+
+
 class CheckboxFilterComponent extends React.Component {
 
    constructor (props: Object) {
@@ -499,6 +589,8 @@ class FilterComponent extends React.Component {
 
     this.onChangeSelect = this.onChangeSelect.bind(this)
     this.onChangeCheckbox = this.onChangeCheckbox.bind(this)
+    this.onChangeDatePickerEnd = this.onChangeDatePickerEnd.bind(this)
+    this.onChangeDatePickerStart = this.onChangeDatePickerStart.bind(this)
   }
 
   componentDidMount () {
@@ -569,6 +661,28 @@ class FilterComponent extends React.Component {
     })
   }
 
+  onChangeDatePickerEnd(date, meta){
+    const currentValue = this.props.parent.state.filters[meta.idx].value
+
+    this.props.parent.state.filters[meta.idx].value = [currentValue[0], date]
+
+    this.props.parent.setState({
+      filters: this.props.parent.state.filters
+    })
+
+  }
+
+  onChangeDatePickerStart(date, meta){
+    const currentValue = this.props.parent.state.filters[meta.idx].value
+
+    this.props.parent.state.filters[meta.idx].value = [date, currentValue[1]]
+
+    this.props.parent.setState({
+      filters: this.props.parent.state.filters
+    })
+
+  }
+
   render (): ?React.Element {
 
     if(!this.props.parent.state.dataset.filters.options || !this.props.parent.state.dataset.filters.options.length) {
@@ -628,6 +742,21 @@ class FilterComponent extends React.Component {
               key={`filter${idx}`}
               option={option}
               onChange={this.onChangeCheckbox}
+            />
+          </div>
+        )
+      } else if(option.type === "datepicker") {
+        return (
+          <div key={`div${idx}`}>
+            <br/>
+            <h3>{option.label}</h3>
+            <br/>
+            <DatePickerFilterComponent
+              key={`filter${idx}`}
+              option={option}
+              parent={this.props.parent}
+              onChangeStart={this.onChangeDatePickerStart}
+              onChangeEnd={this.onChangeDatePickerEnd}
             />
           </div>
         )

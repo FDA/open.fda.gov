@@ -9,20 +9,15 @@ names:
     url: http://ec2-34-239-135-224.compute-1.amazonaws.com:8000
     filters:
       options: 
-        - label: Time Period
-          type: time_select
+        - label: Effective Time
+          type: datepicker
           field: effective_time
+          query_type: range
           placeholder: Select Time Period
-          options:
-              - Last 7 Days
-              - Last 30 Days
-              - YTD
-              - Last Year
-              - Last 5 Years
-              - All Available
         - label: Inactive Ingredients
           field: inactive_ingredient
           type: select_autocomplete
+          query_type: term
           autocomplete_field: inactive_ingredient
           remove_chars: inactive ingredients
           can_query: false
@@ -35,10 +30,12 @@ names:
           remove_chars: active ingredients
           can_query: false
           placeholder: Search Active Ingredient
+          query_type: term
           limit: 100
         - label: Brand Name
           field: openfda.brand_name_exact
           autocomplete_field: openfda.brand_name
+          query_type: term
           type: select_autocomplete
           can_query: true
           placeholder: Search Brand Name
@@ -46,6 +43,7 @@ names:
         - label: Generic Name
           field: openfda.generic_name_exact
           autocomplete_field: openfda.generic_name
+          query_type: term
           type: select_autocomplete
           can_query: true
           placeholder: Search Generic Name
@@ -54,6 +52,7 @@ names:
           type: select_autocomplete
           field: openfda.manufacturer_name_exact
           autocomplete_field: openfda.manufacturer_name
+          query_type: term
           placeholder: Search Manufacturer Name
           limit: 100
           can_query: true
@@ -61,17 +60,20 @@ names:
           type: select_autocomplete
           can_query: true
           field: openfda.product_ndc_exact
+          query_type: term
           autocomplete_field: openfda.product_ndc
           placeholder: E.g. 59822-1
           limit: 100
         - label: Product type
           type: checkbox
+          query_type: term
           options:
               - HUMAN OTC DRUG
               - HUMAN PRESCRIPTION DRUG
         - label: Drug Approval Status
           type: checkbox
           field: status
+          query_type: term
           options:
               - Approved
               - Unapproved
