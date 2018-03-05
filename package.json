@@ -52,12 +52,13 @@
     "nivo": "git+ssh://git@github.com:debovis/nivo.git#add_template_label_heatmap1",
     "pandas-js": "0.2.4",
     "pondjs": "0.8.7",
+    "rc-checkbox": "2.1.4",
     "rc-slider": "8.3.1",
     "react-autosuggest": "^9.3.2",
     "react-chartjs": "^0.8.0",
-    "rc-checkbox": "2.1.4",
     "react-custom-scrollbars": "^4.2.1",
     "react-datamaps": "git+ssh://git@github.com:debovis/react-datamaps.git",
+    "react-day-picker": "^7.1.1",
     "react-document-title": "^2.0.3",
     "react-highlight": "^0.10.0",
     "react-modal": "^3.1.0",
@@ -70,8 +71,8 @@
     "recharts": "1.0.0-beta.0",
     "scroll-into-view": "^1.9.1",
     "stylus": "^0.54.5",
-    "with-query": "1.0.2",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "with-query": "1.0.2"
   },
   "keywords": [
     "gatsby"
