@@ -3,7 +3,6 @@
 import React from 'react'
 
 import PieChartInfographic from '../components/PieChartInfographic'
-import GridInfographic from '../components/GridInfographic'
 
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
@@ -59,17 +58,7 @@ class InteractiveInfographic extends React.Component {
             globalDefs={this.props.infographicDefinitions.globalDefs}
             parent={this}
           />
-        break;
-      case "Grid":
-        infographic = 
-          <GridInfographic
-            api={this.props.meta.api_path}
-            infographicDefinitions={choice}
-            parent={this}
-          />
-        break;
-        default:
-          break;
+        break
     }
     this.setState({ 
       infographic,

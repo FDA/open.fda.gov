@@ -5,7 +5,6 @@ import bp from '../constants/breakpoints'
 import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
-import 'whatwg-fetch'
 
 type tPROPS = {
     accessSinceLaunch: string,
@@ -121,12 +120,12 @@ const ApiUsage = (props:tPROPS) => {
         graphData.table = data.table
 
         var dataz = [],
-              minTime = null,
-              maxTime = null,
-              values = [],
-              max = null,
-              min = null,
-              that = this;
+          minTime = null,
+          maxTime = null,
+          values = [],
+          max = null,
+          min = null,
+          that = this;
 
         data.stats.forEach(function (stat) {
           graphData.labels.push(stat.day)
@@ -189,13 +188,12 @@ const ApiUsage = (props:tPROPS) => {
 
     fetchStats () {
       var that = this
-      fetch(`${API_LINK}/usage.json?prefix=${this.state.prefix}`)
-        .then( response => {
-          response.json()
-        .then( data => 
+      fetch(API_LINK + '/usage.json?prefix=' + this.state.prefix)
+        .then(function (response) {
+          return response.json()
+        }).then(function (data) {
           that.handleUsageResponse(data)
-        )
-      })
+        })
     }
     docCount (typeName:string):string {
       return this.formatNumber(this.state.indexInfo[typeName])
@@ -230,7 +228,7 @@ const ApiUsage = (props:tPROPS) => {
       const value = trackerEvent.toJSON().data["value"]
 
       this.setState({
-        trackerInfoValues: [{label: this.state.toolTipLabel, value: `${value}` }],
+        trackerInfoValues: [{label: this.state.toolTipLabel, value: value}],
         tracker
       })
     }

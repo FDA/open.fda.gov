@@ -158,8 +158,9 @@ class PieChartInfographic extends React.Component {
 
     let download_url = `${API_LINK}/download.json`
     fetch(download_url)
-      .then(download_res => download_res.json())
-      .then(download_res => {
+      .then(function(download_res) {
+        return download_res.json()
+      }).then(function(download_res) {
 
         const apiParts = that.props.globalDefs.api.split('/'),
               latestDataDate = new Date(download_res.results[apiParts[1]][apiParts[2]].export_date),
@@ -226,7 +227,7 @@ class PieChartInfographic extends React.Component {
         var that = this;
         var dataLocal = data;
 
-        var res = _.zip(xresults, this.props.infographicDefinitions.fields.categories)
+        var res = _.zip(xresults, that.props.infographicDefinitions.fields.categories)
 
         var total = res.map( (item) => {
           return item.count
@@ -318,15 +319,16 @@ class PieChartInfographic extends React.Component {
     const subfields_url = `${that.state.API_LINK}${that.props.api}.json?search=${searchField}&count=${that.props.infographicDefinitions.subfield}`
 
     fetch(subfields_url)
-      .then(res => res.json())
-      .then(res => {
+      .then(function(res) {
+        return res.json()
+      }).then(function(res) {
         // clean to original
         var terms = {};
 
         var localSearchField = searchField;
 
         var columns = res.results.filter( (value) => {
-            var hasInvalidChar = value.term.indexOf("^") === -1 && 
+            var hasInvalidChar = value.term.indexOf("^") === -1 &&
                                  value.term.indexOf(",") === -1 &&
                                  value.term.indexOf("/") === -1 &&
                                  value.term.indexOf("'") === -1 &&
@@ -350,8 +352,8 @@ class PieChartInfographic extends React.Component {
               let value_term = value.term.replace('.','')
 
               ///  filter out characters for linechart items that are not useful for frontend users //
-              if(this.props.infographicDefinitions.subfield_filter){
-                value_term = value_term.replace(this.props.infographicDefinitions.subfield_filter, '')
+              if(that.props.infographicDefinitions.subfield_filter){
+                value_term = value_term.replace(that.props.infographicDefinitions.subfield_filter, '')
               }
               /// 
 
@@ -371,16 +373,16 @@ class PieChartInfographic extends React.Component {
               return term
           })
 
-          this.setState({
+          that.setState({
             terms
           })
 
         var timeseries_urls =  columns.map( value => {
-          var dirtyValue = this.state.terms[value]
+          var dirtyValue = that.state.terms[value]
           return `${that.state.API_LINK}${that.props.api}.json?search=${searchField}+AND+${that.props.infographicDefinitions.subfield}:"${dirtyValue}"&count=${that.props.infographicDefinitions.dateField}`
         }).slice(0,that.props.infographicDefinitions.lineLimiter)
 
-        Promise.all(timeseries_urls.map(this.fetchJSON).map(r => r.catch(e => e))).then( results => {
+        Promise.all(timeseries_urls.map(that.fetchJSON).map(r => r.catch(e => e))).then( results => {
 
 
           //// ERROR handing //////
@@ -397,8 +399,6 @@ class PieChartInfographic extends React.Component {
           // columns = 
 
           //// End ERROR handing //////
-
-          var that = this;
 
           /// we only want to graph specific terms defined in acceptedTerms object
           if(that.props.infographicDefinitions.acceptedTerms !== undefined){
@@ -479,7 +479,7 @@ class PieChartInfographic extends React.Component {
           })
 
           // transpose..... from list of points per series, to a list of points per timestamp
-          var res = this.transpose(timestamps, normalizedSeries)
+          var res = that.transpose(timestamps, normalizedSeries)
 
           var final = res.final,
               findMax = res.findMax,
@@ -535,11 +535,11 @@ class PieChartInfographic extends React.Component {
             lineChartColumns: ["time"].concat(columns),
             lineChartLoaded: that.state.lineChartLoaded += 1
           },function(){
-            this.DOMNode.setState({isOpen: true})
+            that.DOMNode.setState({isOpen: true})
           })
 
           columnStyles.slice(0,3).forEach( styl =>{
-            this.onSelectionChange(styl)  
+            that.onSelectionChange(styl)
           })
 
           if(that.refs){
@@ -548,9 +548,9 @@ class PieChartInfographic extends React.Component {
             })
           }
 
-          this.setPieChartText()
+          that.setPieChartText()
           var vals = $("text").filter(function () {
-              return $(this).attr("transform") == "rotate(-90)"
+              return $(that).attr("transform") == "rotate(-90)"
           })
           if(vals.length){
             $(vals[0]).attr("x",that.props.infographicDefinitions.xLegendCoordinate)

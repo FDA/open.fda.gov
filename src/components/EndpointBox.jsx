@@ -75,8 +75,8 @@ const EndpointBox = (props: tPROPS) => {
 
   const icon = {
     'food': {
-      'enforcement': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-rotate-left absolute" style={{color: "white"}}/></div>,
-      'event': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-warning absolute" style={{color: "white"}}/></div>
+      'enforcement': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>,
+      'event': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>
     },
     'device': {
       'event': <div className="ep-icon" style={bg_color['device']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>,
@@ -89,9 +89,9 @@ const EndpointBox = (props: tPROPS) => {
       'udi': <div className="ep-icon" style={bg_color['device']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>
     },
     'drug': {
-      'event': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-warning absolute" style={{color: "white"}}/></div>,
+      'event': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>,
       'label': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>,
-      'enforcement': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-rotate-left absolute" style={{color: "white"}}/></div>
+      'enforcement': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>
     },
   }
 

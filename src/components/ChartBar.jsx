@@ -6,6 +6,7 @@ import getFieldValues from '../utils/getFieldValues'
 const _renderBars = (data: Array<Object>, fieldValues: Object, show: number) => {
   const bars: Array<Object> = data.slice(0, show)
 
+  console.log("bars: ", bars)
   // get maximum value
   const max: number = bars[0].count
 
@@ -21,6 +22,7 @@ const _renderBars = (data: Array<Object>, fieldValues: Object, show: number) => 
     // because sometimes we have numbers as terms
     const term: void|string = result.term || fieldValues[result.term]
 
+    console.log("result: ", result)
     return (
       <li
         className='pad-r-1 pad-b-2'
@@ -31,12 +33,12 @@ const _renderBars = (data: Array<Object>, fieldValues: Object, show: number) => 
             <span className='clr-gray-dark'>
               {`${term}`.toLowerCase()}
             </span>
-            &nbsp;{result.count}&nbsp;records
+            {String.fromCharCode(160) + result.count + String.fromCharCode(160)}records
           </div>
         }
         { !term &&
           <div className='clr-gray small weight-600'>
-            &nbsp;{result.count}&nbsp;records
+            {String.fromCharCode(160) + result.count + String.fromCharCode(160)}records
           </div>
         }
         <span

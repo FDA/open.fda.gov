@@ -1,13 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require(`path`)
 
-exports.modifyWebpackConfig = function (config, env) {
-  config.config.plugin('inventory-copy-plugin', CopyWebpackPlugin, [[
-    { from: path.join(__dirname, 'src/pages/data.json') , to: path.join(__dirname, 'public/data.json')}
-  ]]);
-  return config;
-};
-
 exports.modifyWebpackConfig = ({ config, stage }) => {
   if (stage === "build-html") {
     config.loader("null", {
@@ -15,6 +8,17 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
       loader: "null-loader",
     })
   }
+  switch (stage) {
+    case "build-javascript":
+      const app = config._config.entry.app
+      config._config.entry.app = [require.resolve("./polyfill"), app]
+
+      break
+    default:
+      break
+  }
+
+  return config;
 };
 
 const { createFilePath } = require(`gatsby-source-filesystem`)
