@@ -579,6 +579,40 @@ class CheckboxFilterComponent extends React.Component {
   }
 }
 
+class FreeTextFilterComponent extends React.Component {
+    constructor (props: Object) {
+        super(props)
+
+        this.state = {
+            value:""
+        }
+
+        this.onChange = this.onChange.bind(this)
+    }
+
+    componentDidMount () {
+
+    }
+
+    onChange(event) {
+        this.setState({value: event.target.value});
+
+        if(this.props.onChange){
+            this.props.onChange(event)
+        }
+    }
+
+    render(): ?React.Element {
+
+        return (
+            <input type="text"
+                   placeholder={this.props.option.placeholder} value={this.state.value} onChange={this.onChange} id={this.props.option.idx}
+                   style={{fontSize:10, height:30, width:250}}
+            />
+        )
+    }
+}
+
 class FilterComponent extends React.Component {
 
    constructor (props: Object) {
@@ -591,6 +625,7 @@ class FilterComponent extends React.Component {
     this.onChangeCheckbox = this.onChangeCheckbox.bind(this)
     this.onChangeDatePickerEnd = this.onChangeDatePickerEnd.bind(this)
     this.onChangeDatePickerStart = this.onChangeDatePickerStart.bind(this)
+    this.onChangeText = this.onChangeText.bind(this)
   }
 
   componentDidMount () {
@@ -683,7 +718,19 @@ class FilterComponent extends React.Component {
 
   }
 
-  render (): ?React.Element {
+  onChangeText(e){
+    const value = e.target.value.toLowerCase()
+
+    this.props.parent.state.filters[e.target.id].value = value
+
+    this.props.parent.setState({
+        filters: this.props.parent.state.filters
+    })
+
+  }
+
+
+    render (): ?React.Element {
 
     if(!this.props.parent.state.dataset.filters.options || !this.props.parent.state.dataset.filters.options.length) {
       return <span/>
@@ -760,7 +807,25 @@ class FilterComponent extends React.Component {
             />
           </div>
         )
+      } else if(option.type === "free_text") {
+          return (
+              <div key={`div${idx}`}>
+                  <br/>
+                  <h3>{option.label}</h3>
+                  <br/>
+                  <FreeTextFilterComponent
+                      style={{
+                          height:200,
+                          fontSize:14
+                      }}
+                      key={`filter${idx}`}
+                      option={option}
+                      onChange={this.onChangeText}
+                  />
+              </div>
+          )
       }
+
     })
 
     return (

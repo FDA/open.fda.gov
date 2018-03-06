@@ -16,17 +16,15 @@ names:
           placeholder: Select Time Period
         - label: Inactive Ingredients
           field: inactive_ingredient
-          type: select_autocomplete
+          type: free_text
           query_type: term
-          autocomplete_field: inactive_ingredient
           remove_chars: inactive ingredients
           can_query: false
           placeholder: Search Inactive Ingredient
           limit: 100
         - label: Active Ingredients
           field: active_ingredient
-          autocomplete_field: active_ingredient
-          type: select_autocomplete
+          type: free_text
           remove_chars: active ingredients
           can_query: false
           placeholder: Search Active Ingredient
