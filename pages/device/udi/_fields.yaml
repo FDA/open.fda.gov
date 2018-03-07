@@ -409,7 +409,7 @@ properties:
        'MR Conditional': "MR Conditional"
        'Labeling does not contain MRI Safety Information': "Labeling does not contain MRI Safety Information"
     type: string
-  pma_submissions:
+  premarket_submissions:
     items:
       properties:
         submission_number:
