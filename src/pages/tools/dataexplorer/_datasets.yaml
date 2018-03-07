@@ -20,14 +20,14 @@ names:
           query_type: term
           remove_chars: inactive ingredients
           can_query: false
-          placeholder: Search Inactive Ingredient
+          placeholder: Type Inactive Ingredient
           limit: 100
         - label: Active Ingredients
           field: active_ingredient
           type: free_text
           remove_chars: active ingredients
           can_query: false
-          placeholder: Search Active Ingredient
+          placeholder: Type Active Ingredient
           query_type: term
           limit: 100
         - label: Brand Name
@@ -64,6 +64,7 @@ names:
           limit: 100
         - label: Product type
           type: checkbox
+          field: openfda.product_type_exact
           query_type: term
           options:
               - HUMAN OTC DRUG

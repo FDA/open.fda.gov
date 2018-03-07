@@ -633,7 +633,7 @@ class FilterComponent extends React.Component {
   }
 
   onChangeCheckbox(e) {
-    const value = e.target.value.toLowerCase()
+    const value = e.target.value
     const currentValues = this.props.parent.state.filters[e.target.filterIdx].value
 
     let valueToSet = null
@@ -814,10 +814,6 @@ class FilterComponent extends React.Component {
                   <h3>{option.label}</h3>
                   <br/>
                   <FreeTextFilterComponent
-                      style={{
-                          height:200,
-                          fontSize:14
-                      }}
                       key={`filter${idx}`}
                       option={option}
                       onChange={this.onChangeText}
