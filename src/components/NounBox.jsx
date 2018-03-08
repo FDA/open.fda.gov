@@ -37,7 +37,7 @@ const NounBox = (props: tPROPS) => {
   }
   const bg_color = {
     food: {backgroundColor: "#1FA02B"},
-    medical_devices: {backgroundColor: "#F37549"},
+    medical_devices: {backgroundColor: "#c94747"},
     drugs: {backgroundColor: "#9958A3"},
     animal_and_veterinary: {backgroundColor: "#007CBA"}
   }

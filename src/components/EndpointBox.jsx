@@ -69,7 +69,7 @@ const EndpointBox = (props: tPROPS) => {
   }
   const bg_color = {
     'food': {background: "linear-gradient(to right bottom, rgb(143, 209, 100), rgb(81, 161, 22))"},
-    'device': {background: "linear-gradient(to right bottom, rgb(255, 198, 59), rgb(243, 117, 73))"},
+    'device': {background: "linear-gradient(to right bottom, #ff8989, #c94747)"},
     'drug': {background: "linear-gradient(to right bottom, rgb(220, 141, 188), rgb(153, 88, 163))"}
   }
 
