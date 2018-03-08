@@ -28,7 +28,7 @@ const INDEX = () => (
           <NounBox noun_name='drugs'/>
           <NounBox noun_name='animal_and_veterinary'/>
         </div>
-        <Link className='btn btn-icon-right txt-c clr-primary weight-700' to='/api_endpoints/'>
+        <Link className='btn btn-icon-right txt-c clr-primary weight-700' to='/docs/api_endpoints/'>
           VIEW ALL<i className='fa fa-angle-right marg-l-1'/>
         </Link>
       </section>
