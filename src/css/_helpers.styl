@@ -280,12 +280,10 @@ for $key, $value in $uswds-colors
 // it's easier (and safer) to just do a string replace to add
 // this class dynamically
 .link-external
-  &:after
-    background-image: url('/img/i_external.png')
-    content: ''
-    display: inline-block
-    size: 10px
-    margin: 2px 5px
+  background-image: url(/img/i_external.png)
+  background-repeat: no-repeat
+  background-position: 97% 8px
+  background-size: 15px
 
 .line-clamp
   -webkit-box-orient: vertical

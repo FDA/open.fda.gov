@@ -43,7 +43,7 @@ const INDEX = () => (
           </div>
           <i className='fa fa-angle-right fa-2x marg-l-1'/>
         </Link>
-        <Link className='link-card btn btn-icon-right weight-700' to='/about/statistics/'>
+        <Link className='link-card btn btn-icon-right weight-700' to='/tools/downloads/'>
           <img className='' src='/img/download.svg'/>
           <div className='flex-box dir-column marg-l-1 marg-r-1'>
             <h3 className='marg-b-1 clr-primary-darker'>Download OpenFDA Data</h3>
@@ -51,7 +51,7 @@ const INDEX = () => (
           </div>
           <i className='fa fa-angle-right fa-2x marg-l-1'/>
         </Link>
-        <Link className='link-card btn btn-icon-right weight-700' to='/about/statistics/'>
+        <Link className='link-card btn btn-icon-right weight-700' to='/community/'>
           <img className='' src='/img/lightbulb.svg'/>
           <div className='flex-box dir-column marg-l-1 marg-r-1'>
             <h3 className='marg-b-1 clr-primary-darker'>View Community Apps</h3>

@@ -56,7 +56,7 @@ updates:
     date: 2016-09-26
     desc: "Community created apps can now be found directly on the openFDA website."
   - title: "New Dataset: Unique Device Identifier"
-    path: /api_endpoints/device/udi/
+    path: /docs/device/udi/
     date: 2016-09-26
     desc: "Read about the details of this newly available dataset and access the data through openFDA."
   - title: openFDA API Statistics Graph
@@ -68,6 +68,6 @@ updates:
     date: 2016-12-06
     desc: "Transparency in the actions we take as an agency, and our reasons for taking them, is an important value for FDA in its..."
   - title: openFDA central download page
-    path: /about/downloads
+    path: /tools/downloads
     date: 2016-12-23
     desc: "Downloading full datasets has never been easier! Visit our central download page to download any and all openFDA datasets."
