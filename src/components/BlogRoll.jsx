@@ -64,16 +64,17 @@ const BlogPosts = (props: tPROPS) => {
 
           let link_flag = true
 
-          if (update.path.indexOf("http" > -1)) {
+          if (update.path.indexOf("http") !== -1) {
             link_flag = false
           }
+          console.log("link_flag: ", link_flag, update.path)
 
           return (
             <li
               key={i}
               className='blog-item'>
               {
-                link_flag &&
+                link_flag == true &&
                   <Link className='relative full-height btn-icon-right blog-text-item' to={update.path}>
                     <div>
                       <Async promise={title} then={(val) => <h2 className='blog-header clr-primary-darker'>{val}</h2>}/>
