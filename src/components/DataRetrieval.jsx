@@ -29,13 +29,24 @@ class DataRetrievalService {
           "gte": Moment(value.value[0]).format('YYYYMMDD'),
           "lte": Moment(value.value[1]).format('YYYYMMDD')
         }
+      } else if (value["query-type"] == "exists"){
+
       }
       return value
+    })
+
+    formattedFilters.push({
+      "query-type": "term",
+      "key": "@drugtype",
+      "value": [
+        "animal"
+      ]
     })
 
     return {
       "data": {
         "queryJSON": {
+          "size": 1000,
           "searchType": "nonLLT",
           "filters": formattedFilters
         }
@@ -92,6 +103,8 @@ class DataRetrievalService {
 
   getData(params){
     const data = this.convertFiltersToJson(params)
+    console.log("filters:")
+    console.log(JSON.stringify(data, null, 4));
     return fetch(`${this.url}/${this.endpoint}`, {
       body: JSON.stringify(data),
       headers: {
@@ -102,6 +115,7 @@ class DataRetrievalService {
     })
     .then(res => res.json())
     .then(res => {
+      console.log(res)
       return res
     })
     .catch((err) => {})

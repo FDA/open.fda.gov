@@ -5,7 +5,7 @@ names:
     views:
       listingLabels:
         label: Listing of Labels
-    endpoint: drug/label.json
+    endpoint: animalandveterinary/label.json
     url: http://ec2-34-239-135-224.compute-1.amazonaws.com:8000
     filters:
       options: 
@@ -66,19 +66,24 @@ names:
           type: checkbox
           field: openfda.product_type_exact
           query_type: term
+          field: openfda.product_type
           options:
-              - HUMAN OTC DRUG
-              - HUMAN PRESCRIPTION DRUG
-        - label: Drug Approval Status
-          type: checkbox
-          field: status
-          query_type: term
-          options:
-              - Approved
-              - Unapproved
+              - label: Over the counter
+                value: otc
+              - label: Prescription
+                value: prescription
+        # - label: Drug Approval Status
+        #   type: checkbox
+        #   field: status
+        #   query_type: exists
+        #   options:
+        #       - label: Approved
+        #         value: approved
+        #       - label: Unapproved
+        #         value: unapproved
     columns:
       - Header: NDC
-        accessor: product_ndc
+        accessor: openfda.product_ndc
         show: true
       - Header: Brand Name
         accessor: openfda.brand_name
