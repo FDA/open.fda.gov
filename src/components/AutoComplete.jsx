@@ -10,7 +10,9 @@ class AutoCompleteComponent extends React.Component {
 
         this.state = {
             value: '',
-            suggestions: []
+            suggestions: [],
+            url: this.props.parent.state.dataset.url,
+            endpoint: this.props.parent.state.dataset.endpoint
         }
         this.getSuggestions = this.getSuggestions.bind(this)
         this.onChange = this.onChange.bind(this)
@@ -32,11 +34,11 @@ class AutoCompleteComponent extends React.Component {
 
     getSuggestions(value) {
         return fetch(
-            withQuery(`${this.props.url}/${this.props.endpoint}`,{
-                searchField: this.props.field,
-                searchText: value.value,
+            withQuery(`${this.state.url}/${this.state.endpoint}`,{
+                searchField: this.props.option.field,
+                searchText: value,
                 searchType: 'autocomplete',
-                limit: this.props.limit
+                limit: this.props.option.limit
             })
         )
         .then(res => res.json())
@@ -59,6 +61,12 @@ class AutoCompleteComponent extends React.Component {
         })
     }
     onSuggestionSelected(event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }){
+        if(this.props.onChange){
+            this.props.onChange(suggestion, {
+                field: this.props.option.field,
+                idx: this.props.option.idx
+            })
+        }
         console.log(event, suggestion)
     }
 
@@ -73,7 +81,6 @@ class AutoCompleteComponent extends React.Component {
                 value: newValue
             })
         }
-
     }
 
     onSuggestionsClearRequested (){
@@ -92,7 +99,7 @@ class AutoCompleteComponent extends React.Component {
                 getSuggestionValue={this.getSuggestionValue}
                 renderSuggestion={this.renderSuggestion}
                 inputProps={{
-                    placeholder: this.props.placeholder,
+                    placeholder: this.props.option.placeholder,
                     value: this.state.value,
                     onChange: this.onChange
                 }}

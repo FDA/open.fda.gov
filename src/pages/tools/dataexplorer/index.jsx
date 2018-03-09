@@ -76,8 +76,13 @@ class DataExplorer extends React.Component {
 
   getData(){
     this.state.drs.getData(this.state.filters).then(results => {
+      let _rows = []
+      if(results && !results.error){
+        _rows = results.results
+      }
+
       this.setState({
-        _rows: results.results
+        _rows: _rows
       })
     })
   }
@@ -177,9 +182,9 @@ class DataExplorer extends React.Component {
                 />
               </div>
 
-                <FilterComponent
-                  parent={this}
-                />                
+              <FilterComponent
+                parent={this}
+              />                
               <DatasetExplorerContentComponent
                 parent={this}
               />

@@ -12,7 +12,6 @@ import withQuery from 'with-query'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 
 import 'rc-checkbox/assets/index.css'
-import 'react-day-picker/lib/style.css'
 
 
 class SelectFilterComponent extends React.Component {
@@ -51,6 +50,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     this.escapeRegexCharacters = this.escapeRegexCharacters.bind(this)
     this.onInputKeyDown = this.onInputKeyDown.bind(this)
     this.getOptions = this.getOptions.bind(this)
+    this.formatValues = this.formatValues.bind(this)
   }
 
   componentDidMount () {
@@ -99,44 +99,12 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   }
 
   removeValue(idx){
-    const currentValues = this.state.values
+    const value = this.props.parent.state.filters[this.props.option.idx].value[idx]
 
-    const selectionObj = {
-      label: this.state.values[idx],
-      value: this.state.values[idx]
-    }
-    currentValues.splice(idx, 1)
-
-    this.setState({
-      values: currentValues,
-      elements: currentValues.map((value,idx) => {
-        return (
-          <div 
-            key={`value-${idx}`}
-            style={{
-              display: "flex",
-              paddingTop: 10
-            }}
-          >
-            <button onClick={() => this.removeValue(idx)}
-              style={{
-                padding: 0
-              }}
-            >
-              <i style={{
-                paddingRight: 10
-              }}>{value}</i>
-              <img src="/img/cancel_icon.png" style={{
-                height:20,
-                display: 'inline'
-              }}/>
-            </button>
-          </div>
-        )
-      })
-    })
-
-    this.props.onChange(selectionObj, {
+    this.props.onChange({
+      label: value,
+      value: value
+    }, {
       field: this.props.option.field,
       idx: this.props.option.idx
     })
@@ -184,62 +152,53 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   onInputKeyDown(value){
     const escapedValue = this.escapeRegexCharacters(value.trim())
     this.getSuggestions(escapedValue).then(results => {
-        if(!results){
-            return
-        }
-        this.setState({
-            options: results.map(result => {
-              return {
-                value: result,
-                label: result
-              }
-            }),
-            value: escapedValue
-        })
+      if(!results){
+          return
+      }
+      this.setState({
+        options: results.map(result => {
+          return {
+            value: result,
+            label: result
+          }
+        }),
+        value: escapedValue
+      })
     })
 
   }
 
-  onChange(selectionObj){
-    const value = selectionObj.value
-    const currentValues = this.state.values
-    const currentIndex = currentValues.indexOf(value)
-
-    // contains value already
-    if( currentIndex > -1 ){
-      currentValues.splice(currentIndex, 1)
-    } else {
-      currentValues.push(value)
-    }
-
-    this.setState({
-      values: currentValues,
-      value: this.props.option.placeholder,
-      elements: currentValues.map((value,idx) => {
-        return (
-          <div 
-            key={`value-${idx}`}
+  formatValues(values){
+    return values.map((value,idx) => {
+      return (
+        <div 
+          key={`value-${idx}`}
+          style={{
+            display: "flex",
+            paddingTop: 10
+          }}
+        >
+          <button onClick={() => this.removeValue(idx)}
             style={{
-              display: "flex",
-              paddingTop: 10
+              padding: 0
             }}
           >
-            <button onClick={() => this.removeValue(idx)}
-              style={{
-                padding: 0
-              }}
-            >
-              <i style={{
-                paddingRight: 10
-              }}>{value}</i>
-              <img src="/img/cancel_icon.png" style={{
-                height:20,
-                display: 'inline'
-              }}/>
-            </button>
-          </div>
-        )
-      })
+            <i style={{
+              paddingRight: 10
+            }}>{value}</i>
+            <img src="/img/cancel_icon.png" style={{
+              height:20,
+              display: 'inline'
+            }}/>
+          </button>
+        </div>
+      )
+    })
+  }
+
+  onChange(selectionObj){
+    this.setState({
+      value: this.props.option.placeholder
     })
 
     if(this.props.onChange){
@@ -251,6 +210,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
+    const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
 
     return (
       <div key={"div" + parseInt(Math.random()*100)}>
@@ -267,7 +227,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
             loadOptions={this.getOptions}
             clearable={false}
           />
-        {this.state.elements}
+        {elements}
       </div>
     )
   }
@@ -428,7 +388,7 @@ class DatePickerFilterComponent extends React.Component {
   constructor (props: Object) {
     super(props)
     
-    const startDay = Moment().subtract(1, "months").toDate()
+    const startDay = Moment().subtract(10, "years").toDate()
     const endDay = new Date()
 
     this.state = {
@@ -490,6 +450,7 @@ class DatePickerFilterComponent extends React.Component {
         <DayPickerInput
           value={this.state.startDay}
           onDayChange={this.onChangeStart}
+          format={"M-D-YYYY"}
           dayPickerProps={{
             selectedDays: this.state.startDay
           }}
@@ -499,6 +460,7 @@ class DatePickerFilterComponent extends React.Component {
         <DayPickerInput
           value={this.state.endDay}
           onDayChange={this.onChangeEnd}
+          format={"M-D-YYYY"}
           dayPickerProps={{
             selectedDays: this.state.endDay
           }}
@@ -508,11 +470,9 @@ class DatePickerFilterComponent extends React.Component {
   }
 }
 
-
-
 class CheckboxFilterComponent extends React.Component {
 
-   constructor (props: Object) {
+  constructor (props: Object) {
     super(props)
   
     this.state = {}
@@ -520,57 +480,62 @@ class CheckboxFilterComponent extends React.Component {
   }
 
   componentDidMount () {
-    const field = this.props.option.field
-    const states = {}
-    this.props.option.options.forEach(label => {
-      states[label] = 0
-    })
-    this.setState({
-      states
-    })
+    // const field = this.props.option.field
+    // const states = {}
+    // this.props.option.options.forEach(option => {
+    //   states[option.label] = 0
+    // })
+    // this.setState({
+    //   states
+    // })
   }
 
   onChange(e){
-    const value = e.target.value
-    Object.keys(this.state.states).forEach(label => {
-      if(value === label){
-        this.state.states[label] = (!this.state.states[label] ? 1 : 0)
-      }
-    })
+    // const value = e.target.value
+    // this.state.states[value] = (!this.state.states[value] ? 1 : 0)
+
+
+    // Object.keys(this.state.states).forEach(option => {
+    //   const label = option.label
+    //   if(value === label){
+    //     this.state.states[label] = (!this.state.states[label] ? 1 : 0)
+    //   }
+    // })
+
     this.setState({
       states: this.state.states
     })
 
     if(this.props.onChange){
-      this.props.onChange(e)
+      this.props.onChange(e, this.props.option)
     }
   }
 
   render (): ?React.Element {
-    if(!this.state.states){
-      return (<span/>)
-    }
+
     const field = this.props.option.field
-    const output = this.props.option.options.map((label, idx) => {
-        return (
-          <div key={`div${idx}`}>
-            <p>
-              <label>
-                <Checkbox
-                  key={`box${idx}`}
-                  field={field}
-                  onChange={this.onChange}
-                  checked={this.state.states[label]}
-                  filterIdx={this.props.option.idx}
-                  value={label}
-                  idx={idx}
-                />
-                &nbsp; {label}
-              </label>
-            </p>
-          </div>
-        )
-      })
+    const output = this.props.option.options.map((option, idx) => {
+      const currentValue = this.props.parent.state.filters[this.props.option.idx].value
+      const checked = (currentValue.indexOf(option.value) > -1)
+      return (
+        <div key={`div${idx}`}>
+          <p>
+            <label>
+              <Checkbox
+                key={`box${idx}`}
+                field={field}
+                onChange={this.onChange}
+                checked={ checked }
+                filterIdx={this.props.option.idx}
+                value={option.label}
+                idx={idx}
+              />
+              { String.fromCharCode(160) + option.label}
+            </label>
+          </p>
+        </div>
+      )
+    })
     return (
       <div>
         { output }
@@ -581,35 +546,101 @@ class CheckboxFilterComponent extends React.Component {
 
 class FreeTextFilterComponent extends React.Component {
     constructor (props: Object) {
-        super(props)
+      super(props)
 
-        this.state = {
-            value:""
-        }
-
-        this.onChange = this.onChange.bind(this)
+      this.state = {
+        currentValue: ""
+      }
+      this.onChange = this.onChange.bind(this)
+      this.handleKeyPress = this.handleKeyPress.bind(this)
+      this.formatValues = this.formatValues.bind(this)
+      this.removeValue = this.removeValue.bind(this)
     }
 
     componentDidMount () {
+    }
 
+    removeValue(idx){
+      const value = this.props.parent.state.filters[this.props.option.idx].value[idx]
+
+      this.props.onChange(value, {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
     }
 
     onChange(event) {
-        this.setState({value: event.target.value});
+      this.setState({
+        currentValue: event.target.value
+      })
+    }
+
+    formatValues(values){
+      return values.map((value,idx) => {
+        return (
+          <div 
+            key={`value-${idx}`}
+            style={{
+              display: "flex",
+              paddingTop: 10
+            }}
+          >
+            <button onClick={() => this.removeValue(idx)}
+              style={{
+                padding: 0
+              }}
+            >
+              <i style={{
+                paddingRight: 10
+              }}>{value}</i>
+              <img src="/img/cancel_icon.png" style={{
+                height:20,
+                display: 'inline'
+              }}/>
+            </button>
+          </div>
+        )
+      })
+    }
+
+    handleKeyPress(e) {
+      if(e.key === "Enter"){
+        const value = e.target.value
+
+        this.setState({
+          currentValue: ""
+        })
 
         if(this.props.onChange){
-            this.props.onChange(event)
+          this.props.onChange(value, {
+            field: this.props.option.field,
+            idx: this.props.option.idx
+          })
         }
+      }
     }
 
     render(): ?React.Element {
+      const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
 
-        return (
-            <input type="text"
-                   placeholder={this.props.option.placeholder} value={this.state.value} onChange={this.onChange} id={this.props.option.idx}
-                   style={{fontSize:10, height:30, width:250}}
-            />
-        )
+      return (
+        <div>
+          <input 
+            type="text"
+            placeholder={this.props.option.placeholder}
+            value={this.state.currentValue}
+            onKeyPress={this.handleKeyPress}
+            onChange={this.onChange}
+            id={this.props.option.idx}
+            style={{
+              fontSize:10, 
+              height:30, 
+              width:250
+            }}
+          />
+          {elements}
+        </div>
+      )
     }
 }
 
@@ -629,11 +660,12 @@ class FilterComponent extends React.Component {
   }
 
   componentDidMount () {
-    
+    this.props.parent.getData()
   }
 
-  onChangeCheckbox(e) {
-    const value = e.target.value
+  onChangeCheckbox(e, options) {
+    const value = options.options.filter(v => e.target.value === v.label)[0].value
+
     const currentValues = this.props.parent.state.filters[e.target.filterIdx].value
 
     let valueToSet = null
@@ -651,6 +683,7 @@ class FilterComponent extends React.Component {
       filters: this.props.parent.state.filters
     })
   }
+
   onChangeAutoComplete(value, meta){
     const currentValues = this.parent.state.filters[meta.idx].value
     const currentIndex = currentValues.indexOf(value)
@@ -669,7 +702,7 @@ class FilterComponent extends React.Component {
     })
   }
 
-  onChangeSelect(selectionObj, meta){
+  onChangeSelect(selectionObj, meta, cb){
     const value = selectionObj.value
     const currentValues = this.props.parent.state.filters[meta.idx].value
     const currentIndex = currentValues.indexOf(value)
@@ -704,7 +737,6 @@ class FilterComponent extends React.Component {
     this.props.parent.setState({
       filters: this.props.parent.state.filters
     })
-
   }
 
   onChangeDatePickerStart(date, meta){
@@ -715,22 +747,28 @@ class FilterComponent extends React.Component {
     this.props.parent.setState({
       filters: this.props.parent.state.filters
     })
-
   }
 
-  onChangeText(e){
-    const value = e.target.value.toLowerCase()
+  onChangeText(value, meta){
+    const currentValues = this.props.parent.state.filters[meta.idx].value
+    const currentIndex = currentValues.indexOf(value)
 
-    this.props.parent.state.filters[e.target.id].value = value
+    // contains value already
+    if( currentIndex > -1 ){
+      currentValues.splice(currentIndex, 1)
+    } else {
+      currentValues.push(value)
+    }
+
+    this.props.parent.state.filters[meta.idx].value = currentValues
 
     this.props.parent.setState({
-        filters: this.props.parent.state.filters
+      filters: this.props.parent.state.filters
     })
-
   }
 
 
-    render (): ?React.Element {
+  render (): ?React.Element {
 
     if(!this.props.parent.state.dataset.filters.options || !this.props.parent.state.dataset.filters.options.length) {
       return <span/>
@@ -789,6 +827,7 @@ class FilterComponent extends React.Component {
               key={`filter${idx}`}
               option={option}
               onChange={this.onChangeCheckbox}
+              parent={this.props.parent}
             />
           </div>
         )
@@ -809,6 +848,7 @@ class FilterComponent extends React.Component {
         )
       } else if(option.type === "free_text") {
           return (
+<<<<<<< Updated upstream
               <div key={`div${idx}`}>
                   <br/>
                   <h3>{option.label}</h3>
@@ -819,6 +859,23 @@ class FilterComponent extends React.Component {
                       onChange={this.onChangeText}
                   />
               </div>
+=======
+            <div key={`div${idx}`}>
+              <br/>
+              <h3>{option.label}</h3>
+              <br/>
+              <FreeTextFilterComponent
+                style={{
+                    height:200,
+                    fontSize:14
+                }}
+                key={`filter${idx}`}
+                option={option}
+                onChange={this.onChangeText}
+                parent={this.props.parent}
+              />
+            </div>
+>>>>>>> Stashed changes
           )
       }
 

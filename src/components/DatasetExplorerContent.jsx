@@ -8,6 +8,8 @@ import createClass from 'create-react-class'
 import Select from 'react-select'
 import FileSaver from 'file-saver'
 import Json2csvParser from 'json2csv'
+import PropTypes from 'prop-types'
+import Moment from 'moment'
 
 
 const GravatarOption = createClass({
@@ -131,7 +133,7 @@ class ResultsComponent extends React.Component {
           height: 40,
           display:"flex",
           justifyContent: "space-between",
-          paddingTop:10,
+          paddingTop: 40,
           paddingBottom: 43
         }}>
           <p >{this.props.rows.length} results</p>
@@ -179,11 +181,13 @@ class ResultsComponent extends React.Component {
         </div>
         <ReactTable
           data={this.props.rows}
+          pageSize={100}
           columns={this.state.columns}
           defaultPageSize={this.props.rows.length}
           showPagination={false}
+          minRows={10}
           style={{
-            height: "400px",
+            height: 800,
             width: "100%"
           }}
           className="-striped -highlight"
@@ -238,22 +242,143 @@ class SelectedFiltersComponent extends React.Component {
    constructor (props: Object) {
     super(props)
 
-    this.state = {
-    }
+    this.state = {}
+    this.formatValues = this.formatValues.bind(this)
+    this.removeValue = this.removeValue.bind(this)
+    this.clearAll = this.clearAll.bind(this)
   }
 
   componentDidMount () {
   }
 
+  removeValue(idx, valueIdx){
+    const filter = this.props.parent.state.filters[idx]
+    if(!filter){ return }
+
+    if(filter.value.length){
+      filter.value.splice(valueIdx, 1)
+    }
+
+    this.props.parent.state.filters[idx].value = filter.value
+
+    this.props.parent.setState({
+      filters: this.props.parent.state.filters
+    })
+  }
+
+  clearAll(){
+    this.props.parent.setState({
+      filters: this.props.parent.state.filters.map((filter,idx) => {
+        if(filter.query_type !== "range"){
+          filter.value = []
+        }
+        return filter
+      })
+    })
+  }
+
+  formatValues(values){
+    const filters = []
+    this.props.parent.state.filters.forEach((filter,idx) => {
+      if (
+          filter.query_type === "term" && 
+          filter.type === "checkbox"
+        ) {
+          filter.value.forEach( (f, valueIdx) => {
+            var valueObj = filter.options.filter(o => o.value === f)
+            if(valueObj.length){
+              filters.push({
+                value: valueObj[0].label,
+                label: filter.label,
+                query_type: filter.query_type,
+                idx: idx,
+                valueIdx: valueIdx
+              })
+            }
+          })
+      } else if(
+          filter.query_type == "range" && 
+          filter.value.length
+        ) {
+          const startDay = Moment(filter.value[0]).format('MM/DD/YYYY')
+          const endDay = Moment(filter.value[1]).format('MM/DD/YYYY')
+          filters.push({
+            value: `${startDay} - ${endDay}`,
+            label: filter.label,
+            query_type: filter.query_type,
+            idx: idx
+          })
+      } else if (
+          filter.query_type == "term" && 
+          filter.value.length &&
+          filter.type !== "checkbox"
+        ){
+        filter.value.forEach( (f, valueIdx) => {
+          filters.push({
+            value: f,
+            label: filter.label,
+            query_type: filter.query_type,
+            idx: idx,
+            valueIdx: valueIdx
+          })
+        })
+      }
+    })
+
+    return filters.map((filter, idx) => {
+      return (
+        <button 
+          key={`button${idx}`}
+          onClick={() => this.removeValue(filter.idx, filter.valueIdx)}
+          style={{
+            padding: 5,
+            borderRadius: 35,
+            border: "2px solid black",
+            boxShadow: "0 0 3px gray",
+            backgroundColor: "white",
+            marginLeft: 7,
+            marginTop: 10
+          }}
+        >
+          <i style={{
+            paddingRight: 10
+          }}>
+            {`${filter.label}: ${filter.value}`}
+          </i>
+          { filter.query_type === "range" ? null :
+            <img src="/img/cancel_icon.png" style={{
+              height:20,
+              display: 'inline',
+              paddingTop: 2
+            }}/>
+          }
+        </button>
+      )  
+    })
+  }
+
   render (): ?React.Element {
+    const filters = this.formatValues()
     return (
-      <div style={{height:100}}>
+      <div style={{height: "100%"}}>
+      <br/>
         <h3>Selected Filters:</h3>
-        <div>
-          <i>Filter Here</i>
-          <img src="/img/cancel_icon.png" style={{
-            height:20
-          }}/>
+        <div 
+          style={{
+            paddingTop: 10
+          }}
+        >
+          {filters}
+         <a 
+          onClick={ () => this.clearAll() }
+          style={{
+            paddingLeft:10,
+            textDecoration: "underline",
+            fontWeight: "bold"
+          }}
+          >
+          Clear All
+         </a>
         </div>
       </div>
     )
@@ -276,10 +401,12 @@ class DatasetExplorerContentComponent extends React.Component {
     return (
       <div style={{
         width: "75%",
-        marginLeft: 50
+        paddingLeft: 50
       }}>
         <div>
-          <SelectedFiltersComponent/>
+          <SelectedFiltersComponent
+            parent={this.props.parent}
+          />
         </div>
         <ResultsComponent
           dataset={this.props.parent.state.dataset}
