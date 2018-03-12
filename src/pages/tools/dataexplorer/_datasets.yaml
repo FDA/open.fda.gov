@@ -64,7 +64,6 @@ names:
           limit: 100
         - label: Product type
           type: checkbox
-          field: openfda.product_type_exact
           query_type: term
           field: openfda.product_type
           options:

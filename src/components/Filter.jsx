@@ -848,18 +848,6 @@ class FilterComponent extends React.Component {
         )
       } else if(option.type === "free_text") {
           return (
-<<<<<<< Updated upstream
-              <div key={`div${idx}`}>
-                  <br/>
-                  <h3>{option.label}</h3>
-                  <br/>
-                  <FreeTextFilterComponent
-                      key={`filter${idx}`}
-                      option={option}
-                      onChange={this.onChangeText}
-                  />
-              </div>
-=======
             <div key={`div${idx}`}>
               <br/>
               <h3>{option.label}</h3>
@@ -875,7 +863,6 @@ class FilterComponent extends React.Component {
                 parent={this.props.parent}
               />
             </div>
->>>>>>> Stashed changes
           )
       }
 
