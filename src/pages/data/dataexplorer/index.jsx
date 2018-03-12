@@ -94,7 +94,7 @@ class DataExplorer extends React.Component {
   handleChange (value) {
     let choice = null
     this.state.options.forEach(obj => {
-      if (obj.label == value.label) {
+      if (obj.label === value.label) {
         choice = obj
         console.log("choice is:" + choice.label)
       }
@@ -109,7 +109,7 @@ class DataExplorer extends React.Component {
   handleViewChange (value) {
     let choice = null
     this.state.dataset.views.forEach(obj => {
-      if (obj.label == value.label) {
+      if (obj.label === value.label) {
         choice = obj
         console.log("choice is:" + choice.label)
       }
@@ -136,7 +136,6 @@ class DataExplorer extends React.Component {
             }}>
               <div style={{
                 height: 70,
-                width: 1000,
                 display: "flex",
                 paddingTop: 20,
                 width: "100%",
@@ -184,7 +183,7 @@ class DataExplorer extends React.Component {
 
               <FilterComponent
                 parent={this}
-              />                
+              />
               <DatasetExplorerContentComponent
                 parent={this}
               />
