@@ -68,6 +68,69 @@ class ResultsComponent extends React.Component {
     const shownColumnsCount = columns.filter(c => c.show).length
     columns = columns.map((d,idx) => {
       d.idx = idx
+      d.Cell = (props) => {
+        let value = this.toTitleCase(props.value)
+
+        let html = null
+
+        //   <ol>
+        //    { question.map(questionlist =>
+        //      <li key={questionlist.key}>{questionlist.description}</li>)}}
+        // </ol>
+
+
+        if(props.column.filter_values && value){
+
+          props.column.filter_values.forEach(filter_value => {
+            value = value.replace(filter_value, "")
+          })
+          value = value.trim().replace(':','').replace(new RegExp("^s ", "i"), "")
+
+
+          // var p = new RegExp(props.column.filter_regex, "i")
+          // value = value.replace(p, "").replace(': ',"")
+          // console.log(value)
+        }
+        if(props.column.split && value){
+          var split = value.split(',').length > 1 ? value.split(',') : value.split('•')
+
+          if(split.length > 1){
+            html = (
+              <ol style={{
+                height:150,
+                overflowY: "scroll"
+              }}>
+                {
+                  split.filter(v => (v !== null && v.length !== 0 && v !== " ")).map((v,idx) => 
+                    <li 
+                      key={`key-${idx}`}
+                      style={{ 
+                        whiteSpace: "initial"
+                      }}
+                    >
+                     • {v.trim()}
+                    </li>
+                  )
+                }
+              </ol>
+            )
+          }
+        }
+
+        if(props.column.type === "date"){
+          value = Moment(value).format('MM/DD/YYYY')
+        }
+
+        if(html === null){
+          html = (<span style={{ 
+                        whiteSpace: "initial"
+                      }}>{ value }</span>)
+        }
+
+        return (
+          html
+        )
+      }
       return d
     })
 
@@ -79,6 +142,16 @@ class ResultsComponent extends React.Component {
     }
     this.onColumnToggle = this.onColumnToggle.bind(this)
     this.onExportChoosen = this.onExportChoosen.bind(this)
+    this.toTitleCase = this.toTitleCase.bind(this)
+  }
+
+  toTitleCase(str) {
+    if(!str){
+      return str
+    }else if(typeof(str) === "object"){
+      str = str[0]
+    }
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
   }
 
   onColumnToggle(selectionObj){
@@ -123,7 +196,7 @@ class ResultsComponent extends React.Component {
 
   render (): ?React.Element {
 
-    if(!this.props.rows.length){
+    if(this.props.rows === undefined){
       return (<span/>)
     }
 

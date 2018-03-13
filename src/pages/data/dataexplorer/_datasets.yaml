@@ -6,7 +6,7 @@ names:
       listingLabels:
         label: Listing of Labels
     endpoint: animalandveterinary/label.json
-    url: http://ec2-34-239-135-224.compute-1.amazonaws.com:8000
+    url: http://ec2-34-238-202-4.compute-1.amazonaws.com:8000
     filters:
       options: 
         - label: Effective Time
@@ -15,7 +15,7 @@ names:
           query_type: range
           placeholder: Select Time Period
         - label: Inactive Ingredients
-          field: inactive_ingredient
+          field: inactive_ingredient.comma
           type: free_text
           query_type: term
           remove_chars: inactive ingredients
@@ -23,7 +23,7 @@ names:
           placeholder: Type Inactive Ingredient
           limit: 100
         - label: Active Ingredients
-          field: active_ingredient
+          field: active_ingredient.comma
           type: free_text
           remove_chars: active ingredients
           can_query: false
@@ -81,6 +81,10 @@ names:
         #       - label: Unapproved
         #         value: unapproved
     columns:
+      - Header: Effective Date
+        accessor: effective_time
+        show: true
+        type: date
       - Header: NDC
         accessor: openfda.product_ndc
         show: true
@@ -90,17 +94,39 @@ names:
       - Header: Generic Name
         accessor: openfda.generic_name
         show: true
+        split: true
       - Header: Active Ingredients
         accessor: active_ingredient
+        filter_values: 
+          - Active Ingredients
+          - Active Ingredient
+          - Active
+          - Ingredient
+          - Ingredients
+          - Contains
+          - Contain
+          - Drug Facts
+          - Drug Fact
+          - Composition
+          - Key Ingredients
+          - Key Ingredient
         show: true
+        split: true
       - Header: Inactive Ingredients
         accessor: inactive_ingredient
         show: true
+        filter_values: 
+          - Also Contains
+          - Also Contain
+          - Contains
+          - Contain
+          - Inactive Ingredients
+          - Inactive Ingredient
+          - Other Ingredients
+          - Other Ingredient
+        split: true
       - Header: Product Type
         accessor: openfda.product_type
-        show: true
-      - Header: Effective Date
-        accessor: effective_time
         show: true
       - Header: Purpose
         accessor: purpose
