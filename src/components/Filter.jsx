@@ -634,10 +634,9 @@ class FreeTextFilterComponent extends React.Component {
     const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
 
     return (
-      <div>
+      <div className='filter-input'>
         <input
-          type="text"
-          className='filter-input'
+          type='text'
           placeholder={this.props.option.placeholder}
           value={this.state.currentValue}
           onKeyPress={this.handleKeyPress}

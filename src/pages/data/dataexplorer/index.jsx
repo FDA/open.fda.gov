@@ -130,31 +130,10 @@ class DataExplorer extends React.Component {
         />
         <section className='body-bg-offwhite'>
           <div className='blog-bg' >
-            <div style={{
-              display: "flex",
-              flexWrap: "wrap"
-            }}>
-              <div style={{
-                height: 70,
-                display: "flex",
-                paddingLeft: 40,
-                paddingTop: 20,
-                width: "100%",
-                backgroundColor: 'white',
-                borderBottom: 1,
-                borderBottomStyle: "solid",
-                borderBottomColor: '#BFD4DF'
-              }}>
-                <i style={{
-                  fontSize: 22,
-                  paddingTop: 6,
-                  paddingRight: 5
-                }}>I'm Interested In:</i>
+            <div className='dataset-explorer'>
+              <div className='dataset-explorer-menubar'>
+                <em>I'm interested in:</em>
                 <Select
-                  style={{
-                    height: 30,
-                    width: 300
-                  }}
                   clearable={false}
                   resetValue='label'
                   value={this.state.dataset}
@@ -163,17 +142,8 @@ class DataExplorer extends React.Component {
                   onChange={this.handleChange}
                   placeholder='Search the fields'
                 />
-                <i style={{
-                  fontSize: 22,
-                  paddingTop: 6,
-                  paddingRight: 5,
-                  marginLeft: 200,
-                }}>Particularly:</i>
+                <em>Particularly:</em>
                 <Select
-                  style={{
-                    height: 30,
-                    width: 300
-                  }}
                   clearable={false}
                   resetValue='label'
                   value={this.state.view}
