@@ -61,7 +61,7 @@ const GravatarOption = createClass({
 
 class ResultsComponent extends React.Component {
 
-   constructor (props: Object) {
+ constructor (props: Object) {
     super(props)
 
     let columns = this.props.dataset.columns
@@ -101,10 +101,10 @@ class ResultsComponent extends React.Component {
                 overflowY: "scroll"
               }}>
                 {
-                  split.filter(v => (v !== null && v.length !== 0 && v !== " ")).map((v,idx) => 
-                    <li 
+                  split.filter(v => (v !== null && v.length !== 0 && v !== " ")).map((v,idx) =>
+                    <li
                       key={`key-${idx}`}
-                      style={{ 
+                      style={{
                         whiteSpace: "initial"
                       }}
                     >
@@ -122,9 +122,9 @@ class ResultsComponent extends React.Component {
         }
 
         if(html === null){
-          html = (<span style={{ 
+          html = (<span style={{
                         whiteSpace: "initial"
-                      }}>{ value }</span>)
+                  }}>{ value }</span>)
         }
 
         return (
@@ -135,7 +135,7 @@ class ResultsComponent extends React.Component {
     })
 
     this.state = {
-      columns: columns, 
+      columns: columns,
       placeholder: `Manage Columns ${shownColumnsCount}/${columns.length}`,
       choosenColumn: "",
       parser: new Json2csvParser.Parser()
@@ -173,11 +173,11 @@ class ResultsComponent extends React.Component {
           value: c.accessor
         }
       })
-      const opts = { 
+      const opts = {
         fields,
         doubleQuote: ""
       };
-       
+
       try {
         const csv = this.state.parser.parse(this.props.rows);
         var blob = new Blob([csv], {type: "text/plain;charset=utf-8"});
@@ -272,7 +272,7 @@ class ResultsComponent extends React.Component {
 
 class BarChartComponent extends React.Component {
 
-   constructor (props: Object) {
+ constructor (props: Object) {
     super(props)
 
     this.state = {
@@ -292,7 +292,7 @@ class BarChartComponent extends React.Component {
 
 class PieChartComponent extends React.Component {
 
-   constructor (props: Object) {
+ constructor (props: Object) {
     super(props)
 
     this.state = {
@@ -312,7 +312,7 @@ class PieChartComponent extends React.Component {
 
 class SelectedFiltersComponent extends React.Component {
 
-   constructor (props: Object) {
+ constructor (props: Object) {
     super(props)
 
     this.state = {}
@@ -341,7 +341,7 @@ class SelectedFiltersComponent extends React.Component {
 
   clearAll(){
     this.props.parent.setState({
-      filters: this.props.parent.state.filters.map((filter,idx) => {
+      filters: this.props.parent.state.filters.map((filter, idx) => {
         if(filter.query_type !== "range"){
           filter.value = []
         }
@@ -354,38 +354,38 @@ class SelectedFiltersComponent extends React.Component {
     const filters = []
     this.props.parent.state.filters.forEach((filter,idx) => {
       if (
-          filter.query_type === "term" && 
-          filter.type === "checkbox"
-        ) {
-          filter.value.forEach( (f, valueIdx) => {
-            var valueObj = filter.options.filter(o => o.value === f)
-            if(valueObj.length){
-              filters.push({
-                value: valueObj[0].label,
-                label: filter.label,
-                query_type: filter.query_type,
-                idx: idx,
-                valueIdx: valueIdx
-              })
-            }
-          })
+        filter.query_type === "term" &&
+        filter.type === "checkbox"
+      ){
+        filter.value.forEach( (f, valueIdx) => {
+          var valueObj = filter.options.filter(o => o.value === f)
+          if(valueObj.length){
+            filters.push({
+              value: valueObj[0].label,
+              label: filter.label,
+              query_type: filter.query_type,
+              idx: idx,
+              valueIdx: valueIdx
+            })
+          }
+        })
       } else if(
-          filter.query_type == "range" && 
-          filter.value.length
-        ) {
-          const startDay = Moment(filter.value[0]).format('MM/DD/YYYY')
-          const endDay = Moment(filter.value[1]).format('MM/DD/YYYY')
-          filters.push({
-            value: `${startDay} - ${endDay}`,
-            label: filter.label,
-            query_type: filter.query_type,
-            idx: idx
-          })
+        filter.query_type === "range" &&
+        filter.value.length
+      ){
+        const startDay = Moment(filter.value[0]).format('MM/DD/YYYY')
+        const endDay = Moment(filter.value[1]).format('MM/DD/YYYY')
+        filters.push({
+          value: `${startDay} - ${endDay}`,
+          label: filter.label,
+          query_type: filter.query_type,
+          idx: idx
+        })
       } else if (
-          filter.query_type == "term" && 
-          filter.value.length &&
-          filter.type !== "checkbox"
-        ){
+        filter.query_type === "term" &&
+        filter.value.length &&
+        filter.type !== "checkbox"
+      ){
         filter.value.forEach( (f, valueIdx) => {
           filters.push({
             value: f,
@@ -400,7 +400,7 @@ class SelectedFiltersComponent extends React.Component {
 
     return filters.map((filter, idx) => {
       return (
-        <button 
+        <button
           key={`button${idx}`}
           onClick={() => this.removeValue(filter.idx, filter.valueIdx)}
           style={{
@@ -419,14 +419,14 @@ class SelectedFiltersComponent extends React.Component {
             {`${filter.label}: ${filter.value}`}
           </i>
           { filter.query_type === "range" ? null :
-            <img src="/img/cancel_icon.png" style={{
+            <img src='/img/cancel_icon.png' style={{
               height:20,
               display: 'inline',
               paddingTop: 2
             }}/>
           }
         </button>
-      )  
+      )
     })
   }
 
@@ -434,24 +434,23 @@ class SelectedFiltersComponent extends React.Component {
     const filters = this.formatValues()
     return (
       <div style={{height: "100%"}}>
-      <br/>
         <h3>Selected Filters:</h3>
-        <div 
+        <div
           style={{
             paddingTop: 10
           }}
         >
           {filters}
-         <a 
-          onClick={ () => this.clearAll() }
-          style={{
-            paddingLeft:10,
-            textDecoration: "underline",
-            fontWeight: "bold"
-          }}
+          <a
+            onClick={ () => this.clearAll() }
+            style={{
+              paddingLeft:10,
+              textDecoration: "underline",
+              fontWeight: "bold"
+            }}
           >
           Clear All
-         </a>
+          </a>
         </div>
       </div>
     )
@@ -460,7 +459,7 @@ class SelectedFiltersComponent extends React.Component {
 
 class DatasetExplorerContentComponent extends React.Component {
 
-   constructor (props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {
