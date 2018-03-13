@@ -129,7 +129,7 @@ class DataExplorer extends React.Component {
           {...meta}
         />
         <section className='body-bg-offwhite'>
-          <div className='container blog-bg'>
+          <div className='blog-bg'>
             <div style={{
               display: "flex",
               flexWrap: "wrap"
@@ -137,10 +137,13 @@ class DataExplorer extends React.Component {
               <div style={{
                 height: 70,
                 display: "flex",
+                paddingLeft: 40,
                 paddingTop: 20,
                 width: "100%",
+                backgroundColor: 'white',
                 borderBottom: 1,
-                borderBottomStyle: "solid"
+                borderBottomStyle: "solid",
+                borderBottomColor: '#BFD4DF'
               }}>
                 <i style={{
                   fontSize: 22,
