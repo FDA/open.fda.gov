@@ -756,6 +756,7 @@ class FilterComponent extends React.Component {
   }
 
   onChangeText(value, meta){
+    value = value.toLowerCase()
     const currentValues = this.props.parent.state.filters[meta.idx].value
     const currentIndex = currentValues.indexOf(value)
 

@@ -129,7 +129,7 @@ class DataExplorer extends React.Component {
           {...meta}
         />
         <section className='body-bg-offwhite'>
-          <div className='blog-bg'>
+          <div className='blog-bg' >
             <div style={{
               display: "flex",
               flexWrap: "wrap"
