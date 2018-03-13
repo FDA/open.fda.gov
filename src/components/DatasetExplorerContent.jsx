@@ -399,10 +399,7 @@ class DatasetExplorerContentComponent extends React.Component {
 
   render (): ?React.Element {
     return (
-      <div style={{
-        width: "75%",
-        paddingLeft: 50
-      }}>
+      <div className='dataset-explorer-content'>
         <div>
           <SelectedFiltersComponent
             parent={this.props.parent}

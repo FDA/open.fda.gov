@@ -11,14 +11,20 @@ import AutoCompleteComponent from './AutoComplete'
 import withQuery from 'with-query'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 
+import {
+  formatDate,
+  parseDate,
+} from 'react-day-picker/moment';
+
+import 'react-day-picker/lib/style.css'
 import 'rc-checkbox/assets/index.css'
 
 
 class SelectFilterComponent extends React.Component {
 
-   constructor (props: Object) {
+ constructor (props: Object) {
     super(props)
-  
+
     this.state = {
     }
   }
@@ -36,9 +42,9 @@ class SelectFilterComponent extends React.Component {
 
 class SelectAutoCompleteFilterComponent extends React.Component {
 
-   constructor (props: Object) {
+ constructor (props: Object) {
     super(props)
-  
+
     this.state = {
       values: [],
       elements:  null,
@@ -86,7 +92,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
       })
 
       const finalOptions = Array.from(options).map(v => {
-        return { 
+        return {
           label : v,
           value: v
         }
@@ -113,34 +119,33 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   getOptions(value, callback) {
     if(value){
       return fetch(
-          withQuery(`${this.state.url}/${this.state.endpoint}`,{
-              searchField: this.props.option.autocomplete_field,
-              searchText: value,
-              searchType: 'autocomplete',
-              limit: this.props.option.limit
+        withQuery(`${this.state.url}/${this.state.endpoint}`,{
+          searchField: this.props.option.autocomplete_field,
+          searchText: value,
+          searchType: 'autocomplete',
+          limit: this.props.option.limit
+        })
+      ).then(res => res.json())
+        .then((json) => {
+          var r = json.results.map(value => {
+            return {
+              value: value,
+              label: value
+            }
           })
-      )
-      .then(res => res.json())
-      .then((json) => {
-        var r = json.results.map(value => {
           return {
-            value: value,
-            label: value
+            'options': r
           }
         })
-        return {
-          'options': r
-        }
-      })
-      .catch((err) => {
-        return {
-          options: []
-        }
-      })
+        .catch((err) => {
+          return {
+            options: []
+          }
+        })
     } else {
       callback(null, {
-          options: this.state.options,
-          complete: true,
+        options: this.state.options,
+        complete: true,
       })
     }
   }
@@ -213,20 +218,16 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
 
     return (
-      <div key={"div" + parseInt(Math.random()*100)}>
-        <br/>
+      <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
         <h3>{this.props.option.label}</h3>
-        <br/>
-         <Select.Async
-            value={this.state.value}
-            style={{
-              width:250
-            }}
-            placeholder={this.props.option.placeholder}
-            onChange={this.onChange}
-            loadOptions={this.getOptions}
-            clearable={false}
-          />
+        <Select.Async
+          value={this.state.value}
+          className='filter-select'
+          placeholder={this.props.option.placeholder}
+          onChange={this.onChange}
+          loadOptions={this.getOptions}
+          clearable={false}
+        />
         {elements}
       </div>
     )
@@ -364,20 +365,16 @@ class TimeSelectFilterComponent extends React.Component {
 
   render (): ?React.Element {
     return (
-      <div key={"div" + parseInt(Math.random()*100)}>
-        <br/>
+      <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
         <h3>{this.props.option.label}</h3>
-        <br/>
-         <Select
-            value={this.state.value}
-            style={{
-              width:250
-            }}
-            placeholder={this.props.option.placeholder}
-            onChange={this.onChange}
-            options={this.state.options || []}
-            clearable={false}
-          />
+        <Select
+          value={this.state.value}
+          className='filter-select'
+          placeholder={this.props.option.placeholder}
+          onChange={this.onChange}
+          options={this.state.options || []}
+          clearable={false}
+        />
       </div>
     )
   }
@@ -387,7 +384,7 @@ class DatePickerFilterComponent extends React.Component {
 
   constructor (props: Object) {
     super(props)
-    
+
     const startDay = Moment().subtract(10, "years").toDate()
     const endDay = new Date()
 
@@ -445,22 +442,35 @@ class DatePickerFilterComponent extends React.Component {
 
   render (): ?React.Element {
     return (
-      <div key={"div" + parseInt(Math.random()*100)}>
+      <div className='day-picker' key={"div" + parseInt(Math.random()*100)}>
         <p>Start Day:</p>
         <DayPickerInput
+          classNames={{
+            container: 'day-picker-container',
+            overlay: 'day-picker-overlay',
+            overlayWrapper: 'day-picker-overlay-wrapper'
+          }}
           value={this.state.startDay}
           onDayChange={this.onChangeStart}
-          format={"M-D-YYYY"}
+          format={"LL"}
+          formatDate={formatDate}
+          parseDate={parseDate}
           dayPickerProps={{
             selectedDays: this.state.startDay
           }}
         />
-        <br/><br/>
         <p>End Day:</p>
         <DayPickerInput
+          classNames={{
+            container: 'day-picker-container',
+            overlay: 'day-picker-overlay',
+            overlayWrapper: 'day-picker-overlay-wrapper'
+          }}
           value={this.state.endDay}
           onDayChange={this.onChangeEnd}
-          format={"M-D-YYYY"}
+          format={"LL"}
+          formatDate={formatDate}
+          parseDate={parseDate}
           dayPickerProps={{
             selectedDays: this.state.endDay
           }}
@@ -474,7 +484,7 @@ class CheckboxFilterComponent extends React.Component {
 
   constructor (props: Object) {
     super(props)
-  
+
     this.state = {}
     this.onChange = this.onChange.bind(this)
   }
@@ -535,7 +545,7 @@ class CheckboxFilterComponent extends React.Component {
           </p>
         </div>
       )
-    })
+    });
     return (
       <div>
         { output }
@@ -545,110 +555,106 @@ class CheckboxFilterComponent extends React.Component {
 }
 
 class FreeTextFilterComponent extends React.Component {
-    constructor (props: Object) {
-      super(props)
+  constructor (props: Object) {
+    super(props)
 
-      this.state = {
-        currentValue: ""
-      }
-      this.onChange = this.onChange.bind(this)
-      this.handleKeyPress = this.handleKeyPress.bind(this)
-      this.formatValues = this.formatValues.bind(this)
-      this.removeValue = this.removeValue.bind(this)
+    this.state = {
+      currentValue: ""
     }
+    this.onChange = this.onChange.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.formatValues = this.formatValues.bind(this)
+    this.removeValue = this.removeValue.bind(this)
+  }
 
-    componentDidMount () {
-    }
+  componentDidMount () {
+  }
 
-    removeValue(idx){
-      const value = this.props.parent.state.filters[this.props.option.idx].value[idx]
+  removeValue(idx){
+    const value = this.props.parent.state.filters[this.props.option.idx].value[idx]
 
-      this.props.onChange(value, {
-        field: this.props.option.field,
-        idx: this.props.option.idx
-      })
-    }
+    this.props.onChange(value, {
+      field: this.props.option.field,
+      idx: this.props.option.idx
+    })
+  }
 
-    onChange(event) {
-      this.setState({
-        currentValue: event.target.value
-      })
-    }
+  onChange(event) {
+    this.setState({
+      currentValue: event.target.value
+    })
+  }
 
-    formatValues(values){
-      return values.map((value,idx) => {
-        return (
-          <div 
-            key={`value-${idx}`}
+  formatValues(values){
+    return values.map((value,idx) => {
+      return (
+        <div
+          key={`value-${idx}`}
+          style={{
+            display: "flex",
+            paddingTop: 10
+          }}
+        >
+          <button onClick={() => this.removeValue(idx)}
             style={{
-              display: "flex",
-              paddingTop: 10
+              padding: 0
             }}
           >
-            <button onClick={() => this.removeValue(idx)}
-              style={{
-                padding: 0
-              }}
-            >
-              <i style={{
-                paddingRight: 10
-              }}>{value}</i>
-              <img src="/img/cancel_icon.png" style={{
-                height:20,
-                display: 'inline'
-              }}/>
-            </button>
-          </div>
-        )
-      })
-    }
-
-    handleKeyPress(e) {
-      if(e.key === "Enter"){
-        const value = e.target.value
-
-        this.setState({
-          currentValue: ""
-        })
-
-        if(this.props.onChange){
-          this.props.onChange(value, {
-            field: this.props.option.field,
-            idx: this.props.option.idx
-          })
-        }
-      }
-    }
-
-    render(): ?React.Element {
-      const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
-
-      return (
-        <div>
-          <input 
-            type="text"
-            placeholder={this.props.option.placeholder}
-            value={this.state.currentValue}
-            onKeyPress={this.handleKeyPress}
-            onChange={this.onChange}
-            id={this.props.option.idx}
-            style={{
-              fontSize:10, 
-              height:30, 
-              width:250
-            }}
-          />
-          {elements}
+            <i style={{
+              paddingRight: 10
+            }}>{value}</i>
+            <img src="/img/cancel_icon.png" style={{
+              height:20,
+              display: 'inline'
+            }}/>
+          </button>
         </div>
       )
+    })
+  }
+
+  handleKeyPress(e) {
+    if(e.key === "Enter"){
+      const value = e.target.value
+
+      this.setState({
+        currentValue: ""
+      })
+
+      if(this.props.onChange){
+        this.props.onChange(value, {
+          field: this.props.option.field,
+          idx: this.props.option.idx
+        })
+      }
     }
+  }
+
+  render(): ?React.Element {
+    const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
+
+    return (
+      <div>
+        <input
+          type="text"
+          className='filter-input'
+          placeholder={this.props.option.placeholder}
+          value={this.state.currentValue}
+          onKeyPress={this.handleKeyPress}
+          onChange={this.onChange}
+          id={this.props.option.idx}
+        />
+        {elements}
+      </div>
+    )
+  }
 }
 
 class FilterComponent extends React.Component {
 
-   constructor (props: Object) {
+ constructor (props: Object) {
     super(props)
-  
+
     this.state = {
     }
 
@@ -805,10 +811,8 @@ class FilterComponent extends React.Component {
         )
       } else if(option.type === "autocomplete") {
         return (
-          <div key={`div${idx}`}>
-            <br/>
+          <div className='filter-item-container' key={`div${idx}`}>
             <h3>{option.label}</h3>
-            <br/>
             <AutoCompleteComponent
               key={"filter" + idx}
               parent={this.props.parent}
@@ -819,10 +823,8 @@ class FilterComponent extends React.Component {
         )
       } else if(option.type === "checkbox") {
         return (
-          <div key={`div${idx}`}>
-            <br/>
+          <div className='filter-item-container' key={`div${idx}`}>
             <h3>{option.label}</h3>
-            <br/>
             <CheckboxFilterComponent
               key={`filter${idx}`}
               option={option}
@@ -833,10 +835,8 @@ class FilterComponent extends React.Component {
         )
       } else if(option.type === "datepicker") {
         return (
-          <div key={`div${idx}`}>
-            <br/>
+          <div className='filter-item-container' key={`div${idx}`}>
             <h3>{option.label}</h3>
-            <br/>
             <DatePickerFilterComponent
               key={`filter${idx}`}
               option={option}
@@ -847,41 +847,27 @@ class FilterComponent extends React.Component {
           </div>
         )
       } else if(option.type === "free_text") {
-          return (
-            <div key={`div${idx}`}>
-              <br/>
-              <h3>{option.label}</h3>
-              <br/>
-              <FreeTextFilterComponent
-                style={{
-                    height:200,
-                    fontSize:14
-                }}
-                key={`filter${idx}`}
-                option={option}
-                onChange={this.onChangeText}
-                parent={this.props.parent}
-              />
-            </div>
-          )
+        return (
+          <div className='filter-item-container' key={`div${idx}`}>
+            <h3>{option.label}</h3>
+            <FreeTextFilterComponent
+              key={`filter${idx}`}
+              option={option}
+              onChange={this.onChangeText}
+              parent={this.props.parent}
+            />
+          </div>
+        )
       }
 
     })
 
     return (
-      <div style={{
-        height: "100%",
-        width: 300,
-        float: "left",
-        borderRight: 1,
-        borderRightStyle: "solid",
-        backgroundColor: "white",
-        paddingLeft: 20
-      }}>
+      <div className='filter-sidebar'>
         {
           components
         }
-        <button 
+        <button
           onClick={() => this.props.parent.getData()}
           style={{
             backgroundColor: "lightgrey"
