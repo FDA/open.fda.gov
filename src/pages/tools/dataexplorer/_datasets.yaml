@@ -22,12 +22,13 @@ names:
           can_query: false
           placeholder: Type Inactive Ingredient
           limit: 100
-        - label: Active Ingredients
-          field: active_ingredient.comma
-          type: free_text
+        - label: Substance Name
+          field: openfda.substance_name_exact
+          autocomplete_field: openfda.substance_name
+          type: select_autocomplete
           remove_chars: active ingredients
           can_query: false
-          placeholder: Type Active Ingredient
+          placeholder: Search Substance Name
           query_type: term
           limit: 100
         - label: Brand Name
@@ -147,8 +148,9 @@ names:
         accessor: openfda.spl_id
         show: false
       - Header: Substance Name
-        accessor: substance_name
+        accessor: openfda.substance_name
         show: false
+        split: true
       - Header: Route
         accessor: openfda.route
         show: false
