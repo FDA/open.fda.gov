@@ -96,7 +96,6 @@ class DataExplorer extends React.Component {
     this.state.options.forEach(obj => {
       if (obj.label === value.label) {
         choice = obj
-        console.log("choice is:" + choice.label)
       }
     })
 
@@ -111,7 +110,6 @@ class DataExplorer extends React.Component {
     this.state.dataset.views.forEach(obj => {
       if (obj.label === value.label) {
         choice = obj
-        console.log("choice is:" + choice.label)
       }
     })
 
@@ -125,13 +123,14 @@ class DataExplorer extends React.Component {
 
     return (
       <section>
-        <Hero
-          {...meta}
-        />
         <section className='body-bg-offwhite'>
           <div className='blog-bg' >
             <div className='dataset-explorer'>
               <div className='dataset-explorer-menubar'>
+                <div className='filter-toggle-button' onClick={() => { this.child.toggleFilters() }}>
+                  <i className='fa fa-lg fa-angle-double-left' id='fa-angle-double-left'/>
+                  <i className='fa fa-lg fa-filter'/>
+                </div>
                 <em>I'm interested in:</em>
                 <Select
                   clearable={false}
@@ -156,6 +155,7 @@ class DataExplorer extends React.Component {
 
               <FilterComponent
                 parent={this}
+                ref={instance => { this.child = instance }}
               />
               <DatasetExplorerContentComponent
                 parent={this}

@@ -655,6 +655,7 @@ class FilterComponent extends React.Component {
     super(props)
 
     this.state = {
+      displayFilters: true
     }
 
     this.onChangeSelect = this.onChangeSelect.bind(this)
@@ -773,6 +774,21 @@ class FilterComponent extends React.Component {
     })
   }
 
+  toggleFilters () {
+    if (this.state.displayFilters === false) {
+      document.getElementById("filter-sidebar").style.width = "23%"
+      document.getElementById("dataset-explorer-content").style.width = "75%"
+      document.getElementById("fa-angle-double-left").style.transform = "scale(1, 1)"
+    } else {
+      document.getElementById("filter-sidebar").style.width = "0%"
+      document.getElementById("dataset-explorer-content").style.width = "97%"
+      document.getElementById("fa-angle-double-left").style.transform = "scale(-1, 1)"
+    }
+    this.setState({
+      displayFilters: !this.state.displayFilters
+    })
+  }
+
 
   render (): ?React.Element {
 
@@ -863,7 +879,7 @@ class FilterComponent extends React.Component {
     })
 
     return (
-      <div className='filter-sidebar'>
+      <div className='filter-sidebar' id='filter-sidebar'>
         {
           components
         }

@@ -1,15 +1,29 @@
 .filter-sidebar
-  padding: 30px 0px 20px 40px
   width: 23%
+  padding: 30px 0px 20px 40px
+  overflow-x: hidden
   float: left
   border-right: 1px
   border-right-style: solid
   border-right-color: #BFD4DF
   background-color: white
   color: #00517D
+  -webkit-transition: .3s
+  -moz-transition: .3s
+  -ms-transition: .3s
+  -o-transition: .3s
+  transition: .3s
 
   p
     color: #00517D
+
+.filter-sidebar::-webkit-scrollbar
+  width: 6px
+  height: 6px
+  &-thumb
+    background: $clrPrimary
+  &-track
+    background: $clrPrimaryAltLightest
 
 .filter-input
   padding-right: 30px
