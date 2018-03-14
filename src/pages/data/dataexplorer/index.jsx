@@ -123,6 +123,9 @@ class DataExplorer extends React.Component {
 
     return (
       <section>
+        <Hero
+          {...meta}
+        />
         <section className='body-bg-offwhite'>
           <div className='blog-bg' >
             <div className='dataset-explorer'>
