@@ -471,7 +471,7 @@ class DatasetExplorerContentComponent extends React.Component {
 
   render (): ?React.Element {
     return (
-      <div className='dataset-explorer-content'>
+      <div className={'dataset-explorer-content '} id='dataset-explorer-content'>
         <div>
           <SelectedFiltersComponent
             parent={this.props.parent}
