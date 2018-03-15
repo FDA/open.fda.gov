@@ -66,12 +66,19 @@ names:
         - label: Product type
           type: checkbox
           query_type: term
-          field: openfda.product_type
+          field: openfda.product_type_exact
           options:
               - label: Over the counter
-                value: otc
+                value: OTC ANIMAL DRUG
+              - label: OTC type A
+                value: OTC TYPE A MEDICATED ARTICLE ANIMAL DRUG
+              - label: OTC type C
+                value: OTC TYPE C MEDICATED FEED ANIMAL DRUG
               - label: Prescription
-                value: prescription
+                value: PRESCRIPTION ANIMAL DRUG
+              - label: VFD type A
+                value: VFD TYPE A MEDICATED ARTICLE ANIMAL DRUG
+
         # - label: Drug Approval Status
         #   type: checkbox
         #   field: status
@@ -98,7 +105,7 @@ names:
         split: true
       - Header: Active Ingredients
         accessor: active_ingredient
-        filter_values: 
+        filter_values:
           - Active Ingredients
           - Active Ingredient
           - Active
@@ -116,7 +123,7 @@ names:
       - Header: Inactive Ingredients
         accessor: inactive_ingredient
         show: true
-        filter_values: 
+        filter_values:
           - Also Contains
           - Also Contain
           - Contains
@@ -227,4 +234,4 @@ names:
         - label: Clinical Reaction
           field: clinical_reaction
           type: autocomplete
-          placeholder: Start typing to select Clnical Reaction
+          placeholder: Start typing to select ClInical Reaction
