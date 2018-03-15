@@ -15,9 +15,9 @@ names:
           query_type: range
           placeholder: Select Time Period
         - label: Inactive Ingredients
-          field: inactive_ingredient.comma
+          field: inactive_ingredient
           type: free_text
-          query_type: term
+          query_type: match
           remove_chars: inactive ingredients
           can_query: false
           placeholder: Type Inactive Ingredient
