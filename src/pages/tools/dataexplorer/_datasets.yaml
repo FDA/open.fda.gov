@@ -63,6 +63,14 @@ names:
           autocomplete_field: openfda.product_ndc
           placeholder: E.g. 59822-1
           limit: 100
+        - label: Application Number
+          type: select_autocomplete
+          can_query: true
+          field: openfda.application_number
+          query_type: term
+          autocomplete_field: openfda.application_number
+          placeholder: E.g. ANADA200224
+          limit: 100
         - label: Product type
           type: checkbox
           query_type: term
@@ -78,16 +86,15 @@ names:
                 value: PRESCRIPTION ANIMAL DRUG
               - label: VFD type A
                 value: VFD TYPE A MEDICATED ARTICLE ANIMAL DRUG
-
-        # - label: Drug Approval Status
-        #   type: checkbox
-        #   field: status
-        #   query_type: exists
-        #   options:
-        #       - label: Approved
-        #         value: approved
-        #       - label: Unapproved
-        #         value: unapproved
+        - label: Drug Approval Status
+          type: checkbox
+          field: openfda.application_number
+          query_type: exists
+          options:
+              - label: Approved
+                value: true
+              - label: Unapproved
+                value: false
     columns:
       - Header: Effective Date
         accessor: effective_time
@@ -160,6 +167,9 @@ names:
         split: true
       - Header: Route
         accessor: openfda.route
+        show: false
+      - Header: Application Number
+        accessor: openfda.application_number
         show: false
       - Header: Is original packager
         accessor: openfda.is_original_packager
