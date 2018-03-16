@@ -209,7 +209,7 @@ class ResultsComponent extends React.Component {
           paddingTop: 40,
           paddingBottom: 43
         }}>
-          <p >{this.props.rows.length} results</p>
+          <p >{this.props.rows.length} matches out of {this.props.total}</p>
           <div style={{
             display: "flex"
           }}>
@@ -480,6 +480,7 @@ class DatasetExplorerContentComponent extends React.Component {
         <ResultsComponent
           dataset={this.props.parent.state.dataset}
           rows={this.props.parent.state._rows}
+          total={this.props.parent.state.totalRecords}
         />
       </div>
     )
