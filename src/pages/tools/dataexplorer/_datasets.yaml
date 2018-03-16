@@ -103,6 +103,7 @@ names:
       - Header: NDC
         accessor: openfda.product_ndc
         show: true
+        split: true
       - Header: Brand Name
         accessor: openfda.brand_name
         show: true
@@ -166,7 +167,7 @@ names:
         show: false
         split: true
       - Header: Route
-        accessor: openfda.route
+        accessor: route
         show: false
       - Header: Application Number
         accessor: openfda.application_number
