@@ -87,7 +87,7 @@ names:
               - label: VFD type A
                 value: VFD TYPE A MEDICATED ARTICLE ANIMAL DRUG
         - label: Drug Approval Status
-          type: checkbox
+          type: boolean
           field: openfda.application_number
           query_type: exists
           options:

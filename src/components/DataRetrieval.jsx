@@ -30,7 +30,11 @@ class DataRetrievalService {
           "lte": Moment(value.value[1]).format('YYYYMMDD')
         }
       } else if (value["query-type"] == "exists"){
-
+        value.value = {
+          "query-type": filter.query_type,
+          "key": filter.field,
+          "value": filter.value[0].toString()
+        }
       }
       return value
     })

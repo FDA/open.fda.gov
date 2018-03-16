@@ -554,6 +554,80 @@ class CheckboxFilterComponent extends React.Component {
   }
 }
 
+class BooleanFilterComponent extends React.Component {
+
+  constructor (props: Object) {
+    super(props)
+
+    this.state = {}
+    this.onChange = this.onChange.bind(this)
+  }
+
+  componentDidMount () {
+    // const field = this.props.option.field
+    // const states = {}
+    // this.props.option.options.forEach(option => {
+    //   states[option.label] = 0
+    // })
+    // this.setState({
+    //   states
+    // })
+  }
+
+  onChange(e){
+    // const value = e.target.value
+    // this.state.states[value] = (!this.state.states[value] ? 1 : 0)
+
+
+    // Object.keys(this.state.states).forEach(option => {
+    //   const label = option.label
+    //   if(value === label){
+    //     this.state.states[label] = (!this.state.states[label] ? 1 : 0)
+    //   }
+    // })
+
+    this.setState({
+      states: this.state.states
+    })
+
+    if(this.props.onChange){
+      this.props.onChange(e, this.props.option)
+    }
+  }
+
+  render (): ?React.Element {
+
+    const field = this.props.option.field
+    const output = this.props.option.options.map((option, idx) => {
+      const currentValue = this.props.parent.state.filters[this.props.option.idx].value
+      const checked = (currentValue.indexOf(option.value) > -1)
+      return (
+        <div key={`div${idx}`}>
+          <p>
+            <label>
+              <Checkbox
+                key={`box${idx}`}
+                field={field}
+                onChange={this.onChange}
+                checked={ checked }
+                filterIdx={this.props.option.idx}
+                value={option.label}
+                idx={idx}
+              />
+              { String.fromCharCode(160) + option.label}
+            </label>
+          </p>
+        </div>
+      )
+    });
+    return (
+      <div>
+        { output }
+      </div>
+    )
+  }
+}
+
 class FreeTextFilterComponent extends React.Component {
   constructor (props: Object) {
     super(props)
@@ -660,6 +734,7 @@ class FilterComponent extends React.Component {
 
     this.onChangeSelect = this.onChangeSelect.bind(this)
     this.onChangeCheckbox = this.onChangeCheckbox.bind(this)
+    this.onChangeBoolean = this.onChangeBoolean.bind(this)
     this.onChangeDatePickerEnd = this.onChangeDatePickerEnd.bind(this)
     this.onChangeDatePickerStart = this.onChangeDatePickerStart.bind(this)
     this.onChangeText = this.onChangeText.bind(this)
@@ -684,6 +759,22 @@ class FilterComponent extends React.Component {
     }
 
     this.props.parent.state.filters[e.target.filterIdx].value = currentValues
+
+    this.props.parent.setState({
+      filters: this.props.parent.state.filters
+    })
+  }
+
+  onChangeBoolean(e, options) {
+    const value = options.options.filter(v => e.target.value === v.label)[0].value
+
+    let currentValue = this.props.parent.state.filters[e.target.filterIdx].value
+
+    if (value === currentValue) {
+      this.props.parent.state.filters[e.target.filterIdx].value = []
+    } else {
+      this.props.parent.state.filters[e.target.filterIdx].value = [value]
+    }
 
     this.props.parent.setState({
       filters: this.props.parent.state.filters
@@ -845,6 +936,18 @@ class FilterComponent extends React.Component {
               key={`filter${idx}`}
               option={option}
               onChange={this.onChangeCheckbox}
+              parent={this.props.parent}
+            />
+          </div>
+        )
+      } else if(option.type === "boolean") {
+        return (
+          <div className='filter-item-container' key={`div${idx}`}>
+            <h3>{option.label}</h3>
+            <BooleanFilterComponent
+              key={`filter${idx}`}
+              option={option}
+              onChange={this.onChangeBoolean}
               parent={this.props.parent}
             />
           </div>

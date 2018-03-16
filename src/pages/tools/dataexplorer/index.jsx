@@ -85,6 +85,16 @@ class DataExplorer extends React.Component {
         _rows: _rows
       })
     })
+    this.state.drs.getData(this.state.filters).then(results => {
+      let totalRecords = 0
+      if(results && !results.error){
+        totalRecords = results.meta.results.total
+      }
+
+      this.setState({
+        totalRecords: totalRecords
+      })
+    })
   }
 
   updateState(params){
