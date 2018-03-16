@@ -148,8 +148,10 @@ class ResultsComponent extends React.Component {
   toTitleCase(str) {
     if(!str){
       return str
+    }else if(typeof(str) === "object" && str.constructor === Array){
+       str = str.join()
     }else if(typeof(str) === "object"){
-      str = str[0]
+       str = str[0]
     }
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
   }
