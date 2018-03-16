@@ -46,7 +46,7 @@ class DataRetrievalService {
     return {
       "data": {
         "queryJSON": {
-          "size": 1000,
+          "size": 5000,
           "searchType": "nonLLT",
           "filters": formattedFilters
         }
