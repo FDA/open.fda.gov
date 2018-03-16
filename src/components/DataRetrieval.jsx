@@ -4,6 +4,7 @@
 import withQuery from 'with-query'
 import {default as $} from 'jquery'
 import Moment from 'moment'
+import {API_LINK} from "../constants/api";
 
 class DataRetrievalService {
 
@@ -15,6 +16,7 @@ class DataRetrievalService {
     this.getTopValues = this.getTopValues.bind(this)
     this.getTopValuesByIterating = this.getTopValuesByIterating.bind(this)
     this.getData = this.getData.bind(this)
+    this.getTotal = this.getTotal.bind(this)
   }
 
   convertFiltersToJson(filters){
@@ -30,11 +32,7 @@ class DataRetrievalService {
           "lte": Moment(value.value[1]).format('YYYYMMDD')
         }
       } else if (value["query-type"] == "exists"){
-        value.value = {
-          "query-type": filter.query_type,
-          "key": filter.field,
-          "value": filter.value[0].toString()
-        }
+        value.value = filter.value[0].toString()
       }
       return value
     })
@@ -123,6 +121,17 @@ class DataRetrievalService {
       return res
     })
     .catch((err) => {})
+  }
+
+
+  getTotal(){
+    return fetch(`${this.url}/${this.endpoint}`)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        return res
+      })
+      .catch((err) => {})
   }
 }
 

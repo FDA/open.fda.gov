@@ -85,7 +85,7 @@ class DataExplorer extends React.Component {
         _rows: _rows
       })
     })
-    this.state.drs.getData(this.state.filters).then(results => {
+    this.state.drs.getTotal().then(results => {
       let totalRecords = 0
       if(results && !results.error){
         totalRecords = results.meta.results.total
