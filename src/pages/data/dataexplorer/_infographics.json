@@ -1,0 +1,80 @@
+{
+  "animaldrugs": {
+    "select": {
+      "title": "Filter Data by Year:",
+      "default": {
+        "value":"All",
+        "label":"All"
+      },
+      "startYear": 1994,
+      "yearsWithNoData": [2007, 2005, 2004, 2003, 2002, 1995]
+    },
+    "pieChart": {
+      "categories":{
+        "OTC ANIMAL DRUG": "OTC",
+        "PRESCRIPTION ANIMAL DRUG": "PRESCRIPTION",
+        "VFD TYPE A MEDICATED ARTICLE ANIMAL DRUG": "VFD TYPE A",
+        "OTC TYPE A MEDICATED ARTICLE ANIMAL DRUG": "OTC TYPE A",
+        "OTC TYPE C MEDICATED FEED ANIMAL DRUG": "OTC TYPE C"
+      },
+      "countBy": "openfda.product_type.exact",
+      "dateField": "effective_time",
+      "barChartCountBy": "substance_name_exact",
+      "fill": "#8884d8",
+      "colors": [
+        "#d62728",
+        "#FFBB28",
+        "#0088FE",
+        "#1ECFFF",
+        "#00C49F"
+      ],
+      "default": {
+        "id":"0",
+        "index": 0
+      },
+      "radius": {
+        "cx": 305,
+        "cy": 200,
+        "innerRadius": 60,
+        "outerRadius": 80
+      },
+      "textLabel": ["Drug Labels", "by Product Type"],
+      "width": 750,
+      "height": 750,
+      "widthReset": 400,
+      "heightReset": 300,
+      "sort": "ascending",
+      "viewBox": {
+        "x": 300,
+        "y": 50,
+        "width": 400,
+        "height": 750
+      },
+      "margin":{ 
+        "top": 5,
+        "right": 5,
+        "bottom": 5, 
+        "left": 10 
+      },
+      "font": {
+        "color":"#000000",
+        "fontFamily": "Merriweather,Georgia,serif"
+      }
+    },
+    "barChart":{
+      "title": "Drugs Labels by Substance Name",
+      "width": 600,
+      "height": 300,
+      "margin": {
+        "top": 5, 
+        "right": 30, 
+        "left": 20,
+        "bottom": 5
+      }
+    },
+    "collapsible": {
+      "title": "Visualize Data"
+    }
+  },
+  "petfoodrecalls":{}
+}
