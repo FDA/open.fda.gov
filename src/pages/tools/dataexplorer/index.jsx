@@ -9,6 +9,8 @@ import meta from './_meta.yaml'
 import datasets from './_datasets.yaml'
 import Select from 'react-select'
 
+import infographicsConfig from './_infographics.json'
+
 class DataExplorer extends React.Component {
 
   constructor (props: Object) {
@@ -17,6 +19,7 @@ class DataExplorer extends React.Component {
     const options = Object.keys(datasets.names).map(name => {
       const viewsArray = Object.assign({}, datasets.names[name].views)
       datasets.names[name].views = []
+      datasets.names[name].name = name
       Object.keys(viewsArray).map(function (k) {
         datasets.names[name].views.push(viewsArray[k])
       })
@@ -36,7 +39,8 @@ class DataExplorer extends React.Component {
       }),
       drs: new DataRetrievalService(dataset.url, dataset.endpoint),
       sampleDocs: [],
-      _rows: []
+      _rows: [],
+      infographicsConfig: infographicsConfig[dataset.name]
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -85,16 +89,6 @@ class DataExplorer extends React.Component {
         _rows: _rows
       })
     })
-    this.state.drs.getTotal().then(results => {
-      let totalRecords = 0
-      if(results && !results.error){
-        totalRecords = results.meta.results.total
-      }
-
-      this.setState({
-        totalRecords: totalRecords
-      })
-    })
   }
 
   updateState(params){
@@ -111,7 +105,8 @@ class DataExplorer extends React.Component {
 
     this.setState({
       dataset: choice,
-      view: choice.views[0]
+      view: choice.views[0],
+      infographicsConfig: infographicsConfig[choice.name]
     })
   }
 
