@@ -8,7 +8,7 @@ names:
     endpoint: animalandveterinary/label.json
     url: http://ec2-34-238-202-4.compute-1.amazonaws.com:8000
     filters:
-      options: 
+      options:
         - label: Effective Time
           type: datepicker
           field: effective_time
@@ -215,33 +215,92 @@ names:
         label: LLT Frequency
       listingRecalls:
         label: Listing of recalls
+    endpoint: animalandveterinary/pet_food_reports.json
+    url: http://ec2-34-229-232-27.compute-1.amazonaws.com:8000
     filters:
       options:
-        - label: Time Period
-          type: time_select
+        - label: Effective Time
+          type: datepicker
+          field: effective_time
+          query_type: range
           placeholder: Select Time Period
-          options:
-              - YTD
-              - Last Year
-              - Last 5 Years
-              - All Available
         - label: Product Name
-          field: product.product_name
-          type: autocomplete
+          field: product.name
+          type: select_autocomplete
           placeholder: Start typing to select Product
-        - label: Brand Name
-          field: product.brand_name
-          type: autocomplete
-          placeholder: Start typing to select Brand
         - label: Flavor
-          field: product.flavor_name
-          type: autocomplete
+          field: product.flavor
+          type: select_autocomplete
           placeholder: Start typing to select Flavor
-        - label: Formulation
-          field: product.formulation_name
-          type: autocomplete
-          placeholder: Start typing to select Formulation
+        - label: Breed
+          field: product.breed
+          type: select_autocomplete
+          placeholder: Start typing to select Breed
         - label: Clinical Reaction
-          field: clinical_reaction
-          type: autocomplete
-          placeholder: Start typing to select ClInical Reaction
+          field: reaction.clinical_sign
+          type: select_autocomplete
+          placeholder: Start typing to select Clinical Reaction
+    columns:
+      - Header: Identifier
+        accessor: identifier
+        show: true
+      - Header: Name
+        accessor: product.name
+        show: true
+      - Header: Flavor
+        accessor: product.flavor
+        show: true
+      - Header: Formulation
+        accessor: product.formulation
+        show: true
+      - Header: Number Fed
+        accessor: number_fed
+        show: false
+      - Header: Number Reacted
+        accessor: number_reacted
+        show: false
+      - Header: Number Died
+        accessor: number_died
+        show: false
+      - Header: State
+        accessor: state
+        show: false
+      - Header: Report Year
+        accessor: report_year
+        show: false
+      - Header: Clinical Sign
+        accessor: reaction.clinical_sign
+        show: false
+      - Header: Unique Animal ID
+        accessor: animal.unique_animal_id
+        show: false
+      - Header: Species
+        accessor: animal.species
+        show: false
+      - Header: Breed
+        accessor: animal.breed
+        show: false
+      - Header: Gender
+        accessor: animal.gender
+        show: false
+      - Header: Weight
+        accessor: animal.weight
+        show: false
+      - Header: Weight UOM
+        accessor: animal.weight_uom
+        show: false
+      - Header: Age
+        accessor: animal.age
+        show: false
+      - Header: Age Units
+        accessor: animal.age_units
+        show: false
+      - Header: Reproductive Status
+        accessor: animal.reproductive_status
+        show: false
+      - Header: Animal Number
+        accessor: animal.animal_number
+        show: false
+    exportOptions:
+      - label: CSV
+      - label: JSON
