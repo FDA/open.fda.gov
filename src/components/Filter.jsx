@@ -18,6 +18,7 @@ import {
 
 import 'react-day-picker/lib/style.css'
 import 'rc-checkbox/assets/index.css'
+import 'react-select/dist/react-select.css';
 
 
 class SelectFilterComponent extends React.Component {

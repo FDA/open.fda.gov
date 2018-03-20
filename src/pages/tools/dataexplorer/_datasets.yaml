@@ -216,7 +216,7 @@ names:
         label: LLT Frequency
       listingRecalls:
         label: Listing of recalls
-    endpoint: animalandveterinary/pet_food_reports.json
+    endpoint: animalandveterinary/petfood_reports.json
     url: http://ec2-34-229-232-27.compute-1.amazonaws.com:8000
     filters:
       options:
