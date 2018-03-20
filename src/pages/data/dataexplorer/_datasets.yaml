@@ -2,9 +2,11 @@ names:
   animaldrugs:
     label: Animal Drug Labeling
     path: animaldrug
+    drugtype: animal
     views:
       listingLabels:
         label: Listing of Labels
+        searchType: nonLLT
     endpoint: animalandveterinary/label.json
     url: http://ec2-34-238-202-4.compute-1.amazonaws.com:8000
     filters:
@@ -19,7 +21,6 @@ names:
           type: free_text
           query_type: match
           remove_chars: inactive ingredients
-          can_query: false
           placeholder: Type Inactive Ingredient
           limit: 100
         - label: Substance Name
@@ -27,7 +28,7 @@ names:
           autocomplete_field: openfda.substance_name
           type: select_autocomplete
           remove_chars: active ingredients
-          can_query: false
+          can_query: true
           placeholder: Search Substance Name
           query_type: term
           limit: 100
@@ -214,8 +215,10 @@ names:
     views:
       lltView:
         label: LLT Frequency
+        searchType: LLT
       listingRecalls:
         label: Listing of recalls
+        searchType: nonLLT
     endpoint: animalandveterinary/petfood_reports.json
     url: http://ec2-34-229-232-27.compute-1.amazonaws.com:8000
     filters:

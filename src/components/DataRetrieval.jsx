@@ -19,7 +19,7 @@ class DataRetrievalService {
     this.getTotal = this.getTotal.bind(this)
   }
 
-  convertFiltersToJson(filters){
+  convertFiltersToJson(filters, options){
     const formattedFilters = filters.filter(filter => filter.value.length).map((filter,idx) => {
       var value = {
         "query-type": filter.query_type,
@@ -37,23 +37,28 @@ class DataRetrievalService {
       return value
     })
 
-    formattedFilters.push({
-      "query-type": "term",
-      "key": "@drugtype",
-      "value": [
-        "animal"
-      ]
-    })
-
-    return {
+    if(options.drugtype){
+      formattedFilters.push({
+        "query-type": "term",
+        "key": "@drugtype",
+        "value": [
+          options.drugtype
+        ]
+      })
+    }
+    const params = {
       "data": {
         "queryJSON": {
           "size": 5000,
-          "searchType": "nonLLT",
-          "filters": formattedFilters
+          "searchType": options.searchType
         }
       }
     }
+    if(formattedFilters.length){
+      params.data.queryJSON.filters = formattedFilters
+    }
+
+    return params
   }
 
   getTopValues(field){
@@ -103,8 +108,8 @@ class DataRetrievalService {
   }
 
 
-  getData(params){
-    const data = this.convertFiltersToJson(params)
+  getData(params, options){
+    const data = this.convertFiltersToJson(params, options)
     console.log("filters:")
     console.log(JSON.stringify(data, null, 4));
     return fetch(`${this.url}/${this.endpoint}`, {
