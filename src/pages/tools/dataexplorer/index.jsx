@@ -35,25 +35,25 @@ class DataExplorer extends React.Component {
       view: dataset.views[0],
       filters: [],
       drs: null,
-      sampleDocs: [],
       _rows: [],
       infographicsConfig: infographicsConfig[dataset.name]
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleViewChange = this.handleViewChange.bind(this)
-    this.updateResults = this.updateResults.bind(this)
     this.getData = this.getData.bind(this)
     this.getFilters = this.getFilters.bind(this)
   }
   componentWillReceiveProps () {
 
   }
+
   componentDidMount () {
     this.handleChange(this.state.dataset)
     this.handleViewChange(this.state.view)
 
   }
+
   getFilters(dataset){
     return dataset.filters.options.map(option => {
       option.value = []
@@ -61,26 +61,15 @@ class DataExplorer extends React.Component {
     })
   }
 
-  updateResults(){
-    // this.state.drs.getData(this.state.filters).then(results => {
-    //   console.log(results)
-    // })
-
-    const minimum = 0
-    const maximum = 150
-    const randomStart = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-
-    this.setState({
-      _rows : this.state.sampleDocs.slice(randomStart)
-    })
-
-  }
-
   getData(){
     if(!this.state.filters.length){
       return
     }
-    this.state.drs.getData(this.state.filters).then(results => {
+
+    this.state.drs.getData(this.state.filters, {
+      drugtype: this.state.dataset.drugtype,
+      searchType: this.state.view.searchType
+    }).then(results => {
       let _rows = []
       if (results && !results.error) {
         _rows = results.results

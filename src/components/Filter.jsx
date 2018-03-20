@@ -76,35 +76,6 @@ class SelectAutoCompleteFilterComponent extends React.Component {
           options
         })
       })
-    } else {
-      let options = new Set()
-      this.props.parent.state.sampleDocs.forEach(doc => {
-        let value = doc[field]
-
-        if(value === undefined){
-          value = ""
-        }
-        if(value instanceof Array){
-          value = value[0]
-        }
-        if(this.props.option.remove_chars !== undefined){
-          value = value.toLowerCase().replace(this.props.option.remove_chars,"")
-        }
-        value.split(',').forEach(v =>{
-          options.add(v.trim())
-        })
-      })
-
-      const finalOptions = Array.from(options).map(v => {
-        return {
-          label : v,
-          value: v
-        }
-      })
-
-      this.setState({
-        options: finalOptions
-      })
     }
   }
 
