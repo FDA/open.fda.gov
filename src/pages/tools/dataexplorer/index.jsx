@@ -8,6 +8,7 @@ import DataRetrievalService from '../../../components/DataRetrieval'
 import meta from './_meta.yaml'
 import datasets from './_datasets.yaml'
 import Select from 'react-select'
+import _ from 'lodash'
 
 import infographicsConfig from './_infographics.json'
 
@@ -29,20 +30,24 @@ class DataExplorer extends React.Component {
 
     const dataset = options[0]
 
-    this.state = {
+    const defaultState = {
       options: options,
-      dataset: dataset,
-      view: dataset.views[0],
+      dataset: null,
+      view: null,
       filters: [],
       drs: null,
       _rows: [],
-      infographicsConfig: infographicsConfig[dataset.name]
+      infographicsConfig: null
     }
+
+    this.state = _.extend(defaultState, this.getDatasetState(dataset))
+
 
     this.handleChange = this.handleChange.bind(this)
     this.handleViewChange = this.handleViewChange.bind(this)
     this.getData = this.getData.bind(this)
     this.getFilters = this.getFilters.bind(this)
+    this.getDatasetState = this.getDatasetState.bind(this)
   }
   componentWillReceiveProps () {
 
@@ -91,8 +96,16 @@ class DataExplorer extends React.Component {
     })
   }
 
-  updateState(params){
-    this.setState(params)
+  getDatasetState(dataset){
+    return {
+      dataset: dataset,
+      filters: this.getFilters(dataset),
+      drs: new DataRetrievalService(dataset.url, dataset.endpoint),
+      view: dataset.views[0],
+      infographicsConfig: infographicsConfig[dataset.name],
+      _rows: [],
+      totalRecords: 0
+    }
   }
 
   handleChange (value) {
@@ -103,17 +116,14 @@ class DataExplorer extends React.Component {
       }
     })
 
-    this.setState({
-      dataset: dataset,
-      filters: this.getFilters(dataset),
-      drs: new DataRetrievalService(dataset.url, dataset.endpoint),
-      view: dataset.views[0],
-      infographicsConfig: infographicsConfig[dataset.name],
-      _rows: [],
-      totalRecords: 0
-    }, () => {
-      this.getData()
-    })
+    if(dataset.name === this.state.dataset.name){
+      return
+    } else {
+      this.setState(this.getDatasetState(dataset), () => {
+        this.getData()
+      })
+    }
+    
   }
 
   handleViewChange (value) {
