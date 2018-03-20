@@ -458,7 +458,7 @@ class ResultsInfographicComponent extends React.Component {
               substance_name: value.count,
               amt: value.count
             }
-          })
+          }).slice(0,this.props.parent.state.infographicsConfig.barChart.limiter)
         } else {
           console.log('????')
         }
@@ -757,10 +757,10 @@ class DatasetExplorerContentComponent extends React.Component {
     return (
       <div className={'dataset-explorer-content '} id='dataset-explorer-content'>
         <div>
-          <SelectedFiltersComponent
+          <ResultsInfographicComponent
             parent={this.props.parent}
           />
-          <ResultsInfographicComponent
+          <SelectedFiltersComponent
             parent={this.props.parent}
           />
         </div>

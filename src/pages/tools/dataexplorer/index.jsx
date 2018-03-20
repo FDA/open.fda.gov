@@ -117,7 +117,7 @@ class DataExplorer extends React.Component {
     })
 
     if(dataset.name === this.state.dataset.name){
-      return
+      this.getData()
     } else {
       this.setState(this.getDatasetState(dataset), () => {
         this.getData()
