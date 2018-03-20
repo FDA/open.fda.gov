@@ -33,11 +33,8 @@ class DataExplorer extends React.Component {
       options: options,
       dataset: dataset,
       view: dataset.views[0],
-      filters: dataset.filters.options.map(option => {
-        option.value = []
-        return option
-      }),
-      drs: new DataRetrievalService(dataset.url, dataset.endpoint),
+      filters: [],
+      drs: null,
       sampleDocs: [],
       _rows: [],
       infographicsConfig: infographicsConfig[dataset.name]
@@ -47,6 +44,7 @@ class DataExplorer extends React.Component {
     this.handleViewChange = this.handleViewChange.bind(this)
     this.updateResults = this.updateResults.bind(this)
     this.getData = this.getData.bind(this)
+    this.getFilters = this.getFilters.bind(this)
   }
   componentWillReceiveProps () {
 
@@ -55,12 +53,12 @@ class DataExplorer extends React.Component {
     this.handleChange(this.state.dataset)
     this.handleViewChange(this.state.view)
 
-    this.state.drs.getTopValuesByIterating().then(results => {
-      // this.setState({
-      //   sampleDocs: results
-      // })
+  }
+  getFilters(dataset){
+    return dataset.filters.options.map(option => {
+      option.value = []
+      return option
     })
-
   }
 
   updateResults(){
@@ -79,6 +77,9 @@ class DataExplorer extends React.Component {
   }
 
   getData(){
+    if(!this.state.filters.length){
+      return
+    }
     this.state.drs.getData(this.state.filters).then(results => {
       let _rows = []
       if (results && !results.error) {
@@ -106,30 +107,36 @@ class DataExplorer extends React.Component {
   }
 
   handleChange (value) {
-    let choice = null
+    let dataset = null
     this.state.options.forEach(obj => {
       if (obj.label === value.label) {
-        choice = obj
+        dataset = obj
       }
     })
 
     this.setState({
-      dataset: choice,
-      view: choice.views[0],
-      infographicsConfig: infographicsConfig[choice.name]
+      dataset: dataset,
+      filters: this.getFilters(dataset),
+      drs: new DataRetrievalService(dataset.url, dataset.endpoint),
+      view: dataset.views[0],
+      infographicsConfig: infographicsConfig[dataset.name],
+      _rows: [],
+      totalRecords: 0
+    }, () => {
+      this.getData()
     })
   }
 
   handleViewChange (value) {
-    let choice = null
+    let view = null
     this.state.dataset.views.forEach(obj => {
       if (obj.label === value.label) {
-        choice = obj
+        view = obj
       }
     })
 
     this.setState({
-      view: choice
+      view: view
     })
   }
 

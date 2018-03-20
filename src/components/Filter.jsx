@@ -63,6 +63,9 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     this.setState({
       options: []
     })
+    if(!this.props.parent.state.filters.length){
+      return
+    }
 
     const field = this.props.option.field
     const autocomplete_field = this.props.option.autocomplete_field
@@ -215,6 +218,9 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
+    if(!this.props.parent.state.filters.length){
+      return (<span/>)
+    }
     const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
 
     return (
@@ -233,7 +239,6 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     )
   }
 }
-
 
 class TimeSelectFilterComponent extends React.Component {
 
@@ -522,7 +527,9 @@ class CheckboxFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
-
+    if(!this.props.parent.state.filters.length){
+      return (<span/>)
+    }
     const field = this.props.option.field
     const output = this.props.option.options.map((option, idx) => {
       const currentValue = this.props.parent.state.filters[this.props.option.idx].value
@@ -596,7 +603,9 @@ class BooleanFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
-
+    if(!this.props.parent.state.filters.length){
+      return (<span/>)
+    }
     const field = this.props.option.field
     const output = this.props.option.options.map((option, idx) => {
       const currentValue = this.props.parent.state.filters[this.props.option.idx].value
@@ -705,6 +714,9 @@ class FreeTextFilterComponent extends React.Component {
   }
 
   render(): ?React.Element {
+    if(!this.props.parent.state.filters.length){
+      return (<span/>)
+    }
     const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
 
     return (
@@ -741,7 +753,6 @@ class FilterComponent extends React.Component {
   }
 
   componentDidMount () {
-    this.props.parent.getData()
   }
 
   onChangeCheckbox(e, options) {
@@ -819,6 +830,9 @@ class FilterComponent extends React.Component {
   }
 
   onChangeTimeSelect(selectionObj, meta) {
+    if(!this.props.parent.state.filters.length){
+      return
+    }
     this.parent.state.filters[meta.idx].value = selectionObj.value
 
     this.parent.setState({
@@ -827,6 +841,9 @@ class FilterComponent extends React.Component {
   }
 
   onChangeDatePickerEnd(date, meta) {
+    if(!this.props.parent.state.filters.length){
+      return
+    }
     const currentValue = this.props.parent.state.filters[meta.idx].value
 
     this.props.parent.state.filters[meta.idx].value = [currentValue[0], date]
@@ -837,6 +854,9 @@ class FilterComponent extends React.Component {
   }
 
   onChangeDatePickerStart(date, meta) {
+    if(!this.props.parent.state.filters.length){
+      return
+    }
     const currentValue = this.props.parent.state.filters[meta.idx].value
 
     this.props.parent.state.filters[meta.idx].value = [date, currentValue[1]]
@@ -847,6 +867,9 @@ class FilterComponent extends React.Component {
   }
 
   onChangeText(value, meta) {
+    if(!this.props.parent.state.filters.length){
+      return
+    }
     value = value.toLowerCase()
     const currentValues = this.props.parent.state.filters[meta.idx].value
     const currentIndex = currentValues.indexOf(value)
