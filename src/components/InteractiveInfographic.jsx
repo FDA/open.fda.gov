@@ -2,10 +2,7 @@
 
 import React from 'react'
 
-import HeatMapInfographic from '../components/HeatMapInfographic'
-import DataMapInfographic from '../components/DataMapInfographic'
 import PieChartInfographic from '../components/PieChartInfographic'
-import GridInfographic from '../components/GridInfographic'
 
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
@@ -53,35 +50,12 @@ class InteractiveInfographic extends React.Component {
     let infographic = null;
     
     switch (choice.type) {
-      case "HeatMap":
-        infographic = <HeatMapInfographic
-          api={this.props.meta.api_path}
-          dateField={this.props.meta.dateConstraintKey}
-          infographicDefinitions={choice}
-          parent={this}
-        />
-        break;
-      case "DataMap":
-        infographic = <DataMapInfographic 
-          api={this.props.meta.api_path}
-          infographicDefinitions={choice}
-          parent={this}
-        />
-        break;
       case "PieChart":
         infographic = 
           <PieChartInfographic
             api={this.props.meta.api_path}
             infographicDefinitions={choice}
             globalDefs={this.props.infographicDefinitions.globalDefs}
-            parent={this}
-          />
-        break;
-      case "Grid":
-        infographic = 
-          <GridInfographic
-            api={this.props.meta.api_path}
-            infographicDefinitions={choice}
             parent={this}
           />
         break;

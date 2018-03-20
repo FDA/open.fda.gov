@@ -544,6 +544,7 @@ class PieChartInfographic extends React.Component {
             this.onSelectionChange(styl)  
           })
 
+          
           if(that.refs){
             that.refs.child.setState({
               activeIndex: index
