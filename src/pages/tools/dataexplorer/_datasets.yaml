@@ -220,11 +220,6 @@ names:
     url: http://ec2-34-229-232-27.compute-1.amazonaws.com:8000
     filters:
       options:
-        - label: Effective Time
-          type: datepicker
-          field: effective_time
-          query_type: range
-          placeholder: Select Time Period
         - label: Product Name
           field: product.name
           type: select_autocomplete
