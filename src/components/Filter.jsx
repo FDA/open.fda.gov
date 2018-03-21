@@ -161,6 +161,8 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     this.state = {
       values: [],
       elements:  null,
+      autocomplete_field: null,
+      field: null,
       url: this.props.parent.state.dataset.url,
       endpoint: this.props.parent.state.dataset.endpoint
     }
@@ -179,17 +181,35 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     if(!this.props.parent.state.filters.length){
       return
     }
+  }
 
+  componentWillReceiveProps(){
     const field = this.props.option.field
     const autocomplete_field = this.props.option.autocomplete_field
+
+    if(
+        field === this.state.field 
+        && autocomplete_field === this.state.autocomplete_field
+        && this.props.parent.state.dataset.endpoint === this.state.endpoint
+      ){
+      return
+    }
+
     if(this.props.option.can_query){
-      this.props.parent.state.drs.getTopValues(field).then(options => {
-        this.setState({
-          options
+      this.setState({
+        autocomplete_field,
+        field,
+        endpoint: this.props.parent.state.dataset.endpoint
+      }, () => {
+        this.props.parent.state.drs.getTopValues(field).then(options => {
+          this.setState({
+            options
+          })
         })
       })
     }
   }
+
 
   removeValue(idx){
     const value = this.props.parent.state.filters[this.props.option.idx].value[idx]
@@ -1045,6 +1065,7 @@ class FilterComponent extends React.Component {
           <SelectAutoCompleteFilterComponent
             key={`filter${idx}`}
             option={option}
+            options={option.options}
             parent={this.props.parent}
             onChange={this.onChangeSelect}
           />

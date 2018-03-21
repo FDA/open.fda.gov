@@ -243,67 +243,67 @@ names:
         label: Listing of recalls
         searchType: nonLLT
         columns:
-                  - Header: Identifier
-                    accessor: identifier
-                    show: false
-                  - Header: Name
-                    accessor: product.name
-                    show: true
-                  - Header: Flavor
-                    accessor: product.flavor
-                    show: true
-                  - Header: Formulation
-                    accessor: product.formulation
-                    show: true
-                  - Header: Number Fed
-                    accessor: number_fed
-                    show: true
-                  - Header: Number Reacted
-                    accessor: number_reacted
-                    show: true
-                  - Header: Number Died
-                    accessor: number_died
-                    show: true
-                  - Header: State
-                    accessor: state
-                    show: false
-                  - Header: Report Year
-                    accessor: report_year
-                    show: true
-                  - Header: Clinical Sign
-                    accessor: reaction.clinical_sign
-                    show: true
-                    split: true
-                  - Header: Unique Animal ID
-                    accessor: animal.unique_animal_id
-                    show: false
-                  - Header: Species
-                    accessor: animal.species
-                    show: false
-                  - Header: Breed
-                    accessor: animal.breed
-                    show: false
-                  - Header: Gender
-                    accessor: animal.gender
-                    show: false
-                  - Header: Weight
-                    accessor: animal.weight
-                    show: false
-                  - Header: Weight UOM
-                    accessor: animal.weight_uom
-                    show: false
-                  - Header: Age
-                    accessor: animal.age
-                    show: false
-                  - Header: Age Units
-                    accessor: animal.age_units
-                    show: false
-                  - Header: Reproductive Status
-                    accessor: animal.reproductive_status
-                    show: false
-                  - Header: Animal Number
-                    accessor: animal.animal_number
-                    show: false
+          - Header: Identifier
+            accessor: identifier
+            show: false
+          - Header: Name
+            accessor: product.name
+            show: true
+          - Header: Flavor
+            accessor: product.flavor
+            show: true
+          - Header: Formulation
+            accessor: product.formulation
+            show: true
+          - Header: Number Fed
+            accessor: number_fed
+            show: true
+          - Header: Number Reacted
+            accessor: number_reacted
+            show: true
+          - Header: Number Died
+            accessor: number_died
+            show: true
+          - Header: State
+            accessor: state
+            show: false
+          - Header: Report Year
+            accessor: report_year
+            show: true
+          - Header: Clinical Sign
+            accessor: reaction.clinical_sign
+            show: true
+            split: true
+          - Header: Unique Animal ID
+            accessor: animal.unique_animal_id
+            show: false
+          - Header: Species
+            accessor: animal.species
+            show: false
+          - Header: Breed
+            accessor: animal.breed
+            show: false
+          - Header: Gender
+            accessor: animal.gender
+            show: false
+          - Header: Weight
+            accessor: animal.weight
+            show: false
+          - Header: Weight UOM
+            accessor: animal.weight_uom
+            show: false
+          - Header: Age
+            accessor: animal.age
+            show: false
+          - Header: Age Units
+            accessor: animal.age_units
+            show: false
+          - Header: Reproductive Status
+            accessor: animal.reproductive_status
+            show: false
+          - Header: Animal Number
+            accessor: animal.animal_number
+            show: false
 
     endpoint: animalandveterinary/petfood_reports.json
     url: http://ec2-34-229-232-27.compute-1.amazonaws.com:8000
@@ -318,6 +318,7 @@ names:
           field: product.name.exact
           autocomplete_field: product.name
           type: select_autocomplete
+          can_query: true
           remove_chars: product names
           placeholder: Search Product
           query_type: term
@@ -326,6 +327,7 @@ names:
           field: product.flavor.exact
           autocomplete_field: product.flavor
           type: select_autocomplete
+          can_query: true
           remove_chars: flavors
           placeholder: Search Flavor
           query_type: term
@@ -373,6 +375,7 @@ names:
           autocomplete_field: reaction.clinical_sign
           type: select_autocomplete
           remove_chars: reactions
+          can_query: true
           placeholder: Search LLTs
           query_type: term
           limit: 100
