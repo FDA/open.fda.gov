@@ -493,14 +493,13 @@ class DatePickerFilterComponent extends React.Component {
 
   constructor (props: Object) {
     super(props)
-
-    const startDay = Moment().subtract(10, "years").toDate()
-    const endDay = new Date()
-
     this.state = {
-      startDay: startDay,
-      endDay: endDay,
+      startDay: Moment().subtract(10, "years").toDate(),
+      endDay: new Date(),
       isDisabled: false,
+      field: null,
+      endpoint: null,
+      viewName: null
     }
 
     this.onChangeStart = this.onChangeStart.bind(this)
@@ -508,19 +507,38 @@ class DatePickerFilterComponent extends React.Component {
   }
 
   componentDidMount () {
-    if (this.props.onChangeStart) {
-      this.props.onChangeStart(this.state.startDay, {
-        field: this.props.option.field,
-        idx: this.props.option.idx
-      })
-    }
-    if (this.props.onChangeEnd) {
-      this.props.onChangeEnd(this.state.endDay, {
-        field: this.props.option.field,
-        idx: this.props.option.idx
-      })
+  }
+
+  componentWillReceiveProps(){
+
+    if(
+        this.props.option.field === this.state.field
+        && this.props.parent.state.dataset.endpoint === this.state.endpoint
+        && this.props.parent.state.view.label === this.state.viewName
+      ){
+      return
     }
 
+    this.setState({
+      field: this.props.option.field,
+      endpoint: this.props.parent.state.dataset.endpoint,
+      startDay: Moment().subtract(10, "years").toDate(),
+      endDay: new Date(),
+      viewName: this.props.parent.state.view.label
+    }, () => {
+      if (this.props.onChangeStart) {
+        this.props.onChangeStart(this.state.startDay, {
+          field: this.props.option.field,
+          idx: this.props.option.idx
+        })
+      }
+      if (this.props.onChangeEnd) {
+        this.props.onChangeEnd(this.state.endDay, {
+          field: this.props.option.field,
+          idx: this.props.option.idx
+        })
+      }
+    })
   }
 
   onChangeStart(startDay, modifiers) {
