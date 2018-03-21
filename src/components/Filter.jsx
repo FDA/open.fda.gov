@@ -22,23 +22,135 @@ import 'react-select/dist/react-select.css';
 
 
 class SelectFilterComponent extends React.Component {
+    constructor (props: Object) {
+        super(props)
 
- constructor (props: Object) {
-    super(props)
-
-    this.state = {
+        this.state = {
+            currentValue: "",
+            options:this.props.options
+        }
+        this.onChange = this.onChange.bind(this)
+        this.handleKeyPress = this.handleKeyPress.bind(this)
+        this.formatValues = this.formatValues.bind(this)
+        this.removeValue = this.removeValue.bind(this)
     }
-  }
 
-  componentDidMount () {
-  }
+    componentDidMount () {
+    }
 
-  render (): ?React.Element {
-    return (
-      <div>
-      </div>
-    )
-  }
+    removeValue(idx){
+        const value = this.props.parent.state.filters[this.props.option.idx].value[idx]
+
+        this.props.onChange(value, {
+            field: this.props.option.field,
+            idx: this.props.option.idx
+        })
+    }
+
+    onChange(selectionObj) {
+
+        let choice = null
+        this.state.options.forEach(option => {
+            if (option.value === selectionObj.label) {
+                choice = option
+            }
+        })
+
+        this.setState({
+            currentValue: choice
+        })
+
+        if(this.props.onChange){
+            this.props.onChange(selectionObj, {
+                field: this.props.option.field,
+                idx: this.props.option.idx
+            })
+        }
+        //  this.setState({
+        //     currentValue: event.target.value
+        // })
+    }
+
+    formatValues(values){
+        return values.map((value,idx) => {
+            return (
+                <div
+                    key={`value-${idx}`}
+                    style={{
+                        display: "flex",
+                        paddingTop: 10
+                    }}
+                >
+                    <button onClick={() => this.removeValue(idx)}
+                            style={{
+                                padding: 0
+                            }}
+                    >
+                        <i style={{
+                            paddingRight: 10
+                        }}>{value}</i>
+                        <img src="/img/cancel_icon.png" style={{
+                            height:20,
+                            display: 'inline'
+                        }}/>
+                    </button>
+                </div>
+            )
+        })
+    }
+
+    handleKeyPress(e) {
+        if(e.key === "Enter"){
+            const value = e.target.value
+
+            this.setState({
+                currentValue: ""
+            })
+
+            if(this.props.onChange){
+                this.props.onChange(value, {
+                    field: this.props.option.field,
+                    idx: this.props.option.idx
+                })
+            }
+        }
+    }
+
+    /* render(): ?React.Element {
+         const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
+
+         return (
+             <div className='filter-input'>
+                 <input
+                     type='text'
+                     placeholder={this.props.option.placeholder}
+                     value={this.state.currentValue}
+                     onKeyPress={this.handleKeyPress}
+                     onChange={this.onChange}
+                     id={this.props.option.idx}
+                 />
+                 {elements}
+             </div>
+         )
+     } */
+
+    render (): ?React.Element {
+        const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
+        return (
+            <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
+                <Select
+                    value={this.state.currentValue}
+                    className='filter-select'
+                    placeholder={this.props.placeholder}
+                    onKeyPress={this.handleKeyPress}
+                    onChange={this.onChange}
+                    options={this.props.options}
+                    id={this.props.option.idx}
+                    clearable={false}
+                />
+            </div>
+        )
+    }
 }
 
 class SelectAutoCompleteFilterComponent extends React.Component {
@@ -94,7 +206,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   getOptions(value, callback) {
     if(value){
       return fetch(
-        withQuery(`${this.state.url}/${this.state.endpoint}`,{
+        withQuery(`${this.props.parent.state.dataset.url}/${this.props.parent.state.dataset.endpoint}`,{
           searchField: this.props.option.autocomplete_field,
           searchText: value,
           searchType: 'autocomplete',
@@ -722,6 +834,7 @@ class FilterComponent extends React.Component {
     this.onChangeDatePickerEnd = this.onChangeDatePickerEnd.bind(this)
     this.onChangeDatePickerStart = this.onChangeDatePickerStart.bind(this)
     this.onChangeText = this.onChangeText.bind(this)
+    this.onChangeDropDown = this.onChangeDropDown.bind(this)
   }
 
   componentDidMount () {
@@ -860,6 +973,25 @@ class FilterComponent extends React.Component {
     })
   }
 
+    onChangeDropDown(selectionObj, meta){
+        const value = selectionObj.value
+        const currentValues = this.props.parent.state.filters[meta.idx].value
+        const currentIndex = currentValues.indexOf(value)
+
+        // contains value already
+        if( currentIndex > -1 ){
+            currentValues.splice(currentIndex, 1)
+        } else {
+            currentValues.push(value)
+        }
+
+        this.props.parent.state.filters[meta.idx].value = currentValues
+
+        this.props.parent.setState({
+            filters: this.props.parent.state.filters
+        })
+    }
+
   toggleFilters () {
     if (this.state.displayFilters === false) {
       document.getElementById("filter-sidebar").style.width = "23%"
@@ -896,11 +1028,17 @@ class FilterComponent extends React.Component {
         )
       } else if (option.type === "select") {
         return (
-          <SelectFilterComponent
-            key={`filter${idx}`}
-            option={option}
-            onChange={this.onChangeSelect}
-          />
+          <div className='filter-item-container' key={`div${idx}`}>
+            <h3>{option.label}</h3>
+            <SelectFilterComponent
+              key={`filter${idx}`}
+              option={option}
+              placeholder={option.placeholder}
+              options={option.options}
+              parent={this.props.parent}
+              onChange={this.onChangeDropDown}
+            />
+          </div>
         )
       } else if (option.type === "select_autocomplete") {
         return (
