@@ -217,100 +217,165 @@ names:
         label: LLT Frequency
         searchType: LLT
         columns:
-          - Header: Identifier
-            accessor: identifier
-            show: true
           - Header: Name
-            accessor: product.name
+            accessor: name
             show: true
           - Header: Flavor
-            accessor: product.flavor
+            accessor: flavors
+            property: flavor_name
             show: true
+            split: true
           - Header: Formulation
-            accessor: product.formulation
+            accessor: flavors.formulations
+            property: formulation_name
             show: true
-          - Header: Number Fed
-            accessor: number_fed
-            show: false
-          - Header: Number Reacted
-            accessor: number_reacted
-            show: false
-          - Header: Number Died
-            accessor: number_died
-            show: false
-          - Header: State
-            accessor: state
-            show: false
-          - Header: Report Year
-            accessor: report_year
-            show: false
           - Header: Clinical Sign
-            accessor: reaction.clinical_sign
-            show: false
-          - Header: Unique Animal ID
-            accessor: animal.unique_animal_id
-            show: false
-          - Header: Species
-            accessor: animal.species
-            show: false
-          - Header: Breed
-            accessor: animal.breed
-            show: false
-          - Header: Gender
-            accessor: animal.gender
-            show: false
-          - Header: Weight
-            accessor: animal.weight
-            show: false
-          - Header: Weight UOM
-            accessor: animal.weight_uom
-            show: false
-          - Header: Age
-            accessor: animal.age
-            show: false
-          - Header: Age Units
-            accessor: animal.age_units
-            show: false
-          - Header: Reproductive Status
-            accessor: animal.reproductive_status
-            show: false
-          - Header: Animal Number
-            accessor: animal.animal_number
-            show: false
+            accessor: flavors.formulations.reactions
+            property: LLT
+            show: true
+            split: true
+          - Header: LLT frequency
+            accessor: flavors.formulations.reactions
+            property: LLT Freq
+            show: true
+            split: true
       listingRecalls:
         label: Listing of recalls
         searchType: nonLLT
         columns:
-          - Header: Identifier
-            accessor: identifier
-            show: true
-          - Header: Age
-            accessor: animal.age
-            show: true
-          - Header: Breed
-            accessor: animal.breed
-            show: true
+                  - Header: Identifier
+                    accessor: identifier
+                    show: false
+                  - Header: Name
+                    accessor: product.name
+                    show: true
+                  - Header: Flavor
+                    accessor: product.flavor
+                    show: true
+                  - Header: Formulation
+                    accessor: product.formulation
+                    show: true
+                  - Header: Number Fed
+                    accessor: number_fed
+                    show: true
+                  - Header: Number Reacted
+                    accessor: number_reacted
+                    show: true
+                  - Header: Number Died
+                    accessor: number_died
+                    show: true
+                  - Header: State
+                    accessor: state
+                    show: false
+                  - Header: Report Year
+                    accessor: report_year
+                    show: true
+                  - Header: Clinical Sign
+                    accessor: reaction.clinical_sign
+                    show: true
+                    split: true
+                  - Header: Unique Animal ID
+                    accessor: animal.unique_animal_id
+                    show: false
+                  - Header: Species
+                    accessor: animal.species
+                    show: false
+                  - Header: Breed
+                    accessor: animal.breed
+                    show: false
+                  - Header: Gender
+                    accessor: animal.gender
+                    show: false
+                  - Header: Weight
+                    accessor: animal.weight
+                    show: false
+                  - Header: Weight UOM
+                    accessor: animal.weight_uom
+                    show: false
+                  - Header: Age
+                    accessor: animal.age
+                    show: false
+                  - Header: Age Units
+                    accessor: animal.age_units
+                    show: false
+                  - Header: Reproductive Status
+                    accessor: animal.reproductive_status
+                    show: false
+                  - Header: Animal Number
+                    accessor: animal.animal_number
+                    show: false
 
     endpoint: animalandveterinary/petfood_reports.json
     url: http://ec2-34-229-232-27.compute-1.amazonaws.com:8000
     filters:
       options:
+        - label: Report Year(s)
+          type: datepicker
+          field: report_year
+          query_type: range
+          placeholder: Select Year
         - label: Product Name
-          field: product.name
+          field: product.name.exact
+          autocomplete_field: product.name
           type: select_autocomplete
-          placeholder: Start typing to select Product
+          remove_chars: product names
+          placeholder: Search Product
+          query_type: term
+          limit: 100
         - label: Flavor
-          field: product.flavor
+          field: product.flavor.exact
+          autocomplete_field: product.flavor
           type: select_autocomplete
-          placeholder: Start typing to select Flavor
-        - label: Breed
-          field: product.breed
+          remove_chars: flavors
+          placeholder: Search Flavor
+          query_type: term
+          limit: 100
+        - label: Formulation
+          field: product.formulation
+          autocomplete_field: product.forumulation
+          type: select
+          remove_chars: formulations
+          placeholder: Select Formulation
+          query_type: term
+          options:
+            - label: Bone
+              value: Bone
+            - label: Canned
+              value: Canned
+            - label: Dry
+              value: Dry
+            - label: Raw
+              value: Raw
+            - label: Treat
+              value: Treat
+            - label: Other
+              value: Other
+            - label: Dental
+              value: Dental
+            - label: Unknown
+              value: Unknown
+            - label: Pouched
+              value: Pouched
+            - label: Tubbed
+              value: Tubbed
+            - label: Tray
+              value: Tray
+            - label: Supplement
+              value: Supplement
+            - label: Semi-Moist
+              value: Semi-Moist
+            - label: Rolled
+              value: Rolled
+            - label: Raw; Bone
+              value: Raw; Bone
+        - label: Reactions(LLT)
+          field: reaction.clinical_sign.exact
+          autocomplete_field: reaction.clinical_sign
           type: select_autocomplete
-          placeholder: Start typing to select Breed
-        - label: Clinical Reaction
-          field: reaction.clinical_sign
-          type: select_autocomplete
-          placeholder: Start typing to select Clinical Reaction
+          remove_chars: reactions
+          placeholder: Search LLTs
+          query_type: term
+          limit: 100
     exportOptions:
       - label: CSV
       - label: JSON
