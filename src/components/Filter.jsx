@@ -10,6 +10,9 @@ import Moment from 'moment'
 import AutoCompleteComponent from './AutoComplete'
 import withQuery from 'with-query'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
+import Datetime from 'react-datetime'
+
+require('react-datetime');
 
 import {
   formatDate,
@@ -501,9 +504,6 @@ class DatePickerFilterComponent extends React.Component {
       endpoint: null,
       viewName: null
     }
-
-    this.onChangeStart = this.onChangeStart.bind(this)
-    this.onChangeEnd = this.onChangeEnd.bind(this)
   }
 
   componentDidMount () {
@@ -512,10 +512,10 @@ class DatePickerFilterComponent extends React.Component {
   componentWillReceiveProps(){
 
     if(
-        this.props.option.field === this.state.field
+      this.props.option.field === this.state.field
         && this.props.parent.state.dataset.endpoint === this.state.endpoint
         && this.props.parent.state.view.label === this.state.viewName
-      ){
+    ){
       return
     }
 
@@ -606,6 +606,102 @@ class DatePickerFilterComponent extends React.Component {
     )
   }
 }
+
+class YearPickerFilterComponent extends React.Component {
+
+  constructor(props: Object) {
+    super(props)
+
+    const startYear = Moment().subtract(10, "years").toDate()
+    const endYear = Moment().toDate()
+
+    this.state = {
+      startYear: startYear,
+      endYear: endYear
+    }
+
+    this.onChangeStart = this.onChangeStart.bind(this)
+    this.onChangeEnd = this.onChangeEnd.bind(this)
+  }
+
+  componentDidMount () {
+  }
+
+  componentWillReceiveProps () {
+
+    if (
+      this.props.option.field === this.state.field
+      && this.props.parent.state.dataset.endpoint === this.state.endpoint
+      && this.props.parent.state.view.label === this.state.viewName
+    ) {
+      return
+    }
+
+    this.setState({
+      field: this.props.option.field,
+      endpoint: this.props.parent.state.dataset.endpoint,
+      startDay: Moment().subtract(10, "years").toDate(),
+      endDay: new Date(),
+      viewName: this.props.parent.state.view.label
+    }, () => {
+      if (this.props.onChangeYear) {
+        this.props.onChangeYear(Moment(this.state.startYear).format('YYYY'), Moment(this.state.endYear).format('YYYY'), {
+          field: this.props.option.field,
+          idx: this.props.option.idx
+        })
+      }
+    })
+  }
+
+  onChangeStart (startYear) {
+    this.setState({
+      startYear
+    })
+    if (this.props.onChangeYear) {
+      this.props.onChangeYear(Moment(startYear).format('YYYY'), Moment(this.state.endYear).format('YYYY'), {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
+    }
+  }
+
+  onChangeEnd (endYear) {
+    this.setState({
+      endYear
+    })
+    if (this.props.onChangeYear) {
+      this.props.onChangeYear(Moment(endYear).format('YYYY'), Moment(this.state.startYear).format('YYYY'), {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
+    }
+  }
+
+
+  render (): ?React.Element {
+    return (
+      <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
+        <p>Start Year:</p>
+        <Datetime
+          className='year-picker-container'
+          dateFormat='YYYY'
+          timeFormat={false}
+          onChange={this.onChangeStart}
+          value={this.state.startYear}
+        />
+        <p>End Year:</p>
+        <Datetime
+          className='year-picker-container'
+          dateFormat='YYYY'
+          timeFormat={false}
+          onChange={this.onChangeEnd}
+          value={this.state.endYear}
+        />
+      </div>
+    )
+  }
+}
+
 
 class CheckboxFilterComponent extends React.Component {
 
@@ -871,6 +967,7 @@ class FilterComponent extends React.Component {
     this.onChangeBoolean = this.onChangeBoolean.bind(this)
     this.onChangeDatePickerEnd = this.onChangeDatePickerEnd.bind(this)
     this.onChangeDatePickerStart = this.onChangeDatePickerStart.bind(this)
+    this.onChangeYearPicker = this.onChangeYearPicker.bind(this)
     this.onChangeText = this.onChangeText.bind(this)
     this.onChangeDropDown = this.onChangeDropDown.bind(this)
   }
@@ -989,6 +1086,23 @@ class FilterComponent extends React.Component {
     })
   }
 
+  onChangeYearPicker(start_date, end_date, meta) {
+    if(!this.props.parent.state.filters.length){
+      return
+    }
+    const currentValue = this.props.parent.state.filters[meta.idx].value
+    let newValue = []
+    for (var i = start_date; i <= end_date; i++) {
+      newValue.push(i.toString());
+    }
+
+    this.props.parent.state.filters[meta.idx].value = newValue
+
+    this.props.parent.setState({
+      filters: this.props.parent.state.filters
+    })
+  }
+
   onChangeText(value, meta) {
     if(!this.props.parent.state.filters.length){
       return
@@ -1011,24 +1125,24 @@ class FilterComponent extends React.Component {
     })
   }
 
-    onChangeDropDown(selectionObj, meta){
-        const value = selectionObj.value
-        const currentValues = this.props.parent.state.filters[meta.idx].value
-        const currentIndex = currentValues.indexOf(value)
+  onChangeDropDown(selectionObj, meta){
+    const value = selectionObj.value
+    const currentValues = this.props.parent.state.filters[meta.idx].value
+    const currentIndex = currentValues.indexOf(value)
 
-        // contains value already
-        if( currentIndex > -1 ){
-            currentValues.splice(currentIndex, 1)
-        } else {
-            currentValues.push(value)
-        }
-
-        this.props.parent.state.filters[meta.idx].value = currentValues
-
-        this.props.parent.setState({
-            filters: this.props.parent.state.filters
-        })
+    // contains value already
+    if ( currentIndex > -1 ) {
+      currentValues.splice(currentIndex, 1)
+    } else {
+      currentValues.push(value)
     }
+
+    this.props.parent.state.filters[meta.idx].value = currentValues
+
+    this.props.parent.setState({
+      filters: this.props.parent.state.filters
+    })
+  }
 
   toggleFilters () {
     if (this.state.displayFilters === false) {
@@ -1134,6 +1248,18 @@ class FilterComponent extends React.Component {
               parent={this.props.parent}
               onChangeStart={this.onChangeDatePickerStart}
               onChangeEnd={this.onChangeDatePickerEnd}
+            />
+          </div>
+        )
+      } else if (option.type === "yearpicker") {
+        return (
+          <div className='filter-item-container' key={`div${idx}`}>
+            <h3>{option.label}</h3>
+            <YearPickerFilterComponent
+              key={`filter${idx}`}
+              option={option}
+              parent={this.props.parent}
+              onChangeYear={this.onChangeYearPicker}
             />
           </div>
         )

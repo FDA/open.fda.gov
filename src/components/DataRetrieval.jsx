@@ -26,7 +26,7 @@ class DataRetrievalService {
         "key": filter.field,
         "value": filter.value
       }
-      if(value["query-type"] == "range"){
+      if (value["query-type"] == "range") {
         value.value = {
           "gte": Moment(value.value[0]).format('YYYYMMDD'),
           "lte": Moment(value.value[1]).format('YYYYMMDD')
@@ -60,22 +60,21 @@ class DataRetrievalService {
 
   getTopValues(field){
     return fetch(
-        withQuery(`${this.url}/${this.endpoint}`,{
-            count: field
-        },{
-          mode: 'cors'
-        })
-    )
-    .then(res => res.json())
-    .then((json) => {
-      const res = json.results.map(obj => {
-        return { 
-          label: obj.term,
-          value: obj.term
-        }
-      });
-      return res
-    }).catch((err) => [])
+      withQuery(`${this.url}/${this.endpoint}`,{
+        count: field
+      },{
+        mode: 'cors'
+      })
+    ).then(res => res.json())
+      .then((json) => {
+        const res = json.results.map(obj => {
+          return {
+            label: obj.term,
+            value: obj.term
+          }
+        });
+        return res
+      }).catch((err) => [])
   }
 
 
@@ -86,9 +85,9 @@ class DataRetrievalService {
 
     for (var i = 0; i < (limit/100); i++) {
       urls.push(
-        withQuery(`${this.url}/${this.endpoint}`,{
-            limit: 100,
-            skip: i*100
+        withQuery(`${this.url}/${this.endpoint}`, {
+          limit: 100,
+          skip: i*100
         })
       )
     }
@@ -116,17 +115,16 @@ class DataRetrievalService {
       },
       method: 'POST',
       mode: 'cors'
-    })
-    .then(res => res.json())
-    .then(res => {
-      console.log(res)
-      return res
-    })
-    .catch((err) => {})
+    }).then(res => res.json())
+      .then(res => {
+        console.log(res)
+        return res
+      })
+      .catch((err) => {})
   }
 
 
-  getTotal(){
+  getTotal() {
     return fetch(`${this.url}/${this.endpoint}`)
       .then(res => res.json())
       .then(res => {
@@ -138,12 +136,3 @@ class DataRetrievalService {
 }
 
 export default DataRetrievalService
-
-
-
-
-
-
-
-
-

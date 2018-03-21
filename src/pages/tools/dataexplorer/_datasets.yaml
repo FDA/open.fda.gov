@@ -225,9 +225,11 @@ names:
             property: flavor_name
             show: true
             split: true
+            layered: true
           - Header: Formulation
             accessor: flavors.formulations
             property: formulation_name
+            layered: true
             show: true
           - Header: Clinical Sign
             accessor: flavors.formulations.reactions
@@ -310,9 +312,10 @@ names:
     filters:
       options:
         - label: Report Year(s)
-          type: datepicker
+          type: yearpicker
           field: report_year
-          query_type: range
+          can_query: true
+          query_type: term
           placeholder: Select Year
         - label: Product Name
           field: product.name.exact

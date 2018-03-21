@@ -59,6 +59,7 @@
     "react-collapsible": "^2.0.4",
     "react-custom-scrollbars": "^4.2.1",
     "react-datamaps": "git+ssh://git@github.com:debovis/react-datamaps.git",
+    "react-datetime": "^2.14.0",
     "react-day-picker": "^7.1.1",
     "react-document-title": "^2.0.3",
     "react-highlight": "^0.10.0",

@@ -159,7 +159,7 @@ class ResultsComponent extends React.Component {
           props.column.filter_values.forEach(filter_value => {
             value = value.replace(filter_value, "")
           })
-          value = value.trim().replace(':','').replace(new RegExp("^s ", "i"), "")
+          value = value.trim().replace(':', '').replace(new RegExp("^s ", "i"), "")
         }
         if(props.column.split && value){
           var split = value.split(',').length > 1 ? value.split(',') : value.split('•')
@@ -186,13 +186,13 @@ class ResultsComponent extends React.Component {
           }
         }
 
-        if(props.column.type === "date"){
+        if (props.column.type === "date") {
           value = Moment(value).format('MM/DD/YYYY')
         }
 
-        if(html === null){
+        if (html === null) {
           html = (
-            <span 
+            <span
               style={{
                 whiteSpace: "initial"
               }}
@@ -215,7 +215,7 @@ class ResultsComponent extends React.Component {
   }
 
   render (): ?React.Element {
-    
+
     if(this.props.parent.state._rows === undefined){
       return (<span/>)
     }
@@ -312,17 +312,17 @@ class BarChartComponent extends React.Component {
     //   this.refs.bar.container.childNodes[0].viewBox.baseVal.height = viewBox.height
     // }
     return (
-        <BarChart
-          ref="bar"
-          data={this.props.infographics.state.data}
-          {...this.props.parent.state.infographicsConfig.barChart}
-          >
-           <XAxis dataKey="name"/>
-           <YAxis/>
-           <CartesianGrid strokeDasharray="3 3"/>
-           <Tooltip/>
-           <Bar dataKey="substance_name" fill="#8884d8" />
-        </BarChart>
+      <BarChart
+        ref="bar"
+        data={this.props.infographics.state.data}
+        {...this.props.parent.state.infographicsConfig.barChart}
+      >
+        <XAxis dataKey="name"/>
+        <YAxis/>
+        <CartesianGrid strokeDasharray="3 3"/>
+        <Tooltip/>
+        <Bar dataKey="substance_name" fill="#8884d8" />
+      </BarChart>
     )
   }
 }
@@ -372,18 +372,18 @@ class PieChartComponent extends React.Component {
 
     return (
       <div className="collapsible-container">
-      { 
-        this.props.infographics.state.categories.length ?
-        <TwoLevelPieChart
-          onClick={this.onClick}
-          data={this.props.infographics.state.categories}
-          parent={this}
-          ref="child"
-          {...this.props.parent.state.infographicsConfig.pieChart}
-        /> :
-        <div style={{height:300,width:700}}>
-        </div>
-      }
+        {
+          this.props.infographics.state.categories.length ?
+            <TwoLevelPieChart
+              onClick={this.onClick}
+              data={this.props.infographics.state.categories}
+              parent={this}
+              ref="child"
+              {...this.props.parent.state.infographicsConfig.pieChart}
+            /> :
+            <div style={{height:300,width:700}}>
+            </div>
+        }
       </div>
     )
   }
@@ -707,8 +707,8 @@ class SelectedFiltersComponent extends React.Component {
             {`${filter.label}: ${filter.value}`}
           </i>
           { filter.query_type === "range" ? null :
-            <img 
-              src='/img/cancel_icon.png' 
+            <img
+              src='/img/cancel_icon.png'
               style={{
                 height:20,
                 display: 'inline',
