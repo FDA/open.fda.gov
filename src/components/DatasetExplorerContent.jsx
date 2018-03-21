@@ -331,7 +331,7 @@ class BarChartComponent extends React.Component {
 
 class PieChartComponent extends React.Component {
 
- constructor (props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {
@@ -391,7 +391,7 @@ class PieChartComponent extends React.Component {
 
 class ResultsInfographicComponent extends React.Component {
 
- constructor (props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {
@@ -407,8 +407,8 @@ class ResultsInfographicComponent extends React.Component {
     this.onYearToggle(this.props.parent.state.infographicsConfig.select.default)
 
     const all = [{
-        value: "All",
-        label: "All"
+      value: "All",
+      label: "All"
       }]
     const now = new Date()
     const that = this
@@ -417,12 +417,12 @@ class ResultsInfographicComponent extends React.Component {
       return this.props.parent.state.infographicsConfig.select.yearsWithNoData.indexOf(v) === -1
     })
     const years = all.concat(
-        _.reverse(yearsRange.map(value => {
-          return {
-            value: value,
-            label: value
-          }
-        })
+      _.reverse(yearsRange.map(value => {
+        return {
+          value: value,
+          label: value
+        }
+      })
       )
     )
     this.setState({
@@ -453,11 +453,10 @@ class ResultsInfographicComponent extends React.Component {
       url += `+AND+${this.props.parent.state.infographicsConfig.pieChart.dateField}:[${this.state.yearSelection.value}0101+TO+${this.state.yearSelection.value}1231]`
     }
 
-     fetch(url)
+    fetch(url)
       .then(res => res.json())
       .then((json) => {
         if(json.results){
-          
           data = json.results.map(value => {
             return {
               name: value.term,
@@ -547,38 +546,38 @@ class ResultsInfographicComponent extends React.Component {
     this.onOpen()
     return (
       <div>
-        <Collapsible 
+        <Collapsible
           trigger={this.props.parent.state.infographicsConfig.collapsible.title}
           onOpen={this.onOpen}
-        > 
-        <div className="infographic-title-div">
-          <h3>{this.props.parent.state.infographicsConfig.select.title}</h3>
-          <h3 className="infographic-barchart-title">{this.props.parent.state.infographicsConfig.barChart.title}</h3>
-        </div>
+        >
+          <div className="infographic-title-div">
+            <h3>{this.props.parent.state.infographicsConfig.select.title}</h3>
+            <h3 className="infographic-barchart-title">{this.props.parent.state.infographicsConfig.barChart.title}</h3>
+          </div>
           <Select
-              name="toggle"
-              menuStyle={{
-                width: 125
-              }}
-              style={{
-                width: 125,
-                height:35,
-                paddingLeft: 25
-              }}
-              wrapperStyle={{
-                width: 125,
-                height:35
-              }}
-              value={this.state.yearSelection}
-              options={this.state.years}
-              onChange={this.onYearToggle}
-              resetValue="Header"
-              ref={(ref)=>{this.DOMNode = ref}}
-              removeSelected={false}
-              clearable={false}
-              closeOnSelect={true}
-              placeholder={"Select Year"}
-            />
+            name="toggle"
+            menuStyle={{
+              width: 125
+            }}
+            style={{
+              width: 125,
+              height:35,
+              paddingLeft: 25
+            }}
+            wrapperStyle={{
+              width: 125,
+              height:35
+            }}
+            value={this.state.yearSelection}
+            options={this.state.years}
+            onChange={this.onYearToggle}
+            resetValue="Header"
+            ref={(ref)=>{this.DOMNode = ref}}
+            removeSelected={false}
+            clearable={false}
+            closeOnSelect={true}
+            placeholder={"Select Year"}
+          />
           <div style={{display:"flex"}}>
             <PieChartComponent
               parent={this.props.parent}
@@ -616,8 +615,10 @@ class SelectedFiltersComponent extends React.Component {
     const filter = this.props.parent.state.filters[idx]
     if(!filter){ return }
 
-    if(filter.value.length){
+    if(filter.value.length && valueIdx){
       filter.value.splice(valueIdx, 1)
+    } else {
+      filter.value.splice(0, filter.value.length)
     }
 
     this.props.parent.state.filters[idx].value = filter.value
@@ -665,6 +666,17 @@ class SelectedFiltersComponent extends React.Component {
         const endDay = Moment(filter.value[1]).format('MM/DD/YYYY')
         filters.push({
           value: `${startDay} - ${endDay}`,
+          label: filter.label,
+          query_type: filter.query_type,
+          idx: idx
+        })
+      } else if (
+        filter.query_type === "term" &&
+        filter.type === "yearpicker" &&
+        filter.value.length
+      ) {
+        filters.push({
+          value: `${filter.value[0]} - ${filter.value[filter.value.length - 1]}`,
           label: filter.label,
           query_type: filter.query_type,
           idx: idx
