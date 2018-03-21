@@ -46,19 +46,16 @@ class DataRetrievalService {
         ]
       })
     }
-    const params = {
+
+    return {
       "data": {
         "queryJSON": {
           "size": 5000,
-          "searchType": options.searchType
+          "searchType": options.searchType,
+          "filters": formattedFilters
         }
       }
     }
-    if(formattedFilters.length){
-      params.data.queryJSON.filters = formattedFilters
-    }
-
-    return params
   }
 
   getTopValues(field){

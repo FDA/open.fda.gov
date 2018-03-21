@@ -7,6 +7,116 @@ names:
       listingLabels:
         label: Listing of Labels
         searchType: nonLLT
+        columns:
+          - Header: Effective Date
+            accessor: effective_time
+            show: true
+            type: date
+          - Header: NDC
+            accessor: openfda.product_ndc
+            show: true
+            split: true
+          - Header: Brand Name
+            accessor: openfda.brand_name
+            show: true
+          - Header: Generic Name
+            accessor: openfda.generic_name
+            show: true
+            split: true
+          - Header: Active Ingredients
+            accessor: active_ingredient
+            filter_values:
+              - Active Ingredients
+              - Active Ingredient
+              - Active
+              - Ingredient
+              - Ingredients
+              - Contains
+              - Contain
+              - Drug Facts
+              - Drug Fact
+              - Composition
+              - Key Ingredients
+              - Key Ingredient
+            show: true
+            split: true
+          - Header: Inactive Ingredients
+            accessor: inactive_ingredient
+            show: true
+            filter_values:
+              - Also Contains
+              - Also Contain
+              - Contains
+              - Contain
+              - Inactive Ingredients
+              - Inactive Ingredient
+              - Other Ingredients
+              - Other Ingredient
+            split: true
+          - Header: Product Type
+            accessor: openfda.product_type
+            show: true
+          - Header: Purpose
+            accessor: purpose
+            show: false
+          - Header: Keep out of reach of children
+            accessor: keep_out_of_reach_of_children
+            show: false
+          - Header: Warnings
+            accessor: warnings
+            show: false
+          - Header: Questions
+            accessor: questions
+            show: false
+          - Header: SPL Product Data Elements
+            accessor: spl_product_data_elements
+            show: false
+          - Header: SPL ID
+            accessor: openfda.spl_id
+            show: false
+          - Header: Substance Name
+            accessor: openfda.substance_name
+            show: false
+            split: true
+          - Header: Route
+            accessor: route
+            show: false
+          - Header: Application Number
+            accessor: openfda.application_number
+            show: false
+          - Header: Is original packager
+            accessor: openfda.is_original_packager
+            show: false
+          - Header: SPL Set ID
+            accessor: openfda.spl_set_id
+            show: false
+          - Header: Manufacturer Name
+            accessor: openfda.manufacturer_name
+            show: false
+          - Header: UNII
+            accessor: openfda.unii
+            show: false
+          - Header: Dosage
+            accessor: dosage_and_administration
+            show: false
+          - Header: Pregnancy or breast feeding
+            accessor: pregnancy_or_breast_feeding
+            show: false
+          - Header: Stop Use
+            accessor: stop_use
+            show: false
+          - Header: Storage and Handling
+            accessor: storage_and_handling
+            show: false
+          - Header: Do Not Use
+            accessor: do_not_use
+            show: false
+          - Header: Package label principal display
+            accessor: package_label_principal_display_panel
+            show: false
+          - Header: Indications and Usage
+            accessor: indications_and_usage
+            show: false
     endpoint: animalandveterinary/label.json
     url: http://ec2-34-238-202-4.compute-1.amazonaws.com:8000
     filters:
@@ -96,116 +206,6 @@ names:
                 value: true
               - label: Unapproved
                 value: false
-    columns:
-      - Header: Effective Date
-        accessor: effective_time
-        show: true
-        type: date
-      - Header: NDC
-        accessor: openfda.product_ndc
-        show: true
-        split: true
-      - Header: Brand Name
-        accessor: openfda.brand_name
-        show: true
-      - Header: Generic Name
-        accessor: openfda.generic_name
-        show: true
-        split: true
-      - Header: Active Ingredients
-        accessor: active_ingredient
-        filter_values:
-          - Active Ingredients
-          - Active Ingredient
-          - Active
-          - Ingredient
-          - Ingredients
-          - Contains
-          - Contain
-          - Drug Facts
-          - Drug Fact
-          - Composition
-          - Key Ingredients
-          - Key Ingredient
-        show: true
-        split: true
-      - Header: Inactive Ingredients
-        accessor: inactive_ingredient
-        show: true
-        filter_values:
-          - Also Contains
-          - Also Contain
-          - Contains
-          - Contain
-          - Inactive Ingredients
-          - Inactive Ingredient
-          - Other Ingredients
-          - Other Ingredient
-        split: true
-      - Header: Product Type
-        accessor: openfda.product_type
-        show: true
-      - Header: Purpose
-        accessor: purpose
-        show: false
-      - Header: Keep out of reach of children
-        accessor: keep_out_of_reach_of_children
-        show: false
-      - Header: Warnings
-        accessor: warnings
-        show: false
-      - Header: Questions
-        accessor: questions
-        show: false
-      - Header: SPL Product Data Elements
-        accessor: spl_product_data_elements
-        show: false
-      - Header: SPL ID
-        accessor: openfda.spl_id
-        show: false
-      - Header: Substance Name
-        accessor: openfda.substance_name
-        show: false
-        split: true
-      - Header: Route
-        accessor: route
-        show: false
-      - Header: Application Number
-        accessor: openfda.application_number
-        show: false
-      - Header: Is original packager
-        accessor: openfda.is_original_packager
-        show: false
-      - Header: SPL Set ID
-        accessor: openfda.spl_set_id
-        show: false
-      - Header: Manufacturer Name
-        accessor: openfda.manufacturer_name
-        show: false
-      - Header: UNII
-        accessor: openfda.unii
-        show: false
-      - Header: Dosage
-        accessor: dosage_and_administration
-        show: false
-      - Header: Pregnancy or breast feeding
-        accessor: pregnancy_or_breast_feeding
-        show: false
-      - Header: Stop Use
-        accessor: stop_use
-        show: false
-      - Header: Storage and Handling
-        accessor: storage_and_handling
-        show: false
-      - Header: Do Not Use
-        accessor: do_not_use
-        show: false
-      - Header: Package label principal display
-        accessor: package_label_principal_display_panel
-        show: false
-      - Header: Indications and Usage
-        accessor: indications_and_usage
-        show: false
     exportOptions:
       - label: CSV
       - label: JSON
@@ -216,9 +216,81 @@ names:
       lltView:
         label: LLT Frequency
         searchType: LLT
+        columns:
+          - Header: Identifier
+            accessor: identifier
+            show: true
+          - Header: Name
+            accessor: product.name
+            show: true
+          - Header: Flavor
+            accessor: product.flavor
+            show: true
+          - Header: Formulation
+            accessor: product.formulation
+            show: true
+          - Header: Number Fed
+            accessor: number_fed
+            show: false
+          - Header: Number Reacted
+            accessor: number_reacted
+            show: false
+          - Header: Number Died
+            accessor: number_died
+            show: false
+          - Header: State
+            accessor: state
+            show: false
+          - Header: Report Year
+            accessor: report_year
+            show: false
+          - Header: Clinical Sign
+            accessor: reaction.clinical_sign
+            show: false
+          - Header: Unique Animal ID
+            accessor: animal.unique_animal_id
+            show: false
+          - Header: Species
+            accessor: animal.species
+            show: false
+          - Header: Breed
+            accessor: animal.breed
+            show: false
+          - Header: Gender
+            accessor: animal.gender
+            show: false
+          - Header: Weight
+            accessor: animal.weight
+            show: false
+          - Header: Weight UOM
+            accessor: animal.weight_uom
+            show: false
+          - Header: Age
+            accessor: animal.age
+            show: false
+          - Header: Age Units
+            accessor: animal.age_units
+            show: false
+          - Header: Reproductive Status
+            accessor: animal.reproductive_status
+            show: false
+          - Header: Animal Number
+            accessor: animal.animal_number
+            show: false
       listingRecalls:
         label: Listing of recalls
         searchType: nonLLT
+        columns:
+          - Header: Identifier
+            accessor: identifier
+            show: true
+          - Header: Age
+            accessor: animal.age
+            show: true
+          - Header: Breed
+            accessor: animal.breed
+            show: true
+
     endpoint: animalandveterinary/petfood_reports.json
     url: http://ec2-34-229-232-27.compute-1.amazonaws.com:8000
     filters:
@@ -239,67 +311,6 @@ names:
           field: reaction.clinical_sign
           type: select_autocomplete
           placeholder: Start typing to select Clinical Reaction
-    columns:
-      - Header: Identifier
-        accessor: identifier
-        show: true
-      - Header: Name
-        accessor: product.name
-        show: true
-      - Header: Flavor
-        accessor: product.flavor
-        show: true
-      - Header: Formulation
-        accessor: product.formulation
-        show: true
-      - Header: Number Fed
-        accessor: number_fed
-        show: false
-      - Header: Number Reacted
-        accessor: number_reacted
-        show: false
-      - Header: Number Died
-        accessor: number_died
-        show: false
-      - Header: State
-        accessor: state
-        show: false
-      - Header: Report Year
-        accessor: report_year
-        show: false
-      - Header: Clinical Sign
-        accessor: reaction.clinical_sign
-        show: false
-      - Header: Unique Animal ID
-        accessor: animal.unique_animal_id
-        show: false
-      - Header: Species
-        accessor: animal.species
-        show: false
-      - Header: Breed
-        accessor: animal.breed
-        show: false
-      - Header: Gender
-        accessor: animal.gender
-        show: false
-      - Header: Weight
-        accessor: animal.weight
-        show: false
-      - Header: Weight UOM
-        accessor: animal.weight_uom
-        show: false
-      - Header: Age
-        accessor: animal.age
-        show: false
-      - Header: Age Units
-        accessor: animal.age_units
-        show: false
-      - Header: Reproductive Status
-        accessor: animal.reproductive_status
-        show: false
-      - Header: Animal Number
-        accessor: animal.animal_number
-        show: false
     exportOptions:
       - label: CSV
       - label: JSON

@@ -70,7 +70,84 @@ class ResultsComponent extends React.Component {
  constructor (props: Object) {
     super(props)
 
-    let columns = this.props.dataset.columns
+    this.state = {
+      columns: [],
+      placeholder: "Manage Columns",
+      parser: new Json2csvParser.Parser()
+    }
+    this.onColumnToggle = this.onColumnToggle.bind(this)
+    this.onExportChoosen = this.onExportChoosen.bind(this)
+    this.toTitleCase = this.toTitleCase.bind(this)
+    this.getFormattedColumns = this.getFormattedColumns.bind(this)
+  }
+
+  toTitleCase(str) {
+    if(!str){
+      return str
+    }else if(typeof(str) === "object" && str.constructor === Array){
+       str = str.join()
+    }else if(typeof(str) === "object"){
+       str = str[0]
+    } else if(typeof(str) === "number"){
+      str += ""
+    }
+    if(str.replace){
+      str = str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    }
+    return str
+  }
+
+  onColumnToggle(selectionObj){
+
+    this.state.columns[selectionObj.idx].show = !selectionObj.show
+    const shownColumnsCount = this.state.columns.filter(c => c.show).length
+
+    this.setState({
+      columns: [...this.state.columns],
+      placeholder: `Manage Columns ${shownColumnsCount}/${this.state.columns.length}`
+    })
+  }
+
+  onExportChoosen(selectionObj){
+
+    if(selectionObj.label === "CSV"){
+      const fields = this.state.columns.filter(c => c.show).map(c => {
+        return {
+          label: c['Header'],
+          value: c.accessor
+        }
+      })
+      const opts = {
+        fields,
+        doubleQuote: ""
+      };
+
+      try {
+        const csv = this.state.parser.parse(this.props.parent.state._rows);
+        var blob = new Blob([csv], {type: "text/plain;charset=utf-8"});
+        FileSaver.saveAs(blob, "download.csv");
+      } catch (err) {
+        console.error(err);
+      }
+    } else {
+      var blob = new Blob(this.props.parent.state._rows.map(obj => JSON.stringify(obj)), {type: "text/plain;charset=utf-8"});
+      FileSaver.saveAs(blob, "download.json");
+    }
+  }
+
+  componentDidMount () {
+  }
+
+  componentWillReceiveProps(){
+    const columnsData = this.getFormattedColumns()
+    this.setState({
+      columns: columnsData.columns,
+      placeholder: `Manage Columns ${columnsData.shownColumnsCount}/${columnsData.columns.length}`
+    })
+  }
+
+  getFormattedColumns(){
+    let columns = this.props.parent.state.view.columns
     const shownColumnsCount = columns.filter(c => c.show).length
     columns = columns.map((d,idx) => {
       d.idx = idx
@@ -78,28 +155,14 @@ class ResultsComponent extends React.Component {
         let value = this.toTitleCase(props.value)
 
         let html = null
-
-        //   <ol>
-        //    { question.map(questionlist =>
-        //      <li key={questionlist.key}>{questionlist.description}</li>)}}
-        // </ol>
-
-
         if(props.column.filter_values && value){
-
           props.column.filter_values.forEach(filter_value => {
             value = value.replace(filter_value, "")
           })
           value = value.trim().replace(':','').replace(new RegExp("^s ", "i"), "")
-
-
-          // var p = new RegExp(props.column.filter_regex, "i")
-          // value = value.replace(p, "").replace(': ',"")
-          // console.log(value)
         }
         if(props.column.split && value){
           var split = value.split(',').length > 1 ? value.split(',') : value.split('•')
-
           if(split.length > 1){
             html = (
               <ol style={{
@@ -145,72 +208,15 @@ class ResultsComponent extends React.Component {
       }
       return d
     })
-
-    this.state = {
+    return {
       columns: columns,
-      placeholder: `Manage Columns ${shownColumnsCount}/${columns.length}`,
-      choosenColumn: "",
-      parser: new Json2csvParser.Parser()
+      shownColumnsCount: shownColumnsCount
     }
-    this.onColumnToggle = this.onColumnToggle.bind(this)
-    this.onExportChoosen = this.onExportChoosen.bind(this)
-    this.toTitleCase = this.toTitleCase.bind(this)
-  }
-
-  toTitleCase(str) {
-    if(!str){
-      return str
-    }else if(typeof(str) === "object" && str.constructor === Array){
-       str = str.join()
-    }else if(typeof(str) === "object"){
-       str = str[0]
-    }
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-  }
-
-  onColumnToggle(selectionObj){
-
-    this.state.columns[selectionObj.idx].show = !selectionObj.show
-    const shownColumnsCount = this.state.columns.filter(c => c.show).length
-
-    this.setState({
-      columns: [...this.state.columns],
-      placeholder: `Manage Columns ${shownColumnsCount}/${this.state.columns.length}`
-    })
-  }
-  onExportChoosen(selectionObj){
-
-    if(selectionObj.label === "CSV"){
-      const fields = this.state.columns.filter(c => c.show).map(c => {
-        return {
-          label: c['Header'],
-          value: c.accessor
-        }
-      })
-      const opts = {
-        fields,
-        doubleQuote: ""
-      };
-
-      try {
-        const csv = this.state.parser.parse(this.props.rows);
-        var blob = new Blob([csv], {type: "text/plain;charset=utf-8"});
-        FileSaver.saveAs(blob, "download.csv");
-      } catch (err) {
-        console.error(err);
-      }
-    } else {
-      var blob = new Blob(this.props.rows.map(obj => JSON.stringify(obj)), {type: "text/plain;charset=utf-8"});
-      FileSaver.saveAs(blob, "download.json");
-    }
-  }
-
-  componentDidMount () {
   }
 
   render (): ?React.Element {
-
-    if(this.props.rows === undefined){
+    
+    if(this.props.parent.state._rows === undefined){
       return (<span/>)
     }
 
@@ -223,7 +229,7 @@ class ResultsComponent extends React.Component {
           paddingTop: 40,
           paddingBottom: 43
         }}>
-          <p >{this.props.rows.length} matches out of {this.props.total}</p>
+          <p >{this.props.parent.state._rows.length} matches out of {this.props.parent.state.totalRecords}</p>
           <div style={{
             display: "flex"
           }}>
@@ -255,7 +261,7 @@ class ResultsComponent extends React.Component {
                   width: 80
                 }}
                 onChange={this.onExportChoosen}
-                options={this.props.dataset.exportOptions}
+                options={this.props.parent.state.dataset.exportOptions}
                 resetValue="Header"
                 ref={(ref)=>{this.DOMNode = ref}}
                 removeSelected={false}
@@ -267,10 +273,10 @@ class ResultsComponent extends React.Component {
           </div>
         </div>
         <ReactTable
-          data={this.props.rows}
+          data={this.props.parent.state._rows}
           pageSize={100}
           columns={this.state.columns}
-          defaultPageSize={this.props.rows.length}
+          defaultPageSize={this.props.parent.state._rows.length}
           showPagination={false}
           minRows={10}
           style={{
@@ -582,6 +588,7 @@ class ResultsInfographicComponent extends React.Component {
             />
             <BarChartComponent
               parent={this.props.parent}
+              columns={this.props.parent.state.dataset.columns}
               infographics={this}
             />
           </div>
@@ -765,9 +772,7 @@ class DatasetExplorerContentComponent extends React.Component {
           />
         </div>
         <ResultsComponent
-          dataset={this.props.parent.state.dataset}
-          rows={this.props.parent.state._rows}
-          total={this.props.parent.state.totalRecords}
+          parent={this.props.parent}
         />
       </div>
     )

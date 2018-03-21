@@ -96,12 +96,13 @@ class DataExplorer extends React.Component {
     })
   }
 
-  getDatasetState(dataset){
+  getDatasetState(dataset, viewIdx){
+    viewIdx = (viewIdx === undefined) ? 0 : viewIdx
     return {
       dataset: dataset,
       filters: this.getFilters(dataset),
       drs: new DataRetrievalService(dataset.url, dataset.endpoint),
-      view: dataset.views[0],
+      view: dataset.views[viewIdx],
       infographicsConfig: infographicsConfig[dataset.name],
       _rows: [],
       totalRecords: 0
@@ -128,15 +129,22 @@ class DataExplorer extends React.Component {
 
   handleViewChange (value) {
     let view = null
-    this.state.dataset.views.forEach(obj => {
+    this.state.dataset.views.forEach( (obj, idx) => {
       if (obj.label === value.label) {
         view = obj
+        view.idx = idx
       }
     })
 
-    this.setState({
-      view: view
-    })
+    // already choosen label, update data
+    if(view.label === this.state.view.label){
+      this.getData()
+    } else {
+    //  update to view, use current dataset and toggle view
+      this.setState(this.getDatasetState(this.state.dataset, view.idx), () => {
+        this.getData()
+      })
+    }
   }
 
 
