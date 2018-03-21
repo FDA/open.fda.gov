@@ -99,22 +99,22 @@ class SelectFilterComponent extends React.Component {
         })
     }
 
-    handleKeyPress(e) {
-        if(e.key === "Enter"){
-            const value = e.target.value
+  handleKeyPress(e) {
+    if(e.key === "Enter"){
+      const value = e.target.value
 
-            this.setState({
-                currentValue: ""
-            })
+      this.setState({
+        currentValue: ""
+      })
 
-            if(this.props.onChange){
-                this.props.onChange(value, {
-                    field: this.props.option.field,
-                    idx: this.props.option.idx
-                })
-            }
-        }
+      if(this.props.onChange){
+        this.props.onChange(value, {
+          field: this.props.option.field,
+          idx: this.props.option.idx
+        })
+      }
     }
+  }
 
     /* render(): ?React.Element {
          const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
@@ -134,23 +134,23 @@ class SelectFilterComponent extends React.Component {
          )
      } */
 
-    render (): ?React.Element {
-        const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
-        return (
-            <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
-                <Select
-                    value={this.state.currentValue}
-                    className='filter-select'
-                    placeholder={this.props.placeholder}
-                    onKeyPress={this.handleKeyPress}
-                    onChange={this.onChange}
-                    options={this.props.options}
-                    id={this.props.option.idx}
-                    clearable={false}
-                />
-            </div>
-        )
-    }
+  render (): ?React.Element {
+    const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
+    return (
+      <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
+        <Select
+          value={this.state.currentValue}
+          className='filter-select'
+          placeholder={this.props.placeholder}
+          onKeyPress={this.handleKeyPress}
+          onChange={this.onChange}
+          options={this.props.options}
+          id={this.props.option.idx.toString()}
+          clearable={false}
+        />
+      </div>
+    )
+  }
 }
 
 class SelectAutoCompleteFilterComponent extends React.Component {
