@@ -89,7 +89,7 @@ class ResultsComponent extends React.Component {
     }else if(typeof(str) === "object"){
        str = str[0]
     } else if(typeof(str) === "number"){
-      str += ""
+      str += String("")
     }
     if(str.replace){
       str = str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
