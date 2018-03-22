@@ -1,5 +1,6 @@
 {
   "animaldrugs": {
+    "type": "pieBar",
     "select": {
       "title": "Filter Data by Year:",
       "default": {
@@ -77,5 +78,29 @@
       "title": "Visualize Data (Irrespective of Search Filters)"
     }
   },
-  "petfoodrecalls":{}
+  "petfoodrecalls":{
+    "type": "lineBar",
+    "lineChart": {
+      "countBy": "reaction.clinical_sign.exact",
+      "dateField": "report_year",
+      "startYear": 2014,
+      "title": "Top Reactions By Year"
+    },
+    "barChart": {
+      "countBy": "product.name.exact",
+      "title": "Recalls by Product Name ",
+      "width": 550,
+      "height": 250,
+      "margin": {
+        "top": 5, 
+        "right": 30, 
+        "left": 20,
+        "bottom": 5
+      },
+      "limiter": 7
+    },
+    "collapsible": {
+      "title": "Visualize Data (Irrespective of Search Filters)"
+    }
+  }
 }
