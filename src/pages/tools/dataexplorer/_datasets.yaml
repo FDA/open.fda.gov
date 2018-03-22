@@ -217,30 +217,21 @@ names:
         label: LLT Frequency
         searchType: LLT
         columns:
-          - Header: Name
-            accessor: name
+          - Header: Product Name
+            accessor: product
             show: true
           - Header: Flavor
-            accessor: flavors
-            property: flavor_name
+            accessor: flavor
             show: true
-            split: true
-            layered: true
           - Header: Formulation
-            accessor: flavors.formulations
-            property: formulation_name
-            layered: true
+            accessor: formulation
             show: true
           - Header: Clinical Sign
-            accessor: flavors.formulations.reactions
-            property: LLT
+            accessor: reaction
             show: true
-            split: true
           - Header: LLT frequency
-            accessor: flavors.formulations.reactions
-            property: LLT Freq
+            accessor: frequency
             show: true
-            split: true
       listingRecalls:
         label: Listing of recalls
         searchType: nonLLT
