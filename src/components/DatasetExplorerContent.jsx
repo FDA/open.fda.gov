@@ -79,6 +79,7 @@ class ResultsComponent extends React.Component {
     this.onExportChoosen = this.onExportChoosen.bind(this)
     this.toTitleCase = this.toTitleCase.bind(this)
     this.getFormattedColumns = this.getFormattedColumns.bind(this)
+    this.massageLLTData = this.massageLLTData.bind(this)
   }
 
   toTitleCase(str) {
@@ -214,10 +215,37 @@ class ResultsComponent extends React.Component {
     }
   }
 
+  massageLLTData(actualdata) {
+
+    let massagedData = []
+    actualdata.forEach(function (product) {
+      product.flavors.forEach(function(flavor){
+        flavor.formulations.forEach(function(formulation){
+          formulation.reactions.forEach(function(reaction){
+            let productData = {}
+            productData.product = product.name
+            productData.flavor = flavor.flavor_name
+            productData.formulation = formulation.formulation_name
+            productData.reaction = reaction.LLT
+            productData.frequency  = reaction['LLT Freq']
+            massagedData.push(productData)
+          })
+        })
+      })
+    });
+
+    return massagedData
+  }
+
   render (): ?React.Element {
 
     if(this.props.parent.state._rows === undefined){
       return (<span/>)
+    }
+
+    let massagedData = this.props.parent.state._rows
+    if(this.props.parent.state.view.searchType === "LLT") {
+        massagedData = this.massageLLTData(this.props.parent.state._rows)
     }
 
     return (
@@ -273,8 +301,8 @@ class ResultsComponent extends React.Component {
           </div>
         </div>
         <ReactTable
-          data={this.props.parent.state._rows}
-          pageSize={100}
+          data={massagedData}
+          pageSize={massagedData.length}
           columns={this.state.columns}
           defaultPageSize={this.props.parent.state._rows.length}
           showPagination={false}
