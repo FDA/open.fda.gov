@@ -953,7 +953,7 @@ class ResultsInfographicLineBarComponent extends React.Component {
               }}>
                 <h3
                   style={{
-                    paddingLeft: "27%",
+                    paddingLeft: "15%",
                     paddingBottom: 15
                   }}
                 >{this.props.parent.state.infographicsConfig.lineChart.title}</h3>

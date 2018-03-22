@@ -84,11 +84,11 @@
       "countBy": "reaction.clinical_sign.exact",
       "dateField": "report_year",
       "startYear": 2014,
-      "title": "Top Reactions By Year"
+      "title": "Frequency of Top 4 Reactions by Year"
     },
     "barChart": {
       "countBy": "product.name.exact",
-      "title": "Recalls by Product Name ",
+      "title": "Top 7 Reported Products",
       "width": 550,
       "height": 250,
       "margin": {
