@@ -13,7 +13,9 @@ import Moment from 'moment'
 import Collapsible from 'react-collapsible'
 import {default as $} from 'jquery'
 import TwoLevelPieChart from './InteractivePie'
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'Recharts'
+import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, Tooltip, LegendR} from 'Recharts'
+import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable, styler, Legend, TimeMarker, EventMarker } from "react-timeseries-charts"
+import { TimeSeries, TimeRange, sum } from "pondjs"
 import _ from 'lodash'
 import withQuery from 'with-query'
 
@@ -318,13 +320,24 @@ class ResultsComponent extends React.Component {
   }
 }
 
+const CustomizedAxisTick = React.createClass({
+  render () {
+    const {x, y, stroke, payload} = this.props;
+    
+    return (
+      <g transform={`translate(${x},${y})`}>
+        <text x={0} y={0} dy={16} fontSize={8} textAnchor="end" fill="#666" transform="rotate(-35)">{payload.value}</text>
+      </g>
+    );
+  }
+});
+
 class BarChartComponent extends React.Component {
 
  constructor (props: Object) {
     super(props)
 
     this.state = {
-      data: []
     }
   }
 
@@ -338,19 +351,25 @@ class BarChartComponent extends React.Component {
     //   this.refs.bar.container.childNodes[0].viewBox.baseVal.y = viewBox.y
     //   this.refs.bar.container.childNodes[0].viewBox.baseVal.width = viewBox.width
     //   this.refs.bar.container.childNodes[0].viewBox.baseVal.height = viewBox.height
+
     // }
     return (
-      <BarChart
-        ref="bar"
-        data={this.props.infographics.state.data}
-        {...this.props.parent.state.infographicsConfig.barChart}
-      >
-        <XAxis dataKey="name"/>
-        <YAxis/>
-        <CartesianGrid strokeDasharray="3 3"/>
-        <Tooltip/>
-        <Bar dataKey="substance_name" fill="#8884d8" />
-      </BarChart>
+        <BarChart
+          ref="bar"
+          data={this.props.infographics.state.data}
+          {...this.props.parent.state.infographicsConfig.barChart}
+          >
+           <XAxis dataKey="name" interval={0} tick={<CustomizedAxisTick/>}/>
+           <YAxisR/>
+           <CartesianGrid strokeDasharray="8 8"/>
+           <Tooltip/>
+           <Bar 
+            dataKey="substance_name" 
+            fill="#8884d8" 
+            barCategoryGap={"50%"}
+            barGap={"50%"}
+          />
+        </BarChart>
     )
   }
 }
@@ -417,7 +436,7 @@ class PieChartComponent extends React.Component {
   }
 }
 
-class ResultsInfographicComponent extends React.Component {
+class ResultsInfographicPieBarComponent extends React.Component {
 
   constructor (props: Object) {
     super(props)
@@ -577,11 +596,12 @@ class ResultsInfographicComponent extends React.Component {
         <Collapsible
           trigger={this.props.parent.state.infographicsConfig.collapsible.title}
           onOpen={this.onOpen}
-        >
-          <div className="infographic-title-div">
-            <h3>{this.props.parent.state.infographicsConfig.select.title}</h3>
-            <h3 className="infographic-barchart-title">{this.props.parent.state.infographicsConfig.barChart.title}</h3>
-          </div>
+          open={true}
+        > 
+        <div className="infographic-title-div">
+          <h3>{this.props.parent.state.infographicsConfig.select.title}</h3>
+          <h3 className="infographic-barchart-title">{this.props.parent.state.infographicsConfig.barChart.title}</h3>
+        </div>
           <Select
             name="toggle"
             menuStyle={{
@@ -615,7 +635,6 @@ class ResultsInfographicComponent extends React.Component {
             />
             <BarChartComponent
               parent={this.props.parent}
-              columns={this.props.parent.state.dataset.columns}
               infographics={this}
             />
           </div>
@@ -624,6 +643,369 @@ class ResultsInfographicComponent extends React.Component {
     )
   }
 }
+
+class ResultsInfographicLineBarComponent extends React.Component {
+
+ constructor (props: Object) {
+    super(props)
+
+    this.state = {
+      yearSelection: null,
+      categories: [],
+      timerange: new TimeRange(new Date(2000,11,31), new Date()),
+      _max: 0,
+      legendStyle: null,
+      series: [],
+      columns: [],
+      config: {
+        "chartRow": {
+          "height": 200,
+          "trackerInfoWidth": 130
+        },
+        "chartContainer": {
+          "width": 500,
+          "showGrid": true,
+          "format": "year",
+          "timeAxisStyle": {
+            "labels": {
+              "labelColor": "black",
+              "labelWeight": 150,
+              "labelSize": 13
+            },
+            "axis": {
+              "axisColor": "grey",
+              "axisWidth": 1
+            }
+          }
+        },
+        "yAxis": {
+          "label": "Reaction Frequency",
+          "min": 0,
+          "width": 70,
+          "type": "linear",
+          "labelOffset": 5,
+          "style": {
+            "labelFont": "Merriweather,Georgia,serif",
+            "labels": { 
+              "labelColor": "#000000", 
+              "labelWeight": 150, 
+              "labelSize": 11 
+            }, 
+            "axis": {
+              "axisColor": "#000000" 
+            } 
+          }
+        },
+        "lineChart": {
+          "interpolation": "curveLinear"
+        },
+        "colors": [
+          "#1f77b4", "#00d899", "#ff3300", "#2ca02c", "#ff7f0e", 
+          "#006666", "#990099", "#9467bd", "#c5b0d5", "#ff33cc",
+          "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+          "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+        ],
+        "xLegendCoordinate": -45,
+        "eventMarker": {
+          "infoTimeFormat":"%m-%Y",
+          "markerRadius": 0,
+          "markerStyle":{
+            "fill": "black"
+          },
+          "infoWidth": 175,
+          "infoStyle": { 
+            "fill": "white", 
+            "opacity": 0.90, 
+            "stroke": "#0000", 
+            "pointerEvents": "none" 
+          },
+          "markerLabelStyle": { 
+            "fill": "#000000" 
+          }
+        }
+      }
+    }
+
+    this.onOpen = this.onOpen.bind(this)
+    this.getLineChartData = this.getLineChartData.bind(this)
+    this.transpose = this.transpose.bind(this)
+    this.getBarChartData = this.getBarChartData.bind(this)
+  }
+
+  componentDidMount () {
+    this.getLineChartData()
+    this.getBarChartData()
+  }
+  componentDidUpdate(){
+    if(!Object.keys(this.props.parent.state.infographicsConfig).length){
+      return
+    }
+  }
+  onOpen(){
+
+  }
+
+  transpose (timestamps, normalizedSeries){
+    // transpose..... from list of points per series, to a list of points per timestamp
+    var findMax = [],
+        final = [],
+        rows = [];
+    for (var i = 0, len_i = normalizedSeries[0].length; i < len_i; i++) {
+      var row = []
+      for (var j = 0, len_j = normalizedSeries.length; j < len_j; j++) {
+        var val = normalizedSeries[j][i] || 0
+        row.push(val)
+        findMax.push(val)
+      }
+      rows.push(row)
+    }
+    timestamps.forEach( (key, i) => {
+      var int = parseInt(key)
+      if(int > 0){
+        final.push([int].concat(rows[i])) 
+      }
+    });
+    return {
+      findMax: findMax,
+      final: final,
+      rows: rows
+    }
+  }
+
+  getLineChartData(){
+    let url = `${this.props.parent.state.dataset.url}/${this.props.parent.state.dataset.endpoint}?count=${this.props.parent.state.infographicsConfig.lineChart.countBy}`
+
+    fetch(`${url}`)
+      .then(res => res.json())
+      .then((json) => {
+        if(json.results){
+          
+          let options = json.results.filter(value => value.term.indexOf("'") === -1).map(term => {
+            return term.term
+          }).slice(0,4)
+
+          let data = []
+
+          const urls = options.map(option => {
+            return `${this.props.parent.state.dataset.url}/${this.props.parent.state.dataset.endpoint}?search=${this.props.parent.state.infographicsConfig.lineChart.countBy}:"${option}"&count=${this.props.parent.state.infographicsConfig.lineChart.dateField}`
+          })
+
+          Promise.all(urls.map($.getJSON)).then(results => {
+            data = results.map(result => {
+              return result.results  
+            })
+
+            const listOfSeries = []
+
+            for (var i = 0, len = results.length; i < len; i++) {
+              const orderedResults = results[i].results.map(value => {
+                return {
+                  term: parseInt(value.term),
+                  count: value.count
+                }
+              }).sort((a, b) => a.term - b.term)
+
+              var series = new TimeSeries({
+                name: "timeseries",
+                columns: ["time","value"],
+                points: orderedResults.map(i => {
+                    return [new Date(i.term,1,1), i.count]
+                })
+              }).toJSON()
+
+              if(series !== undefined){
+                listOfSeries.push(series.points)
+              }
+            }
+            
+             // get all timestamps
+              // use obj to avoid duplicates
+              var timestamps = {};
+              // for each column of aggregated points
+              listOfSeries.forEach( arr => {
+                arr.forEach( val => {
+                  // add timestamp for each series to timestamps with default 0
+                  timestamps[val[0]] = 0 
+                })
+              })
+              var timestamps = Object.keys(timestamps).sort();
+              var timestampsPosition = {};
+              timestamps.forEach( (key, i) => timestampsPosition[key] = i );
+              ///
+
+              // normalize
+              const normalizedSeries = []
+              listOfSeries.forEach( arr => {
+                const normalizedSerie = new Array(timestamps.length).fill(null);
+
+                arr.forEach( val => {
+                  var timestamp = val[0],
+                      value = val[1],
+                      index = timestampsPosition[timestamp];
+
+                  // add the value for the timestamp in item array
+                  normalizedSerie[index] = value
+                })
+                normalizedSeries.push(normalizedSerie)
+              })
+
+              // transpose..... from list of points per series, to a list of points per timestamp
+              var res = this.transpose(timestamps, normalizedSeries)
+
+              var final = res.final,
+                  findMax = res.findMax,
+                  rows = res.rows;
+
+              var series = new TimeSeries({
+                name: "timeseries",
+                columns: ["time"].concat(options),
+                points: final
+              })
+
+              // set style according to categories
+              var legendStyle = styler(options.map((column,idx)=> {
+                return {
+                  key: column,
+                  color: this.state.config.colors[idx],
+                  width: 2
+                }
+              }))
+              
+              this.setState({
+                timerange: new TimeRange(new Date(2014,1,1), new Date()),
+                _max: Math.max(...findMax),
+                legendStyle: legendStyle,
+                series: series,
+                columns: options,
+                legendCategories: options.map(d => ({ key: d, label: d }))
+              })
+              
+              var vals = $("text").filter(function () {
+                  return $(this).attr("transform") == "rotate(-90)"
+              })
+              if(vals.length){
+                $(vals[0]).attr("x",this.state.config.xLegendCoordinate)
+              }
+
+          })
+
+        } else {
+          console.log('????')
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  getBarChartData(){
+    const path = `${this.props.parent.state.dataset.url}/${this.props.parent.state.dataset.endpoint}`
+    let url = `${path}?count=${this.props.parent.state.infographicsConfig.barChart.countBy}`
+    let data = []
+
+     fetch(url)
+      .then(res => res.json())
+      .then((json) => {
+        if(json.results){
+          
+          data = json.results.map(value => {
+            return {
+              name: value.term,
+              substance_name: value.count,
+              amt: value.count
+            }
+          }).slice(0,this.props.parent.state.infographicsConfig.barChart.limiter)
+        } else {
+          console.log('????')
+        }
+        this.setState({data})
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  onSelectionChange(selectionObj){
+    console.log(selectionObj)
+  }
+
+  render (): ?React.Element {
+    if(!Object.keys(this.props.parent.state.infographicsConfig).length){
+      return (<span/>)
+    }
+
+    return (
+      <div>
+        <Collapsible 
+          trigger={this.props.parent.state.infographicsConfig.collapsible.title}
+          onOpen={this.onOpen}
+          open={true}
+        >
+        { this.state.series.length === 0 ? 
+                <div className="infographic-loading-div">
+                  <img src="/img/loading.gif" className="infographic-loading-img"/>
+                </div> 
+                :
+                <div style={{display:"flex"}}>
+                  <div style={{ 
+                    width: 550,
+                    marginTop: 18
+                  }}>
+                    <h3 
+                      style={{
+                        paddingLeft: "27%",
+                        paddingBottom: 15
+                      }}
+                    >{this.props.parent.state.infographicsConfig.lineChart.title}</h3>
+                    <ChartContainer
+                      timeRange={this.state.timerange}
+                      {...this.state.config.chartContainer}
+                    >
+                        <ChartRow
+                          {...this.state.config.chartRow}
+                        >
+                            <YAxis 
+                              id="axis1"
+                              max={this.state._max}
+                              {...this.state.config.yAxis}
+                            />
+                            <Charts>
+                                <LineChart 
+                                  style={this.state.legendStyle}
+                                  axis="axis1"
+                                  series={this.state.series}
+                                  columns={this.state.columns}
+                                  onSelectionChange={this.onSelectionChange}
+                                  {...this.state.config.lineChart}
+                                />
+                            </Charts>
+                        </ChartRow>
+                    </ChartContainer>
+                    <div style={{paddingLeft:105}}>
+                      <Legend categories={this.state.legendCategories} style={this.state.legendStyle} type="line" />
+                    </div>
+                  </div>
+                  <div style={{ marginTop: 18 }}>
+                    <h3
+                      style={{
+                        paddingLeft: "36%",
+                        paddingBottom: 15
+                      }}
+                    >{this.props.parent.state.infographicsConfig.barChart.title}</h3>
+                    <BarChartComponent
+                      parent={this.props.parent}
+                      infographics={this}
+                    />
+                  </div>
+                  </div>
+                
+          }
+        </Collapsible>
+      </div>
+    )
+  }
+}
+
 
 class SelectedFiltersComponent extends React.Component {
 
@@ -801,12 +1183,29 @@ class DatasetExplorerContentComponent extends React.Component {
   }
 
   render (): ?React.Element {
+
+    let infographic = null
+
+    if(Object.keys(this.props.parent.state.infographicsConfig).length){
+      if(this.props.parent.state.infographicsConfig.type === "pieBar"){
+        infographic = 
+          <ResultsInfographicPieBarComponent
+            parent={this.props.parent}
+          />
+      } else if(this.props.parent.state.infographicsConfig.type === "lineBar"){
+        infographic = 
+          <ResultsInfographicLineBarComponent
+            parent={this.props.parent}
+          />
+      }
+    }
+
     return (
       <div className={'dataset-explorer-content '} id='dataset-explorer-content'>
         <div>
-          <ResultsInfographicComponent
-            parent={this.props.parent}
-          />
+          {
+            infographic
+          }
           <SelectedFiltersComponent
             parent={this.props.parent}
           />
