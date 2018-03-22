@@ -25,82 +25,67 @@ import 'react-select/dist/react-select.css';
 
 
 class SelectFilterComponent extends React.Component {
-    constructor (props: Object) {
-        super(props)
+  constructor (props: Object) {
+    super(props)
 
-        this.state = {
-            currentValue: "",
-            options:this.props.options
-        }
-        this.onChange = this.onChange.bind(this)
-        this.handleKeyPress = this.handleKeyPress.bind(this)
-        this.formatValues = this.formatValues.bind(this)
-        this.removeValue = this.removeValue.bind(this)
+    this.state = {
+      currentValue: "",
+      options:this.props.options
     }
+    this.onChange = this.onChange.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.formatValues = this.formatValues.bind(this)
+    this.removeValue = this.removeValue.bind(this)
+  }
 
-    componentDidMount () {
+  componentDidMount () {
+  }
+
+  removeValue(idx){
+    const value = this.props.parent.state.filters[this.props.option.idx].value[idx]
+
+    this.props.onChange(value, {
+      field: this.props.option.field,
+      idx: this.props.option.idx
+    })
+  }
+
+  onChange(selectionObj) {
+
+    let choice = null
+    this.state.options.forEach(option => {
+      if (option.value === selectionObj.label) {
+        choice = option
+      }
+    })
+
+    this.setState({
+      currentValue: choice
+    })
+
+    if(this.props.onChange){
+      this.props.onChange(selectionObj, {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
     }
+    //  this.setState({
+    //     currentValue: event.target.value
+    // })
+  }
 
-    removeValue(idx){
-        const value = this.props.parent.state.filters[this.props.option.idx].value[idx]
-
-        this.props.onChange(value, {
-            field: this.props.option.field,
-            idx: this.props.option.idx
-        })
-    }
-
-    onChange(selectionObj) {
-
-        let choice = null
-        this.state.options.forEach(option => {
-            if (option.value === selectionObj.label) {
-                choice = option
-            }
-        })
-
-        this.setState({
-            currentValue: choice
-        })
-
-        if(this.props.onChange){
-            this.props.onChange(selectionObj, {
-                field: this.props.option.field,
-                idx: this.props.option.idx
-            })
-        }
-        //  this.setState({
-        //     currentValue: event.target.value
-        // })
-    }
-
-    formatValues(values){
-        return values.map((value,idx) => {
-            return (
-                <div
-                    key={`value-${idx}`}
-                    style={{
-                        display: "flex",
-                        paddingTop: 10
-                    }}
-                >
-                    <button onClick={() => this.removeValue(idx)}
-                            style={{
-                                padding: 0
-                            }}
-                    >
-                        <i style={{
-                            paddingRight: 10
-                        }}>{value}</i>
-                        <img src="/img/cancel_icon.png" style={{
-                            height:20,
-                            display: 'inline'
-                        }}/>
-                    </button>
-                </div>
-            )
-        })
-    }
+  formatValues(values){
+    return values.map((value, idx) => {
+      return (
+        <div key={`value-${idx}`} className='selected-filter'>
+          <button onClick={() => this.removeValue(idx)}>
+            <span>{value}</span>
+            <i className='fa fa-times-circle' />
+          </button>
+        </div>
+      )
+    })
+  }
 
   handleKeyPress(e) {
     if(e.key === "Enter"){
@@ -119,23 +104,23 @@ class SelectFilterComponent extends React.Component {
     }
   }
 
-    /* render(): ?React.Element {
-         const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
+  /* render(): ?React.Element {
+       const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
 
-         return (
-             <div className='filter-input'>
-                 <input
-                     type='text'
-                     placeholder={this.props.option.placeholder}
-                     value={this.state.currentValue}
-                     onKeyPress={this.handleKeyPress}
-                     onChange={this.onChange}
-                     id={this.props.option.idx}
-                 />
-                 {elements}
-             </div>
-         )
-     } */
+       return (
+           <div className='filter-input'>
+               <input
+                   type='text'
+                   placeholder={this.props.option.placeholder}
+                   value={this.state.currentValue}
+                   onKeyPress={this.handleKeyPress}
+                   onChange={this.onChange}
+                   id={this.props.option.idx}
+               />
+               {elements}
+           </div>
+       )
+   } */
 
   render (): ?React.Element {
     const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
@@ -191,10 +176,10 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     const autocomplete_field = this.props.option.autocomplete_field
 
     if(
-        field === this.state.field 
-        && autocomplete_field === this.state.autocomplete_field
+      field === this.state.field
+      && autocomplete_field === this.state.autocomplete_field
         && this.props.parent.state.dataset.endpoint === this.state.endpoint
-      ){
+    ){
       return
     }
 
@@ -286,25 +271,10 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   formatValues(values){
     return values.map((value,idx) => {
       return (
-        <div
-          key={`value-${idx}`}
-          style={{
-            display: "flex",
-            paddingTop: 10
-          }}
-        >
-          <button onClick={() => this.removeValue(idx)}
-            style={{
-              padding: 0
-            }}
-          >
-            <i style={{
-              paddingRight: 10
-            }}>{value}</i>
-            <img src="/img/cancel_icon.png" style={{
-              height:20,
-              display: 'inline'
-            }}/>
+        <div key={`value-${idx}`} className='selected-filter'>
+          <button onClick={() => this.removeValue(idx)}>
+            <span>{value}</span>
+            <i className='fa fa-times-circle' />
           </button>
         </div>
       )
@@ -821,7 +791,7 @@ class BooleanFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
-    if(!this.props.parent.state.filters.length){
+    if(!this.props.parent.state.filters.length) {
       return (<span/>)
     }
     const field = this.props.option.field
@@ -871,7 +841,7 @@ class FreeTextFilterComponent extends React.Component {
   componentDidMount () {
   }
 
-  removeValue(idx){
+  removeValue(idx) {
     const value = this.props.parent.state.filters[this.props.option.idx].value[idx]
 
     this.props.onChange(value, {
@@ -889,25 +859,10 @@ class FreeTextFilterComponent extends React.Component {
   formatValues(values){
     return values.map((value,idx) => {
       return (
-        <div
-          key={`value-${idx}`}
-          style={{
-            display: "flex",
-            paddingTop: 10
-          }}
-        >
-          <button onClick={() => this.removeValue(idx)}
-            style={{
-              padding: 0
-            }}
-          >
-            <i style={{
-              paddingRight: 10
-            }}>{value}</i>
-            <img src="/img/cancel_icon.png" style={{
-              height:20,
-              display: 'inline'
-            }}/>
+        <div key={`value-${idx}`} className='selected-filter'>
+          <button onClick={() => this.removeValue(idx)}>
+            <span>{value}</span>
+            <i className='fa fa-times-circle' />
           </button>
         </div>
       )
