@@ -75,13 +75,13 @@ class ResultsComponent extends React.Component {
     this.state = {
       columns: [],
       placeholder: "Manage Columns",
-      parser: new Json2csvParser.Parser()
+      parser: new Json2csvParser.Parser(),
+      pivotBy: []
     }
     this.onColumnToggle = this.onColumnToggle.bind(this)
     this.onExportChoosen = this.onExportChoosen.bind(this)
     this.toTitleCase = this.toTitleCase.bind(this)
     this.getFormattedColumns = this.getFormattedColumns.bind(this)
-    this.massageLLTData = this.massageLLTData.bind(this)
   }
 
   toTitleCase(str) {
@@ -143,8 +143,36 @@ class ResultsComponent extends React.Component {
 
   componentWillReceiveProps(){
     const columnsData = this.getFormattedColumns()
+    const pivotBy = this.props.parent.state.view.pivotBy
+
+    
+      if(pivotBy && pivotBy.length){
+        columnsData.columns.map(value => {
+          if(pivotBy.indexOf(value.accessor) > -1){
+            value.aggregate = (vals => {
+              return [...new Set(vals)]
+            }),
+            value.Aggregated = (row => {
+              return (<span>{row.value}</span>)
+            })
+          }
+
+          if (value.dedup){
+            value.aggregate = (vals => {
+              var unique_list = Array.from(new Set(vals)).filter(val => [null, undefined, 'null'].indexOf(val) === -1)
+              return unique_list.join(', ')
+            }),
+            value.Aggregated = (row => {
+              return (<span>{row.value}</span>)
+            })
+          }
+        })
+
+    }
+    
     this.setState({
       columns: columnsData.columns,
+      pivotBy: (pivotBy || []),
       placeholder: `Manage Columns ${columnsData.shownColumnsCount}/${columnsData.columns.length}`
     })
   }
@@ -217,37 +245,10 @@ class ResultsComponent extends React.Component {
     }
   }
 
-  massageLLTData(actualdata) {
-
-    let massagedData = []
-    actualdata.forEach(function (product) {
-      product.flavors.forEach(function(flavor){
-        flavor.formulations.forEach(function(formulation){
-          formulation.reactions.forEach(function(reaction){
-            let productData = {}
-            productData.product = product.name
-            productData.flavor = flavor.flavor_name
-            productData.formulation = formulation.formulation_name
-            productData.reaction = reaction.LLT
-            productData.frequency  = reaction['LLT Freq']
-            massagedData.push(productData)
-          })
-        })
-      })
-    });
-
-    return massagedData
-  }
-
   render (): ?React.Element {
 
     if(this.props.parent.state._rows === undefined){
       return (<span/>)
-    }
-
-    let massagedData = this.props.parent.state._rows
-    if(this.props.parent.state.view.searchType === "LLT") {
-      massagedData = this.massageLLTData(this.props.parent.state._rows)
     }
 
     return (
@@ -303,9 +304,10 @@ class ResultsComponent extends React.Component {
           </div>
         </div>
         <ReactTable
-          data={massagedData}
-          pageSize={massagedData.length}
+          data={this.props.parent.state._rows}
+          pageSize={this.props.parent.state._rows.length}
           columns={this.state.columns}
+          pivotBy={this.state.pivotBy}
           defaultPageSize={this.props.parent.state._rows.length}
           showPagination={false}
           minRows={10}

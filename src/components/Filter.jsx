@@ -29,7 +29,6 @@ class SelectFilterComponent extends React.Component {
     super(props)
 
     this.state = {
-      currentValue: "",
       options:this.props.options
     }
     this.onChange = this.onChange.bind(this)
@@ -59,19 +58,12 @@ class SelectFilterComponent extends React.Component {
       }
     })
 
-    this.setState({
-      currentValue: choice
-    })
-
     if(this.props.onChange){
       this.props.onChange(selectionObj, {
         field: this.props.option.field,
         idx: this.props.option.idx
       })
     }
-    //  this.setState({
-    //     currentValue: event.target.value
-    // })
   }
 
   formatValues(values){
@@ -91,10 +83,6 @@ class SelectFilterComponent extends React.Component {
     if(e.key === "Enter"){
       const value = e.target.value
 
-      this.setState({
-        currentValue: ""
-      })
-
       if(this.props.onChange){
         this.props.onChange(value, {
           field: this.props.option.field,
@@ -104,30 +92,12 @@ class SelectFilterComponent extends React.Component {
     }
   }
 
-  /* render(): ?React.Element {
-       const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
-
-       return (
-           <div className='filter-input'>
-               <input
-                   type='text'
-                   placeholder={this.props.option.placeholder}
-                   value={this.state.currentValue}
-                   onKeyPress={this.handleKeyPress}
-                   onChange={this.onChange}
-                   id={this.props.option.idx}
-               />
-               {elements}
-           </div>
-       )
-   } */
-
   render (): ?React.Element {
     const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
     return (
       <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
         <Select
-          value={this.state.currentValue}
+          value={""}
           className='filter-select'
           placeholder={this.props.placeholder}
           onKeyPress={this.handleKeyPress}
@@ -136,6 +106,7 @@ class SelectFilterComponent extends React.Component {
           id={this.props.option.idx.toString()}
           clearable={false}
         />
+        {elements}
       </div>
     )
   }
@@ -671,7 +642,6 @@ class YearPickerFilterComponent extends React.Component {
     )
   }
 }
-
 
 class CheckboxFilterComponent extends React.Component {
 

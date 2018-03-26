@@ -48,6 +48,7 @@ class DataExplorer extends React.Component {
     this.getData = this.getData.bind(this)
     this.getFilters = this.getFilters.bind(this)
     this.getDatasetState = this.getDatasetState.bind(this)
+    this.massageLLTData = this.massageLLTData.bind(this)
   }
   componentWillReceiveProps () {
 
@@ -66,6 +67,34 @@ class DataExplorer extends React.Component {
     })
   }
 
+  massageLLTData(actualdata) {
+
+    let massagedData = []
+    if( !actualdata ||!actualdata.length){
+      return massagedData
+    }
+    actualdata.forEach(function (product) {
+      product.flavors = !product.flavors ? [] : product.flavors
+      product.flavors.forEach(function(flavor){
+        flavor.formulations = !flavor.formulations ? [] : flavor.formulations
+        flavor.formulations.forEach(function(formulation){
+          formulation = !formulation ? [] : formulation
+          formulation.reactions.forEach(function(reaction){
+            let productData = {}
+            productData.product = product.name
+            productData.flavor = flavor.flavor_name
+            productData.formulation = formulation.formulation_name
+            productData.reaction = reaction.LLT
+            productData.frequency  = reaction['LLT Freq']
+            massagedData.push(productData)
+          })
+        })
+      })
+    });
+
+    return massagedData
+  }
+
   getData(){
     if(!this.state.filters.length){
       return
@@ -78,6 +107,11 @@ class DataExplorer extends React.Component {
       let _rows = []
       if(results && !results.error){
         _rows = results.results
+
+        if(this.state.view.searchType === "LLT") {
+          _rows = this.massageLLTData(_rows)
+        }
+
       }
 
       this.setState({

@@ -223,15 +223,25 @@ names:
           - Header: Flavor
             accessor: flavor
             show: true
+            dedup: true
           - Header: Formulation
             accessor: formulation
             show: true
+            dedup: true
           - Header: Reported Signs
             accessor: reaction
             show: true
+            dedup: true
+            split: true
           - Header: Frequency of Reported Signs
             accessor: frequency
             show: true
+            dedup: true
+        pivotBy:
+          - product
+          - flavor
+          - formulation
+          - clinical_sign
       listingRecalls:
         label: Reports of Reactions
         searchType: nonLLT
