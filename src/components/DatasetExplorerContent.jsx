@@ -7,17 +7,16 @@ import { default as ReactTable } from "react-table"
 import createClass from 'create-react-class'
 import Select from 'react-select'
 import FileSaver from 'file-saver'
-import Json2csvParser from 'json2csv'
+import jsonexport from 'jsonexport'
 import PropTypes from 'prop-types'
 import Moment from 'moment'
 import Collapsible from 'react-collapsible'
 import {default as $} from 'jquery'
 import TwoLevelPieChart from './InteractivePie'
 import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, Tooltip, LegendR} from 'Recharts'
-import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable, styler, Legend, TimeMarker, EventMarker } from "react-timeseries-charts"
+import { Charts, ChartContainer, ChartRow, YAxis, LineChart, Resizable, styler, Legend, TimeMarker, EventMarker } from "react-timeseries-charts"
 import { TimeSeries, TimeRange, sum } from "pondjs"
 import _ from 'lodash'
-import withQuery from 'with-query'
 
 
 const GravatarOption = createClass({
@@ -58,7 +57,7 @@ const GravatarOption = createClass({
         onMouseEnter={this.handleMouseEnter}
         onMouseMove={this.handleMouseMove}
         title={this.props.option.title}>
-        <input type="checkbox" checked={this.props.option.show}/>
+        <input type='checkbox' checked={this.props.option.show}/>
         {"  "}{ this.props.option['Header'] }
       </div>
     );
@@ -75,7 +74,6 @@ class ResultsComponent extends React.Component {
     this.state = {
       columns: [],
       placeholder: "Manage Columns",
-      parser: new Json2csvParser.Parser(),
       pivotBy: []
     }
     this.onColumnToggle = this.onColumnToggle.bind(this)
@@ -114,19 +112,12 @@ class ResultsComponent extends React.Component {
   onExportChoosen(selectionObj){
 
     if(selectionObj.label === "CSV"){
-      const fields = this.state.columns.filter(c => c.show).map(c => {
-        return {
-          label: c['Header'],
-          value: c.accessor
-        }
-      })
-      const opts = {
-        fields,
-        doubleQuote: ""
-      };
-
       try {
-        const csv = this.state.parser.parse(this.props.parent.state._rows);
+        let csv = ''
+        jsonexport(this.props.parent.state._rows, function(err, export_csv){
+          if(err) return console.log(err);
+          csv = export_csv
+        });
         var blob = new Blob([csv], {type: "text/plain;charset=utf-8"});
         FileSaver.saveAs(blob, "download.csv");
       } catch (err) {
@@ -145,31 +136,31 @@ class ResultsComponent extends React.Component {
     const columnsData = this.getFormattedColumns()
     const pivotBy = this.props.parent.state.view.pivotBy
 
-    
-      if(pivotBy && pivotBy.length){
-        columnsData.columns.map(value => {
-          if(pivotBy.indexOf(value.accessor) > -1){
-            value.aggregate = (vals => {
-              return [...new Set(vals)]
-            }),
-            value.Aggregated = (row => {
-              return (<span>{row.value}</span>)
-            })
-          }
 
-          if (value.dedup){
-            value.aggregate = (vals => {
-              var unique_list = Array.from(new Set(vals)).filter(val => [null, undefined, 'null'].indexOf(val) === -1)
-              return unique_list.join(', ')
-            }),
-            value.Aggregated = (row => {
-              return (<span>{row.value}</span>)
-            })
-          }
-        })
+    if(pivotBy && pivotBy.length){
+      columnsData.columns.map(value => {
+        if(pivotBy.indexOf(value.accessor) > -1){
+          value.aggregate = (vals => {
+            return [...new Set(vals)]
+          }),
+          value.Aggregated = (row => {
+            return (<span>{row.value}</span>)
+          })
+        }
+
+        if (value.dedup){
+          value.aggregate = (vals => {
+            var unique_list = Array.from(new Set(vals)).filter(val => [null, undefined, 'null'].indexOf(val) === -1)
+            return unique_list.join(', ')
+          }),
+          value.Aggregated = (row => {
+            return (<span>{row.value}</span>)
+          })
+        }
+      })
 
     }
-    
+
     this.setState({
       columns: columnsData.columns,
       pivotBy: (pivotBy || []),
