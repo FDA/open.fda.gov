@@ -82,7 +82,7 @@
     "type": "lineBar",
     "lineChart": {
       "countBy": "reaction.clinical_sign.exact",
-      "dateField": "report_year",
+      "dateField": "report_year.exact",
       "startYear": 2014,
       "title": "Frequency of Top 4 Reactions by Year"
     },
