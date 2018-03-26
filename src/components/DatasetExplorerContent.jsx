@@ -259,7 +259,7 @@ class ResultsComponent extends React.Component {
           paddingTop: 40,
           paddingBottom: 43
         }}>
-          <p >{this.props.parent.state._rows.length} matches out of {this.props.parent.state.totalRecords}</p>
+          {/* <p >{this.props.parent.state._rows.length} matches out of {this.props.parent.state.totalRecords}</p> */}
           <div style={{
             display: "flex"
           }}>
