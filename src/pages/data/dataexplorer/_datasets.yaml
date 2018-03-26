@@ -210,7 +210,7 @@ names:
       - label: CSV
       - label: JSON
   petfoodrecalls:
-    label: Petfood Reports
+    label: Pet Food Reports
     path: petfoodreports
     views:
       lltView:
@@ -241,7 +241,7 @@ names:
           - product
           - flavor
           - formulation
-          - clinical_sign
+          - reaction
       listingRecalls:
         label: Reports of Reactions
         searchType: nonLLT
