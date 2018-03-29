@@ -19,6 +19,11 @@ class DataRetrievalService {
     this.getTotal = this.getTotal.bind(this)
   }
 
+  handleErrors(response) {
+    if (!response.ok) throw Error(response.statusText);
+    return response;
+  }
+
   convertFiltersToJson(filters, options){
     const formattedFilters = filters.filter(filter => filter.value.length).map((filter,idx) => {
       var value = {
@@ -65,16 +70,17 @@ class DataRetrievalService {
       },{
         mode: 'cors'
       })
-    ).then(res => res.json())
-      .then((json) => {
-        const res = json.results.map(obj => {
-          return {
-            label: obj.term,
-            value: obj.term
-          }
-        });
-        return res
-      }).catch((err) => [])
+    ).then(this.handleErrors)
+    .then(res => res.json())
+    .then((json) => {
+      const res = json.results.map(obj => {
+        return {
+          label: obj.term,
+          value: obj.term
+        }
+      });
+      return res
+    }).catch((err) => console.log("err: ", err))
   }
 
 
@@ -115,23 +121,25 @@ class DataRetrievalService {
       },
       method: 'POST',
       mode: 'cors'
-    }).then(res => res.json())
-      .then(res => {
-        console.log(res)
-        return res
-      })
-      .catch((err) => {})
+    }).then(this.handleErrors)
+    .then(res => res.json())
+    .then(res => {
+      console.log(res)
+      return res
+    })
+    .catch((err) => {})
   }
 
 
   getTotal() {
     return fetch(`${this.url}/${this.endpoint}`)
-      .then(res => res.json())
-      .then(res => {
-        console.log(res)
-        return res
-      })
-      .catch((err) => {})
+    .then(this.handleErrors)
+    .then(res => res.json())
+    .then(res => {
+      console.log(res)
+      return res
+    })
+    .catch((err) => {})
   }
 }
 
