@@ -142,25 +142,26 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     }
   }
 
-  componentWillReceiveProps(){
-    const field = this.props.option.field
-    const autocomplete_field = this.props.option.autocomplete_field
+  componentWillReceiveProps(nextProps){
+    const field = nextProps.option.field
+    const autocomplete_field = nextProps.option.autocomplete_field
+    const endpoint = nextProps.parent.state.dataset.endpoint
 
     if(
       field === this.state.field
       && autocomplete_field === this.state.autocomplete_field
-        && this.props.parent.state.dataset.endpoint === this.state.endpoint
+        && endpoint === this.state.endpoint
     ){
       return
     }
 
-    if(this.props.option.can_query){
+    if(nextProps.option.can_query){
       this.setState({
         autocomplete_field,
         field,
-        endpoint: this.props.parent.state.dataset.endpoint
+        endpoint: endpoint
       }, () => {
-        this.props.parent.state.drs.getTopValues(field).then(options => {
+        nextProps.parent.state.drs.getTopValues(field).then(options => {
           this.setState({
             options
           })
