@@ -228,12 +228,12 @@ names:
             accessor: formulation
             show: true
             dedup: true
-          - Header: Reported Signs
+          - Header: Reported Sign
             accessor: reaction
             show: true
             dedup: true
             split: true
-          - Header: Frequency of Reported Signs
+          - Header: Frequency of Reported Sign
             accessor: frequency
             show: true
             dedup: true
@@ -241,12 +241,11 @@ names:
           - product
           - flavor
           - formulation
-          - reaction
       listingRecalls:
         label: Reports of Reactions
         searchType: nonLLT
         columns:
-          - Header: Identifier
+          - Header: Report ID
             accessor: identifier
             show: false
           - Header: Name
@@ -273,7 +272,7 @@ names:
           - Header: Report Year
             accessor: report_year
             show: true
-          - Header: Reported Signs
+          - Header: Reported Sign
             accessor: reaction.clinical_sign
             show: true
             split: true
@@ -312,13 +311,13 @@ names:
     url: http://ec2-34-229-232-27.compute-1.amazonaws.com:8000
     filters:
       options:
-        - label: Report Year (s)
+        - label: Report Year
           field: report_year.exact
           autocomplete_field: report_year
           type: select_autocomplete
           can_query: true
           remove_chars: report years
-          placeholder: Search Year
+          placeholder: Select Year or Start Typing
           query_type: term
           limit: 100
         - label: Product Name
@@ -327,7 +326,7 @@ names:
           type: select_autocomplete
           can_query: true
           remove_chars: product names
-          placeholder: Search Product
+          placeholder: Select Product or Start Typing
           query_type: term
           limit: 100
         - label: Formulation
@@ -335,7 +334,7 @@ names:
           autocomplete_field: product.formulation
           type: select_autocomplete
           remove_chars: formulations
-          placeholder: Search Formulation
+          placeholder: Select Formulation or Start Typing
           can_query: true
           query_type: term
           limit: 100
@@ -344,7 +343,7 @@ names:
           autocomplete_field: animal.species
           type: select_autocomplete
           remove_chars: species
-          placeholder: Search Species
+          placeholder: Select Species or Start Typing
           query_type: term
           limit: 100
         - label: Breed
@@ -353,16 +352,16 @@ names:
           type: select_autocomplete
           can_query: true
           remove_chars: breed
-          placeholder: Search Breed
+          placeholder: Select Breed or Start Typing
           query_type: term
           limit: 100
-        - label: Reported Signs
+        - label: Reported Sign
           field: reaction.clinical_sign.exact
           autocomplete_field: reaction.clinical_sign
           type: select_autocomplete
           remove_chars: reactions
           can_query: true
-          placeholder: Search Reactions
+          placeholder: Select Reaction or Start Typing
           query_type: term
           limit: 100
         - label: State
@@ -371,7 +370,7 @@ names:
           type: select_autocomplete
           can_query: true
           remove_chars: state
-          placeholder: Search State (s)
+          placeholder: Select State or Search Typing
           query_type: term
           limit: 100
     exportOptions:
