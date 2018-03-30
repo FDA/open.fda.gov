@@ -74,7 +74,13 @@ class ResultsComponent extends React.Component {
     this.state = {
       columns: [],
       placeholder: "Manage Columns",
-      pivotBy: []
+      pivotBy: [],
+      sorted: [],
+      page: 0,
+      pageSize: 200,
+      expanded: {},
+      resized: [],
+      filtered: []
     }
     this.onColumnToggle = this.onColumnToggle.bind(this)
     this.onExportChoosen = this.onExportChoosen.bind(this)
@@ -294,12 +300,24 @@ class ResultsComponent extends React.Component {
         </div>
         <ReactTable
           data={this.props.parent.state._rows}
-          pageSize={this.props.parent.state._rows.length}
+          page={this.state.page}
+          pageSize={this.state.pageSize}
           columns={this.state.columns}
           pivotBy={this.state.pivotBy}
           defaultPageSize={this.props.parent.state._rows.length}
-          showPagination={false}
+          showPageSizeOptions={true}
+          pageSizeOptions={[25, 50, 100, 200, 250, 500, 1000]}
+          showPagination={true}
+          resized={this.state.resized}
+          onSortedChange={sorted => this.setState({ sorted })}
+          onPageChange={page => this.setState({ page })}
+          onPageSizeChange={(pageSize, page) =>
+              this.setState({ page, pageSize })}
+          onExpandedChange={expanded => this.setState({ expanded })}
+          onResizedChange={resized => this.setState({ resized })}
+          onFilteredChange={filtered => this.setState({ filtered })}
           minRows={10}
+          filterable={true}
           style={{
             height: 800,
             width: "100%"
