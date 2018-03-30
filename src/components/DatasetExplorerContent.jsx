@@ -76,7 +76,6 @@ class ResultsComponent extends React.Component {
       placeholder: "Manage Columns",
       pivotBy: [],
       sorted: [],
-      page: 0,
       pageSize: 200,
       expanded: {},
       resized: [],
@@ -300,7 +299,6 @@ class ResultsComponent extends React.Component {
         </div>
         <ReactTable
           data={this.props.parent.state._rows}
-          page={this.state.page}
           pageSize={this.state.pageSize}
           columns={this.state.columns}
           pivotBy={this.state.pivotBy}
