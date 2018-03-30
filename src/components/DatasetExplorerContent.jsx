@@ -314,6 +314,7 @@ class ResultsComponent extends React.Component {
           onExpandedChange={expanded => this.setState({ expanded })}
           onResizedChange={resized => this.setState({ resized })}
           onFilteredChange={filtered => this.setState({ filtered })}
+          filtered={this.state.filtered}
           minRows={10}
           filterable={true}
           style={{
