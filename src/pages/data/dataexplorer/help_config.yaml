@@ -1,5 +1,5 @@
 petfood_reaction:
-  label: Low-Level Terms (LLT)
+  label: All Possible Reported Signs
   description:
   columns:
     - Header: System Organ Class (SOC) Term
