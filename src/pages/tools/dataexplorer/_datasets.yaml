@@ -10,6 +10,7 @@ names:
           - Header: Product Name
             accessor: product
             show: true
+            dedup: true
           - Header: Flavor
             accessor: flavor
             show: true
@@ -108,7 +109,7 @@ names:
           remove_chars: report years
           placeholder: Select Year or Start Typing
           query_type: term
-          limit: 100
+          limit: 5000
         - label: Product Name
           field: product.name.exact
           autocomplete_field: product.name
