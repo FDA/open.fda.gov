@@ -2,6 +2,8 @@
 
 import React from 'react'
 
+import { default as ReactTable } from "react-table"
+
 import Checkbox from 'rc-checkbox'
 import Select from 'react-select'
 import Async from 'react-select'
@@ -11,6 +13,7 @@ import AutoCompleteComponent from './AutoComplete'
 import withQuery from 'with-query'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 import Datetime from 'react-datetime'
+import ReactModal from 'react-modal'
 
 require('react-datetime');
 
@@ -274,7 +277,13 @@ class SelectAutoCompleteFilterComponent extends React.Component {
 
     return (
       <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
-        <h3>{this.props.option.label}</h3>
+        <div className='flex-row'>
+          <h3>{this.props.option.label}</h3>
+          {
+            this.props.option.help_id &&
+              <HelpWindow help_obj={this.props.help_config[this.props.option.help_id]} />
+          }
+        </div>
         <Select.Async
           value={this.state.value}
           className='filter-select'
@@ -285,6 +294,84 @@ class SelectAutoCompleteFilterComponent extends React.Component {
         />
         {elements}
       </div>
+    )
+  }
+}
+
+
+class HelpWindow extends React.Component {
+
+  constructor (props: Object) {
+    super(props)
+
+    this.state = {
+      showModal: false,
+      sorted: [],
+      page: 0,
+      pageSize: 200,
+      expanded: {},
+      resized: [],
+      filtered: []
+    }
+
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
+  }
+
+  componentDidMount () {
+  }
+
+  closeModal () {
+    this.setState({
+      showModal: false
+    })
+  }
+
+  openModal () {
+    this.setState({
+      showModal: true
+    })
+  }
+
+  render (): ?React.Element {
+    return (
+      <i className='fa fa-info-circle pad-l-1' onClick={this.openModal}>
+        <ReactModal
+          isOpen={this.state.showModal}
+          className='help-window'
+          overlayClassName='modal-overlay'
+          contentLabel="Help Modal"
+          onRequestClose={this.closeModal}
+          shouldCloseOnOverlayClick={true}
+          ariaHideApp={false}
+        >
+          <h3>{this.props.help_obj.label}</h3>
+          <ReactTable
+            data={this.props.help_obj.options}
+            page={this.state.page}
+            pageSize={this.state.pageSize}
+            columns={this.props.help_obj.columns}
+            defaultPageSize={this.props.help_obj.options.length}
+            showPageSizeOptions={true}
+            pageSizeOptions={[25, 50, 100, 200, 250, 500, 1000]}
+            showPagination={true}
+            resized={this.state.resized}
+            onSortedChange={sorted => this.setState({ sorted })}
+            onPageChange={page => this.setState({ page })}
+            onPageSizeChange={(pageSize, page) =>
+              this.setState({ page, pageSize })}
+            onExpandedChange={expanded => this.setState({ expanded })}
+            onResizedChange={resized => this.setState({ resized })}
+            onFilteredChange={filtered => this.setState({ filtered })}
+            minRows={10}
+            filterable={true}
+            style={{
+              width: "100%"
+            }}
+            className="-striped -highlight"
+          />
+        </ReactModal>
+      </i>
     )
   }
 }
@@ -1126,6 +1213,7 @@ class FilterComponent extends React.Component {
             options={option.options}
             parent={this.props.parent}
             onChange={this.onChangeSelect}
+            help_config={this.props.help_config}
           />
         )
       } else if (option.type === "autocomplete") {
