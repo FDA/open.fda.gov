@@ -1,4 +1,171 @@
 names:
+  petfoodrecalls:
+    label: Pet Food Reports
+    path: petfoodreports
+    views:
+      lltView:
+        label: Frequency of Reported Signs
+        searchType: LLT
+        columns:
+          - Header: Product Name
+            accessor: product
+            show: true
+          - Header: Flavor
+            accessor: flavor
+            show: true
+            dedup: true
+          - Header: Formulation
+            accessor: formulation
+            show: true
+            dedup: true
+          - Header: Reported Sign
+            accessor: reaction
+            show: true
+            dedup: true
+            split: true
+          - Header: Frequency of Reported Sign
+            accessor: frequency
+            show: true
+            dedup: true
+        pivotBy:
+          - product
+          - flavor
+          - formulation
+      listingRecalls:
+        label: Reports of Reactions
+        searchType: nonLLT
+        columns:
+          - Header: Report ID
+            accessor: identifier
+            show: false
+          - Header: Name
+            accessor: product.name
+            show: true
+          - Header: Flavor
+            accessor: product.flavor
+            show: true
+          - Header: Formulation
+            accessor: product.formulation
+            show: true
+          - Header: Number Fed
+            accessor: number_fed
+            show: true
+          - Header: Number Reacted
+            accessor: number_reacted
+            show: true
+          - Header: Number Died
+            accessor: number_died
+            show: true
+          - Header: State
+            accessor: state
+            show: false
+          - Header: Report Year
+            accessor: report_year
+            show: true
+          - Header: Reported Sign
+            accessor: reaction.clinical_sign
+            show: true
+            split: true
+          - Header: Unique Animal ID
+            accessor: animal.unique_animal_id
+            show: false
+          - Header: Species
+            accessor: animal.species
+            show: false
+          - Header: Breed
+            accessor: animal.breed
+            show: false
+          - Header: Gender
+            accessor: animal.gender
+            show: false
+          - Header: Weight
+            accessor: animal.weight
+            show: false
+          - Header: Weight UOM
+            accessor: animal.weight_uom
+            show: false
+          - Header: Age
+            accessor: animal.age
+            show: false
+          - Header: Age Units
+            accessor: animal.age_units
+            show: false
+          - Header: Reproductive Status
+            accessor: animal.reproductive_status
+            show: false
+          - Header: Animal Number
+            accessor: animal.animal_number
+            show: false
+    endpoint: animalandveterinary/petfood_reports.json
+    url: http://ec2-34-229-232-27.compute-1.amazonaws.com:8000
+    filters:
+      options:
+        - label: Report Year
+          field: report_year.exact
+          autocomplete_field: report_year
+          type: select_autocomplete
+          can_query: true
+          remove_chars: report years
+          placeholder: Select Year or Start Typing
+          query_type: term
+          limit: 100
+        - label: Product Name
+          field: product.name.exact
+          autocomplete_field: product.name
+          type: select_autocomplete
+          can_query: true
+          remove_chars: product names
+          placeholder: Select Product or Start Typing
+          query_type: term
+          limit: 100
+        - label: Formulation
+          field: product.formulation.exact
+          autocomplete_field: product.formulation
+          type: select_autocomplete
+          remove_chars: formulations
+          placeholder: Select Formulation or Start Typing
+          can_query: true
+          query_type: term
+          limit: 100
+        - label: Species
+          field: animal.species.exact
+          autocomplete_field: animal.species
+          type: select_autocomplete
+          remove_chars: species
+          placeholder: Select Species or Start Typing
+          query_type: term
+          limit: 100
+        - label: Breed
+          field: animal.breed.exact
+          autocomplete_field: animal.breed
+          type: select_autocomplete
+          can_query: true
+          remove_chars: breed
+          placeholder: Select Breed or Start Typing
+          query_type: term
+          limit: 100
+        - label: Reported Sign
+          field: reaction.clinical_sign.exact
+          autocomplete_field: reaction.clinical_sign
+          type: select_autocomplete
+          remove_chars: reactions
+          help_id: petfood_reaction
+          can_query: true
+          placeholder: Select Reaction or Start Typing
+          query_type: term
+          limit: 100
+        - label: State
+          field: state.exact
+          autocomplete_field: state
+          type: select_autocomplete
+          can_query: true
+          remove_chars: state
+          placeholder: Select State or Search Typing
+          query_type: term
+          limit: 100
+    exportOptions:
+      - label: CSV
+      - label: JSON
   animaldrugs:
     label: Animal Drug Labeling
     path: animaldrug
@@ -206,174 +373,6 @@ names:
                 value: true
               - label: Unapproved
                 value: false
-    exportOptions:
-      - label: CSV
-      - label: JSON
-  petfoodrecalls:
-    label: Pet Food Reports
-    path: petfoodreports
-    views:
-      lltView:
-        label: Frequency of Reported Signs
-        searchType: LLT
-        columns:
-          - Header: Product Name
-            accessor: product
-            show: true
-            dedup: true
-          - Header: Flavor
-            accessor: flavor
-            show: true
-            dedup: true
-          - Header: Formulation
-            accessor: formulation
-            show: true
-            dedup: true
-          - Header: Reported Sign
-            accessor: reaction
-            show: true
-            dedup: true
-            split: true
-          - Header: Frequency of Reported Sign
-            accessor: frequency
-            show: true
-            dedup: true
-        pivotBy:
-          - product
-          - flavor
-          - formulation
-      listingRecalls:
-        label: Reports of Reactions
-        searchType: nonLLT
-        columns:
-          - Header: Report ID
-            accessor: identifier
-            show: false
-          - Header: Name
-            accessor: product.name
-            show: true
-          - Header: Flavor
-            accessor: product.flavor
-            show: true
-          - Header: Formulation
-            accessor: product.formulation
-            show: true
-          - Header: Number Fed
-            accessor: number_fed
-            show: true
-          - Header: Number Reacted
-            accessor: number_reacted
-            show: true
-          - Header: Number Died
-            accessor: number_died
-            show: true
-          - Header: State
-            accessor: state
-            show: false
-          - Header: Report Year
-            accessor: report_year
-            show: true
-          - Header: Reported Sign
-            accessor: reaction.clinical_sign
-            show: true
-            split: true
-          - Header: Unique Animal ID
-            accessor: animal.unique_animal_id
-            show: false
-          - Header: Species
-            accessor: animal.species
-            show: false
-          - Header: Breed
-            accessor: animal.breed
-            show: false
-          - Header: Gender
-            accessor: animal.gender
-            show: false
-          - Header: Weight
-            accessor: animal.weight
-            show: false
-          - Header: Weight UOM
-            accessor: animal.weight_uom
-            show: false
-          - Header: Age
-            accessor: animal.age
-            show: false
-          - Header: Age Units
-            accessor: animal.age_units
-            show: false
-          - Header: Reproductive Status
-            accessor: animal.reproductive_status
-            show: false
-          - Header: Animal Number
-            accessor: animal.animal_number
-            show: false
-
-    endpoint: animalandveterinary/petfood_reports.json
-    url: http://ec2-34-229-232-27.compute-1.amazonaws.com:8000
-    filters:
-      options:
-        - label: Report Year
-          field: report_year.exact
-          autocomplete_field: report_year
-          type: select_autocomplete
-          can_query: true
-          remove_chars: report years
-          placeholder: Select Year or Start Typing
-          query_type: term
-          limit: 5000
-        - label: Product Name
-          field: product.name.exact
-          autocomplete_field: product.name
-          type: select_autocomplete
-          can_query: true
-          remove_chars: product names
-          placeholder: Select Product or Start Typing
-          query_type: term
-          limit: 100
-        - label: Formulation
-          field: product.formulation.exact
-          autocomplete_field: product.formulation
-          type: select_autocomplete
-          remove_chars: formulations
-          placeholder: Select Formulation or Start Typing
-          can_query: true
-          query_type: term
-          limit: 100
-        - label: Species
-          field: animal.species.exact
-          autocomplete_field: animal.species
-          type: select_autocomplete
-          remove_chars: species
-          placeholder: Select Species or Start Typing
-          query_type: term
-          limit: 100
-        - label: Breed
-          field: animal.breed.exact
-          autocomplete_field: animal.breed
-          type: select_autocomplete
-          can_query: true
-          remove_chars: breed
-          placeholder: Select Breed or Start Typing
-          query_type: term
-          limit: 100
-        - label: Reported Sign
-          field: reaction.clinical_sign.exact
-          autocomplete_field: reaction.clinical_sign
-          type: select_autocomplete
-          remove_chars: reactions
-          can_query: true
-          placeholder: Select Reaction or Start Typing
-          query_type: term
-          limit: 100
-        - label: State
-          field: state.exact
-          autocomplete_field: state
-          type: select_autocomplete
-          can_query: true
-          remove_chars: state
-          placeholder: Select State or Search Typing
-          query_type: term
-          limit: 100
     exportOptions:
       - label: CSV
       - label: JSON

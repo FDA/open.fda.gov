@@ -1,0 +1,3997 @@
+petfood_reaction:
+  label: Low-Level Terms (LLT)
+  description:
+  columns:
+    - Header: System Organ Class (SOC) Term
+      accessor: soc_term
+      show: true
+    - Header: Low Level Term (LLT)
+      accessor: llt_term
+      show: true
+  options:
+    - llt_term: Application site abscess
+      soc_term: Application site disorders
+    - llt_term: Application site alopecia
+      soc_term: Application site disorders
+    - llt_term: Application site bleeding
+      soc_term: Application site disorders
+    - llt_term: Application site blister
+      soc_term: Application site disorders
+    - llt_term: Application site bruising
+      soc_term: Application site disorders
+    - llt_term: Application site burn
+      soc_term: Application site disorders
+    - llt_term: Application site crust
+      soc_term: Application site disorders
+    - llt_term: Application site dermatitis
+      soc_term: Application site disorders
+    - llt_term: Application site eczema
+      soc_term: Application site disorders
+    - llt_term: Application site erythema
+      soc_term: Application site disorders
+    - llt_term: Application site fibrosis
+      soc_term: Application site disorders
+    - llt_term: Application site granuloma
+      soc_term: Application site disorders
+    - llt_term: Application site greasy fur
+      soc_term: Application site disorders
+    - llt_term: Application site haematoma
+      soc_term: Application site disorders
+    - llt_term: Application site haemorrhage
+      soc_term: Application site disorders
+    - llt_term: Application site hair change
+      soc_term: Application site disorders
+    - llt_term: Application site hair loss
+      soc_term: Application site disorders
+    - llt_term: Application site infection
+      soc_term: Application site disorders
+    - llt_term: Application site inflammation
+      soc_term: Application site disorders
+    - llt_term: Application site irritation
+      soc_term: Application site disorders
+    - llt_term: Application site itching
+      soc_term: Application site disorders
+    - llt_term: Application site lesion
+      soc_term: Application site disorders
+    - llt_term: Application site leukotrichia
+      soc_term: Application site disorders
+    - llt_term: Application site lump
+      soc_term: Application site disorders
+    - llt_term: Application site moist eczema
+      soc_term: Application site disorders
+    - llt_term: Application site mucopurulent discharge
+      soc_term: Application site disorders
+    - llt_term: Application site necrosis
+      soc_term: Application site disorders
+    - llt_term: Application site oedema
+      soc_term: Application site disorders
+    - llt_term: Application site pain
+      soc_term: Application site disorders
+    - llt_term: Application site paraesthesia
+      soc_term: Application site disorders
+    - llt_term: Application site petechiae
+      soc_term: Application site disorders
+    - llt_term: Application site pruritus
+      soc_term: Application site disorders
+    - llt_term: Application site pustule
+      soc_term: Application site disorders
+    - llt_term: Application site pyoderma
+      soc_term: Application site disorders
+    - llt_term: Application site rash
+      soc_term: Application site disorders
+    - llt_term: Application site reaction NOS
+      soc_term: Application site disorders
+    - llt_term: Application site reddening
+      soc_term: Application site disorders
+    - llt_term: Application site rubra
+      soc_term: Application site disorders
+    - llt_term: Application site sarcoma
+      soc_term: Application site disorders
+    - llt_term: Application site scab
+      soc_term: Application site disorders
+    - llt_term: Application site scratching
+      soc_term: Application site disorders
+    - llt_term: Application site self trauma
+      soc_term: Application site disorders
+    - llt_term: Application site serosanguinous discharge
+      soc_term: Application site disorders
+    - llt_term: Application site serous discharge
+      soc_term: Application site disorders
+    - llt_term: Application site swelling
+      soc_term: Application site disorders
+    - llt_term: Application site ulcer
+      soc_term: Application site disorders
+    - llt_term: Application site weeping (see also 'skin')
+      soc_term: Application site disorders
+    - llt_term: Implant site abscess
+      soc_term: Application site disorders
+    - llt_term: Implant site alopecia
+      soc_term: Application site disorders
+    - llt_term: Implant site bleeding
+      soc_term: Application site disorders
+    - llt_term: Implant site blister
+      soc_term: Application site disorders
+    - llt_term: Implant site bruising
+      soc_term: Application site disorders
+    - llt_term: Implant site crust
+      soc_term: Application site disorders
+    - llt_term: Implant site dermatitis
+      soc_term: Application site disorders
+    - llt_term: Implant site erythema
+      soc_term: Application site disorders
+    - llt_term: Implant site fibrosis
+      soc_term: Application site disorders
+    - llt_term: Implant site granuloma
+      soc_term: Application site disorders
+    - llt_term: Implant site haematoma
+      soc_term: Application site disorders
+    - llt_term: Implant site haemorrhage
+      soc_term: Application site disorders
+    - llt_term: Implant site hair change
+      soc_term: Application site disorders
+    - llt_term: Implant site hair loss
+      soc_term: Application site disorders
+    - llt_term: Implant site inflammation
+      soc_term: Application site disorders
+    - llt_term: Implant site irritation
+      soc_term: Application site disorders
+    - llt_term: Implant site itching
+      soc_term: Application site disorders
+    - llt_term: Implant site lesion
+      soc_term: Application site disorders
+    - llt_term: Implant site leukotrichia
+      soc_term: Application site disorders
+    - llt_term: Implant site lump
+      soc_term: Application site disorders
+    - llt_term: Implant site mucopurulent discharge
+      soc_term: Application site disorders
+    - llt_term: Implant site necrosis
+      soc_term: Application site disorders
+    - llt_term: Implant site oedema
+      soc_term: Application site disorders
+    - llt_term: Implant site pain
+      soc_term: Application site disorders
+    - llt_term: Implant site petechiae
+      soc_term: Application site disorders
+    - llt_term: Implant site pruritus
+      soc_term: Application site disorders
+    - llt_term: Implant site pustule
+      soc_term: Application site disorders
+    - llt_term: Implant site pyoderma
+      soc_term: Application site disorders
+    - llt_term: Implant site reaction NOS
+      soc_term: Application site disorders
+    - llt_term: Implant site rubra
+      soc_term: Application site disorders
+    - llt_term: Implant site sarcoma
+      soc_term: Application site disorders
+    - llt_term: Implant site scab
+      soc_term: Application site disorders
+    - llt_term: Implant site scratching
+      soc_term: Application site disorders
+    - llt_term: Implant site self trauma
+      soc_term: Application site disorders
+    - llt_term: Implant site serosanguinous discharge
+      soc_term: Application site disorders
+    - llt_term: Implant site serous discharge
+      soc_term: Application site disorders
+    - llt_term: Implant site swelling
+      soc_term: Application site disorders
+    - llt_term: Implant site ulcer
+      soc_term: Application site disorders
+    - llt_term: Implant site weeping (see also 'skin')
+      soc_term: Application site disorders
+    - llt_term: Injection site abscess
+      soc_term: Application site disorders
+    - llt_term: Injection site alopecia
+      soc_term: Application site disorders
+    - llt_term: Injection site bleeding
+      soc_term: Application site disorders
+    - llt_term: Injection site blister
+      soc_term: Application site disorders
+    - llt_term: Injection site bruising
+      soc_term: Application site disorders
+    - llt_term: Injection site complication NOS
+      soc_term: Application site disorders
+    - llt_term: Injection site crust
+      soc_term: Application site disorders
+    - llt_term: Injection site dermatitis
+      soc_term: Application site disorders
+    - llt_term: Injection site erythema
+      soc_term: Application site disorders
+    - llt_term: Injection site fibrosis
+      soc_term: Application site disorders
+    - llt_term: Injection site gangrene
+      soc_term: Application site disorders
+    - llt_term: Injection site gaseous gangrene
+      soc_term: Application site disorders
+    - llt_term: Injection site granuloma
+      soc_term: Application site disorders
+    - llt_term: Injection site haematoma
+      soc_term: Application site disorders
+    - llt_term: Injection site haemorrhage
+      soc_term: Application site disorders
+    - llt_term: Injection site hair change
+      soc_term: Application site disorders
+    - llt_term: Injection site hair loss
+      soc_term: Application site disorders
+    - llt_term: Injection site infection
+      soc_term: Application site disorders
+    - llt_term: Injection site inflammation
+      soc_term: Application site disorders
+    - llt_term: Injection site irritation
+      soc_term: Application site disorders
+    - llt_term: Injection site itching
+      soc_term: Application site disorders
+    - llt_term: Injection site joint reaction
+      soc_term: Application site disorders
+    - llt_term: Injection site lesion
+      soc_term: Application site disorders
+    - llt_term: Injection site leukotrichia
+      soc_term: Application site disorders
+    - llt_term: Injection site lump
+      soc_term: Application site disorders
+    - llt_term: Injection site mass
+      soc_term: Application site disorders
+    - llt_term: Injection site mucopurulent discharge
+      soc_term: Application site disorders
+    - llt_term: Injection site necrosis
+      soc_term: Application site disorders
+    - llt_term: Injection site neoplasm NOS
+      soc_term: Application site disorders
+    - llt_term: Injection site nerve damage
+      soc_term: Application site disorders
+    - llt_term: Injection site numbness
+      soc_term: Application site disorders
+    - llt_term: Injection site oedema
+      soc_term: Application site disorders
+    - llt_term: Injection site pain
+      soc_term: Application site disorders
+    - llt_term: Injection site panniculitis
+      soc_term: Application site disorders
+    - llt_term: Injection site paraesthesia
+      soc_term: Application site disorders
+    - llt_term: Injection site petechiae
+      soc_term: Application site disorders
+    - llt_term: Injection site pruritus
+      soc_term: Application site disorders
+    - llt_term: Injection site pustules
+      soc_term: Application site disorders
+    - llt_term: Injection site pyoderma
+      soc_term: Application site disorders
+    - llt_term: Injection site reaction NOS
+      soc_term: Application site disorders
+    - llt_term: Injection site reddening
+      soc_term: Application site disorders
+    - llt_term: Injection site related digit amputation
+      soc_term: Application site disorders
+    - llt_term: Injection site rubra
+      soc_term: Application site disorders
+    - llt_term: Injection site sarcoma
+      soc_term: Application site disorders
+    - llt_term: Injection site scab
+      soc_term: Application site disorders
+    - llt_term: Injection site scratching
+      soc_term: Application site disorders
+    - llt_term: Injection site self trauma
+      soc_term: Application site disorders
+    - llt_term: Injection site seroma
+      soc_term: Application site disorders
+    - llt_term: Injection site serosanguinous discharge
+      soc_term: Application site disorders
+    - llt_term: Injection site serous discharge
+      soc_term: Application site disorders
+    - llt_term: Injection site stiffness
+      soc_term: Application site disorders
+    - llt_term: Injection site swelling
+      soc_term: Application site disorders
+    - llt_term: Injection site tingling
+      soc_term: Application site disorders
+    - llt_term: Injection site ulcer
+      soc_term: Application site disorders
+    - llt_term: Injection site vaccine leakage
+      soc_term: Application site disorders
+    - llt_term: Injection site warmth
+      soc_term: Application site disorders
+    - llt_term: Injection site weeping (see also 'skin')
+      soc_term: Application site disorders
+    - llt_term: Licking at application site
+      soc_term: Application site disorders
+    - llt_term: Movement of implant
+      soc_term: Application site disorders
+    - llt_term: Abnormal swimming in fish
+      soc_term: Behavioural disorders
+    - llt_term: Aggression
+      soc_term: Behavioural disorders
+    - llt_term: Agitation
+      soc_term: Behavioural disorders
+    - llt_term: Anxiety
+      soc_term: Behavioural disorders
+    - llt_term: Apprehension
+      soc_term: Behavioural disorders
+    - llt_term: Attractiveness to males
+      soc_term: Behavioural disorders
+    - llt_term: Barking
+      soc_term: Behavioural disorders
+    - llt_term: Behavioural disorder NOS
+      soc_term: Behavioural disorders
+    - llt_term: Biting
+      soc_term: Behavioural disorders
+    - llt_term: Confusion
+      soc_term: Behavioural disorders
+    - llt_term: Coprophagia
+      soc_term: Behavioural disorders
+    - llt_term: Crying
+      soc_term: Behavioural disorders
+    - llt_term: Disorientation
+      soc_term: Behavioural disorders
+    - llt_term: Distress
+      soc_term: Behavioural disorders
+    - llt_term: Excessive licking and/or grooming
+      soc_term: Behavioural disorders
+    - llt_term: Excitation
+      soc_term: Behavioural disorders
+    - llt_term: Grooming disorder
+      soc_term: Behavioural disorders
+    - llt_term: Hallucination
+      soc_term: Behavioural disorders
+    - llt_term: Hyperactivity
+      soc_term: Behavioural disorders
+    - llt_term: Hyperexcitation
+      soc_term: Behavioural disorders
+    - llt_term: Impaired vocalisation
+      soc_term: Behavioural disorders
+    - llt_term: Inappropriate defecation
+      soc_term: Behavioural disorders
+    - llt_term: Inappropriate urination
+      soc_term: Behavioural disorders
+    - llt_term: Increased sexual interest
+      soc_term: Behavioural disorders
+    - llt_term: Leaping behaviour in fish
+      soc_term: Behavioural disorders
+    - llt_term: Mewing
+      soc_term: Behavioural disorders
+    - llt_term: Miscellaneous eating disorder NOS
+      soc_term: Behavioural disorders
+    - llt_term: Not sleeping
+      soc_term: Behavioural disorders
+    - llt_term: Pica NOS
+      soc_term: Behavioural disorders
+    - llt_term: Reduced sexual interest (see 'Reproductive' for named sexual disorders)
+      soc_term: Behavioural disorders
+    - llt_term: Restlessness
+      soc_term: Behavioural disorders
+    - llt_term: Self mutilation
+      soc_term: Behavioural disorders
+    - llt_term: Sexual disorder NOS (see 'Reproductive' for named sexual disorders)
+      soc_term: Behavioural disorders
+    - llt_term: Sleep disturbance NOS
+      soc_term: Behavioural disorders
+    - llt_term: Teeth grinding
+      soc_term: Behavioural disorders
+    - llt_term: Vocalisation
+      soc_term: Behavioural disorders
+    - llt_term: Anaemia NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Aplastic anaemia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Blood and lymphatic system disorder NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Blood clot
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Blood dyscrasia NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Blood loss NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Bone marrow aplasia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Bone marrow disorder NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Bone marrow suppression
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Coagulopathy
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Congenital coagulopathy NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Congenital haematological disorder NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Decreased red blood cell count
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Disorder of red blood cell NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Disseminated intravascular coagulation
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Eosinophilia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Haemangiosarcoma
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Haemolysis
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Haemolytic anaemia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Haemophilia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Haemopoietic neoplasm NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Haemorrhage NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Hyperalbuminaemia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Hyperproteinaemia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Hypoalbuminaemia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Hypoproteinaemia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Inversion of albumin/globulin ratio
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Iron deficiency anaemia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Leucocytosis
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Leucopenia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Leukaemia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Low platelet count
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Lymph node abscess
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Lymphadenitis
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Lymphadenopathy
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Lymphangitis
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Lymphocytosis
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Lymphoma
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Lymphopenia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Lymphosarcoma
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Mucosa petechiae
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Multiple organ haemorrhage
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Neutropenia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Neutrophilia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Non- regenerative anaemia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Organ haemorrhage
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Organ petechiae
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Other blood disorder NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Other coagulation abnormality
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Pancytopenia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Panleucopenia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Petechiae NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Profuse bleeding
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Prolonged bleeding NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Red blood cell disorder
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Regenerative anaemia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Skin petechiae
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Spleen and reticulo- endothelial system disorder NOS
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Spleen hypertrophy
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Spleen rupture
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Spleen torsion
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Splenic neoplasm
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Splenitis
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Splenomegaly
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Swollen gland
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Swollen lymph node
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Thrombocytopenia
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Thrombocytosis
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Thromboemboli
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Thrombosis
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: von Willebrands disease
+      soc_term: Blood and lymphatic system disorders
+    - llt_term: Abnormal ECG
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Aneurism
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Angina pectoris
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Aortic degeneration
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Aortic rupture
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Aortic stenosis
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Arrhythmia
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Arteritis
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Atrial fibrillation
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Bradycardia
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Cardiac arrest
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Cardiac depression
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Cardiac disorder NOS
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Cardiac enlargement
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Cardiac failure
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Cardiac insufficiency
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Cardiac murmur
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Cardiac tamponade
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Cardiomyopathy
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Cardiopathy
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Cardiopulmonary stop
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Carditis
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Circulatory collapse
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Circulatory disorder NOS
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Circulatory shock
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Cold feeling of finger
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Congenital cardiovascular disorder NOS
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Coronary artery disorder NOS
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Decreased heart rate
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Ductus botalli persistence
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Embolism
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Endocardial fibroelastosis
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Endocarditis
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Extrasystole
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Facial flushing
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Fainting
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Flushing
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Generalised flushing
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Heart block
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Heart disorder aggravated
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Heart failure
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Heart insufficiency
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Heart murmur
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Heart pounding
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Heart valve disorder
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Heart valve opening
+      soc_term: Cardio-vascular system disorders
+    - llt_term: High blood pressure
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Hypertension
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Hypotension
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Increased heart rate
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Infarction
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Ischaemia NOS
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Ischaemic necrosis
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Jugular distension
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Low blood pressure
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Murmur
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Myocarditis
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Orthostatic hypotension
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Palpitation
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Pericardial effusion
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Pericardial haemorrhage
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Pericarditis
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Peripheral ischaemia
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Peripheral vascular disorder
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Peripheral vasoconstriction
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Perivascular necrosis
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Phlebitis
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Poor peripheral circulation
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Prolonged capillary refill time
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Pulmonary stenosis
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Rapid pulse rate
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Right ventricular dilatation
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Shock
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Slow heart rate
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Syncope
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Tachycardia
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Taurine- deficient cardiomyopathy
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Valvular disorder
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Valvular insufficiency
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Vascular dilation and/or rupture
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Vascular disorder NOS (see also endocarditis)
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Vascular inflammation
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Vascular spasm
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Vasculitis
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Ventricular septal defect
+      soc_term: Cardio-vascular system disorders
+    - llt_term: Abdominal cavity disorder NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Abdominal cavity haemorrhage
+      soc_term: Digestive tract disorders
+    - llt_term: Abdominal cavity hernia
+      soc_term: Digestive tract disorders
+    - llt_term: Abdominal cramp
+      soc_term: Digestive tract disorders
+    - llt_term: Abdominal discomfort
+      soc_term: Digestive tract disorders
+    - llt_term: Abdominal effusion
+      soc_term: Digestive tract disorders
+    - llt_term: Abdominal oedema
+      soc_term: Digestive tract disorders
+    - llt_term: Abdominal pain
+      soc_term: Digestive tract disorders
+    - llt_term: Abnormal stool colouration
+      soc_term: Digestive tract disorders
+    - llt_term: Abomasal perforation
+      soc_term: Digestive tract disorders
+    - llt_term: Abomasal ulcer
+      soc_term: Digestive tract disorders
+    - llt_term: Abomasitis
+      soc_term: Digestive tract disorders
+    - llt_term: Absence of anus
+      soc_term: Digestive tract disorders
+    - llt_term: Acute haemorrhagic pancreatitis
+      soc_term: Digestive tract disorders
+    - llt_term: Adhesion in fish
+      soc_term: Digestive tract disorders
+    - llt_term: Anal irritation
+      soc_term: Digestive tract disorders
+    - llt_term: Anal prolapse
+      soc_term: Digestive tract disorders
+    - llt_term: Anal sac disorder
+      soc_term: Digestive tract disorders
+    - llt_term: Ascites
+      soc_term: Digestive tract disorders
+    - llt_term: Atresia ani
+      soc_term: Digestive tract disorders
+    - llt_term: Belching
+      soc_term: Digestive tract disorders
+    - llt_term: Blistering of mouth
+      soc_term: Digestive tract disorders
+    - llt_term: Bloated
+      soc_term: Digestive tract disorders
+    - llt_term: Bloated feeling
+      soc_term: Digestive tract disorders
+    - llt_term: Bloated stomach
+      soc_term: Digestive tract disorders
+    - llt_term: Blood in faeces
+      soc_term: Digestive tract disorders
+    - llt_term: Blood in vomit
+      soc_term: Digestive tract disorders
+    - llt_term: Bloody diarrhoea
+      soc_term: Digestive tract disorders
+    - llt_term: Bowel torsion
+      soc_term: Digestive tract disorders
+    - llt_term: Branchial cyst
+      soc_term: Digestive tract disorders
+    - llt_term: Buccal irritation
+      soc_term: Digestive tract disorders
+    - llt_term: Buccal ulceration
+      soc_term: Digestive tract disorders
+    - llt_term: Burning mouth sensation
+      soc_term: Digestive tract disorders
+    - llt_term: Chattering of teeth
+      soc_term: Digestive tract disorders
+    - llt_term: Chewing
+      soc_term: Digestive tract disorders
+    - llt_term: Chronic pancreatitis
+      soc_term: Digestive tract disorders
+    - llt_term: Cleft palate
+      soc_term: Digestive tract disorders
+    - llt_term: Colic
+      soc_term: Digestive tract disorders
+    - llt_term: Colitis
+      soc_term: Digestive tract disorders
+    - llt_term: Congenital digestive tract disorder NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Constipation
+      soc_term: Digestive tract disorders
+    - llt_term: Decreased bowel movements
+      soc_term: Digestive tract disorders
+    - llt_term: Dental discolouration
+      soc_term: Digestive tract disorders
+    - llt_term: Diarrhoea
+      soc_term: Digestive tract disorders
+    - llt_term: Digestive tract disorder NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Digestive tract haemorrhage NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Digestive tract hypermotility
+      soc_term: Digestive tract disorders
+    - llt_term: Digestive tract hypomotility
+      soc_term: Digestive tract disorders
+    - llt_term: Digestive tract malabsorption disorder NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Digestive tract neoplasm NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Digestive tract stasis
+      soc_term: Digestive tract disorders
+    - llt_term: Digestive tract stenosis and obstruction NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Digestive tract tympany
+      soc_term: Digestive tract disorders
+    - llt_term: Discoloured teeth
+      soc_term: Digestive tract disorders
+    - llt_term: Displaced abomasum
+      soc_term: Digestive tract disorders
+    - llt_term: Distension of abdomen
+      soc_term: Digestive tract disorders
+    - llt_term: Diverticular disorder
+      soc_term: Digestive tract disorders
+    - llt_term: Drooling
+      soc_term: Digestive tract disorders
+    - llt_term: Dropsy
+      soc_term: Digestive tract disorders
+    - llt_term: Dry lip
+      soc_term: Digestive tract disorders
+    - llt_term: Dry mouth
+      soc_term: Digestive tract disorders
+    - llt_term: Dry throat
+      soc_term: Digestive tract disorders
+    - llt_term: Duodenal ulcer
+      soc_term: Digestive tract disorders
+    - llt_term: Duodenitis
+      soc_term: Digestive tract disorders
+    - llt_term: Dyspepsia
+      soc_term: Digestive tract disorders
+    - llt_term: Dysphagia
+      soc_term: Digestive tract disorders
+    - llt_term: Elevated lipase
+      soc_term: Digestive tract disorders
+    - llt_term: Emesis
+      soc_term: Digestive tract disorders
+    - llt_term: Emesis (multiple)
+      soc_term: Digestive tract disorders
+    - llt_term: Enteritis
+      soc_term: Digestive tract disorders
+    - llt_term: Enterotoxaemia
+      soc_term: Digestive tract disorders
+    - llt_term: Eructation
+      soc_term: Digestive tract disorders
+    - llt_term: Exocrine pancreatic insufficiency
+      soc_term: Digestive tract disorders
+    - llt_term: Faecal impaction
+      soc_term: Digestive tract disorders
+    - llt_term: Faecal incontinence
+      soc_term: Digestive tract disorders
+    - llt_term: Feeling sick
+      soc_term: Digestive tract disorders
+    - llt_term: Flatulence
+      soc_term: Digestive tract disorders
+    - llt_term: Flatulence, bloating and distension
+      soc_term: Digestive tract disorders
+    - llt_term: Fluid in abdomen NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Foaming at the mouth
+      soc_term: Digestive tract disorders
+    - llt_term: Gagging
+      soc_term: Digestive tract disorders
+    - llt_term: Gastric bloat
+      soc_term: Digestive tract disorders
+    - llt_term: Gastric dilation
+      soc_term: Digestive tract disorders
+    - llt_term: Gastric distension
+      soc_term: Digestive tract disorders
+    - llt_term: Gastric irritation
+      soc_term: Digestive tract disorders
+    - llt_term: Gastric perforation
+      soc_term: Digestive tract disorders
+    - llt_term: Gastric torsion
+      soc_term: Digestive tract disorders
+    - llt_term: Gastric ulcer
+      soc_term: Digestive tract disorders
+    - llt_term: Gastric ulceration NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Gastric volvulus
+      soc_term: Digestive tract disorders
+    - llt_term: Gastritis
+      soc_term: Digestive tract disorders
+    - llt_term: Gastroenteritis
+      soc_term: Digestive tract disorders
+    - llt_term: Gingival disorder
+      soc_term: Digestive tract disorders
+    - llt_term: Gingival hyperplasia
+      soc_term: Digestive tract disorders
+    - llt_term: Gingivitis
+      soc_term: Digestive tract disorders
+    - llt_term: Glossitis
+      soc_term: Digestive tract disorders
+    - llt_term: Gum bruising
+      soc_term: Digestive tract disorders
+    - llt_term: Gum disorder NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Gum pain
+      soc_term: Digestive tract disorders
+    - llt_term: Gut pain
+      soc_term: Digestive tract disorders
+    - llt_term: Gut sounds decreased
+      soc_term: Digestive tract disorders
+    - llt_term: Gut sounds increased
+      soc_term: Digestive tract disorders
+    - llt_term: Haematemesis
+      soc_term: Digestive tract disorders
+    - llt_term: Haematochezia
+      soc_term: Digestive tract disorders
+    - llt_term: Haemorrhagic diarrhoea
+      soc_term: Digestive tract disorders
+    - llt_term: Haemorrhagic gastritis
+      soc_term: Digestive tract disorders
+    - llt_term: Haemorrhagic gastroenteritis
+      soc_term: Digestive tract disorders
+    - llt_term: Halitosis
+      soc_term: Digestive tract disorders
+    - llt_term: Hare lip
+      soc_term: Digestive tract disorders
+    - llt_term: Heartburn
+      soc_term: Digestive tract disorders
+    - llt_term: Hernia NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Hiatus hernia
+      soc_term: Digestive tract disorders
+    - llt_term: Hypersalivation
+      soc_term: Digestive tract disorders
+    - llt_term: Hyposalivation
+      soc_term: Digestive tract disorders
+    - llt_term: Ileitis
+      soc_term: Digestive tract disorders
+    - llt_term: Ileus
+      soc_term: Digestive tract disorders
+    - llt_term: Impaired gastric function
+      soc_term: Digestive tract disorders
+    - llt_term: Impaired swallowing
+      soc_term: Digestive tract disorders
+    - llt_term: Increased borborygmus
+      soc_term: Digestive tract disorders
+    - llt_term: Increased salivation
+      soc_term: Digestive tract disorders
+    - llt_term: Indigestion
+      soc_term: Digestive tract disorders
+    - llt_term: Intestinal congestion
+      soc_term: Digestive tract disorders
+    - llt_term: Intestinal haemorrhage
+      soc_term: Digestive tract disorders
+    - llt_term: Intestinal occlusion
+      soc_term: Digestive tract disorders
+    - llt_term: Intestinal perforation
+      soc_term: Digestive tract disorders
+    - llt_term: Intestinal stasis
+      soc_term: Digestive tract disorders
+    - llt_term: Intestinal torsion
+      soc_term: Digestive tract disorders
+    - llt_term: Intussusception
+      soc_term: Digestive tract disorders
+    - llt_term: Involuntary defecation
+      soc_term: Digestive tract disorders
+    - llt_term: Irritable bowel syndrome
+      soc_term: Digestive tract disorders
+    - llt_term: Jejunal ulcer
+      soc_term: Digestive tract disorders
+    - llt_term: Large intestine ulcer
+      soc_term: Digestive tract disorders
+    - llt_term: Lip licking
+      soc_term: Digestive tract disorders
+    - llt_term: Lip smacking
+      soc_term: Digestive tract disorders
+    - llt_term: Loose bowel
+      soc_term: Digestive tract disorders
+    - llt_term: Loose stool
+      soc_term: Digestive tract disorders
+    - llt_term: Loss of bowel control
+      soc_term: Digestive tract disorders
+    - llt_term: Megaoesophagus
+      soc_term: Digestive tract disorders
+    - llt_term: Melaena
+      soc_term: Digestive tract disorders
+    - llt_term: Melanin accumulation in fish
+      soc_term: Digestive tract disorders
+    - llt_term: Mouth blister
+      soc_term: Digestive tract disorders
+    - llt_term: Mouth irritation
+      soc_term: Digestive tract disorders
+    - llt_term: Mouth pain
+      soc_term: Digestive tract disorders
+    - llt_term: Mouth ulcer
+      soc_term: Digestive tract disorders
+    - llt_term: Mucous stool
+      soc_term: Digestive tract disorders
+    - llt_term: Nausea
+      soc_term: Digestive tract disorders
+    - llt_term: Necrotizing pancreatitis
+      soc_term: Digestive tract disorders
+    - llt_term: Oesophageal paralysis
+      soc_term: Digestive tract disorders
+    - llt_term: Oesophageal ulcer
+      soc_term: Digestive tract disorders
+    - llt_term: Oesophagitis
+      soc_term: Digestive tract disorders
+    - llt_term: Oesophagus obstruction
+      soc_term: Digestive tract disorders
+    - llt_term: Oesophagus perforation
+      soc_term: Digestive tract disorders
+    - llt_term: Omentum inflammation
+      soc_term: Digestive tract disorders
+    - llt_term: Oral abscess
+      soc_term: Digestive tract disorders
+    - llt_term: Oral bleeding
+      soc_term: Digestive tract disorders
+    - llt_term: Oral discomfort
+      soc_term: Digestive tract disorders
+    - llt_term: Oral dryness
+      soc_term: Digestive tract disorders
+    - llt_term: Oral haemorrhage
+      soc_term: Digestive tract disorders
+    - llt_term: Oral mucosal blistering
+      soc_term: Digestive tract disorders
+    - llt_term: Oral pain
+      soc_term: Digestive tract disorders
+    - llt_term: Oral ulceration
+      soc_term: Digestive tract disorders
+    - llt_term: Painful defecation
+      soc_term: Digestive tract disorders
+    - llt_term: Pancreas disorder
+      soc_term: Digestive tract disorders
+    - llt_term: Pancreatitis
+      soc_term: Digestive tract disorders
+    - llt_term: Paralytic colon (decreased bowel movements)
+      soc_term: Digestive tract disorders
+    - llt_term: Paralytic ileus
+      soc_term: Digestive tract disorders
+    - llt_term: Perineal fistula
+      soc_term: Digestive tract disorders
+    - llt_term: Peritoneal haemorrhage
+      soc_term: Digestive tract disorders
+    - llt_term: Peritonitis
+      soc_term: Digestive tract disorders
+    - llt_term: Pharyngeal disorder
+      soc_term: Digestive tract disorders
+    - llt_term: Pharyngeal oedema
+      soc_term: Digestive tract disorders
+    - llt_term: Pharyngeal ulceration
+      soc_term: Digestive tract disorders
+    - llt_term: Pharyngitis
+      soc_term: Digestive tract disorders
+    - llt_term: Ptyalism
+      soc_term: Digestive tract disorders
+    - llt_term: Pyloric ulcer
+      soc_term: Digestive tract disorders
+    - llt_term: Pyorrhoea
+      soc_term: Digestive tract disorders
+    - llt_term: Rectal bleeding
+      soc_term: Digestive tract disorders
+    - llt_term: Rectal haemorrhage
+      soc_term: Digestive tract disorders
+    - llt_term: Rectal prolapse
+      soc_term: Digestive tract disorders
+    - llt_term: Regurgitation
+      soc_term: Digestive tract disorders
+    - llt_term: Retching
+      soc_term: Digestive tract disorders
+    - llt_term: Reticulitis
+      soc_term: Digestive tract disorders
+    - llt_term: Rumen acidosis
+      soc_term: Digestive tract disorders
+    - llt_term: Rumen atony
+      soc_term: Digestive tract disorders
+    - llt_term: Rumenitis
+      soc_term: Digestive tract disorders
+    - llt_term: Ruminal bloat
+      soc_term: Digestive tract disorders
+    - llt_term: Ruminal stasis
+      soc_term: Digestive tract disorders
+    - llt_term: Ruminant stomach disorder
+      soc_term: Digestive tract disorders
+    - llt_term: Scour
+      soc_term: Digestive tract disorders
+    - llt_term: Sickness
+      soc_term: Digestive tract disorders
+    - llt_term: Small intestine ulcer
+      soc_term: Digestive tract disorders
+    - llt_term: Smelly breath
+      soc_term: Digestive tract disorders
+    - llt_term: Sore lip
+      soc_term: Digestive tract disorders
+    - llt_term: Sore mouth
+      soc_term: Digestive tract disorders
+    - llt_term: Sore tongue
+      soc_term: Digestive tract disorders
+    - llt_term: Stomach cramp
+      soc_term: Digestive tract disorders
+    - llt_term: Stomach inflammation
+      soc_term: Digestive tract disorders
+    - llt_term: Stomach pain
+      soc_term: Digestive tract disorders
+    - llt_term: Stomach upset
+      soc_term: Digestive tract disorders
+    - llt_term: Stomatitis
+      soc_term: Digestive tract disorders
+    - llt_term: Swallowing difficult
+      soc_term: Digestive tract disorders
+    - llt_term: Swallowing disorder NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Swim bladder disorder
+      soc_term: Digestive tract disorders
+    - llt_term: Swollen furry tongue
+      soc_term: Digestive tract disorders
+    - llt_term: Swollen gum
+      soc_term: Digestive tract disorders
+    - llt_term: Swollen mouth
+      soc_term: Digestive tract disorders
+    - llt_term: Swollen tongue
+      soc_term: Digestive tract disorders
+    - llt_term: Tarry or black stool (see also haemorrhagic diarrhoea)
+      soc_term: Digestive tract disorders
+    - llt_term: Tenesmus
+      soc_term: Digestive tract disorders
+    - llt_term: Tense abdomen
+      soc_term: Digestive tract disorders
+    - llt_term: Tongue disorder NOS
+      soc_term: Digestive tract disorders
+    - llt_term: Tongue inflammation
+      soc_term: Digestive tract disorders
+    - llt_term: Tongue necrosis
+      soc_term: Digestive tract disorders
+    - llt_term: Tongue oedema
+      soc_term: Digestive tract disorders
+    - llt_term: Tongue protrusion
+      soc_term: Digestive tract disorders
+    - llt_term: Tongue ulceration
+      soc_term: Digestive tract disorders
+    - llt_term: Tooth disorder
+      soc_term: Digestive tract disorders
+    - llt_term: Toothache
+      soc_term: Digestive tract disorders
+    - llt_term: Visible vaccine in fish
+      soc_term: Digestive tract disorders
+    - llt_term: Vomiting
+      soc_term: Digestive tract disorders
+    - llt_term: Wind
+      soc_term: Digestive tract disorders
+    - llt_term: Aural haematoma
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Aural neoplasia NOS
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Blue ear(s)
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Congenital ear disorder NOS
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Deafness
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Deafness NOS
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Droopy ear
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Ear discharge
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Ear flap haemorrhage
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Ear flap oedema
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Ear flapping/twitching
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Ear infection NOS
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Ear irritation
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Ear pain
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Earache
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Earflap ptosis
+      soc_term: Ear and labyrinth disorders
+    - llt_term: External ear disorder NOS
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Head shake (but see also LLT 'Head tremor' in SOC 'Neurological disorders')
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Head tilt
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Hearing affected
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Hearing decreased
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Impaired hearing
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Internal ear disorder
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Labyrinthitis
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Loss of hearing
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Meniere's Disease
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Other ear disorder NOS
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Otic haematoma
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Otitis externa
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Otitis interna
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Otitis media
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Otitis media serous/glue ear
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Otitis NOS
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Otorrhoea
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Partial deafness
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Pinnae disorder
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Pinnal cyanosis
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Pinnal erythema
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Pinnal haemorrhage
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Pinnal irritation
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Pinnal necrosis
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Pinnal oedema
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Pinnal reddening
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Ringing in the ear
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Tinnitus
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Tumbling circling disease (see also ataxia at 'Neurological')
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Vestibular disorder NOS
+      soc_term: Ear and labyrinth disorders
+    - llt_term: Acromegaly
+      soc_term: Endocrine system disorders
+    - llt_term: Addison's disease
+      soc_term: Endocrine system disorders
+    - llt_term: Adrenal gland disorder NOS
+      soc_term: Endocrine system disorders
+    - llt_term: Complication of diabetes
+      soc_term: Endocrine system disorders
+    - llt_term: Congenital endocrine disorder
+      soc_term: Endocrine system disorders
+    - llt_term: Cushings disease -  adrenal dependent
+      soc_term: Endocrine system disorders
+    - llt_term: Cushings disease -  pituitary dependent
+      soc_term: Endocrine system disorders
+    - llt_term: Cushings disease NOS
+      soc_term: Endocrine system disorders
+    - llt_term: Diabetes
+      soc_term: Endocrine system disorders
+    - llt_term: Diabetes insipidus
+      soc_term: Endocrine system disorders
+    - llt_term: Diabetes mellitus
+      soc_term: Endocrine system disorders
+    - llt_term: Diabetic coma
+      soc_term: Endocrine system disorders
+    - llt_term: Diabetic ketoacidosis
+      soc_term: Endocrine system disorders
+    - llt_term: Diabetic ketonuria
+      soc_term: Endocrine system disorders
+    - llt_term: Endocrine neoplasm
+      soc_term: Endocrine system disorders
+    - llt_term: Endocrine system disorder NOS
+      soc_term: Endocrine system disorders
+    - llt_term: Glucose intolerance
+      soc_term: Endocrine system disorders
+    - llt_term: Hyperadrenocorticism
+      soc_term: Endocrine system disorders
+    - llt_term: Hyperparathyroidism
+      soc_term: Endocrine system disorders
+    - llt_term: Hyperthyroidism
+      soc_term: Endocrine system disorders
+    - llt_term: Hypoadrenocorticism
+      soc_term: Endocrine system disorders
+    - llt_term: Hypoparathyroidism
+      soc_term: Endocrine system disorders
+    - llt_term: Hypothyroidism
+      soc_term: Endocrine system disorders
+    - llt_term: Pancreas endocrine disorder NOS
+      soc_term: Endocrine system disorders
+    - llt_term: Parathyroid disorder NOS
+      soc_term: Endocrine system disorders
+    - llt_term: Pituitary disorder NOS
+      soc_term: Endocrine system disorders
+    - llt_term: Thyroid gland disorder NOS
+      soc_term: Endocrine system disorders
+    - llt_term: Thyroidititis
+      soc_term: Endocrine system disorders
+    - llt_term: Uncontrolled diabetes
+      soc_term: Endocrine system disorders
+    - llt_term: Abnormal menace reflex test
+      soc_term: Eye disorders
+    - llt_term: Abnormal pupil light reflex
+      soc_term: Eye disorders
+    - llt_term: Abnormal vision (see also impaired vision)
+      soc_term: Eye disorders
+    - llt_term: Anterior uveitis
+      soc_term: Eye disorders
+    - llt_term: Blepharitis
+      soc_term: Eye disorders
+    - llt_term: Blepharospasm
+      soc_term: Eye disorders
+    - llt_term: Blindness
+      soc_term: Eye disorders
+    - llt_term: Blinking
+      soc_term: Eye disorders
+    - llt_term: Bloodshot eye
+      soc_term: Eye disorders
+    - llt_term: Blue eye
+      soc_term: Eye disorders
+    - llt_term: Burning sensation of eye
+      soc_term: Eye disorders
+    - llt_term: Cataract
+      soc_term: Eye disorders
+    - llt_term: Chemosis
+      soc_term: Eye disorders
+    - llt_term: Ciliary body and choroid disorder NOS
+      soc_term: Eye disorders
+    - llt_term: Closed eyelid
+      soc_term: Eye disorders
+    - llt_term: Cloudy eye (for Miosis, Mydriasis, Anisocoria, Nystagmus -  see 'Neurological')
+      soc_term: Eye disorders
+    - llt_term: Congenital eye disorder
+      soc_term: Eye disorders
+    - llt_term: Conjunctival irritation
+      soc_term: Eye disorders
+    - llt_term: Conjunctival oedema
+      soc_term: Eye disorders
+    - llt_term: Conjunctivitis
+      soc_term: Eye disorders
+    - llt_term: Corneal disorder NOS
+      soc_term: Eye disorders
+    - llt_term: Corneal oedema
+      soc_term: Eye disorders
+    - llt_term: Corneal ulcer
+      soc_term: Eye disorders
+    - llt_term: Depressed ocular reflex
+      soc_term: Eye disorders
+    - llt_term: Diplopia
+      soc_term: Eye disorders
+    - llt_term: Double vision
+      soc_term: Eye disorders
+    - llt_term: Dry eye
+      soc_term: Eye disorders
+    - llt_term: Ectropion
+      soc_term: Eye disorders
+    - llt_term: Entropion
+      soc_term: Eye disorders
+    - llt_term: Epiphora
+      soc_term: Eye disorders
+    - llt_term: Excess tear flow
+      soc_term: Eye disorders
+    - llt_term: Exophthalmia
+      soc_term: Eye disorders
+    - llt_term: Eye ache
+      soc_term: Eye disorders
+    - llt_term: Eye disorder NOS (for photophobia see 'neurological')
+      soc_term: Eye disorders
+    - llt_term: Eye haemorrhage
+      soc_term: Eye disorders
+    - llt_term: Eye inflamed
+      soc_term: Eye disorders
+    - llt_term: Eye inflammation NOS
+      soc_term: Eye disorders
+    - llt_term: Eye irritation
+      soc_term: Eye disorders
+    - llt_term: Eye itching
+      soc_term: Eye disorders
+    - llt_term: Eye neoplasm
+      soc_term: Eye disorders
+    - llt_term: Eye numbness
+      soc_term: Eye disorders
+    - llt_term: Eye pain
+      soc_term: Eye disorders
+    - llt_term: Eye paralysis (for Miosis etc see 'Neurological')
+      soc_term: Eye disorders
+    - llt_term: Eye pricking
+      soc_term: Eye disorders
+    - llt_term: Eye redness
+      soc_term: Eye disorders
+    - llt_term: Eye smarting
+      soc_term: Eye disorders
+    - llt_term: Eye sore and red
+      soc_term: Eye disorders
+    - llt_term: Eye stinging
+      soc_term: Eye disorders
+    - llt_term: Eye tingling
+      soc_term: Eye disorders
+    - llt_term: Eyeball protrusion
+      soc_term: Eye disorders
+    - llt_term: Eyelid inflammation
+      soc_term: Eye disorders
+    - llt_term: Eyelid oedema
+      soc_term: Eye disorders
+    - llt_term: Eyelid scaly
+      soc_term: Eye disorders
+    - llt_term: Eyesight trouble
+      soc_term: Eye disorders
+    - llt_term: Fixed pupil
+      soc_term: Eye disorders
+    - llt_term: Flashing vision
+      soc_term: Eye disorders
+    - llt_term: Focusing difficult
+      soc_term: Eye disorders
+    - llt_term: Generalised inflammation of eye
+      soc_term: Eye disorders
+    - llt_term: Glaucoma
+      soc_term: Eye disorders
+    - llt_term: Hyphaemia
+      soc_term: Eye disorders
+    - llt_term: Hypopyon
+      soc_term: Eye disorders
+    - llt_term: Impaired vision
+      soc_term: Eye disorders
+    - llt_term: Inflammation of eye coat
+      soc_term: Eye disorders
+    - llt_term: Iris disorder
+      soc_term: Eye disorders
+    - llt_term: Iris prolapse
+      soc_term: Eye disorders
+    - llt_term: Iris tear
+      soc_term: Eye disorders
+    - llt_term: Keratitis
+      soc_term: Eye disorders
+    - llt_term: Keratoconjunctivitis
+      soc_term: Eye disorders
+    - llt_term: Keratoconjunctivitis sicca
+      soc_term: Eye disorders
+    - llt_term: Lacrimal disorder NOS
+      soc_term: Eye disorders
+    - llt_term: Lacrimation
+      soc_term: Eye disorders
+    - llt_term: Lacrimation decreased
+      soc_term: Eye disorders
+    - llt_term: Lacrimation increased
+      soc_term: Eye disorders
+    - llt_term: Lens disorder NOS
+      soc_term: Eye disorders
+    - llt_term: Lens luxation
+      soc_term: Eye disorders
+    - llt_term: Lens opacity
+      soc_term: Eye disorders
+    - llt_term: Loss of vision
+      soc_term: Eye disorders
+    - llt_term: Low tear flow
+      soc_term: Eye disorders
+    - llt_term: Low vision
+      soc_term: Eye disorders
+    - llt_term: Mucus in eye
+      soc_term: Eye disorders
+    - llt_term: Ocular burn
+      soc_term: Eye disorders
+    - llt_term: Ocular discharge
+      soc_term: Eye disorders
+    - llt_term: Ocular fundus vasoconstriction
+      soc_term: Eye disorders
+    - llt_term: Ophthalmoplegia
+      soc_term: Eye disorders
+    - llt_term: Optic nerve disorder
+      soc_term: Eye disorders
+    - llt_term: Palpebral disorder NOS
+      soc_term: Eye disorders
+    - llt_term: Palpebral oedema
+      soc_term: Eye disorders
+    - llt_term: Panophthalmitis
+      soc_term: Eye disorders
+    - llt_term: Partial blindness
+      soc_term: Eye disorders
+    - llt_term: Partial sight
+      soc_term: Eye disorders
+    - llt_term: Periorbital oedema
+      soc_term: Eye disorders
+    - llt_term: Pink eye
+      soc_term: Eye disorders
+    - llt_term: Poor sight
+      soc_term: Eye disorders
+    - llt_term: Posterior uveitis
+      soc_term: Eye disorders
+    - llt_term: Prolapse of the nictitating membrane
+      soc_term: Eye disorders
+    - llt_term: Protrusion membrana nictitans
+      soc_term: Eye disorders
+    - llt_term: Pupil disorder
+      soc_term: Eye disorders
+    - llt_term: Red eye
+      soc_term: Eye disorders
+    - llt_term: Retinal atrophy
+      soc_term: Eye disorders
+    - llt_term: Retinal degeneration
+      soc_term: Eye disorders
+    - llt_term: Retinal detachment
+      soc_term: Eye disorders
+    - llt_term: Retinal disorder NOS
+      soc_term: Eye disorders
+    - llt_term: Retinal haemorrhage
+      soc_term: Eye disorders
+    - llt_term: Scleritis
+      soc_term: Eye disorders
+    - llt_term: Sclerotitis
+      soc_term: Eye disorders
+    - llt_term: Sight affected
+      soc_term: Eye disorders
+    - llt_term: Sore eye
+      soc_term: Eye disorders
+    - llt_term: Sticky eye
+      soc_term: Eye disorders
+    - llt_term: Stinging sensation in eye
+      soc_term: Eye disorders
+    - llt_term: Strabismus
+      soc_term: Eye disorders
+    - llt_term: Swelling around eye
+      soc_term: Eye disorders
+    - llt_term: Swollen eye
+      soc_term: Eye disorders
+    - llt_term: Taurine- deficient retinopathy
+      soc_term: Eye disorders
+    - llt_term: Tear flow due to blocked or infected tear ducts
+      soc_term: Eye disorders
+    - llt_term: Tear flow increased
+      soc_term: Eye disorders
+    - llt_term: Temporary blindness
+      soc_term: Eye disorders
+    - llt_term: Third eyelid extrusion
+      soc_term: Eye disorders
+    - llt_term: Third eyelid prolapse
+      soc_term: Eye disorders
+    - llt_term: Third eyelid protrusion
+      soc_term: Eye disorders
+    - llt_term: Transient blindness
+      soc_term: Eye disorders
+    - llt_term: Unable to focus
+      soc_term: Eye disorders
+    - llt_term: Uveitis
+      soc_term: Eye disorders
+    - llt_term: Vision blurred
+      soc_term: Eye disorders
+    - llt_term: Visual field defect
+      soc_term: Eye disorders
+    - llt_term: Bile duct inflammation
+      soc_term: Hepato-biliary disorders
+    - llt_term: Cholangiohepatitis
+      soc_term: Hepato-biliary disorders
+    - llt_term: Cholangitis
+      soc_term: Hepato-biliary disorders
+    - llt_term: Cholecystitis
+      soc_term: Hepato-biliary disorders
+    - llt_term: Cholelithiasis
+      soc_term: Hepato-biliary disorders
+    - llt_term: Cirrhosis
+      soc_term: Hepato-biliary disorders
+    - llt_term: Congenital hepato- biliary disorder
+      soc_term: Hepato-biliary disorders
+    - llt_term: Elevated ALT
+      soc_term: Hepato-biliary disorders
+    - llt_term: Elevated AST
+      soc_term: Hepato-biliary disorders
+    - llt_term: Elevated bile acids
+      soc_term: Hepato-biliary disorders
+    - llt_term: Elevated liver enzymes
+      soc_term: Hepato-biliary disorders
+    - llt_term: Elevated total bilirubin
+      soc_term: Hepato-biliary disorders
+    - llt_term: Enlarged liver
+      soc_term: Hepato-biliary disorders
+    - llt_term: Fatty liver
+      soc_term: Hepato-biliary disorders
+    - llt_term: Gall bladder & bile duct disorder NOS
+      soc_term: Hepato-biliary disorders
+    - llt_term: Gall bladder inflammation
+      soc_term: Hepato-biliary disorders
+    - llt_term: Gall stone
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic abscess
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic cirrhosis
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic cytolysis
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic disorder NOS
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic encephalopathy
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic failure
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic fibrosis
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic insufficiency
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic necrosis
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic neoplasm
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic toxicosis
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic tumour
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatic vascular disorder
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatitis
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepato- biliary disorder NOS
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatomegaly
+      soc_term: Hepato-biliary disorders
+    - llt_term: Hepatopathy
+      soc_term: Hepato-biliary disorders
+    - llt_term: Liver abscess
+      soc_term: Hepato-biliary disorders
+    - llt_term: Liver damage aggravated
+      soc_term: Hepato-biliary disorders
+    - llt_term: Liver degeneration
+      soc_term: Hepato-biliary disorders
+    - llt_term: Liver disorder NOS
+      soc_term: Hepato-biliary disorders
+    - llt_term: Liver failure
+      soc_term: Hepato-biliary disorders
+    - llt_term: Liver fibrosis
+      soc_term: Hepato-biliary disorders
+    - llt_term: Liver tumour
+      soc_term: Hepato-biliary disorders
+    - llt_term: Portacaval shunt
+      soc_term: Hepato-biliary disorders
+    - llt_term: Small liver
+      soc_term: Hepato-biliary disorders
+    - llt_term: Allergic oedema
+      soc_term: Immune system disorders
+    - llt_term: Allergic pruritus
+      soc_term: Immune system disorders
+    - llt_term: Allergic reaction
+      soc_term: Immune system disorders
+    - llt_term: Allergic rhinitis
+      soc_term: Immune system disorders
+    - llt_term: Allergic skin reaction
+      soc_term: Immune system disorders
+    - llt_term: Allergy NOS
+      soc_term: Immune system disorders
+    - llt_term: Allergy to food
+      soc_term: Immune system disorders
+    - llt_term: Anaphylactic shock
+      soc_term: Immune system disorders
+    - llt_term: Anaphylactic- type reaction
+      soc_term: Immune system disorders
+    - llt_term: Anaphylactoid reaction
+      soc_term: Immune system disorders
+    - llt_term: Anaphylaxis
+      soc_term: Immune system disorders
+    - llt_term: Angioedema
+      soc_term: Immune system disorders
+    - llt_term: Atopic allergy NOS (see also 'Skin')
+      soc_term: Immune system disorders
+    - llt_term: Autoimmune disorder NOS
+      soc_term: Immune system disorders
+    - llt_term: Bursa of Fabricius degeneration
+      soc_term: Immune system disorders
+    - llt_term: Bursa of Fabricius inflammation
+      soc_term: Immune system disorders
+    - llt_term: Face and neck swelling (see also 'Skin')
+      soc_term: Immune system disorders
+    - llt_term: Facial oedema
+      soc_term: Immune system disorders
+    - llt_term: Facial swelling (see also 'Skin')
+      soc_term: Immune system disorders
+    - llt_term: Food allergy
+      soc_term: Immune system disorders
+    - llt_term: Generalised allergic reaction NOS
+      soc_term: Immune system disorders
+    - llt_term: Hives (see also 'Skin')
+      soc_term: Immune system disorders
+    - llt_term: Hypersensitivity NOS
+      soc_term: Immune system disorders
+    - llt_term: Immune mediated haemolytic anaemia
+      soc_term: Immune system disorders
+    - llt_term: Immune mediated thrombocytopenia
+      soc_term: Immune system disorders
+    - llt_term: Lip oedema (see also 'Skin')
+      soc_term: Immune system disorders
+    - llt_term: Nettle rash (see also 'Skin')
+      soc_term: Immune system disorders
+    - llt_term: Nettle- like rash (see also 'Skin')
+      soc_term: Immune system disorders
+    - llt_term: Other immune system disorder NOS
+      soc_term: Immune system disorders
+    - llt_term: Pemphigus
+      soc_term: Immune system disorders
+    - llt_term: Pemphigus foliaceus
+      soc_term: Immune system disorders
+    - llt_term: Persistent infection
+      soc_term: Immune system disorders
+    - llt_term: Polymyalgia rheumatica
+      soc_term: Immune system disorders
+    - llt_term: Quincke's oedema
+      soc_term: Immune system disorders
+    - llt_term: Sarcoidosis
+      soc_term: Immune system disorders
+    - llt_term: Swollen face (see also 'Skin')
+      soc_term: Immune system disorders
+    - llt_term: Swollen lip (see also 'Skin')
+      soc_term: Immune system disorders
+    - llt_term: Urticaria
+      soc_term: Immune system disorders
+    - llt_term: Urticarial erythema
+      soc_term: Immune system disorders
+    - llt_term: Urticarial rash
+      soc_term: Immune system disorders
+    - llt_term: Vulvar oedema
+      soc_term: Immune system disorders
+    - llt_term: Welt
+      soc_term: Immune system disorders
+    - llt_term: Wheal
+      soc_term: Immune system disorders
+    - llt_term: Acute mastitis
+      soc_term: Mammary gland disorders
+    - llt_term: Agalactia
+      soc_term: Mammary gland disorders
+    - llt_term: Alteration of milk quality
+      soc_term: Mammary gland disorders
+    - llt_term: Chronic mastitis
+      soc_term: Mammary gland disorders
+    - llt_term: Erythema of the teat
+      soc_term: Mammary gland disorders
+    - llt_term: External teat disorder
+      soc_term: Mammary gland disorders
+    - llt_term: Mammary gland disorder NOS
+      soc_term: Mammary gland disorders
+    - llt_term: Mammary gland neoplasm NOS
+      soc_term: Mammary gland disorders
+    - llt_term: Mammary gland oedema
+      soc_term: Mammary gland disorders
+    - llt_term: Mammary hyperplasia
+      soc_term: Mammary gland disorders
+    - llt_term: Mastitis NOS
+      soc_term: Mammary gland disorders
+    - llt_term: Milk drop
+      soc_term: Mammary gland disorders
+    - llt_term: Milk production decrease
+      soc_term: Mammary gland disorders
+    - llt_term: Milk production increase
+      soc_term: Mammary gland disorders
+    - llt_term: Onset of lactation
+      soc_term: Mammary gland disorders
+    - llt_term: Teat canal disorder
+      soc_term: Mammary gland disorders
+    - llt_term: Teat discolouration
+      soc_term: Mammary gland disorders
+    - llt_term: Teat nodules
+      soc_term: Mammary gland disorders
+    - llt_term: Acetonaemia
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Acid- base disorder
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Acidosis
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Alcohol intolerance
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Alkalosis
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Cervical ventroflexion
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Congenital metabolic disorder
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Copper deficiency signs
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Copper toxicity signs
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Eclampsia
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Electrolyte disorder
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Food allergy diarrhoea and/or constipation
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Food intolerance syndrome
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Hypercalcaemic condition
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Hyperglycaemia
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Hyperkalemic condition
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Hyperphosphataemia
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Hypocalcaemic condition
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Hypoglycaemia
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Hypokalemic condition
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Hypomagnesaemic condition
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Ketosis
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Metabolism and nutrition disorder NOS
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Milk fever
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Other metabolic disorder
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Selenium deficiency syndrome
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Selenium toxicity signs
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Staggers (grass)
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Trace element disorder
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Vitamin deficiency
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Vitamin disorder
+      soc_term: Metabolism and nutrition disorders
+    - llt_term: Arthritis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Arthropathy NOS
+      soc_term: Musculoskeletal disorders
+    - llt_term: Arthrosis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Azoturia
+      soc_term: Musculoskeletal disorders
+    - llt_term: Bone and joint disorder NOS
+      soc_term: Musculoskeletal disorders
+    - llt_term: Bursitis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Cartilage degeneration
+      soc_term: Musculoskeletal disorders
+    - llt_term: Chondrosarcoma
+      soc_term: Musculoskeletal disorders
+    - llt_term: Congenital musculo- skeletal disorder
+      soc_term: Musculoskeletal disorders
+    - llt_term: Connective tissue disorder NOS
+      soc_term: Musculoskeletal disorders
+    - llt_term: Crystal arthropathy
+      soc_term: Musculoskeletal disorders
+    - llt_term: Delayed fracture union
+      soc_term: Musculoskeletal disorders
+    - llt_term: Discus prolapse
+      soc_term: Musculoskeletal disorders
+    - llt_term: Equine myoglobinuria
+      soc_term: Musculoskeletal disorders
+    - llt_term: Founder
+      soc_term: Musculoskeletal disorders
+    - llt_term: Fracture
+      soc_term: Musculoskeletal disorders
+    - llt_term: Gait abnormality
+      soc_term: Musculoskeletal disorders
+    - llt_term: Gout
+      soc_term: Musculoskeletal disorders
+    - llt_term: Hyperextension
+      soc_term: Musculoskeletal disorders
+    - llt_term: Hypertrophic osteodystrophy
+      soc_term: Musculoskeletal disorders
+    - llt_term: Jaw disorder
+      soc_term: Musculoskeletal disorders
+    - llt_term: Jaw pain
+      soc_term: Musculoskeletal disorders
+    - llt_term: Joint ache
+      soc_term: Musculoskeletal disorders
+    - llt_term: Joint effusion
+      soc_term: Musculoskeletal disorders
+    - llt_term: Joint inflammation
+      soc_term: Musculoskeletal disorders
+    - llt_term: Joint oedema
+      soc_term: Musculoskeletal disorders
+    - llt_term: Joint pain
+      soc_term: Musculoskeletal disorders
+    - llt_term: Joint pain NOS
+      soc_term: Musculoskeletal disorders
+    - llt_term: Joint stiffness
+      soc_term: Musculoskeletal disorders
+    - llt_term: Joint swelling
+      soc_term: Musculoskeletal disorders
+    - llt_term: Knuckling
+      soc_term: Musculoskeletal disorders
+    - llt_term: Lameness
+      soc_term: Musculoskeletal disorders
+    - llt_term: Laminitis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Lateral neck deviation
+      soc_term: Musculoskeletal disorders
+    - llt_term: Limb weakness
+      soc_term: Musculoskeletal disorders
+    - llt_term: Limping
+      soc_term: Musculoskeletal disorders
+    - llt_term: Mal union
+      soc_term: Musculoskeletal disorders
+    - llt_term: Metabolic bone disorder NOS
+      soc_term: Musculoskeletal disorders
+    - llt_term: Metaphyseal osteopathy
+      soc_term: Musculoskeletal disorders
+    - llt_term: Muscle anaemia
+      soc_term: Musculoskeletal disorders
+    - llt_term: Muscle degeneration
+      soc_term: Musculoskeletal disorders
+    - llt_term: Muscle inflammation
+      soc_term: Musculoskeletal disorders
+    - llt_term: Muscle ischaemia
+      soc_term: Musculoskeletal disorders
+    - llt_term: Muscle necrosis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Muscle pain
+      soc_term: Musculoskeletal disorders
+    - llt_term: Muscle stiffness
+      soc_term: Musculoskeletal disorders
+    - llt_term: Muscle wasting
+      soc_term: Musculoskeletal disorders
+    - llt_term: Muscle weakness NOS
+      soc_term: Musculoskeletal disorders
+    - llt_term: Musculoskeletal disorder NOS
+      soc_term: Musculoskeletal disorders
+    - llt_term: Musculoskeletal neoplasm NOS
+      soc_term: Musculoskeletal disorders
+    - llt_term: Musculoskeletal pain
+      soc_term: Musculoskeletal disorders
+    - llt_term: Myoglobinuria
+      soc_term: Musculoskeletal disorders
+    - llt_term: Myopathy
+      soc_term: Musculoskeletal disorders
+    - llt_term: Myositis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Osteochondritis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Osteochondritis dissecans
+      soc_term: Musculoskeletal disorders
+    - llt_term: Osteodystrophy
+      soc_term: Musculoskeletal disorders
+    - llt_term: Osteomalacia
+      soc_term: Musculoskeletal disorders
+    - llt_term: Osteomyelitis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Osteosarcoma
+      soc_term: Musculoskeletal disorders
+    - llt_term: Panosteitis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Polyarthritis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Polyarthropathy
+      soc_term: Musculoskeletal disorders
+    - llt_term: Polyarthrosis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Pseudoarthrosis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Rhabdomyosarcoma
+      soc_term: Musculoskeletal disorders
+    - llt_term: Rubber beak/jaw
+      soc_term: Musculoskeletal disorders
+    - llt_term: Septic arthritis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Spondylosis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Stiff gait
+      soc_term: Musculoskeletal disorders
+    - llt_term: Stiff knee
+      soc_term: Musculoskeletal disorders
+    - llt_term: Stiffness limb
+      soc_term: Musculoskeletal disorders
+    - llt_term: Stiffness NOS
+      soc_term: Musculoskeletal disorders
+    - llt_term: Subchondrial bone cyst
+      soc_term: Musculoskeletal disorders
+    - llt_term: Swollen joint
+      soc_term: Musculoskeletal disorders
+    - llt_term: Swollen wrist
+      soc_term: Musculoskeletal disorders
+    - llt_term: Synovitis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Tendinitis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Tendon injury
+      soc_term: Musculoskeletal disorders
+    - llt_term: Tendon rupture
+      soc_term: Musculoskeletal disorders
+    - llt_term: Torticollis
+      soc_term: Musculoskeletal disorders
+    - llt_term: Weakness of limb
+      soc_term: Musculoskeletal disorders
+    - llt_term: Windgall
+      soc_term: Musculoskeletal disorders
+    - llt_term: Windpuff
+      soc_term: Musculoskeletal disorders
+    - llt_term: Wry neck
+      soc_term: Musculoskeletal disorders
+    - llt_term: Abnormal movement NOS
+      soc_term: Neurological disorders
+    - llt_term: Abnormal posture NOS
+      soc_term: Neurological disorders
+    - llt_term: Absence seizure
+      soc_term: Neurological disorders
+    - llt_term: Akinesia
+      soc_term: Neurological disorders
+    - llt_term: Amaurosis (see also PT Impaired vision)
+      soc_term: Neurological disorders
+    - llt_term: Amnesia
+      soc_term: Neurological disorders
+    - llt_term: Anisocoria
+      soc_term: Neurological disorders
+    - llt_term: Anosmia
+      soc_term: Neurological disorders
+    - llt_term: Aphasia
+      soc_term: Neurological disorders
+    - llt_term: Ataxia
+      soc_term: Neurological disorders
+    - llt_term: Bad taste
+      soc_term: Neurological disorders
+    - llt_term: Balance impaired
+      soc_term: Neurological disorders
+    - llt_term: Balance problem
+      soc_term: Neurological disorders
+    - llt_term: Bell's palsy
+      soc_term: Neurological disorders
+    - llt_term: Blackout
+      soc_term: Neurological disorders
+    - llt_term: Brain damage NOS
+      soc_term: Neurological disorders
+    - llt_term: Brain disorder NOS
+      soc_term: Neurological disorders
+    - llt_term: Burning sensation (skin)
+      soc_term: Neurological disorders
+    - llt_term: Carpal tunnel syndrome
+      soc_term: Neurological disorders
+    - llt_term: Central nervous system depression
+      soc_term: Neurological disorders
+    - llt_term: Central nervous system disorder NOS
+      soc_term: Neurological disorders
+    - llt_term: Central nervous system infection and inflammation
+      soc_term: Neurological disorders
+    - llt_term: Central nervous system infection NOS
+      soc_term: Neurological disorders
+    - llt_term: Cerebral oedema
+      soc_term: Neurological disorders
+    - llt_term: Cerebral vascular accident
+      soc_term: Neurological disorders
+    - llt_term: Cervical spondylopathy
+      soc_term: Neurological disorders
+    - llt_term: Cholinergic disorder
+      soc_term: Neurological disorders
+    - llt_term: Chorea
+      soc_term: Neurological disorders
+    - llt_term: Circling
+      soc_term: Neurological disorders
+    - llt_term: Clonic muscle spasm
+      soc_term: Neurological disorders
+    - llt_term: Clonic seizure
+      soc_term: Neurological disorders
+    - llt_term: Cluster headache
+      soc_term: Neurological disorders
+    - llt_term: Cognitive and attention disorders NOS
+      soc_term: Neurological disorders
+    - llt_term: Cognitive disorder NOS
+      soc_term: Neurological disorders
+    - llt_term: Cognitive disturbance
+      soc_term: Neurological disorders
+    - llt_term: Cognitive impairment
+      soc_term: Neurological disorders
+    - llt_term: Collapse
+      soc_term: Neurological disorders
+    - llt_term: Collapse of leg
+      soc_term: Neurological disorders
+    - llt_term: Coma
+      soc_term: Neurological disorders
+    - llt_term: Communication disorder NOS
+      soc_term: Neurological disorders
+    - llt_term: Concentration impaired
+      soc_term: Neurological disorders
+    - llt_term: Confused
+      soc_term: Neurological disorders
+    - llt_term: Confused speech
+      soc_term: Neurological disorders
+    - llt_term: Congenital neurological disorder NOS
+      soc_term: Neurological disorders
+    - llt_term: Constricted pupils
+      soc_term: Neurological disorders
+    - llt_term: Convulsion
+      soc_term: Neurological disorders
+    - llt_term: Convulsive disorder NOS
+      soc_term: Neurological disorders
+    - llt_term: Cranial nerve disorder
+      soc_term: Neurological disorders
+    - llt_term: Cranial nerve paralysis
+      soc_term: Neurological disorders
+    - llt_term: Depressed reflexes
+      soc_term: Neurological disorders
+    - llt_term: Deterioration of muscle function
+      soc_term: Neurological disorders
+    - llt_term: Dilated pupils
+      soc_term: Neurological disorders
+    - llt_term: Disoriented state
+      soc_term: Neurological disorders
+    - llt_term: Disturbance in attention
+      soc_term: Neurological disorders
+    - llt_term: Dizziness
+      soc_term: Neurological disorders
+    - llt_term: Dizzy on standing
+      soc_term: Neurological disorders
+    - llt_term: Dizzy spell
+      soc_term: Neurological disorders
+    - llt_term: Drowsiness
+      soc_term: Neurological disorders
+    - llt_term: Drunken gait
+      soc_term: Neurological disorders
+    - llt_term: Dull reflexes
+      soc_term: Neurological disorders
+    - llt_term: Dullness
+      soc_term: Neurological disorders
+    - llt_term: Dysarthria
+      soc_term: Neurological disorders
+    - llt_term: Dyskinesia
+      soc_term: Neurological disorders
+    - llt_term: Dyslexia
+      soc_term: Neurological disorders
+    - llt_term: Dysmetria
+      soc_term: Neurological disorders
+    - llt_term: tw
+      soc_term: Neurological disorders
+    - llt_term: Emprosthotonus
+      soc_term: Neurological disorders
+    - llt_term: Encephalitis
+      soc_term: Neurological disorders
+    - llt_term: Encephalopathy NOS
+      soc_term: Neurological disorders
+    - llt_term: Enlarged pupils
+      soc_term: Neurological disorders
+    - llt_term: Epilepsy
+      soc_term: Neurological disorders
+    - llt_term: Epileptic fit
+      soc_term: Neurological disorders
+    - llt_term: Epileptic seizure
+      soc_term: Neurological disorders
+    - llt_term: Equilibrium disorder
+      soc_term: Neurological disorders
+    - llt_term: Extensor rigidity
+      soc_term: Neurological disorders
+    - llt_term: Eyes rolling back
+      soc_term: Neurological disorders
+    - llt_term: Facial nerve disorder
+      soc_term: Neurological disorders
+    - llt_term: Facial palsy
+      soc_term: Neurological disorders
+    - llt_term: Facial paralysis
+      soc_term: Neurological disorders
+    - llt_term: Falling
+      soc_term: Neurological disorders
+    - llt_term: Fasciculation
+      soc_term: Neurological disorders
+    - llt_term: Felt giddy
+      soc_term: Neurological disorders
+    - llt_term: Fit
+      soc_term: Neurological disorders
+    - llt_term: Flaccid paralysis
+      soc_term: Neurological disorders
+    - llt_term: Forgetfulness
+      soc_term: Neurological disorders
+    - llt_term: Giddiness
+      soc_term: Neurological disorders
+    - llt_term: Goose stepping
+      soc_term: Neurological disorders
+    - llt_term: Head bobbing
+      soc_term: Neurological disorders
+    - llt_term: Head pressing
+      soc_term: Neurological disorders
+    - llt_term: Head tremor
+      soc_term: Neurological disorders
+    - llt_term: Headache
+      soc_term: Neurological disorders
+    - llt_term: Hemiparesis (weakness L or R side)
+      soc_term: Neurological disorders
+    - llt_term: Hemiplegia
+      soc_term: Neurological disorders
+    - llt_term: Hiccup
+      soc_term: Neurological disorders
+    - llt_term: High leg gait
+      soc_term: Neurological disorders
+    - llt_term: Hind limb ataxia
+      soc_term: Neurological disorders
+    - llt_term: Hind limb paralysis
+      soc_term: Neurological disorders
+    - llt_term: Hind limb paresis
+      soc_term: Neurological disorders
+    - llt_term: Horizontal nystagmus
+      soc_term: Neurological disorders
+    - llt_term: Horner's syndrome
+      soc_term: Neurological disorders
+    - llt_term: Hydrocephalus
+      soc_term: Neurological disorders
+    - llt_term: Hyperaesthesia
+      soc_term: Neurological disorders
+    - llt_term: Hypermetria
+      soc_term: Neurological disorders
+    - llt_term: Hyperreflexia
+      soc_term: Neurological disorders
+    - llt_term: Hypersensitivity to light
+      soc_term: Neurological disorders
+    - llt_term: Hypersensitivity to movement
+      soc_term: Neurological disorders
+    - llt_term: Hypersensitivity to pain
+      soc_term: Neurological disorders
+    - llt_term: Hypertonia
+      soc_term: Neurological disorders
+    - llt_term: Hypoaesthesia
+      soc_term: Neurological disorders
+    - llt_term: Hyporeflexia
+      soc_term: Neurological disorders
+    - llt_term: Hyposensitivity to pain
+      soc_term: Neurological disorders
+    - llt_term: Impaired consciousness
+      soc_term: Neurological disorders
+    - llt_term: Impaired proprioception
+      soc_term: Neurological disorders
+    - llt_term: Incoordination
+      soc_term: Neurological disorders
+    - llt_term: Increased intracranial pressure
+      soc_term: Neurological disorders
+    - llt_term: Increased reflexes
+      soc_term: Neurological disorders
+    - llt_term: Increased sensitivity to light
+      soc_term: Neurological disorders
+    - llt_term: Increased sensitivity to sound
+      soc_term: Neurological disorders
+    - llt_term: Increased skin sensitivity
+      soc_term: Neurological disorders
+    - llt_term: Involuntary movement
+      soc_term: Neurological disorders
+    - llt_term: Lack of coordination (see also 'Ear' -  vestibular disorder)
+      soc_term: Neurological disorders
+    - llt_term: Lack of spontaneous speech
+      soc_term: Neurological disorders
+    - llt_term: Laryngeal paralysis
+      soc_term: Neurological disorders
+    - llt_term: Light headedness
+      soc_term: Neurological disorders
+    - llt_term: Lip paralysis
+      soc_term: Neurological disorders
+    - llt_term: Localised numbness (see also application site SOC)
+      soc_term: Neurological disorders
+    - llt_term: Lockjaw
+      soc_term: Neurological disorders
+    - llt_term: Locomotor disturbance
+      soc_term: Neurological disorders
+    - llt_term: Loss of concentration
+      soc_term: Neurological disorders
+    - llt_term: Loss of consciousness
+      soc_term: Neurological disorders
+    - llt_term: Loss of smell
+      soc_term: Neurological disorders
+    - llt_term: Loss of speech
+      soc_term: Neurological disorders
+    - llt_term: Loss of taste
+      soc_term: Neurological disorders
+    - llt_term: Loss of voluntary movement
+      soc_term: Neurological disorders
+    - llt_term: Memory impaired NOS
+      soc_term: Neurological disorders
+    - llt_term: Memory loss
+      soc_term: Neurological disorders
+    - llt_term: Meningitis
+      soc_term: Neurological disorders
+    - llt_term: Mental confusion
+      soc_term: Neurological disorders
+    - llt_term: Mental function decreased
+      soc_term: Neurological disorders
+    - llt_term: Mental impairment NOS
+      soc_term: Neurological disorders
+    - llt_term: Migraine
+      soc_term: Neurological disorders
+    - llt_term: Migraine- like headache
+      soc_term: Neurological disorders
+    - llt_term: Miosis
+      soc_term: Neurological disorders
+    - llt_term: Monoparesis (paralysis of limb)
+      soc_term: Neurological disorders
+    - llt_term: Motor dysfunction NOS
+      soc_term: Neurological disorders
+    - llt_term: Motor neurone disease
+      soc_term: Neurological disorders
+    - llt_term: Multiple sclerosis (MS)
+      soc_term: Neurological disorders
+    - llt_term: Multiple sclerosis (MS) aggravated
+      soc_term: Neurological disorders
+    - llt_term: Muscle rigidity
+      soc_term: Neurological disorders
+    - llt_term: Muscle shaking
+      soc_term: Neurological disorders
+    - llt_term: Muscle spasm NOS
+      soc_term: Neurological disorders
+    - llt_term: Muscle tremor
+      soc_term: Neurological disorders
+    - llt_term: Muscular hypertonicity
+      soc_term: Neurological disorders
+    - llt_term: Myasthenia gravis
+      soc_term: Neurological disorders
+    - llt_term: Mydriasis
+      soc_term: Neurological disorders
+    - llt_term: Myelitis
+      soc_term: Neurological disorders
+    - llt_term: Myelopathy NOS
+      soc_term: Neurological disorders
+    - llt_term: Myoclonic jerk
+      soc_term: Neurological disorders
+    - llt_term: Myoclonus
+      soc_term: Neurological disorders
+    - llt_term: Nerve damage NOS
+      soc_term: Neurological disorders
+    - llt_term: Nerve pain NOS
+      soc_term: Neurological disorders
+    - llt_term: Nervous system disorder NOS
+      soc_term: Neurological disorders
+    - llt_term: Nervous system neoplasm
+      soc_term: Neurological disorders
+    - llt_term: Neuralgia
+      soc_term: Neurological disorders
+    - llt_term: Neurological pain NOS
+      soc_term: Neurological disorders
+    - llt_term: Neurological signs NOS
+      soc_term: Neurological disorders
+    - llt_term: Neurological symptoms NOS
+      soc_term: Neurological disorders
+    - llt_term: Neuromuscular disorder NOS
+      soc_term: Neurological disorders
+    - llt_term: Neuropathy NOS
+      soc_term: Neurological disorders
+    - llt_term: Numbness
+      soc_term: Neurological disorders
+    - llt_term: Nystagmus
+      soc_term: Neurological disorders
+    - llt_term: Opisthotonus
+      soc_term: Neurological disorders
+    - llt_term: Organophosphate toxicity NOS
+      soc_term: Neurological disorders
+    - llt_term: Paddling
+      soc_term: Neurological disorders
+    - llt_term: Paraesthesia
+      soc_term: Neurological disorders
+    - llt_term: Paraesthesia generalised
+      soc_term: Neurological disorders
+    - llt_term: Paraesthesia localised
+      soc_term: Neurological disorders
+    - llt_term: Paralysis
+      soc_term: Neurological disorders
+    - llt_term: Paralysis NOS
+      soc_term: Neurological disorders
+    - llt_term: Paraparesis
+      soc_term: Neurological disorders
+    - llt_term: Paraplegia
+      soc_term: Neurological disorders
+    - llt_term: Paresis
+      soc_term: Neurological disorders
+    - llt_term: Parkinsonism
+      soc_term: Neurological disorders
+    - llt_term: Parkinson's disease
+      soc_term: Neurological disorders
+    - llt_term: Parosmia
+      soc_term: Neurological disorders
+    - llt_term: Peripheral nervous system disorder NOS
+      soc_term: Neurological disorders
+    - llt_term: Peripheral neuropathy
+      soc_term: Neurological disorders
+    - llt_term: Petit mal epilepsy
+      soc_term: Neurological disorders
+    - llt_term: Photophobia
+      soc_term: Neurological disorders
+    - llt_term: Pins and needles
+      soc_term: Neurological disorders
+    - llt_term: Polyneuritis
+      soc_term: Neurological disorders
+    - llt_term: Polyradiculoneuritis
+      soc_term: Neurological disorders
+    - llt_term: Poor concentration
+      soc_term: Neurological disorders
+    - llt_term: Pricking skin sensation
+      soc_term: Neurological disorders
+    - llt_term: Prolonged anaesthesia
+      soc_term: Neurological disorders
+    - llt_term: Proprioception abnormality
+      soc_term: Neurological disorders
+    - llt_term: Proprioception deficit
+      soc_term: Neurological disorders
+    - llt_term: Proprioception loss
+      soc_term: Neurological disorders
+    - llt_term: Quadriparesis
+      soc_term: Neurological disorders
+    - llt_term: Quadriplegia
+      soc_term: Neurological disorders
+    - llt_term: Recovery prolonged
+      soc_term: Neurological disorders
+    - llt_term: Reduced level of consciousness
+      soc_term: Neurological disorders
+    - llt_term: Reduced reflexes
+      soc_term: Neurological disorders
+    - llt_term: Rigidity
+      soc_term: Neurological disorders
+    - llt_term: Rigidity of limbs
+      soc_term: Neurological disorders
+    - llt_term: Roaring
+      soc_term: Neurological disorders
+    - llt_term: Screaming
+      soc_term: Neurological disorders
+    - llt_term: Sedation
+      soc_term: Neurological disorders
+    - llt_term: Sedation prolonged
+      soc_term: Neurological disorders
+    - llt_term: Seizure NOS
+      soc_term: Neurological disorders
+    - llt_term: Semi- conscious
+      soc_term: Neurological disorders
+    - llt_term: Sensation loss
+      soc_term: Neurological disorders
+    - llt_term: Sensory abnormality NOS
+      soc_term: Neurological disorders
+    - llt_term: Sensory loss
+      soc_term: Neurological disorders
+    - llt_term: Shivering
+      soc_term: Neurological disorders
+    - llt_term: Short term memory loss
+      soc_term: Neurological disorders
+    - llt_term: Sinus headache
+      soc_term: Neurological disorders
+    - llt_term: Skeletal muscle paralysis
+      soc_term: Neurological disorders
+    - llt_term: Skin smarting
+      soc_term: Neurological disorders
+    - llt_term: Sleepiness
+      soc_term: Neurological disorders
+    - llt_term: Slow reflexes
+      soc_term: Neurological disorders
+    - llt_term: Slurred speech
+      soc_term: Neurological disorders
+    - llt_term: Smell alteration
+      soc_term: Neurological disorders
+    - llt_term: Smell disorder NOS
+      soc_term: Neurological disorders
+    - llt_term: Smell perversion
+      soc_term: Neurological disorders
+    - llt_term: Somnolence
+      soc_term: Neurological disorders
+    - llt_term: Spasm
+      soc_term: Neurological disorders
+    - llt_term: Spasticity
+      soc_term: Neurological disorders
+    - llt_term: Speech disorder NOS
+      soc_term: Neurological disorders
+    - llt_term: Speech impairment NOS
+      soc_term: Neurological disorders
+    - llt_term: Staggering
+      soc_term: Neurological disorders
+    - llt_term: Stinging skin
+      soc_term: Neurological disorders
+    - llt_term: Stroke
+      soc_term: Neurological disorders
+    - llt_term: Stumbling gait
+      soc_term: Neurological disorders
+    - llt_term: Symptom NOS involving neurological and muscular skeletal SOCs
+      soc_term: Neurological disorders
+    - llt_term: Tail paralysis
+      soc_term: Neurological disorders
+    - llt_term: Tail paresis
+      soc_term: Neurological disorders
+    - llt_term: Taste alteration
+      soc_term: Neurological disorders
+    - llt_term: Taste disorder
+      soc_term: Neurological disorders
+    - llt_term: Taste salty
+      soc_term: Neurological disorders
+    - llt_term: Tetanus
+      soc_term: Neurological disorders
+    - llt_term: Tetany
+      soc_term: Neurological disorders
+    - llt_term: Tic(s)
+      soc_term: Neurological disorders
+    - llt_term: Tingling sensation
+      soc_term: Neurological disorders
+    - llt_term: Tingling skin
+      soc_term: Neurological disorders
+    - llt_term: Tongue paraesthesia
+      soc_term: Neurological disorders
+    - llt_term: Tongue paralysis
+      soc_term: Neurological disorders
+    - llt_term: Tonic muscle spasm
+      soc_term: Neurological disorders
+    - llt_term: Tonic seizure
+      soc_term: Neurological disorders
+    - llt_term: Tonic- clonic seizure
+      soc_term: Neurological disorders
+    - llt_term: Transient memory loss
+      soc_term: Neurological disorders
+    - llt_term: Transverse myelitis
+      soc_term: Neurological disorders
+    - llt_term: Trembling
+      soc_term: Neurological disorders
+    - llt_term: Tremor
+      soc_term: Neurological disorders
+    - llt_term: Tremor of limb
+      soc_term: Neurological disorders
+    - llt_term: Tremor/shaking of hand
+      soc_term: Neurological disorders
+    - llt_term: Trigeminus paralysis
+      soc_term: Neurological disorders
+    - llt_term: Trismus
+      soc_term: Neurological disorders
+    - llt_term: Twitching
+      soc_term: Neurological disorders
+    - llt_term: Unable to stand
+      soc_term: Neurological disorders
+    - llt_term: Unconscious
+      soc_term: Neurological disorders
+    - llt_term: Unequal pupils
+      soc_term: Neurological disorders
+    - llt_term: Unilateral paresis
+      soc_term: Neurological disorders
+    - llt_term: Unsteady gait
+      soc_term: Neurological disorders
+    - llt_term: Vegetative state
+      soc_term: Neurological disorders
+    - llt_term: Vertigo
+      soc_term: Neurological disorders
+    - llt_term: Viral encephalitis
+      soc_term: Neurological disorders
+    - llt_term: Walking difficulty
+      soc_term: Neurological disorders
+    - llt_term: Wobbler
+      soc_term: Neurological disorders
+    - llt_term: Writing impaired
+      soc_term: Neurological disorders
+    - llt_term: No sign
+      soc_term: No signs
+    - llt_term: Abnormal behaviour NOS
+      soc_term: Psychological disorders
+    - llt_term: Abnormal dream
+      soc_term: Psychological disorders
+    - llt_term: Aggressive behaviour
+      soc_term: Psychological disorders
+    - llt_term: Agitated state of mind
+      soc_term: Psychological disorders
+    - llt_term: Agoraphobia
+      soc_term: Psychological disorders
+    - llt_term: Anger
+      soc_term: Psychological disorders
+    - llt_term: Anxious state of mind
+      soc_term: Psychological disorders
+    - llt_term: Bad mood
+      soc_term: Psychological disorders
+    - llt_term: Delusion
+      soc_term: Psychological disorders
+    - llt_term: Depressed mood disorder NOS
+      soc_term: Psychological disorders
+    - llt_term: Depressed state
+      soc_term: Psychological disorders
+    - llt_term: Difficulty in thinking
+      soc_term: Psychological disorders
+    - llt_term: Difficulty sleeping
+      soc_term: Psychological disorders
+    - llt_term: Distressed state
+      soc_term: Psychological disorders
+    - llt_term: Disturbances in thinking/perception NOS
+      soc_term: Psychological disorders
+    - llt_term: Eating disorder NOS (see Systemic for anorexia etc)
+      soc_term: Psychological disorders
+    - llt_term: Emotional detachment
+      soc_term: Psychological disorders
+    - llt_term: Feeling anxious
+      soc_term: Psychological disorders
+    - llt_term: Feeling depressed
+      soc_term: Psychological disorders
+    - llt_term: Feeling restless
+      soc_term: Psychological disorders
+    - llt_term: Feeling shell shocked
+      soc_term: Psychological disorders
+    - llt_term: Feeling sleepy
+      soc_term: Psychological disorders
+    - llt_term: Feeling stressed
+      soc_term: Psychological disorders
+    - llt_term: Hallucinations
+      soc_term: Psychological disorders
+    - llt_term: Hyperactive
+      soc_term: Psychological disorders
+    - llt_term: Hypersomnia
+      soc_term: Psychological disorders
+    - llt_term: Insomnia
+      soc_term: Psychological disorders
+    - llt_term: Irritability
+      soc_term: Psychological disorders
+    - llt_term: Mental disorder NOS
+      soc_term: Psychological disorders
+    - llt_term: Mood depressions
+      soc_term: Psychological disorders
+    - llt_term: Mood swing
+      soc_term: Psychological disorders
+    - llt_term: Nervous breakdown
+      soc_term: Psychological disorders
+    - llt_term: Nervous tension
+      soc_term: Psychological disorders
+    - llt_term: Nervousness
+      soc_term: Psychological disorders
+    - llt_term: Nightmare
+      soc_term: Psychological disorders
+    - llt_term: Panic attack
+      soc_term: Psychological disorders
+    - llt_term: Paranoia
+      soc_term: Psychological disorders
+    - llt_term: Personality disorder NOS
+      soc_term: Psychological disorders
+    - llt_term: Poor sleep
+      soc_term: Psychological disorders
+    - llt_term: Psychiatric disorder NOS
+      soc_term: Psychological disorders
+    - llt_term: Psychophysical malfunction
+      soc_term: Psychological disorders
+    - llt_term: Psychotic disorder
+      soc_term: Psychological disorders
+    - llt_term: Sexual arousal decreased
+      soc_term: Psychological disorders
+    - llt_term: Sexual dysfunction/disorder NOS
+      soc_term: Psychological disorders
+    - llt_term: Sleep disorder NOS
+      soc_term: Psychological disorders
+    - llt_term: Sleep dysfunction NOS
+      soc_term: Psychological disorders
+    - llt_term: Sleep walking
+      soc_term: Psychological disorders
+    - llt_term: Sleeplessness
+      soc_term: Psychological disorders
+    - llt_term: Snappy
+      soc_term: Psychological disorders
+    - llt_term: Somnolent state
+      soc_term: Psychological disorders
+    - llt_term: Speech problem
+      soc_term: Psychological disorders
+    - llt_term: Stammering
+      soc_term: Psychological disorders
+    - llt_term: Stuttering
+      soc_term: Psychological disorders
+    - llt_term: Suicidal behaviour NOS
+      soc_term: Psychological disorders
+    - llt_term: Suicidal ideation
+      soc_term: Psychological disorders
+    - llt_term: Suicidal tendency
+      soc_term: Psychological disorders
+    - llt_term: Suicide attempt
+      soc_term: Psychological disorders
+    - llt_term: Suicide completed
+      soc_term: Psychological disorders
+    - llt_term: Tearfulness
+      soc_term: Psychological disorders
+    - llt_term: Temper tantrum
+      soc_term: Psychological disorders
+    - llt_term: Thinking abnormal NOS
+      soc_term: Psychological disorders
+    - llt_term: Thought block
+      soc_term: Psychological disorders
+    - llt_term: Throat constriction
+      soc_term: Psychological disorders
+    - llt_term: Throat tightness
+      soc_term: Psychological disorders
+    - llt_term: Weeping
+      soc_term: Psychological disorders
+    - llt_term: Abnormal urine odour
+      soc_term: Renal and urinary disorders
+    - llt_term: Acidic urine
+      soc_term: Renal and urinary disorders
+    - llt_term: Acute renal failure
+      soc_term: Renal and urinary disorders
+    - llt_term: Alkaline urine
+      soc_term: Renal and urinary disorders
+    - llt_term: Anuria
+      soc_term: Renal and urinary disorders
+    - llt_term: Azotaemia
+      soc_term: Renal and urinary disorders
+    - llt_term: Bilirubinuria
+      soc_term: Renal and urinary disorders
+    - llt_term: Bladder incontinence
+      soc_term: Renal and urinary disorders
+    - llt_term: Bladder rupture
+      soc_term: Renal and urinary disorders
+    - llt_term: Blood in urine
+      soc_term: Renal and urinary disorders
+    - llt_term: Calculi
+      soc_term: Renal and urinary disorders
+    - llt_term: Chronic renal failure
+      soc_term: Renal and urinary disorders
+    - llt_term: Congenital renal and urinary tract disorder NOS
+      soc_term: Renal and urinary disorders
+    - llt_term: Crystalluria
+      soc_term: Renal and urinary disorders
+    - llt_term: Cystitis
+      soc_term: Renal and urinary disorders
+    - llt_term: Decreased urine concentration
+      soc_term: Renal and urinary disorders
+    - llt_term: Difficulty in micturition
+      soc_term: Renal and urinary disorders
+    - llt_term: Dilated renal pelvis
+      soc_term: Renal and urinary disorders
+    - llt_term: Discoloured urine
+      soc_term: Renal and urinary disorders
+    - llt_term: Dysuria
+      soc_term: Renal and urinary disorders
+    - llt_term: Elevated BUN
+      soc_term: Renal and urinary disorders
+    - llt_term: Elevated creatinine
+      soc_term: Renal and urinary disorders
+    - llt_term: Elevated renal parameters
+      soc_term: Renal and urinary disorders
+    - llt_term: Fanconi syndrome
+      soc_term: Renal and urinary disorders
+    - llt_term: Frequent micturition
+      soc_term: Renal and urinary disorders
+    - llt_term: Frequent urination
+      soc_term: Renal and urinary disorders
+    - llt_term: Glomerulonephritis
+      soc_term: Renal and urinary disorders
+    - llt_term: Glucosuria
+      soc_term: Renal and urinary disorders
+    - llt_term: Haematuria
+      soc_term: Renal and urinary disorders
+    - llt_term: Haemoglobinuria
+      soc_term: Renal and urinary disorders
+    - llt_term: Haemorrhagic bladder
+      soc_term: Renal and urinary disorders
+    - llt_term: Hydronephrosis
+      soc_term: Renal and urinary disorders
+    - llt_term: Increased urine concentration
+      soc_term: Renal and urinary disorders
+    - llt_term: Interstitial nephritis
+      soc_term: Renal and urinary disorders
+    - llt_term: Nephritis
+      soc_term: Renal and urinary disorders
+    - llt_term: Nephropathy
+      soc_term: Renal and urinary disorders
+    - llt_term: Nephrotic syndrome
+      soc_term: Renal and urinary disorders
+    - llt_term: Oliguria
+      soc_term: Renal and urinary disorders
+    - llt_term: Painful urination
+      soc_term: Renal and urinary disorders
+    - llt_term: Papillary necrosis
+      soc_term: Renal and urinary disorders
+    - llt_term: Pollakiuria
+      soc_term: Renal and urinary disorders
+    - llt_term: Polyuria
+      soc_term: Renal and urinary disorders
+    - llt_term: Proteinuria
+      soc_term: Renal and urinary disorders
+    - llt_term: Pyelonephritis
+      soc_term: Renal and urinary disorders
+    - llt_term: Renal colic
+      soc_term: Renal and urinary disorders
+    - llt_term: Renal degeneration
+      soc_term: Renal and urinary disorders
+    - llt_term: Renal disorder NOS
+      soc_term: Renal and urinary disorders
+    - llt_term: Renal failure
+      soc_term: Renal and urinary disorders
+    - llt_term: Renal insufficiency
+      soc_term: Renal and urinary disorders
+    - llt_term: Renal tubular disorder
+      soc_term: Renal and urinary disorders
+    - llt_term: Renal vascular disorder
+      soc_term: Renal and urinary disorders
+    - llt_term: Stranguria
+      soc_term: Renal and urinary disorders
+    - llt_term: Uncontrolled micturition
+      soc_term: Renal and urinary disorders
+    - llt_term: Uraemia
+      soc_term: Renal and urinary disorders
+    - llt_term: Ureteric disorder
+      soc_term: Renal and urinary disorders
+    - llt_term: Urinary bladder disorder NOS
+      soc_term: Renal and urinary disorders
+    - llt_term: Urinary incontinence
+      soc_term: Renal and urinary disorders
+    - llt_term: Urinary retention
+      soc_term: Renal and urinary disorders
+    - llt_term: Urinary tenesmus
+      soc_term: Renal and urinary disorders
+    - llt_term: Urinary tract bleeding
+      soc_term: Renal and urinary disorders
+    - llt_term: Urinary tract disorder NOS
+      soc_term: Renal and urinary disorders
+    - llt_term: Urinary tract infection
+      soc_term: Renal and urinary disorders
+    - llt_term: Urinary tract neoplasm
+      soc_term: Renal and urinary disorders
+    - llt_term: Urination
+      soc_term: Renal and urinary disorders
+    - llt_term: Urine abnormalities NOS
+      soc_term: Renal and urinary disorders
+    - llt_term: Urine leakage
+      soc_term: Renal and urinary disorders
+    - llt_term: Urolithiasis
+      soc_term: Renal and urinary disorders
+    - llt_term: Abnormal birth weight
+      soc_term: Reproductive system disorders
+    - llt_term: Abnormal cervix
+      soc_term: Reproductive system disorders
+    - llt_term: Abnormal cycling
+      soc_term: Reproductive system disorders
+    - llt_term: Abnormal number of offspring
+      soc_term: Reproductive system disorders
+    - llt_term: Abnormal oestrus NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Abnormal spermatozoa
+      soc_term: Reproductive system disorders
+    - llt_term: Abortion
+      soc_term: Reproductive system disorders
+    - llt_term: Abortion spontaneous
+      soc_term: Reproductive system disorders
+    - llt_term: Amenorrhoea
+      soc_term: Reproductive system disorders
+    - llt_term: Anoestrus
+      soc_term: Reproductive system disorders
+    - llt_term: Balanoposthitis
+      soc_term: Reproductive system disorders
+    - llt_term: Birth defect
+      soc_term: Reproductive system disorders
+    - llt_term: Breast disorder NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Breast enlargement (male)
+      soc_term: Reproductive system disorders
+    - llt_term: Cervix disorder
+      soc_term: Reproductive system disorders
+    - llt_term: Congenital disorder NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Congenital reproductive tract disorder NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Continuous heat
+      soc_term: Reproductive system disorders
+    - llt_term: Cryptorchidism
+      soc_term: Reproductive system disorders
+    - llt_term: Cryptorchidy
+      soc_term: Reproductive system disorders
+    - llt_term: Cystic endometrial hyperplasia
+      soc_term: Reproductive system disorders
+    - llt_term: Decreased ejaculate volume
+      soc_term: Reproductive system disorders
+    - llt_term: Decreased number of spermatozoa
+      soc_term: Reproductive system disorders
+    - llt_term: Decreased spermatozoa motility
+      soc_term: Reproductive system disorders
+    - llt_term: Delayed uterine involution
+      soc_term: Reproductive system disorders
+    - llt_term: Disorders of menstrual cycle NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Dystocia
+      soc_term: Reproductive system disorders
+    - llt_term: Egg drop
+      soc_term: Reproductive system disorders
+    - llt_term: Egg drop syndrome
+      soc_term: Reproductive system disorders
+    - llt_term: Egg peritonitis
+      soc_term: Reproductive system disorders
+    - llt_term: Endometritis
+      soc_term: Reproductive system disorders
+    - llt_term: Epididymitis
+      soc_term: Reproductive system disorders
+    - llt_term: Failure to dilate
+      soc_term: Reproductive system disorders
+    - llt_term: Female reproductive tract disorder NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Female reproductive tract neoplasm NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Foetal death
+      soc_term: Reproductive system disorders
+    - llt_term: Foetal maceration
+      soc_term: Reproductive system disorders
+    - llt_term: Foetal mummification
+      soc_term: Reproductive system disorders
+    - llt_term: Foetal resorption
+      soc_term: Reproductive system disorders
+    - llt_term: Freemartin
+      soc_term: Reproductive system disorders
+    - llt_term: Genital tract pruritus
+      soc_term: Reproductive system disorders
+    - llt_term: Gynaecomastia
+      soc_term: Reproductive system disorders
+    - llt_term: Heavy menstrual bleeding
+      soc_term: Reproductive system disorders
+    - llt_term: Heavy periods
+      soc_term: Reproductive system disorders
+    - llt_term: High oestrogen level
+      soc_term: Reproductive system disorders
+    - llt_term: Impaction of oviduct
+      soc_term: Reproductive system disorders
+    - llt_term: Increased menstrual bleeding
+      soc_term: Reproductive system disorders
+    - llt_term: Increased testicle size
+      soc_term: Reproductive system disorders
+    - llt_term: Infertility NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Intrauterine death
+      soc_term: Reproductive system disorders
+    - llt_term: Lack of heat
+      soc_term: Reproductive system disorders
+    - llt_term: Loss of egg quality
+      soc_term: Reproductive system disorders
+    - llt_term: Loss of egg quantity
+      soc_term: Reproductive system disorders
+    - llt_term: Luteolysis
+      soc_term: Reproductive system disorders
+    - llt_term: Male reproductive tract disorder NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Male reproductive tract neoplasm NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Malformation NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Menstrual cramp
+      soc_term: Reproductive system disorders
+    - llt_term: Menstrual pain
+      soc_term: Reproductive system disorders
+    - llt_term: Menstruation absent
+      soc_term: Reproductive system disorders
+    - llt_term: Menstruation delayed
+      soc_term: Reproductive system disorders
+    - llt_term: Menstruation irregular
+      soc_term: Reproductive system disorders
+    - llt_term: Metritis
+      soc_term: Reproductive system disorders
+    - llt_term: Miscarriage
+      soc_term: Reproductive system disorders
+    - llt_term: Mucometra
+      soc_term: Reproductive system disorders
+    - llt_term: Nymphomania
+      soc_term: Reproductive system disorders
+    - llt_term: Oestrus
+      soc_term: Reproductive system disorders
+    - llt_term: Orchitis
+      soc_term: Reproductive system disorders
+    - llt_term: Ovarian cyst
+      soc_term: Reproductive system disorders
+    - llt_term: Ovarian neoplasm
+      soc_term: Reproductive system disorders
+    - llt_term: Oviduct cyst
+      soc_term: Reproductive system disorders
+    - llt_term: Paraphimosis
+      soc_term: Reproductive system disorders
+    - llt_term: Penile disorder NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Penile erection
+      soc_term: Reproductive system disorders
+    - llt_term: Penile prolapse
+      soc_term: Reproductive system disorders
+    - llt_term: Penile protrusion
+      soc_term: Reproductive system disorders
+    - llt_term: Perinatal mortality
+      soc_term: Reproductive system disorders
+    - llt_term: Perinatal mortality NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Period delayed
+      soc_term: Reproductive system disorders
+    - llt_term: Phimosis
+      soc_term: Reproductive system disorders
+    - llt_term: Placental abnormality
+      soc_term: Reproductive system disorders
+    - llt_term: Polyoestrus
+      soc_term: Reproductive system disorders
+    - llt_term: Pregnancy
+      soc_term: Reproductive system disorders
+    - llt_term: Premature birth
+      soc_term: Reproductive system disorders
+    - llt_term: Premature parturition
+      soc_term: Reproductive system disorders
+    - llt_term: Preputial discharge
+      soc_term: Reproductive system disorders
+    - llt_term: Preputial haemorrhage
+      soc_term: Reproductive system disorders
+    - llt_term: Preputial prolapse
+      soc_term: Reproductive system disorders
+    - llt_term: Priapism
+      soc_term: Reproductive system disorders
+    - llt_term: Prostate hyperplasia
+      soc_term: Reproductive system disorders
+    - llt_term: Prostate hypertrophy
+      soc_term: Reproductive system disorders
+    - llt_term: Prostatic disorder NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Prostatic tumour
+      soc_term: Reproductive system disorders
+    - llt_term: Prostatitis
+      soc_term: Reproductive system disorders
+    - llt_term: Pseudopregnancy
+      soc_term: Reproductive system disorders
+    - llt_term: Pseudopregnancy behaviour
+      soc_term: Reproductive system disorders
+    - llt_term: Pyometra
+      soc_term: Reproductive system disorders
+    - llt_term: Quiet heat
+      soc_term: Reproductive system disorders
+    - llt_term: Reduced conception rate
+      soc_term: Reproductive system disorders
+    - llt_term: Reduced hatchability
+      soc_term: Reproductive system disorders
+    - llt_term: Reduced testicle size
+      soc_term: Reproductive system disorders
+    - llt_term: Retained foetal membrane
+      soc_term: Reproductive system disorders
+    - llt_term: Retained placenta
+      soc_term: Reproductive system disorders
+    - llt_term: Return to oestrus
+      soc_term: Reproductive system disorders
+    - llt_term: Runt
+      soc_term: Reproductive system disorders
+    - llt_term: Salpingitis
+      soc_term: Reproductive system disorders
+    - llt_term: Scrotal disorder NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Scrotal irritation NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Scrotal oedema
+      soc_term: Reproductive system disorders
+    - llt_term: Scrotitis
+      soc_term: Reproductive system disorders
+    - llt_term: Sterile
+      soc_term: Reproductive system disorders
+    - llt_term: Stillbirth
+      soc_term: Reproductive system disorders
+    - llt_term: Stump pyometra
+      soc_term: Reproductive system disorders
+    - llt_term: Suboestrus
+      soc_term: Reproductive system disorders
+    - llt_term: Swollen vulva
+      soc_term: Reproductive system disorders
+    - llt_term: Testicular erythema
+      soc_term: Reproductive system disorders
+    - llt_term: Testicular pain
+      soc_term: Reproductive system disorders
+    - llt_term: Uterine atony
+      soc_term: Reproductive system disorders
+    - llt_term: Uterine bleeding NOS (see also increased menstrual bleeding)
+      soc_term: Reproductive system disorders
+    - llt_term: Uterine disorder NOS
+      soc_term: Reproductive system disorders
+    - llt_term: Uterine haemorrhage
+      soc_term: Reproductive system disorders
+    - llt_term: Uterine neoplasm
+      soc_term: Reproductive system disorders
+    - llt_term: Uterine prolapse
+      soc_term: Reproductive system disorders
+    - llt_term: Uterine rupture
+      soc_term: Reproductive system disorders
+    - llt_term: Uterine spasm
+      soc_term: Reproductive system disorders
+    - llt_term: Uterine torsion
+      soc_term: Reproductive system disorders
+    - llt_term: Vaginal discharge
+      soc_term: Reproductive system disorders
+    - llt_term: Vaginal haemorrhage
+      soc_term: Reproductive system disorders
+    - llt_term: Vaginal hyperplasia
+      soc_term: Reproductive system disorders
+    - llt_term: Vaginal oedema
+      soc_term: Reproductive system disorders
+    - llt_term: Vaginal prolapse
+      soc_term: Reproductive system disorders
+    - llt_term: Vaginal swelling
+      soc_term: Reproductive system disorders
+    - llt_term: Vaginal tear
+      soc_term: Reproductive system disorders
+    - llt_term: Vaginal vesicle
+      soc_term: Reproductive system disorders
+    - llt_term: Vaginitis
+      soc_term: Reproductive system disorders
+    - llt_term: Vulvitis
+      soc_term: Reproductive system disorders
+    - llt_term: Vulvovaginitis
+      soc_term: Reproductive system disorders
+    - llt_term: Abnormal breathing
+      soc_term: Respiratory tract disorders
+    - llt_term: Airsacculitis
+      soc_term: Respiratory tract disorders
+    - llt_term: Anoxia
+      soc_term: Respiratory tract disorders
+    - llt_term: Aphonia
+      soc_term: Respiratory tract disorders
+    - llt_term: Apnoea
+      soc_term: Respiratory tract disorders
+    - llt_term: Asphyxia
+      soc_term: Respiratory tract disorders
+    - llt_term: Asthma
+      soc_term: Respiratory tract disorders
+    - llt_term: Blood in trachea
+      soc_term: Respiratory tract disorders
+    - llt_term: Bradypnoea
+      soc_term: Respiratory tract disorders
+    - llt_term: Breathing difficulty
+      soc_term: Respiratory tract disorders
+    - llt_term: Breathlessness
+      soc_term: Respiratory tract disorders
+    - llt_term: Bronchial oedema
+      soc_term: Respiratory tract disorders
+    - llt_term: Bronchial rale
+      soc_term: Respiratory tract disorders
+    - llt_term: Bronchial secretion
+      soc_term: Respiratory tract disorders
+    - llt_term: Bronchitis
+      soc_term: Respiratory tract disorders
+    - llt_term: Bronchopneumonia
+      soc_term: Respiratory tract disorders
+    - llt_term: Bronchospasm
+      soc_term: Respiratory tract disorders
+    - llt_term: Bullous emphysema
+      soc_term: Respiratory tract disorders
+    - llt_term: Burning sensation of the throat
+      soc_term: Respiratory tract disorders
+    - llt_term: Chest discomfort NOS
+      soc_term: Respiratory tract disorders
+    - llt_term: Chest tightness
+      soc_term: Respiratory tract disorders
+    - llt_term: Cheyne- Stokes respiration
+      soc_term: Respiratory tract disorders
+    - llt_term: Congenital respiratory tract disorder NOS
+      soc_term: Respiratory tract disorders
+    - llt_term: Cough
+      soc_term: Respiratory tract disorders
+    - llt_term: Coughing blood
+      soc_term: Respiratory tract disorders
+    - llt_term: Coughing up blood
+      soc_term: Respiratory tract disorders
+    - llt_term: Crackles on auscultation
+      soc_term: Respiratory tract disorders
+    - llt_term: Crepitation on auscultation
+      soc_term: Respiratory tract disorders
+    - llt_term: Decreased respiratory rate
+      soc_term: Respiratory tract disorders
+    - llt_term: Dry nose
+      soc_term: Respiratory tract disorders
+    - llt_term: Dysphonia
+      soc_term: Respiratory tract disorders
+    - llt_term: Dyspnoea (labored breathing)
+      soc_term: Respiratory tract disorders
+    - llt_term: Epistaxis
+      soc_term: Respiratory tract disorders
+    - llt_term: Fish asphyxia
+      soc_term: Respiratory tract disorders
+    - llt_term: Fish gasping
+      soc_term: Respiratory tract disorders
+    - llt_term: Fluid in thorax
+      soc_term: Respiratory tract disorders
+    - llt_term: Foam in the mouth
+      soc_term: Respiratory tract disorders
+    - llt_term: Foam in the nose
+      soc_term: Respiratory tract disorders
+    - llt_term: Foam in the trachea
+      soc_term: Respiratory tract disorders
+    - llt_term: Haemoptysis
+      soc_term: Respiratory tract disorders
+    - llt_term: Haemothorax
+      soc_term: Respiratory tract disorders
+    - llt_term: Hydrothorax
+      soc_term: Respiratory tract disorders
+    - llt_term: Hyperpnoea
+      soc_term: Respiratory tract disorders
+    - llt_term: Hyperventilation
+      soc_term: Respiratory tract disorders
+    - llt_term: Hypoplastic trachea
+      soc_term: Respiratory tract disorders
+    - llt_term: Hypoventilation
+      soc_term: Respiratory tract disorders
+    - llt_term: Hypoxia
+      soc_term: Respiratory tract disorders
+    - llt_term: Increased respiratory rate
+      soc_term: Respiratory tract disorders
+    - llt_term: Inflammation of gill
+      soc_term: Respiratory tract disorders
+    - llt_term: Irregular breathing
+      soc_term: Respiratory tract disorders
+    - llt_term: Laboured breathing
+      soc_term: Respiratory tract disorders
+    - llt_term: Laryngeal irritation
+      soc_term: Respiratory tract disorders
+    - llt_term: Laryngeal oedema
+      soc_term: Respiratory tract disorders
+    - llt_term: Laryngitis
+      soc_term: Respiratory tract disorders
+    - llt_term: Loss of voice
+      soc_term: Respiratory tract disorders
+    - llt_term: Lung oedema
+      soc_term: Respiratory tract disorders
+    - llt_term: Lung sound
+      soc_term: Respiratory tract disorders
+    - llt_term: Lung tumour
+      soc_term: Respiratory tract disorders
+    - llt_term: Mucus in trachea
+      soc_term: Respiratory tract disorders
+    - llt_term: Nasal bleeding
+      soc_term: Respiratory tract disorders
+    - llt_term: Nasal cavity and sinus disorder NOS
+      soc_term: Respiratory tract disorders
+    - llt_term: Nasal cavity disorder NOS
+      soc_term: Respiratory tract disorders
+    - llt_term: Nasal congestion
+      soc_term: Respiratory tract disorders
+    - llt_term: Nasal discharge
+      soc_term: Respiratory tract disorders
+    - llt_term: Nasal dryness
+      soc_term: Respiratory tract disorders
+    - llt_term: Nasal irritation
+      soc_term: Respiratory tract disorders
+    - llt_term: Neonatal respiratory disorder
+      soc_term: Respiratory tract disorders
+    - llt_term: Obstructive airway cough
+      soc_term: Respiratory tract disorders
+    - llt_term: Open mouth breathing
+      soc_term: Respiratory tract disorders
+    - llt_term: Panting
+      soc_term: Respiratory tract disorders
+    - llt_term: Paradoxical breathing
+      soc_term: Respiratory tract disorders
+    - llt_term: Pleural effusion
+      soc_term: Respiratory tract disorders
+    - llt_term: Pleural inflammation
+      soc_term: Respiratory tract disorders
+    - llt_term: Pleurisy
+      soc_term: Respiratory tract disorders
+    - llt_term: Pleuritis
+      soc_term: Respiratory tract disorders
+    - llt_term: Pneumonia
+      soc_term: Respiratory tract disorders
+    - llt_term: Pneumothorax
+      soc_term: Respiratory tract disorders
+    - llt_term: Polypnoea
+      soc_term: Respiratory tract disorders
+    - llt_term: Pulmonary congestion
+      soc_term: Respiratory tract disorders
+    - llt_term: Pulmonary disorder NOS
+      soc_term: Respiratory tract disorders
+    - llt_term: Pulmonary emphysema
+      soc_term: Respiratory tract disorders
+    - llt_term: Pulmonary haemorrhage
+      soc_term: Respiratory tract disorders
+    - llt_term: Pulmonary neoplasm
+      soc_term: Respiratory tract disorders
+    - llt_term: Pulmonary oedema
+      soc_term: Respiratory tract disorders
+    - llt_term: Pulmonary thromboembolism
+      soc_term: Respiratory tract disorders
+    - llt_term: Purulent rhinitis
+      soc_term: Respiratory tract disorders
+    - llt_term: Pyothorax
+      soc_term: Respiratory tract disorders
+    - llt_term: Rale
+      soc_term: Respiratory tract disorders
+    - llt_term: Rattling chest
+      soc_term: Respiratory tract disorders
+    - llt_term: Respiratory arrest
+      soc_term: Respiratory tract disorders
+    - llt_term: Respiratory depression
+      soc_term: Respiratory tract disorders
+    - llt_term: Respiratory discomfort
+      soc_term: Respiratory tract disorders
+    - llt_term: Respiratory distress
+      soc_term: Respiratory tract disorders
+    - llt_term: Respiratory failure
+      soc_term: Respiratory tract disorders
+    - llt_term: Respiratory signs
+      soc_term: Respiratory tract disorders
+    - llt_term: Respiratory sound
+      soc_term: Respiratory tract disorders
+    - llt_term: Respiratory tract disorder NOS
+      soc_term: Respiratory tract disorders
+    - llt_term: Respiratory tract infection NOS
+      soc_term: Respiratory tract disorders
+    - llt_term: Respiratory tract irritation
+      soc_term: Respiratory tract disorders
+    - llt_term: Respiratory tract neoplasm NOS
+      soc_term: Respiratory tract disorders
+    - llt_term: Reverse sneezing
+      soc_term: Respiratory tract disorders
+    - llt_term: Rhinitis
+      soc_term: Respiratory tract disorders
+    - llt_term: Rhinitis NOS
+      soc_term: Respiratory tract disorders
+    - llt_term: Rhinorrhoea
+      soc_term: Respiratory tract disorders
+    - llt_term: Sinus congestion
+      soc_term: Respiratory tract disorders
+    - llt_term: Sinus disorder NOS
+      soc_term: Respiratory tract disorders
+    - llt_term: Sinus pain
+      soc_term: Respiratory tract disorders
+    - llt_term: Sinusitis
+      soc_term: Respiratory tract disorders
+    - llt_term: Sneezing
+      soc_term: Respiratory tract disorders
+    - llt_term: Sniffing
+      soc_term: Respiratory tract disorders
+    - llt_term: Snuffle
+      soc_term: Respiratory tract disorders
+    - llt_term: Stridor
+      soc_term: Respiratory tract disorders
+    - llt_term: Tachypnoea
+      soc_term: Respiratory tract disorders
+    - llt_term: Thoracic irritation
+      soc_term: Respiratory tract disorders
+    - llt_term: Thoracic pain
+      soc_term: Respiratory tract disorders
+    - llt_term: Throat irritation
+      soc_term: Respiratory tract disorders
+    - llt_term: Throat pain
+      soc_term: Respiratory tract disorders
+    - llt_term: Throat tingling
+      soc_term: Respiratory tract disorders
+    - llt_term: Tracheal and laryngeal disorder NOS
+      soc_term: Respiratory tract disorders
+    - llt_term: Tracheal bleeding
+      soc_term: Respiratory tract disorders
+    - llt_term: Tracheal collapse
+      soc_term: Respiratory tract disorders
+    - llt_term: Tracheal obstruction
+      soc_term: Respiratory tract disorders
+    - llt_term: Tracheitis
+      soc_term: Respiratory tract disorders
+    - llt_term: Voice alteration
+      soc_term: Respiratory tract disorders
+    - llt_term: Wheezing
+      soc_term: Respiratory tract disorders
+    - llt_term: Acne
+      soc_term: Skin and appendages disorders
+    - llt_term: Allergic dermatitis
+      soc_term: Skin and appendages disorders
+    - llt_term: Alopecia
+      soc_term: Skin and appendages disorders
+    - llt_term: Alopecia general
+      soc_term: Skin and appendages disorders
+    - llt_term: Alopecia local
+      soc_term: Skin and appendages disorders
+    - llt_term: Alopecia NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Anhidrosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Bacterial skin infection NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Blistering (see also Application site SOC)
+      soc_term: Skin and appendages disorders
+    - llt_term: Blotchy rash
+      soc_term: Skin and appendages disorders
+    - llt_term: Boil
+      soc_term: Skin and appendages disorders
+    - llt_term: Bruising
+      soc_term: Skin and appendages disorders
+    - llt_term: Bullae
+      soc_term: Skin and appendages disorders
+    - llt_term: Bullous dermatitis
+      soc_term: Skin and appendages disorders
+    - llt_term: Bullous disorder NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Bullous eruption
+      soc_term: Skin and appendages disorders
+    - llt_term: Burn
+      soc_term: Skin and appendages disorders
+    - llt_term: Cellulitis
+      soc_term: Skin and appendages disorders
+    - llt_term: Chapped skin
+      soc_term: Skin and appendages disorders
+    - llt_term: Chemical burn
+      soc_term: Skin and appendages disorders
+    - llt_term: Clamminess
+      soc_term: Skin and appendages disorders
+    - llt_term: Claw / hoof / nail disorder NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Claw / hoof / nail loss
+      soc_term: Skin and appendages disorders
+    - llt_term: Cold and clammy skin
+      soc_term: Skin and appendages disorders
+    - llt_term: Cold sore
+      soc_term: Skin and appendages disorders
+    - llt_term: Cold sweat
+      soc_term: Skin and appendages disorders
+    - llt_term: Congenital skin disorder NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Contact dermatitis
+      soc_term: Skin and appendages disorders
+    - llt_term: Cornification and elastic tissue disorder NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Crust
+      soc_term: Skin and appendages disorders
+    - llt_term: Cutaneous calcinosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Cutaneous emphysema
+      soc_term: Skin and appendages disorders
+    - llt_term: Cutaneous necrosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Cutaneous oedema
+      soc_term: Skin and appendages disorders
+    - llt_term: Delayed cicatrisation
+      soc_term: Skin and appendages disorders
+    - llt_term: Depigmentation of nasal plane
+      soc_term: Skin and appendages disorders
+    - llt_term: Dermal cyst(s)
+      soc_term: Skin and appendages disorders
+    - llt_term: Dermal thickening
+      soc_term: Skin and appendages disorders
+    - llt_term: Dermatitis
+      soc_term: Skin and appendages disorders
+    - llt_term: Dermatomycosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Dermatophytosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Dermatosis NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Dermoid cyst
+      soc_term: Skin and appendages disorders
+    - llt_term: Desquamation
+      soc_term: Skin and appendages disorders
+    - llt_term: Dry coat
+      soc_term: Skin and appendages disorders
+    - llt_term: Dry skin
+      soc_term: Skin and appendages disorders
+    - llt_term: Ecchymosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Eczema
+      soc_term: Skin and appendages disorders
+    - llt_term: Erosion
+      soc_term: Skin and appendages disorders
+    - llt_term: Eruption
+      soc_term: Skin and appendages disorders
+    - llt_term: Erythema (for urticaria see Immune SOC)
+      soc_term: Skin and appendages disorders
+    - llt_term: Erythema multiforme
+      soc_term: Skin and appendages disorders
+    - llt_term: Erythemato- squamous condition
+      soc_term: Skin and appendages disorders
+    - llt_term: Erythematous rash
+      soc_term: Skin and appendages disorders
+    - llt_term: Exacerbated eczema
+      soc_term: Skin and appendages disorders
+    - llt_term: Excessive perspiration
+      soc_term: Skin and appendages disorders
+    - llt_term: Excessive sweating
+      soc_term: Skin and appendages disorders
+    - llt_term: Excoriation
+      soc_term: Skin and appendages disorders
+    - llt_term: Facial rash (For urticaria see Immune SOC)
+      soc_term: Skin and appendages disorders
+    - llt_term: Fish skin disorder
+      soc_term: Skin and appendages disorders
+    - llt_term: Flaking skin
+      soc_term: Skin and appendages disorders
+    - llt_term: Folliculitis
+      soc_term: Skin and appendages disorders
+    - llt_term: Fungal paronychia
+      soc_term: Skin and appendages disorders
+    - llt_term: Fungal skin infection NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Furuncle
+      soc_term: Skin and appendages disorders
+    - llt_term: Furunculosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Gangrene
+      soc_term: Skin and appendages disorders
+    - llt_term: Gaseous gangrene
+      soc_term: Skin and appendages disorders
+    - llt_term: General hair loss
+      soc_term: Skin and appendages disorders
+    - llt_term: Generalised itching
+      soc_term: Skin and appendages disorders
+    - llt_term: Generalised rash
+      soc_term: Skin and appendages disorders
+    - llt_term: Generalised red spot
+      soc_term: Skin and appendages disorders
+    - llt_term: Generalised skin reaction
+      soc_term: Skin and appendages disorders
+    - llt_term: Granuloma
+      soc_term: Skin and appendages disorders
+    - llt_term: Greasy skin
+      soc_term: Skin and appendages disorders
+    - llt_term: Hair change
+      soc_term: Skin and appendages disorders
+    - llt_term: Hair coat discolouration
+      soc_term: Skin and appendages disorders
+    - llt_term: Hair loss NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Hair modification NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Hair shedding
+      soc_term: Skin and appendages disorders
+    - llt_term: Hair standing on end
+      soc_term: Skin and appendages disorders
+    - llt_term: Heat rash
+      soc_term: Skin and appendages disorders
+    - llt_term: Heavy sweating
+      soc_term: Skin and appendages disorders
+    - llt_term: Herpes simplex
+      soc_term: Skin and appendages disorders
+    - llt_term: Herpes zoster
+      soc_term: Skin and appendages disorders
+    - llt_term: Histiocytoma
+      soc_term: Skin and appendages disorders
+    - llt_term: Hot spot (pyotraumatic dermatitis)
+      soc_term: Skin and appendages disorders
+    - llt_term: Hyperhidrosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Hyperkeratosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Hyperpigmentation
+      soc_term: Skin and appendages disorders
+    - llt_term: Hypertrichosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Hypopigmentation
+      soc_term: Skin and appendages disorders
+    - llt_term: Impetigo
+      soc_term: Skin and appendages disorders
+    - llt_term: Increased sweating
+      soc_term: Skin and appendages disorders
+    - llt_term: Infected eczema
+      soc_term: Skin and appendages disorders
+    - llt_term: Itching
+      soc_term: Skin and appendages disorders
+    - llt_term: Itchy rash
+      soc_term: Skin and appendages disorders
+    - llt_term: Itchy skin
+      soc_term: Skin and appendages disorders
+    - llt_term: Lichenification
+      soc_term: Skin and appendages disorders
+    - llt_term: Licking
+      soc_term: Skin and appendages disorders
+    - llt_term: Localised hair loss
+      soc_term: Skin and appendages disorders
+    - llt_term: Localised itching
+      soc_term: Skin and appendages disorders
+    - llt_term: Localised rash
+      soc_term: Skin and appendages disorders
+    - llt_term: Localised skin reaction
+      soc_term: Skin and appendages disorders
+    - llt_term: Lump
+      soc_term: Skin and appendages disorders
+    - llt_term: Macular rash
+      soc_term: Skin and appendages disorders
+    - llt_term: Maculo- papular rash
+      soc_term: Skin and appendages disorders
+    - llt_term: Malodour
+      soc_term: Skin and appendages disorders
+    - llt_term: Melanoma
+      soc_term: Skin and appendages disorders
+    - llt_term: Melanosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Moist dermatitis
+      soc_term: Skin and appendages disorders
+    - llt_term: Moist eczema
+      soc_term: Skin and appendages disorders
+    - llt_term: Mucocutaneous ulcer
+      soc_term: Skin and appendages disorders
+    - llt_term: Myofibrosarcoma
+      soc_term: Skin and appendages disorders
+    - llt_term: Nail discolouration
+      soc_term: Skin and appendages disorders
+    - llt_term: Nail disorders NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Night sweat
+      soc_term: Skin and appendages disorders
+    - llt_term: Oedematous erythema
+      soc_term: Skin and appendages disorders
+    - llt_term: Orf
+      soc_term: Skin and appendages disorders
+    - llt_term: Panniculitis
+      soc_term: Skin and appendages disorders
+    - llt_term: Papilloma
+      soc_term: Skin and appendages disorders
+    - llt_term: Papillomatosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Papular rash
+      soc_term: Skin and appendages disorders
+    - llt_term: Papule
+      soc_term: Skin and appendages disorders
+    - llt_term: Paronychia
+      soc_term: Skin and appendages disorders
+    - llt_term: Peeling skin
+      soc_term: Skin and appendages disorders
+    - llt_term: Photosensitivity
+      soc_term: Skin and appendages disorders
+    - llt_term: Photosensitization
+      soc_term: Skin and appendages disorders
+    - llt_term: Pigmentation disorder
+      soc_term: Skin and appendages disorders
+    - llt_term: Piloerection
+      soc_term: Skin and appendages disorders
+    - llt_term: Pimple
+      soc_term: Skin and appendages disorders
+    - llt_term: Pimples
+      soc_term: Skin and appendages disorders
+    - llt_term: Pododermatitis
+      soc_term: Skin and appendages disorders
+    - llt_term: Prickly heat
+      soc_term: Skin and appendages disorders
+    - llt_term: Pruritic rash
+      soc_term: Skin and appendages disorders
+    - llt_term: Pruritus
+      soc_term: Skin and appendages disorders
+    - llt_term: Psoriasis
+      soc_term: Skin and appendages disorders
+    - llt_term: Purpura
+      soc_term: Skin and appendages disorders
+    - llt_term: Purulent lesion(s)
+      soc_term: Skin and appendages disorders
+    - llt_term: Pustular skin eruption
+      soc_term: Skin and appendages disorders
+    - llt_term: Pustules
+      soc_term: Skin and appendages disorders
+    - llt_term: Pyoderma
+      soc_term: Skin and appendages disorders
+    - llt_term: Rash
+      soc_term: Skin and appendages disorders
+    - llt_term: Red face
+      soc_term: Skin and appendages disorders
+    - llt_term: Reddening of the skin
+      soc_term: Skin and appendages disorders
+    - llt_term: Ringworm
+      soc_term: Skin and appendages disorders
+    - llt_term: Rubra
+      soc_term: Skin and appendages disorders
+    - llt_term: Scale
+      soc_term: Skin and appendages disorders
+    - llt_term: Scaly condition NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Scratching
+      soc_term: Skin and appendages disorders
+    - llt_term: Seborrhoea
+      soc_term: Skin and appendages disorders
+    - llt_term: Self trauma
+      soc_term: Skin and appendages disorders
+    - llt_term: Septic spot
+      soc_term: Skin and appendages disorders
+    - llt_term: Seroma
+      soc_term: Skin and appendages disorders
+    - llt_term: Shingles
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin abscess
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin and tissue infection NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin and/or appendage neoplasm NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin disorders NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin dryness
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin emphysema
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin fibrosarcoma
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin haematoma
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin hyperaemia
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin inflammation NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin irritation
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin lesion NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin necrosis
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin oedema
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin sarcoma NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin scab
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin slough
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin sore
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin swelling
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin textural change
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin thinning
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin tumour NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin ulcer
+      soc_term: Skin and appendages disorders
+    - llt_term: Skin vascular disorder NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Spindle cell tumour
+      soc_term: Skin and appendages disorders
+    - llt_term: Sudation
+      soc_term: Skin and appendages disorders
+    - llt_term: Sunburn
+      soc_term: Skin and appendages disorders
+    - llt_term: Tinea NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Toxic epidermal necrolysis
+      soc_term: Skin and appendages disorders
+    - llt_term: Ulcerative dermatitis
+      soc_term: Skin and appendages disorders
+    - llt_term: Vesicle
+      soc_term: Skin and appendages disorders
+    - llt_term: Vesicular rash
+      soc_term: Skin and appendages disorders
+    - llt_term: Viral skin infection NOS
+      soc_term: Skin and appendages disorders
+    - llt_term: Wart
+      soc_term: Skin and appendages disorders
+    - llt_term: Abnormal necropsy finding
+      soc_term: Systemic disorders
+    - llt_term: Abnormal radiograph finding
+      soc_term: Systemic disorders
+    - llt_term: Abnormal test result
+      soc_term: Systemic disorders
+    - llt_term: Abnormal ultrasound finding
+      soc_term: Systemic disorders
+    - llt_term: Abscess NOS
+      soc_term: Systemic disorders
+    - llt_term: Acute jaundice
+      soc_term: Systemic disorders
+    - llt_term: Adipsia
+      soc_term: Systemic disorders
+    - llt_term: Anorexia
+      soc_term: Systemic disorders
+    - llt_term: Apathy
+      soc_term: Systemic disorders
+    - llt_term: Appetite disorder NOS
+      soc_term: Systemic disorders
+    - llt_term: Appetite loss
+      soc_term: Systemic disorders
+    - llt_term: Asthenia
+      soc_term: Systemic disorders
+    - llt_term: Avian general disorder NOS
+      soc_term: Systemic disorders
+    - llt_term: Avian systemic disorder NOS
+      soc_term: Systemic disorders
+    - llt_term: Bee systemic disorder NOS
+      soc_term: Systemic disorders
+    - llt_term: Bees absconding
+      soc_term: Systemic disorders
+    - llt_term: Brood removal
+      soc_term: Systemic disorders
+    - llt_term: Cachexia
+      soc_term: Systemic disorders
+    - llt_term: Chronic fatigue syndrome
+      soc_term: Systemic disorders
+    - llt_term: Collapse NOS (see also 'Cardio- vascular')
+      soc_term: Systemic disorders
+    - llt_term: Congested mucous membrane
+      soc_term: Systemic disorders
+    - llt_term: Congestion of mucous membrane
+      soc_term: Systemic disorders
+    - llt_term: Cyanosis
+      soc_term: Systemic disorders
+    - llt_term: Death
+      soc_term: Systemic disorders
+    - llt_term: Death by euthanasia
+      soc_term: Systemic disorders
+    - llt_term: Decreased activity
+      soc_term: Systemic disorders
+    - llt_term: Decreased appetite
+      soc_term: Systemic disorders
+    - llt_term: Decreased body temperature
+      soc_term: Systemic disorders
+    - llt_term: Decubitus
+      soc_term: Systemic disorders
+    - llt_term: Dehiscence
+      soc_term: Systemic disorders
+    - llt_term: Dehydration
+      soc_term: Systemic disorders
+    - llt_term: Delayed healing
+      soc_term: Systemic disorders
+    - llt_term: Dependent oedema
+      soc_term: Systemic disorders
+    - llt_term: Depression
+      soc_term: Systemic disorders
+    - llt_term: Devitalisation
+      soc_term: Systemic disorders
+    - llt_term: Downer animal
+      soc_term: Systemic disorders
+    - llt_term: Drinking a lot
+      soc_term: Systemic disorders
+    - llt_term: Dropped wings
+      soc_term: Systemic disorders
+    - llt_term: Dry mucous membrane
+      soc_term: Systemic disorders
+    - llt_term: Dwarfism
+      soc_term: Systemic disorders
+    - llt_term: Elevated SAP
+      soc_term: Systemic disorders
+    - llt_term: Elevated temperature
+      soc_term: Systemic disorders
+    - llt_term: Emphysema NOS (see 'Respiratory' for pulmonary emphysema)
+      soc_term: Systemic disorders
+    - llt_term: Excessive appetite
+      soc_term: Systemic disorders
+    - llt_term: Excessive thirst
+      soc_term: Systemic disorders
+    - llt_term: Exercise intolerance
+      soc_term: Systemic disorders
+    - llt_term: Exsiccosis
+      soc_term: Systemic disorders
+    - llt_term: Fatigue
+      soc_term: Systemic disorders
+    - llt_term: Febrile
+      soc_term: Systemic disorders
+    - llt_term: Feelings of weakness
+      soc_term: Systemic disorders
+    - llt_term: Fever
+      soc_term: Systemic disorders
+    - llt_term: Fish acquired dwarfism
+      soc_term: Systemic disorders
+    - llt_term: Fish body deformity
+      soc_term: Systemic disorders
+    - llt_term: Fish chromatophage disorder
+      soc_term: Systemic disorders
+    - llt_term: Fish colour change
+      soc_term: Systemic disorders
+    - llt_term: Fish discolouration
+      soc_term: Systemic disorders
+    - llt_term: Fish malformation
+      soc_term: Systemic disorders
+    - llt_term: Fish pinhead
+      soc_term: Systemic disorders
+    - llt_term: Found dead
+      soc_term: Systemic disorders
+    - llt_term: General illness
+      soc_term: Systemic disorders
+    - llt_term: General pain (see other SOCs for specific pain)
+      soc_term: Systemic disorders
+    - llt_term: Generalised weakness
+      soc_term: Systemic disorders
+    - llt_term: Glazed eye
+      soc_term: Systemic disorders
+    - llt_term: Haematoma NOS
+      soc_term: Systemic disorders
+    - llt_term: Haemolytic jaundice
+      soc_term: Systemic disorders
+    - llt_term: Hand and arm swollen
+      soc_term: Systemic disorders
+    - llt_term: Hepatic jaundice
+      soc_term: Systemic disorders
+    - llt_term: Hot flush
+      soc_term: Systemic disorders
+    - llt_term: Hyperaemia
+      soc_term: Systemic disorders
+    - llt_term: Hyperaemic mucosae
+      soc_term: Systemic disorders
+    - llt_term: Hyperaemic mucous membrane
+      soc_term: Systemic disorders
+    - llt_term: Hyperthermia
+      soc_term: Systemic disorders
+    - llt_term: Hypothermia
+      soc_term: Systemic disorders
+    - llt_term: Icterus
+      soc_term: Systemic disorders
+    - llt_term: Inappetence
+      soc_term: Systemic disorders
+    - llt_term: Increased appetite
+      soc_term: Systemic disorders
+    - llt_term: Increased mortality rate
+      soc_term: Systemic disorders
+    - llt_term: Increased weight
+      soc_term: Systemic disorders
+    - llt_term: Inflamed mucosae
+      soc_term: Systemic disorders
+    - llt_term: Influenza- like symptoms
+      soc_term: Systemic disorders
+    - llt_term: Jaundice
+      soc_term: Systemic disorders
+    - llt_term: Lack of awareness
+      soc_term: Systemic disorders
+    - llt_term: Lack of efficacy
+      soc_term: Systemic disorders
+    - llt_term: Lateral recumbency
+      soc_term: Systemic disorders
+    - llt_term: Lethargy (see also Central nervous system depression in 'Neurological')
+      soc_term: Systemic disorders
+    - llt_term: Lipoma
+      soc_term: Systemic disorders
+    - llt_term: Listless
+      soc_term: Systemic disorders
+    - llt_term: Local swelling (not application site)
+      soc_term: Systemic disorders
+    - llt_term: Localised oedema (not application site)
+      soc_term: Systemic disorders
+    - llt_term: Localised pain NOS (see other 'SOCs' for specific pain)
+      soc_term: Systemic disorders
+    - llt_term: Loss of condition
+      soc_term: Systemic disorders
+    - llt_term: Loss of condition score
+      soc_term: Systemic disorders
+    - llt_term: Loss of strength
+      soc_term: Systemic disorders
+    - llt_term: Low weight gain
+      soc_term: Systemic disorders
+    - llt_term: Malaise
+      soc_term: Systemic disorders
+    - llt_term: Malignant hyperthermia
+      soc_term: Systemic disorders
+    - llt_term: Metastatic neoplasia
+      soc_term: Systemic disorders
+    - llt_term: Metastatic tumour
+      soc_term: Systemic disorders
+    - llt_term: Moribund
+      soc_term: Systemic disorders
+    - llt_term: Multi- organ failure NOS
+      soc_term: Systemic disorders
+    - llt_term: Myalgic encephalomyelitis (ME)
+      soc_term: Systemic disorders
+    - llt_term: Necrotising steatitis
+      soc_term: Systemic disorders
+    - llt_term: Neoplasia NOS
+      soc_term: Systemic disorders
+    - llt_term: Not drinking
+      soc_term: Systemic disorders
+    - llt_term: Not eating
+      soc_term: Systemic disorders
+    - llt_term: Oedema NOS (see other SOCs for specific oedemas)
+      soc_term: Systemic disorders
+    - llt_term: Oedema of the extremities (see also other SOCs for most applicable oedema)
+      soc_term: Systemic disorders
+    - llt_term: Off colour
+      soc_term: Systemic disorders
+    - llt_term: Pain NOS
+      soc_term: Systemic disorders
+    - llt_term: Pale mucous membrane
+      soc_term: Systemic disorders
+    - llt_term: Pallor
+      soc_term: Systemic disorders
+    - llt_term: Palpable mass NOS
+      soc_term: Systemic disorders
+    - llt_term: Partial lack of efficacy
+      soc_term: Systemic disorders
+    - llt_term: Polydipsia
+      soc_term: Systemic disorders
+    - llt_term: Polyphagia
+      soc_term: Systemic disorders
+    - llt_term: Poor coat condition
+      soc_term: Systemic disorders
+    - llt_term: Poor feed conversion
+      soc_term: Systemic disorders
+    - llt_term: Post viral fatigue syndrome
+      soc_term: Systemic disorders
+    - llt_term: Prostration
+      soc_term: Systemic disorders
+    - llt_term: Pyrexia
+      soc_term: Systemic disorders
+    - llt_term: Recumbency
+      soc_term: Systemic disorders
+    - llt_term: Red mucosae
+      soc_term: Systemic disorders
+    - llt_term: Reduced growth rate
+      soc_term: Systemic disorders
+    - llt_term: Reduced responses
+      soc_term: Systemic disorders
+    - llt_term: Reluctant to move
+      soc_term: Systemic disorders
+    - llt_term: Residues in eggs
+      soc_term: Systemic disorders
+    - llt_term: Residues in honey
+      soc_term: Systemic disorders
+    - llt_term: Residues in meat/offal
+      soc_term: Systemic disorders
+    - llt_term: Residues in milk
+      soc_term: Systemic disorders
+    - llt_term: Residues NOS
+      soc_term: Systemic disorders
+    - llt_term: Ruffled feathers
+      soc_term: Systemic disorders
+    - llt_term: Septicaemia
+      soc_term: Systemic disorders
+    - llt_term: Shaking
+      soc_term: Systemic disorders
+    - llt_term: Sinking, fish
+      soc_term: Systemic disorders
+    - llt_term: Steatitis
+      soc_term: Systemic disorders
+    - llt_term: Sternoabdominal recumbency
+      soc_term: Systemic disorders
+    - llt_term: Stupor
+      soc_term: Systemic disorders
+    - llt_term: Sudden death
+      soc_term: Systemic disorders
+    - llt_term: Surgical site disorder
+      soc_term: Systemic disorders
+    - llt_term: Suspected infectious agent transmission
+      soc_term: Systemic disorders
+    - llt_term: Swelling NOS
+      soc_term: Systemic disorders
+    - llt_term: Swollen feet
+      soc_term: Systemic disorders
+    - llt_term: Systemic disorder NOS
+      soc_term: Systemic disorders
+    - llt_term: Tiredness
+      soc_term: Systemic disorders
+    - llt_term: Torpor, fish
+      soc_term: Systemic disorders
+    - llt_term: Trauma NOS
+      soc_term: Systemic disorders
+    - llt_term: Tumour lysis syndrome
+      soc_term: Systemic disorders
+    - llt_term: Ulceration NOS
+      soc_term: Systemic disorders
+    - llt_term: Unable to fly
+      soc_term: Systemic disorders
+    - llt_term: Unable to rise
+      soc_term: Systemic disorders
+    - llt_term: Unexplained death
+      soc_term: Systemic disorders
+    - llt_term: Unrelated death
+      soc_term: Systemic disorders
+    - llt_term: Unthrifty
+      soc_term: Systemic disorders
+    - llt_term: Weak pulse
+      soc_term: Systemic disorders
+    - llt_term: Weakness
+      soc_term: Systemic disorders
+    - llt_term: Weight gain
+      soc_term: Systemic disorders
+    - llt_term: Weight loss
+      soc_term: Systemic disorders
+    - llt_term: Yellow mucous membranes
+      soc_term: Systemic disorders
+    - llt_term: Environmental adverse event
+      soc_term: Unclassifiable event
+    - llt_term: Unclassifiable event
+      soc_term: Unclassifiable event
+    - llt_term: Uncoded sign
+      soc_term: Uncoded signs

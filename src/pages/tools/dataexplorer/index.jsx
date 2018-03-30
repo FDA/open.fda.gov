@@ -7,6 +7,7 @@ import DatasetExplorerContentComponent from '../../../components/DatasetExplorer
 import DataRetrievalService from '../../../components/DataRetrieval'
 import meta from './_meta.yaml'
 import datasets from './_datasets.yaml'
+import help_config from './help_config.yaml'
 import Select from 'react-select'
 import _ from 'lodash'
 
@@ -221,6 +222,7 @@ class DataExplorer extends React.Component {
 
               <FilterComponent
                 parent={this}
+                help_config={help_config}
                 ref={instance => { this.child = instance }}
               />
               <DatasetExplorerContentComponent
