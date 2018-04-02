@@ -6,6 +6,7 @@ names:
       lltView:
         label: Frequency of Reported Signs
         searchType: LLT
+        help_text: This is llt pet food placeholder help text.
         columns:
           - Header: Product Name
             accessor: product
@@ -35,6 +36,7 @@ names:
       listingRecalls:
         label: Reports of Reactions
         searchType: nonLLT
+        help_text: This is nonLLT pet food placeholder help text.
         columns:
           - Header: Report ID
             accessor: identifier
@@ -175,6 +177,7 @@ names:
       listingLabels:
         label: Listing of Labels
         searchType: nonLLT
+        help_text: This is ADL non LLT placeholder help text.
         columns:
           - Header: Effective Date
             accessor: effective_time

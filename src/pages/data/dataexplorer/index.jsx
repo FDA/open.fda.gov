@@ -1,16 +1,18 @@
 /* @flow */
 
 import React from 'react'
+import Select from 'react-select'
+import _ from 'lodash'
+
 import Hero from '../../../components/Hero/index'
 import FilterComponent from '../../../components/Filter'
 import DatasetExplorerContentComponent from '../../../components/DatasetExplorerContent'
 import DataRetrievalService from '../../../components/DataRetrieval'
+import HelpWindow from '../../../components/HelpWindow'
+
 import meta from './_meta.yaml'
 import datasets from './_datasets.yaml'
 import help_config from './help_config.yaml'
-import Select from 'react-select'
-import _ from 'lodash'
-
 import infographicsConfig from './_infographics.json'
 
 class DataExplorer extends React.Component {
@@ -207,6 +209,10 @@ class DataExplorer extends React.Component {
                   options={this.state.dataset.views}
                   onChange={this.handleViewChange}
                   placeholder='Select view'
+                />
+                <HelpWindow
+                  help_header={this.state.dataset.label + ' ' + this.state.view.label}
+                  help_text={this.state.view.help_text}
                 />
               </div>
 
