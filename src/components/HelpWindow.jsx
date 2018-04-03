@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactModal from 'react-modal'
-import FilterComponent from "./Filter";
 
 class HelpWindow extends React.Component {
 
