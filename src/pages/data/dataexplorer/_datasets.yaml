@@ -293,7 +293,8 @@ names:
     filters:
       options:
         - label: Effective Time
-          type: datepicker
+          type: yearpicker
+          start_year: 1994
           field: effective_time
           query_type: range
           placeholder: Select Time Period

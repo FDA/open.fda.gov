@@ -376,150 +376,6 @@ class HelpWindow extends React.Component {
   }
 }
 
-class TimeSelectFilterComponent extends React.Component {
-
-  constructor (props: Object) {
-    super(props)
-
-    this.state = {
-      options: []
-    }
-    this.getDateLabels = this.getDateLabels.bind(this)
-    this.onChange = this.onChange.bind(this)
-  }
-
-  componentDidMount () {
-    this.getDateLabels()
-  }
-
-  getFormattedDate(d, style) {
-    let formatStr = ""
-    if (style === "year"){
-      formatStr = "YYYY"
-    } else if (style === "full") {
-      formatStr = 'MM/DD/YYYY'
-    } else if (style === "value") {
-      formatStr = 'YYYYMMDD'
-    }
-    return d.format(formatStr)
-  }
-
-  getTimeValue(range) {
-
-  }
-  // [${year}0101+TO+${year}1231]
-  getDateLabels() {
-    const options = this.props.option.options.map(option => {
-      let label = ""
-      let value = []
-      if (!true) {}
-      else if (option === "Last 7 Days") {
-        const startdate = Moment().subtract(7, "days")
-        const enddate = Moment()
-        const startdateLabel = this.getFormattedDate(startdate, "full")
-        const enddateLabel = this.getFormattedDate(enddate, "full")
-        const startdateValue = this.getFormattedDate(startdate, "value")
-        const enddateValue = this.getFormattedDate(enddate, "value")
-
-        label = `${option} (${startdateLabel} - ${enddateLabel})`
-        value = [`${startdateValue}`, `${enddateValue}`]
-      } else if (option === "Last 30 Days") {
-        const enddate = Moment()
-        const startdate = Moment().subtract(30, "days")
-        const enddateLabel = this.getFormattedDate(enddate, "full")
-        const startdateLabel = this.getFormattedDate(startdate, "full")
-        const startdateValue = this.getFormattedDate(startdate, "value")
-        const enddateValue = this.getFormattedDate(enddate, "value")
-
-        label = `${option} (${startdateLabel} - ${enddateLabel})`
-        value = [`${startdateValue}`, `${enddateValue}`]
-      } else if (option === "YTD") {
-        const startdate = Moment().startOf('year')
-        const enddate = Moment()
-
-        const year = this.getFormattedDate(startdate, "year")
-        const startdateValue = this.getFormattedDate(startdate, "value")
-        const enddateValue = this.getFormattedDate(enddate, "value")
-
-        label = `${option} (${year})`
-        value = [`${startdateValue}`, `${enddateValue}`]
-      } else if (option === "Last Year") {
-        const startdate = Moment().startOf('year').subtract(1, "years")
-        const enddate = Moment().endOf('year').subtract(1, "years")
-
-        const year = this.getFormattedDate(startdate, "year")
-        const startdateValue = this.getFormattedDate(startdate, "value")
-        const enddateValue = this.getFormattedDate(enddate, "value")
-
-        label = `${option} (${year})`
-        value = [`${startdateValue}`, `${enddateValue}`]
-      } else if (option === "Last 5 Years") {
-        const enddate = Moment().endOf('year')
-        const startdate = Moment().startOf('year').subtract(5, "years")
-        const startdateLabel = this.getFormattedDate(startdate, "year")
-        const enddateLabel = this.getFormattedDate(enddate, "year")
-        const startdateValue = this.getFormattedDate(startdate, "value")
-        const enddateValue = this.getFormattedDate(enddate, "value")
-
-
-        label = `${option} (${startdateLabel} - ${enddateLabel})`
-        value = [`${startdateValue}`, `${enddateValue}`]
-      } else if (option === "All Available") {
-        const enddate = Moment().endOf('year')
-        const enddateValue = this.getFormattedDate(enddate, "value")
-
-        label = `${option}`
-        value = ["19800101", `${enddateValue}`]
-      }
-      return {
-        label: label,
-        value: value,
-        field: this.props.option.field,
-        idx: this.props.option.idx,
-      }
-    })
-    const defaultOption = options[options.length - 1]
-
-    this.setState({
-      options: options,
-      defaultOption: defaultOption
-    }, this.onChange(defaultOption))
-
-  }
-
-  onChange(selectionObj) {
-    this.setState({
-      value: selectionObj
-    })
-
-    if (selectionObj === null) {
-      selectionObj = this.state.defaultOption
-    }
-
-    if (this.props.onChange) {
-      this.props.onChange(selectionObj, {
-        field: this.props.option.field,
-        idx: this.props.option.idx
-      })
-    }
-  }
-
-  render (): ?React.Element {
-    return (
-      <div className='filter-item-container' key={"div" + parseInt(Math.random() * 100)}>
-        <h3>{this.props.option.label}</h3>
-        <Select
-          value={this.state.value}
-          className='filter-select'
-          placeholder={this.props.option.placeholder}
-          onChange={this.onChange}
-          options={this.state.options || []}
-          clearable={false}
-        />
-      </div>
-    )
-  }
-}
 
 class DatePickerFilterComponent extends React.Component {
 
@@ -636,13 +492,14 @@ class DatePickerFilterComponent extends React.Component {
   }
 }
 
+
 class YearPickerFilterComponent extends React.Component {
 
   constructor(props: Object) {
     super(props)
 
-    const startYear = Moment().subtract(10, "years").toDate()
-    const endYear = Moment().toDate()
+    const startYear = this.props.option.start_year
+    const endYear = Moment().format('YYYY')
 
     this.state = {
       startYear: startYear,
@@ -651,6 +508,7 @@ class YearPickerFilterComponent extends React.Component {
 
     this.onChangeStart = this.onChangeStart.bind(this)
     this.onChangeEnd = this.onChangeEnd.bind(this)
+    this.getOptions = this.getOptions.bind(this)
   }
 
   componentDidMount () {
@@ -665,16 +523,16 @@ class YearPickerFilterComponent extends React.Component {
     ) {
       return
     }
+    let years = this.getOptions()
 
     this.setState({
       field: this.props.option.field,
       endpoint: this.props.parent.state.dataset.endpoint,
-      startDay: Moment().subtract(10, "years").toDate(),
-      endDay: new Date(),
-      viewName: this.props.parent.state.view.label
+      viewName: this.props.parent.state.view.label,
+      years: years
     }, () => {
       if (this.props.onChangeYear) {
-        this.props.onChangeYear(Moment(this.state.startYear).format('YYYY'), Moment(this.state.endYear).format('YYYY'), {
+        this.props.onChangeYear(Moment(this.state.startYear + '0101').format('YYYYMMDD'), Moment(this.state.endYear + '1231').format('YYYYMMDD'), {
           field: this.props.option.field,
           idx: this.props.option.idx
         })
@@ -682,12 +540,33 @@ class YearPickerFilterComponent extends React.Component {
     })
   }
 
+  getOptions () {
+    let list = [];
+    for (let i = this.props.option.start_year; i <= Moment().format('YYYY'); i++) {
+      list.push({label: i, value: i});
+    }
+    return list
+  }
+
+  handleKeyPress(e) {
+    if(e.key === "Enter"){
+      const value = e.target.value
+
+      if(this.props.onChange){
+        this.props.onChange(value, {
+          field: this.props.option.field,
+          idx: this.props.option.idx
+        })
+      }
+    }
+  }
+
   onChangeStart (startYear) {
     this.setState({
-      startYear
+      startYear: startYear.value
     })
     if (this.props.onChangeYear) {
-      this.props.onChangeYear(Moment(startYear).format('YYYY'), Moment(this.state.endYear).format('YYYY'), {
+      this.props.onChangeYear(Moment(startYear.value + '0101').format('YYYYMMDD'), Moment(this.state.endYear + '1231').format('YYYYMMDD'), {
         field: this.props.option.field,
         idx: this.props.option.idx
       })
@@ -696,10 +575,10 @@ class YearPickerFilterComponent extends React.Component {
 
   onChangeEnd (endYear) {
     this.setState({
-      endYear
+      endYear: endYear.value
     })
     if (this.props.onChangeYear) {
-      this.props.onChangeYear(Moment(endYear).format('YYYY'), Moment(this.state.startYear).format('YYYY'), {
+      this.props.onChangeYear(Moment(this.state.startYear + '0101').format('YYYYMMDD'), Moment(endYear.value + '1231').format('YYYYMMDD'), {
         field: this.props.option.field,
         idx: this.props.option.idx
       })
@@ -711,25 +590,30 @@ class YearPickerFilterComponent extends React.Component {
     return (
       <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
         <p>Start Year:</p>
-        <Datetime
-          className='year-picker-container'
-          dateFormat='YYYY'
-          timeFormat={false}
-          onChange={this.onChangeStart}
+        <Select
           value={this.state.startYear}
+          className='filter-select'
+          placeholder='Select start date'
+          onChange={this.onChangeStart}
+          options={this.state.years}
+          id={this.props.option.idx.toString()}
+          clearable={false}
         />
         <p>End Year:</p>
-        <Datetime
-          className='year-picker-container'
-          dateFormat='YYYY'
-          timeFormat={false}
-          onChange={this.onChangeEnd}
+        <Select
           value={this.state.endYear}
+          className='filter-select'
+          placeholder='Select end date'
+          onChange={this.onChangeEnd}
+          options={this.state.years}
+          id={this.props.option.idx.toString()}
+          clearable={false}
         />
       </div>
     )
   }
 }
+
 
 class CheckboxFilterComponent extends React.Component {
 
@@ -807,6 +691,7 @@ class CheckboxFilterComponent extends React.Component {
   }
 }
 
+
 class BooleanFilterComponent extends React.Component {
 
   constructor (props: Object) {
@@ -882,6 +767,7 @@ class BooleanFilterComponent extends React.Component {
     )
   }
 }
+
 
 class FreeTextFilterComponent extends React.Component {
   constructor (props: Object) {
@@ -965,6 +851,7 @@ class FreeTextFilterComponent extends React.Component {
     )
   }
 }
+
 
 class FilterComponent extends React.Component {
 
@@ -1103,13 +990,9 @@ class FilterComponent extends React.Component {
     if(!this.props.parent.state.filters.length){
       return
     }
-    const currentValue = this.props.parent.state.filters[meta.idx].value
-    let newValue = []
-    for (var i = start_date; i <= end_date; i++) {
-      newValue.push(i.toString());
-    }
 
-    this.props.parent.state.filters[meta.idx].value = newValue
+
+    this.props.parent.state.filters[meta.idx].value = [start_date, end_date]
 
     this.props.parent.setState({
       filters: this.props.parent.state.filters
