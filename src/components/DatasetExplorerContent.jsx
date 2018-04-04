@@ -1163,35 +1163,43 @@ class DatasetExplorerContentComponent extends React.Component {
 
     let infographic = null
 
-    if(Object.keys(this.props.parent.state.infographicsConfig).length){
-      if(this.props.parent.state.infographicsConfig.type === "pieBar"){
-        infographic =
-          <ResultsInfographicPieBarComponent
-            parent={this.props.parent}
-          />
-      } else if(this.props.parent.state.infographicsConfig.type === "lineBar"){
-        infographic =
-          <ResultsInfographicLineBarComponent
-            parent={this.props.parent}
-          />
+    if (this.props.visualization === true) {
+      if (Object.keys(this.props.parent.state.infographicsConfig).length) {
+        if (this.props.parent.state.infographicsConfig.type === "pieBar") {
+          infographic =
+            <ResultsInfographicPieBarComponent
+              parent={this.props.parent}
+            />
+        } else if (this.props.parent.state.infographicsConfig.type === "lineBar") {
+          infographic =
+            <ResultsInfographicLineBarComponent
+              parent={this.props.parent}
+            />
+        }
       }
-    }
-
-    return (
-      <div className={'dataset-explorer-content '} id='dataset-explorer-content'>
-        <div>
-          {
-            infographic
-          }
-          <SelectedFiltersComponent
+      return (
+        <div className={'dataset-explorer-content '} id='dataset-explorer-content'>
+          <div>
+            {
+              infographic
+            }
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div className={'dataset-explorer-content '} id='dataset-explorer-content'>
+          <div>
+            <SelectedFiltersComponent
+              parent={this.props.parent}
+            />
+          </div>
+          <ResultsComponent
             parent={this.props.parent}
           />
         </div>
-        <ResultsComponent
-          parent={this.props.parent}
-        />
-      </div>
-    )
+      )
+    }
   }
 }
 
