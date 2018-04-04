@@ -9,6 +9,7 @@ import FilterComponent from '../../../components/Filter'
 import DatasetExplorerContentComponent from '../../../components/DatasetExplorerContent'
 import DataRetrievalService from '../../../components/DataRetrieval'
 import HelpWindow from '../../../components/HelpWindow'
+import DataViewToggle from '../../../components/DataViewToggle'
 
 import meta from './_meta.yaml'
 import datasets from './_datasets.yaml'
@@ -40,7 +41,8 @@ class DataExplorer extends React.Component {
       filters: [],
       drs: null,
       _rows: [],
-      infographicsConfig: null
+      infographicsConfig: null,
+      visualization: false
     }
 
     this.state = _.extend(defaultState, this.getDatasetState(dataset))
@@ -52,7 +54,10 @@ class DataExplorer extends React.Component {
     this.getFilters = this.getFilters.bind(this)
     this.getDatasetState = this.getDatasetState.bind(this)
     this.massageLLTData = this.massageLLTData.bind(this)
+    this.toggleTable = this.toggleTable.bind(this)
+    this.toggleChart = this.toggleChart.bind(this)
   }
+
   componentWillReceiveProps () {
 
   }
@@ -60,7 +65,6 @@ class DataExplorer extends React.Component {
   componentDidMount () {
     this.handleChange(this.state.dataset)
     this.handleViewChange(this.state.view)
-
   }
 
   getFilters(dataset){
@@ -174,6 +178,23 @@ class DataExplorer extends React.Component {
     }
   }
 
+  toggleTable () {
+    if (this.state.visualization === true) {
+      this.setState({
+        visualization: false
+      })
+      this.getData()
+    }
+  }
+
+  toggleChart () {
+    if (this.state.visualization === false) {
+      this.setState({
+        visualization: true
+      })
+    }
+  }
+
 
   render (): ?React.Element {
 
@@ -214,6 +235,11 @@ class DataExplorer extends React.Component {
                   help_header={this.state.dataset.label + ' ' + this.state.view.label}
                   help_text={this.state.view.help_text}
                 />
+                <DataViewToggle
+                  visualization={this.state.visualization}
+                  toggleTable={this.toggleTable}
+                  toggleChart={this.toggleChart}
+                />
               </div>
 
               <FilterComponent
@@ -222,6 +248,7 @@ class DataExplorer extends React.Component {
                 ref={instance => { this.child = instance }}
               />
               <DatasetExplorerContentComponent
+                visualization={this.state.visualization}
                 parent={this}
               />
             </div>
