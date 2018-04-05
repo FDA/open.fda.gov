@@ -6,14 +6,12 @@ import { default as ReactTable } from "react-table"
 
 import Checkbox from 'rc-checkbox'
 import Select from 'react-select'
-import Async from 'react-select'
-import _ from 'lodash'
 import Moment from 'moment'
 import AutoCompleteComponent from './AutoComplete'
 import withQuery from 'with-query'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
-import Datetime from 'react-datetime'
 import ReactModal from 'react-modal'
+import update from 'immutability-helper'
 
 require('react-datetime');
 
@@ -44,7 +42,7 @@ class SelectFilterComponent extends React.Component {
   }
 
   removeValue(idx){
-    const value = this.props.parent.state.filters[this.props.option.idx].value[idx]
+    const value = this.props.filters[this.props.option.idx].value[idx]
 
     this.props.onChange(value, {
       field: this.props.option.field,
@@ -96,7 +94,7 @@ class SelectFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
-    const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
+    const elements = this.formatValues(this.props.filters[this.props.option.idx].value)
     return (
       <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
         <Select
@@ -140,7 +138,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     this.setState({
       options: []
     })
-    if(!this.props.parent.state.filters.length){
+    if(!this.props.filters.length){
       return
     }
   }
@@ -175,8 +173,9 @@ class SelectAutoCompleteFilterComponent extends React.Component {
 
 
   removeValue(idx){
-    const value = this.props.parent.state.filters[this.props.option.idx].value[idx]
+    const value = this.props.filters[this.props.option.idx].value[idx]
 
+    console.log("select auto remove value: ", value)
     this.props.onChange({
       label: value,
       value: value
@@ -270,10 +269,10 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
-    if(!this.props.parent.state.filters.length){
+    if(!this.props.filters.length){
       return (<span/>)
     }
-    const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
+    const elements = this.formatValues(this.props.filters[this.props.option.idx].value)
 
     return (
       <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
@@ -657,12 +656,12 @@ class CheckboxFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
-    if(!this.props.parent.state.filters.length){
+    if(!this.props.filters.length){
       return (<span/>)
     }
     const field = this.props.option.field
     const output = this.props.option.options.map((option, idx) => {
-      const currentValue = this.props.parent.state.filters[this.props.option.idx].value
+      const currentValue = this.props.filters[this.props.option.idx].value
       const checked = (currentValue.indexOf(option.value) > -1)
       return (
         <div key={`div${idx}`}>
@@ -739,7 +738,7 @@ class BooleanFilterComponent extends React.Component {
     }
     const field = this.props.option.field
     const output = this.props.option.options.map((option, idx) => {
-      const currentValue = this.props.parent.state.filters[this.props.option.idx].value
+      const currentValue = this.props.filters[this.props.option.idx].value
       const checked = (currentValue.indexOf(option.value) > -1)
       return (
         <div key={`div${idx}`}>
@@ -786,7 +785,7 @@ class FreeTextFilterComponent extends React.Component {
   }
 
   removeValue(idx) {
-    const value = this.props.parent.state.filters[this.props.option.idx].value[idx]
+    const value = this.props.filters[this.props.option.idx].value[idx]
 
     this.props.onChange(value, {
       field: this.props.option.field,
@@ -795,6 +794,7 @@ class FreeTextFilterComponent extends React.Component {
   }
 
   onChange(event) {
+    console.log("event: ", event.target)
     this.setState({
       currentValue: event.target.value
     })
@@ -831,10 +831,10 @@ class FreeTextFilterComponent extends React.Component {
   }
 
   render(): ?React.Element {
-    if(!this.props.parent.state.filters.length){
+    if(!this.props.filters.length){
       return (<span/>)
     }
-    const elements = this.formatValues(this.props.parent.state.filters[this.props.option.idx].value)
+    const elements = this.formatValues(this.props.filters[this.props.option.idx].value)
 
     return (
       <div className='filter-input'>
@@ -859,7 +859,8 @@ class FilterComponent extends React.Component {
     super(props)
 
     this.state = {
-      displayFilters: true
+      displayFilters: true,
+      filters: this.props.filters
     }
 
     this.onChangeSelect = this.onChangeSelect.bind(this)
@@ -878,9 +879,8 @@ class FilterComponent extends React.Component {
   onChangeCheckbox(e, options) {
     const value = options.options.filter(v => e.target.value === v.label)[0].value
 
-    const currentValues = this.props.parent.state.filters[e.target.filterIdx].value
+    const currentValues = this.state.filters[e.target.filterIdx].value
 
-    let valueToSet = null
     const currentIndex = currentValues.indexOf(value)
     // contains value already
     if ( currentIndex > -1 ) {
@@ -889,32 +889,29 @@ class FilterComponent extends React.Component {
       currentValues.push(value)
     }
 
-    this.props.parent.state.filters[e.target.filterIdx].value = currentValues
-
-    this.props.parent.setState({
-      filters: this.props.parent.state.filters
+    this.setState({
+      filters: update(this.state.filters, {[e.target.filterIdx]: {value: currentValues}})
     })
   }
 
   onChangeBoolean(e, options) {
     const value = options.options.filter(v => e.target.value === v.label)[0].value
 
-    let currentValue = this.props.parent.state.filters[e.target.filterIdx].value
-
-    if (value === currentValue) {
-      this.props.parent.state.filters[e.target.filterIdx].value = []
-    } else {
-      this.props.parent.state.filters[e.target.filterIdx].value = [value]
+    let currentValue = this.state.filters[e.target.filterIdx].value
+    if (value !== currentValue) {
+      currentValue = [value]
     }
 
-    this.props.parent.setState({
-      filters: this.props.parent.state.filters
+    this.setState({
+      filters: update(this.state.filters, {[e.target.filterIdx]: {value: {$set: currentValue}}})
     })
   }
 
   onChangeAutoComplete(value, meta){
-    const currentValues = this.parent.state.filters[meta.idx].value
+    console.log("in onchaaaaa")
+    const currentValues = this.state.filters[meta.idx].value
     const currentIndex = currentValues.indexOf(value)
+    console.log("auto change filters: ", this.state.filters, currentValues)
 
     // contains value already
     if ( currentIndex > -1 ) {
@@ -923,17 +920,19 @@ class FilterComponent extends React.Component {
       currentValues.push(value)
     }
 
-    this.parent.state.filters[meta.idx].value = currentValues
+    console.log("auto change filters: ", this.state.filters, currentValues)
 
-    this.parent.setState({
-      filters: this.parent.state.filters
+    this.setState({
+      filters: update(this.state.filters, {[meta.idx]: {value: {$set: currentValues}}})
     })
   }
 
-  onChangeSelect(selectionObj, meta, cb) {
+  onChangeSelect(selectionObj, meta) {
+    console.log("in onchaaaaa")
     const value = selectionObj.value
-    const currentValues = this.props.parent.state.filters[meta.idx].value
+    const currentValues = this.state.filters[meta.idx].value
     const currentIndex = currentValues.indexOf(value)
+    console.log("auto change filters: ", this.state.filters, currentValues)
 
     // contains value already
     if ( currentIndex > -1 ) {
@@ -942,69 +941,67 @@ class FilterComponent extends React.Component {
       currentValues.push(value)
     }
 
-    this.props.parent.state.filters[meta.idx].value = currentValues
-
-    this.props.parent.setState({
-      filters: this.props.parent.state.filters
+    console.log("auto change filters: ", this.state.filters, currentValues)
+    this.setState({
+      filters: update(this.state.filters, {[meta.idx]: {value: {$set: currentValues}}})
     })
   }
 
   onChangeTimeSelect(selectionObj, meta) {
-    if(!this.props.parent.state.filters.length){
+    if(!this.state.filters.length){
       return
     }
-    this.parent.state.filters[meta.idx].value = selectionObj.value
 
-    this.parent.setState({
-      filters: this.parent.state.filters
+    this.state.filters[meta.idx].value = selectionObj.value
+
+    this.setState({
+      filters: update(this.state.filters, {[meta.idx]: {value: {$set: selectionObj.value}}})
     })
   }
 
   onChangeDatePickerEnd(date, meta) {
-    if(!this.props.parent.state.filters.length){
+    if(!this.state.filters.length){
       return
     }
-    const currentValue = this.props.parent.state.filters[meta.idx].value
+    const currentValue = this.state.filters[meta.idx].value
 
-    this.props.parent.state.filters[meta.idx].value = [currentValue[0], date]
-
-    this.props.parent.setState({
-      filters: this.props.parent.state.filters
+    this.setState({
+      filters: update(this.state.filters, {[meta.idx]: {value: {$set: [currentValue[0], date]}}})
     })
   }
 
   onChangeDatePickerStart(date, meta) {
-    if(!this.props.parent.state.filters.length){
+    if(!this.state.filters.length){
       return
     }
-    const currentValue = this.props.parent.state.filters[meta.idx].value
+    const currentValue = this.state.filters[meta.idx].value
 
-    this.props.parent.state.filters[meta.idx].value = [date, currentValue[1]]
+    this.state.filters[meta.idx].value = [date, currentValue[1]]
 
-    this.props.parent.setState({
-      filters: this.props.parent.state.filters
+    this.setState({
+      filters: update(this.state.filters, {[meta.idx]: {value: {$set: [date, currentValue[1]]}}})
     })
   }
 
   onChangeYearPicker(start_date, end_date, meta) {
-    if(!this.props.parent.state.filters.length){
+    if(!this.state.filters.length){
       return
     }
 
 
-    this.props.parent.state.filters[meta.idx].value = [start_date, end_date]
+    this.state.filters[meta.idx].value = [start_date, end_date]
 
-    this.props.parent.setState({
-      filters: this.props.parent.state.filters
+    this.setState({
+      filters: update(this.state.filters, {[meta.idx]: {value: {$set: [start_date, end_date]}}})
     })
   }
 
   onChangeText(value, meta) {
-    if(!this.props.parent.state.filters.length){
+    if(!this.state.filters.length){
       return
     }
     value = value.toLowerCase()
-    const currentValues = this.props.parent.state.filters[meta.idx].value
+    const currentValues = this.state.filters[meta.idx].value
     const currentIndex = currentValues.indexOf(value)
 
     // contains value already
@@ -1014,16 +1011,14 @@ class FilterComponent extends React.Component {
       currentValues.push(value)
     }
 
-    this.props.parent.state.filters[meta.idx].value = currentValues
-
-    this.props.parent.setState({
-      filters: this.props.parent.state.filters
+    this.setState({
+      filters: update(this.state.filters, {[meta.idx]: {value: {$set: currentValues}}})
     })
   }
 
   onChangeDropDown(selectionObj, meta){
     const value = selectionObj.value
-    const currentValues = this.props.parent.state.filters[meta.idx].value
+    const currentValues = this.state.filters[meta.idx].value
     const currentIndex = currentValues.indexOf(value)
 
     // contains value already
@@ -1033,10 +1028,8 @@ class FilterComponent extends React.Component {
       currentValues.push(value)
     }
 
-    this.props.parent.state.filters[meta.idx].value = currentValues
-
-    this.props.parent.setState({
-      filters: this.props.parent.state.filters
+    this.setState({
+      filters: update(this.state.filters, {[meta.idx]: {value: {$set: currentValues}}})
     })
   }
 
@@ -1068,10 +1061,11 @@ class FilterComponent extends React.Component {
       if (option.type === "time_select") {
         return (
           <TimeSelectFilterComponent
+            filters={this.state.filters}
             key={`filter${idx}`}
+            onChange={this.onChangeTimeSelect}
             option={option}
             parent={this.props.parent}
-            onChange={this.onChangeTimeSelect}
           />
         )
       } else if (option.type === "select") {
@@ -1079,24 +1073,26 @@ class FilterComponent extends React.Component {
           <div className='filter-item-container' key={`div${idx}`}>
             <h3>{option.label}</h3>
             <SelectFilterComponent
+              filters={this.state.filters}
               key={`filter${idx}`}
+              onChange={this.onChangeDropDown}
               option={option}
-              placeholder={option.placeholder}
               options={option.options}
               parent={this.props.parent}
-              onChange={this.onChangeDropDown}
+              placeholder={option.placeholder}
             />
           </div>
         )
       } else if (option.type === "select_autocomplete") {
         return (
           <SelectAutoCompleteFilterComponent
+            filters={this.state.filters}
+            help_config={this.props.help_config}
             key={`filter${idx}`}
+            onChange={this.onChangeSelect}
             option={option}
             options={option.options}
             parent={this.props.parent}
-            onChange={this.onChangeSelect}
-            help_config={this.props.help_config}
           />
         )
       } else if (option.type === "autocomplete") {
@@ -1104,10 +1100,11 @@ class FilterComponent extends React.Component {
           <div className='filter-item-container' key={`div${idx}`}>
             <h3>{option.label}</h3>
             <AutoCompleteComponent
+              filters={this.state.filters}
               key={"filter" + idx}
-              parent={this.props.parent}
               onChange={this.onChangeAutoComplete}
               option={option}
+              parent={this.props.parent}
             />
           </div>
         )
@@ -1116,9 +1113,10 @@ class FilterComponent extends React.Component {
           <div className='filter-item-container' key={`div${idx}`}>
             <h3>{option.label}</h3>
             <CheckboxFilterComponent
+              filters={this.state.filters}
               key={`filter${idx}`}
-              option={option}
               onChange={this.onChangeCheckbox}
+              option={option}
               parent={this.props.parent}
             />
           </div>
@@ -1128,9 +1126,10 @@ class FilterComponent extends React.Component {
           <div className='filter-item-container' key={`div${idx}`}>
             <h3>{option.label}</h3>
             <BooleanFilterComponent
+              filters={this.state.filters}
               key={`filter${idx}`}
-              option={option}
               onChange={this.onChangeBoolean}
+              option={option}
               parent={this.props.parent}
             />
           </div>
@@ -1140,11 +1139,12 @@ class FilterComponent extends React.Component {
           <div className='filter-item-container' key={`div${idx}`}>
             <h3>{option.label}</h3>
             <DatePickerFilterComponent
+              filters={this.state.filters}
               key={`filter${idx}`}
-              option={option}
-              parent={this.props.parent}
               onChangeStart={this.onChangeDatePickerStart}
               onChangeEnd={this.onChangeDatePickerEnd}
+              option={option}
+              parent={this.props.parent}
             />
           </div>
         )
@@ -1153,10 +1153,11 @@ class FilterComponent extends React.Component {
           <div className='filter-item-container' key={`div${idx}`}>
             <h3>{option.label}</h3>
             <YearPickerFilterComponent
+              filters={this.state.filters}
               key={`filter${idx}`}
+              onChangeYear={this.onChangeYearPicker}
               option={option}
               parent={this.props.parent}
-              onChangeYear={this.onChangeYearPicker}
             />
           </div>
         )
@@ -1165,9 +1166,10 @@ class FilterComponent extends React.Component {
           <div className='filter-item-container' key={`div${idx}`}>
             <h3>{option.label}</h3>
             <FreeTextFilterComponent
+              filters={this.state.filters}
               key={`filter${idx}`}
-              option={option}
               onChange={this.onChangeText}
+              option={option}
               parent={this.props.parent}
             />
           </div>
@@ -1182,7 +1184,7 @@ class FilterComponent extends React.Component {
           components
         }
         <button
-          onClick={() => this.props.parent.getData()}
+          onClick={() => this.props.updateSelectedFilters(this.state.filters)}
           style={{
             backgroundColor: "lightgrey"
           }}

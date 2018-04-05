@@ -3,6 +3,7 @@
 import React from 'react'
 import Select from 'react-select'
 import _ from 'lodash'
+import update from 'immutability-helper'
 
 import Hero from '../../../components/Hero/index'
 import FilterComponent from '../../../components/Filter'
@@ -48,14 +49,17 @@ class DataExplorer extends React.Component {
     this.state = _.extend(defaultState, this.getDatasetState(dataset))
 
 
+    this.clearAllFilters = this.clearAllFilters.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleViewChange = this.handleViewChange.bind(this)
     this.getData = this.getData.bind(this)
     this.getFilters = this.getFilters.bind(this)
     this.getDatasetState = this.getDatasetState.bind(this)
     this.massageLLTData = this.massageLLTData.bind(this)
+    this.removeFilter = this.removeFilter.bind(this)
     this.toggleTable = this.toggleTable.bind(this)
     this.toggleChart = this.toggleChart.bind(this)
+    this.updateSelectedFilters = this.updateSelectedFilters.bind(this)
   }
 
   componentWillReceiveProps () {
@@ -75,7 +79,6 @@ class DataExplorer extends React.Component {
   }
 
   massageLLTData(actualdata) {
-
     let massagedData = []
     if( !actualdata ||!actualdata.length){
       return massagedData
@@ -102,10 +105,20 @@ class DataExplorer extends React.Component {
     return massagedData
   }
 
+  updateSelectedFilters(updated_filters) {
+    console.log("updated filters: ", updated_filters)
+    this.setState({
+      filters: updated_filters
+    })
+
+    this.getData()
+  }
+
   getData(){
     if(!this.state.filters.length){
       return
     }
+    console.log("in get data: ", this.state.filters)
 
     this.state.drs.getData(this.state.filters, {
       drugtype: this.state.dataset.drugtype,
@@ -178,6 +191,36 @@ class DataExplorer extends React.Component {
     }
   }
 
+  removeFilter(idx, valueIdx){
+    const filter = this.state.filters[idx]
+    if(!filter){ return }
+
+
+    if(filter.value.length){
+      let removed = filter.value.splice(valueIdx, 1)
+    } else {
+      filter.value.splice(0, filter.value.length)
+    }
+
+    this.setState({
+      filters: update(this.state.filters, {[idx]: {value: {$set: filter.value}}})
+    })
+
+    this.getData()
+  }
+
+  clearAllFilters(){
+    for ( let filter in this.state.filters) {
+      if(filter.query_type !== "range") {
+        this.setState({
+          filters: update(this.state.filters, {[filter.idx]: {value: {$set: []}}})
+        })
+      }
+    }
+
+    this.getData()
+  }
+
   toggleTable () {
     if (this.state.visualization === true) {
       this.setState({
@@ -198,6 +241,8 @@ class DataExplorer extends React.Component {
 
   render (): ?React.Element {
 
+    console.log("filterobj: ", this.state.filters)
+
     return (
       <section>
         <Hero
@@ -214,42 +259,47 @@ class DataExplorer extends React.Component {
                 <em>I'm interested in:</em>
                 <Select
                   clearable={false}
-                  resetValue='label'
-                  value={this.state.dataset}
                   name='toggle'
                   options={this.state.options}
                   onChange={this.handleChange}
                   placeholder='Search the fields'
+                  resetValue='label'
+                  value={this.state.dataset}
                 />
                 <em>Particularly:</em>
                 <Select
                   clearable={false}
-                  resetValue='label'
-                  value={this.state.view}
                   name='toggle'
                   options={this.state.dataset.views}
                   onChange={this.handleViewChange}
                   placeholder='Select view'
+                  resetValue='label'
+                  value={this.state.view}
                 />
                 <HelpWindow
                   help_header={this.state.dataset.label + ' ' + this.state.view.label}
                   help_text={this.state.view.help_text}
                 />
                 <DataViewToggle
-                  visualization={this.state.visualization}
                   toggleTable={this.toggleTable}
                   toggleChart={this.toggleChart}
+                  visualization={this.state.visualization}
                 />
               </div>
 
               <FilterComponent
-                parent={this}
+                filters={this.state.filters}
                 help_config={help_config}
                 ref={instance => { this.child = instance }}
+                parent={this}
+                updateSelectedFilters={this.updateSelectedFilters}
               />
               <DatasetExplorerContentComponent
-                visualization={this.state.visualization}
+                clearAllFilters={this.clearAllFilters}
                 parent={this}
+                removeFilter={this.removeFilter}
+                selected_filters={this.state.filters}
+                visualization={this.state.visualization}
               />
             </div>
           </div>

@@ -281,17 +281,9 @@ class ResultsComponent extends React.Component {
 
     return (
       <div>
-        <div style={{
-          height: 40,
-          display:"flex",
-          justifyContent: "space-between",
-          paddingTop: 40,
-          paddingBottom: 43
-        }}>
+        <div className='dataset-table-menubar'>
           {/* <p >{this.props.parent.state._rows.length} matches out of {this.props.parent.state.totalRecords}</p> */}
-          <div style={{
-            display: "flex"
-          }}>
+          <div>
             <Select
               name="toggle"
               optionComponent={GravatarOption}
@@ -1055,33 +1047,16 @@ class SelectedFiltersComponent extends React.Component {
 
     this.state = {}
     this.formatValues = this.formatValues.bind(this)
-    this.removeValue = this.removeValue.bind(this)
     this.clearAll = this.clearAll.bind(this)
   }
 
   componentDidMount () {
   }
 
-  removeValue(idx, valueIdx){
-    const filter = this.props.parent.state.filters[idx]
-    if(!filter){ return }
-
-    if(filter.value.length && valueIdx){
-      filter.value.splice(valueIdx, 1)
-    } else {
-      filter.value.splice(0, filter.value.length)
-    }
-
-    this.props.parent.state.filters[idx].value = filter.value
-
-    this.props.parent.setState({
-      filters: this.props.parent.state.filters
-    })
-  }
 
   clearAll(){
     this.props.parent.setState({
-      filters: this.props.parent.state.filters.map((filter, idx) => {
+      filters: this.props.selected_filters.map((filter, idx) => {
         if(filter.query_type !== "range"){
           filter.value = []
         }
@@ -1090,17 +1065,14 @@ class SelectedFiltersComponent extends React.Component {
     })
   }
 
-  formatValues(values){
-    const filters = []
-    this.props.parent.state.filters.forEach((filter,idx) => {
-      if (
-        filter.query_type === "term" &&
-        filter.type === "checkbox"
-      ){
+  formatValues(){
+    const filter_list = []
+    this.props.selected_filters.forEach((filter,idx) => {
+      if (filter.query_type === "term" && filter.type === "checkbox") {
         filter.value.forEach( (f, valueIdx) => {
           var valueObj = filter.options.filter(o => o.value === f)
           if(valueObj.length){
-            filters.push({
+            filter_list.push({
               value: valueObj[0].label,
               label: filter.label,
               query_type: filter.query_type,
@@ -1115,7 +1087,7 @@ class SelectedFiltersComponent extends React.Component {
       ){
         const startDay = Moment(filter.value[0]).format('MM/DD/YYYY')
         const endDay = Moment(filter.value[1]).format('MM/DD/YYYY')
-        filters.push({
+        filter_list.push({
           value: `${startDay} - ${endDay}`,
           label: filter.label,
           query_type: filter.query_type,
@@ -1126,7 +1098,7 @@ class SelectedFiltersComponent extends React.Component {
         filter.type === "yearpicker" &&
         filter.value.length
       ) {
-        filters.push({
+        filter_list.push({
           value: `${filter.value[0]} - ${filter.value[filter.value.length - 1]}`,
           label: filter.label,
           query_type: filter.query_type,
@@ -1138,7 +1110,8 @@ class SelectedFiltersComponent extends React.Component {
         filter.type !== "checkbox"
       ){
         filter.value.forEach( (f, valueIdx) => {
-          filters.push({
+          console.log("valueIDX: ", valueIdx)
+          filter_list.push({
             value: f,
             label: filter.label,
             query_type: filter.query_type,
@@ -1149,11 +1122,11 @@ class SelectedFiltersComponent extends React.Component {
       }
     })
 
-    return filters.map((filter, idx) => {
+    return filter_list.map((filter, idx) => {
       return (
         <button
           key={`button${idx}`}
-          onClick={() => this.removeValue(filter.idx, filter.valueIdx)}
+          onClick={() => this.props.removeFilter(filter.idx, filter.valueIdx)}
           className='content-selected-filter'
         >
           <span>
@@ -1168,12 +1141,18 @@ class SelectedFiltersComponent extends React.Component {
   }
 
   render (): ?React.Element {
-    const filters = this.formatValues()
+    const filter_list = this.formatValues()
+    if (filter_list === undefined || filter_list.length == 0) {
+      return (
+        <div />
+      )
+    }
+    console.log("filter length: ", filter_list)
     return (
       <div className='content-selected-filters'>
         <h3>Selected Filters:</h3>
         <div>
-          {filters}
+          {filter_list}
           <a onClick={ () => this.clearAll() }>Clear All</a>
         </div>
       </div>
@@ -1194,6 +1173,8 @@ class DatasetExplorerContentComponent extends React.Component {
   }
 
   render (): ?React.Element {
+
+    console.log("content props: ", this.props)
 
     let infographic = null
 
@@ -1226,6 +1207,8 @@ class DatasetExplorerContentComponent extends React.Component {
           <div>
             <SelectedFiltersComponent
               parent={this.props.parent}
+              selected_filters={this.props.selected_filters}
+              removeFilter={this.props.removeFilter}
             />
           </div>
           <ResultsComponent
