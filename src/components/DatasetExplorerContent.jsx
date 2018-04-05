@@ -18,7 +18,23 @@ import { Charts, ChartContainer, ChartRow, YAxis, LineChart, Resizable, styler, 
 import { TimeSeries, TimeRange, sum } from "pondjs"
 import _ from 'lodash'
 
+const re = new RegExp('\\s+');
 
+function sortFrequenciesOfReportedSign(a, b, desc){
+  a = a.toString();
+  b = b.toString();
+  var a1 = parseInt(a.split(",")[0]);
+  var b1 = parseInt(b.split(",")[0]);
+
+  if(a1 - b1 === 0 && (a.split(",")[1] || b.split(","))[1]){
+    if(a.split(",")[1] && !b.split(",")[1]){
+        return 1
+    } else if(!a.split(",")[1] && b.split(",")[1]){
+        return -1
+    }
+    return sortFrequenciesOfReportedSign(a.slice(a.indexOf(",") +1), b.slice(a.indexOf(",") +1),desc)
+  } else return (a1 - b1)
+}
 const GravatarOption = createClass({
   propTypes: {
     children: PropTypes.node,
@@ -85,7 +101,9 @@ class ResultsComponent extends React.Component {
     this.onExportChoosen = this.onExportChoosen.bind(this)
     this.toTitleCase = this.toTitleCase.bind(this)
     this.getFormattedColumns = this.getFormattedColumns.bind(this)
-  }
+    this.convertToStartCase = this.convertToStartCase.bind(this);
+
+ }
 
   toTitleCase(str) {
     if(!str){
@@ -101,7 +119,16 @@ class ResultsComponent extends React.Component {
     return str
   }
 
-  onColumnToggle(selectionObj){
+  convertToStartCase(str) {
+    return str.toLowerCase().split(re).map(function (x) {
+        if (x && x.length > 0){
+            return (x[0].toUpperCase() + x.slice(1))
+        } else return x
+    }).join(' ')
+  }
+
+
+    onColumnToggle(selectionObj){
 
     this.state.columns[selectionObj.idx].show = !selectionObj.show
     const shownColumnsCount = this.state.columns.filter(c => c.show).length
@@ -173,6 +200,13 @@ class ResultsComponent extends React.Component {
 
   getFormattedColumns(){
     let columns = this.props.parent.state.view.columns
+      columns.forEach(function(column){
+          if(column.sortType === "commaSeparatedNumbers"){
+              column.sortMethod = (a, b, desc) => {
+                  return sortFrequenciesOfReportedSign(a,b,desc)
+              };
+          }
+      });
     const shownColumnsCount = columns.filter(c => c.show).length
     columns = columns.map((d,idx) => {
       d.idx = idx
@@ -202,7 +236,7 @@ class ResultsComponent extends React.Component {
                         whiteSpace: "initial"
                       }}
                     >
-                     • {v.trim()}
+                     • {v && props.column.startCase? this.convertToStartCase(v.trim()):v.trim()}
                     </li>
                   )
                 }
@@ -222,7 +256,7 @@ class ResultsComponent extends React.Component {
                 whiteSpace: "initial"
               }}
             >
-              { value }
+              { value && props.column.startCase? this.convertToStartCase(value):value  }
             </span>
           )
         }
