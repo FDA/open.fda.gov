@@ -25,7 +25,9 @@ class DataRetrievalService {
   }
 
   convertFiltersToJson(filters, options){
+    console.log("convert filters to json: ", filters)
     const formattedFilters = filters.filter(filter => filter.value.length).map((filter,idx) => {
+      console.log("filter: ", filter, "idx: ", idx)
       var value = {
         "query-type": filter.query_type,
         "key": filter.field,
