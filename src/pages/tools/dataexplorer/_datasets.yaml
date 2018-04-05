@@ -29,6 +29,7 @@ names:
             accessor: frequency
             show: true
             dedup: true
+            sortType: commaSeparatedNumbers
         pivotBy:
           - product
           - flavor
@@ -163,7 +164,7 @@ names:
           type: select_autocomplete
           can_query: true
           remove_chars: state
-          placeholder: Select State or Search Typing
+          placeholder: Select State or Start Typing
           query_type: term
           limit: 100
     exportOptions:
@@ -190,10 +191,12 @@ names:
           - Header: Brand Name
             accessor: openfda.brand_name
             show: true
+            startCase: true
           - Header: Generic Name
             accessor: openfda.generic_name
             show: true
             split: true
+            startCase: true
           - Header: Active Ingredients
             accessor: active_ingredient
             filter_values:
@@ -211,6 +214,7 @@ names:
               - Key Ingredient
             show: true
             split: true
+            startCase: true
           - Header: Inactive Ingredients
             accessor: inactive_ingredient
             show: true
@@ -224,6 +228,7 @@ names:
               - Other Ingredients
               - Other Ingredient
             split: true
+            startCase: true
           - Header: Product Type
             accessor: openfda.product_type
             show: true

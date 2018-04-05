@@ -79,7 +79,7 @@ class DataRetrievalService {
           value: obj.term
         }
       });
-      return res
+      return res.sort( (a,b) => (a.value > b.value) - (a.value < b.value))
     }).catch((err) => console.log("err: ", err))
   }
 
