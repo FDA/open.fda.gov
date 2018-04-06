@@ -43,6 +43,7 @@ class DataExplorer extends React.Component {
       drs: null,
       _rows: [],
       infographicsConfig: null,
+      hideContent: false,
       visualization: false
     }
 
@@ -50,11 +51,12 @@ class DataExplorer extends React.Component {
 
 
     this.clearAllFilters = this.clearAllFilters.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.handleViewChange = this.handleViewChange.bind(this)
     this.getData = this.getData.bind(this)
     this.getFilters = this.getFilters.bind(this)
     this.getDatasetState = this.getDatasetState.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleFilterChange = this.handleFilterChange.bind(this)
+    this.handleViewChange = this.handleViewChange.bind(this)
     this.massageLLTData = this.massageLLTData.bind(this)
     this.removeFilter = this.removeFilter.bind(this)
     this.toggleTable = this.toggleTable.bind(this)
@@ -106,9 +108,9 @@ class DataExplorer extends React.Component {
   }
 
   updateSelectedFilters(updated_filters) {
-    console.log("updated filters: ", updated_filters)
     this.setState({
-      filters: updated_filters
+      filters: updated_filters,
+      hideContent: false
     })
 
     this.getData()
@@ -118,7 +120,6 @@ class DataExplorer extends React.Component {
     if(!this.state.filters.length){
       return
     }
-    console.log("in get data: ", this.state.filters)
 
     this.state.drs.getData(this.state.filters, {
       drugtype: this.state.dataset.drugtype,
@@ -168,8 +169,13 @@ class DataExplorer extends React.Component {
         this.getData()
       })
     }
-    
   }
+
+  handleFilterChange() {
+    this.setState({
+      hideContent: true
+    })
+}
 
   handleViewChange (value) {
     let view = null
@@ -240,9 +246,6 @@ class DataExplorer extends React.Component {
 
 
   render (): ?React.Element {
-
-    console.log("filterobj: ", this.state.filters)
-
     return (
       <section>
         <Hero
@@ -288,14 +291,18 @@ class DataExplorer extends React.Component {
               </div>
 
               <FilterComponent
+                clearAllFilters={this.clearAllFilters}
                 filters={this.state.filters}
+                handleFilterChange={this.handleFilterChange}
                 help_config={help_config}
+                hideContent={this.state.hideContent}
                 ref={instance => { this.child = instance }}
                 parent={this}
                 updateSelectedFilters={this.updateSelectedFilters}
               />
               <DatasetExplorerContentComponent
                 clearAllFilters={this.clearAllFilters}
+                hideContent={this.state.hideContent}
                 parent={this}
                 removeFilter={this.removeFilter}
                 selected_filters={this.state.filters}

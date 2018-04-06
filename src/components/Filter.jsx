@@ -892,6 +892,8 @@ class FilterComponent extends React.Component {
     this.setState({
       filters: update(this.state.filters, {[e.target.filterIdx]: {value: currentValues}})
     })
+
+    this.props.handleFilterChange()
   }
 
   onChangeBoolean(e, options) {
@@ -905,6 +907,8 @@ class FilterComponent extends React.Component {
     this.setState({
       filters: update(this.state.filters, {[e.target.filterIdx]: {value: {$set: currentValue}}})
     })
+
+    this.props.handleFilterChange()
   }
 
   onChangeAutoComplete(value, meta){
@@ -925,6 +929,8 @@ class FilterComponent extends React.Component {
     this.setState({
       filters: update(this.state.filters, {[meta.idx]: {value: {$set: currentValues}}})
     })
+
+    this.props.handleFilterChange()
   }
 
   onChangeSelect(selectionObj, meta) {
@@ -945,6 +951,8 @@ class FilterComponent extends React.Component {
     this.setState({
       filters: update(this.state.filters, {[meta.idx]: {value: {$set: currentValues}}})
     })
+
+    this.props.handleFilterChange()
   }
 
   onChangeTimeSelect(selectionObj, meta) {
@@ -957,6 +965,8 @@ class FilterComponent extends React.Component {
     this.setState({
       filters: update(this.state.filters, {[meta.idx]: {value: {$set: selectionObj.value}}})
     })
+
+    this.props.handleFilterChange()
   }
 
   onChangeDatePickerEnd(date, meta) {
@@ -968,6 +978,8 @@ class FilterComponent extends React.Component {
     this.setState({
       filters: update(this.state.filters, {[meta.idx]: {value: {$set: [currentValue[0], date]}}})
     })
+
+    this.props.handleFilterChange()
   }
 
   onChangeDatePickerStart(date, meta) {
@@ -981,6 +993,8 @@ class FilterComponent extends React.Component {
     this.setState({
       filters: update(this.state.filters, {[meta.idx]: {value: {$set: [date, currentValue[1]]}}})
     })
+
+    this.props.handleFilterChange()
   }
 
   onChangeYearPicker(start_date, end_date, meta) {
@@ -994,6 +1008,8 @@ class FilterComponent extends React.Component {
     this.setState({
       filters: update(this.state.filters, {[meta.idx]: {value: {$set: [start_date, end_date]}}})
     })
+
+    this.props.handleFilterChange()
   }
 
   onChangeText(value, meta) {
@@ -1014,6 +1030,8 @@ class FilterComponent extends React.Component {
     this.setState({
       filters: update(this.state.filters, {[meta.idx]: {value: {$set: currentValues}}})
     })
+
+    this.props.handleFilterChange()
   }
 
   onChangeDropDown(selectionObj, meta){
@@ -1031,6 +1049,8 @@ class FilterComponent extends React.Component {
     this.setState({
       filters: update(this.state.filters, {[meta.idx]: {value: {$set: currentValues}}})
     })
+
+    this.props.handleFilterChange()
   }
 
   toggleFilters () {
@@ -1183,13 +1203,12 @@ class FilterComponent extends React.Component {
         {
           components
         }
-        <button
-          onClick={() => this.props.updateSelectedFilters(this.state.filters)}
-          style={{
-            backgroundColor: "lightgrey"
-          }}
-        >Update Data
-        </button>
+        <div className='sidebar-buttons'>
+          <button className={this.props.hideContent ? 'bg-darker-blue': 'bg-light-blue'} onClick={() => this.props.updateSelectedFilters(this.state.filters)}>
+            APPLY FILTERS
+          </button>
+          <span onClick={this.props.clearAllFilters}>Clear All</span>
+        </div>
       </div>
     )
   }

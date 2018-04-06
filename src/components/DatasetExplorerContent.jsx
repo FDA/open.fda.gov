@@ -1203,7 +1203,7 @@ class DatasetExplorerContentComponent extends React.Component {
       )
     } else {
       return (
-        <div className={'dataset-explorer-content '} id='dataset-explorer-content'>
+        <div className={'dataset-explorer-content ' + (this.props.hideContent ? 'dataset-overlay': '')} id='dataset-explorer-content'>
           <div>
             <SelectedFiltersComponent
               parent={this.props.parent}
