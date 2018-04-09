@@ -7,7 +7,7 @@ import reactTableCSS from '!!raw-loader!../node_modules/react-table/react-table.
 const webFontLoader: string = `
   WebFontConfig = {
     google: {
-      families: ['Merriweather:400,700', 'Source Sans Pro:400,600']
+      families: ['Merriweather:400,700', 'Source Sans Pro:00,400i,600,600i,700,700i,900']
     }
   }
   ;(function(d) {

@@ -1066,6 +1066,7 @@ class SelectedFiltersComponent extends React.Component {
   }
 
   formatValues(){
+    console.log("selected: ", this.props.selected_filters)
     const filter_list = []
     this.props.selected_filters.forEach((filter,idx) => {
       if (filter.query_type === "term" && filter.type === "checkbox") {
@@ -1153,7 +1154,7 @@ class SelectedFiltersComponent extends React.Component {
         <h3>Selected Filters:</h3>
         <div>
           {filter_list}
-          <a onClick={ () => this.clearAll() }>Clear All</a>
+          <a onClick={this.props.clearAllFilters}>Clear All</a>
         </div>
       </div>
     )
@@ -1209,6 +1210,7 @@ class DatasetExplorerContentComponent extends React.Component {
               parent={this.props.parent}
               selected_filters={this.props.selected_filters}
               removeFilter={this.props.removeFilter}
+              clearAllFilters={this.props.clearAllFilters}
             />
           </div>
           <ResultsComponent
