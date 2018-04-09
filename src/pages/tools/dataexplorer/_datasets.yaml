@@ -101,7 +101,7 @@ names:
             accessor: animal.animal_number
             show: false
     endpoint: animalandveterinary/petfood_reports.json
-    url: http://ec2-34-229-232-27.compute-1.amazonaws.com:8000
+    url: http://openfda-elb-petfoods-2018-04-09-468912113.us-east-1.elb.amazonaws.com
     filters:
       options:
         - label: Report Year

@@ -39,7 +39,7 @@ class DataExplorer extends React.Component {
       options: options,
       dataset: null,
       view: null,
-      filters: [],
+      applied_filters: [],
       drs: null,
       _rows: [],
       infographicsConfig: null,
@@ -108,8 +108,9 @@ class DataExplorer extends React.Component {
   }
 
   updateSelectedFilters(updated_filters) {
+    console.log("update selected trigger")
     this.setState({
-      filters: updated_filters,
+      applied_filters: updated_filters,
       hideContent: false
     })
 
@@ -117,11 +118,11 @@ class DataExplorer extends React.Component {
   }
 
   getData(){
-    if(!this.state.filters.length){
+    if(!this.state.applied_filters.length){
       return
     }
 
-    this.state.drs.getData(this.state.filters, {
+    this.state.drs.getData(this.state.applied_filters, {
       drugtype: this.state.dataset.drugtype,
       searchType: this.state.view.searchType
     }).then(results => {
@@ -155,7 +156,7 @@ class DataExplorer extends React.Component {
     viewIdx = (viewIdx === undefined) ? 0 : viewIdx
     return {
       dataset: dataset,
-      filters: this.getFilters(dataset),
+      applied_filters: this.getFilters(dataset),
       drs: new DataRetrievalService(dataset.url, dataset.endpoint),
       view: dataset.views[viewIdx],
       infographicsConfig: infographicsConfig[dataset.name],
@@ -182,6 +183,8 @@ class DataExplorer extends React.Component {
   }
 
   handleFilterChange() {
+    console.log("in handle filter change")
+    console.log("applied_filters: ", this.state.applied_filters, this.state.hideContent)
     this.setState({
       hideContent: true
     })
@@ -208,7 +211,7 @@ class DataExplorer extends React.Component {
   }
 
   removeFilter(idx, valueIdx){
-    const filter = this.state.filters[idx]
+    const filter = this.state.applied_filters[idx]
     if(!filter){ return }
 
 
@@ -219,20 +222,25 @@ class DataExplorer extends React.Component {
     }
 
     this.setState({
-      filters: update(this.state.filters, {[idx]: {value: {$set: filter.value}}})
+      applied_filters: update(this.state.applied_filters, {[idx]: {value: {$set: filter.value}}})
     })
 
     this.getData()
   }
 
   clearAllFilters(){
-    for ( let filter in this.state.filters) {
+    console.log("clearing all", this.state.applied_filters)
+    let applied_filters = this.state.applied_filters
+    applied_filters.map(filter => {
+      console.log("filter: ", filter, filter.idx)
       if(filter.query_type !== "range") {
-        this.setState({
-          filters: update(this.state.filters, {[filter.idx]: {value: {$set: []}}})
-        })
+        console.log("idx: ", filter.idx)
+        filter.value = []
       }
-    }
+      return filter
+    })
+
+    this.setState(update(this.state, {applied_filters: {$set: applied_filters}}))
 
     this.getData()
   }
@@ -302,11 +310,10 @@ class DataExplorer extends React.Component {
 
               <FilterComponent
                 clearAllFilters={this.clearAllFilters}
-                filters={this.state.filters}
+                filters={this.state.applied_filters}
                 handleFilterChange={this.handleFilterChange}
                 help_config={help_config}
                 hideContent={this.state.hideContent}
-                ref={instance => { this.child = instance }}
                 parent={this}
                 updateSelectedFilters={this.updateSelectedFilters}
               />
@@ -315,7 +322,7 @@ class DataExplorer extends React.Component {
                 hideContent={this.state.hideContent}
                 parent={this}
                 removeFilter={this.removeFilter}
-                selected_filters={this.state.filters}
+                selected_filters={this.state.applied_filters}
                 visualization={this.state.visualization}
               />
             </div>
