@@ -12,6 +12,7 @@ class Layout extends React.Component {
   render() {
 
     const hasSidebar = this.props.location.pathname.slice(0, 6) === `/docs/`
+    const isDataexplorer = this.props.location.pathname.slice(6, 20) === '/dataexplorer/'
 
     return (
       <DocumentTitle title='openFDA' key='openFDA'>
@@ -35,7 +36,7 @@ class Layout extends React.Component {
               </div>
           }
           {
-            !hasSidebar &&
+            !hasSidebar && !isDataexplorer &&
               <Footer/>
           }
         </div>

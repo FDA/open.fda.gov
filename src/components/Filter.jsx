@@ -8,16 +8,11 @@ import Checkbox from 'rc-checkbox'
 import Select from 'react-select'
 import Moment from 'moment'
 import withQuery from 'with-query'
-import DayPickerInput from 'react-day-picker/DayPickerInput'
 import ReactModal from 'react-modal'
 import update from 'immutability-helper'
 
 require('react-datetime');
 
-import {
-  formatDate,
-  parseDate,
-} from 'react-day-picker/moment';
 
 import 'react-day-picker/lib/style.css'
 import 'rc-checkbox/assets/index.css'
@@ -33,9 +28,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
       values: [],
       elements:  null,
       autocomplete_field: null,
-      field: null,
-      url: this.props.parent.state.dataset.url,
-      endpoint: this.props.parent.state.dataset.endpoint
+      field: null
     }
     this.onChange = this.onChange.bind(this)
     this.removeValue = this.removeValue.bind(this)
@@ -57,12 +50,11 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   componentWillReceiveProps(nextProps){
     const field = nextProps.option.field
     const autocomplete_field = nextProps.option.autocomplete_field
-    const endpoint = nextProps.parent.state.dataset.endpoint
 
     if(
       field === this.state.field
       && autocomplete_field === this.state.autocomplete_field
-        && endpoint === this.state.endpoint
+        && nextProps.endpoint === this.state.endpoint
     ){
       return
     }
@@ -70,8 +62,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     if(nextProps.option.can_query){
       this.setState({
         autocomplete_field,
-        field,
-        endpoint: endpoint
+        field
       }, () => {
         nextProps.parent.state.drs.getTopValues(field).then(options => {
           this.setState({
@@ -84,7 +75,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
 
 
   removeValue(idx){
-    const value = this.state.selected_filters[this.props.option.idx].value[idx]
+    const value = this.props.filters[this.props.option.idx].value[idx]
 
     console.log("select auto remove value: ", value)
     this.props.onChange({
@@ -99,7 +90,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   getOptions(value, callback) {
     if(value){
       return fetch(
-        withQuery(`${this.props.parent.state.dataset.url}/${this.props.parent.state.dataset.endpoint}`,{
+        withQuery(`${this.props.dataset.url}/${this.props.dataset.endpoint}`,{
           searchField: this.props.option.autocomplete_field,
           searchText: value,
           searchType: 'autocomplete',
@@ -180,7 +171,6 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
-    console.log("select auto filters: ", this.props.filters)
     if(!this.props.filters.length){
       return (<span/>)
     }
@@ -289,122 +279,6 @@ class HelpWindow extends React.Component {
 }
 
 
-class DatePickerFilterComponent extends React.Component {
-
-  constructor (props: Object) {
-    super(props)
-    this.state = {
-      startDay: Moment().subtract(10, "years").toDate(),
-      endDay: new Date(),
-      isDisabled: false,
-      field: null,
-      endpoint: null,
-      viewName: null
-    }
-  }
-
-  componentDidMount () {
-  }
-
-  componentWillReceiveProps(){
-
-    if(
-      this.props.option.field === this.state.field
-        && this.props.parent.state.dataset.endpoint === this.state.endpoint
-        && this.props.parent.state.view.label === this.state.viewName
-    ){
-      return
-    }
-
-    this.setState({
-      field: this.props.option.field,
-      endpoint: this.props.parent.state.dataset.endpoint,
-      startDay: Moment().subtract(10, "years").toDate(),
-      endDay: new Date(),
-      viewName: this.props.parent.state.view.label
-    }, () => {
-      if (this.props.onChangeStart) {
-        this.props.onChangeStart(this.state.startDay, {
-          field: this.props.option.field,
-          idx: this.props.option.idx
-        })
-      }
-      if (this.props.onChangeEnd) {
-        this.props.onChangeEnd(this.state.endDay, {
-          field: this.props.option.field,
-          idx: this.props.option.idx
-        })
-      }
-    })
-  }
-
-  onChangeStart(startDay, modifiers) {
-    this.setState({
-      startDay,
-      isDisabled: modifiers.disabled === true,
-    })
-    if (this.props.onChangeStart) {
-      this.props.onChangeStart(startDay, {
-        field: this.props.option.field,
-        idx: this.props.option.idx
-      })
-    }
-  }
-
-  onChangeEnd(endDay, modifiers){
-    this.setState({
-      endDay,
-      isDisabled: modifiers.disabled === true,
-    });
-    if (this.props.onChangeEnd) {
-      this.props.onChangeEnd(endDay, {
-        field: this.props.option.field,
-        idx: this.props.option.idx
-      })
-    }
-  }
-
-  render (): ?React.Element {
-    return (
-      <div className='day-picker' key={"div" + parseInt(Math.random()*100)}>
-        <p>Start Day:</p>
-        <DayPickerInput
-          classNames={{
-            container: 'day-picker-container',
-            overlay: 'day-picker-overlay',
-            overlayWrapper: 'day-picker-overlay-wrapper'
-          }}
-          value={this.state.startDay}
-          onDayChange={this.onChangeStart}
-          format={"LL"}
-          formatDate={formatDate}
-          parseDate={parseDate}
-          dayPickerProps={{
-            selectedDays: this.state.startDay
-          }}
-        />
-        <p>End Day:</p>
-        <DayPickerInput
-          classNames={{
-            container: 'day-picker-container',
-            overlay: 'day-picker-overlay',
-            overlayWrapper: 'day-picker-overlay-wrapper'
-          }}
-          value={this.state.endDay}
-          onDayChange={this.onChangeEnd}
-          format={"LL"}
-          formatDate={formatDate}
-          parseDate={parseDate}
-          dayPickerProps={{
-            selectedDays: this.state.endDay
-          }}
-        />
-      </div>
-    )
-  }
-}
-
-
 class YearPickerFilterComponent extends React.Component {
 
   constructor(props: Object) {
@@ -428,19 +302,10 @@ class YearPickerFilterComponent extends React.Component {
 
   componentWillReceiveProps () {
 
-    if (
-      this.props.option.field === this.state.field
-      && this.props.parent.state.dataset.endpoint === this.state.endpoint
-      && this.props.parent.state.view.label === this.state.viewName
-    ) {
-      return
-    }
     let years = this.getOptions()
 
     this.setState({
       field: this.props.option.field,
-      endpoint: this.props.parent.state.dataset.endpoint,
-      viewName: this.props.parent.state.view.label,
       years: years
     }, () => {
       if (this.props.onChangeYear) {
@@ -646,7 +511,7 @@ class BooleanFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
-    if(!this.props.parent.state.filters.length) {
+    if(!this.props.filters.length) {
       return (<span/>)
     }
     const field = this.props.option.field
@@ -786,8 +651,6 @@ class FilterComponent extends React.Component {
     this.onChangeDropDown = this.onChangeDropDown.bind(this)
   }
 
-  componentDidMount () {
-  }
 
   onChangeCheckbox(e, options) {
     const value = options.options.filter(v => e.target.value === v.label)[0].value
@@ -829,7 +692,6 @@ class FilterComponent extends React.Component {
     const value = selectionObj.value
     const currentValues = this.state.selected_filters[meta.idx].value
     const currentIndex = currentValues.indexOf(value)
-    console.log("pre auto change selected_filters: ", this.state.selected_filters, currentValues)
 
     // contains value already
     if ( currentIndex > -1 ) {
@@ -838,7 +700,6 @@ class FilterComponent extends React.Component {
       currentValues.push(value)
     }
 
-    console.log("after change selected_filters: ", this.state.selected_filters, currentValues)
     this.setState({
       selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: currentValues}}})
     })
@@ -962,12 +823,10 @@ class FilterComponent extends React.Component {
 
   render (): ?React.Element {
 
-    if(!this.props.parent.state.dataset.filters.options || !this.props.parent.state.dataset.filters.options.length) {
+    if(!this.props.dataset.filters.options || !this.props.dataset.filters.options.length) {
       return <span/>
     }
-    const endpoint = this.props.parent.state.dataset.endpoint
-    const url = this.props.parent.state.dataset.url
-    const components = this.props.parent.state.dataset.filters.options.map((option,idx) => {
+    const components = this.props.dataset.filters.options.map((option,idx) => {
       option.idx = idx
       if (option.type === "time_select") {
         return (
@@ -976,12 +835,12 @@ class FilterComponent extends React.Component {
             key={`filter${idx}`}
             onChange={this.onChangeTimeSelect}
             option={option}
-            parent={this.props.parent}
           />
         )
       } else if (option.type === "select_autocomplete") {
         return (
           <SelectAutoCompleteFilterComponent
+            dataset={this.props.dataset}
             filters={this.state.selected_filters}
             help_config={this.props.help_config}
             key={`filter${idx}`}
@@ -1000,7 +859,6 @@ class FilterComponent extends React.Component {
               key={`filter${idx}`}
               onChange={this.onChangeCheckbox}
               option={option}
-              parent={this.props.parent}
             />
           </div>
         )
@@ -1013,7 +871,6 @@ class FilterComponent extends React.Component {
               key={`filter${idx}`}
               onChange={this.onChangeBoolean}
               option={option}
-              parent={this.props.parent}
             />
           </div>
         )
@@ -1027,7 +884,6 @@ class FilterComponent extends React.Component {
               onChangeStart={this.onChangeDatePickerStart}
               onChangeEnd={this.onChangeDatePickerEnd}
               option={option}
-              parent={this.props.parent}
             />
           </div>
         )
@@ -1040,7 +896,6 @@ class FilterComponent extends React.Component {
               key={`filter${idx}`}
               onChangeYear={this.onChangeYearPicker}
               option={option}
-              parent={this.props.parent}
             />
           </div>
         )
@@ -1053,7 +908,6 @@ class FilterComponent extends React.Component {
               key={`filter${idx}`}
               onChange={this.onChangeText}
               option={option}
-              parent={this.props.parent}
             />
           </div>
         )
