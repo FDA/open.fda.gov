@@ -64,10 +64,6 @@ class DataExplorer extends React.Component {
     this.updateSelectedFilters = this.updateSelectedFilters.bind(this)
   }
 
-  componentWillReceiveProps () {
-
-  }
-
   componentDidMount () {
     this.handleChange(this.state.dataset)
     this.handleViewChange(this.state.view)
@@ -108,7 +104,6 @@ class DataExplorer extends React.Component {
   }
 
   updateSelectedFilters(updated_filters) {
-    console.log("update selected trigger")
     this.setState({
       applied_filters: updated_filters,
       hideContent: false
@@ -172,13 +167,11 @@ class DataExplorer extends React.Component {
     }
   }
 
-  handleFilterChange() {
-    console.log("in handle filter change")
-    console.log("applied_filters: ", this.state.applied_filters, this.state.hideContent)
+  handleFilterChange = () => {
     this.setState({
       hideContent: true
     })
-}
+  }
 
   handleViewChange (value) {
     let view = null
@@ -219,10 +212,8 @@ class DataExplorer extends React.Component {
   }
 
   clearAllFilters(){
-    console.log("clearing all", this.state.applied_filters)
     let applied_filters = this.state.applied_filters
     applied_filters.map(filter => {
-      console.log("filter: ", filter, filter.idx)
       if(filter.query_type !== "range") {
         console.log("idx: ", filter.idx)
         filter.value = []
@@ -300,19 +291,22 @@ class DataExplorer extends React.Component {
 
               <FilterComponent
                 clearAllFilters={this.clearAllFilters}
+                dataset={this.state.dataset}
+                drs={this.state.drs}
                 filters={this.state.applied_filters}
                 handleFilterChange={this.handleFilterChange}
                 help_config={help_config}
                 hideContent={this.state.hideContent}
                 parent={this}
+                ref={instance => { this.child = instance }}
                 updateSelectedFilters={this.updateSelectedFilters}
               />
               <DatasetExplorerContentComponent
                 clearAllFilters={this.clearAllFilters}
                 hideContent={this.state.hideContent}
-                parent={this}
                 removeFilter={this.removeFilter}
-                selected_filters={this.state.applied_filters}
+                parent={this}
+                applied_filters={this.state.applied_filters}
                 visualization={this.state.visualization}
               />
             </div>

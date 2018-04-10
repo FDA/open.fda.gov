@@ -1056,7 +1056,7 @@ class SelectedFiltersComponent extends React.Component {
 
   clearAll(){
     this.props.parent.setState({
-      filters: this.props.selected_filters.map((filter, idx) => {
+      filters: this.props.applied_filters.map((filter, idx) => {
         if(filter.query_type !== "range"){
           filter.value = []
         }
@@ -1066,9 +1066,8 @@ class SelectedFiltersComponent extends React.Component {
   }
 
   formatValues(){
-    console.log("selected: ", this.props.selected_filters)
     const filter_list = []
-    this.props.selected_filters.forEach((filter,idx) => {
+    this.props.applied_filters.forEach((filter,idx) => {
       if (filter.query_type === "term" && filter.type === "checkbox") {
         filter.value.forEach( (f, valueIdx) => {
           var valueObj = filter.options.filter(o => o.value === f)
@@ -1151,7 +1150,7 @@ class SelectedFiltersComponent extends React.Component {
     console.log("filter length: ", filter_list)
     return (
       <div className='content-selected-filters'>
-        <h3>Selected Filters:</h3>
+        <h3>Applied Filters:</h3>
         <div>
           {filter_list}
           <a onClick={this.props.clearAllFilters}>Clear All</a>
@@ -1204,14 +1203,21 @@ class DatasetExplorerContentComponent extends React.Component {
       )
     } else {
       return (
-        <div className={'dataset-explorer-content ' + (this.props.hideContent ? 'dataset-overlay': '')} id='dataset-explorer-content'>
+        <div className='dataset-explorer-content' id='dataset-explorer-content'>
+          {
+            this.props.hideContent &&
+              <div className='dataset-overlay' />
+          }
           <div>
-            <SelectedFiltersComponent
-              parent={this.props.parent}
-              selected_filters={this.props.selected_filters}
-              removeFilter={this.props.removeFilter}
-              clearAllFilters={this.props.clearAllFilters}
-            />
+          {
+            !this.props.hideContent &&
+              <SelectedFiltersComponent
+                parent={this.props.parent}
+                applied_filters={this.props.applied_filters}
+                removeFilter={this.props.removeFilter}
+                clearAllFilters={this.props.clearAllFilters}
+              />
+          }
           </div>
           <ResultsComponent
             parent={this.props.parent}
