@@ -12,10 +12,8 @@
   border-bottom-width: 1px
   border-bottom-style: solid
   border-bottom-color: #BFD4DF
-  color: #00517d
 
   > em
-    font-size: 18px
     font-weight: bold
     padding-right: 5px
     margin-left: 40px
@@ -45,8 +43,13 @@
       -o-transition: .5s
       transition: .5s
 
-  i
+  > i
+    color: #94b2ce
     cursor: pointer
+    transition: .2s linear
+
+    &:hover
+      color: #017bba
 
 
 // The main container element
@@ -157,16 +160,17 @@
       font-weight: bold
 
     .content-selected-filter
-      padding: 5px
+      padding: 5px 10px
       border-radius: 35px
-      border: 2px solid black
-      box-shadow: 0 0 3px gray
-      background-color: white
-      margin-left: 7px
-      margin-top: 10px
+      box-shadow: 0 0 0 1px #bfd4df;
+      background-color: #fff;
+      margin-right: 7px;
+      margin-top: 10px;
 
       span
         padding-right: 10px
 
       i
         color: #ef4205
+        font-size: 16px
+

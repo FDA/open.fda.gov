@@ -2,24 +2,28 @@
   display: flex
   flex-direction: row
   margin-left: 40px
-  border-radius: 5px
-  border-style: solid
-  border-width: 2px
-  border-color: #BFD4DF
   cursor: pointer
 
-  > div:first-child
-    border-right: 2px solid #BFD4DF
-
-  div
+  > div
     padding: 15px
 
-  i
-    color: #0af
+  > div:first-child
+    border-radius: 5px 0 0 5px
+
+  > div:last-child
+    border-radius: 0 5px 5px 0
+
+  > .selected
+    background-color: #017bba
+    border: 1px solid #017bba
+    color: white
+
+  > .unselected
+    border: 1px solid #cccccc
+
+    i
+      color: #00aaff
 
   span
     padding-left: 7px
-    font-weight: bold
-
-.grey-background
-  background-color: #F2F6F8
+    font-weight: 600

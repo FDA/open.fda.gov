@@ -44,8 +44,8 @@
   border-color: #b3b3b3 #ccc #d9d9d9;
 }
 .Select.is-open > .Select-control .Select-arrow {
-  top: -2px;
-  border-color: transparent transparent #999;
+  top: 15px;
+  border-color: transparent transparent #BFD4DF;
   border-width: 0 5px 5px;
 }
 .Select.is-searchable.is-open > .Select-control {
@@ -194,7 +194,7 @@
   -webkit-animation: Select-animation-fadeIn 200ms;
   -o-animation: Select-animation-fadeIn 200ms;
   animation: Select-animation-fadeIn 200ms;
-  color: #999;
+  color: #BFD4DF;
   cursor: pointer;
   display: table-cell;
   position: relative;
@@ -227,13 +227,15 @@
   padding-left: 5px;
 }
 .Select-arrow {
-  border-color: #999 transparent transparent;
+  border-color: #BFD4DF transparent transparent;
   border-style: solid;
   border-width: 5px 5px 2.5px;
   display: inline-block;
   height: 0;
   width: 0;
-  position: relative;
+  position: absolute;
+  top: 15px;
+  right: 9px;
 }
 .Select-control > *:last-child {
   padding-right: 5px;
@@ -318,7 +320,7 @@
 }
 .Select-noresults {
   box-sizing: border-box;
-  color: #999999;
+  color: #BFD4DF;
   cursor: default;
   display: block;
   padding: 8px 10px;
@@ -345,7 +347,7 @@
   border: 1px solid rgba(0, 126, 255, 0.24);
   color: #007eff;
   display: inline-block;
-  font-size: 0.9em;
+  font-size: 15px;
   line-height: 1.4;
   margin-left: 5px;
   margin-top: 5px;
