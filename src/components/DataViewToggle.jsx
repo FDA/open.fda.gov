@@ -26,11 +26,11 @@ const DataViewToggle = (props: tPROPS) => {
 
   return (
     <div className='data-view-toggle'>
-      <div className={visualization ? '': 'grey-background'} onClick={toggleTable}>
+      <div className={visualization ? 'unselected': 'selected'} onClick={toggleTable}>
         <i className='fa fa-lg fa-table' />
         <span>Table View</span>
       </div>
-      <div className={visualization ? 'grey-background': ''} onClick={toggleChart}>
+      <div className={visualization ? 'selected': 'unselected'} onClick={toggleChart}>
         <i className='fa fa-lg fa-bar-chart' />
         <span>Chart View</span>
       </div>

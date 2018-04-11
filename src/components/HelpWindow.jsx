@@ -31,7 +31,7 @@ class HelpWindow extends React.Component {
 
   render (): ?React.Element {
     return (
-      <i className='fa fa-info-circle pad-l-1' onClick={this.openModal}>
+      <i className='fa fa-lg fa-info-circle' onClick={this.openModal}>
         <ReactModal
           isOpen={this.state.showModal}
           className='help-window'

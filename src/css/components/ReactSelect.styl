@@ -213,7 +213,7 @@
 .Select--multi .Select-clear-zone {
   width: 17px;
 }
-.Select-arrow-zone {
+.Select-arrow-zone
   cursor: pointer;
   display: table-cell;
   position: relative;
@@ -221,22 +221,24 @@
   vertical-align: middle;
   width: 25px;
   padding-right: 5px;
-}
+
+
+  .Select-arrow
+    border-color: #BFD4DF transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 2.5px;
+    display: inline-block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 15px;
+    right: 9px;
+
 .Select--rtl .Select-arrow-zone {
   padding-right: 0;
   padding-left: 5px;
 }
-.Select-arrow {
-  border-color: #BFD4DF transparent transparent;
-  border-style: solid;
-  border-width: 5px 5px 2.5px;
-  display: inline-block;
-  height: 0;
-  width: 0;
-  position: absolute;
-  top: 15px;
-  right: 9px;
-}
+
 .Select-control > *:last-child {
   padding-right: 5px;
 }
