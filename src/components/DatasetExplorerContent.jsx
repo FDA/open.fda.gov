@@ -1205,15 +1205,12 @@ class DatasetExplorerContentComponent extends React.Component {
               <div className='dataset-overlay' />
           }
           <div>
-          {
-            !this.props.hideContent &&
-              <SelectedFiltersComponent
-                applied_filters={this.props.applied_filters}
-                clearAllFilters={this.props.clearAllFilters}
-                parent={this.props.parent}
-                removeFilter={this.props.removeFilter}
-              />
-          }
+          <SelectedFiltersComponent
+            applied_filters={this.props.applied_filters}
+            clearAllFilters={this.props.clearAllFilters}
+            parent={this.props.parent}
+            removeFilter={this.props.removeFilter}
+          />
           </div>
           <ResultsComponent
             hideContent={this.props.hideContent}
