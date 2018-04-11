@@ -65,14 +65,11 @@ const Hero = (props: tPROPS) => {
     drug: {height: '350px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '120%', top: '-65px'}
   }
 
-  console.log("IN HERO")
 
   if ('path' in props) {
     let cat_path = path.split( '/' )
     var cat_name = cat_path[2]
-    console.log("cat_name: ", cat_name)
   } else {
-    console.log("OTHER")
     var cat_name = 'other'
   }
 
