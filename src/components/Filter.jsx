@@ -635,6 +635,8 @@ class FilterComponent extends React.Component {
   constructor (props: Object) {
     super(props)
 
+    console.log("filter props:", this.props.test_obj)
+
     this.state = {
       displayFilters: true,
       selected_filters: this.props.filters
@@ -649,6 +651,10 @@ class FilterComponent extends React.Component {
     this.onChangeText = this.onChangeText.bind(this)
     this.onChangeDropDown = this.onChangeDropDown.bind(this)
   }
+
+  componentDidUpdate (){
+    console.log("filter state updated: ", this.state.selected_filters)
+}
 
 
   onChangeCheckbox(e, options) {
@@ -689,19 +695,20 @@ class FilterComponent extends React.Component {
   onChangeSelect(selectionObj, meta) {
     console.log("in onchaaaaa")
     const value = selectionObj.value
-    const currentValues = this.state.selected_filters[meta.idx].value
-    const currentIndex = currentValues.indexOf(value)
 
     // contains value already
-    if ( currentIndex > -1 ) {
-      currentValues.splice(currentIndex, 1)
+    if ( this.state.selected_filters[meta.idx].value.indexOf(value) > -1 ) {
+      //currentValues.splice(currentIndex, 1)
+      console.log("YES in the selected obj")
+      this.setState({
+        selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$splice: [[0, 1]]}}})
+      })
     } else {
-      currentValues.push(value)
+      console.log("not in the selected obj")
+      this.setState({
+        selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$push: [value]}}})
+      })
     }
-
-    this.setState({
-      selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: currentValues}}})
-    })
 
     this.props.handleFilterChange()
   }

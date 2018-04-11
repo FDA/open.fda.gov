@@ -49,7 +49,6 @@ class DataExplorer extends React.Component {
 
     this.state = _.extend(defaultState, this.getDatasetState(dataset))
 
-
     this.clearAllFilters = this.clearAllFilters.bind(this)
     this.getData = this.getData.bind(this)
     this.getFilters = this.getFilters.bind(this)
@@ -67,6 +66,10 @@ class DataExplorer extends React.Component {
   componentDidMount () {
     this.handleChange(this.state.dataset)
     this.handleViewChange(this.state.view)
+  }
+
+  componentDidUpdate () {
+    console.log("explorer state updated: ", this.state)
   }
 
   getFilters(dataset){
@@ -167,7 +170,9 @@ class DataExplorer extends React.Component {
     }
   }
 
-  handleFilterChange = () => {
+  handleFilterChange () {
+    console.log("handleFilterChange")
+    console.log("this.state: ", this.state)
     this.setState({
       hideContent: true
     })
