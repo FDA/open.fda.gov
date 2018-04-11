@@ -280,7 +280,7 @@ class ResultsComponent extends React.Component {
     }
 
     return (
-      <div>
+      <div className={this.props.hideContent ? 'blur': ''}>
         <div className='dataset-table-menubar'>
           {/* <p >{this.props.parent.state._rows.length} matches out of {this.props.parent.state.totalRecords}</p> */}
           <div>
@@ -354,7 +354,7 @@ class ResultsComponent extends React.Component {
   }
 }
 
-const CustomizedAxisTick = React.createClass({
+const CustomizedAxisTick = createReactClass({
   render () {
     const {x, y, stroke, payload} = this.props;
 
@@ -1147,7 +1147,6 @@ class SelectedFiltersComponent extends React.Component {
         <div />
       )
     }
-    console.log("filter length: ", filter_list)
     return (
       <div className='content-selected-filters'>
         <h3>Applied Filters:</h3>
@@ -1212,14 +1211,15 @@ class DatasetExplorerContentComponent extends React.Component {
           {
             !this.props.hideContent &&
               <SelectedFiltersComponent
-                parent={this.props.parent}
                 applied_filters={this.props.applied_filters}
-                removeFilter={this.props.removeFilter}
                 clearAllFilters={this.props.clearAllFilters}
+                parent={this.props.parent}
+                removeFilter={this.props.removeFilter}
               />
           }
           </div>
           <ResultsComponent
+            hideContent={this.props.hideContent}
             parent={this.props.parent}
           />
         </div>
