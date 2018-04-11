@@ -4,7 +4,7 @@ import React from 'react'
 
 import { default as ReactTable } from "react-table"
 
-import createClass from 'create-react-class'
+var createReactClass = require('create-react-class');
 import Select from 'react-select'
 import FileSaver from 'file-saver'
 import jsonexport from 'jsonexport'
@@ -35,7 +35,7 @@ function sortFrequenciesOfReportedSign(a, b, desc){
     return sortFrequenciesOfReportedSign(a.slice(a.indexOf(",") +1), b.slice(a.indexOf(",") +1),desc)
   } else return (a1 - b1)
 }
-const GravatarOption = createClass({
+const GravatarOption = createReactClass({
   propTypes: {
     children: PropTypes.node,
     className: PropTypes.string,
@@ -296,7 +296,6 @@ class ResultsComponent extends React.Component {
               options={this.state.columns}
               onChange={this.onColumnToggle}
               resetValue="Header"
-              ref={(ref)=>{this.DOMNode = ref}}
               removeSelected={false}
               clearable={false}
               closeOnSelect={false}
@@ -314,7 +313,6 @@ class ResultsComponent extends React.Component {
                 onChange={this.onExportChoosen}
                 options={this.props.parent.state.dataset.exportOptions}
                 resetValue="Header"
-                ref={(ref)=>{this.DOMNode = ref}}
                 removeSelected={false}
                 clearable={false}
                 closeOnSelect={true}
@@ -654,7 +652,6 @@ class ResultsInfographicPieBarComponent extends React.Component {
             options={this.state.years}
             onChange={this.onYearToggle}
             resetValue="Header"
-            ref={(ref)=>{this.DOMNode = ref}}
             removeSelected={false}
             clearable={false}
             closeOnSelect={true}

@@ -231,7 +231,7 @@ class DataExplorer extends React.Component {
       return filter
     })
 
-    this.setState(update(this.state, {applied_filters: {$set: applied_filters}}))
+    this.setState(update(this.state, {applied_filters: {$set: applied_filters}, hideContent: {$set: false}}))
 
     this.getData()
   }

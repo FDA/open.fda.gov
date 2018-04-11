@@ -5,7 +5,6 @@ import React from 'react'
 import PieChartInfographic from '../components/PieChartInfographic'
 
 import Select from 'react-select'
-import 'react-select/dist/react-select.css'
 
 type tPROPS = {
   meta: Array<Object|string>;

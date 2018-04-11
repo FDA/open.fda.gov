@@ -16,7 +16,6 @@ require('react-datetime');
 
 import 'react-day-picker/lib/style.css'
 import 'rc-checkbox/assets/index.css'
-import 'react-select/dist/react-select.css';
 
 
 class SelectAutoCompleteFilterComponent extends React.Component {
@@ -921,7 +920,7 @@ class FilterComponent extends React.Component {
           components
         }
         <div className='sidebar-buttons'>
-          <button className={this.props.hideContent ? 'bg-darker-blue': 'bg-light-blue'} onClick={() => this.props.updateSelectedFilters(this.state.selected_filters)}>
+          <button className={this.props.hideContent ? 'filter-bg-darker-blue': 'filter-bg-light-blue'} onClick={() => this.props.updateSelectedFilters(this.state.selected_filters)}>
             APPLY FILTERS
           </button>
           <span onClick={this.props.clearAllFilters}>Clear All</span>
