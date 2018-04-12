@@ -285,10 +285,12 @@ class YearPickerFilterComponent extends React.Component {
 
     const startYear = this.props.option.start_year
     const endYear = Moment().format('YYYY')
+    let years = this.getOptions()
 
     this.state = {
       startYear: startYear,
-      endYear: endYear
+      endYear: endYear,
+      years: years
     }
 
     this.onChangeStart = this.onChangeStart.bind(this)
@@ -297,14 +299,21 @@ class YearPickerFilterComponent extends React.Component {
   }
 
   componentDidMount () {
+    if (this.props.onChangeYear) {
+      this.props.onChangeYear(Moment(this.state.startYear + '0101').format('YYYYMMDD'), Moment(this.state.endYear + '1231').format('YYYYMMDD'), {
+        field: this.props.option.field,
+        idx: this.props.option.idx,
+      },
+        true
+      )
+    }
   }
 
-  componentWillReceiveProps () {
+/*  componentWillReceiveProps () {
 
     let years = this.getOptions()
 
     this.setState({
-      field: this.props.option.field,
       years: years
     }, () => {
       if (this.props.onChangeYear) {
@@ -314,7 +323,7 @@ class YearPickerFilterComponent extends React.Component {
         })
       }
     })
-  }
+  }*/
 
   getOptions () {
     let list = [];
@@ -338,6 +347,7 @@ class YearPickerFilterComponent extends React.Component {
   }
 
   onChangeStart (startYear) {
+    console.log("startYearvar : ", startYear)
     this.setState({
       startYear: startYear.value
     })
@@ -350,6 +360,7 @@ class YearPickerFilterComponent extends React.Component {
   }
 
   onChangeEnd (endYear) {
+    console.log("endYearvar : ", endYear)
     this.setState({
       endYear: endYear.value
     })
@@ -645,11 +656,15 @@ class FilterComponent extends React.Component {
     this.onChangeSelect = this.onChangeSelect.bind(this)
     this.onChangeCheckbox = this.onChangeCheckbox.bind(this)
     this.onChangeBoolean = this.onChangeBoolean.bind(this)
-    this.onChangeDatePickerEnd = this.onChangeDatePickerEnd.bind(this)
-    this.onChangeDatePickerStart = this.onChangeDatePickerStart.bind(this)
     this.onChangeYearPicker = this.onChangeYearPicker.bind(this)
     this.onChangeText = this.onChangeText.bind(this)
-    this.onChangeDropDown = this.onChangeDropDown.bind(this)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    console.log("nextProps: ", nextProps)
+    /*this.setState({
+      selected_filters: nextProps.filters
+    })*/
   }
 
   componentDidUpdate (){
@@ -659,35 +674,39 @@ class FilterComponent extends React.Component {
 
   onChangeCheckbox(e, options) {
     const value = options.options.filter(v => e.target.value === v.label)[0].value
+    console.log("checkbox value: ", value)
 
-    const currentValues = this.state.selected_filters[e.target.filterIdx].value
-
-    const currentIndex = currentValues.indexOf(value)
     // contains value already
-    if ( currentIndex > -1 ) {
-      currentValues.splice(currentIndex, 1)
+    if ( this.state.selected_filters[e.target.filterIdx].value.indexOf(value) > -1 ) {
+      console.log("YES in the selected obj")
+      this.setState({
+        selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$splice: [[0, 1]]}}})
+      })
     } else {
-      currentValues.push(value)
+      console.log("not in the selected obj")
+      this.setState({
+        selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$push: [value]}}})
+      })
     }
-
-    this.setState({
-      selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: currentValues}})
-    })
 
     this.props.handleFilterChange()
   }
 
   onChangeBoolean(e, options) {
+    console.log("options: ", options)
     const value = options.options.filter(v => e.target.value === v.label)[0].value
 
-    let currentValue = this.state.selected_filters[e.target.filterIdx].value
-    if (value !== currentValue) {
-      currentValue = [value]
+    if (value !== this.state.selected_filters[e.target.filterIdx].value[0]) {
+      console.log("not equal!!!", "bool val: ", value, "current val: ", this.state.selected_filters[e.target.filterIdx].value)
+      this.setState({
+        selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$set: [value]}}})
+      })
+    } else {
+      console.log("equal!", "bool val: ", value, "current val: ", this.state.selected_filters[e.target.filterIdx].value)
+      this.setState({
+        selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$set: []}}})
+      })
     }
-
-    this.setState({
-      selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$set: currentValue}}})
-    })
 
     this.props.handleFilterChange()
   }
@@ -698,7 +717,6 @@ class FilterComponent extends React.Component {
 
     // contains value already
     if ( this.state.selected_filters[meta.idx].value.indexOf(value) > -1 ) {
-      //currentValues.splice(currentIndex, 1)
       console.log("YES in the selected obj")
       this.setState({
         selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$splice: [[0, 1]]}}})
@@ -713,100 +731,41 @@ class FilterComponent extends React.Component {
     this.props.handleFilterChange()
   }
 
-  onChangeTimeSelect(selectionObj, meta) {
-    if(!this.state.selected_filters.length){
-      return
+  onChangeYearPicker(start_date, end_date, meta, reload) {
+
+    if (reload === true) {
+      console.log("start date: ", start_date, "end date: ", end_date)
+      this.setState({
+        selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: [start_date, end_date]}}})
+      }, () => {
+        console.log("in callback area")
+        this.props.updateSelectedFilters(this.state.selected_filters)
+      })
+    } else {
+      console.log("hit the else!")
+      this.setState({
+        selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: [start_date, end_date]}}})
+      })
+
+      this.props.handleFilterChange()
     }
-
-    this.state.selected_filters[meta.idx].value = selectionObj.value
-
-    this.setState({
-      selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: selectionObj.value}}})
-    })
-
-    this.props.handleFilterChange()
-  }
-
-  onChangeDatePickerEnd(date, meta) {
-    if(!this.state.selected_filters.length){
-      return
-    }
-    const currentValue = this.state.selected_filters[meta.idx].value
-
-    this.setState({
-      selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: [currentValue[0], date]}}})
-    })
-
-    this.props.handleFilterChange()
-  }
-
-  onChangeDatePickerStart(date, meta) {
-    if(!this.state.selected_filters.length){
-      return
-    }
-    const currentValue = this.state.selected_filters[meta.idx].value
-
-    this.state.selected_filters[meta.idx].value = [date, currentValue[1]]
-
-    this.setState({
-      selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: [date, currentValue[1]]}}})
-    })
-
-    this.props.handleFilterChange()
-  }
-
-  onChangeYearPicker(start_date, end_date, meta) {
-    if(!this.state.selected_filters.length){
-      return
-    }
-
-
-    this.state.selected_filters[meta.idx].value = [start_date, end_date]
-
-    this.setState({
-      selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: [start_date, end_date]}}})
-    })
-
-    this.props.handleFilterChange()
   }
 
   onChangeText(value, meta) {
-    if(!this.state.selected_filters.length){
-      return
-    }
     value = value.toLowerCase()
-    const currentValues = this.state.selected_filters[meta.idx].value
-    const currentIndex = currentValues.indexOf(value)
 
     // contains value already
-    if ( currentIndex > -1 ) {
-      currentValues.splice(currentIndex, 1)
+    if ( this.state.selected_filters[meta.idx].value.indexOf(value) > -1 ) {
+      console.log("YES in the selected obj")
+      this.setState({
+        selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$splice: [[0, 1]]}}})
+      })
     } else {
-      currentValues.push(value)
+      console.log("not in the selected obj")
+      this.setState({
+        selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$push: [value]}}})
+      })
     }
-
-    this.setState({
-      selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: currentValues}}})
-    })
-
-    this.props.handleFilterChange()
-  }
-
-  onChangeDropDown(selectionObj, meta){
-    const value = selectionObj.value
-    const currentValues = this.state.selected_filters[meta.idx].value
-    const currentIndex = currentValues.indexOf(value)
-
-    // contains value already
-    if ( currentIndex > -1 ) {
-      currentValues.splice(currentIndex, 1)
-    } else {
-      currentValues.push(value)
-    }
-
-    this.setState({
-      selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: currentValues}}})
-    })
 
     this.props.handleFilterChange()
   }
@@ -834,16 +793,7 @@ class FilterComponent extends React.Component {
     }
     const components = this.props.dataset.filters.options.map((option,idx) => {
       option.idx = idx
-      if (option.type === "time_select") {
-        return (
-          <TimeSelectFilterComponent
-            filters={this.state.selected_filters}
-            key={`filter${idx}`}
-            onChange={this.onChangeTimeSelect}
-            option={option}
-          />
-        )
-      } else if (option.type === "select_autocomplete") {
+      if (option.type === "select_autocomplete") {
         return (
           <SelectAutoCompleteFilterComponent
             dataset={this.props.dataset}
@@ -876,19 +826,6 @@ class FilterComponent extends React.Component {
               filters={this.state.selected_filters}
               key={`filter${idx}`}
               onChange={this.onChangeBoolean}
-              option={option}
-            />
-          </div>
-        )
-      } else if (option.type === "datepicker") {
-        return (
-          <div className='filter-item-container' key={`div${idx}`}>
-            <h3>{option.label}</h3>
-            <DatePickerFilterComponent
-              filters={this.state.selected_filters}
-              key={`filter${idx}`}
-              onChangeStart={this.onChangeDatePickerStart}
-              onChangeEnd={this.onChangeDatePickerEnd}
               option={option}
             />
           </div>
