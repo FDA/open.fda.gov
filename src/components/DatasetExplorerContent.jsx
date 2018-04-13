@@ -105,6 +105,46 @@ class ResultsComponent extends React.Component {
 
  }
 
+  componentDidMount () {
+  }
+
+  componentWillReceiveProps(nextProps){
+    if (nextProps.view){
+      const columnsData = this.getFormattedColumns(nextProps.view.columns)
+      const pivotBy = nextProps.view.pivotBy
+
+
+      if(pivotBy && pivotBy.length) {
+        columnsData.columns.map(value => {
+          if (pivotBy.indexOf(value.accessor) > -1) {
+            value.aggregate = (vals => {
+              return [...new Set(vals)]
+            }),
+              value.Aggregated = (row => {
+                return (<span>{row.value}</span>)
+              })
+          }
+
+          if (value.dedup) {
+            value.aggregate = (vals => {
+              var unique_list = Array.from(new Set(vals)).filter(val => [null, undefined, 'null'].indexOf(val) === -1)
+              return unique_list.join(', ')
+            }),
+              value.Aggregated = (row => {
+                return (<span>{row.value}</span>)
+              })
+          }
+        })
+      }
+
+      this.setState({
+        columns: columnsData.columns,
+        pivotBy: (pivotBy || []),
+        placeholder: `Manage Columns ${columnsData.shownColumnsCount}/${columnsData.columns.length}`
+      })
+    }
+  }
+
   toTitleCase(str) {
     if(!str){
       return str
@@ -131,11 +171,10 @@ class ResultsComponent extends React.Component {
     onColumnToggle(selectionObj){
 
     this.state.columns[selectionObj.idx].show = !selectionObj.show
-    const shownColumnsCount = this.state.columns.filter(c => c.show).length
 
     this.setState({
       columns: [...this.state.columns],
-      placeholder: `Manage Columns ${shownColumnsCount}/${this.state.columns.length}`
+      placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length}/${this.state.columns.length}`
     })
   }
 
@@ -144,7 +183,7 @@ class ResultsComponent extends React.Component {
     if(selectionObj.label === "CSV"){
       try {
         let csv = ''
-        jsonexport(this.props.parent.state._rows, function(err, export_csv){
+        jsonexport(this.props.rows, function(err, export_csv){
           if(err) return console.log(err);
           csv = export_csv
         });
@@ -154,73 +193,33 @@ class ResultsComponent extends React.Component {
         console.error(err);
       }
     } else {
-      var blob = new Blob(this.props.parent.state._rows.map(obj => JSON.stringify(obj)), {type: "text/plain;charset=utf-8"});
+      var blob = new Blob(this.props.rows.map(obj => JSON.stringify(obj)), {type: "text/plain;charset=utf-8"});
       FileSaver.saveAs(blob, "download.json");
     }
   }
 
-  componentDidMount () {
-  }
-
-  componentWillReceiveProps(){
-    const columnsData = this.getFormattedColumns()
-    const pivotBy = this.props.parent.state.view.pivotBy
-
-
-    if(pivotBy && pivotBy.length){
-      columnsData.columns.map(value => {
-        if(pivotBy.indexOf(value.accessor) > -1){
-          value.aggregate = (vals => {
-            return [...new Set(vals)]
-          }),
-          value.Aggregated = (row => {
-            return (<span>{row.value}</span>)
-          })
+  getFormattedColumns(columns){
+    columns.forEach(function(column){
+        if(column.sortType === "commaSeparatedNumbers"){
+            column.sortMethod = (a, b, desc) => {
+                return sortFrequenciesOfReportedSign(a,b,desc)
+            };
         }
-
-        if (value.dedup){
-          value.aggregate = (vals => {
-            var unique_list = Array.from(new Set(vals)).filter(val => [null, undefined, 'null'].indexOf(val) === -1)
-            return unique_list.join(', ')
-          }),
-          value.Aggregated = (row => {
-            return (<span>{row.value}</span>)
-          })
-        }
-      })
-
-    }
-
-    this.setState({
-      columns: columnsData.columns,
-      pivotBy: (pivotBy || []),
-      placeholder: `Manage Columns ${columnsData.shownColumnsCount}/${columnsData.columns.length}`
-    })
-  }
-
-  getFormattedColumns(){
-    let columns = this.props.parent.state.view.columns
-      columns.forEach(function(column){
-          if(column.sortType === "commaSeparatedNumbers"){
-              column.sortMethod = (a, b, desc) => {
-                  return sortFrequenciesOfReportedSign(a,b,desc)
-              };
-          }
-      });
+    });
     const shownColumnsCount = columns.filter(c => c.show).length
     columns = columns.map((d,idx) => {
       d.idx = idx
-      d.Cell = (props) => {
-        let value = this.toTitleCase(props.value)
+      d.Cell = (options) => {
+        let value = this.toTitleCase(options.value)
 
         let html = null
-        if(props.column.filter_values && value){
-          props.column.filter_values.forEach(filter_value => {
+        if(options.column.filter_values && value){
+          options.column.filter_values.forEach(filter_value => {
             value = value.replace(filter_value, "")
           })
           value = value.trim().replace(':', '').replace(new RegExp("^s ", "i"), "")
         }
-        if(props.column.split && value){
+        if(options.column.split && value){
           var split = value.split(',').length > 1 ? value.split(',') : value.split('•')
           if(split.length > 1){
             html = (
@@ -236,7 +235,7 @@ class ResultsComponent extends React.Component {
                         whiteSpace: "initial"
                       }}
                     >
-                     • {v && props.column.startCase? this.convertToStartCase(v.trim()):v.trim()}
+                     • {v && options.column.startCase? this.convertToStartCase(v.trim()):v.trim()}
                     </li>
                   )
                 }
@@ -245,7 +244,7 @@ class ResultsComponent extends React.Component {
           }
         }
 
-        if (props.column.type === "date") {
+        if (options.column.type === "date") {
           value = Moment(value).format('MM/DD/YYYY')
         }
 
@@ -256,7 +255,7 @@ class ResultsComponent extends React.Component {
                 whiteSpace: "initial"
               }}
             >
-              { value && props.column.startCase? this.convertToStartCase(value):value  }
+              { value && options.column.startCase? this.convertToStartCase(value):value  }
             </span>
           )
         }
@@ -274,8 +273,7 @@ class ResultsComponent extends React.Component {
   }
 
   render (): ?React.Element {
-
-    if(this.props.parent.state._rows === undefined){
+    if(this.props.rows === undefined){
       return (<span/>)
     }
 
@@ -311,7 +309,7 @@ class ResultsComponent extends React.Component {
                   width: 80
                 }}
                 onChange={this.onExportChoosen}
-                options={this.props.parent.state.dataset.exportOptions}
+                options={this.props.dataset.exportOptions}
                 resetValue="Header"
                 removeSelected={false}
                 clearable={false}
@@ -322,11 +320,11 @@ class ResultsComponent extends React.Component {
           </div>
         </div>
         <ReactTable
-          data={this.props.parent.state._rows}
+          data={this.props.rows}
           pageSize={this.state.pageSize}
           columns={this.state.columns}
           pivotBy={this.state.pivotBy}
-          defaultPageSize={this.props.parent.state._rows.length}
+          defaultPageSize={this.props.rows.length}
           showPageSizeOptions={true}
           pageSizeOptions={[25, 50, 100, 200, 250, 500, 1000]}
           showPagination={true}
@@ -389,7 +387,7 @@ class BarChartComponent extends React.Component {
       <BarChart
         ref="bar"
         data={this.props.infographics.state.data}
-        {...this.props.parent.state.infographicsConfig.barChart}
+        {...this.props.infographicsConfig.barChart}
       >
         <XAxis dataKey="name" interval={0} tick={<CustomizedAxisTick/>}/>
         <YAxisR/>
@@ -417,10 +415,17 @@ class PieChartComponent extends React.Component {
       data: {}
     }
     this.onClick = this.onClick.bind(this)
+    this.setIndex = this.setIndex.bind(this)
   }
 
   componentDidMount () {
-    this.onClick(this.props.parent.state.infographicsConfig.pieChart.default, this.props.parent.state.infographicsConfig.pieChart.default.index)
+    this.onClick(this.props.infographicsConfig.pieChart.default, this.props.infographicsConfig.pieChart.default.index)
+  }
+
+  setIndex (activeIndex) {
+    this.setState({
+      activeIndex: activeIndex
+    })
   }
 
   onClick(obj, index){
@@ -442,7 +447,7 @@ class PieChartComponent extends React.Component {
 
   render (): ?React.Element {
     if(this.refs.child && this.refs.child.refs.pieChart.container.children.length){
-      const viewBox = this.props.parent.state.infographicsConfig.pieChart.viewBox
+      const viewBox = this.props.infographicsConfig.pieChart.viewBox
       this.refs.child.refs.pieChart.container.children[0].viewBox.baseVal.x = viewBox.x
       this.refs.child.refs.pieChart.container.children[0].viewBox.baseVal.y = viewBox.y
       this.refs.child.refs.pieChart.container.children[0].viewBox.baseVal.width = viewBox.width
@@ -456,9 +461,9 @@ class PieChartComponent extends React.Component {
             <TwoLevelPieChart
               onClick={this.onClick}
               data={this.props.infographics.state.categories}
-              parent={this}
               ref="child"
-              {...this.props.parent.state.infographicsConfig.pieChart}
+              setIndex={this.setIndex}
+              {...this.props.infographicsConfig.pieChart}
             /> :
             <div style={{height:300,width:700}}>
             </div>
@@ -483,7 +488,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
   }
 
   componentDidMount () {
-    this.onYearToggle(this.props.parent.state.infographicsConfig.select.default)
+    this.onYearToggle(this.props.infographicsConfig.select.default)
 
     const all = [{
       value: "All",
@@ -491,9 +496,9 @@ class ResultsInfographicPieBarComponent extends React.Component {
     }]
     const now = new Date()
     const that = this
-    let yearsRange = _.range(this.props.parent.state.infographicsConfig.select.startYear, now.getFullYear()+1)
+    let yearsRange = _.range(this.props.infographicsConfig.select.startYear, now.getFullYear()+1)
     yearsRange = yearsRange.filter(v => {
-      return this.props.parent.state.infographicsConfig.select.yearsWithNoData.indexOf(v) === -1
+      return this.props.infographicsConfig.select.yearsWithNoData.indexOf(v) === -1
     })
     const years = all.concat(
       _.reverse(yearsRange.map(value => {
@@ -510,7 +515,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
 
   }
   componentDidUpdate() {
-    if(!Object.keys(this.props.parent.state.infographicsConfig).length){
+    if(!Object.keys(this.props.infographicsConfig).length){
       return
     }
   }
@@ -523,13 +528,13 @@ class ResultsInfographicPieBarComponent extends React.Component {
       }
     }
 
-    const countBy = this.props.parent.state.infographicsConfig.pieChart.barChartCountBy
-    const path = `${this.props.parent.state.dataset.url}/${this.props.parent.state.dataset.endpoint}`
-    let url = `${path}?count=${countBy}&search=${this.props.parent.state.infographicsConfig.pieChart.countBy}:"${obj.full_name}"`
+    const countBy = this.props.infographicsConfig.pieChart.barChartCountBy
+    const path = `${this.props.dataset.url}/${this.props.dataset.endpoint}`
+    let url = `${path}?count=${countBy}&search=${this.props.infographicsConfig.pieChart.countBy}:"${obj.full_name}"`
     let data = []
 
     if (this.state.yearSelection.value !== "All") {
-      url += `+AND+${this.props.parent.state.infographicsConfig.pieChart.dateField}:[${this.state.yearSelection.value}0101+TO+${this.state.yearSelection.value}1231]`
+      url += `+AND+${this.props.infographicsConfig.pieChart.dateField}:[${this.state.yearSelection.value}0101+TO+${this.state.yearSelection.value}1231]`
     }
 
     fetch(url)
@@ -542,7 +547,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
               substance_name: value.count,
               amt: value.count
             }
-          }).slice(0,this.props.parent.state.infographicsConfig.barChart.limiter)
+          }).slice(0,this.props.infographicsConfig.barChart.limiter)
         } else {
           console.log('????')
         }
@@ -571,9 +576,9 @@ class ResultsInfographicPieBarComponent extends React.Component {
     if(this.state.value && selection.value === this.state.value.value){
       return
     }
-    let url = `${this.props.parent.state.dataset.url}/${this.props.parent.state.dataset.endpoint}?count=${this.props.parent.state.infographicsConfig.pieChart.countBy}&`
+    let url = `${this.props.dataset.url}/${this.props.dataset.endpoint}?count=${this.props.infographicsConfig.pieChart.countBy}&`
     if(selection.value !== "All"){
-      url += `search=${this.props.parent.state.infographicsConfig.pieChart.dateField}:[${selection.value}0101+TO+${selection.value}1231]`
+      url += `search=${this.props.infographicsConfig.pieChart.dateField}:[${selection.value}0101+TO+${selection.value}1231]`
     }
 
     let sum = 0
@@ -590,11 +595,11 @@ class ResultsInfographicPieBarComponent extends React.Component {
             const pct = Math.round(category.count / sum *100)
             // {"id":"Class II","name":"Class II","value":6522,"pct":"82%"},
             return {
-              id: this.props.parent.state.infographicsConfig.pieChart.categories[category.term],
-              name: this.props.parent.state.infographicsConfig.pieChart.categories[category.term],
+              id: this.props.infographicsConfig.pieChart.categories[category.term],
+              name: this.props.infographicsConfig.pieChart.categories[category.term],
               pct: `${pct}%`,
               value: category.count,
-              textLabel: this.props.parent.state.infographicsConfig.pieChart.textLabel,
+              textLabel: this.props.infographicsConfig.pieChart.textLabel,
               full_name: category.term
             }
           })
@@ -607,7 +612,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
           yearSelection: selection
         }, function() {
           this.onOpen()
-          const defaultIndex = that.props.parent.state.infographicsConfig.pieChart.default.index
+          const defaultIndex = that.props.infographicsConfig.pieChart.default.index
           // this.getBarChartData(categories[defaultIndex], defaultIndex)
           that.refs.parent.onClick(categories[defaultIndex], defaultIndex)
         })
@@ -618,7 +623,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
   }
 
   render (): ?React.Element {
-    if(!Object.keys(this.props.parent.state.infographicsConfig).length){
+    if(!Object.keys(this.props.infographicsConfig).length){
       return (<span/>)
     }
 
@@ -626,13 +631,13 @@ class ResultsInfographicPieBarComponent extends React.Component {
     return (
       <div>
         <Collapsible
-          trigger={this.props.parent.state.infographicsConfig.collapsible.title}
+          trigger={this.props.infographicsConfig.collapsible.title}
           onOpen={this.onOpen}
           open={true}
         >
           <div className="infographic-title-div">
-            <h3>{this.props.parent.state.infographicsConfig.select.title}</h3>
-            <h3 className="infographic-barchart-title">{this.props.parent.state.infographicsConfig.barChart.title}</h3>
+            <h3>{this.props.infographicsConfig.select.title}</h3>
+            <h3 className="infographic-barchart-title">{this.props.infographicsConfig.barChart.title}</h3>
           </div>
           <Select
             name="toggle"
@@ -659,14 +664,14 @@ class ResultsInfographicPieBarComponent extends React.Component {
           />
           <div style={{display:"flex"}}>
             <PieChartComponent
-              parent={this.props.parent}
               infographics={this}
+              infographicsConfig={this.props.infographicsConfig}
               onClick={this.getBarChartData}
               ref="parent"
             />
             <BarChartComponent
-              parent={this.props.parent}
               infographics={this}
+              infographicsConfig={this.props.infographicsConfig}
             />
           </div>
         </Collapsible>
@@ -769,7 +774,7 @@ class ResultsInfographicLineBarComponent extends React.Component {
     this.getBarChartData()
   }
   componentDidUpdate() {
-    if(!Object.keys(this.props.parent.state.infographicsConfig).length){
+    if(!Object.keys(this.props.infographicsConfig).length){
       return
     }
   }
@@ -805,7 +810,7 @@ class ResultsInfographicLineBarComponent extends React.Component {
   }
 
   getLineChartData(){
-    let url = `${this.props.parent.state.dataset.url}/${this.props.parent.state.dataset.endpoint}?count=${this.props.parent.state.infographicsConfig.lineChart.countBy}`
+    let url = `${this.props.dataset.url}/${this.props.dataset.endpoint}?count=${this.props.infographicsConfig.lineChart.countBy}`
 
     fetch(`${url}`)
       .then(res => res.json())
@@ -819,7 +824,7 @@ class ResultsInfographicLineBarComponent extends React.Component {
           let data = []
 
           const urls = options.map(option => {
-            return `${this.props.parent.state.dataset.url}/${this.props.parent.state.dataset.endpoint}?search=${this.props.parent.state.infographicsConfig.lineChart.countBy}:"${option}"&count=${this.props.parent.state.infographicsConfig.lineChart.dateField}`
+            return `${this.props.dataset.url}/${this.props.dataset.endpoint}?search=${this.props.infographicsConfig.lineChart.countBy}:"${option}"&count=${this.props.infographicsConfig.lineChart.dateField}`
           })
 
           Promise.all(urls.map($.getJSON)).then(results => {
@@ -931,8 +936,8 @@ class ResultsInfographicLineBarComponent extends React.Component {
   }
 
   getBarChartData() {
-    const path = `${this.props.parent.state.dataset.url}/${this.props.parent.state.dataset.endpoint}`
-    let url = `${path}?count=${this.props.parent.state.infographicsConfig.barChart.countBy}`
+    const path = `${this.props.dataset.url}/${this.props.dataset.endpoint}`
+    let url = `${path}?count=${this.props.infographicsConfig.barChart.countBy}`
     let data = []
 
     fetch(url)
@@ -945,7 +950,7 @@ class ResultsInfographicLineBarComponent extends React.Component {
               substance_name: value.count,
               amt: value.count
             }
-          }).slice(0,this.props.parent.state.infographicsConfig.barChart.limiter)
+          }).slice(0,this.props.infographicsConfig.barChart.limiter)
         } else {
           console.log('????')
         }
@@ -961,14 +966,14 @@ class ResultsInfographicLineBarComponent extends React.Component {
   }
 
   render (): ?React.Element {
-    if(!Object.keys(this.props.parent.state.infographicsConfig).length){
+    if(!Object.keys(this.props.infographicsConfig).length){
       return (<span/>)
     }
 
     return (
       <div>
         <Collapsible
-          trigger={this.props.parent.state.infographicsConfig.collapsible.title}
+          trigger={this.props.infographicsConfig.collapsible.title}
           onOpen={this.onOpen}
           open={true}
         >
@@ -987,7 +992,7 @@ class ResultsInfographicLineBarComponent extends React.Component {
                     paddingLeft: "15%",
                     paddingBottom: 15
                   }}
-                >{this.props.parent.state.infographicsConfig.lineChart.title}</h3>
+                >{this.props.infographicsConfig.lineChart.title}</h3>
                 <ChartContainer
                   timeRange={this.state.timerange}
                   {...this.state.config.chartContainer}
@@ -1022,10 +1027,10 @@ class ResultsInfographicLineBarComponent extends React.Component {
                     paddingLeft: "36%",
                     paddingBottom: 15
                   }}
-                >{this.props.parent.state.infographicsConfig.barChart.title}</h3>
+                >{this.props.infographicsConfig.barChart.title}</h3>
                 <BarChartComponent
-                  parent={this.props.parent}
                   infographics={this}
+                  infographicsConfig={this.props.infographicsConfig}
                 />
               </div>
             </div>
@@ -1044,22 +1049,9 @@ class SelectedFiltersComponent extends React.Component {
 
     this.state = {}
     this.formatValues = this.formatValues.bind(this)
-    this.clearAll = this.clearAll.bind(this)
   }
 
   componentDidMount () {
-  }
-
-
-  clearAll(){
-    this.props.parent.setState({
-      filters: this.props.applied_filters.map((filter, idx) => {
-        if(filter.query_type !== "range"){
-          filter.value = []
-        }
-        return filter
-      })
-    })
   }
 
   formatValues(){
@@ -1078,6 +1070,18 @@ class SelectedFiltersComponent extends React.Component {
             })
           }
         })
+      } else if (
+        filter.query_type === "range" &&
+        filter.type === "yearpicker" &&
+        filter.value.length
+      ) {
+        filter_list.push({
+          value: `${filter.value[0]} - ${filter.value[filter.value.length - 1]}`,
+          label: filter.label,
+          query_type: filter.query_type,
+          idx: idx,
+          valueIdx: [0, 1]
+        })
       } else if(
         filter.query_type === "range" &&
         filter.value.length
@@ -1092,22 +1096,10 @@ class SelectedFiltersComponent extends React.Component {
         })
       } else if (
         filter.query_type === "term" &&
-        filter.type === "yearpicker" &&
-        filter.value.length
-      ) {
-        filter_list.push({
-          value: `${filter.value[0]} - ${filter.value[filter.value.length - 1]}`,
-          label: filter.label,
-          query_type: filter.query_type,
-          idx: idx
-        })
-      } else if (
-        filter.query_type === "term" &&
         filter.value.length &&
         filter.type !== "checkbox"
       ){
         filter.value.forEach( (f, valueIdx) => {
-          console.log("valueIDX: ", valueIdx)
           filter_list.push({
             value: f,
             label: filter.label,
@@ -1169,22 +1161,21 @@ class DatasetExplorerContentComponent extends React.Component {
   }
 
   render (): ?React.Element {
-
-    console.log("content props: ", this.props)
-
     let infographic = null
 
     if (this.props.visualization === true) {
-      if (Object.keys(this.props.parent.state.infographicsConfig).length) {
-        if (this.props.parent.state.infographicsConfig.type === "pieBar") {
+      if (Object.keys(this.props.infographicsConfig).length) {
+        if (this.props.infographicsConfig.type === "pieBar") {
           infographic =
             <ResultsInfographicPieBarComponent
-              parent={this.props.parent}
+              dataset={this.props.dataset}
+              infographicsConfig={this.props.infographicsConfig}
             />
-        } else if (this.props.parent.state.infographicsConfig.type === "lineBar") {
+        } else if (this.props.infographicsConfig.type === "lineBar") {
           infographic =
             <ResultsInfographicLineBarComponent
-              parent={this.props.parent}
+              dataset={this.props.dataset}
+              infographicsConfig={this.props.infographicsConfig}
             />
         }
       }
@@ -1208,13 +1199,16 @@ class DatasetExplorerContentComponent extends React.Component {
           <SelectedFiltersComponent
             applied_filters={this.props.applied_filters}
             clearAllFilters={this.props.clearAllFilters}
-            parent={this.props.parent}
+            infographicsConfig={this.props.infographicsConfig}
             removeFilter={this.props.removeFilter}
           />
           </div>
           <ResultsComponent
+            dataset={this.props.dataset}
             hideContent={this.props.hideContent}
-            parent={this.props.parent}
+            infographicsConfig={this.props.infographicsConfig}
+            rows={this.props.rows}
+            view={this.props.view}
           />
         </div>
       )

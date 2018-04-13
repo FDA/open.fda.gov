@@ -104,12 +104,10 @@ class TwoLevelPieChart extends React.Component {
 
   componentDidMount () {
     const activeIndex = this.props.default.index || 0;
-    this.state = {
+    this.setState({
       activeIndex: activeIndex
-    }
-    this.props.parent.setState({
-      activeIndex
     })
+    this.props.setIndex(activeIndex)
   }
 
   onPieEnter(data, index) {
@@ -125,9 +123,9 @@ class TwoLevelPieChart extends React.Component {
     this.setState({
       activeIndex: index,
     });
-    this.props.parent.setState({
-      activeIndex: index
-    })
+
+    this.props.setIndex(index)
+
     if(this.props.onClick!== undefined){
       this.props.onClick(data, index)
     }

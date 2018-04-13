@@ -40,6 +40,7 @@ class DataExplorer extends React.Component {
       dataset: null,
       view: null,
       applied_filters: [],
+      filters: [],
       drs: null,
       _rows: [],
       infographicsConfig: null,
@@ -68,9 +69,9 @@ class DataExplorer extends React.Component {
     this.handleViewChange(this.state.view)
   }
 
-  componentDidUpdate () {
+/*  componentDidUpdate (prevProps, prevState) {
     console.log("explorer state updated: ", this.state)
-  }
+  }*/
 
   getFilters(dataset){
     return dataset.filters.options.map(option => {
@@ -110,9 +111,11 @@ class DataExplorer extends React.Component {
     this.setState({
       applied_filters: updated_filters,
       hideContent: false
+    }, () => {
+      this.getData()
     })
 
-    this.getData()
+    //this.getData()
   }
 
   getData(){
@@ -180,14 +183,6 @@ class DataExplorer extends React.Component {
     }
   }
 
-  handleFilterChange () {
-    console.log("handleFilterChange")
-    console.log("this.state: ", this.state)
-    this.setState({
-      hideContent: true
-    })
-  }
-
   handleViewChange (value) {
     let view = null
     this.state.dataset.views.forEach( (obj, idx) => {
@@ -208,45 +203,51 @@ class DataExplorer extends React.Component {
     }
   }
 
-  removeFilter(idx, valueIdx){
-    const filter = this.state.applied_filters[idx]
-    if(!filter){ return }
-
-
-    if(filter.value.length){
-      let removed = filter.value.splice(valueIdx, 1)
-    } else {
-      filter.value.splice(0, filter.value.length)
+  handleFilterChange () {
+    if (this.state.hideContent === false) {
+      this.setState({
+        hideContent: true
+      })
     }
+  }
 
-    this.setState({
-      applied_filters: update(this.state.applied_filters, {[idx]: {value: {$set: filter.value}}})
-    })
+  removeFilter(idx, valueIdx){
+    let filter_length = this.state.applied_filters[idx].value.length
 
-    this.getData()
+    if (valueIdx.length) {
+      this.setState({
+        applied_filters: update(this.state.applied_filters, {[idx]: {value: {$set: []}}})
+      }, () => {
+        this.getData()
+      })
+    } else if(filter_length){
+      this.setState({
+        applied_filters: update(this.state.applied_filters, {[idx]: {value: {$splice: [[valueIdx, 1]]}}})
+      }, () => {
+        this.getData()
+      })
+    }  else {
+      this.setState({
+        applied_filters: update(this.state.applied_filters, {[idx]: {value: {$splice: [[0, filter_length]]}}})
+      }, () => {
+        this.getData()
+      })
+    }
   }
 
   clearAllFilters(){
-    let applied_filters = this.state.applied_filters
-    applied_filters.map(filter => {
-      if(filter.query_type !== "range") {
-        console.log("idx: ", filter.idx)
-        filter.value = []
-      }
-      return filter
+    this.setState(update(this.state, {applied_filters: {$set: this.getFilters(this.state.dataset)}, hideContent: {$set: false}}), () => {
+      this.getData()
     })
-
-    this.setState(update(this.state, {applied_filters: {$set: applied_filters}, hideContent: {$set: false}}))
-
-    this.getData()
   }
 
   toggleTable () {
     if (this.state.visualization === true) {
       this.setState({
         visualization: false
+      }, () => {
+        this.getData()
       })
-      this.getData()
     }
   }
 
@@ -317,11 +318,15 @@ class DataExplorer extends React.Component {
                 updateSelectedFilters={this.updateSelectedFilters}
               />
               <DatasetExplorerContentComponent
+                applied_filters={this.state.applied_filters}
                 clearAllFilters={this.clearAllFilters}
+                dataset={this.state.dataset}
                 hideContent={this.state.hideContent}
+                infographicsConfig={this.state.infographicsConfig}
                 removeFilter={this.removeFilter}
                 parent={this}
-                applied_filters={this.state.applied_filters}
+                rows={this.state._rows}
+                view={this.state.view}
                 visualization={this.state.visualization}
               />
             </div>
