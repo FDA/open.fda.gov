@@ -76,7 +76,6 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   removeValue(idx){
     const value = this.props.filters[this.props.option.idx].value[idx]
 
-    console.log("select auto remove value: ", value)
     this.props.onChange({
       label: value,
       value: value
@@ -288,8 +287,6 @@ class YearPickerFilterComponent extends React.Component {
     let years = this.getOptions()
 
     this.state = {
-      startYear: startYear,
-      endYear: endYear,
       years: years
     }
 
@@ -298,32 +295,23 @@ class YearPickerFilterComponent extends React.Component {
     this.getOptions = this.getOptions.bind(this)
   }
 
-  componentDidMount () {
+  /*componentDidMount () {
     if (this.props.onChangeYear) {
       this.props.onChangeYear(Moment(this.state.startYear + '0101').format('YYYYMMDD'), Moment(this.state.endYear + '1231').format('YYYYMMDD'), {
         field: this.props.option.field,
         idx: this.props.option.idx,
-      },
-        true
-      )
+      })
+    }
+  }*/
+
+  componentWillReceiveProps (nextProps) {
+    if (!nextProps.filters[nextProps.option.idx].value.length) {
+      this.setState({
+        startYear: 'Select start date',
+        endYear: 'Select end date'
+      })
     }
   }
-
-/*  componentWillReceiveProps () {
-
-    let years = this.getOptions()
-
-    this.setState({
-      years: years
-    }, () => {
-      if (this.props.onChangeYear) {
-        this.props.onChangeYear(Moment(this.state.startYear + '0101').format('YYYYMMDD'), Moment(this.state.endYear + '1231').format('YYYYMMDD'), {
-          field: this.props.option.field,
-          idx: this.props.option.idx
-        })
-      }
-    })
-  }*/
 
   getOptions () {
     let list = [];
@@ -347,12 +335,18 @@ class YearPickerFilterComponent extends React.Component {
   }
 
   onChangeStart (startYear) {
-    console.log("startYearvar : ", startYear)
     this.setState({
       startYear: startYear.value
     })
+
+    let endYear = this.state.endYear + '0101'
+
+    if (!Moment(endYear).isValid()) {
+      endYear = Moment().format('YYYYMMDD')
+    }
+
     if (this.props.onChangeYear) {
-      this.props.onChangeYear(Moment(startYear.value + '0101').format('YYYYMMDD'), Moment(this.state.endYear + '1231').format('YYYYMMDD'), {
+      this.props.onChangeYear(Moment(startYear.value + '0101').format('YYYYMMDD'), Moment(endYear).format('YYYYMMDD'), {
         field: this.props.option.field,
         idx: this.props.option.idx
       })
@@ -360,12 +354,18 @@ class YearPickerFilterComponent extends React.Component {
   }
 
   onChangeEnd (endYear) {
-    console.log("endYearvar : ", endYear)
     this.setState({
       endYear: endYear.value
     })
+
+    let startYear = this.state.startYear + '0101'
+
+    if (!Moment(startYear).isValid()) {
+      startYear = this.props.option.start_year + '0101'
+    }
+
     if (this.props.onChangeYear) {
-      this.props.onChangeYear(Moment(this.state.startYear + '0101').format('YYYYMMDD'), Moment(endYear.value + '1231').format('YYYYMMDD'), {
+      this.props.onChangeYear(Moment(startYear).format('YYYYMMDD'), Moment(endYear.value + '1231').format('YYYYMMDD'), {
         field: this.props.option.field,
         idx: this.props.option.idx
       })
@@ -582,7 +582,6 @@ class FreeTextFilterComponent extends React.Component {
   }
 
   onChange(event) {
-    console.log("event: ", event.target)
     this.setState({
       currentValue: event.target.value
     })
@@ -646,8 +645,6 @@ class FilterComponent extends React.Component {
   constructor (props: Object) {
     super(props)
 
-    console.log("filter props:", this.props.test_obj)
-
     this.state = {
       displayFilters: true,
       selected_filters: this.props.filters
@@ -661,29 +658,22 @@ class FilterComponent extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log("nextProps: ", nextProps)
-    /*this.setState({
-      selected_filters: nextProps.filters
-    })*/
+    if (nextProps.hideContent === false) {
+      this.setState({
+        selected_filters: nextProps.filters
+      })
+    }
   }
-
-  componentDidUpdate (){
-    console.log("filter state updated: ", this.state.selected_filters)
-}
-
 
   onChangeCheckbox(e, options) {
     const value = options.options.filter(v => e.target.value === v.label)[0].value
-    console.log("checkbox value: ", value)
 
     // contains value already
     if ( this.state.selected_filters[e.target.filterIdx].value.indexOf(value) > -1 ) {
-      console.log("YES in the selected obj")
       this.setState({
         selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$splice: [[0, 1]]}}})
       })
     } else {
-      console.log("not in the selected obj")
       this.setState({
         selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$push: [value]}}})
       })
@@ -693,16 +683,13 @@ class FilterComponent extends React.Component {
   }
 
   onChangeBoolean(e, options) {
-    console.log("options: ", options)
     const value = options.options.filter(v => e.target.value === v.label)[0].value
 
     if (value !== this.state.selected_filters[e.target.filterIdx].value[0]) {
-      console.log("not equal!!!", "bool val: ", value, "current val: ", this.state.selected_filters[e.target.filterIdx].value)
       this.setState({
         selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$set: [value]}}})
       })
     } else {
-      console.log("equal!", "bool val: ", value, "current val: ", this.state.selected_filters[e.target.filterIdx].value)
       this.setState({
         selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$set: []}}})
       })
@@ -712,17 +699,14 @@ class FilterComponent extends React.Component {
   }
 
   onChangeSelect(selectionObj, meta) {
-    console.log("in onchaaaaa")
     const value = selectionObj.value
 
     // contains value already
     if ( this.state.selected_filters[meta.idx].value.indexOf(value) > -1 ) {
-      console.log("YES in the selected obj")
       this.setState({
         selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$splice: [[0, 1]]}}})
       })
     } else {
-      console.log("not in the selected obj")
       this.setState({
         selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$push: [value]}}})
       })
@@ -731,24 +715,12 @@ class FilterComponent extends React.Component {
     this.props.handleFilterChange()
   }
 
-  onChangeYearPicker(start_date, end_date, meta, reload) {
+  onChangeYearPicker(start_date, end_date, meta) {
+    this.setState({
+      selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: [start_date, end_date]}}})
+    })
 
-    if (reload === true) {
-      console.log("start date: ", start_date, "end date: ", end_date)
-      this.setState({
-        selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: [start_date, end_date]}}})
-      }, () => {
-        console.log("in callback area")
-        this.props.updateSelectedFilters(this.state.selected_filters)
-      })
-    } else {
-      console.log("hit the else!")
-      this.setState({
-        selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$set: [start_date, end_date]}}})
-      })
-
-      this.props.handleFilterChange()
-    }
+    this.props.handleFilterChange()
   }
 
   onChangeText(value, meta) {
@@ -756,12 +728,10 @@ class FilterComponent extends React.Component {
 
     // contains value already
     if ( this.state.selected_filters[meta.idx].value.indexOf(value) > -1 ) {
-      console.log("YES in the selected obj")
       this.setState({
         selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$splice: [[0, 1]]}}})
       })
     } else {
-      console.log("not in the selected obj")
       this.setState({
         selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$push: [value]}}})
       })
@@ -860,9 +830,11 @@ class FilterComponent extends React.Component {
 
     return (
       <div className='filter-sidebar' id='filter-sidebar'>
+        <div className='filter-components'>
         {
           components
         }
+        </div>
         <div className='sidebar-buttons'>
           <button className={this.props.hideContent ? 'filter-bg-darker-blue': 'filter-bg-light-blue'} onClick={() => this.props.updateSelectedFilters(this.state.selected_filters)}>
             APPLY FILTERS
