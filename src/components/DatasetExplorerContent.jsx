@@ -17,6 +17,7 @@ import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, Tooltip, LegendR} 
 import { Charts, ChartContainer, ChartRow, YAxis, LineChart, Resizable, styler, Legend, TimeMarker, EventMarker } from "react-timeseries-charts"
 import { TimeSeries, TimeRange, sum } from "pondjs"
 import _ from 'lodash'
+import update from "immutability-helper/index";
 
 const re = new RegExp('\\s+');
 
@@ -59,14 +60,6 @@ const GravatarOption = createReactClass({
     this.props.onFocus(this.props.option, event);
   },
   render () {
-    let gravatarStyle = {
-      borderRadius: 3,
-      display: 'inline-block',
-      marginRight: 10,
-      position: 'relative',
-      top: -2,
-      verticalAlign: 'middle',
-    };
     return (
       <div className={this.props.className}
         onMouseDown={this.handleMouseDown}
@@ -168,14 +161,18 @@ class ResultsComponent extends React.Component {
   }
 
 
-    onColumnToggle(selectionObj){
-
-    this.state.columns[selectionObj.idx].show = !selectionObj.show
-
-    this.setState({
-      columns: [...this.state.columns],
-      placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length}/${this.state.columns.length}`
-    })
+  onColumnToggle(selectionObj){
+    if (selectionObj.show === true) {
+      this.setState({
+        columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: false}}}),
+        placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length - 1}/${this.state.columns.length}`
+      })
+    } else {
+      this.setState({
+        columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: true}}}),
+        placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length + 1}/${this.state.columns.length}`
+      })
+    }
   }
 
   onExportChoosen(selectionObj){
