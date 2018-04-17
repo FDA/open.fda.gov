@@ -36,6 +36,8 @@ function sortFrequenciesOfReportedSign(a, b, desc){
     return sortFrequenciesOfReportedSign(a.slice(a.indexOf(",") +1), b.slice(a.indexOf(",") +1),desc)
   } else return (a1 - b1)
 }
+
+
 const GravatarOption = createReactClass({
   propTypes: {
     children: PropTypes.node,
@@ -87,6 +89,7 @@ class ResultsComponent extends React.Component {
       sorted: [],
       pageSize: 200,
       expanded: {},
+      expandedRows: {},
       resized: [],
       filtered: []
     }
@@ -94,7 +97,8 @@ class ResultsComponent extends React.Component {
     this.onExportChoosen = this.onExportChoosen.bind(this)
     this.toTitleCase = this.toTitleCase.bind(this)
     this.getFormattedColumns = this.getFormattedColumns.bind(this)
-    this.convertToStartCase = this.convertToStartCase.bind(this);
+    this.convertToStartCase = this.convertToStartCase.bind(this)
+    this.collapseAll = this.collapseAll.bind(this)
 
  }
 
@@ -106,26 +110,37 @@ class ResultsComponent extends React.Component {
       const columnsData = this.getFormattedColumns(nextProps.view.columns)
       const pivotBy = nextProps.view.pivotBy
 
-
       if(pivotBy && pivotBy.length) {
         columnsData.columns.map(value => {
-          if (pivotBy.indexOf(value.accessor) > -1) {
+          if (value.unique_count) {
+            value.aggregate = (vals => {
+              let unique_list = Array.from(new Set(vals)).filter(vals => [null, undefined, 'null'].indexOf(vals) === -1)
+              return (unique_list.join(';;'))
+            }),
+            value.Aggregated = (row => {
+              let row_array = row.value.split(';;')
+              let unique_list = Array.from(new Set(row_array)).filter(row_array => [null, undefined, 'null'].indexOf(row_array) === -1)
+              let count_name = value.count_name
+              if (unique_list.length > 1){
+                count_name = value.count_name + 's'
+              }
+
+              return (<span>{unique_list.length + ' ' + count_name}</span>)
+            })
+          } else if (value.sum) {
+            value.aggregate = (vals => {
+              return (_.sum(vals))
+            }),
+            value.Aggregated = (row => {
+              return (<span>{row.value + ' ' + value.count_name}</span>)
+            })
+          } else if (pivotBy.indexOf(value.accessor) > -1) {
             value.aggregate = (vals => {
               return [...new Set(vals)]
             }),
-              value.Aggregated = (row => {
-                return (<span>{row.value}</span>)
-              })
-          }
-
-          if (value.dedup) {
-            value.aggregate = (vals => {
-              var unique_list = Array.from(new Set(vals)).filter(val => [null, undefined, 'null'].indexOf(val) === -1)
-              return unique_list.join(', ')
-            }),
-              value.Aggregated = (row => {
-                return (<span>{row.value}</span>)
-              })
+            value.Aggregated = (row => {
+              return (<span>{row.value}</span>)
+            })
           }
         })
       }
@@ -136,6 +151,12 @@ class ResultsComponent extends React.Component {
         placeholder: `Manage Columns ${columnsData.shownColumnsCount}/${columnsData.columns.length}`
       })
     }
+  }
+
+  collapseAll() {
+    this.setState({
+      expanded: {}
+    })
   }
 
   toTitleCase(str) {
@@ -292,6 +313,7 @@ class ResultsComponent extends React.Component {
               onChange={this.onColumnToggle}
               resetValue="Header"
               removeSelected={false}
+              searchable={false}
               clearable={false}
               closeOnSelect={false}
               placeholder={this.state.placeholder}
@@ -309,14 +331,19 @@ class ResultsComponent extends React.Component {
                 options={this.props.dataset.exportOptions}
                 resetValue="Header"
                 removeSelected={false}
+                searchable={false}
                 clearable={false}
                 closeOnSelect={true}
                 placeholder={"Export"}
               />
             </div>
           </div>
+          <div>
+            <button className='collapse-rows' onClick={this.collapseAll}>Collapse Rows</button>
+          </div>
         </div>
         <ReactTable
+          expanded={this.state.expanded}
           data={this.props.rows}
           pageSize={this.state.pageSize}
           columns={this.state.columns}

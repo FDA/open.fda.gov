@@ -42,14 +42,24 @@
     border-top: 7px solid #017bba
 
 .dataset-table-menubar
-  height: 40px
   display: flex
+  align-items: center
   justify-content: space-between
-  padding-top: 35px
-  padding-bottom: 43px
+  padding-bottom: 35px
 
-  > div
+  > div:first-child
     display: flex
+
+  .collapse-rows
+    color: #017bba
+    font-weight: bold
+    text-align: center
+
+    &:hover
+      color: #0c509b
+
+  .Select-placeholder, .Select--single > .Select-control .Select-value
+    color: #333
 
 .dataset-overlay
   background: rgba(0,0,0,0.5)

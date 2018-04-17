@@ -11,24 +11,27 @@ names:
           - Header: Product Name
             accessor: product
             show: true
-            dedup: true
           - Header: Flavor
+            count_name: flavor
             accessor: flavor
             show: true
-            dedup: true
+            unique_count: true
           - Header: Formulation
+            count_name: formulation
             accessor: formulation
             show: true
-            dedup: true
+            unique_count: true
           - Header: Reported Sign
+            count_name: sign
             accessor: reaction
             show: true
-            dedup: true
+            unique_count: true
             split: true
           - Header: Frequency of Reported Sign
+            count_name: total
             accessor: frequency
             show: true
-            dedup: true
+            sum: true
             sortType: commaSeparatedNumbers
         pivotBy:
           - product
