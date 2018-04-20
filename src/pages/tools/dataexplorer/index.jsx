@@ -261,6 +261,7 @@ class DataExplorer extends React.Component {
 
 
   render (): ?React.Element {
+    const renderDataViewToggle = this.state.dataset.showChartView
     return (
       <section>
         <Hero
@@ -298,7 +299,7 @@ class DataExplorer extends React.Component {
                   help_header={this.state.dataset.label + ' ' + this.state.view.label}
                   help_text={this.state.view.help_text}
                 />
-                <DataViewToggle
+                <DataViewToggle renderDataViewToggle={renderDataViewToggle}
                   toggleTable={this.toggleTable}
                   toggleChart={this.toggleChart}
                   visualization={this.state.visualization}
