@@ -31,9 +31,15 @@ class DataRetrievalService {
       var value = {
         "query-type": filter.query_type,
         "key": filter.field,
-        "value": filter.value
+        "value": filter.value,
+        "type": filter.type
       }
-      if (value["query-type"] == "range") {
+      if (value["query-type"] == "range" && value["type"] == "numeric_range") {
+          value.value = {
+              "gte": value.value[0],
+              "lte": value.value[1]
+          }
+      } else if (value["query-type"] == "range") {
         value.value = {
           "gte": Moment(value.value[0]).format('YYYYMMDD'),
           "lte": Moment(value.value[1]).format('YYYYMMDD')

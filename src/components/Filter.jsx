@@ -640,6 +640,122 @@ class FreeTextFilterComponent extends React.Component {
 }
 
 
+class RangeQueryFilterComponent extends React.Component {
+
+    constructor(props: Object) {
+        super(props)
+
+        const startValue = this.props.option.start_value
+        const endValue = this.props.option.end_value
+        let options = this.getOptions()
+
+        this.state = {
+            options: options
+        }
+
+        this.onChangeStart = this.onChangeStart.bind(this)
+        this.onChangeEnd = this.onChangeEnd.bind(this)
+        this.getOptions = this.getOptions.bind(this)
+    }
+
+    componentWillReceiveProps (nextProps) {
+        if (!nextProps.filters[nextProps.option.idx].value.length) {
+            this.setState({
+                startValue: 'Select start Year',
+                endValue: 'Select end Year'
+            })
+        }
+    }
+
+    getOptions () {
+        let list = [];
+        for (let i = this.props.option.start_value; i <= this.props.option.end_value; i++) {
+            list.push({label: i, value: i});
+        }
+        return list
+    }
+
+    handleKeyPress(e) {
+        if(e.key === "Enter"){
+            const value = e.target.value
+
+            if(this.props.onChange){
+                this.props.onChange(value, {
+                    field: this.props.option.field,
+                    idx: this.props.option.idx
+                })
+            }
+        }
+    }
+
+    onChangeStart (startValue) {
+        this.setState({
+            startValue: startValue.value
+        })
+
+        let endValue = this.state.endValue
+
+        if (!Moment(endValue).isValid()) {
+            endValue = Moment().format('YYYY')
+        }
+
+        if (this.props.onChangeYear) {
+            this.props.onChangeYear(startValue.value, endValue, {
+                field: this.props.option.field,
+                idx: this.props.option.idx
+            })
+        }
+    }
+
+    onChangeEnd (endValue) {
+        this.setState({
+            endValue: endValue.value
+        })
+
+        let startValue = this.state.startValue
+
+        if (!Moment(startValue).isValid()) {
+            startValue = this.props.option.start_value
+        }
+
+        if (this.props.onChangeYear) {
+            this.props.onChangeYear(startValue, endValue.value, {
+                field: this.props.option.field,
+                idx: this.props.option.idx
+            })
+        }
+    }
+
+
+    render (): ?React.Element {
+        return (
+            <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
+                <p>Start Year:</p>
+                <Select
+                    value={this.state.startValue}
+                    className='filter-select'
+                    placeholder='Select Start Year'
+                    onChange={this.onChangeStart}
+                    options={this.state.options}
+                    id={this.props.option.idx.toString()}
+                    clearable={false}
+                />
+                <p>End Year:</p>
+                <Select
+                    value={this.state.endValue}
+                    className='filter-select'
+                    placeholder='Select End Year'
+                    onChange={this.onChangeEnd}
+                    options={this.state.options}
+                    id={this.props.option.idx.toString()}
+                    clearable={false}
+                />
+            </div>
+        )
+    }
+}
+
+
 class FilterComponent extends React.Component {
 
   constructor (props: Object) {
@@ -824,6 +940,18 @@ class FilterComponent extends React.Component {
             />
           </div>
         )
+      } else if (option.type === "numeric_range") {
+          return (
+              <div className='filter-item-container' key={`div${idx}`}>
+                  <h3>{option.label}</h3>
+                  <RangeQueryFilterComponent
+                      filters={this.state.selected_filters}
+                      key={`filter${idx}`}
+                      onChangeYear={this.onChangeYearPicker}
+                      option={option}
+                  />
+              </div>
+          )
       }
 
     })
