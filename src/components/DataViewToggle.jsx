@@ -17,6 +17,9 @@ type tPROPS = {
  * @return {React.Element}
  */
 const DataViewToggle = (props: tPROPS) => {
+  if (!props.renderDataViewToggle) {
+    return null;
+  }
   const {
     visualization,
     toggleTable,
