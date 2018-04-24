@@ -12,15 +12,18 @@ names:
           - Header: Product Name
             accessor: product
             show: true
+            sum: true
           - Header: Flavor
             count_name: flavor
             accessor: flavor
             show: true
             unique_count: true
+            sortable: false
           - Header: Formulation
             count_name: formulation
             accessor: formulation
             show: true
+            sortable: false
             unique_count: true
           - Header: Reported Sign
             count_name: sign
