@@ -8,6 +8,7 @@ names:
         label: Frequency of Reported Signs
         searchType: LLT
         help_text: This is llt pet food placeholder help text.
+        show_collapse_rows_button: false
         columns:
           - Header: Product Name
             accessor: product
@@ -45,6 +46,7 @@ names:
         label: Reports of Reactions
         searchType: nonLLT
         help_text: This is nonLLT pet food placeholder help text.
+        show_collapse_rows_button: false
         columns:
           - Header: Report ID
             accessor: identifier
@@ -185,6 +187,7 @@ names:
         label: Listing of Labels
         searchType: nonLLT
         help_text: This is ADL non LLT placeholder help text.
+        show_collapse_rows_button: false
         columns:
           - Header: Effective Date
             accessor: effective_time
@@ -401,6 +404,7 @@ names:
         label: In a table
         searchType: nonLLT
         help_text: This is ADL non LLT placeholder help text.
+        show_collapse_rows_button: false
         columns:
           - Header: Drug/Chem
             accessor: drug

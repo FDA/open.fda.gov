@@ -291,6 +291,7 @@ class ResultsComponent extends React.Component {
   }
 
   render (): ?React.Element {
+    const showCollapseRows = this.props.view.show_collapse_rows_button
     if(this.props.rows === undefined){
       return (<span/>)
     }
@@ -338,9 +339,11 @@ class ResultsComponent extends React.Component {
               />
             </div>
           </div>
-          <div>
-            <button className='collapse-rows' onClick={this.collapseAll}>Collapse Rows</button>
-          </div>
+          {showCollapseRows &&
+            <div>
+              <button className='collapse-rows' onClick={this.collapseAll}>Collapse Rows</button>
+            </div>
+          }
         </div>
         <ReactTable
           expanded={this.state.expanded}
