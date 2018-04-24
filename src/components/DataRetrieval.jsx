@@ -5,6 +5,7 @@ import withQuery from 'with-query'
 import {default as $} from 'jquery'
 import Moment from 'moment'
 import {API_LINK} from "../constants/api";
+import update from "immutability-helper/index";
 
 class DataRetrievalService {
 
@@ -24,10 +25,18 @@ class DataRetrievalService {
     return response;
   }
 
+  addValue (filters, field, value) {
+    return filters.map(filter => {
+      if (filter.field === field) {
+        return update(filter, {value: {$set: value}})
+      } else {
+        return filter
+      }
+    })
+  }
+
   convertFiltersToJson(filters, options){
-    console.log("convert filters to json: ", filters)
     const formattedFilters = filters.filter(filter => filter.value.length).map((filter,idx) => {
-      console.log("filter: ", filter, "idx: ", idx)
       var value = {
         "query-type": filter.query_type,
         "key": filter.field,
@@ -58,6 +67,19 @@ class DataRetrievalService {
           options.drugtype
         ]
       })
+    }
+
+    if(options.groupingField) {
+      return {
+        "data": {
+          "queryJSON": {
+            "size": 5000,
+            "searchType": "aggregation",
+            "groupingField": options.groupingField,
+            "filters": formattedFilters
+          }
+        }
+      }
     }
 
     return {
@@ -120,7 +142,6 @@ class DataRetrievalService {
 
   getData(params, options){
     const data = this.convertFiltersToJson(params, options)
-    console.log("filters:")
     console.log(JSON.stringify(data, null, 4));
     return fetch(`${this.url}/${this.endpoint}`, {
       body: JSON.stringify(data),
@@ -132,7 +153,6 @@ class DataRetrievalService {
     }).then(this.handleErrors)
     .then(res => res.json())
     .then(res => {
-      console.log(res)
       return res
     })
     .catch((err) => {})

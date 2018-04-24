@@ -114,8 +114,6 @@ class DataExplorer extends React.Component {
     }, () => {
       this.getData()
     })
-
-    //this.getData()
   }
 
   getData(){
@@ -312,6 +310,7 @@ class DataExplorer extends React.Component {
                 applied_filters={this.state.applied_filters}
                 clearAllFilters={this.clearAllFilters}
                 dataset={this.state.dataset}
+                drs={this.state.drs}
                 hideContent={this.state.hideContent}
                 infographicsConfig={this.state.infographicsConfig}
                 removeFilter={this.removeFilter}

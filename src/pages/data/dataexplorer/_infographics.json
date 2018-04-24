@@ -1,106 +1,118 @@
 {
   "animaldrugs": {
-    "type": "pieBar",
-    "select": {
+    "dataByYear": {
       "title": "Filter Data by Year:",
-      "default": {
-        "value":"All",
-        "label":"All"
+      "type": "pieBar",
+      "select": {
+        "title": "Filter Data by Year:",
+        "default": {
+          "value": "All",
+          "label": "All"
+        },
+        "startYear": 2009,
+        "yearsWithNoData": [
+          2007,
+          2005,
+          2004,
+          2003,
+          2002,
+          1995
+        ]
       },
-      "startYear": 2009,
-      "yearsWithNoData": [2007, 2005, 2004, 2003, 2002, 1995]
-    },
-    "pieChart": {
-      "categories":{
-        "OTC ANIMAL DRUG": "OTC",
-        "PRESCRIPTION ANIMAL DRUG": "PRESCRIPTION",
-        "VFD TYPE A MEDICATED ARTICLE ANIMAL DRUG": "VFD TYPE A",
-        "OTC TYPE A MEDICATED ARTICLE ANIMAL DRUG": "OTC TYPE A",
-        "OTC TYPE C MEDICATED FEED ANIMAL DRUG": "OTC TYPE C"
+      "pieChart": {
+        "categories": {
+          "OTC ANIMAL DRUG": "OTC",
+          "PRESCRIPTION ANIMAL DRUG": "PRESCRIPTION",
+          "VFD TYPE A MEDICATED ARTICLE ANIMAL DRUG": "VFD TYPE A",
+          "OTC TYPE A MEDICATED ARTICLE ANIMAL DRUG": "OTC TYPE A",
+          "OTC TYPE C MEDICATED FEED ANIMAL DRUG": "OTC TYPE C"
+        },
+        "countBy": "openfda.product_type.exact",
+        "dateField": "effective_time",
+        "barChartCountBy": "substance_name_exact",
+        "fill": "#8884d8",
+        "colors": [
+          "#d62728",
+          "#FFBB28",
+          "#0088FE",
+          "#1ECFFF",
+          "#00C49F"
+        ],
+        "default": {
+          "id": "0",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": [
+          "Drug Labels",
+          "by Product Type"
+        ],
+        "width": 750,
+        "height": 750,
+        "widthReset": 400,
+        "heightReset": 300,
+        "sort": "ascending",
+        "viewBox": {
+          "x": 300,
+          "y": 50,
+          "width": 400,
+          "height": 750
+        },
+        "margin": {
+          "top": 5,
+          "right": 5,
+          "bottom": 5,
+          "left": 10
+        },
+        "font": {
+          "color": "#000000",
+          "fontFamily": "Merriweather,Georgia,serif"
+        }
       },
-      "countBy": "openfda.product_type.exact",
-      "dateField": "effective_time",
-      "barChartCountBy": "substance_name_exact",
-      "fill": "#8884d8",
-      "colors": [
-        "#d62728",
-        "#FFBB28",
-        "#0088FE",
-        "#1ECFFF",
-        "#00C49F"
-      ],
-      "default": {
-        "id":"0",
-        "index": 0
-      },
-      "radius": {
-        "cx": 305,
-        "cy": 200,
-        "innerRadius": 60,
-        "outerRadius": 80
-      },
-      "textLabel": ["Drug Labels", "by Product Type"],
-      "width": 750,
-      "height": 750,
-      "widthReset": 400,
-      "heightReset": 300,
-      "sort": "ascending",
-      "viewBox": {
-        "x": 300,
-        "y": 50,
-        "width": 400,
-        "height": 750
-      },
-      "margin":{ 
-        "top": 5,
-        "right": 5,
-        "bottom": 5, 
-        "left": 10 
-      },
-      "font": {
-        "color":"#000000",
-        "fontFamily": "Merriweather,Georgia,serif"
+      "barChart": {
+        "title": "Drugs Labels by Substance Name",
+        "width": 600,
+        "height": 300,
+        "margin": {
+          "top": 5,
+          "right": 30,
+          "left": 20,
+          "bottom": 5
+        },
+        "limiter": 8
       }
-    },
-    "barChart":{
-      "title": "Drugs Labels by Substance Name",
-      "width": 600,
-      "height": 300,
-      "margin": {
-        "top": 5, 
-        "right": 30, 
-        "left": 20,
-        "bottom": 5
-      },
-      "limiter": 8
-    },
-    "collapsible": {
-      "title": "Visualize Data (Irrespective of Search Filters)"
     }
   },
-  "petfoodrecalls":{
-    "type": "lineBar",
-    "lineChart": {
-      "countBy": "reaction.clinical_sign.exact",
-      "dateField": "report_year.exact",
-      "startYear": 2014,
-      "title": "Frequency of Top 4 Reactions by Year"
+  "petfoodrecalls": {
+    "topReportedProducts": {
+      "title": "Top Reported Products",
+      "type": "bar",
+      "barChart": {
+        "countBy": "product.name.exact",
+        "title": "Top 7 Reported Products",
+        "margin": {
+          "top": 5,
+          "right": 30,
+          "left": 20,
+          "bottom": 5
+        },
+        "limiter": 7
+      }
     },
-    "barChart": {
-      "countBy": "product.name.exact",
-      "title": "Top 7 Reported Products",
-      "width": 550,
-      "height": 250,
-      "margin": {
-        "top": 5, 
-        "right": 30, 
-        "left": 20,
-        "bottom": 5
-      },
-      "limiter": 7
-    },
-    "collapsible": {
-      "title": "Visualize Data (Irrespective of Search Filters)"
+    "reactionsByYear": {
+      "title": "Frequency of Top Reactions by Year",
+      "type": "line",
+      "lineChart": {
+        "countBy": "reaction.clinical_sign.exact",
+        "dateField": "report_year.exact",
+        "startYear": 2014,
+        "title": "Frequency of Top 4 Reactions by Year"
+      }
     }
   }
 }

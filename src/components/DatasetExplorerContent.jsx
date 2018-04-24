@@ -10,10 +10,9 @@ import FileSaver from 'file-saver'
 import jsonexport from 'jsonexport'
 import PropTypes from 'prop-types'
 import Moment from 'moment'
-import Collapsible from 'react-collapsible'
 import {default as $} from 'jquery'
 import TwoLevelPieChart from './InteractivePie'
-import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, Tooltip, LegendR} from 'Recharts'
+import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, LegendR} from 'Recharts'
 import { Charts, ChartContainer, ChartRow, YAxis, LineChart, Resizable, styler, Legend, TimeMarker, EventMarker } from "react-timeseries-charts"
 import { TimeSeries, TimeRange, sum } from "pondjs"
 import _ from 'lodash'
@@ -407,306 +406,37 @@ class BarChartComponent extends React.Component {
     //   this.refs.bar.container.childNodes[0].viewBox.baseVal.height = viewBox.height
 
     // }
+
+    console.log("bar chart props: ", this.props)
     return (
-      <BarChart
-        ref="bar"
-        data={this.props.infographics.state.data}
-        {...this.props.infographicsConfig.barChart}
-      >
-        <XAxis dataKey="name" interval={0} tick={<CustomizedAxisTick/>}/>
-        <YAxisR/>
-        <CartesianGrid strokeDasharray="8 8"/>
-        <Tooltip/>
-        <Bar
-          dataKey="substance_name"
-          fill="#8884d8"
-          barCategoryGap={"50%"}
-          barGap={"50%"}
-        />
-      </BarChart>
-    )
-  }
-}
-
-/// piechart width 300 height 300, contentInner display flex, legend bottom -200
-
-class PieChartComponent extends React.Component {
-
-  constructor (props: Object) {
-    super(props)
-
-    this.state = {
-      data: {}
-    }
-    this.onClick = this.onClick.bind(this)
-    this.setIndex = this.setIndex.bind(this)
-  }
-
-  componentDidMount () {
-    this.onClick(this.props.infographicsConfig.pieChart.default, this.props.infographicsConfig.pieChart.default.index)
-  }
-
-  setIndex (activeIndex) {
-    this.setState({
-      activeIndex: activeIndex
-    })
-  }
-
-  onClick(obj, index){
-    if(this.refs && this.props.infographics.state.categories.length){
-      this.refs.child.setState({
-        activeIndex: index
-      })
-
-      if(this.props.onClick){
-        this.props.onClick(obj, index)
-      }
-
-    }
-  }
-
-  // that.onClick(that.props.infographicDefinitions.pieChartConfig.default, that.props.infographicDefinitions.pieChartConfig.default.index)
-
-
-
-  render (): ?React.Element {
-    if(this.refs.child && this.refs.child.refs.pieChart.container.children.length){
-      const viewBox = this.props.infographicsConfig.pieChart.viewBox
-      this.refs.child.refs.pieChart.container.children[0].viewBox.baseVal.x = viewBox.x
-      this.refs.child.refs.pieChart.container.children[0].viewBox.baseVal.y = viewBox.y
-      this.refs.child.refs.pieChart.container.children[0].viewBox.baseVal.width = viewBox.width
-      this.refs.child.refs.pieChart.container.children[0].viewBox.baseVal.height = viewBox.height
-    }
-
-    return (
-      <div className="collapsible-container">
-        {
-          this.props.infographics.state.categories.length ?
-            <TwoLevelPieChart
-              onClick={this.onClick}
-              data={this.props.infographics.state.categories}
-              ref="child"
-              setIndex={this.setIndex}
-              {...this.props.infographicsConfig.pieChart}
-            /> :
-            <div style={{height:300,width:700}}>
-            </div>
-        }
-      </div>
-    )
-  }
-}
-
-class ResultsInfographicPieBarComponent extends React.Component {
-
-  constructor (props: Object) {
-    super(props)
-
-    this.state = {
-      yearSelection: null,
-      categories: []
-    }
-    this.onOpen = this.onOpen.bind(this)
-    this.onYearToggle = this.onYearToggle.bind(this)
-    this.getBarChartData = this.getBarChartData.bind(this)
-  }
-
-  componentDidMount () {
-    this.onYearToggle(this.props.infographicsConfig.select.default)
-
-    const all = [{
-      value: "All",
-      label: "All"
-    }]
-    const now = new Date()
-    const that = this
-    let yearsRange = _.range(this.props.infographicsConfig.select.startYear, now.getFullYear()+1)
-    yearsRange = yearsRange.filter(v => {
-      return this.props.infographicsConfig.select.yearsWithNoData.indexOf(v) === -1
-    })
-    const years = all.concat(
-      _.reverse(yearsRange.map(value => {
-        return {
-          value: value,
-          label: value
-        }
-      })
-      )
-    )
-    this.setState({
-      years
-    })
-
-  }
-  componentDidUpdate() {
-    if(!Object.keys(this.props.infographicsConfig).length){
-      return
-    }
-  }
-
-  getBarChartData(obj, index) {
-    if(!obj.full_name){
-      if(this.state.categories.length){
-        const defaultCategory = this.state.categories[index]
-        obj.full_name = defaultCategory.full_name
-      }
-    }
-
-    const countBy = this.props.infographicsConfig.pieChart.barChartCountBy
-    const path = `${this.props.dataset.url}/${this.props.dataset.endpoint}`
-    let url = `${path}?count=${countBy}&search=${this.props.infographicsConfig.pieChart.countBy}:"${obj.full_name}"`
-    let data = []
-
-    if (this.state.yearSelection.value !== "All") {
-      url += `+AND+${this.props.infographicsConfig.pieChart.dateField}:[${this.state.yearSelection.value}0101+TO+${this.state.yearSelection.value}1231]`
-    }
-
-    fetch(url)
-      .then(res => res.json())
-      .then((json) => {
-        if(json.results){
-          data = json.results.map(value => {
-            return {
-              name: value.term,
-              substance_name: value.count,
-              amt: value.count
-            }
-          }).slice(0,this.props.infographicsConfig.barChart.limiter)
-        } else {
-          console.log('????')
-        }
-        this.setState({data})
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-
-  }
-
-  onOpen(){
-    // const pieChartConfig = this.props.parent.state.infographicsConfig.pieChart
-    // $('.recharts-surface').each(function () { 
-    //   $(this).removeAttr('viewBox');
-    //   $(this)[0].setAttribute('viewBox', pieChartConfig.viewBox) 
-    //   return false;
-    // });
-    // $('.recharts-wrapper').each(function()  { 
-    //   $(this).width(pieChartConfig.widthReset)
-    //   $(this).height(pieChartConfig.heightReset)
-    // })
-  }
-
-  onYearToggle(selection) {
-    if(this.state.value && selection.value === this.state.value.value){
-      return
-    }
-    let url = `${this.props.dataset.url}/${this.props.dataset.endpoint}?count=${this.props.infographicsConfig.pieChart.countBy}&`
-    if(selection.value !== "All"){
-      url += `search=${this.props.infographicsConfig.pieChart.dateField}:[${selection.value}0101+TO+${selection.value}1231]`
-    }
-
-    let sum = 0
-    let categories = []
-    const that = this
-
-    fetch(`${url}`)
-      .then(res => res.json())
-      .then((json) => {
-        if(json.results){
-          sum = json.results.reduce((a,b) => a + b.count,0)
-
-          categories = json.results.map(category => {
-            const pct = Math.round(category.count / sum *100)
-            // {"id":"Class II","name":"Class II","value":6522,"pct":"82%"},
-            return {
-              id: this.props.infographicsConfig.pieChart.categories[category.term],
-              name: this.props.infographicsConfig.pieChart.categories[category.term],
-              pct: `${pct}%`,
-              value: category.count,
-              textLabel: this.props.infographicsConfig.pieChart.textLabel,
-              full_name: category.term
-            }
-          })
-
-        } else {
-          console.log('????')
-        }
-        that.setState({
-          categories: categories,
-          yearSelection: selection
-        }, function() {
-          this.onOpen()
-          const defaultIndex = that.props.infographicsConfig.pieChart.default.index
-          // this.getBarChartData(categories[defaultIndex], defaultIndex)
-          that.refs.parent.onClick(categories[defaultIndex], defaultIndex)
-        })
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-
-  render (): ?React.Element {
-    if(!Object.keys(this.props.infographicsConfig).length){
-      return (<span/>)
-    }
-
-    this.onOpen()
-    return (
-      <div>
-        <Collapsible
-          trigger={this.props.infographicsConfig.collapsible.title}
-          onOpen={this.onOpen}
-          open={true}
+      <ResponsiveContainer width="90%" height={500}>
+        <BarChart
+          ref="bar"
+          data={this.props.data}
+          {...this.props.chartConfig.barChart}
         >
-          <div className="infographic-title-div">
-            <h3>{this.props.infographicsConfig.select.title}</h3>
-            <h3 className="infographic-barchart-title">{this.props.infographicsConfig.barChart.title}</h3>
-          </div>
-          <Select
-            name="toggle"
-            menuStyle={{
-              width: 125
-            }}
-            style={{
-              width: 125,
-              height:35,
-              paddingLeft: 25
-            }}
-            wrapperStyle={{
-              width: 125,
-              height:35
-            }}
-            value={this.state.yearSelection}
-            options={this.state.years}
-            onChange={this.onYearToggle}
-            resetValue="Header"
-            removeSelected={false}
-            clearable={false}
-            closeOnSelect={true}
-            placeholder={"Select Year"}
+          <XAxis dataKey="name" interval={0} tick={<CustomizedAxisTick/>}/>
+          <YAxisR/>
+          <CartesianGrid strokeDasharray="8 8"/>
+          <Tooltip/>
+          <Bar
+            dataKey="product_name"
+            fill="#8884d8"
+            barCategoryGap={"50%"}
+            barGap={"50%"}
           />
-          <div style={{display:"flex"}}>
-            <PieChartComponent
-              infographics={this}
-              infographicsConfig={this.props.infographicsConfig}
-              onClick={this.getBarChartData}
-              ref="parent"
-            />
-            <BarChartComponent
-              infographics={this}
-              infographicsConfig={this.props.infographicsConfig}
-            />
-          </div>
-        </Collapsible>
-      </div>
+        </BarChart>
+      </ResponsiveContainer>
     )
   }
 }
 
-class ResultsInfographicLineBarComponent extends React.Component {
 
- constructor (props: Object) {
+//Standalone line chart component
+
+class LineChartComponent extends React.Component {
+
+  constructor (props: Object) {
     super(props)
 
     this.state = {
@@ -790,15 +520,20 @@ class ResultsInfographicLineBarComponent extends React.Component {
     this.onOpen = this.onOpen.bind(this)
     this.getLineChartData = this.getLineChartData.bind(this)
     this.transpose = this.transpose.bind(this)
-    this.getBarChartData = this.getBarChartData.bind(this)
   }
 
   componentDidMount () {
-    this.getLineChartData()
-    this.getBarChartData()
+    this.getLineChartData(this.props)
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.applied_filters !== nextProps.applied_filters) {
+      this.getLineChartData(nextProps)
+    }
+  }
+
   componentDidUpdate() {
-    if(!Object.keys(this.props.infographicsConfig).length){
+    if(!Object.keys(this.props.chartConfig).length){
       return
     }
   }
@@ -833,25 +568,50 @@ class ResultsInfographicLineBarComponent extends React.Component {
     }
   }
 
-  getLineChartData(){
-    let url = `${this.props.dataset.url}/${this.props.dataset.endpoint}?count=${this.props.infographicsConfig.lineChart.countBy}`
-
-    fetch(`${url}`)
+  getLineChartData(props){
+    const data = props.drs.convertFiltersToJson(props.applied_filters, {
+      searchType: "aggregation",
+      groupingField: props.chartConfig.lineChart.countBy
+    })
+    console.log("filters:")
+    console.log(JSON.stringify(data, null, 4))
+    fetch(`${props.dataset.url}/${props.dataset.endpoint}`, {
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: 'POST',
+      mode: 'cors'
+    })
       .then(res => res.json())
       .then((json) => {
         if(json.results){
-
+          /*Promise.all(urls.map(url => fetch(url).then(res => res.text()).then(html => (console.log('html: ', html))
+          ).then(() => console.log('all urls were fetched and processed'))*/
           let options = json.results.filter(value => value.term.indexOf("'") === -1).map(term => {
             return term.term
           }).slice(0,4)
 
           let data = []
 
-          const urls = options.map(option => {
-            return `${this.props.dataset.url}/${this.props.dataset.endpoint}?search=${this.props.infographicsConfig.lineChart.countBy}:"${option}"&count=${this.props.infographicsConfig.lineChart.dateField}`
+          let filter_list = options.map(option => {
+            return props.drs.addValue(props.applied_filters, props.chartConfig.lineChart.countBy, [option])
           })
 
-          Promise.all(urls.map($.getJSON)).then(results => {
+          Promise.all(filter_list.map(filters => {
+            let converted_filters = props.drs.convertFiltersToJson(filters, {
+              searchType: "aggregation",
+              groupingField: props.chartConfig.lineChart.dateField
+            })
+            return fetch(`${props.dataset.url}/${props.dataset.endpoint}`, {
+            body: JSON.stringify(converted_filters),
+            headers: {
+              "Content-Type": "application/json"
+            },
+            method: 'POST',
+            mode: 'cors'
+          }).then(res => res.json())})).then(results => {
+            console.log("results of all promise: ", results)
             data = results.map(result => {
               return result.results
             })
@@ -959,22 +719,212 @@ class ResultsInfographicLineBarComponent extends React.Component {
       })
   }
 
-  getBarChartData() {
+  onSelectionChange(selectionObj) {
+    console.log(selectionObj)
+  }
+
+  render (): ?React.Element {
+    if(!Object.keys(this.props.chartConfig).length){
+      return (<span/>)
+    }
+
+    return (
+      <div>
+        { this.state.series.length === 0 ?
+          <div className="infographic-loading-div">
+            <img src="/img/loading.gif" className="infographic-loading-img"/>
+          </div>
+          :
+          <div style={{display:"flex"}}>
+            <div style={{
+              width: 550,
+              marginTop: 18
+            }}>
+              <h3
+                style={{
+                  paddingLeft: "15%",
+                  paddingBottom: 15
+                }}
+              >{this.props.chartConfig.lineChart.title}</h3>
+              <ChartContainer
+                timeRange={this.state.timerange}
+                {...this.state.config.chartContainer}
+              >
+                <ChartRow
+                  {...this.state.config.chartRow}
+                >
+                  <YAxis
+                    id="axis1"
+                    max={this.state._max}
+                    {...this.state.config.yAxis}
+                  />
+                  <Charts>
+                    <LineChart
+                      style={this.state.legendStyle}
+                      axis="axis1"
+                      series={this.state.series}
+                      columns={this.state.columns}
+                      onSelectionChange={this.onSelectionChange}
+                      {...this.state.config.lineChart}
+                    />
+                  </Charts>
+                </ChartRow>
+              </ChartContainer>
+              <div style={{paddingLeft:105}}>
+                <Legend categories={this.state.legendCategories} style={this.state.legendStyle} type="line" />
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    )
+  }
+}
+
+/// piechart width 300 height 300, contentInner display flex, legend bottom -200
+
+class PieChartComponent extends React.Component {
+
+  constructor (props: Object) {
+    super(props)
+
+    this.state = {
+      data: {}
+    }
+    this.onClick = this.onClick.bind(this)
+    this.setIndex = this.setIndex.bind(this)
+  }
+
+  componentDidMount () {
+    this.onClick(this.props.chartConfig.pieChart.default, this.props.chartConfig.pieChart.default.index)
+  }
+
+  setIndex (activeIndex) {
+    this.setState({
+      activeIndex: activeIndex
+    })
+  }
+
+  onClick(obj, index){
+    if(this.refs && this.props.categories.length){
+      this.refs.child.setState({
+        activeIndex: index
+      })
+
+      if(this.props.onClick){
+        this.props.onClick(obj, index)
+      }
+
+    }
+  }
+
+  // that.onClick(that.props.infographicDefinitions.pieChartConfig.default, that.props.infographicDefinitions.pieChartConfig.default.index)
+
+
+
+  render (): ?React.Element {
+    if(this.refs.child && this.refs.child.refs.pieChart.container.children.length){
+      const viewBox = this.props.chartConfig.pieChart.viewBox
+      this.refs.child.refs.pieChart.container.children[0].viewBox.baseVal.x = viewBox.x
+      this.refs.child.refs.pieChart.container.children[0].viewBox.baseVal.y = viewBox.y
+      this.refs.child.refs.pieChart.container.children[0].viewBox.baseVal.width = viewBox.width
+      this.refs.child.refs.pieChart.container.children[0].viewBox.baseVal.height = viewBox.height
+    }
+
+    return (
+      <div className="collapsible-container">
+        {
+          this.props.categories.length ?
+            <TwoLevelPieChart
+              onClick={this.onClick}
+              data={this.props.categories}
+              ref="child"
+              setIndex={this.setIndex}
+              {...this.props.chartConfig.pieChart}
+            /> :
+            <div style={{height:300,width:700}}>
+            </div>
+        }
+      </div>
+    )
+  }
+}
+
+class ResultsInfographicPieBarComponent extends React.Component {
+
+  constructor (props: Object) {
+    super(props)
+
+    this.state = {
+      yearSelection: null,
+      categories: []
+    }
+    this.onOpen = this.onOpen.bind(this)
+    this.onYearToggle = this.onYearToggle.bind(this)
+    this.getBarChartData = this.getBarChartData.bind(this)
+  }
+
+  componentDidMount () {
+    this.onYearToggle(this.props.chartConfig.select.default)
+
+    const all = [{
+      value: "All",
+      label: "All"
+    }]
+    const now = new Date()
+    const that = this
+    let yearsRange = _.range(this.props.chartConfig.select.startYear, now.getFullYear()+1)
+    yearsRange = yearsRange.filter(v => {
+      return this.props.chartConfig.select.yearsWithNoData.indexOf(v) === -1
+    })
+    const years = all.concat(
+      _.reverse(yearsRange.map(value => {
+        return {
+          value: value,
+          label: value
+        }
+      })
+      )
+    )
+    this.setState({
+      years
+    })
+
+  }
+  componentDidUpdate() {
+    if(!Object.keys(this.props.chartConfig).length){
+      return
+    }
+  }
+
+  getBarChartData(obj, index) {
+    if (!obj.full_name) {
+      if (this.state.categories.length) {
+        const defaultCategory = this.state.categories[index]
+        obj.full_name = defaultCategory.full_name
+      }
+    }
+
+    const countBy = this.props.chartConfig.pieChart.barChartCountBy
     const path = `${this.props.dataset.url}/${this.props.dataset.endpoint}`
-    let url = `${path}?count=${this.props.infographicsConfig.barChart.countBy}`
+    let url = `${path}?count=${countBy}&search=${this.props.chartConfig.pieChart.countBy}:"${obj.full_name}"`
     let data = []
+
+    if (this.state.yearSelection.value !== "All") {
+      url += `+AND+${this.props.chartConfig.pieChart.dateField}:[${this.state.yearSelection.value}0101+TO+${this.state.yearSelection.value}1231]`
+    }
 
     fetch(url)
       .then(res => res.json())
       .then((json) => {
-        if (json.results) {
+        if(json.results){
           data = json.results.map(value => {
             return {
               name: value.term,
               substance_name: value.count,
               amt: value.count
             }
-          }).slice(0,this.props.infographicsConfig.barChart.limiter)
+          }).slice(0,this.props.chartConfig.barChart.limiter)
         } else {
           console.log('????')
         }
@@ -983,83 +933,263 @@ class ResultsInfographicLineBarComponent extends React.Component {
       .catch((err) => {
         console.log(err)
       })
+
   }
 
-  onSelectionChange(selectionObj) {
-    console.log(selectionObj)
+  onOpen(){
+    // const pieChartConfig = this.props.parent.state.infographicsConfig.pieChart
+    // $('.recharts-surface').each(function () { 
+    //   $(this).removeAttr('viewBox');
+    //   $(this)[0].setAttribute('viewBox', pieChartConfig.viewBox) 
+    //   return false;
+    // });
+    // $('.recharts-wrapper').each(function()  { 
+    //   $(this).width(pieChartConfig.widthReset)
+    //   $(this).height(pieChartConfig.heightReset)
+    // })
+  }
+
+  onYearToggle(selection) {
+    if(this.state.value && selection.value === this.state.value.value){
+      return
+    }
+    let url = `${this.props.dataset.url}/${this.props.dataset.endpoint}?count=${this.props.chartConfig.pieChart.countBy}&`
+    if(selection.value !== "All"){
+      url += `search=${this.props.chartConfig.pieChart.dateField}:[${selection.value}0101+TO+${selection.value}1231]`
+    }
+
+    let sum = 0
+    let categories = []
+    const that = this
+
+    fetch(`${url}`)
+      .then(res => res.json())
+      .then((json) => {
+        if(json.results){
+          sum = json.results.reduce((a,b) => a + b.count,0)
+
+          categories = json.results.map(category => {
+            const pct = Math.round(category.count / sum *100)
+            // {"id":"Class II","name":"Class II","value":6522,"pct":"82%"},
+            return {
+              id: this.props.chartConfig.pieChart.categories[category.term],
+              name: this.props.chartConfig.pieChart.categories[category.term],
+              pct: `${pct}%`,
+              value: category.count,
+              textLabel: this.props.chartConfig.pieChart.textLabel,
+              full_name: category.term
+            }
+          })
+
+        } else {
+          console.log('????')
+        }
+        that.setState({
+          categories: categories,
+          yearSelection: selection
+        }, function() {
+          this.onOpen()
+          const defaultIndex = that.props.chartConfig.pieChart.default.index
+          that.refs.parent.onClick(categories[defaultIndex], defaultIndex)
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   render (): ?React.Element {
-    if(!Object.keys(this.props.infographicsConfig).length){
+    if(!Object.keys(this.props.chartConfig).length){
       return (<span/>)
     }
 
+    this.onOpen()
     return (
       <div>
-        <Collapsible
-          trigger={this.props.infographicsConfig.collapsible.title}
-          onOpen={this.onOpen}
-          open={true}
-        >
-          { this.state.series.length === 0 ?
-            <div className="infographic-loading-div">
-              <img src="/img/loading.gif" className="infographic-loading-img"/>
-            </div>
-            :
-            <div style={{display:"flex"}}>
-              <div style={{
-                width: 550,
-                marginTop: 18
-              }}>
-                <h3
-                  style={{
-                    paddingLeft: "15%",
-                    paddingBottom: 15
-                  }}
-                >{this.props.infographicsConfig.lineChart.title}</h3>
-                <ChartContainer
-                  timeRange={this.state.timerange}
-                  {...this.state.config.chartContainer}
-                >
-                  <ChartRow
-                    {...this.state.config.chartRow}
-                  >
-                    <YAxis
-                      id="axis1"
-                      max={this.state._max}
-                      {...this.state.config.yAxis}
-                    />
-                    <Charts>
-                      <LineChart
-                        style={this.state.legendStyle}
-                        axis="axis1"
-                        series={this.state.series}
-                        columns={this.state.columns}
-                        onSelectionChange={this.onSelectionChange}
-                        {...this.state.config.lineChart}
-                      />
-                    </Charts>
-                  </ChartRow>
-                </ChartContainer>
-                <div style={{paddingLeft:105}}>
-                  <Legend categories={this.state.legendCategories} style={this.state.legendStyle} type="line" />
-                </div>
-              </div>
-              <div style={{ marginTop: 18 }}>
-                <h3
-                  style={{
-                    paddingLeft: "36%",
-                    paddingBottom: 15
-                  }}
-                >{this.props.infographicsConfig.barChart.title}</h3>
-                <BarChartComponent
-                  infographics={this}
-                  infographicsConfig={this.props.infographicsConfig}
-                />
-              </div>
-            </div>
+        <div className="infographic-title-div">
+          <h3>{this.props.chartConfig.select.title}</h3>
+          <h3 className="infographic-barchart-title">{this.props.chartConfig.barChart.title}</h3>
+        </div>
+        <Select
+          name="toggle"
+          menuStyle={{
+            width: 125
+          }}
+          style={{
+            width: 125,
+            height:35,
+            paddingLeft: 25
+          }}
+          wrapperStyle={{
+            width: 125,
+            height:35
+          }}
+          value={this.state.yearSelection}
+          options={this.state.years}
+          onChange={this.onYearToggle}
+          resetValue="Header"
+          removeSelected={false}
+          clearable={false}
+          closeOnSelect={true}
+          placeholder={"Select Year"}
+        />
+        <div style={{display:"flex"}}>
+          <PieChartComponent
+            categories={this.state.categories}
+            chartConfig={this.props.chartConfig}
+            onClick={this.getBarChartData}
+            ref="parent"
+          />
+          <BarChartComponent
+            data={this.state.data}
+            chartConfig={this.props.chartConfig}
+          />
+        </div>
+      </div>
+    )
+  }
+}
+
+
+class InfographicComponent extends React.Component {
+
+  constructor (props: Object) {
+    super(props)
+
+    this.state = {
+      data: []
+    }
+
+    this.getBarData = this.getBarData.bind(this)
+  }
+
+  componentDidMount () {
+    if (this.props.chartConfig.type === 'bar') {
+      this.getBarData(this.props)
+    }
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if ((this.props.applied_filters !== nextProps.applied_filters) || (this.props.chartType !== nextProps.chartType)) {
+      if (nextProps.chartConfig.type === 'bar') {
+        this.getBarData(nextProps)
+      }
+    }
+  }
+
+  getBarData(props) {
+    let data = []
+
+    props.drs.getData(props.applied_filters, {
+      searchType: "aggregation",
+      groupingField: props.chartConfig.barChart.countBy
+    }).then(results => {
+      if (results.results) {
+        data = results.results.map(value => {
+          return {
+            name: value.term,
+            product_name: value.count,
+            amt: value.count
           }
-        </Collapsible>
+        }).slice(0,props.chartConfig.barChart.limiter)
+
+        this.setState({data})
+      }
+    })
+  }
+
+
+  render (): ?React.Element {
+    let infographic = null
+    if (Object.keys(this.props.chartConfig).length) {
+      if (this.props.chartConfig.type === "pieBar") {
+        infographic =
+          <ResultsInfographicPieBarComponent
+            applied_filters={this.props.applied_filters}
+            dataset={this.props.dataset}
+            drs={this.props.drs}
+            chartConfig={this.props.chartConfig}
+          />
+      } else if (this.props.chartConfig.type === "line") {
+        infographic =
+          <LineChartComponent
+            applied_filters={this.props.applied_filters}
+            data={this.state.data}
+            dataset={this.props.dataset}
+            drs={this.props.drs}
+            chartConfig={this.props.chartConfig}
+          />
+      } else if (this.props.chartConfig.type === "bar") {
+        infographic =
+          <BarChartComponent
+            applied_filters={this.props.applied_filters}
+            data={this.state.data}
+            dataset={this.props.dataset}
+            drs={this.props.drs}
+            chartConfig={this.props.chartConfig}
+          />
+      }
+    }
+    return (
+      <div>
+        {
+          infographic
+        }
+      </div>
+    )
+  }
+}
+
+
+class InfographicMenubar extends React.Component {
+
+  constructor (props: Object) {
+    super(props)
+
+    let infoConfig = this.props.infographicsConfig
+
+    this.state = {
+      chartType: infoConfig[Object.keys(infoConfig)[0]].title,
+      options: this.getOptions(infoConfig)
+    }
+
+    this.selectChart = this.selectChart.bind(this)
+  }
+
+  selectChart (chart) {
+    this.setState({
+      chartType: chart.label
+    })
+
+    this.props.selectChart(chart.value)
+  }
+
+  componentDidMount () {
+  }
+
+  getOptions (infographicsConfig) {
+    let options = Object.keys(infographicsConfig).map(value => {
+      return {
+        value: value,
+        label: infographicsConfig[value].title
+      }
+    })
+    return(options)
+  }
+
+  render (): ?React.Element {
+    return (
+      <div className='dataset-explorer-infographic-menubar'>
+        <em>I'm interested in:</em>
+        <Select
+          clearable={false}
+          name='toggle'
+          options={this.state.options}
+          onChange={this.selectChart}
+          placeholder={this.state.chartType}
+          resetValue='label'
+          value={this.state.chartType}
+        />
       </div>
     )
   }
@@ -1078,7 +1208,7 @@ class SelectedFiltersComponent extends React.Component {
   componentDidMount () {
   }
 
-  formatValues(){
+  formatValues () {
     const filter_list = []
     this.props.applied_filters.forEach((filter,idx) => {
       if (filter.query_type === "term" && filter.type === "checkbox") {
@@ -1178,54 +1308,73 @@ class DatasetExplorerContentComponent extends React.Component {
     super(props)
 
     this.state = {
+      chartType: Object.keys(this.props.infographicsConfig)[0]
     }
+    this.selectChart = this.selectChart.bind(this)
   }
 
   componentDidMount () {
+
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (this.props.infographicsConfig !== nextProps.infographicsConfig) {
+      this.setState({
+        chartType: Object.keys(nextProps.infographicsConfig)[0]
+      })
+    }
+  }
+
+  selectChart (chart) {
+    this.setState({
+      chartType: chart
+    })
   }
 
   render (): ?React.Element {
-    let infographic = null
 
     if (this.props.visualization === true) {
-      if (Object.keys(this.props.infographicsConfig).length) {
-        if (this.props.infographicsConfig.type === "pieBar") {
-          infographic =
-            <ResultsInfographicPieBarComponent
-              dataset={this.props.dataset}
-              infographicsConfig={this.props.infographicsConfig}
-            />
-        } else if (this.props.infographicsConfig.type === "lineBar") {
-          infographic =
-            <ResultsInfographicLineBarComponent
-              dataset={this.props.dataset}
-              infographicsConfig={this.props.infographicsConfig}
-            />
-        }
-      }
       return (
-        <div className={'dataset-explorer-content '} id='dataset-explorer-content'>
-          <div>
-            {
-              infographic
-            }
+        <div className='dataset-explorer-content' id='dataset-explorer-content'>
+          {
+            this.props.hideContent &&
+            <div className='dataset-overlay' />
+          }
+          <InfographicMenubar
+            infographicsConfig={this.props.infographicsConfig}
+            selectChart={this.selectChart}
+          />
+          <div className='dataset-explorer-results'>
+            <SelectedFiltersComponent
+              applied_filters={this.props.applied_filters}
+              clearAllFilters={this.props.clearAllFilters}
+              infographicsConfig={this.props.infographicsConfig}
+              removeFilter={this.props.removeFilter}
+            />
+            <InfographicComponent
+              applied_filters={this.props.applied_filters}
+              chartType={this.state.chartType}
+              dataset={this.props.dataset}
+              drs={this.props.drs}
+              chartConfig={this.props.infographicsConfig[this.state.chartType]}
+            />
           </div>
         </div>
       )
     } else {
       return (
-        <div className='dataset-explorer-content' id='dataset-explorer-content'>
+        <div className='dataset-explorer-content dataset-explorer-results' id='dataset-explorer-content'>
           {
             this.props.hideContent &&
               <div className='dataset-overlay' />
           }
           <div>
-          <SelectedFiltersComponent
-            applied_filters={this.props.applied_filters}
-            clearAllFilters={this.props.clearAllFilters}
-            infographicsConfig={this.props.infographicsConfig}
-            removeFilter={this.props.removeFilter}
-          />
+            <SelectedFiltersComponent
+              applied_filters={this.props.applied_filters}
+              clearAllFilters={this.props.clearAllFilters}
+              infographicsConfig={this.props.infographicsConfig}
+              removeFilter={this.props.removeFilter}
+            />
           </div>
           <ResultsComponent
             dataset={this.props.dataset}
