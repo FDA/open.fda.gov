@@ -471,7 +471,7 @@ class LineChartComponent extends React.Component {
       columns: [],
       config: {
         "chartRow": {
-          "height": 200,
+          "height": 400,
           "trackerInfoWidth": 130
         },
         "chartContainer": {
@@ -754,7 +754,7 @@ class LineChartComponent extends React.Component {
           :
           <div style={{display:"flex"}}>
             <div style={{
-              width: 850,
+              width: '90%',
               marginTop: 18
             }}>
               <h3
@@ -763,30 +763,32 @@ class LineChartComponent extends React.Component {
                   paddingBottom: 15
                 }}
               >{this.props.chartConfig.lineChart.title}</h3>
-              <ChartContainer
-                timeRange={this.state.timerange}
-                {...this.state.config.chartContainer}
-              >
-                <ChartRow
-                  {...this.state.config.chartRow}
+              <Resizable>
+                <ChartContainer
+                  timeRange={this.state.timerange}
+                  {...this.state.config.chartContainer}
                 >
-                  <YAxis
-                    id="axis1"
-                    max={this.state._max}
-                    {...this.state.config.yAxis}
-                  />
-                  <Charts>
-                    <LineChart
-                      style={this.state.legendStyle}
-                      axis="axis1"
-                      series={this.state.series}
-                      columns={this.state.columns}
-                      onSelectionChange={this.onSelectionChange}
-                      {...this.state.config.lineChart}
+                  <ChartRow
+                    {...this.state.config.chartRow}
+                  >
+                    <YAxis
+                      id="axis1"
+                      max={this.state._max}
+                      {...this.state.config.yAxis}
                     />
-                  </Charts>
-                </ChartRow>
-              </ChartContainer>
+                    <Charts>
+                      <LineChart
+                        style={this.state.legendStyle}
+                        axis="axis1"
+                        series={this.state.series}
+                        columns={this.state.columns}
+                        onSelectionChange={this.onSelectionChange}
+                        {...this.state.config.lineChart}
+                      />
+                    </Charts>
+                  </ChartRow>
+                </ChartContainer>
+              </Resizable>
               <div style={{paddingLeft:105}}>
                 <Legend categories={this.state.legendCategories} style={this.state.legendStyle} type="line" />
               </div>
