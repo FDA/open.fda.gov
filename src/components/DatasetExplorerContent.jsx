@@ -388,6 +388,23 @@ const CustomizedAxisTick = createReactClass({
   }
 });
 
+const CustomTooltip  = createReactClass({
+
+  render() {
+
+    if (this.props.active) {
+      return (
+        <div className="custom-tooltip">
+          <h3 className="label">{this.props.label}</h3>
+          <em className="intro">{`${this.props.yLabel} : ${this.props.payload[0].value}`}</em>
+        </div>
+      );
+    }
+
+    return null;
+  }
+});
+
 class BarChartComponent extends React.Component {
 
  constructor (props: Object) {
@@ -410,26 +427,28 @@ class BarChartComponent extends React.Component {
 
     // }
 
-    console.log("bar chart props: ", this.props)
     return (
-      <ResponsiveContainer width="90%" height={500}>
-        <BarChart
-          ref="bar"
-          data={this.props.data}
-          {...this.props.chartConfig.barChart}
-        >
-          <XAxis dataKey="name" interval={0} tick={<CustomizedAxisTick/>}/>
-          <YAxisR/>
-          <CartesianGrid strokeDasharray="8 8"/>
-          <Tooltip/>
-          <Bar
-            dataKey="product_name"
-            fill="#8884d8"
-            barCategoryGap={"50%"}
-            barGap={"50%"}
-          />
-        </BarChart>
-      </ResponsiveContainer>
+          <ResponsiveContainer width="90%" height={400}>
+            <BarChart
+              ref="bar"
+              data={this.props.data}
+              {...this.props.chartConfig.barChart}
+            >
+              <XAxis dataKey="name" interval={0} tick={<CustomizedAxisTick/>}/>
+              <YAxisR/>
+              <CartesianGrid strokeDasharray="8 8"/>
+              <Tooltip content={<CustomTooltip yLabel={this.props.yLabel}/>}/>
+              {
+                this.props.xAxis &&
+                  <Bar
+                    dataKey={this.props.xAxis}
+                    fill="#8884d8"
+                    barCategoryGap={"50%"}
+                    barGap={"50%"}
+                  />
+              }
+            </BarChart>
+          </ResponsiveContainer>
     )
   }
 }
@@ -456,7 +475,7 @@ class LineChartComponent extends React.Component {
           "trackerInfoWidth": 130
         },
         "chartContainer": {
-          "width": 500,
+          "width": 800,
           "showGrid": true,
           "format": "year",
           "timeAxisStyle": {
@@ -576,8 +595,6 @@ class LineChartComponent extends React.Component {
       searchType: "aggregation",
       groupingField: props.chartConfig.lineChart.countBy
     })
-    console.log("filters:")
-    console.log(JSON.stringify(data, null, 4))
     fetch(`${props.dataset.url}/${props.dataset.endpoint}`, {
       body: JSON.stringify(data),
       headers: {
@@ -589,8 +606,6 @@ class LineChartComponent extends React.Component {
       .then(res => res.json())
       .then((json) => {
         if(json.results){
-          /*Promise.all(urls.map(url => fetch(url).then(res => res.text()).then(html => (console.log('html: ', html))
-          ).then(() => console.log('all urls were fetched and processed'))*/
           let options = json.results.filter(value => value.term.indexOf("'") === -1).map(term => {
             return term.term
           }).slice(0,4)
@@ -614,7 +629,6 @@ class LineChartComponent extends React.Component {
             method: 'POST',
             mode: 'cors'
           }).then(res => res.json())})).then(results => {
-            console.log("results of all promise: ", results)
             data = results.map(result => {
               return result.results
             })
@@ -740,7 +754,7 @@ class LineChartComponent extends React.Component {
           :
           <div style={{display:"flex"}}>
             <div style={{
-              width: 550,
+              width: 850,
               marginTop: 18
             }}>
               <h3
@@ -1060,45 +1074,54 @@ class InfographicComponent extends React.Component {
     super(props)
 
     this.state = {
-      data: []
+      data: [],
+      xAxis: {}
     }
 
     this.getBarData = this.getBarData.bind(this)
+    this.changeXAxis = this.changeXAxis.bind(this)
   }
 
   componentDidMount () {
     if (this.props.chartConfig.type === 'bar') {
-      this.getBarData(this.props)
+      this.getBarData(this.props, this.props.chartConfig.barChart.xOptions[0])
     }
   }
 
   componentWillReceiveProps (nextProps) {
     if ((this.props.applied_filters !== nextProps.applied_filters) || (this.props.chartType !== nextProps.chartType)) {
       if (nextProps.chartConfig.type === 'bar') {
-        this.getBarData(nextProps)
+        this.getBarData(nextProps, nextProps.chartConfig.barChart.xOptions[0])
       }
     }
   }
 
-  getBarData(props) {
+  getBarData (props, xAxis) {
     let data = []
 
     props.drs.getData(props.applied_filters, {
       searchType: "aggregation",
-      groupingField: props.chartConfig.barChart.countBy
+      groupingField: xAxis.value
     }).then(results => {
       if (results.results) {
         data = results.results.map(value => {
           return {
             name: value.term,
-            product_name: value.count,
+            [xAxis.label]: value.count,
             amt: value.count
           }
         }).slice(0,props.chartConfig.barChart.limiter)
 
-        this.setState({data})
+        this.setState({
+          data: data,
+          xAxis: xAxis
+        })
       }
     })
+  }
+
+  changeXAxis(selectionObj) {
+    this.getBarData(this.props, selectionObj)
   }
 
 
@@ -1130,11 +1153,29 @@ class InfographicComponent extends React.Component {
             dataset={this.props.dataset}
             drs={this.props.drs}
             chartConfig={this.props.chartConfig}
+            yLabel={this.props.chartConfig.barChart.yLabel}
+            xAxis={this.state.xAxis.label}
+            yAxis={this.props.chartConfig}
           />
       }
     }
     return (
       <div>
+        {
+          this.props.chartConfig.type === 'bar' &&
+            <div className='dataset-explorer-infographic-select-bar'>
+              <em>Select Data Element to Visualize:</em>
+              <Select
+                clearable={false}
+                name='toggle'
+                options={this.props.chartConfig.barChart.xOptions}
+                onChange={this.changeXAxis}
+                placeholder='Select x-Axis'
+                resetValue='label'
+                value={this.state.xAxis}
+              />
+            </div>
+        }
         {
           infographic
         }
@@ -1149,11 +1190,11 @@ class InfographicMenubar extends React.Component {
   constructor (props: Object) {
     super(props)
 
-    let infoConfig = this.props.infographicsConfig
+    let options = this.getOptions(this.props.infographicsConfig)
 
     this.state = {
-      chartType: infoConfig[Object.keys(infoConfig)[0]].title,
-      options: this.getOptions(infoConfig)
+      chartType: options[0],
+      options: options
     }
 
     this.selectChart = this.selectChart.bind(this)
@@ -1161,7 +1202,7 @@ class InfographicMenubar extends React.Component {
 
   selectChart (chart) {
     this.setState({
-      chartType: chart.label
+      chartType: chart
     })
 
     this.props.selectChart(chart.value)
@@ -1189,7 +1230,7 @@ class InfographicMenubar extends React.Component {
           name='toggle'
           options={this.state.options}
           onChange={this.selectChart}
-          placeholder={this.state.chartType}
+          placeholder='Select chart type'
           resetValue='label'
           value={this.state.chartType}
         />

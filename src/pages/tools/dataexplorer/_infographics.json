@@ -93,15 +93,46 @@
       "title": "Top Reported Products",
       "type": "bar",
       "barChart": {
-        "countBy": "product.name.exact",
-        "title": "Top 7 Reported Products",
+        "count": "product.name.exact",
+        "title": "Top 10 Reported Products",
+        "yLabel": "Frequency",
+        "xOptions": [
+          {
+            "label": "Report Year",
+            "value": "report_year.exact"
+          },
+          {
+            "label": "Product Name",
+            "value": "product.name.exact"
+          },
+          {
+            "label": "Formulation",
+            "value": "product.formulation.exact"
+          },
+          {
+            "label": "Species",
+            "value": "animal.species.exact"
+          },
+          {
+            "label": "Breed",
+            "value": "animal.breed.exact"
+          },
+          {
+            "label": "Clinical Sign",
+            "value": "reaction.clinical_sign.exact"
+          },
+          {
+            "label": "State",
+            "value": "state.exact"
+          }
+        ],
         "margin": {
           "top": 5,
           "right": 30,
           "left": 20,
           "bottom": 5
         },
-        "limiter": 7
+        "limiter": 10
       }
     },
     "reactionsByYear": {
