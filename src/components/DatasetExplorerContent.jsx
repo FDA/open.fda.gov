@@ -148,7 +148,7 @@ class ResultsComponent extends React.Component {
       this.setState({
         columns: columnsData.columns,
         pivotBy: (pivotBy || []),
-        placeholder: `Manage Columns ${columnsData.shownColumnsCount}/${columnsData.columns.length}`
+        placeholder: `Manage Columns ${columnsData.shownColumnsCount} / ${columnsData.columns.length}`
       })
     }
   }
@@ -186,12 +186,12 @@ class ResultsComponent extends React.Component {
     if (selectionObj.show === true) {
       this.setState({
         columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: false}}}),
-        placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length - 1}/${this.state.columns.length}`
+        placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length - 1} / ${this.state.columns.length}`
       })
     } else {
       this.setState({
         columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: true}}}),
-        placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length + 1}/${this.state.columns.length}`
+        placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length + 1} / ${this.state.columns.length}`
       })
     }
   }
@@ -486,6 +486,9 @@ class LineChartComponent extends React.Component {
       legendStyle: null,
       series: [],
       columns: [],
+      xAxis: {},
+      dataOptions: [],
+      placeholder: "Manage Options",
       config: {
         "chartRow": {
           "height": 400,
@@ -558,16 +561,18 @@ class LineChartComponent extends React.Component {
 
     this.onOpen = this.onOpen.bind(this)
     this.getLineChartData = this.getLineChartData.bind(this)
+    this.onOptionChange = this.onOptionChange.bind(this)
+    this.changeXAxis = this.changeXAxis.bind(this)
     this.transpose = this.transpose.bind(this)
   }
 
   componentDidMount () {
-    this.getLineChartData(this.props)
+    this.getLineChartData(this.props, this.props.chartConfig.lineChart.xOptions[0])
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.applied_filters !== nextProps.applied_filters) {
-      this.getLineChartData(nextProps)
+      this.getLineChartData(nextProps, nextProps.chartConfig.lineChart.xOptions[0])
     }
   }
 
@@ -607,10 +612,32 @@ class LineChartComponent extends React.Component {
     }
   }
 
-  getLineChartData(props){
+  formatDefaultOptions(options) {
+    let option_list = []
+    for (let i in options) {
+      option_list.push({
+        Header: options[i],
+        idx: i,
+        show: i < 4
+      })
+    }
+    return option_list
+  }
+
+  getShownOptions(options) {
+    let option_list = []
+    for (let i in options) {
+      if (options[i].show) {
+        option_list.push(options[i].Header)
+      }
+    }
+    return option_list
+  }
+
+  getLineChartData(props, xAxis, dataOptions){
     const data = props.drs.convertFiltersToJson(props.applied_filters, {
       searchType: "aggregation",
-      groupingField: props.chartConfig.lineChart.countBy
+      groupingField: xAxis.value
     })
     fetch(`${props.dataset.url}/${props.dataset.endpoint}`, {
       body: JSON.stringify(data),
@@ -623,14 +650,25 @@ class LineChartComponent extends React.Component {
       .then(res => res.json())
       .then((json) => {
         if(json.results){
-          let options = json.results.filter(value => value.term.indexOf("'") === -1).map(term => {
+          let all_options = json.results.filter(value => value.term.indexOf("'") === -1).map(term => {
             return term.term
-          }).slice(0,4)
+          })
+
+          let options_list = []
+
+          if (dataOptions) {
+            options_list = dataOptions
+          } else {
+            options_list = this.formatDefaultOptions(all_options)
+          }
+
+          let options = this.getShownOptions(options_list)
+          let placeholder = `Manage Options ${options.length} / ${all_options.length}`
 
           let data = []
 
           let filter_list = options.map(option => {
-            return props.drs.addValue(props.applied_filters, props.chartConfig.lineChart.countBy, [option])
+            return props.drs.addValue(props.applied_filters, xAxis.value, [option])
           })
 
           Promise.all(filter_list.map(filters => {
@@ -730,9 +768,12 @@ class LineChartComponent extends React.Component {
               timerange: new TimeRange(new Date(2014,1,1), new Date()),
               _max: Math.max(...findMax),
               legendStyle: legendStyle,
+              placeholder: placeholder,
               series: series,
               columns: options,
-              legendCategories: options.map(d => ({ key: d, label: d }))
+              legendCategories: options.map(d => ({ key: d, label: d })),
+              xAxis: xAxis,
+              dataOptions: options_list
             })
 
             let vals = $("text").filter(function () {
@@ -753,6 +794,19 @@ class LineChartComponent extends React.Component {
       })
   }
 
+  changeXAxis(selectionObj) {
+    console.log(selectionObj)
+    this.getLineChartData(this.props, selectionObj)
+  }
+
+  onOptionChange(selectionObj) {
+    if (selectionObj.show === true) {
+      this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {[selectionObj.idx]: {show: {$set: false}}}))
+    } else {
+      this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {[selectionObj.idx]: {show: {$set: true}}}))
+    }
+  }
+
   onSelectionChange(selectionObj) {
     console.log(selectionObj)
   }
@@ -764,6 +818,38 @@ class LineChartComponent extends React.Component {
 
     return (
       <div>
+        <div className='dataset-explorer-infographic-select-bar'>
+          <em>Select Data Element to Visualize:</em>
+          <Select
+            clearable={false}
+            name='toggle'
+            options={this.props.chartConfig.lineChart.xOptions}
+            onChange={this.changeXAxis}
+            placeholder='Select x-axis'
+            resetValue='label'
+            value={this.state.xAxis}
+          />
+          <em>Select Options to Visualize:</em>
+
+          <Select
+            name="toggle"
+            optionComponent={GravatarOption}
+            menuStyle={{
+              maxHeight: 130
+            }}
+            style={{
+              width: 300
+            }}
+            options={this.state.dataOptions}
+            onChange={this.onOptionChange}
+            resetValue="Header"
+            removeSelected={false}
+            searchable={false}
+            clearable={false}
+            closeOnSelect={false}
+            placeholder={this.state.placeholder}
+          />
+        </div>
         { this.state.series.length === 0 ?
           <div className="infographic-loading-div">
             <img src="/img/loading.gif" className="infographic-loading-img"/>
@@ -779,7 +865,7 @@ class LineChartComponent extends React.Component {
                   paddingLeft: "15%",
                   paddingBottom: 15
                 }}
-              >{this.props.chartConfig.lineChart.title}</h3>
+              >{`${this.props.chartConfig.lineChart.yAxisTitle} ${this.state.xAxis.label} by ${this.props.chartConfig.lineChart.xAxisTitle}`}</h3>
               <Resizable>
                 <ChartContainer
                   timeRange={this.state.timerange}
