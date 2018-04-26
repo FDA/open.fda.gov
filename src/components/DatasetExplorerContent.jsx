@@ -82,6 +82,7 @@ class ResultsComponent extends React.Component {
     super(props)
 
     this.state = {
+      data: [],
       columns: [],
       placeholder: "Manage Columns",
       pivotBy: [],
@@ -295,7 +296,21 @@ class ResultsComponent extends React.Component {
       return (<span/>)
     }
 
-    return (
+    let data = this.props.rows
+
+    if (this.state.search) {
+      data = data.filter(row => {
+        for (let i = 0; i < this.state.columns.length;i++) {
+          if (String(row[this.state.columns[i].accessor]).includes(this.state.search)){
+              return true;
+          }
+        }
+        return false;
+      })
+    }
+
+
+      return (
       <div className={this.props.hideContent ? 'blur': ''}>
         <div className='dataset-table-menubar'>
           {/* <p >{this.props.parent.state._rows.length} matches out of {this.props.parent.state.totalRecords}</p> */}
@@ -344,9 +359,11 @@ class ResultsComponent extends React.Component {
             </div>
           }
         </div>
-        <ReactTable
+
+      Search: <input value={this.state.search} onChange={e => this.setState({search: e.target.value})}/>
+      <ReactTable
           expanded={this.state.expanded}
-          data={this.props.rows}
+          data={data}
           pageSize={this.state.pageSize}
           columns={this.state.columns}
           pivotBy={this.state.pivotBy}
@@ -364,7 +381,7 @@ class ResultsComponent extends React.Component {
           onFilteredChange={filtered => this.setState({ filtered })}
           filtered={this.state.filtered}
           minRows={10}
-          filterable={true}
+          filterable={false}
           style={{
             height: 800,
             width: "100%"
