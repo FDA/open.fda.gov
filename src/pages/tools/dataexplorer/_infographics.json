@@ -89,6 +89,44 @@
     }
   },
   "petfoodrecalls": {
+    "reactionsByYear": {
+      "title": "Frequency of Top Reactions by Year",
+      "type": "line",
+      "lineChart": {
+        "countBy": "reaction.clinical_sign.exact",
+        "dateField": "report_year.exact",
+        "startYear": 2014,
+        "title": "Frequency by Year",
+        "yAxisTitle": "Frequency of",
+        "xAxisTitle": "Year",
+        "xOptions": [
+          {
+            "label": "Clinical Sign",
+            "value": "reaction.clinical_sign.exact"
+          },
+          {
+            "label": "Product Name",
+            "value": "product.name.exact"
+          },
+          {
+            "label": "Formulation",
+            "value": "product.formulation.exact"
+          },
+          {
+            "label": "Species",
+            "value": "animal.species.exact"
+          },
+          {
+            "label": "Breed",
+            "value": "animal.breed.exact"
+          },
+          {
+            "label": "State",
+            "value": "state.exact"
+          }
+        ]
+      }
+    },
     "topReportedProducts": {
       "title": "Top Reported Products",
       "type": "bar",
@@ -133,16 +171,6 @@
           "bottom": 50
         },
         "limiter": 10
-      }
-    },
-    "reactionsByYear": {
-      "title": "Frequency of Top Reactions by Year",
-      "type": "line",
-      "lineChart": {
-        "countBy": "reaction.clinical_sign.exact",
-        "dateField": "report_year.exact",
-        "startYear": 2014,
-        "title": "Frequency of Top 4 Reactions by Year"
       }
     }
   }
