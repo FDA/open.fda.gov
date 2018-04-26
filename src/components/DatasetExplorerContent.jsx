@@ -717,7 +717,7 @@ class LineChartComponent extends React.Component {
                 name: "timeseries",
                 columns: ["time","value"],
                 points: orderedResults.map(i => {
-                  return [new Date(i.term,1,1), i.count]
+                  return [new Date(i.term - 1,12,1), i.count]
                 })
               }).toJSON()
 
@@ -770,12 +770,18 @@ class LineChartComponent extends React.Component {
               points: final
             })
 
+            let lineWidth = 2
+
+            if(options.length > 4) {
+              lineWidth = 1
+            }
+
             // set style according to categories
             var legendStyle = styler(options.map((column,idx)=> {
               return {
                 key: column,
                 color: this.state.config.colors[idx],
-                width: 2
+                width: lineWidth
               }
             }))
 
