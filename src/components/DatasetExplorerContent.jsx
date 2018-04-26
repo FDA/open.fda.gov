@@ -36,6 +36,17 @@ function sortFrequenciesOfReportedSign(a, b, desc){
   } else return (a1 - b1)
 }
 
+function getNestedValue(rowObj, path) {
+  var props = path.split('.');
+    props.forEach(function(prop){
+      if (rowObj) {
+        rowObj = rowObj[prop];
+      }
+    })
+    return rowObj;
+}
+
+
 
 const GravatarOption = createReactClass({
   propTypes: {
@@ -297,17 +308,21 @@ class ResultsComponent extends React.Component {
     }
 
     let data = this.props.rows
+    let searchColumns = this.state.columns.filter(column => {return column.show})
+    let searchText = this.state.search
 
-    if (this.state.search) {
-      data = data.filter(row => {
-        for (let i = 0; i < this.state.columns.length;i++) {
-          if (String(row[this.state.columns[i].accessor]).includes(this.state.search)){
+    if (searchText) {
+      var regex = new RegExp( searchText, "i");
+        data = data.filter(row => {
+          for (let i =0; i < searchColumns.length;i++) {
+            if (regex.test(String(getNestedValue(row, searchColumns[i].accessor)))) {
               return true;
+            }
           }
-        }
-        return false;
-      })
+          return false;
+        })
     }
+
 
 
       return (
