@@ -191,6 +191,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
           onChange={this.onChange}
           loadOptions={this.getOptions}
           clearable={false}
+          aria-label={this.props.option.label}
         />
         {elements}
       </div>
@@ -632,6 +633,7 @@ class FreeTextFilterComponent extends React.Component {
           onKeyPress={this.handleKeyPress}
           onChange={this.onChange}
           id={this.props.option.idx}
+          aria-label={this.props.option.label}
         />
         {elements}
       </div>

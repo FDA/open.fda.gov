@@ -279,9 +279,10 @@ class DataExplorer extends React.Component {
                   name='toggle'
                   options={this.state.options}
                   onChange={this.handleChange}
-                  placeholder='Search the fields'
+                  placeholder='Select Dataset'
                   resetValue='label'
                   value={this.state.dataset}
+                  aria-label='Select Dataset'
                 />
                 <em>Particularly:</em>
                 <Select
@@ -289,9 +290,10 @@ class DataExplorer extends React.Component {
                   name='toggle'
                   options={this.state.dataset.views}
                   onChange={this.handleViewChange}
-                  placeholder='Select view'
+                  placeholder='Select View'
                   resetValue='label'
                   value={this.state.view}
+                  aria-label='Select View'
                 />
                 <HelpWindow
                   help_header={this.state.dataset.label + ' ' + this.state.view.label}
