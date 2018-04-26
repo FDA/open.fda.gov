@@ -122,7 +122,7 @@ const Hero = (props: tPROPS) => {
             })
           }
         </div>
-        <img src={bg_image[cat_name]} style={bg_image_style[cat_name]}/>
+           <img src={bg_image[cat_name]} style={bg_image_style[cat_name]} alt="background image"/>
       </div>
     </section>
   )
