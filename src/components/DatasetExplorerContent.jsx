@@ -1329,7 +1329,7 @@ class InfographicMenubar extends React.Component {
   render (): ?React.Element {
     return (
       <div className='dataset-explorer-infographic-menubar'>
-        <em>I'm interested in:</em>
+        <em>Select Chart Type:</em>
         <Select
           clearable={false}
           name='toggle'

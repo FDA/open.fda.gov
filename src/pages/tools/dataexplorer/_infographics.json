@@ -90,7 +90,7 @@
   },
   "petfoodrecalls": {
     "reactionsByYear": {
-      "title": "Frequency of Top Reactions by Year",
+      "title": "Frequency by Year",
       "type": "line",
       "lineChart": {
         "countBy": "reaction.clinical_sign.exact",
@@ -128,7 +128,7 @@
       }
     },
     "topReportedProducts": {
-      "title": "Top Reported Products",
+      "title": "Total Reports",
       "type": "bar",
       "barChart": {
         "count": "product.name.exact",
