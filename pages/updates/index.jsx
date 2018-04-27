@@ -21,6 +21,10 @@ export default ({ route }: PROPS) => (
       <table>
         <tbody style={{fontFamily: "times-new-roman"}}>
           <tr>
+            <td><Link to="/update/udi-dataset-updated/">UDI dataset updated to add new data elements such as device product pre-submission numbers and types</Link></td>
+            <td>April 20, 2018</td>
+          </tr>
+          <tr>
             <td><Link to="/other/nsde/">New openFDA Dataset:  NSDE – Medicare Part D Prescription Drug Event Editing & Coverage Gap Discount Program</Link></td>
             <td>December 28, 2017</td>
           </tr>
