@@ -95,6 +95,7 @@
       "lineChart": {
         "countBy": "reaction.clinical_sign.exact",
         "dateField": "report_year.exact",
+        "limiter": 8,
         "startYear": 2014,
         "title": "Frequency by Year",
         "yAxisTitle": "Frequency of",
