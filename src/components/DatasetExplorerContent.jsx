@@ -13,7 +13,7 @@ import Moment from 'moment'
 import {default as $} from 'jquery'
 import TwoLevelPieChart from './InteractivePie'
 import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, LegendR} from 'Recharts'
-import { Charts, ChartContainer, ChartRow, YAxis, LineChart, Resizable, styler, Legend, TimeMarker, EventMarker } from "react-timeseries-charts"
+import { Charts, ChartContainer, ChartRow, YAxis, LineChart, Resizable, styler, Legend, ScatterChart, TimeMarker, EventMarker } from "react-timeseries-charts"
 import { TimeSeries, TimeRange, sum } from "pondjs"
 import _ from 'lodash'
 import update from "immutability-helper/index";
@@ -493,6 +493,13 @@ class LineChartComponent extends React.Component {
   constructor (props: Object) {
     super(props)
 
+    let infoValues = [
+      {
+        label: "Vomiting",
+        value: 8
+      }
+    ]
+
     this.state = {
       yearSelection: null,
       categories: [],
@@ -504,6 +511,7 @@ class LineChartComponent extends React.Component {
       xAxis: {},
       dataOptions: [],
       placeholder: "Manage Options",
+      trackerInfoValues: infoValues,
       config: {
         "chartRow": {
           "height": 400,
@@ -555,7 +563,7 @@ class LineChartComponent extends React.Component {
         ],
         "xLegendCoordinate": -45,
         "eventMarker": {
-          "infoTimeFormat":"%m-%Y",
+          "infoTimeFormat":"%Y",
           "markerRadius": 0,
           "markerStyle":{
             "fill": "black"
@@ -579,6 +587,7 @@ class LineChartComponent extends React.Component {
     this.onOptionChange = this.onOptionChange.bind(this)
     this.changeXAxis = this.changeXAxis.bind(this)
     this.transpose = this.transpose.bind(this)
+    this.handleMouseNear = this.handleMouseNear.bind(this)
   }
 
   componentDidMount () {
@@ -763,6 +772,7 @@ class LineChartComponent extends React.Component {
             var final = res.final,
               findMax = res.findMax,
               rows = res.rows;
+            console.log("options: ", options)
 
             var series = new TimeSeries({
               name: "timeseries",
@@ -777,7 +787,7 @@ class LineChartComponent extends React.Component {
             }
 
             // set style according to categories
-            var legendStyle = styler(options.map((column,idx)=> {
+            let legendStyle = styler(options.map((column,idx)=> {
               return {
                 key: column,
                 color: this.state.config.colors[idx],
@@ -828,9 +838,51 @@ class LineChartComponent extends React.Component {
     }
   }
 
-  onSelectionChange(selectionObj) {
-    console.log(selectionObj)
+  handleTrackerChanged = t => {
+    if (t) {
+      let e = this.state.series.atTime(t)
+      let limiter = this.props.chartConfig.lineChart.limiter
+
+      const eventTime = new Date(
+        e.begin().getTime() + (e.end().getTime() - e.begin().getTime()) / 2
+      )
+
+      const eventData = e.toJSON().data;
+
+
+      let infoValues = this.state.columns.map( label => {
+        return {
+          label : label.length < 20 ? label : label.slice(0,20) + " ... ",
+          value: eventData[label]
+        }
+      })
+
+      const defaultInfoValues = [
+        {
+          label: "Maximum options to display",
+          value: limiter
+        }
+      ]
+      // Show only 5 labels
+      infoValues = infoValues.length > limiter ? defaultInfoValues : infoValues;
+      let infoHeight = infoValues.length <= limiter ? ((infoValues.length * 13) + 15) : 0;
+
+      this.setState({
+        tracker: eventTime,
+        trackerEvent: e,
+        trackerInfoValues: infoValues,
+        infoHeight: infoHeight
+      });
+    } else {
+      this.setState({ tracker: null, infoHeight: 0, trackerEvent: null });
+    }
   }
+
+  handleMouseNear = point => {
+    this.setState({
+      highlight: point
+    });
+  };
 
   render (): ?React.Element {
     if(!Object.keys(this.props.chartConfig).length){
@@ -890,6 +942,10 @@ class LineChartComponent extends React.Component {
               <Resizable>
                 <ChartContainer
                   timeRange={this.state.timerange}
+                  onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
+                  //trackerPosition={this.state.tracker}
+                  onTrackerChanged={this.handleTrackerChanged}
+                  //onBackgroundClick={() => this.setState({ selection: null })}
                   {...this.state.config.chartContainer}
                 >
                   <ChartRow
@@ -906,8 +962,19 @@ class LineChartComponent extends React.Component {
                         axis="axis1"
                         series={this.state.series}
                         columns={this.state.columns}
-                        onSelectionChange={this.onSelectionChange}
+                        onHighlightChange={highlight => this.setState({ highlight })}
+                        highlight={this.state.highlight}
+                        //onMouseNear={p => this.handleMouseNear(p)}
                         {...this.state.config.lineChart}
+                      />
+                      <EventMarker
+                        type="flag"
+                        axis="axis1"
+                        event={this.state.trackerEvent}
+                        column={this.state.highlight ? this.state.highlight: this.state.columns[0]}
+                        info={this.state.trackerInfoValues}
+                        infoHeight={this.state.infoHeight}
+                        {...this.state.config.eventMarker}
                       />
                     </Charts>
                   </ChartRow>
