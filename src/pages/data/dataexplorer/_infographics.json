@@ -98,7 +98,7 @@
         "limiter": 8,
         "startYear": 2014,
         "title": "Frequency by Year",
-        "yAxisTitle": "Frequency of",
+        "yAxisTitle": "Frequency",
         "xAxisTitle": "Year",
         "xOptions": [
           {

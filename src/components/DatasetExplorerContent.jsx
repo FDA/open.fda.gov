@@ -534,7 +534,7 @@ class LineChartComponent extends React.Component {
           }
         },
         "yAxis": {
-          "label": "Reaction Frequency",
+          "label": this.props.chartConfig.lineChart.yAxisTitle,
           "min": 0,
           "width": 70,
           "type": "linear",
@@ -735,6 +735,13 @@ class LineChartComponent extends React.Component {
               }
             }
 
+            console.log("listOfSeries: ", listOfSeries[0][0][0])
+            let startTime = new Date(listOfSeries[0][0][0])
+            let endTime = new Date(listOfSeries[0][listOfSeries[0].length - 1][0])
+            startTime.setDate(startTime.getDate() - 5)
+            endTime.setMonth(endTime.getMonth() + 1)
+
+
             // get all timestamps
             // use obj to avoid duplicates
             let timestamps = {};
@@ -796,7 +803,7 @@ class LineChartComponent extends React.Component {
             }))
 
             this.setState({
-              timerange: new TimeRange(new Date(2014,1,1), new Date()),
+              timerange: new TimeRange(startTime, endTime),
               _max: Math.max(...findMax),
               legendStyle: legendStyle,
               placeholder: placeholder,
@@ -942,10 +949,7 @@ class LineChartComponent extends React.Component {
               <Resizable>
                 <ChartContainer
                   timeRange={this.state.timerange}
-                  onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
-                  //trackerPosition={this.state.tracker}
                   onTrackerChanged={this.handleTrackerChanged}
-                  //onBackgroundClick={() => this.setState({ selection: null })}
                   {...this.state.config.chartContainer}
                 >
                   <ChartRow
@@ -964,7 +968,6 @@ class LineChartComponent extends React.Component {
                         columns={this.state.columns}
                         onHighlightChange={highlight => this.setState({ highlight })}
                         highlight={this.state.highlight}
-                        //onMouseNear={p => this.handleMouseNear(p)}
                         {...this.state.config.lineChart}
                       />
                       <EventMarker
