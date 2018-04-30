@@ -493,13 +493,6 @@ class LineChartComponent extends React.Component {
   constructor (props: Object) {
     super(props)
 
-    let infoValues = [
-      {
-        label: "Vomiting",
-        value: 8
-      }
-    ]
-
     this.state = {
       yearSelection: null,
       categories: [],
@@ -511,7 +504,7 @@ class LineChartComponent extends React.Component {
       xAxis: {},
       dataOptions: [],
       placeholder: "Manage Options",
-      trackerInfoValues: infoValues,
+      trackerInfoValues: null,
       config: {
         "chartRow": {
           "height": 400,
@@ -860,7 +853,7 @@ class LineChartComponent extends React.Component {
       let infoValues = this.state.columns.map( label => {
         return {
           label : label.length < 20 ? label : label.slice(0,20) + " ... ",
-          value: eventData[label]
+          value: eventData[label].toString()
         }
       })
 
