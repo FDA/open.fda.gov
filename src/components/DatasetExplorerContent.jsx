@@ -740,8 +740,10 @@ class LineChartComponent extends React.Component {
 
             let minTime = new Date(listOfSeries[0][0][0])
             let startTime = new Date(listOfSeries[0][0][0])
+            let panZoom = false
             if (listOfSeries[0].length > 11) {
               startTime = new Date(listOfSeries[0][listOfSeries[0].length - 11][0])
+              panZoom = true
             }
             let endTime = new Date(listOfSeries[0][listOfSeries[0].length - 1][0])
             startTime.setDate(startTime.getDate() - 5)
@@ -824,6 +826,7 @@ class LineChartComponent extends React.Component {
               timerange: new TimeRange(startTime, endTime),
               minTime: minTime,
               maxTime: endTime,
+              panZoom: panZoom,
               details: details,
               _max: Math.max(...findMax),
               legendStyle: legendStyle,
@@ -978,7 +981,7 @@ class LineChartComponent extends React.Component {
                   maxTime={this.state.maxTime}
                   minTime={this.state.minTime}
                   onTrackerChanged={this.handleTrackerChanged}
-                  enablePanZoom={true}
+                  enablePanZoom={this.state.panZoom}
                   {...this.state.config.chartContainer}
                 >
                   <ChartRow
