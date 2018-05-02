@@ -12,7 +12,7 @@ import PropTypes from 'prop-types'
 import Moment from 'moment'
 import {default as $} from 'jquery'
 import TwoLevelPieChart from './InteractivePie'
-import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, LegendR} from 'Recharts'
+import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, Legend as LegendR} from 'Recharts'
 import { Charts, ChartContainer, ChartRow, YAxis, LineChart, Resizable, styler, Legend, ScatterChart, TimeMarker, EventMarker } from "react-timeseries-charts"
 import { TimeSeries, TimeRange, sum } from "pondjs"
 import _ from 'lodash'
@@ -471,11 +471,21 @@ class BarChartComponent extends React.Component {
               <YAxisR label={{ value: this.props.yLabel, angle: -90, position: 'insideLeft' }}/>
               <CartesianGrid strokeDasharray="8 8"/>
               <Tooltip content={<CustomTooltip yLabel={this.props.yLabel}/>}/>
+              <LegendR wrapperStyle={{bottom: '20px'}} />
               {
                 this.props.xAxis &&
                   <Bar
                     dataKey={this.props.xAxis}
                     fill="#8884d8"
+                    barCategoryGap={"50%"}
+                    barGap={"50%"}
+                  />
+              }
+              {
+                this.props.detail &&
+                  <Bar
+                    dataKey={this.props.detail}
+                    fill="#82ca9d"
                     barCategoryGap={"50%"}
                     barGap={"50%"}
                   />
@@ -1336,7 +1346,7 @@ class InfographicComponent extends React.Component {
           return {
             name: value.term,
             [xAxis.label]: value.count,
-            amt: value.count
+            [props.chartConfig.barChart.detailLabel]: value[props.chartConfig.barChart.detail]
           }
         }).slice(0,props.chartConfig.barChart.limiter)
 
@@ -1378,6 +1388,7 @@ class InfographicComponent extends React.Component {
           <BarChartComponent
             applied_filters={this.props.applied_filters}
             data={this.state.data}
+            detail={this.props.chartConfig.barChart.detailLabel}
             dataset={this.props.dataset}
             drs={this.props.drs}
             chartConfig={this.props.chartConfig}
