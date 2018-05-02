@@ -468,7 +468,7 @@ class BarChartComponent extends React.Component {
               {...this.props.chartConfig.barChart}
             >
               <XAxis dataKey="name" interval={0} tick={<CustomizedAxisTick/>}/>
-              <YAxisR/>
+              <YAxisR label={{ value: this.props.yLabel, angle: -90, position: 'insideLeft' }}/>
               <CartesianGrid strokeDasharray="8 8"/>
               <Tooltip content={<CustomTooltip yLabel={this.props.yLabel}/>}/>
               {
@@ -1381,7 +1381,7 @@ class InfographicComponent extends React.Component {
             dataset={this.props.dataset}
             drs={this.props.drs}
             chartConfig={this.props.chartConfig}
-            yLabel={this.props.chartConfig.barChart.yLabel}
+            yLabel={this.props.chartConfig.barChart.yAxisTitle}
             xAxis={this.state.xAxis.label}
             yAxis={this.props.chartConfig}
           />
