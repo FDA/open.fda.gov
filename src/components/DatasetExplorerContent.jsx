@@ -562,7 +562,7 @@ class LineChartComponent extends React.Component {
           "markerStyle":{
             "fill": "black"
           },
-          "infoWidth": 175,
+          "infoWidth": 250,
           "infoStyle": {
             "fill": "white",
             "opacity": 0.90,
@@ -605,7 +605,6 @@ class LineChartComponent extends React.Component {
 
   transpose (timestamps, normalizedSeries){
     // transpose..... from list of points per series, to a list of points per timestamp
-    console.log("normalizedSeries: ", normalizedSeries, timestamps)
     var findMax = [],
       final = [],
       rows = [];
@@ -712,17 +711,25 @@ class LineChartComponent extends React.Component {
             for (var i = 0, len = results.length; i < len; i++) {
               //.filter(value => value.term > 1990)
               const orderedResults = results[i].results.map(value => {
-                return {
-                  term: parseInt(value.term),
-                  count: value.count
+                if (value[this.props.chartConfig.lineChart.detail]) {
+                  return {
+                    term: parseInt(value.term),
+                    count: value.count,
+                    detail: value[this.props.chartConfig.lineChart.detail]
+                  }
+                } else {
+                  return {
+                    term: parseInt(value.term),
+                    count: value.count
+                  }
                 }
               }).sort((a, b) => a.term - b.term)
 
               var series = new TimeSeries({
                 name: "timeseries",
-                columns: ["time","value"],
+                columns: ["time","value", "detail"],
                 points: orderedResults.map(i => {
-                  return [new Date(i.term, 0, 1), i.count]
+                  return [new Date(i.term, 0, 1), i.count, i.detail]
                 })
               }).toJSON()
 
@@ -732,7 +739,10 @@ class LineChartComponent extends React.Component {
             }
 
             let minTime = new Date(listOfSeries[0][0][0])
-            let startTime = new Date(listOfSeries[0][listOfSeries[0].length - 11][0])
+            let startTime = new Date(listOfSeries[0][0][0])
+            if (listOfSeries[0].length > 11) {
+              startTime = new Date(listOfSeries[0][listOfSeries[0].length - 11][0])
+            }
             let endTime = new Date(listOfSeries[0][listOfSeries[0].length - 1][0])
             startTime.setDate(startTime.getDate() - 5)
             endTime.setMonth(endTime.getMonth() + 1)
@@ -755,13 +765,22 @@ class LineChartComponent extends React.Component {
 
             // normalize
             const normalizedSeries = []
+            let details = {}
             listOfSeries.forEach( arr => {
               const normalizedSerie = new Array(timestamps.length).fill(null);
+              let option = [options[listOfSeries.indexOf(arr)]]
 
               arr.forEach( val => {
-                var timestamp = val[0],
+                let timestamp = val[0],
                   value = val[1],
+                  detail = val[2],
                   index = timestampsPosition[timestamp];
+                let yearString = new Date(timestamp).getFullYear()
+                if (details[yearString]) {
+                  details[yearString][option] = detail
+                } else {
+                  details[yearString] = {[option]: detail}
+                }
 
                 // add the value for the timestamp in item array
                 normalizedSerie[index] = value
@@ -770,13 +789,13 @@ class LineChartComponent extends React.Component {
             })
 
             // transpose..... from list of points per series, to a list of points per timestamp
-            var res = this.transpose(timestamps.sort((a, b) => a - b), normalizedSeries)
+            let res = this.transpose(timestamps.sort((a, b) => a - b), normalizedSeries)
 
-            var final = res.final,
-              findMax = res.findMax,
-              rows = res.rows;
 
-            var series = new TimeSeries({
+            let final = res.final,
+              findMax = res.findMax
+
+            let final_series = new TimeSeries({
               name: "timeseries",
               columns: ["time"].concat(options),
               points: final
@@ -797,14 +816,19 @@ class LineChartComponent extends React.Component {
               }
             }))
 
+            let column_list = options.map(option => {
+              return option[0]
+            })
+
             this.setState({
               timerange: new TimeRange(startTime, endTime),
               minTime: minTime,
               maxTime: endTime,
+              details: details,
               _max: Math.max(...findMax),
               legendStyle: legendStyle,
               placeholder: placeholder,
-              series: series,
+              series: final_series,
               columns: options,
               legendCategories: options.map(d => ({ key: d, label: d })),
               xAxis: xAxis,
@@ -855,9 +879,13 @@ class LineChartComponent extends React.Component {
 
 
       let infoValues = this.state.columns.map( label => {
+        let valueString = eventData[label].toString()
+        if (this.props.chartConfig.lineChart.detail && this.state.details.hasOwnProperty(t.getFullYear()) && this.state.details[t.getFullYear()].hasOwnProperty(label)) {
+          valueString = `${eventData[label].toString()} (${this.props.chartConfig.lineChart.detailText}: ${this.state.details[t.getFullYear()][label]})`
+        }
         return {
           label : label.length < 20 ? label : label.slice(0,20) + " ... ",
-          value: eventData[label].toString()
+          value: valueString
         }
       })
 
@@ -1302,7 +1330,6 @@ class InfographicComponent extends React.Component {
     }).then(results => {
       if (results.results) {
         data = results.results.map(value => {
-          //console.log("value: ", value)
           return {
             name: value.term,
             [xAxis.label]: value.count,
