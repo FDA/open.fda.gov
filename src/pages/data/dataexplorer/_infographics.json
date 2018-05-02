@@ -95,6 +95,7 @@
       "type": "bar",
       "barChart": {
         "count": "product.name.exact",
+        "countLabel": "Report Count",
         "detail": "animals_reacted",
         "detailLabel": "Animals Reacted",
         "title": "Top 10 Reported Products",
@@ -186,6 +187,7 @@
     "type": "bar",
     "barChart": {
       "count": "half_life.exact",
+      "countLabel": "Half Life",
       "title": "Half Life in Hours",
       "yAxisTitle": "Half Life",
       "xOptions": [
