@@ -95,6 +95,8 @@
       "lineChart": {
         "countBy": "reaction.clinical_sign.exact",
         "dateField": "report_year.exact",
+        "detailText": "animals reacted",
+        "detail": "animals_reacted",
         "limiter": 8,
         "startYear": 2014,
         "title": "Frequency by Year",
