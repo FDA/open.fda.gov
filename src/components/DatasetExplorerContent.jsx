@@ -427,7 +427,7 @@ const CustomTooltip  = createReactClass({
     if (this.props.active) {
       return (
         <div className="custom-tooltip">
-          <h3 className="label">{this.props.label}</h3>
+          <h5 className="label">{this.props.label}</h5>
           <em className="intro">{`${this.props.yLabel} : ${this.props.payload[0].value}`}</em>
         </div>
       );
@@ -1345,7 +1345,7 @@ class InfographicComponent extends React.Component {
         data = results.results.map(value => {
           return {
             name: value.term,
-            [xAxis.label]: value.count,
+            [props.chartConfig.barChart.countLabel]: value.count,
             [props.chartConfig.barChart.detailLabel]: value[props.chartConfig.barChart.detail]
           }
         }).slice(0,props.chartConfig.barChart.limiter)
@@ -1393,7 +1393,7 @@ class InfographicComponent extends React.Component {
             drs={this.props.drs}
             chartConfig={this.props.chartConfig}
             yLabel={this.props.chartConfig.barChart.yAxisTitle}
-            xAxis={this.state.xAxis.label}
+            xAxis={this.props.chartConfig.barChart.countLabel}
             yAxis={this.props.chartConfig}
           />
       }
