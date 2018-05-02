@@ -174,5 +174,104 @@
         "limiter": 10
       }
     }
+  },
+  "phishpharm": {
+  "topReportedProducts": {
+    "title": "Half Life",
+    "type": "bar",
+    "barChart": {
+      "count": "half_life.exact",
+      "title": "Half Life in Hours",
+      "yLabel": "Half Life",
+      "xOptions": [
+        {
+          "label": "Drug/Chem",
+          "value": "drug.exact"
+        },
+        {
+          "label": "Fish Species",
+          "value": "species.exact"
+        },
+        {
+          "label": "Genus Species",
+          "value": "genus_species.exact"
+        },
+        {
+          "label": "Drug Class",
+          "value": "drug_class.exact"
+        },
+        {
+          "label": "Route",
+          "value": "route.exact"
+        },
+        {
+          "label": "Sample",
+          "value": "sample.exact"
+        },
+        {
+          "label": "Water",
+          "value": "water_type.exact"
+        },
+        {
+          "label": "Authors",
+          "value": "pub_authors.exact"
+        }
+      ],
+      "margin": {
+        "top": 5,
+        "right": 30,
+        "left": 20,
+        "bottom": 50
+      },
+      "limiter": 10
+    }
+  },
+    "reactionsByYear": {
+      "title": "Number of Drugs by Year",
+      "type": "line",
+      "lineChart": {
+        "countBy": "drug.exact",
+        "dateField": "pub_date",
+        "limiter": 8,
+        "startYear": 2014,
+        "title": "Number of Drugs by Year",
+        "yAxisTitle": "Drugs",
+        "xAxisTitle": "Year",
+        "xOptions": [
+          {
+            "label": "Drug/Chem",
+            "value": "drug.exact"
+          },
+          {
+            "label": "Fish Species",
+            "value": "species.exact"
+          },
+          {
+            "label": "Genus Species",
+            "value": "genus_species.exact"
+          },
+          {
+            "label": "Drug Class",
+            "value": "drug_class.exact"
+          },
+          {
+            "label": "Route",
+            "value": "route.exact"
+          },
+          {
+            "label": "Sample",
+            "value": "sample.exact"
+          },
+          {
+            "label": "Water",
+            "value": "water_type.exact"
+          },
+          {
+            "label": "Authors",
+            "value": "pub_authors.exact"
+          }
+        ]
+      }
+    }
   }
 }

@@ -1,4 +1,180 @@
 names:
+  phishpharm:
+    label: Phish-Pharm
+    path: phishpharm
+    showChartView: true
+    views:
+      tableView:
+        label: In a table
+        searchType: nonLLT
+        help_text: This is Phish Pharm non LLT placeholder help text.
+        show_collapse_rows_button: false
+        columns:
+          - Header: Drug/Chem
+            accessor: drug
+            show: true
+          - Header: Drug Class
+            accessor: drug_class
+            show: true
+            split: true
+          - Header: Route
+            accessor: route
+            show: true
+            startCase: true
+          - Header: Genus Species
+            accessor: genus_species
+            show: true
+            split: true
+            startCase: true
+          - Header: Date
+            accessor: pub_date
+            show: true
+            split: true
+            startCase: true
+          - Header: Water
+            accessor: water_type
+            show: true
+            split: true
+            startCase: true
+          - Header: Authors
+            accessor: pub_authors
+            show: true
+            split: true
+            startCase: true
+          - Header: Citations
+            accessor: pub_citation
+            show: true
+          - Header: Dosage
+            accessor: dosage
+            show: false
+          - Header: Is Half Life Estimated
+            accessor: is_half_life_estimated
+            show: false
+          - Header: Half Life Detail
+            accessor: half_life_detail
+            show: false
+          - Header: Water Temperature
+            accessor: water_temperature
+            show: false
+          - Header: Pharmacokinetic Model
+            accessor: pharmacokinetic_model
+            show: false
+          - Header: Clearance
+            accessor: clearance
+            show: false
+          - Header: Water Temperature Detail
+            accessor: water_temperature_detail
+            show: false
+          - Header: Published URL
+            accessor: pub_url
+            show: false
+          - Header: Comments
+            accessor: comments
+            show: false
+            split: true
+          - Header: Method
+            accessor: method
+            show: false
+          - Header: Dosage Detail
+            accessor: dosage_detail
+            show: false
+          - Header: Protein Binding
+            accessor: protein_binding
+            show: false
+          - Header: Weight
+            accessor: weight
+            show: false
+          - Header: Metabolites
+            accessor: metabolites
+            show: false
+            split: true
+          - Header: Half Life
+            accessor: half_life
+            show: false
+          - Header: Weight Detail
+            accessor: weight_detail
+            show: false
+            split: true
+    endpoint: animaldrug/phishpharm.json
+    url: http://ec2-52-71-40-8.compute-1.amazonaws.com:8000
+    filters:
+      options:
+        - label: Time frame to search
+          type: numeric_range
+          start_value: 1961
+          end_value: 2018
+          field: pub_date
+          query_type: range
+          placeholder: Select Time Period
+        - label: Drug/Chem
+          field: drug.exact
+          autocomplete_field: drug
+          type: select_autocomplete
+          remove_chars: drug/chem
+          can_query: true
+          placeholder: Select Drug or Start Typing
+          query_type: term
+          limit: 100
+        - label: Drug Class
+          field: drug_class.exact
+          autocomplete_field: drug_class
+          type: select_autocomplete
+          remove_chars: drug class
+          can_query: true
+          placeholder: Select Drug Class or Start Typing
+          query_type: term
+          limit: 100
+        - label: Route
+          field: route.exact
+          autocomplete_field: route
+          query_type: term
+          type: select_autocomplete
+          can_query: true
+          placeholder: Select Route or Start Typing
+          limit: 100
+        - label: Fish Species
+          field: species.exact
+          autocomplete_field: species
+          query_type: term
+          type: select_autocomplete
+          can_query: true
+          placeholder: Select Species or Start Typing
+          limit: 100
+        - label: Genus Species
+          type: select_autocomplete
+          field: genus_species.exact
+          autocomplete_field: genus_species
+          query_type: term
+          placeholder: Select Genus Species or Start Typing
+          limit: 100
+          can_query: true
+        - label: Sample
+          type: select_autocomplete
+          can_query: true
+          field: sample.exact
+          query_type: term
+          autocomplete_field: sample
+          placeholder: Select Sample or Start Typing
+          limit: 100
+        - label: Water
+          type: select_autocomplete
+          query_type: term
+          field: water_type.exact
+          autocomplete_field: water_type
+          can_query: true
+          placeholder: Select Water Type or Start Typing
+          limit: 100
+        - label: Authors
+          type: select_autocomplete
+          can_query: true
+          field: pub_authors.exact
+          query_type: term
+          autocomplete_field: pub_authors
+          placeholder: Select Authors or Start Typing
+          limit: 100
+    exportOptions:
+      - label: CSV
+      - label: JSON
   petfoodrecalls:
     label: Pet Food Reports
     path: petfoodreports
@@ -392,182 +568,6 @@ names:
                 value: true
               - label: Unapproved
                 value: false
-    exportOptions:
-      - label: CSV
-      - label: JSON
-  phishpharm:
-    label: Phish-Pharm
-    path: phishpharm
-    showChartView: false
-    views:
-      tableView:
-        label: In a table
-        searchType: nonLLT
-        help_text: This is ADL non LLT placeholder help text.
-        show_collapse_rows_button: false
-        columns:
-          - Header: Drug/Chem
-            accessor: drug
-            show: true
-          - Header: Drug Class
-            accessor: drug_class
-            show: true
-            split: true
-          - Header: Route
-            accessor: route
-            show: true
-            startCase: true
-          - Header: Genus Species
-            accessor: genus_species
-            show: true
-            split: true
-            startCase: true
-          - Header: Date
-            accessor: pub_date
-            show: true
-            split: true
-            startCase: true
-          - Header: Water
-            accessor: water_type
-            show: true
-            split: true
-            startCase: true
-          - Header: Authors
-            accessor: pub_authors
-            show: true
-            split: true
-            startCase: true
-          - Header: Citations
-            accessor: pub_citation
-            show: true
-          - Header: Dosage
-            accessor: dosage
-            show: false
-          - Header: Is Half Life Estimated
-            accessor: is_half_life_estimated
-            show: false
-          - Header: Half Life Detail
-            accessor: half_life_detail
-            show: false
-          - Header: Water Temperature
-            accessor: water_temperature
-            show: false
-          - Header: Pharmacokinetic Model
-            accessor: pharmacokinetic_model
-            show: false
-          - Header: Clearance
-            accessor: clearance
-            show: false
-          - Header: Water Temperature Detail
-            accessor: water_temperature_detail
-            show: false
-          - Header: Published URL
-            accessor: pub_url
-            show: false
-          - Header: Comments
-            accessor: comments
-            show: false
-            split: true
-          - Header: Method
-            accessor: method
-            show: false
-          - Header: Dosage Detail
-            accessor: dosage_detail
-            show: false
-          - Header: Protein Binding
-            accessor: protein_binding
-            show: false
-          - Header: Weight
-            accessor: weight
-            show: false
-          - Header: Metabolites
-            accessor: metabolites
-            show: false
-            split: true
-          - Header: Half Life
-            accessor: half_life
-            show: false
-          - Header: Weight Detail
-            accessor: weight_detail
-            show: false
-            split: true
-    endpoint: animaldrug/phishpharm.json
-    url: http://ec2-52-71-40-8.compute-1.amazonaws.com:8000
-    filters:
-      options:
-        - label: Time frame to search
-          type: numeric_range
-          start_value: 1961
-          end_value: 2018
-          field: pub_date
-          query_type: range
-          placeholder: Select Time Period
-        - label: Drug/Chem
-          field: drug.exact
-          autocomplete_field: drug
-          type: select_autocomplete
-          remove_chars: drug/chem
-          can_query: true
-          placeholder: Select Drug or Start Typing
-          query_type: term
-          limit: 100
-        - label: Drug Class
-          field: drug_class.exact
-          autocomplete_field: drug_class
-          type: select_autocomplete
-          remove_chars: drug class
-          can_query: true
-          placeholder: Select Drug Class or Start Typing
-          query_type: term
-          limit: 100
-        - label: Route
-          field: route.exact
-          autocomplete_field: route
-          query_type: term
-          type: select_autocomplete
-          can_query: true
-          placeholder: Select Route or Start Typing
-          limit: 100
-        - label: Fish Species
-          field: species.exact
-          autocomplete_field: species
-          query_type: term
-          type: select_autocomplete
-          can_query: true
-          placeholder: Select Species or Start Typing
-          limit: 100
-        - label: Genus Species
-          type: select_autocomplete
-          field: genus_species.exact
-          autocomplete_field: genus_species
-          query_type: term
-          placeholder: Select Genus Species or Start Typing
-          limit: 100
-          can_query: true
-        - label: Sample
-          type: select_autocomplete
-          can_query: true
-          field: sample.exact
-          query_type: term
-          autocomplete_field: sample
-          placeholder: Select Sample or Start Typing
-          limit: 100
-        - label: Water
-          type: select_autocomplete
-          query_type: term
-          field: water_type.exact
-          autocomplete_field: water_type
-          can_query: true
-          placeholder: Select Water Type or Start Typing
-          limit: 100
-        - label: Authors
-          type: select_autocomplete
-          can_query: true
-          field: pub_authors.exact
-          query_type: term
-          autocomplete_field: pub_authors
-          placeholder: Select Authors or Start Typing
-          limit: 100
     exportOptions:
       - label: CSV
       - label: JSON
