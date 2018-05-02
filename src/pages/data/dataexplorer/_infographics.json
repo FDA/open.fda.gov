@@ -99,7 +99,7 @@
         "detail": "animals_reacted",
         "detailLabel": "Animals Reacted",
         "title": "Top 10 Reported Products",
-        "yAxisTitle": "Incidents",
+        "yAxisTitle": "Occurrences",
         "xOptions": [
           {
             "label": "Report Year",
@@ -186,10 +186,11 @@
     "title": "Half Life",
     "type": "bar",
     "barChart": {
+      "convert": true,
       "count": "half_life.exact",
       "countLabel": "Half Life",
-      "title": "Half Life in Hours",
-      "yAxisTitle": "Half Life",
+      "title": "Half Life in Days",
+      "yAxisTitle": "Days",
       "xOptions": [
         {
           "label": "Drug/Chem",
