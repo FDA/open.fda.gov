@@ -95,6 +95,8 @@
       "type": "bar",
       "barChart": {
         "count": "product.name.exact",
+        "detail": "animals_reacted",
+        "detailLabel": "Animals Reacted",
         "title": "Top 10 Reported Products",
         "yAxisTitle": "Incidents",
         "xOptions": [
