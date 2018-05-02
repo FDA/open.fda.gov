@@ -424,11 +424,16 @@ const CustomTooltip  = createReactClass({
 
   render() {
 
+
     if (this.props.active) {
       return (
         <div className="custom-tooltip">
           <h5 className="label">{this.props.label}</h5>
-          <em className="intro">{`${this.props.yLabel} : ${this.props.payload[0].value}`}</em>
+          <p className="intro">{`${this.props.yLabel} : ${this.props.payload[0].value}`}</p>
+          {
+            this.props.detail &&
+            <p className="intro">{`${this.props.detail} : ${this.props.payload[1].value}`}</p>
+          }
         </div>
       );
     }
@@ -470,7 +475,7 @@ class BarChartComponent extends React.Component {
               <XAxis dataKey="name" interval={0} tick={<CustomizedAxisTick/>}/>
               <YAxisR label={{ value: this.props.yLabel, angle: -90, position: 'insideLeft' }}/>
               <CartesianGrid strokeDasharray="8 8"/>
-              <Tooltip content={<CustomTooltip yLabel={this.props.yLabel}/>}/>
+              <Tooltip content={<CustomTooltip detail={this.props.detail} yLabel={this.props.xAxis}/>}/>
               <LegendR wrapperStyle={{bottom: '20px'}} />
               {
                 this.props.xAxis &&
@@ -1343,9 +1348,13 @@ class InfographicComponent extends React.Component {
     }).then(results => {
       if (results.results) {
         data = results.results.map(value => {
+          let count = value.count
+          if (props.chartConfig.barChart.convert) {
+            count = value.count / 24
+          }
           return {
             name: value.term,
-            [props.chartConfig.barChart.countLabel]: value.count,
+            [props.chartConfig.barChart.countLabel]: count,
             [props.chartConfig.barChart.detailLabel]: value[props.chartConfig.barChart.detail]
           }
         }).slice(0,props.chartConfig.barChart.limiter)
