@@ -78,6 +78,7 @@
         "title": "Drugs Labels by Substance Name",
         "width": 600,
         "height": 300,
+        "yAxisTitle": "Drug Labels",
         "margin": {
           "top": 5,
           "right": 30,
@@ -89,54 +90,13 @@
     }
   },
   "petfoodrecalls": {
-    "reactionsByYear": {
-      "title": "Frequency by Year",
-      "type": "line",
-      "lineChart": {
-        "countBy": "reaction.clinical_sign.exact",
-        "dateField": "report_year.exact",
-        "detailText": "animals reacted",
-        "detail": "animals_reacted",
-        "limiter": 8,
-        "startYear": 2014,
-        "title": "Frequency by Year",
-        "yAxisTitle": "Frequency",
-        "xAxisTitle": "Year",
-        "xOptions": [
-          {
-            "label": "Clinical Sign",
-            "value": "reaction.clinical_sign.exact"
-          },
-          {
-            "label": "Product Name",
-            "value": "product.name.exact"
-          },
-          {
-            "label": "Formulation",
-            "value": "product.formulation.exact"
-          },
-          {
-            "label": "Species",
-            "value": "animal.species.exact"
-          },
-          {
-            "label": "Breed",
-            "value": "animal.breed.exact"
-          },
-          {
-            "label": "State",
-            "value": "state.exact"
-          }
-        ]
-      }
-    },
     "topReportedProducts": {
       "title": "Total Reports",
       "type": "bar",
       "barChart": {
         "count": "product.name.exact",
         "title": "Top 10 Reported Products",
-        "yLabel": "Frequency",
+        "yAxisTitle": "Incidents",
         "xOptions": [
           {
             "label": "Report Year",
@@ -175,16 +135,57 @@
         },
         "limiter": 10
       }
+    },
+    "reactionsByYear": {
+      "title": "Incidents by Year",
+      "type": "line",
+      "lineChart": {
+        "countBy": "reaction.clinical_sign.exact",
+        "dateField": "report_year.exact",
+        "detailText": "animals reacted",
+        "detail": "animals_reacted",
+        "limiter": 8,
+        "startYear": 2014,
+        "title": "Incidents by Year",
+        "yAxisTitle": "Incidents",
+        "xAxisTitle": "Year",
+        "xOptions": [
+          {
+            "label": "Clinical Sign",
+            "value": "reaction.clinical_sign.exact"
+          },
+          {
+            "label": "Product Name",
+            "value": "product.name.exact"
+          },
+          {
+            "label": "Formulation",
+            "value": "product.formulation.exact"
+          },
+          {
+            "label": "Species",
+            "value": "animal.species.exact"
+          },
+          {
+            "label": "Breed",
+            "value": "animal.breed.exact"
+          },
+          {
+            "label": "State",
+            "value": "state.exact"
+          }
+        ]
+      }
     }
   },
   "phishpharm": {
-  "topReportedProducts": {
+  "halfLife": {
     "title": "Half Life",
     "type": "bar",
     "barChart": {
       "count": "half_life.exact",
       "title": "Half Life in Hours",
-      "yLabel": "Half Life",
+      "yAxisTitle": "Half Life",
       "xOptions": [
         {
           "label": "Drug/Chem",
