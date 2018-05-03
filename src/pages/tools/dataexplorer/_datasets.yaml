@@ -183,7 +183,7 @@ names:
     showChartView: true
     views:
       tableView:
-        label: In a table
+        label:
         searchType: nonLLT
         help_text: This is Phish Pharm non LLT placeholder help text.
         show_collapse_rows_button: false
