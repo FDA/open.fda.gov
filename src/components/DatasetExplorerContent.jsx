@@ -1448,6 +1448,16 @@ class InfographicMenubar extends React.Component {
     this.selectChart = this.selectChart.bind(this)
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (this.props.infographicsConfig !== nextProps.infographicsConfig) {
+      let options = this.getOptions(nextProps.infographicsConfig)
+      this.setState({
+        chartType: options[0],
+        options: options
+      })
+    }
+  }
+
   selectChart (chart) {
     this.setState({
       chartType: chart
