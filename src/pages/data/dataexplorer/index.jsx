@@ -274,19 +274,25 @@ class DataExplorer extends React.Component {
                   value={this.state.dataset}
                   aria-label='Select Dataset'
                 />
-                <em>Particularly:</em>
-                <Select
-                  clearable={false}
-                  name='toggle'
-                  options={this.state.dataset.views}
-                  onChange={this.handleViewChange}
-                  placeholder='Select View'
-                  resetValue='label'
-                  value={this.state.view}
-                  aria-label='Select View'
-                />
+                {
+                  this.state.dataset.views.length > 1 &&
+                  <em>Particularly:</em>
+                }
+                {
+                  this.state.dataset.views.length > 1 &&
+                  <Select
+                    clearable={false}
+                    name='toggle'
+                    options={this.state.dataset.views}
+                    onChange={this.handleViewChange}
+                    placeholder='Select View'
+                    resetValue='label'
+                    value={this.state.view}
+                    aria-label='Select View'
+                  />
+                }
                 <HelpWindow
-                  help_header={this.state.dataset.label + ' ' + this.state.view.label}
+                  help_header={this.state.dataset.label + ' ' + (this.state.dataset.views.length > 1 ? this.state.view.label: ' ')}
                   help_text={this.state.view.help_text}
                 />
                 <DataViewToggle renderDataViewToggle={renderDataViewToggle}
