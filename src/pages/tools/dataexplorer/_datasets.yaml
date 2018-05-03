@@ -48,7 +48,7 @@ names:
         help_text: This is nonLLT pet food placeholder help text.
         show_collapse_rows_button: false
         columns:
-          - Header: Report ID
+          - Header: Identifier
             accessor: identifier
             show: false
           - Header: Name
