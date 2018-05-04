@@ -9,6 +9,7 @@ names:
         searchType: LLT
         help_text: This is llt pet food placeholder help text.
         show_collapse_rows_button: false
+        hide_manage_columns: true
         columns:
           - Header: Product Name
             accessor: product
