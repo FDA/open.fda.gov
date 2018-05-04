@@ -66,9 +66,6 @@
   - patient.patientonsetageunit
   - patient.patientsex
   - patient.patientweight
-  - patient.patientdeath
-  - patient.patientdeath.patientdeathdate
-  - patient.patientdeath.patientdeathdateformat
 - "#### Drugs"
 - "This section contains information about the drugs listed in the adverse event report."
 - fields:

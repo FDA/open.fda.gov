@@ -41,10 +41,6 @@
     "patientonsetageunit": "801",
     "patientsex": "2",
     "patientweight": "78",
-    "patientdeath": {
-      "patientdeathdate": "20030401",
-      "patientdeathdateformat": "102"
-    },
     "drug": [
       {
         "actiondrug": "1",

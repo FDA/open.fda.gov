@@ -562,23 +562,6 @@ properties:
             '4': "Adolescent"
             '5': "Adult"
             '6': "Elderly"
-      patientdeath:
-        type: object
-        properties:
-          patientdeathdate:
-            format: date
-            is_exact: false
-            type: string
-            pattern:
-            description: "If the patient died, the date that the patient died."
-            possible_values:
-          patientdeathdateformat:
-            format:
-            is_exact: false
-            type: string
-            pattern:
-            description: "Encoding format of the field `patientdeathdate`. Always set to `102` (YYYYMMDD)."
-            possible_values:
       patientonsetage:
         format: float
         is_exact: false
