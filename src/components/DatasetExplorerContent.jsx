@@ -424,8 +424,7 @@ const CustomTooltip  = createReactClass({
 
   render() {
 
-
-    if (this.props.active) {
+    if (this.props.active && this.props.payload) {
       return (
         <div className="custom-tooltip">
           <h5 className="label">{this.props.label}</h5>
@@ -1387,7 +1386,6 @@ class InfographicComponent extends React.Component {
         infographic =
           <LineChartComponent
             applied_filters={this.props.applied_filters}
-            data={this.state.data}
             dataset={this.props.dataset}
             drs={this.props.drs}
             chartConfig={this.props.chartConfig}
