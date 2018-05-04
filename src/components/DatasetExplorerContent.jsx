@@ -303,6 +303,8 @@ class ResultsComponent extends React.Component {
 
   render (): ?React.Element {
     const showCollapseRows = this.props.view.show_collapse_rows_button
+    const hideManageColumns = this.props.view.hide_manage_columns
+
     if(this.props.rows === undefined){
       return (<span/>)
     }
@@ -312,25 +314,25 @@ class ResultsComponent extends React.Component {
     let searchText = this.state.search
 
     if (searchText) {
-      var regex = new RegExp( searchText, "i");
+      var regex = new RegExp( searchText, "i")
         data = data.filter(row => {
-          for (let i =0; i < searchColumns.length;i++) {
+          for (let i = 0; i < searchColumns.length; i++) {
             if (regex.test(String(getNestedValue(row, searchColumns[i].accessor)))) {
-              return true;
+              return true
             }
           }
-          return false;
+          return false
         })
     }
 
 
 
-      return (
+    return (
       <div className={this.props.hideContent ? 'blur': ''}>
         <div className='dataset-table-menubar'>
-          {/* <p >{this.props.parent.state._rows.length} matches out of {this.props.parent.state.totalRecords}</p> */}
-          <div>
-            <Select
+            <div>
+              {!hideManageColumns &&
+              <Select
               name="toggle"
               optionComponent={GravatarOption}
               menuStyle={{
@@ -348,7 +350,8 @@ class ResultsComponent extends React.Component {
               closeOnSelect={false}
               placeholder={this.state.placeholder}
             />
-            <div style={{paddingLeft: 30}}>
+            }
+            <div style={{ position: "absolute", right: "20px"}}>
               <Select
                 name="toggle"
                 menuStyle={{
