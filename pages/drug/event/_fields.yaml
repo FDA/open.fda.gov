@@ -563,16 +563,16 @@ properties:
             '5': "Adult"
             '6': "Elderly"
       patientonsetage:
-        format: float
+        format: int32
         is_exact: false
-        type: string
+        type: integer
         pattern:
         description: "Age of the patient when the event first occured."
         possible_values:
       patientonsetageunit:
         format:
         is_exact: false
-        type: string
+        type: integer
         pattern:
         description: "The unit for the interval in the field `patientonsetage.`"
         possible_values:
