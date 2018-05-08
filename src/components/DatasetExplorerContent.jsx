@@ -98,18 +98,19 @@ class ResultsComponent extends React.Component {
       placeholder: "Manage Columns",
       pivotBy: [],
       sorted: [],
-      pageSize: 200,
+      pageSize: 25,
       expanded: {},
       expandedRows: {},
       resized: [],
       filtered: []
     }
     this.onColumnToggle = this.onColumnToggle.bind(this)
-    this.onExportChoosen = this.onExportChoosen.bind(this)
     this.toTitleCase = this.toTitleCase.bind(this)
     this.getFormattedColumns = this.getFormattedColumns.bind(this)
     this.convertToStartCase = this.convertToStartCase.bind(this)
     this.collapseAll = this.collapseAll.bind(this)
+    this.findChildColumnId = this.findChildColumnId.bind(this)
+    this.exportToCSV = this.exportToCSV.bind(this)
 
  }
 
@@ -192,39 +193,55 @@ class ResultsComponent extends React.Component {
     }).join(' ')
   }
 
-
-  onColumnToggle(selectionObj){
-    if (selectionObj.show === true) {
-      this.setState({
-        columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: false}}}),
-        placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length - 1} / ${this.state.columns.length}`
-      })
-    } else {
-      this.setState({
-        columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: true}}}),
-        placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length + 1} / ${this.state.columns.length}`
-      })
+  findChildColumnId(columns, selectionObj) {
+    for (var i=0; i < columns.length; i ++)
+      if (columns[i].Header === selectionObj.childColumn) {
+        return i
     }
   }
 
-  onExportChoosen(selectionObj){
 
-    if(selectionObj.label === "CSV"){
-      try {
-        let csv = ''
-        jsonexport(this.props.rows, function(err, export_csv){
-          if(err) return console.log(err);
-          csv = export_csv
-        });
-        var blob = new Blob([csv], {type: "text/plain;charset=utf-8"});
-        FileSaver.saveAs(blob, "download.csv");
-      } catch (err) {
-        console.error(err);
-      }
+  onColumnToggle(selectionObj){
+
+    if (selectionObj.childColumn){
+        if (selectionObj.show === true) {
+            this.setState({
+                columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: false}}, [this.findChildColumnId(this.state.columns, selectionObj)]: {show: {$set: false}}}),
+                placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length - 1} / ${this.state.columns.length}`
+            })
+        } else {
+            this.setState({
+                columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: true}}, [this.findChildColumnId(this.state.columns, selectionObj)]: {show: {$set: true}}}),
+                placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length + 1} / ${this.state.columns.length}`
+            })
+        }
     } else {
-      var blob = new Blob(this.props.rows.map(obj => JSON.stringify(obj)), {type: "text/plain;charset=utf-8"});
-      FileSaver.saveAs(blob, "download.json");
+        if (selectionObj.show === true) {
+            this.setState({
+                columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: false}}}),
+                placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length - 1} / ${this.state.columns.length}`
+            })
+        } else {
+            this.setState({
+                columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: true}}}),
+                placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length + 1} / ${this.state.columns.length}`
+            })
+        }
     }
+  }
+
+  exportToCSV(){
+      try {
+          let csv = ''
+          jsonexport(this.props.rows, function(err, export_csv){
+              if(err) return console.log(err);
+              csv = export_csv
+          });
+          var blob = new Blob([csv], {type: "text/plain;charset=utf-8"});
+          FileSaver.saveAs(blob, "download.csv");
+      } catch (err) {
+          console.error(err);
+      }
   }
 
   getFormattedColumns(columns){
@@ -341,7 +358,7 @@ class ResultsComponent extends React.Component {
               style={{
                 width: 300
               }}
-              options={this.state.columns}
+              options={this.state.columns.filter(column => !column.hideInManageColumns)}
               onChange={this.onColumnToggle}
               resetValue="Header"
               removeSelected={false}
@@ -351,25 +368,6 @@ class ResultsComponent extends React.Component {
               placeholder={this.state.placeholder}
             />
             }
-            <div style={{ position: "absolute", right: "20px"}}>
-              <Select
-                name="toggle"
-                menuStyle={{
-                  maxHeight: 130
-                }}
-                style={{
-                  width: 80
-                }}
-                onChange={this.onExportChoosen}
-                options={this.props.dataset.exportOptions}
-                resetValue="Header"
-                removeSelected={false}
-                searchable={false}
-                clearable={false}
-                closeOnSelect={true}
-                placeholder={"Export"}
-              />
-            </div>
           </div>
           {showCollapseRows &&
             <div>
@@ -378,17 +376,21 @@ class ResultsComponent extends React.Component {
           }
         </div>
 
-      Search: <input value={this.state.search} onChange={e => this.setState({search: e.target.value})}/>
+      <input style={{width: 240, height: 30}} value={this.state.search} onChange={e => this.setState({search: e.target.value})}
+      placeholder="Type to Search in Results..." type="search" autofocus="yes"/>
+
+      <button className='collapse-rows' onClick={this.exportToCSV} style={{ float: "right"}} >
+          <fa className="fa fa-file-excel-o fa-lg marg-r-1" />Export to CSV</button>
       <ReactTable
           expanded={this.state.expanded}
           data={data}
           pageSize={this.state.pageSize}
           columns={this.state.columns}
           pivotBy={this.state.pivotBy}
-          defaultPageSize={this.props.rows.length}
           showPageSizeOptions={true}
-          pageSizeOptions={[25, 50, 100, 200, 250, 500, 1000]}
+          pageSizeOptions={[5, 10, 25, 50, 100, 200, 250, 500, 1000]}
           showPagination={true}
+          showPaginationTop={true}
           resized={this.state.resized}
           onSortedChange={sorted => this.setState({ sorted })}
           onPageChange={page => this.setState({ page })}
