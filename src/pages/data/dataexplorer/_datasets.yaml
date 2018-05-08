@@ -92,15 +92,19 @@ names:
           - Header: Weight
             accessor: animal.weight
             show: false
+            childColumn: Weight UOM
           - Header: Weight UOM
             accessor: animal.weight_uom
             show: false
+            hideInManageColumns: true
           - Header: Age
             accessor: animal.age
             show: false
+            childColumn: Age Units
           - Header: Age Units
             accessor: animal.age_units
             show: false
+            hideInManageColumns: true
           - Header: Reproductive Status
             accessor: animal.reproductive_status
             show: false
