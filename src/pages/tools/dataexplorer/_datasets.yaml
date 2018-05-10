@@ -52,65 +52,84 @@ names:
           - Header: Identifier
             accessor: identifier
             show: false
+            showDefault: false
           - Header: Name
             accessor: product.name
             show: true
+            showDefault: true
           - Header: Flavor
             accessor: product.flavor
             show: true
+            showDefault: true
           - Header: Formulation
             accessor: product.formulation
             show: true
+            showDefault: true
           - Header: Number Fed
             accessor: number_fed
             show: true
+            showDefault: true
           - Header: Number Reacted
             accessor: number_reacted
             show: true
+            showDefault: true
           - Header: Number Died
             accessor: number_died
             show: true
+            showDefault: true
           - Header: State
             accessor: state
             show: false
+            showDefault: false
           - Header: Report Year
             accessor: report_year
             show: true
+            showDefault: true
           - Header: Reported Sign
             accessor: reaction.clinical_sign
             show: true
+            showDefault: true
             split: true
           - Header: Species
             accessor: animal.species
             show: false
+            showDefault: false
           - Header: Breed
             accessor: animal.breed
             show: false
+            showDefault: false
           - Header: Gender
             accessor: animal.gender
             show: false
+            showDefault: false
           - Header: Weight
             accessor: animal.weight
             show: false
+            showDefault: false
             childColumn: Weight UOM
           - Header: Weight UOM
             accessor: animal.weight_uom
             show: false
+            showDefault: false
             hideInManageColumns: true
           - Header: Age
             accessor: animal.age
             show: false
+            showDefault: false
             childColumn: Age Units
           - Header: Age Units
             accessor: animal.age_units
             show: false
+            showDefault: false
             hideInManageColumns: true
           - Header: Reproductive Status
             accessor: animal.reproductive_status
             show: false
+            showDefault: false
           - Header: Animal Number
             accessor: animal.animal_number
             show: false
+            showDefault: false
     endpoint: animalandveterinary/petfood_reports.json
     url: http://openfda-elb-petfoods-2018-04-09-468912113.us-east-1.elb.amazonaws.com
     filters:
@@ -197,18 +216,22 @@ names:
           - Header: Effective Date
             accessor: effective_time
             show: true
+            showDefault: true
             type: date
           - Header: NDC
             accessor: openfda.product_ndc
             show: true
+            showDefault: true
             split: true
           - Header: Brand Name
             accessor: openfda.brand_name
             show: true
+            showDefault: true
             startCase: true
           - Header: Generic Name
             accessor: openfda.generic_name
             show: true
+            showDefault: true
             split: true
             startCase: true
           - Header: Active Ingredients
@@ -227,11 +250,13 @@ names:
               - Key Ingredients
               - Key Ingredient
             show: true
+            showDefault: true
             split: true
             startCase: true
           - Header: Inactive Ingredients
             accessor: inactive_ingredient
             show: true
+            showDefault: true
             filter_values:
               - Also Contains
               - Also Contain
@@ -246,67 +271,86 @@ names:
           - Header: Product Type
             accessor: openfda.product_type
             show: true
+            showDefault: true
           - Header: Purpose
             accessor: purpose
             show: false
+            showDefault: false
           - Header: Keep out of reach of children
             accessor: keep_out_of_reach_of_children
             show: false
+            showDefault: false
           - Header: Warnings
             accessor: warnings
             show: false
+            showDefault: false
           - Header: Questions
             accessor: questions
             show: false
+            showDefault: false
           - Header: SPL Product Data Elements
             accessor: spl_product_data_elements
             show: false
+            showDefault: false
           - Header: SPL ID
             accessor: openfda.spl_id
             show: false
+            showDefault: false
           - Header: Substance Name
             accessor: openfda.substance_name
             show: false
+            showDefault: false
             split: true
           - Header: Route
             accessor: route
             show: false
+            showDefault: false
           - Header: Application Number
             accessor: openfda.application_number
             show: false
+            showDefault: false
           - Header: Is original packager
             accessor: openfda.is_original_packager
             show: false
           - Header: SPL Set ID
             accessor: openfda.spl_set_id
             show: false
+            showDefault: false
           - Header: Manufacturer Name
             accessor: openfda.manufacturer_name
             show: false
+            showDefault: false
           - Header: UNII
             accessor: openfda.unii
             show: false
+            showDefault: false
           - Header: Dosage
             accessor: dosage_and_administration
             show: false
           - Header: Pregnancy or breast feeding
             accessor: pregnancy_or_breast_feeding
             show: false
+            showDefault: false
           - Header: Stop Use
             accessor: stop_use
             show: false
+            showDefault: false
           - Header: Storage and Handling
             accessor: storage_and_handling
             show: false
+            showDefault: false
           - Header: Do Not Use
             accessor: do_not_use
             show: false
+            showDefault: false
           - Header: Package label principal display
             accessor: package_label_principal_display_panel
             show: false
+            showDefault: false
           - Header: Indications and Usage
             accessor: indications_and_usage
             show: false
+            showDefault: false
     endpoint: animalandveterinary/label.json
     url: http://ec2-34-238-202-4.compute-1.amazonaws.com:8000
     filters:
@@ -414,80 +458,101 @@ names:
           - Header: Drug/Chem
             accessor: drug
             show: true
+            showDefault: false
           - Header: Drug Class
             accessor: drug_class
             show: true
+            showDefault: true
             split: true
           - Header: Route
             accessor: route
             show: true
+            showDefault: true
             startCase: true
           - Header: Genus Species
             accessor: genus_species
             show: true
+            showDefault: true
             split: true
             startCase: true
           - Header: Date
             accessor: pub_date
             show: true
+            showDefault: true
             split: true
             startCase: true
           - Header: Water
             accessor: water_type
             show: true
+            showDefault: true
             split: true
             startCase: true
           - Header: Authors
             accessor: pub_authors
             show: true
+            showDefault: true
             split: true
             startCase: true
           - Header: Citations
             accessor: pub_citation
             show: true
+            showDefault: true
           - Header: Dosage
             accessor: dosage
             show: false
+            showDefault: true
           - Header: Is Half Life Estimated
             accessor: is_half_life_estimated
             show: false
+            showDefault: false
           - Header: Half Life Detail
             accessor: half_life_detail
             show: false
+            showDefault: true
           - Header: Water Temperature
             accessor: water_temperature
             show: false
+            showDefault: true
           - Header: Pharmacokinetic Model
             accessor: pharmacokinetic_model
             show: false
+            showDefault: false
           - Header: Clearance
             accessor: clearance
             show: false
+            showDefault: false
           - Header: Water Temperature Detail
             accessor: water_temperature_detail
             show: false
+            showDefault: false
           - Header: Published URL
             accessor: pub_url
             show: false
+            showDefault: false
           - Header: Comments
             accessor: comments
             show: false
+            showDefault: false
             split: true
           - Header: Method
             accessor: method
             show: false
+            showDefault: false
           - Header: Dosage Detail
             accessor: dosage_detail
             show: false
+            showDefault: false
           - Header: Protein Binding
             accessor: protein_binding
             show: false
+            showDefault: false
           - Header: Weight
             accessor: weight
             show: false
           - Header: Metabolites
             accessor: metabolites
             show: false
+            showDefault: false
             split: true
           - Header: Half Life
             accessor: half_life
@@ -495,6 +560,7 @@ names:
           - Header: Weight Detail
             accessor: weight_detail
             show: false
+            showDefault: false
             split: true
     endpoint: animaldrug/phishpharm.json
     url: http://ec2-52-71-40-8.compute-1.amazonaws.com:8000

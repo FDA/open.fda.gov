@@ -20,7 +20,7 @@ import update from "immutability-helper/index";
 
 const re = new RegExp('\\s+');
 
-function sortFrequenciesOfReportedSign(a, b, desc){
+function ssortFrequenciesOfReportedSign(a, b, desc){
   a = a.toString();
   b = b.toString();
   var a1 = parseInt(a.split(",")[0]);
@@ -45,6 +45,9 @@ function getNestedValue(rowObj, path) {
     })
     return rowObj;
 }
+
+let checkAllColumnsOption = { Header: "Select All Columns", className: PropTypes.string , show: false}
+let resetColumnsOption = { Header: "Reset Column Selection", style: {fontSize: 16, fontWeight: 20}, show: false}
 
 
 
@@ -95,7 +98,7 @@ class ResultsComponent extends React.Component {
     this.state = {
       data: [],
       columns: [],
-      placeholder: "Manage Columns",
+      placeholder: "Selected Columns",
       pivotBy: [],
       sorted: [],
       pageSize: 25,
@@ -111,6 +114,8 @@ class ResultsComponent extends React.Component {
     this.collapseAll = this.collapseAll.bind(this)
     this.findChildColumnId = this.findChildColumnId.bind(this)
     this.exportToCSV = this.exportToCSV.bind(this)
+    this.getOptions = this.getOptions.bind(this)
+    this.generateCheckAllColumnsJSON = this.generateCheckAllColumnsJSON.bind(this)
 
  }
 
@@ -160,7 +165,7 @@ class ResultsComponent extends React.Component {
       this.setState({
         columns: columnsData.columns,
         pivotBy: (pivotBy || []),
-        placeholder: `Manage Columns ${columnsData.shownColumnsCount} / ${columnsData.columns.length}`
+        placeholder: `Selected Columns ${columnsData.shownColumnsCount} (out of ${columnsData.columns.length})`
       })
     }
   }
@@ -200,34 +205,75 @@ class ResultsComponent extends React.Component {
     }
   }
 
+  generateCheckAllColumnsJSON(columns) {
+
+    var checkAllJson = {}
+    for (var i=0; i < columns.length; i ++) {
+        checkAllJson[i] = {show:{$set: true}}
+    }
+
+    return checkAllJson
+  }
+
+  generateResetColumnsJSON(columns) {
+
+    var resetColumnsJson = {}
+    for (var i=0; i < columns.length; i ++) {
+        resetColumnsJson[i] = {show:{$set: columns[i].showDefault}}
+    }
+
+    return resetColumnsJson
+  }
+
+  getOptions() {
+     var options = this.state.columns.filter(column => !column.hideInManageColumns)
+      options.splice(0, 0, checkAllColumnsOption, resetColumnsOption)
+
+      return options
+  }
+
 
   onColumnToggle(selectionObj){
 
-    if (selectionObj.childColumn){
+     if (selectionObj.Header === "Select All Columns"){
+         this.setState({
+             columns: update(this.state.columns, this.generateCheckAllColumnsJSON(this.state.columns)),
+             placeholder: `Selected Columns ${this.state.columns.length} (out of ${this.state.columns.length})`
+         })
+     } else if (selectionObj.Header === "Reset Column Selection"){
+         this.setState({
+             columns: update(this.state.columns, this.generateResetColumnsJSON(this.state.columns)),
+             placeholder: `Selected Columns ${this.state.columns.filter(c => c.showDefault).length} (out of ${this.state.columns.length})`
+         })
+     }  else if (selectionObj.childColumn){
         if (selectionObj.show === true) {
             this.setState({
                 columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: false}}, [this.findChildColumnId(this.state.columns, selectionObj)]: {show: {$set: false}}}),
-                placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length - 1} / ${this.state.columns.length}`
+                placeholder: `Selected Columns ${this.state.columns.filter(c => c.show).length - 2} (out of ${this.state.columns.length})`
             })
         } else {
             this.setState({
                 columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: true}}, [this.findChildColumnId(this.state.columns, selectionObj)]: {show: {$set: true}}}),
-                placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length + 1} / ${this.state.columns.length}`
+                placeholder: `Selected Columns ${this.state.columns.filter(c => c.show).length + 2} (out of ${this.state.columns.length})`
             })
         }
     } else {
         if (selectionObj.show === true) {
             this.setState({
                 columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: false}}}),
-                placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length - 1} / ${this.state.columns.length}`
+                placeholder: `Selected Columns ${this.state.columns.filter(c => c.show).length - 1} (out of ${this.state.columns.length})`
             })
         } else {
             this.setState({
                 columns: update(this.state.columns, {[selectionObj.idx]: {show: {$set: true}}}),
-                placeholder: `Manage Columns ${this.state.columns.filter(c => c.show).length + 1} / ${this.state.columns.length}`
+                placeholder: `Selected Columns ${this.state.columns.filter(c => c.show).length + 1} (out of ${this.state.columns.length})`
             })
         }
     }
+
+
+      resetColumnsOption.show = (selectionObj.Header === "Reset Column Selection")
+      checkAllColumnsOption.show = (selectionObj.Header === "Select All Columns")
   }
 
   exportToCSV(){
@@ -358,7 +404,7 @@ class ResultsComponent extends React.Component {
               style={{
                 width: 300
               }}
-              options={this.state.columns.filter(column => !column.hideInManageColumns)}
+              options={this.getOptions()}
               onChange={this.onColumnToggle}
               resetValue="Header"
               removeSelected={false}
@@ -377,7 +423,7 @@ class ResultsComponent extends React.Component {
         </div>
 
       <input style={{width: 240, height: 30}} value={this.state.search} onChange={e => this.setState({search: e.target.value})}
-      placeholder="Type to Search in Results..." type="search" autofocus="yes"/>
+      placeholder="Type to Search in Results..." type="search" autoFocus/>
 
       <button className='collapse-rows' onClick={this.exportToCSV} style={{ float: "right"}} >
           <fa className="fa fa-file-excel-o fa-lg marg-r-1" />Export to CSV</button>
@@ -388,7 +434,7 @@ class ResultsComponent extends React.Component {
           columns={this.state.columns}
           pivotBy={this.state.pivotBy}
           showPageSizeOptions={true}
-          pageSizeOptions={[5, 10, 25, 50, 100, 200, 250, 500, 1000]}
+          pageSizeOptions={[10, 25, 50, 100, 200, 250, 500, 1000]}
           showPagination={true}
           showPaginationTop={true}
           resized={this.state.resized}
@@ -1597,9 +1643,8 @@ class SelectedFiltersComponent extends React.Component {
     }
     return (
       <div className='content-selected-filters'>
-        <h3>Applied Filters:</h3>
         <div>
-          {filter_list}
+            <strong style={{fontSize: 17}}>Applied Filters:</strong> {filter_list}
           <a onClick={this.props.clearAllFilters}>Clear All</a>
         </div>
       </div>
