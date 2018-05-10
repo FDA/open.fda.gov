@@ -291,15 +291,19 @@ class DataExplorer extends React.Component {
                     aria-label='Select View'
                   />
                 }
-                <HelpWindow
-                  help_header={this.state.dataset.label + ' ' + (this.state.dataset.views.length > 1 ? this.state.view.label: ' ')}
-                  help_text={this.state.view.help_text}
-                />
+
                 <DataViewToggle renderDataViewToggle={renderDataViewToggle}
                   toggleTable={this.toggleTable}
                   toggleChart={this.toggleChart}
                   visualization={this.state.visualization}
                 />
+
+                <div className='dataset-explorer-help-link'>
+                  <HelpWindow
+                    help_header={this.state.dataset.label + ' ' + (this.state.dataset.views.length > 1 ? this.state.view.label: ' ')}
+                    help_text={this.state.view.help_text}
+                  />
+                </div>
               </div>
 
               <FilterComponent

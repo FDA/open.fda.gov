@@ -31,7 +31,8 @@ class HelpWindow extends React.Component {
 
   render (): ?React.Element {
     return (
-      <i className='fa fa-lg fa-info-circle' onClick={this.openModal}>
+      <i style={{textDecoration: "underline", fontWeight: "bold", color: "#00517d"}} onClick={this.openModal}>
+        Context Help
         <ReactModal
           isOpen={this.state.showModal}
           className='help-window'
