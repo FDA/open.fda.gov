@@ -2,7 +2,7 @@
   short: "Reports over time"
   description:
     - "This is the openFDA API endpoint for animal drug adverse event reports. An adverse event report is submitted to the FDA’s Center for Veterinary Medicine (CVM) to report any undesirable experience associated with the use of an animal drug, including adverse reactions, product use errors, and product/manufacturing problems."
-    - "The chart below is provided here to help illustrate how the animal drug adverse event reports data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results). For example, observe how the results differ if you count using animal_species, serious_ae, primary_reporter.exact, drug.brand_name.exact or type_of_information.exact."
+    - "The chart below is provided here to help illustrate how the animal drug adverse event reports data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results)."
   countParam: "original_receive_date"
   filters:
     - title: "All adverse event reports"
@@ -15,3 +15,39 @@
       searchParam: 'outcome.medical_status:"Died"'
   dateConstraint:
   type: Line
+- title: "Animal Breeds"
+  short: "Specific animal breeds"
+  description:
+    - "This is the openFDA API endpoint for animal drug adverse event reports. An adverse event report is submitted to the FDA’s Center for Veterinary Medicine (CVM) to report any undesirable experience associated with the use of an animal drug, including adverse reactions, product use errors, and product/manufacturing problems."
+    - "The chart below is provided here to help illustrate how the animal drug adverse event reports data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results)."
+  countParam: "animal.breed.breed_component.exact"
+  filters:
+    - title: "All adverse event reports"
+      searchParam: ""
+    - title: "Cats"
+      searchParam: 'animal.species:"Cat"'
+    - title: "Dogs"
+      searchParam: 'animal.species:"Dog"'
+    - title: "Horses"
+      searchParam: 'animal.species:"Horse"'
+    - title: "Cattle"
+      searchParam: 'animal.species:"Cattle"'
+  dateConstraint:
+  type: Bar
+- title: "Specific Reactions"
+  short: "Reactions"
+  description:
+    - "This is the openFDA API endpoint for animal drug adverse event reports. An adverse event report is submitted to the FDA’s Center for Veterinary Medicine (CVM) to report any undesirable experience associated with the use of an animal drug, including adverse reactions, product use errors, and product/manufacturing problems."
+    - "The chart below is provided here to help illustrate how the animal drug adverse event reports data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results)."
+  countParam: "reaction.veddra_term_name.exact"
+  filters:
+    - title: "All adverse event reports"
+      searchParam: ""
+    - title: "Veddra Version 2"
+      searchParam: 'reaction.veddra_version:"2"'
+    - title: "Veddra Version 3"
+      searchParam: 'reaction.veddra_version:"3"'
+    - title: "Veddra Version 11"
+      searchParam: 'reaction.veddra_version:"11"'
+  dateConstraint:
+  type: Bar

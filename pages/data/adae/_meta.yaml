@@ -14,10 +14,10 @@ license:
   name: 'Public Domain and CC0'
   link: 'http://creativecommons.org/publicdomain/zero/1.0/'
 time:
-  start: 'Q3 2016'
+  start: '1987'
   current:
-  delay: '1 month'
-  frequency: 'Monthly'
+  delay: '3 month'
+  frequency: 'Quarterly'
 provider:
   name: 'FDA'
   link: 'http://www.fda.gov/'
