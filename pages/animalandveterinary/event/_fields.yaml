@@ -471,12 +471,14 @@ properties:
         is_exact: true
         type: string
         possible_values:
-          Ongoing: "The number of animals described in the adverse event report with ongoing clinical manifestations."
-          Recovered/Normal: "The number of animals described in the adverse event report that have recovered or returned to normal health."
-          Recovered with Sequela: "The number of animals described in the adverse event report that have recovered but are left with an altered health status."
-          Died: "The number of animals described in the AER that died (not including those that have been euthanized)."
-          Euthanized: "The number of animals described in the AER that were euthanized."
-          Unknown: "The number of animals with an unknown outcome."
+          type: one_of
+          value:
+            Ongoing: "Ongoing"
+            Recovered/Normal: "Recovered/Normal"
+            Recovered with Sequela: "Recovered with Sequela"
+            Died: "Died"
+            Euthanized: "Euthanized"
+            Unknown: "Unknown"
       number_of_animals_affected:
         description: "Total number of animals affected by the adverse event, whether through direct or indirect exposure (e.g. treated during pregnancy or lactation, commingled, infection spread, etc.)."
         format:
@@ -522,6 +524,11 @@ properties:
         format:
         is_exact: false
         possible_values:
+          type: one_of
+          value:
+            2: "VeDDRA Version 2"
+            3: "VeDDRA Version 3"
+            11: "VeDDRA Version 11"
         type: integer
   receiver:
     description: "The receiver of the adverse event report."
