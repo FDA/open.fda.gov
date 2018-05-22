@@ -79,8 +79,16 @@
 
   .ReactTable .rt-table
     background-color: white
+    overflow: hidden !important
 
-  .ReactTable .rt-thead.-filters
+  .ReactTable .rt-tbody
+    min-width: 0px !important
+
+  .ReactTable .rt-thead
+    min-width: 0px !important
+    overflow: hidden !important
+
+.ReactTable .rt-thead.-filters
     box-shadow: 0 7px 15px 0 rgba(0,0,0,0.08)
 
   .ReactTable .rt-thead.-header

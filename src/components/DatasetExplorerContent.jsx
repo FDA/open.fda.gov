@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react'
+import ReactDOM from 'react-dom'
 
 import { default as ReactTable } from "react-table"
 
@@ -17,6 +18,8 @@ import { Charts, ChartContainer, ChartRow, YAxis, LineChart, Resizable, styler, 
 import { TimeSeries, TimeRange, sum } from "pondjs"
 import _ from 'lodash'
 import update from "immutability-helper/index";
+
+import XLSX from 'xlsx'
 
 const re = new RegExp('\\s+');
 
@@ -44,6 +47,42 @@ function getNestedValue(rowObj, path) {
       }
     })
     return rowObj;
+}
+
+/* generate a download */
+function s2ab(s) {
+  var buf = new ArrayBuffer(s.length);
+  var view = new Uint8Array(buf);
+  for (var i=0; i!=s.length; ++i) {
+      view[i] = s.charCodeAt(i) & 0xFF;
+  }
+  return buf;
+}
+
+function flattenJSON(data) {
+
+  var flattenedJSON = []
+
+  for (var i =  0; i < data.length; i ++) {
+    var newRow = {}
+    for(var item in data[i]){
+      if (typeof data[i][item] === "object") {
+        for (var name in data[i][item]){
+          if (typeof data[i][item][name] === 'object' && data[i][item][name].constructor === Array) {
+            newRow[name] = data[i][item][name].join("; ")
+          } else {
+            newRow[name] = data[i][item][name]
+          }
+        }
+      } else {
+          newRow[item] = data[i][item]
+      }
+    }
+    flattenedJSON.push(newRow)
+  }
+
+  return flattenedJSON
+
 }
 
 let checkAllColumnsOption = { Header: "Select All Columns", className: PropTypes.string , show: false}
@@ -114,12 +153,31 @@ class ResultsComponent extends React.Component {
     this.collapseAll = this.collapseAll.bind(this)
     this.findChildColumnId = this.findChildColumnId.bind(this)
     this.exportToCSV = this.exportToCSV.bind(this)
+    this.exportToXLS = this.exportToXLS.bind(this)
     this.getOptions = this.getOptions.bind(this)
     this.generateCheckAllColumnsJSON = this.generateCheckAllColumnsJSON.bind(this)
 
  }
 
-  componentDidMount () {
+  componentDidMount(): void {
+    let thead = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-thead")[0];
+    let tbody = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-tbody")[0];
+
+    tbody.addEventListener("scroll", () => {
+        thead.scrollLeft = tbody.scrollLeft;
+    });
+ }
+
+  componentDidUpdate(): void {
+    let thead = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-thead")[0];
+    let tbody = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-tbody")[0];
+
+    if (tbody.scrollHeight > tbody.clientHeight) {
+        thead.classList.add("vertical-scrollbar-present");
+    }
+    else {
+        thead.classList.remove("vertical-scrollbar-present");
+    }
   }
 
   componentWillReceiveProps(nextProps){
@@ -271,9 +329,27 @@ class ResultsComponent extends React.Component {
         }
     }
 
-
       resetColumnsOption.show = (selectionObj.Header === "Reset Column Selection")
       checkAllColumnsOption.show = (selectionObj.Header === "Select All Columns")
+  }
+
+  exportToXLS() {
+    try {
+
+      /* make the worksheet */
+      var ws = XLSX.utils.json_to_sheet(flattenJSON(this.props.rows));
+
+      /* add to workbook */
+      var wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "data");
+
+      /* write workbook (use type 'binary') */
+      var wbout = XLSX.write(wb, {bookType:'xlsx', type:'binary'});
+
+      FileSaver.saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), this.props.dataset.label + ".xlsx");
+    } catch (err) {
+        console.error(err);
+    }
   }
 
   exportToCSV(){
@@ -284,7 +360,7 @@ class ResultsComponent extends React.Component {
               csv = export_csv
           });
           var blob = new Blob([csv], {type: "text/plain;charset=utf-8"});
-          FileSaver.saveAs(blob, "download.csv");
+          FileSaver.saveAs(blob, this.props.dataset.label + ".csv");
       } catch (err) {
           console.error(err);
       }
@@ -420,13 +496,25 @@ class ResultsComponent extends React.Component {
               <button className='collapse-rows' onClick={this.collapseAll}>Collapse Rows</button>
             </div>
           }
+
+            <div style={{width: "67%"}}>
+                <input style={{ width: 240, height: 20, padding: 17, WebkitAppearance: 'none'}} value={this.state.search} onChange={e => this.setState({search: e.target.value})}
+                       placeholder="Type to Search in Results..." type="search" autoFocus/>
+
+                <a href='javascript:void(0)' onClick={this.exportToXLS} style={{ position: "absolute", right:160, lineHeight: 2.5, display: "inline"}} >
+                    <img alt='Export to XLS' style={{float: "left", width: 31, padding: 5}}
+                         src='/img/xls-icon.svg'/>Export to XLS
+                </a>
+
+                <a href='javascript:void(0)' onClick={this.exportToCSV} style={{ position: "absolute", right:30, lineHeight: 2.5, display: "inline"}} >
+                    <img alt='Export to CSV' style={{float: "left", width: 31, padding: 5}}
+                         src='/img/csv-icon.svg'/>Export to CSV
+                </a>
+
+            </div>
+
         </div>
 
-      <input style={{width: 240, height: 30}} value={this.state.search} onChange={e => this.setState({search: e.target.value})}
-      placeholder="Type to Search in Results..." type="search" autoFocus/>
-
-      <button className='collapse-rows' onClick={this.exportToCSV} style={{ float: "right"}} >
-          <fa className="fa fa-file-excel-o fa-lg marg-r-1" />Export to CSV</button>
       <ReactTable
           expanded={this.state.expanded}
           data={data}
@@ -453,6 +541,7 @@ class ResultsComponent extends React.Component {
             width: "100%"
           }}
           className="-striped -highlight"
+          ref={(element) => { this.dataTableElement = element; }}
         />
       </div>
     )
