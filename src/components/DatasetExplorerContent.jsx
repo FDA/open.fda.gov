@@ -570,6 +570,8 @@ class LineChartComponent extends React.Component {
       xAxis: {},
       dataOptions: [],
       placeholder: "Manage Options",
+      showTopFive: true,
+      showTopTen: false,
       trackerInfoValues: null,
       config: {
         "chartRow": {
@@ -645,6 +647,8 @@ class LineChartComponent extends React.Component {
     this.getLineChartData = this.getLineChartData.bind(this)
     this.onOptionChange = this.onOptionChange.bind(this)
     this.changeXAxis = this.changeXAxis.bind(this)
+    this.showTopFive = this.showTopFive.bind(this)
+    this.showTopTen = this.showTopTen.bind(this)
     this.transpose = this.transpose.bind(this)
     this.handleMouseNear = this.handleMouseNear.bind(this)
   }
@@ -701,7 +705,7 @@ class LineChartComponent extends React.Component {
       option_list.push({
         Header: options[i],
         idx: i,
-        show: i < 4
+        show: i < 5
       })
     }
     return option_list
@@ -740,6 +744,15 @@ class LineChartComponent extends React.Component {
           let options_list = []
 
           if (dataOptions) {
+            let selected = false
+            for (let i = 0; i < dataOptions.length; i++) {
+              if (dataOptions[i].show === true) {
+                selected = true
+              }
+            }
+            if (selected === false) {
+              dataOptions[0].show = true
+            }
             options_list = dataOptions
           } else {
             options_list = this.formatDefaultOptions(all_options)
@@ -922,7 +935,6 @@ class LineChartComponent extends React.Component {
   }
 
   changeXAxis(selectionObj) {
-    console.log(selectionObj)
     this.getLineChartData(this.props, selectionObj)
   }
 
@@ -931,6 +943,92 @@ class LineChartComponent extends React.Component {
       this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {[selectionObj.idx]: {show: {$set: false}}}))
     } else {
       this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {[selectionObj.idx]: {show: {$set: true}}}))
+    }
+  }
+
+  showTopFive() {
+    if (this.state.showTopTen === false) {
+      if (this.state.showTopFive === true) {
+        this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {
+          [0]: {show: {$set: false}},
+          [1]: {show: {$set: false}},
+          [2]: {show: {$set: false}},
+          [3]: {show: {$set: false}},
+          [4]: {show: {$set: false}}
+        }))
+        this.setState({
+          showTopFive: false
+        })
+      } else {
+        this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {
+          [0]: {show: {$set: true}},
+          [1]: {show: {$set: true}},
+          [2]: {show: {$set: true}},
+          [3]: {show: {$set: true}},
+          [4]: {show: {$set: true}}
+        }))
+        this.setState({
+          showTopFive: true,
+          showTopTen: false
+        })
+      }
+    } else {
+      this.setState({
+        showTopFive: true
+      })
+    }
+  }
+
+  showTopTen() {
+    if (this.state.showTopTen === true && this.state.showTopFive === false) {
+      this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {
+        [0]: {show: {$set: false}},
+        [1]: {show: {$set: false}},
+        [2]: {show: {$set: false}},
+        [3]: {show: {$set: false}},
+        [4]: {show: {$set: false}},
+        [5]: {show: {$set: false}},
+        [6]: {show: {$set: false}},
+        [7]: {show: {$set: false}},
+        [8]: {show: {$set: false}},
+        [9]: {show: {$set: false}}
+      }))
+      this.setState({
+        showTopTen: false
+      })
+    }
+    else if (this.state.showTopTen === true && this.state.showTopFive === true) {
+      this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {
+        [0]: {show: {$set: true}},
+        [1]: {show: {$set: true}},
+        [2]: {show: {$set: true}},
+        [3]: {show: {$set: true}},
+        [4]: {show: {$set: true}},
+        [5]: {show: {$set: false}},
+        [6]: {show: {$set: false}},
+        [7]: {show: {$set: false}},
+        [8]: {show: {$set: false}},
+        [9]: {show: {$set: false}}
+      }))
+      this.setState({
+        showTopTen: false
+      })
+    } else {
+      this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {
+        [0]: {show: {$set: true}},
+        [1]: {show: {$set: true}},
+        [2]: {show: {$set: true}},
+        [3]: {show: {$set: true}},
+        [4]: {show: {$set: true}},
+        [5]: {show: {$set: true}},
+        [6]: {show: {$set: true}},
+        [7]: {show: {$set: true}},
+        [8]: {show: {$set: true}},
+        [9]: {show: {$set: true}}
+      }))
+      this.setState({
+        showTopTen: true
+      })
     }
   }
 
@@ -1013,7 +1111,19 @@ class LineChartComponent extends React.Component {
             style={{
               width: 300
             }}
-            options={this.state.dataOptions}
+            options={Array.prototype.slice.call(this.state.dataOptions).sort(function(a, b) {
+              let nameA = a.Header.toUpperCase(); // ignore upper and lowercase
+              let nameB = b.Header.toUpperCase(); // ignore upper and lowercase
+              if (nameA < nameB) {
+                return -1;
+              }
+              if (nameA > nameB) {
+                return 1;
+              }
+
+              // names must be equal
+              return 0;
+            })}
             onChange={this.onOptionChange}
             resetValue="Header"
             removeSelected={false}
@@ -1022,6 +1132,10 @@ class LineChartComponent extends React.Component {
             closeOnSelect={false}
             placeholder={this.state.placeholder}
           />
+          <div>
+            <div><input type='checkbox' checked={this.state.showTopFive} onClick={this.showTopFive}/>Show Top Five</div>
+            <div><input type='checkbox' checked={this.state.showTopTen} onClick={this.showTopTen}/>Show Top Ten</div>
+          </div>
         </div>
         { this.state.series.length === 0 ?
           <div className="infographic-loading-div">

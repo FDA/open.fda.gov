@@ -1,5 +1,46 @@
 {
   "petfoodrecalls": {
+    "reactionsByYear": {
+      "title": "Incidents by Year",
+      "type": "line",
+      "lineChart": {
+        "countBy": "reaction.clinical_sign.exact",
+        "dateField": "report_year.exact",
+        "detailText": "animals reacted",
+        "detail": "animals_reacted",
+        "limiter": 8,
+        "startYear": 2014,
+        "title": "Incidents by Year",
+        "yAxisTitle": "Incidents",
+        "xAxisTitle": "Year",
+        "xOptions": [
+          {
+            "label": "Clinical Sign",
+            "value": "reaction.clinical_sign.exact"
+          },
+          {
+            "label": "Product Name",
+            "value": "product.name.exact"
+          },
+          {
+            "label": "Formulation",
+            "value": "product.formulation.exact"
+          },
+          {
+            "label": "Species",
+            "value": "animal.species.exact"
+          },
+          {
+            "label": "Breed",
+            "value": "animal.breed.exact"
+          },
+          {
+            "label": "State",
+            "value": "state.exact"
+          }
+        ]
+      }
+    },
     "topReportedProducts": {
       "title": "Total Reports",
       "type": "bar",
@@ -47,47 +88,6 @@
           "bottom": 50
         },
         "limiter": 10
-      }
-    },
-    "reactionsByYear": {
-      "title": "Incidents by Year",
-      "type": "line",
-      "lineChart": {
-        "countBy": "reaction.clinical_sign.exact",
-        "dateField": "report_year.exact",
-        "detailText": "animals reacted",
-        "detail": "animals_reacted",
-        "limiter": 8,
-        "startYear": 2014,
-        "title": "Incidents by Year",
-        "yAxisTitle": "Incidents",
-        "xAxisTitle": "Year",
-        "xOptions": [
-          {
-            "label": "Clinical Sign",
-            "value": "reaction.clinical_sign.exact"
-          },
-          {
-            "label": "Product Name",
-            "value": "product.name.exact"
-          },
-          {
-            "label": "Formulation",
-            "value": "product.formulation.exact"
-          },
-          {
-            "label": "Species",
-            "value": "animal.species.exact"
-          },
-          {
-            "label": "Breed",
-            "value": "animal.breed.exact"
-          },
-          {
-            "label": "State",
-            "value": "state.exact"
-          }
-        ]
       }
     }
   },
