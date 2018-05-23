@@ -32,8 +32,8 @@ class HelpWindow extends React.Component {
   render (): ?React.Element {
     return (
       <i style={{textDecoration: "underline", fontWeight: "bold", color: "#00517d"}} onClick={this.openModal}>
-        Context Help
-        <ReactModal
+        Help
+        <ReactModal 
           isOpen={this.state.showModal}
           className='help-window'
           overlayClassName='modal-overlay'
