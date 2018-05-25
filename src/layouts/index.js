@@ -1,10 +1,10 @@
-import React from "react"
+import React from 'react'
 import DocumentTitle from 'react-document-title'
 
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
-import DocSidebar from "../components/DocSidebar"
-import docsSidebar from "../pages/docs/doc-links.yaml"
+import DocSidebar from '../components/DocSidebar'
+import docsSidebar from '../pages/docs/doc-links.yaml'
 
 DocumentTitle.displayName = 'Document Title'
 
