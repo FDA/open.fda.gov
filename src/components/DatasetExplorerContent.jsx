@@ -2,10 +2,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-
 import { default as ReactTable } from "react-table"
-
-var createReactClass = require('create-react-class');
 import Select from 'react-select'
 import FileSaver from 'file-saver'
 import jsonexport from 'jsonexport'
@@ -14,12 +11,14 @@ import Moment from 'moment'
 import {default as $} from 'jquery'
 import TwoLevelPieChart from './InteractivePie'
 import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, Legend as LegendR} from 'Recharts'
-import { Charts, ChartContainer, ChartRow, YAxis, LineChart, Resizable, styler, Legend, ScatterChart, TimeMarker, EventMarker } from "react-timeseries-charts"
+import { Charts, ChartContainer, ChartRow, YAxis, LineChart, Resizable, styler, Legend, EventMarker } from "react-timeseries-charts"
+import { createContainer, VictoryAxis, VictoryChart, VictoryGroup, VictoryLegend, VictoryLine, VictoryScatter, VictoryTooltip, VictoryVoronoiContainer } from "victory"
 import { TimeSeries, TimeRange, sum } from "pondjs"
 import _ from 'lodash'
 import update from "immutability-helper/index";
-
 import XLSX from 'xlsx'
+
+var createReactClass = require('create-react-class');
 
 const re = new RegExp('\\s+');
 
@@ -863,13 +862,14 @@ class LineChartComponent extends React.Component {
               groupingField: props.chartConfig.lineChart.dateField
             })
             return fetch(`${props.dataset.url}/${props.dataset.endpoint}`, {
-            body: JSON.stringify(converted_filters),
-            headers: {
-              "Content-Type": "application/json"
-            },
-            method: 'POST',
-            mode: 'cors'
-          }).then(res => res.json())})).then(results => {
+              body: JSON.stringify(converted_filters),
+              headers: {
+                "Content-Type": "application/json"
+              },
+              method: 'POST',
+              mode: 'cors'
+            }).then(res => res.json())
+          })).then(results => {
             data = results.map(result => {
               return result.results
             })
@@ -893,83 +893,29 @@ class LineChartComponent extends React.Component {
                 }
               }).sort((a, b) => a.term - b.term)
 
-              var series = new TimeSeries({
+              var series = {
                 name: "timeseries",
                 columns: ["time","value", "detail"],
-                points: orderedResults.map(i => {
-                  return [new Date(i.term, 0, 1), i.count, i.detail]
-                })
-              }).toJSON()
+                points: orderedResults.map(j => {
+                  return {x: new Date(j.term, 0, 1), y: j.count, label: `${options[i]}: ${j.count} (${this.props.chartConfig.lineChart.detailText}: ${j.detail})`}
+                })}
 
               if (series !== undefined) {
                 listOfSeries.push(series.points)
               }
             }
 
-            let minTime = new Date(listOfSeries[0][0][0])
-            let startTime = new Date(listOfSeries[0][0][0])
+
+            let minTime = new Date(listOfSeries[0][0].x)
+            let startTime = new Date(listOfSeries[0][0].x)
             let panZoom = false
             if (listOfSeries[0].length > 11) {
-              startTime = new Date(listOfSeries[0][listOfSeries[0].length - 11][0])
+              startTime = new Date(listOfSeries[0][listOfSeries[0].length - 11].x)
               panZoom = true
             }
-            let endTime = new Date(listOfSeries[0][listOfSeries[0].length - 1][0])
+            let endTime = new Date(listOfSeries[0][listOfSeries[0].length - 1].x)
             startTime.setDate(startTime.getDate() - 5)
             endTime.setMonth(endTime.getMonth() + 1)
-
-
-            // get all timestamps
-            // use obj to avoid duplicates
-            let timestamps = {};
-            // for each column of aggregated points
-            listOfSeries.forEach( arr => {
-              arr.forEach( val => {
-                // add timestamp for each series to timestamps with default 0
-                timestamps[val[0]] = 0
-              })
-            })
-            timestamps = Object.keys(timestamps).sort();
-            let timestampsPosition = {};
-            timestamps.forEach( (key, i) => timestampsPosition[key] = i );
-            ///
-
-            // normalize
-            const normalizedSeries = []
-            let details = {}
-            listOfSeries.forEach( arr => {
-              const normalizedSerie = new Array(timestamps.length).fill(null);
-              let option = [options[listOfSeries.indexOf(arr)]]
-
-              arr.forEach( val => {
-                let timestamp = val[0],
-                  value = val[1],
-                  detail = val[2],
-                  index = timestampsPosition[timestamp];
-                let yearString = new Date(timestamp).getFullYear()
-                if (details[yearString]) {
-                  details[yearString][option] = detail
-                } else {
-                  details[yearString] = {[option]: detail}
-                }
-
-                // add the value for the timestamp in item array
-                normalizedSerie[index] = value
-              })
-              normalizedSeries.push(normalizedSerie)
-            })
-
-            // transpose..... from list of points per series, to a list of points per timestamp
-            let res = this.transpose(timestamps.sort((a, b) => a - b), normalizedSeries)
-
-
-            let final = res.final,
-              findMax = res.findMax
-
-            let final_series = new TimeSeries({
-              name: "timeseries",
-              columns: ["time"].concat(options),
-              points: final
-            })
 
             let lineWidth = 3
 
@@ -1003,12 +949,11 @@ class LineChartComponent extends React.Component {
               minTime: minTime,
               maxTime: endTime,
               panZoom: panZoom,
-              details: details,
-              _max: Math.max(...findMax),
               legendStyle: legendStyle,
               lineStyle: lineStyle,
+              options: options,
               placeholder: placeholder,
-              series: final_series,
+              series: listOfSeries,
               columns: options,
               legendCategories: options.map(d => ({ key: d, label: d })),
               xAxis: xAxis,
@@ -1021,9 +966,7 @@ class LineChartComponent extends React.Component {
             if (vals.length) {
               $(vals[0]).attr("x",this.state.config.xLegendCoordinate)
             }
-
           })
-
         } else {
           console.log('????')
         }
@@ -1185,6 +1128,35 @@ class LineChartComponent extends React.Component {
     if(!Object.keys(this.props.chartConfig).length){
       return (<span/>)
     }
+    const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi")
+
+    let victoryGroups = this.state.series.map(data => {
+      let index = this.state.series.indexOf(data)
+      return <VictoryGroup
+        color={this.state.config.colors[index]}
+        data={data}
+        key={this.state.options[index]}
+        labelComponent={
+          <VictoryTooltip
+            flyoutStyle={{ fill: "white" }}
+          />
+        }
+        style={{
+          labels: {fill: this.state.config.colors[index]}
+        }}
+      >
+        <VictoryLine
+          style={{
+            data: {
+              strokeWidth: (d, active) => {return active ? 3 : 2;}
+            }
+          }}
+        />
+        <VictoryScatter
+          size={(d, a) => {return a ? 6 : 1;}}
+        />
+      </VictoryGroup>
+    })
 
     return (
       <div>
@@ -1243,50 +1215,27 @@ class LineChartComponent extends React.Component {
           :
           <div style={{display:"flex"}}>
             <div className='chart-background'>
-              <Resizable>
-                <ChartContainer
-                  timeRange={this.state.timerange}
-                  onTimeRangeChanged={(timerange) => this.setState({timerange})}
-                  maxTime={this.state.maxTime}
-                  minTime={this.state.minTime}
-                  onTrackerChanged={this.handleTrackerChanged}
-                  enablePanZoom={this.state.panZoom}
-                  {...this.state.config.chartContainer}
-                >
-                  <ChartRow
-                    {...this.state.config.chartRow}
-                  >
-                    <YAxis
-                      id="axis1"
-                      max={this.state._max}
-                      {...this.state.config.yAxis}
-                    />
-                    <Charts>
-                      <LineChart
-                        style={this.state.lineStyle}
-                        axis="axis1"
-                        series={this.state.series}
-                        columns={this.state.columns}
-                        onHighlightChange={highlight => this.setState({ highlight })}
-                        highlight={this.state.highlight}
-                        {...this.state.config.lineChart}
-                      />
-                      <EventMarker
-                        type="flag"
-                        axis="axis1"
-                        event={this.state.trackerEvent}
-                        column={this.state.highlight ? this.state.highlight: this.state.columns[0]}
-                        info={this.state.trackerInfoValues}
-                        infoHeight={this.state.infoHeight}
-                        {...this.state.config.eventMarker}
-                      />
-                    </Charts>
-                  </ChartRow>
-                </ChartContainer>
-              </Resizable>
-              <div style={{paddingLeft:105}}>
-                <Legend categories={this.state.legendCategories} style={this.state.legendStyle} type="line" />
-              </div>
+              <VictoryChart
+                height={400}
+                width={800}
+                scale={{ x: "time" }}
+                containerComponent={<VictoryVoronoiContainer/>}
+              >
+                <VictoryLegend
+                  x={18}
+                  y={0}
+                  colorScale={this.state.config.colors}
+                  gutter={5}
+                  itemsPerRow={5}
+                  orientation="horizontal"
+                  symbolSpacer={5}
+                  data={this.state.series.map(data => {
+                    let index = this.state.series.indexOf(data)
+                    return { name: this.state.options[index]}
+                  })}
+                />
+                {victoryGroups}
+              </VictoryChart>
             </div>
           </div>
         }
