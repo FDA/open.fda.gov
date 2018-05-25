@@ -113,6 +113,7 @@ const GravatarOption = createReactClass({
     if (this.props.isFocused) return;
     this.props.onFocus(this.props.option, event);
   },
+  handleCheckChange() {},
   render () {
     return (
       <div className={this.props.className}
@@ -120,7 +121,7 @@ const GravatarOption = createReactClass({
         onMouseEnter={this.handleMouseEnter}
         onMouseMove={this.handleMouseMove}
         title={this.props.option.title}>
-        <input type='checkbox' checked={this.props.option.show}/>
+        <input type='checkbox' checked={this.props.option.show} onChange={this.handleCheckChange}/>
         {"  "}{ this.props.option['Header'] }
       </div>
     );
@@ -554,7 +555,7 @@ const CustomizedAxisTick = createReactClass({
 
     return (
       <g transform={`translate(${x},${y})`}>
-        <text x={0} y={0} dy={16} fontSize={8} textAnchor="end" fill="#666" transform="rotate(-35)">{payload.value}</text>
+        <text x={0} y={0} dy={16} fontSize={10} textAnchor="end" fill="#666" transform="rotate(-35)">{payload.value}</text>
       </g>
     );
   }
@@ -605,7 +606,7 @@ class BarChartComponent extends React.Component {
 
 
     return (
-          <ResponsiveContainer width="90%" height={400}>
+          <ResponsiveContainer className='chart-background bar-chart-background' width="90%" height={600}>
             <BarChart
               ref="bar"
               data={this.props.data}
@@ -615,7 +616,7 @@ class BarChartComponent extends React.Component {
               <YAxisR label={{ value: this.props.yLabel, angle: -90, position: 'insideLeft' }}/>
               <CartesianGrid strokeDasharray="8 8"/>
               <Tooltip content={<CustomTooltip detail={this.props.detail} yLabel={this.props.xAxis}/>}/>
-              <LegendR wrapperStyle={{bottom: '20px'}} />
+              <LegendR height={36} verticalAlign='top'/>
               {
                 this.props.xAxis &&
                   <Bar
@@ -721,8 +722,8 @@ class LineChartComponent extends React.Component {
           "infoWidth": 250,
           "infoStyle": {
             "fill": "white",
-            "opacity": 0.90,
-            "stroke": "#0000",
+            "opacity": 1.0,
+            "stroke": "grey",
             "pointerEvents": "none"
           },
           "markerLabelStyle": {
@@ -970,18 +971,26 @@ class LineChartComponent extends React.Component {
               points: final
             })
 
-            let lineWidth = 2
+            let lineWidth = 3
 
             if(options.length > 4) {
-              lineWidth = 1
+              lineWidth = 2
             }
+
+            let lineStyle = styler(options.map((column,idx)=> {
+              return {
+                key: column,
+                color: this.state.config.colors[idx],
+                width: lineWidth
+              }
+            }))
 
             // set style according to categories
             let legendStyle = styler(options.map((column,idx)=> {
               return {
                 key: column,
                 color: this.state.config.colors[idx],
-                width: lineWidth
+                width: 16
               }
             }))
 
@@ -997,6 +1006,7 @@ class LineChartComponent extends React.Component {
               details: details,
               _max: Math.max(...findMax),
               legendStyle: legendStyle,
+              lineStyle: lineStyle,
               placeholder: placeholder,
               series: final_series,
               columns: options,
@@ -1150,7 +1160,7 @@ class LineChartComponent extends React.Component {
           value: limiter
         }
       ]
-      // Show only 5 labels
+      // Don't show too many labels
       infoValues = infoValues.length > limiter ? defaultInfoValues : infoValues;
       let infoHeight = infoValues.length <= limiter ? ((infoValues.length * 13) + 15) : 0;
 
@@ -1221,9 +1231,9 @@ class LineChartComponent extends React.Component {
             closeOnSelect={false}
             placeholder={this.state.placeholder}
           />
-          <div>
-            <div><input type='checkbox' checked={this.state.showTopFive} onClick={this.showTopFive}/>Show Top Five</div>
-            <div><input type='checkbox' checked={this.state.showTopTen} onClick={this.showTopTen}/>Show Top Ten</div>
+          <div className="show-top-results">
+            <div><input type='checkbox' checked={this.state.showTopFive} onChange={this.showTopFive}/>Show Top Five</div>
+            <div><input type='checkbox' checked={this.state.showTopTen} onChange={this.showTopTen}/>Show Top Ten</div>
           </div>
         </div>
         { this.state.series.length === 0 ?
@@ -1232,16 +1242,7 @@ class LineChartComponent extends React.Component {
           </div>
           :
           <div style={{display:"flex"}}>
-            <div style={{
-              width: '90%',
-              marginTop: 18
-            }}>
-              <h3
-                style={{
-                  paddingLeft: "15%",
-                  paddingBottom: 15
-                }}
-              >{`${this.props.chartConfig.lineChart.yAxisTitle} ${this.state.xAxis.label} by ${this.props.chartConfig.lineChart.xAxisTitle}`}</h3>
+            <div className='chart-background'>
               <Resizable>
                 <ChartContainer
                   timeRange={this.state.timerange}
@@ -1262,7 +1263,7 @@ class LineChartComponent extends React.Component {
                     />
                     <Charts>
                       <LineChart
-                        style={this.state.legendStyle}
+                        style={this.state.lineStyle}
                         axis="axis1"
                         series={this.state.series}
                         columns={this.state.columns}

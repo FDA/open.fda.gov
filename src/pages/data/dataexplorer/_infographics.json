@@ -8,7 +8,7 @@
         "dateField": "report_year.exact",
         "detailText": "animals reacted",
         "detail": "animals_reacted",
-        "limiter": 8,
+        "limiter": 10,
         "startYear": 2014,
         "title": "Incidents by Year",
         "yAxisTitle": "Incidents",
@@ -85,7 +85,7 @@
           "top": 5,
           "right": 30,
           "left": 20,
-          "bottom": 50
+          "bottom": 180
         },
         "limiter": 10
       }
@@ -133,8 +133,8 @@
         "margin": {
           "top": 5,
           "right": 30,
-          "left": 20,
-          "bottom": 50
+          "bottom": 80,
+          "left": 20
         },
         "limiter": 10
       }
