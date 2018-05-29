@@ -11,8 +11,7 @@ import Moment from 'moment'
 import {default as $} from 'jquery'
 import TwoLevelPieChart from './InteractivePie'
 import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, Legend as LegendR} from 'Recharts'
-import { Charts, ChartContainer, ChartRow, YAxis, LineChart, Resizable, styler, Legend, EventMarker } from "react-timeseries-charts"
-import { createContainer, VictoryAxis, VictoryChart, VictoryGroup, VictoryLegend, VictoryLine, VictoryScatter, VictoryTooltip, VictoryVoronoiContainer } from "victory"
+import { createContainer, VictoryAxis, VictoryBrushContainer, VictoryChart, VictoryGroup, VictoryLegend, VictoryLine, VictoryScatter, VictoryTooltip, VictoryVoronoiContainer } from "victory"
 import { TimeSeries, TimeRange, sum } from "pondjs"
 import _ from 'lodash'
 import update from "immutability-helper/index";
@@ -739,7 +738,7 @@ class LineChartComponent extends React.Component {
     this.showTopFive = this.showTopFive.bind(this)
     this.showTopTen = this.showTopTen.bind(this)
     this.transpose = this.transpose.bind(this)
-    this.handleMouseNear = this.handleMouseNear.bind(this)
+    this.handleZoom = this.handleZoom.bind(this)
   }
 
   componentDidMount () {
@@ -877,7 +876,6 @@ class LineChartComponent extends React.Component {
             const listOfSeries = []
 
             for (var i = 0, len = results.length; i < len; i++) {
-              //.filter(value => value.term > 1990)
               const orderedResults = results[i].results.map(value => {
                 if (value[this.props.chartConfig.lineChart.detail]) {
                   return {
@@ -893,20 +891,16 @@ class LineChartComponent extends React.Component {
                 }
               }).sort((a, b) => a.term - b.term)
 
-              var series = {
-                name: "timeseries",
-                columns: ["time","value", "detail"],
-                points: orderedResults.map(j => {
+              var series = orderedResults.map(j => {
                   return {x: new Date(j.term, 0, 1), y: j.count, label: `${options[i]}: ${j.count} (${this.props.chartConfig.lineChart.detailText}: ${j.detail})`}
-                })}
+                })
 
               if (series !== undefined) {
-                listOfSeries.push(series.points)
+                listOfSeries.push(series)
               }
             }
 
 
-            let minTime = new Date(listOfSeries[0][0].x)
             let startTime = new Date(listOfSeries[0][0].x)
             let panZoom = false
             if (listOfSeries[0].length > 11) {
@@ -917,44 +911,12 @@ class LineChartComponent extends React.Component {
             startTime.setDate(startTime.getDate() - 5)
             endTime.setMonth(endTime.getMonth() + 1)
 
-            let lineWidth = 3
-
-            if(options.length > 4) {
-              lineWidth = 2
-            }
-
-            let lineStyle = styler(options.map((column,idx)=> {
-              return {
-                key: column,
-                color: this.state.config.colors[idx],
-                width: lineWidth
-              }
-            }))
-
-            // set style according to categories
-            let legendStyle = styler(options.map((column,idx)=> {
-              return {
-                key: column,
-                color: this.state.config.colors[idx],
-                width: 16
-              }
-            }))
-
-            let column_list = options.map(option => {
-              return option[0]
-            })
-
             this.setState({
-              timerange: new TimeRange(startTime, endTime),
-              minTime: minTime,
-              maxTime: endTime,
+              zoomDomain: {x:[startTime, endTime]},
               panZoom: panZoom,
-              legendStyle: legendStyle,
-              lineStyle: lineStyle,
               options: options,
               placeholder: placeholder,
               series: listOfSeries,
-              columns: options,
               legendCategories: options.map(d => ({ key: d, label: d })),
               xAxis: xAxis,
               dataOptions: options_list
@@ -1074,61 +1036,42 @@ class LineChartComponent extends React.Component {
     }
   }
 
-  handleTrackerChanged = t => {
-    if (t) {
-      let e = this.state.series.atTime(t)
-      let limiter = this.props.chartConfig.lineChart.limiter
-
-      const eventTime = new Date(
-        e.begin().getTime() + (e.end().getTime() - e.begin().getTime()) / 2
-      )
-
-      const eventData = e.toJSON().data;
-
-
-      let infoValues = this.state.columns.map( label => {
-        let valueString = eventData[label].toString()
-        if (this.props.chartConfig.lineChart.detail && this.state.details.hasOwnProperty(t.getFullYear()) && this.state.details[t.getFullYear()].hasOwnProperty(label)) {
-          valueString = `${eventData[label].toString()} (${this.props.chartConfig.lineChart.detailText}: ${this.state.details[t.getFullYear()][label]})`
-        }
-        return {
-          label : label.length < 20 ? label : label.slice(0,20) + " ... ",
-          value: valueString
-        }
-      })
-
-      const defaultInfoValues = [
-        {
-          label: "Maximum options to display",
-          value: limiter
-        }
-      ]
-      // Don't show too many labels
-      infoValues = infoValues.length > limiter ? defaultInfoValues : infoValues;
-      let infoHeight = infoValues.length <= limiter ? ((infoValues.length * 13) + 15) : 0;
-
-      this.setState({
-        tracker: eventTime,
-        trackerEvent: e,
-        trackerInfoValues: infoValues,
-        infoHeight: infoHeight
-      });
-    } else {
-      this.setState({ tracker: null, infoHeight: 0, trackerEvent: null });
-    }
+  handleZoom(domain) {
+    this.setState({ zoomDomain: domain });
   }
-
-  handleMouseNear = point => {
-    this.setState({
-      highlight: point
-    });
-  };
 
   render (): ?React.Element {
     if(!Object.keys(this.props.chartConfig).length){
       return (<span/>)
     }
-    const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi")
+
+    let containerComponent = <VictoryVoronoiContainer/>
+    let victoryBrushGroup = <div/>
+
+    if (this.state.panZoom) {
+      const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi")
+      containerComponent = <VictoryZoomVoronoiContainer
+                              zoomDimension="x"
+                              zoomDomain={this.state.zoomDomain}
+                              onZoomDomainChange={this.handleZoom}
+                           />
+      victoryBrushGroup = this.state.series.map(data => {
+        let index = this.state.series.indexOf(data)
+        return <VictoryGroup
+          color={this.state.config.colors[index]}
+          data={data}
+          key={this.state.options[index]}
+        >
+          <VictoryLine
+            style={{
+              data: {
+                strokeWidth: 2
+              }
+            }}
+          />
+        </VictoryGroup>
+      })
+    }
 
     let victoryGroups = this.state.series.map(data => {
       let index = this.state.series.indexOf(data)
@@ -1141,11 +1084,13 @@ class LineChartComponent extends React.Component {
             flyoutStyle={{ fill: "white" }}
           />
         }
+        name={`victory-group-${index}`}
         style={{
           labels: {fill: this.state.config.colors[index]}
         }}
       >
         <VictoryLine
+          name={`victory-line-${index}`}
           style={{
             data: {
               strokeWidth: (d, active) => {return active ? 3 : 2;}
@@ -1153,6 +1098,7 @@ class LineChartComponent extends React.Component {
           }}
         />
         <VictoryScatter
+          name={`victory-scatter-${index}`}
           size={(d, a) => {return a ? 6 : 1;}}
         />
       </VictoryGroup>
@@ -1215,27 +1161,50 @@ class LineChartComponent extends React.Component {
           :
           <div style={{display:"flex"}}>
             <div className='chart-background'>
+              <VictoryLegend
+                height={((Math.ceil(this.state.series.length/5)*5) / 5) * 20}
+                width={800}
+                x={18}
+                y={0}
+                colorScale={this.state.config.colors}
+                gutter={5}
+                itemsPerRow={5}
+                orientation="horizontal"
+                standalone={true}
+                symbolSpacer={5}
+                data={this.state.series.map(data => {
+                  let index = this.state.series.indexOf(data)
+                  return { name: this.state.options[index]}
+                })}
+              />
               <VictoryChart
                 height={400}
                 width={800}
                 scale={{ x: "time" }}
-                containerComponent={<VictoryVoronoiContainer/>}
+                containerComponent={containerComponent}
               >
-                <VictoryLegend
-                  x={18}
-                  y={0}
-                  colorScale={this.state.config.colors}
-                  gutter={5}
-                  itemsPerRow={5}
-                  orientation="horizontal"
-                  symbolSpacer={5}
-                  data={this.state.series.map(data => {
-                    let index = this.state.series.indexOf(data)
-                    return { name: this.state.options[index]}
-                  })}
-                />
                 {victoryGroups}
               </VictoryChart>
+              {
+                this.state.panZoom &&
+                <VictoryChart
+                  padding={{ top: 0, left: 50, right: 50, bottom: 30 }}
+                  width={600} height={100} scale={{ x: "time" }}
+                  containerComponent={
+                    <VictoryBrushContainer
+                      brushDimension="x"
+                      brushDomain={this.state.zoomDomain}
+                      onBrushDomainChange={this.handleZoom.bind(this)}
+                    />
+                  }
+                >
+                  <VictoryAxis
+                    name={`victory-axis`}
+                    tickFormat={(x) => new Date(x).getFullYear()}
+                  />
+                  {victoryGroups}
+                </VictoryChart>
+              }
             </div>
           </div>
         }
@@ -1401,12 +1370,12 @@ class ResultsInfographicPieBarComponent extends React.Component {
 
   onOpen(){
     // const pieChartConfig = this.props.parent.state.infographicsConfig.pieChart
-    // $('.recharts-surface').each(function () { 
+    // $('.recharts-surface').each(function () {
     //   $(this).removeAttr('viewBox');
-    //   $(this)[0].setAttribute('viewBox', pieChartConfig.viewBox) 
+    //   $(this)[0].setAttribute('viewBox', pieChartConfig.viewBox)
     //   return false;
     // });
-    // $('.recharts-wrapper').each(function()  { 
+    // $('.recharts-wrapper').each(function()  {
     //   $(this).width(pieChartConfig.widthReset)
     //   $(this).height(pieChartConfig.heightReset)
     // })

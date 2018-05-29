@@ -229,58 +229,58 @@
     }
   },
   "phishpharm": {
-  "halfLife": {
-    "title": "Half Life",
-    "type": "bar",
-    "barChart": {
-      "convert": true,
-      "count": "half_life.exact",
-      "countLabel": "Half Life",
-      "title": "Half Life in Days",
-      "yAxisTitle": "Days",
-      "xOptions": [
-        {
-          "label": "Drug/Chem",
-          "value": "drug.exact"
+    "halfLife": {
+      "title": "Half Life",
+      "type": "bar",
+      "barChart": {
+        "convert": true,
+        "count": "half_life.exact",
+        "countLabel": "Half Life",
+        "title": "Half Life in Days",
+        "yAxisTitle": "Days",
+        "xOptions": [
+          {
+            "label": "Drug/Chem",
+            "value": "drug.exact"
+          },
+          {
+            "label": "Fish Species",
+            "value": "species.exact"
+          },
+          {
+            "label": "Genus Species",
+            "value": "genus_species.exact"
+          },
+          {
+            "label": "Drug Class",
+            "value": "drug_class.exact"
+          },
+          {
+            "label": "Route",
+            "value": "route.exact"
+          },
+          {
+            "label": "Sample",
+            "value": "sample.exact"
+          },
+          {
+            "label": "Water",
+            "value": "water_type.exact"
+          },
+          {
+            "label": "Authors",
+            "value": "pub_authors.exact"
+          }
+        ],
+        "margin": {
+          "top": 5,
+          "right": 30,
+          "left": 20,
+          "bottom": 50
         },
-        {
-          "label": "Fish Species",
-          "value": "species.exact"
-        },
-        {
-          "label": "Genus Species",
-          "value": "genus_species.exact"
-        },
-        {
-          "label": "Drug Class",
-          "value": "drug_class.exact"
-        },
-        {
-          "label": "Route",
-          "value": "route.exact"
-        },
-        {
-          "label": "Sample",
-          "value": "sample.exact"
-        },
-        {
-          "label": "Water",
-          "value": "water_type.exact"
-        },
-        {
-          "label": "Authors",
-          "value": "pub_authors.exact"
-        }
-      ],
-      "margin": {
-        "top": 5,
-        "right": 30,
-        "left": 20,
-        "bottom": 50
-      },
-      "limiter": 10
-    }
-  },
+        "limiter": 10
+      }
+    },
     "reactionsByYear": {
       "title": "Number of Drugs by Year",
       "type": "line",
