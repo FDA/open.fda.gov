@@ -177,7 +177,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     return (
       <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
         <div className='flex-row'>
-          <h3 style={{fontWeight: "bold", color: "#00517d", fontFamily: "Merriweather, Georgia, serif"}}>{this.props.option.label}
+          <h3 className='filter-header'>{this.props.option.label}
           {
             this.props.option.help_id &&
               <HelpWindow help_obj={this.props.help_config[this.props.option.help_id]} />
@@ -246,7 +246,7 @@ class HelpWindow extends React.Component {
           shouldCloseOnOverlayClick={true}
           ariaHideApp={false}
         >
-          <h3 style={{fontWeight: "bold", color: "#00517d", fontFamily: "Merriweather, Georgia, serif"}}>{this.props.help_obj.label}</h3>
+          <h3 className='filter-header'>{this.props.help_obj.label}</h3>
           <ReactTable
             data={this.props.help_obj.options}
             page={this.state.page}
