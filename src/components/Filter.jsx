@@ -177,7 +177,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     return (
       <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
         <div className='flex-row'>
-          <h3>{this.props.option.label}
+          <h3 style={{fontWeight: "bold", color: "#00517d", fontFamily: "Merriweather, Georgia, serif"}}>{this.props.option.label}
           {
             this.props.option.help_id &&
               <HelpWindow help_obj={this.props.help_config[this.props.option.help_id]} />
@@ -246,7 +246,7 @@ class HelpWindow extends React.Component {
           shouldCloseOnOverlayClick={true}
           ariaHideApp={false}
         >
-          <h3>{this.props.help_obj.label}</h3>
+          <h3 style={{fontWeight: "bold", color: "#00517d", fontFamily: "Merriweather, Georgia, serif"}}>{this.props.help_obj.label}</h3>
           <ReactTable
             data={this.props.help_obj.options}
             page={this.state.page}
@@ -454,7 +454,7 @@ class CheckboxFilterComponent extends React.Component {
       const checked = (currentValue.indexOf(option.value) > -1)
       return (
         <div key={`div${idx}`}>
-          <p>
+          <p style={{marginBottom: "0", paddingLeft : "15"}}>
             <label>
               <Checkbox
                 key={`box${idx}`}
@@ -531,7 +531,7 @@ class BooleanFilterComponent extends React.Component {
       const checked = (currentValue.indexOf(option.value) > -1)
       return (
         <div key={`div${idx}`}>
-          <p>
+          <p style={{marginBottom: "0", paddingLeft : "15"}}>
             <label>
               <Checkbox
                 key={`box${idx}`}
@@ -897,7 +897,7 @@ class FilterComponent extends React.Component {
       } else if (option.type === "checkbox") {
         return (
           <div className='filter-item-container' key={`div${idx}`}>
-            <h3>{option.label}</h3>
+            <h3 className='filter-header'>{option.label}</h3>
             <CheckboxFilterComponent
               filters={this.state.selected_filters}
               key={`filter${idx}`}
@@ -909,7 +909,7 @@ class FilterComponent extends React.Component {
       } else if (option.type === "boolean") {
         return (
           <div className='filter-item-container' key={`div${idx}`}>
-            <h3>{option.label}</h3>
+            <h3 className='filter-header'>{option.label}</h3>
             <BooleanFilterComponent
               filters={this.state.selected_filters}
               key={`filter${idx}`}
@@ -921,7 +921,7 @@ class FilterComponent extends React.Component {
       } else if (option.type === "yearpicker") {
         return (
           <div className='filter-item-container' key={`div${idx}`}>
-            <h3>{option.label}</h3>
+            <h3 className='filter-header'>{option.label}</h3>
             <YearPickerFilterComponent
               filters={this.state.selected_filters}
               key={`filter${idx}`}
@@ -933,7 +933,7 @@ class FilterComponent extends React.Component {
       } else if (option.type === "free_text") {
         return (
           <div className='filter-item-container' key={`div${idx}`}>
-            <h3>{option.label}</h3>
+            <h3 className='filter-header'>{option.label}</h3>
             <FreeTextFilterComponent
               filters={this.state.selected_filters}
               key={`filter${idx}`}
@@ -945,7 +945,7 @@ class FilterComponent extends React.Component {
       } else if (option.type === "numeric_range") {
           return (
               <div className='filter-item-container' key={`div${idx}`}>
-                  <h3>{option.label}</h3>
+                  <h3 className='filter-header'>{option.label}</h3>
                   <RangeQueryFilterComponent
                       filters={this.state.selected_filters}
                       key={`filter${idx}`}
