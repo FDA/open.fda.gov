@@ -20,6 +20,11 @@ names:
             accessor: openfda.product_type
             show: true
             showDefault: true
+          - Header: Marketing Category
+            accessor: openfda.application_number
+            show: true
+            showDefault: true
+            getPreNumbersPart: true
           - Header: Manufacturer Name
             accessor: openfda.manufacturer_name
             show: true

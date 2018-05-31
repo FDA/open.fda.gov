@@ -20,6 +20,7 @@ import XLSX from 'xlsx'
 var createReactClass = require('create-react-class');
 
 const re = new RegExp('\\s+');
+const numberRe = new RegExp(/[0-9]/i);
 
 function ssortFrequenciesOfReportedSign(a, b, desc){
   a = a.toString();
@@ -386,6 +387,11 @@ class ResultsComponent extends React.Component {
           })
           value = value.trim().replace(':', '').replace(new RegExp("^s ", "i"), "")
         }
+
+        if(options.column.getPreNumbersPart && value){
+            value=value.split(numberRe)[0]
+        }
+
         if(options.column.split && value){
           var split = value.split(',').length > 1 ? value.split(',') : value.split('•')
           if(split.length > 1){
