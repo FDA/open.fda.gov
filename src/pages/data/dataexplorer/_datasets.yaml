@@ -177,12 +177,12 @@ names:
         - label: Marketing Category
           type: checkbox
           query_type: prefix
-          field: openfda.application_number
+          field: openfda.application_number.exact
           options:
             - label: NADA
-              value: nada
+              value: NADA
             - label: ANADA
-              value: anada
+              value: ANADA
         - label: Drug Approval Status
           type: boolean
           field: openfda.application_number

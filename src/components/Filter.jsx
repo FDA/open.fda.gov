@@ -454,7 +454,7 @@ class CheckboxFilterComponent extends React.Component {
       const checked = (currentValue.indexOf(option.value) > -1)
       return (
         <div key={`div${idx}`}>
-          <p style={{marginBottom: 0, paddingLeft : 15}}>
+          <p className='checkbox'>
             <label>
               <Checkbox
                 key={`box${idx}`}
@@ -471,10 +471,15 @@ class CheckboxFilterComponent extends React.Component {
         </div>
       )
     });
+    const cols = []
+    output.forEach(function(item){
+        cols.push(<div className="column">{item}</div>)
+    })
+
     return (
-      <div>
-        { output }
-      </div>
+        <div className="row">
+            {cols}
+        </div>
     )
   }
 }
@@ -531,7 +536,7 @@ class BooleanFilterComponent extends React.Component {
       const checked = (currentValue.indexOf(option.value) > -1)
       return (
         <div key={`div${idx}`}>
-          <p style={{marginBottom: 0, paddingLeft : 15}}>
+          <p className='checkbox'>
             <label>
               <Checkbox
                 key={`box${idx}`}
@@ -548,10 +553,16 @@ class BooleanFilterComponent extends React.Component {
         </div>
       )
     });
+
+    const cols = []
+    output.forEach(function(item){
+        cols.push(<div className="column">{item}</div>)
+    })
+
     return (
-      <div>
-        { output }
-      </div>
+        <div className="row">
+            {cols}
+        </div>
     )
   }
 }
