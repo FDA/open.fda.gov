@@ -639,9 +639,33 @@ class BarChartComponent extends React.Component {
   }
 }
 
+class LineLegend extends React.Component {
+  constructor (props: Object) {
+    super(props)
+
+    this.state = {
+
+    }
+  }
+
+  render (): ?React.Element {
+
+    let legend_items = this.props.legendCategories.map(item => {
+      return <div className='legend-item' key={`legend-item-${item.column}`} style={{width: Math.ceil(item.column.length / 20) * 180}}>
+        <span style={{backgroundColor: item.color}}/>
+        <text>{item.column}</text>
+      </div>
+    })
+
+    return (
+      <div className='line-legend'>
+        {legend_items}
+      </div>
+    )
+  }
+}
 
 //Standalone line chart component
-
 class LineChartComponent extends React.Component {
 
   constructor (props: Object) {
@@ -917,7 +941,7 @@ class LineChartComponent extends React.Component {
               options: options,
               placeholder: placeholder,
               series: listOfSeries,
-              legendCategories: options.map(d => ({ key: d, label: d })),
+              legendCategories: options.sort(function(a, b){return a.length - b.length}).map((column, idx) => ({ column: column, color: this.state.config.colors[idx] })),
               xAxis: xAxis,
               dataOptions: options_list
             })
@@ -1082,6 +1106,7 @@ class LineChartComponent extends React.Component {
         labelComponent={
           <VictoryTooltip
             flyoutStyle={{ fill: "white" }}
+            orientation='top'
           />
         }
         name={`victory-group-${index}`}
@@ -1161,22 +1186,7 @@ class LineChartComponent extends React.Component {
           :
           <div style={{display:"flex"}}>
             <div className='chart-background'>
-              <VictoryLegend
-                height={((Math.ceil(this.state.series.length/5)*5) / 5) * 20}
-                width={800}
-                x={18}
-                y={0}
-                colorScale={this.state.config.colors}
-                gutter={5}
-                itemsPerRow={5}
-                orientation="horizontal"
-                standalone={true}
-                symbolSpacer={5}
-                data={this.state.series.map(data => {
-                  let index = this.state.series.indexOf(data)
-                  return { name: this.state.options[index]}
-                })}
-              />
+              <LineLegend legendCategories={this.state.legendCategories}/>
               <VictoryChart
                 height={400}
                 width={800}
