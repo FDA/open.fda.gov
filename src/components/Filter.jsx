@@ -454,7 +454,7 @@ class CheckboxFilterComponent extends React.Component {
       const checked = (currentValue.indexOf(option.value) > -1)
       return (
         <div key={`div${idx}`}>
-          <p style={{marginBottom: 0, paddingLeft : 15}}>
+          <p className='checkbox'>
             <label>
               <Checkbox
                 key={`box${idx}`}
@@ -471,10 +471,15 @@ class CheckboxFilterComponent extends React.Component {
         </div>
       )
     });
+    const cols = []
+    output.forEach(function(item){
+        cols.push(<div className="column">{item}</div>)
+    })
+
     return (
-      <div>
-        { output }
-      </div>
+        <div className="row">
+            {cols}
+        </div>
     )
   }
 }
@@ -531,7 +536,7 @@ class BooleanFilterComponent extends React.Component {
       const checked = (currentValue.indexOf(option.value) > -1)
       return (
         <div key={`div${idx}`}>
-          <p style={{marginBottom: 0, paddingLeft : 15}}>
+          <p className='checkbox'>
             <label>
               <Checkbox
                 key={`box${idx}`}
@@ -548,10 +553,16 @@ class BooleanFilterComponent extends React.Component {
         </div>
       )
     });
+
+    const cols = []
+    output.forEach(function(item){
+        cols.push(<div className="column">{item}</div>)
+    })
+
     return (
-      <div>
-        { output }
-      </div>
+        <div className="row">
+            {cols}
+        </div>
     )
   }
 }
@@ -862,12 +873,10 @@ class FilterComponent extends React.Component {
     if (this.state.displayFilters === false) {
       document.getElementById("filter-sidebar").style.width = "23%"
       document.getElementById("dataset-explorer-content").style.width = "75%"
-      document.getElementById("chart-background").style.width = "90%"
       document.getElementById("fa-angle-double-left").style.transform = "scale(1, 1)"
     } else {
-      document.getElementById("filter-sidebar").style.display = "none"
-      document.getElementById("dataset-explorer-content").style.width = "100%"
-      document.getElementById("chart-background").style.width = "67.5%"
+      document.getElementById("filter-sidebar").style.width = "0%"
+      document.getElementById("dataset-explorer-content").style.width = "97%"
       document.getElementById("fa-angle-double-left").style.transform = "scale(-1, 1)"
     }
     this.setState({
@@ -960,8 +969,6 @@ class FilterComponent extends React.Component {
 
     })
 
-    console.log("hide: ", this.props.hideContent)
-
     return (
       <div className='filter-sidebar' id='filter-sidebar'>
         <div className='filter-components'>
@@ -969,7 +976,7 @@ class FilterComponent extends React.Component {
           components
         }
         </div>
-        <div className={'sidebar-buttons ' + (this.state.displayFilters ? '' : 'display-none')}>
+        <div className='sidebar-buttons'>
           <button className={this.props.hideContent ? 'filter-bg-darker-blue': 'filter-bg-light-blue'} onClick={() => this.props.updateSelectedFilters(this.state.selected_filters)}>
             APPLY FILTERS
           </button>
