@@ -604,7 +604,7 @@ class BarChartComponent extends React.Component {
 
 
     return (
-          <ResponsiveContainer className='chart-background bar-chart-background' width="90%" height={600}>
+          <ResponsiveContainer className='chart-background bar-chart-background' width={this.props.barWidth} height={this.props.barHeight}>
             <BarChart
               ref="bar"
               data={this.props.data}
@@ -916,7 +916,7 @@ class LineChartComponent extends React.Component {
               }).sort((a, b) => a.term - b.term)
 
               var series = orderedResults.map(j => {
-                  return {x: new Date(j.term, 0, 1), y: j.count, label: `${options[i]}: ${j.count} (${this.props.chartConfig.lineChart.detailText}: ${j.detail})`}
+                  return {x: new Date(j.term, 0, 1), y: j.count, label: `${options[i]}: ${j.count} \n ${this.props.chartConfig.lineChart.detailText}: ${j.detail}`}
                 })
 
               if (series !== undefined) {
@@ -1106,7 +1106,7 @@ class LineChartComponent extends React.Component {
         labelComponent={
           <VictoryTooltip
             flyoutStyle={{ fill: "white" }}
-            orientation='top'
+            //orientation={(d) => d.eventKey === 0 ? 'right' : 'left'}
           />
         }
         name={`victory-group-${index}`}
@@ -1363,8 +1363,8 @@ class ResultsInfographicPieBarComponent extends React.Component {
           data = json.results.map(value => {
             return {
               name: value.term,
-              substance_name: value.count,
-              amt: value.count
+              [this.props.chartConfig.barChart.countLabel]: value.count,
+              [this.props.chartConfig.barChart.detailLabel]: value[this.props.chartConfig.barChart.detail]
             }
           }).slice(0,this.props.chartConfig.barChart.limiter)
         } else {
@@ -1483,8 +1483,17 @@ class ResultsInfographicPieBarComponent extends React.Component {
             ref="parent"
           />
           <BarChartComponent
+            applied_filters={this.props.applied_filters}
+            barHeight={400}
+            barWidth='60%'
             data={this.state.data}
+            detail={this.props.chartConfig.barChart.detailLabel}
+            dataset={this.props.dataset}
+            drs={this.props.drs}
             chartConfig={this.props.chartConfig}
+            yLabel={this.props.chartConfig.barChart.yAxisTitle}
+            xAxis={this.props.chartConfig.barChart.countLabel}
+            yAxis={this.props.chartConfig}
           />
         </div>
       </div>
@@ -1561,9 +1570,12 @@ class InfographicComponent extends React.Component {
         infographic =
           <ResultsInfographicPieBarComponent
             applied_filters={this.props.applied_filters}
+            detail={this.props.chartConfig.barChart.detailLabel}
             dataset={this.props.dataset}
             drs={this.props.drs}
             chartConfig={this.props.chartConfig}
+            yLabel={this.props.chartConfig.barChart.yAxisTitle}
+            xAxis={this.props.chartConfig.barChart.countLabel}
           />
       } else if (this.props.chartConfig.type === "line") {
         infographic =
@@ -1577,6 +1589,8 @@ class InfographicComponent extends React.Component {
         infographic =
           <BarChartComponent
             applied_filters={this.props.applied_filters}
+            barHeight={600}
+            barWidth='90%'
             data={this.state.data}
             detail={this.props.chartConfig.barChart.detailLabel}
             dataset={this.props.dataset}
@@ -1584,7 +1598,6 @@ class InfographicComponent extends React.Component {
             chartConfig={this.props.chartConfig}
             yLabel={this.props.chartConfig.barChart.yAxisTitle}
             xAxis={this.props.chartConfig.barChart.countLabel}
-            yAxis={this.props.chartConfig}
           />
       }
     }

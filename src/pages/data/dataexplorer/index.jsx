@@ -292,7 +292,8 @@ class DataExplorer extends React.Component {
                   />
                 }
 
-                <DataViewToggle renderDataViewToggle={renderDataViewToggle}
+                <DataViewToggle
+                  renderDataViewToggle={renderDataViewToggle}
                   toggleTable={this.toggleTable}
                   toggleChart={this.toggleChart}
                   visualization={this.state.visualization}

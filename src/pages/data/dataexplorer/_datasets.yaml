@@ -1,206 +1,4 @@
 names:
-  petfoodrecalls:
-    label: Pet Food Reports
-    path: petfoodreports
-    showChartView: true
-    views:
-      lltView:
-        label: Frequency of Reported Signs
-        searchType: LLT
-        help_text: This is llt pet food placeholder help text.
-        show_collapse_rows_button: false
-        hide_manage_columns: true
-        columns:
-          - Header: Product Name
-            accessor: product
-            show: true
-            sum: true
-          - Header: Flavor
-            count_name: flavor
-            accessor: flavor
-            show: true
-            unique_count: true
-            sortable: false
-          - Header: Formulation
-            count_name: formulation
-            accessor: formulation
-            show: true
-            sortable: false
-            unique_count: true
-          - Header: Reported Sign
-            count_name: sign
-            accessor: reaction
-            show: true
-            unique_count: true
-            split: true
-          - Header: Frequency of Reported Sign
-            count_name: total
-            accessor: frequency
-            show: true
-            sum: true
-            sortType: commaSeparatedNumbers
-        pivotBy:
-          - product
-          - flavor
-          - formulation
-      listingRecalls:
-        label: Reports of Reactions
-        searchType: nonLLT
-        help_text: This is nonLLT pet food placeholder help text.
-        show_collapse_rows_button: false
-        columns:
-          - Header: Identifier
-            accessor: identifier
-            show: false
-            showDefault: false
-          - Header: Name
-            accessor: product.name
-            show: true
-            showDefault: true
-          - Header: Flavor
-            accessor: product.flavor
-            show: true
-            showDefault: true
-          - Header: Formulation
-            accessor: product.formulation
-            show: true
-            showDefault: true
-          - Header: Number Fed
-            accessor: number_fed
-            show: true
-            showDefault: true
-          - Header: Number Reacted
-            accessor: number_reacted
-            show: true
-            showDefault: true
-          - Header: Number Died
-            accessor: number_died
-            show: true
-            showDefault: true
-          - Header: State
-            accessor: state
-            show: false
-            showDefault: false
-          - Header: Report Year
-            accessor: report_year
-            show: true
-            showDefault: true
-          - Header: Reported Sign
-            accessor: reaction.clinical_sign
-            show: true
-            showDefault: true
-            split: true
-          - Header: Species
-            accessor: animal.species
-            show: false
-            showDefault: false
-          - Header: Breed
-            accessor: animal.breed
-            show: false
-            showDefault: false
-          - Header: Gender
-            accessor: animal.gender
-            show: false
-            showDefault: false
-          - Header: Weight
-            accessor: animal.weight
-            show: false
-            showDefault: false
-            childColumn: Weight UOM
-          - Header: Weight UOM
-            accessor: animal.weight_uom
-            show: false
-            showDefault: false
-            hideInManageColumns: true
-          - Header: Age
-            accessor: animal.age
-            show: false
-            showDefault: false
-            childColumn: Age Units
-          - Header: Age Units
-            accessor: animal.age_units
-            show: false
-            showDefault: false
-            hideInManageColumns: true
-          - Header: Reproductive Status
-            accessor: animal.reproductive_status
-            show: false
-            showDefault: false
-          - Header: Animal Number
-            accessor: animal.animal_number
-            show: false
-            showDefault: false
-    endpoint: animalandveterinary/petfood_reports.json
-    url: http://openfda-elb-petfoods-2018-04-09-468912113.us-east-1.elb.amazonaws.com
-    filters:
-      options:
-        - label: Report Year
-          field: report_year.exact
-          autocomplete_field: report_year
-          type: select_autocomplete
-          can_query: true
-          remove_chars: report years
-          placeholder: Select Year or Start Typing
-          query_type: term
-          limit: 5000
-        - label: Product Name
-          field: product.name.exact
-          autocomplete_field: product.name
-          type: select_autocomplete
-          can_query: true
-          remove_chars: product names
-          placeholder: Select Product or Start Typing
-          query_type: term
-          limit: 100
-        - label: Formulation
-          field: product.formulation.exact
-          autocomplete_field: product.formulation
-          type: select_autocomplete
-          remove_chars: formulations
-          placeholder: Select Formulation or Start Typing
-          can_query: true
-          query_type: term
-          limit: 100
-        - label: Species
-          field: animal.species.exact
-          autocomplete_field: animal.species
-          type: select_autocomplete
-          can_query: true
-          remove_chars: species
-          placeholder: Select Species or Start Typing
-          query_type: term
-          limit: 100
-        - label: Breed
-          field: animal.breed.exact
-          autocomplete_field: animal.breed
-          type: select_autocomplete
-          can_query: true
-          remove_chars: breed
-          placeholder: Select Breed or Start Typing
-          query_type: term
-          limit: 100
-        - label: Reported Sign
-          field: reaction.clinical_sign.exact
-          autocomplete_field: reaction.clinical_sign
-          type: select_autocomplete
-          remove_chars: reactions
-          help_id: petfood_reaction
-          can_query: true
-          placeholder: Select Reaction or Start Typing
-          query_type: term
-          limit: 100
-        - label: State
-          field: state.exact
-          autocomplete_field: state
-          type: select_autocomplete
-          can_query: true
-          remove_chars: state
-          placeholder: Select State or Start Typing
-          query_type: term
-          limit: 100
-    exportOptions:
-      - label: CSV
-      - label: JSON
   animaldrugs:
     label: Animal Drug Labeling
     path: animaldrug
@@ -451,6 +249,208 @@ names:
           placeholder: E.g. ANADA200224
           limit: 100
 
+    exportOptions:
+      - label: CSV
+      - label: JSON
+  petfoodrecalls:
+    label: Pet Food Reports
+    path: petfoodreports
+    showChartView: true
+    views:
+      lltView:
+        label: Frequency of Reported Signs
+        searchType: LLT
+        help_text: This is llt pet food placeholder help text.
+        show_collapse_rows_button: false
+        hide_manage_columns: true
+        columns:
+          - Header: Product Name
+            accessor: product
+            show: true
+            sum: true
+          - Header: Flavor
+            count_name: flavor
+            accessor: flavor
+            show: true
+            unique_count: true
+            sortable: false
+          - Header: Formulation
+            count_name: formulation
+            accessor: formulation
+            show: true
+            sortable: false
+            unique_count: true
+          - Header: Reported Sign
+            count_name: sign
+            accessor: reaction
+            show: true
+            unique_count: true
+            split: true
+          - Header: Frequency of Reported Sign
+            count_name: total
+            accessor: frequency
+            show: true
+            sum: true
+            sortType: commaSeparatedNumbers
+        pivotBy:
+          - product
+          - flavor
+          - formulation
+      listingRecalls:
+        label: Reports of Reactions
+        searchType: nonLLT
+        help_text: This is nonLLT pet food placeholder help text.
+        show_collapse_rows_button: false
+        columns:
+          - Header: Identifier
+            accessor: identifier
+            show: false
+            showDefault: false
+          - Header: Name
+            accessor: product.name
+            show: true
+            showDefault: true
+          - Header: Flavor
+            accessor: product.flavor
+            show: true
+            showDefault: true
+          - Header: Formulation
+            accessor: product.formulation
+            show: true
+            showDefault: true
+          - Header: Number Fed
+            accessor: number_fed
+            show: true
+            showDefault: true
+          - Header: Number Reacted
+            accessor: number_reacted
+            show: true
+            showDefault: true
+          - Header: Number Died
+            accessor: number_died
+            show: true
+            showDefault: true
+          - Header: State
+            accessor: state
+            show: false
+            showDefault: false
+          - Header: Report Year
+            accessor: report_year
+            show: true
+            showDefault: true
+          - Header: Reported Sign
+            accessor: reaction.clinical_sign
+            show: true
+            showDefault: true
+            split: true
+          - Header: Species
+            accessor: animal.species
+            show: false
+            showDefault: false
+          - Header: Breed
+            accessor: animal.breed
+            show: false
+            showDefault: false
+          - Header: Gender
+            accessor: animal.gender
+            show: false
+            showDefault: false
+          - Header: Weight
+            accessor: animal.weight
+            show: false
+            showDefault: false
+            childColumn: Weight UOM
+          - Header: Weight UOM
+            accessor: animal.weight_uom
+            show: false
+            showDefault: false
+            hideInManageColumns: true
+          - Header: Age
+            accessor: animal.age
+            show: false
+            showDefault: false
+            childColumn: Age Units
+          - Header: Age Units
+            accessor: animal.age_units
+            show: false
+            showDefault: false
+            hideInManageColumns: true
+          - Header: Reproductive Status
+            accessor: animal.reproductive_status
+            show: false
+            showDefault: false
+          - Header: Animal Number
+            accessor: animal.animal_number
+            show: false
+            showDefault: false
+    endpoint: animalandveterinary/petfood_reports.json
+    url: http://openfda-elb-petfoods-2018-04-09-468912113.us-east-1.elb.amazonaws.com
+    filters:
+      options:
+        - label: Report Year
+          field: report_year.exact
+          autocomplete_field: report_year
+          type: select_autocomplete
+          can_query: true
+          remove_chars: report years
+          placeholder: Select Year or Start Typing
+          query_type: term
+          limit: 5000
+        - label: Product Name
+          field: product.name.exact
+          autocomplete_field: product.name
+          type: select_autocomplete
+          can_query: true
+          remove_chars: product names
+          placeholder: Select Product or Start Typing
+          query_type: term
+          limit: 100
+        - label: Formulation
+          field: product.formulation.exact
+          autocomplete_field: product.formulation
+          type: select_autocomplete
+          remove_chars: formulations
+          placeholder: Select Formulation or Start Typing
+          can_query: true
+          query_type: term
+          limit: 100
+        - label: Species
+          field: animal.species.exact
+          autocomplete_field: animal.species
+          type: select_autocomplete
+          can_query: true
+          remove_chars: species
+          placeholder: Select Species or Start Typing
+          query_type: term
+          limit: 100
+        - label: Breed
+          field: animal.breed.exact
+          autocomplete_field: animal.breed
+          type: select_autocomplete
+          can_query: true
+          remove_chars: breed
+          placeholder: Select Breed or Start Typing
+          query_type: term
+          limit: 100
+        - label: Reported Sign
+          field: reaction.clinical_sign.exact
+          autocomplete_field: reaction.clinical_sign
+          type: select_autocomplete
+          remove_chars: reactions
+          help_id: petfood_reaction
+          can_query: true
+          placeholder: Select Reaction or Start Typing
+          query_type: term
+          limit: 100
+        - label: State
+          field: state.exact
+          autocomplete_field: state
+          type: select_autocomplete
+          can_query: true
+          remove_chars: state
+          placeholder: Select State or Start Typing
+          query_type: term
+          limit: 100
     exportOptions:
       - label: CSV
       - label: JSON
