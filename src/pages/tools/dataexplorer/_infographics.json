@@ -6,7 +6,7 @@
       "lineChart": {
         "countBy": "reaction.clinical_sign.exact",
         "dateField": "report_year.exact",
-        "detailText": "animals reacted",
+        "detailText": "Animals Reacted",
         "detail": "animals_reacted",
         "limiter": 10,
         "startYear": 2014,
@@ -158,6 +158,20 @@
           1995
         ]
       },
+      "barChart": {
+        "title": "Drugs Labels by Substance Name",
+        "width": 600,
+        "height": 300,
+        "countLabel": "Total Labels",
+        "yAxisTitle": "Labels",
+        "margin": {
+          "top": 5,
+          "right": 30,
+          "left": 20,
+          "bottom": 5
+        },
+        "limiter": 8
+      },
       "pieChart": {
         "categories": {
           "OTC ANIMAL DRUG": "OTC",
@@ -191,16 +205,16 @@
           "Drug Labels",
           "by Product Type"
         ],
-        "width": 750,
-        "height": 750,
-        "widthReset": 400,
-        "heightReset": 300,
+        "width": 350,
+        "height": 350,
+        "widthReset": 350,
+        "heightReset": 350,
         "sort": "ascending",
         "viewBox": {
-          "x": 300,
+          "x": 150,
           "y": 50,
           "width": 400,
-          "height": 750
+          "height": 250
         },
         "margin": {
           "top": 5,
@@ -212,19 +226,6 @@
           "color": "#000000",
           "fontFamily": "Merriweather,Georgia,serif"
         }
-      },
-      "barChart": {
-        "title": "Drugs Labels by Substance Name",
-        "width": 600,
-        "height": 300,
-        "yAxisTitle": "Drug Labels",
-        "margin": {
-          "top": 5,
-          "right": 30,
-          "left": 20,
-          "bottom": 5
-        },
-        "limiter": 8
       }
     }
   },
