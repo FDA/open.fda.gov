@@ -40,6 +40,7 @@ class DataExplorer extends React.Component {
       dataset: null,
       view: null,
       applied_filters: [],
+      displayFilters: true,
       filters: [],
       drs: null,
       _rows: [],
@@ -61,6 +62,7 @@ class DataExplorer extends React.Component {
     this.removeFilter = this.removeFilter.bind(this)
     this.toggleTable = this.toggleTable.bind(this)
     this.toggleChart = this.toggleChart.bind(this)
+    this.toggleFilters = this.toggleFilters.bind(this)
     this.updateSelectedFilters = this.updateSelectedFilters.bind(this)
   }
 
@@ -247,6 +249,13 @@ class DataExplorer extends React.Component {
     }
   }
 
+  toggleFilters() {
+
+    this.setState({
+      displayFilters: !this.state.displayFilters
+    })
+  }
+
 
   render (): ?React.Element {
     const renderDataViewToggle = this.state.dataset.showChartView
@@ -259,7 +268,7 @@ class DataExplorer extends React.Component {
           <div className='blog-bg' >
             <div className='dataset-explorer'>
               <div className='dataset-explorer-menubar'>
-                <div className='filter-toggle-button' onClick={() => { this.child.toggleFilters() }}>
+                <div className='filter-toggle-button' onClick={this.toggleFilters}>
                   <i className='fa fa-lg fa-angle-double-left' id='fa-angle-double-left'/>
                   <i className='fa fa-lg fa-filter'/>
                 </div>
@@ -310,6 +319,7 @@ class DataExplorer extends React.Component {
               <FilterComponent
                 clearAllFilters={this.clearAllFilters}
                 dataset={this.state.dataset}
+                displayFilters={this.state.displayFilters}
                 drs={this.state.drs}
                 filters={this.state.applied_filters}
                 handleFilterChange={this.handleFilterChange}
@@ -323,6 +333,7 @@ class DataExplorer extends React.Component {
                 applied_filters={this.state.applied_filters}
                 clearAllFilters={this.clearAllFilters}
                 dataset={this.state.dataset}
+                displayFilters={this.state.displayFilters}
                 drs={this.state.drs}
                 hideContent={this.state.hideContent}
                 infographicsConfig={this.state.infographicsConfig}

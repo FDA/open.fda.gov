@@ -905,7 +905,7 @@ class LineChartComponent extends React.Component {
 
             const listOfSeries = []
 
-            for (var i = 0, len = results.length; i < len; i++) {
+            for (let i = 0, len = results.length; i < len; i++) {
               const orderedResults = results[i].results.map(value => {
                 if (value[this.props.chartConfig.lineChart.detail]) {
                   return {
@@ -921,9 +921,14 @@ class LineChartComponent extends React.Component {
                 }
               }).sort((a, b) => a.term - b.term)
 
-              var series = orderedResults.map(j => {
-                  return {x: new Date(j.term, 0, 1), y: j.count, label: `${options[i]}: ${j.count} \n ${this.props.chartConfig.lineChart.detailText}: ${j.detail}`}
-                })
+              let series = orderedResults.map(j => {
+                return {
+                  x: new Date(j.term, 0, 1), y: j.count,
+                  label: this.props.chartConfig.lineChart.detailText ?
+                    `${options[i]}: ${j.count} \n ${this.props.chartConfig.lineChart.detailText}: ${j.detail}`:
+                    `${options[i]}: ${j.count}`
+                }
+              })
 
               if (series !== undefined) {
                 listOfSeries.push(series)
@@ -940,6 +945,7 @@ class LineChartComponent extends React.Component {
             let endTime = new Date(listOfSeries[0][listOfSeries[0].length - 1].x)
             startTime.setDate(startTime.getDate() - 5)
             endTime.setMonth(endTime.getMonth() + 1)
+            let legendCategories = options.map((column, idx) => ({ column: column, color: this.state.config.colors[idx] }))
 
             this.setState({
               zoomDomain: {x:[startTime, endTime]},
@@ -947,7 +953,7 @@ class LineChartComponent extends React.Component {
               options: options,
               placeholder: placeholder,
               series: listOfSeries,
-              legendCategories: options.sort(function(a, b){return a.length - b.length}).map((column, idx) => ({ column: column, color: this.state.config.colors[idx] })),
+              legendCategories: legendCategories.concat().sort(function(a, b){return a.column.length - b.column.length}),
               xAxis: xAxis,
               dataOptions: options_list
             })
@@ -1456,7 +1462,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
       <div>
         <div className="infographic-title-div">
           <h3>{this.props.chartConfig.select.title}</h3>
-          <h3 className="infographic-barchart-title">{this.props.chartConfig.barChart.title}</h3>
+          <h3>{this.props.chartConfig.barChart.title}</h3>
         </div>
         <Select
           name="toggle"
@@ -1490,7 +1496,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
           />
           <BarChartComponent
             applied_filters={this.props.applied_filters}
-            barHeight={400}
+            barHeight={500}
             barWidth='60%'
             data={this.state.data}
             detail={this.props.chartConfig.barChart.detailLabel}
@@ -1836,7 +1842,7 @@ class DatasetExplorerContentComponent extends React.Component {
 
     if (this.props.visualization === true) {
       return (
-        <div className='dataset-explorer-content' id='dataset-explorer-content'>
+        <div className={'dataset-explorer-content flex-content ' + (this.props.displayFilters ? 'width-77': 'width-100 pad-r-30')} id='dataset-explorer-content'>
           {
             this.props.hideContent &&
             <div className='dataset-overlay' />
@@ -1845,7 +1851,7 @@ class DatasetExplorerContentComponent extends React.Component {
             infographicsConfig={this.props.infographicsConfig}
             selectChart={this.selectChart}
           />
-          <div className='dataset-explorer-results'>
+          <div className={'dataset-explorer-results ' + (this.props.displayFilters ? 'width-100': 'width-77')}>
             <SelectedFiltersComponent
               applied_filters={this.props.applied_filters}
               clearAllFilters={this.props.clearAllFilters}
@@ -1864,7 +1870,7 @@ class DatasetExplorerContentComponent extends React.Component {
       )
     } else {
       return (
-        <div className='dataset-explorer-content dataset-explorer-results' id='dataset-explorer-content'>
+        <div className={'dataset-explorer-content dataset-explorer-results ' + (this.props.displayFilters ? 'width-77': 'width-100')} id='dataset-explorer-content'>
           {
             this.props.hideContent &&
               <div className='dataset-overlay' />

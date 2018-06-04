@@ -472,8 +472,8 @@ class CheckboxFilterComponent extends React.Component {
       )
     });
     const cols = []
-    output.forEach(function(item){
-        cols.push(<div className="column">{item}</div>)
+    output.forEach(function(item, idx){
+        cols.push(<div className="column" key={`column${idx}`}>{item}</div>)
     })
 
     return (
@@ -555,8 +555,8 @@ class BooleanFilterComponent extends React.Component {
     });
 
     const cols = []
-    output.forEach(function(item){
-        cols.push(<div className="column">{item}</div>)
+    output.forEach(function(item, idx){
+        cols.push(<div className="column" key={`column${idx}`}>{item}</div>)
     })
 
     return (
@@ -974,7 +974,7 @@ class FilterComponent extends React.Component {
     console.log("hide: ", this.props.hideContent)
 
     return (
-      <div className='filter-sidebar' id='filter-sidebar'>
+      <div className={'filter-sidebar ' + (this.props.displayFilters ? ' ': 'display-none')} id='filter-sidebar'>
         <div className='filter-components'>
         {
           components
