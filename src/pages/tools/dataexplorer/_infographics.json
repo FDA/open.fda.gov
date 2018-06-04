@@ -133,17 +133,17 @@
         "margin": {
           "top": 5,
           "right": 30,
-          "bottom": 80,
-          "left": 20
+          "left": 20,
+          "bottom": 180
         },
         "limiter": 10
       }
     },
     "dataByYear": {
-      "title": "Filter Data by Year:",
+      "title": "Filter Data by Year",
       "type": "pieBar",
       "select": {
-        "title": "Filter Data by Year:",
+        "title": "Filter Data by Year",
         "default": {
           "value": "All",
           "label": "All"
@@ -161,14 +161,14 @@
       "barChart": {
         "title": "Drugs Labels by Substance Name",
         "width": 600,
-        "height": 300,
+        "height": 600,
         "countLabel": "Total Labels",
         "yAxisTitle": "Labels",
         "margin": {
           "top": 5,
           "right": 30,
           "left": 20,
-          "bottom": 5
+          "bottom": 80
         },
         "limiter": 8
       },

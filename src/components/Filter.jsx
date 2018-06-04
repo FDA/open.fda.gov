@@ -472,8 +472,8 @@ class CheckboxFilterComponent extends React.Component {
       )
     });
     const cols = []
-    output.forEach(function(item){
-        cols.push(<div className="column">{item}</div>)
+    output.forEach(function(item, idx){
+        cols.push(<div className="column" key={`column${idx}`}>{item}</div>)
     })
 
     return (
@@ -555,8 +555,8 @@ class BooleanFilterComponent extends React.Component {
     });
 
     const cols = []
-    output.forEach(function(item){
-        cols.push(<div className="column">{item}</div>)
+    output.forEach(function(item, idx){
+        cols.push(<div className="column" key={`column${idx}`}>{item}</div>)
     })
 
     return (
@@ -775,7 +775,6 @@ class FilterComponent extends React.Component {
     super(props)
 
     this.state = {
-      displayFilters: true,
       selected_filters: this.props.filters
     }
 
@@ -879,9 +878,6 @@ class FilterComponent extends React.Component {
       document.getElementById("dataset-explorer-content").style.width = "97%"
       document.getElementById("fa-angle-double-left").style.transform = "scale(-1, 1)"
     }
-    this.setState({
-      displayFilters: !this.state.displayFilters
-    })
   }
 
 
@@ -970,13 +966,13 @@ class FilterComponent extends React.Component {
     })
 
     return (
-      <div className='filter-sidebar' id='filter-sidebar'>
+      <div className={'filter-sidebar ' + (this.props.displayFilters ? ' ': 'display-none')} id='filter-sidebar'>
         <div className='filter-components'>
         {
           components
         }
         </div>
-        <div className='sidebar-buttons'>
+        <div className={'sidebar-buttons ' + (this.props.displayFilters ? ' ': 'display-none')}>
           <button className={this.props.hideContent ? 'filter-bg-darker-blue': 'filter-bg-light-blue'} onClick={() => this.props.updateSelectedFilters(this.state.selected_filters)}>
             APPLY FILTERS
           </button>
