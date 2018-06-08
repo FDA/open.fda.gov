@@ -972,7 +972,7 @@ class FilterComponent extends React.Component {
           components
         }
         </div>
-        <div className={'sidebar-buttons ' + (this.props.displayFilters ? ' ': 'display-none')}>
+        <div className={'sidebar-buttons ' + (this.props.hideContent ? ' ': 'display-none')}>
           <button className={this.props.hideContent ? 'filter-bg-darker-blue': 'filter-bg-light-blue'} onClick={() => this.props.updateSelectedFilters(this.state.selected_filters)}>
             APPLY FILTERS
           </button>
