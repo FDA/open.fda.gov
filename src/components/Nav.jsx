@@ -2,6 +2,7 @@
 
 import React from 'react'
 import cx from 'classnames'
+import ARIA from '../constants/aria'
 
 import NavContainer from '../containers/NavContainer'
 import Disclaimer from '../components/Disclaimer'
@@ -9,6 +10,9 @@ import Disclaimer from '../components/Disclaimer'
 import Link from 'gatsby-link'
 
 const linkCx: string = 'sub-menu-item no-underline'
+
+const hhsCx = 'pad-r-1 flex-box dir-column m-marg-t-2 m-marg-l-2 hhs'
+const hhsACx = 'clr-white relative hhs'
 
 const hamStyl: Object = Object.freeze({
   borderRadius: '5px',
@@ -63,18 +67,81 @@ const Nav = (props: tPROPS) => {
         className='visually-hidden'>
         Skip navigation, go to start of content
       </a>
+      <div className='menu-shadow bg-primary-darker pad-t-1 pad-b-1'>
+        <div className='container clr-white smallest blue-nav-bar'>
+          <a
+            href='https://www.fda.gov/'
+            className='col self-start'
+            rel='noopener noreferrer'
+            target='_blank'
+            style={{
+              verticalAlign: 'text-top'
+            }}>
+            <img
+              alt='Go to FDA website'
+              width='180px'
+              src='/img/gov-fda-new-white.svg'
+            />
+          </a>
+          <div className={hhsCx}>
+            <a
+              href='http://www.hhs.gov/'
+              className={hhsACx}
+              rel='noopener noreferrer'
+              target='_blank'>
+              <img
+                className='absolute top'
+                style={{
+                  left: '-21px',
+                }}
+                alt='Go to HHS website'
+                height='16px'
+                width='15px'
+                src='/img/l_HHS_white.png'
+              />
+              U.S. Department of Health and Human Services
+            </a>
+            <strong>Food and Drug Administration</strong>
+          </div>
+          <div
+            className='txt-c right flex-box clearfix'
+            style={{
+              // ie stuff, mobile stuff
+              fontSize: '13px',
+              // ie needs more width than others
+              maxWidth: '345px',
+            }}>
+            {/*<img
+              { ...ARIA.hide }
+              alt='United States Flag'
+              className='float-l'
+              height='11px'
+              src='/img/us_flag_small.png'
+              style={{
+                height: '11px',
+                marginRight: '5px',
+                marginTop: '3px',
+              }}
+              width='16px'
+            />
+            <span className='inline-block float-l'>
+            An official website of the United States Government
+          </span>*/}
+          </div>
+        </div>
+      </div>
       <div className='container dir-column tab-pad-b-1 tab-pad-t-1 nav-bar'>
         <div className={showMobileNav ? 'dir-column relative': 'flex-row relative'}>
           <div className='container d-40 align-center logo-wrapper relative'>
             <Link
               className="nav-logos"
               to='/'>
-              <img
+              {/*<img
                 alt='Go to FDA website'
                 src='/img/FDA_logo_blue.png'
                 className='fda-logo'
               />
-              <div className="nav-bar-divider-line"/>
+              <div className="nav-bar-divider-line"/>*/}
               <img
                 className='open-fda-logo'
                 alt='Go to openFDA homepage'
