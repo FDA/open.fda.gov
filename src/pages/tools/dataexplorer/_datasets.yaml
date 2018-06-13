@@ -157,6 +157,7 @@ names:
           autocomplete_field: product.formulation
           type: select_autocomplete
           remove_chars: formulations
+          help_id: petfood_formulation
           placeholder: Select Formulation or Start Typing
           can_query: true
           query_type: term
