@@ -1,3 +1,33 @@
+petfood_formulation:
+  label: All Possible Formulations
+  description:
+  columns:
+    - Header: Formulation
+      accessor: formulation
+      show: true
+  options:
+    - formulation: Bird Food
+    - formulation: Bone
+    - formulation: Bone; Raw
+    - formulation: Canned
+    - formulation: Dental
+    - formulation: Dried
+    - formulation: Dry
+    - formulation: Manufacturer
+    - formulation: Mars
+    - formulation: Milk Replacer
+    - formulation: Mixed bag, made by PetCo, no known brands
+    - formulation: Not Reported
+    - formulation: Other
+    - formulation: Pouched
+    - formulation: Raw
+    - formulation: Raw; Bone
+    - formulation: Rolled
+    - formulation: Semi-Moist
+    - formulation: Supplement
+    - formulation: Tray
+    - formulation: Treat
+    - formulation: Tubbed
 petfood_reaction:
   label: All Possible Reported Signs
   description:
