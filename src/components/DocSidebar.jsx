@@ -143,6 +143,8 @@ const DocBreadcrumbs = props => {
 type tPROPS = {
   activeHeader: string;
   path: string;
+  isSticky: boolean;
+  style: object;
   yaml: object;
   showMobileSidebar: boolean;
   toggleSection: Function;
@@ -154,8 +156,10 @@ const DocSidebar = (props: tPROPS) => {
   const {
     activeHeader,
     path,
+    isSticky,
     yaml,
     showMobileSidebar,
+    style,
     toggleSection,
     toggleMobileSidebar
   } = props
@@ -165,13 +169,19 @@ const DocSidebar = (props: tPROPS) => {
     'tab-hide': !showMobileSidebar
   })
 
+  let sidebarStyle = style
+
+  if (style.position === 'fixed') {
+    sidebarStyle = {...style, paddingTop: 'calc(1.4rem + 77px)', width: '16.8rem'}
+  }
+
   return (
     <section>
       <div className='doc-sidebar-mobile' onClick={toggleMobileSidebar}>
         <DocBreadcrumbs path={path} yaml={yaml}/>
         <i className='fa fa-angle-down fa-2x'/>
       </div>
-      <div className={sidebarCx}>
+      <div className={sidebarCx} style={sidebarStyle}>
         {yaml.map((section, index) => (
           <div key={index}>
             <Section

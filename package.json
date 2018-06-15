@@ -58,6 +58,7 @@
     "react-promise": "^2.0.0",
     "react-radio-group": "^3.0.2",
     "react-select": "^1.2.1",
+    "react-sticky": "^6.0.2",
     "react-timeseries-charts": "0.12.8",
     "react-transition-group": "^2.2.1",
     "recharts": "1.0.0-beta.0",

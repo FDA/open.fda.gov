@@ -65,11 +65,14 @@ const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClas
       })
     }
 
-    componentWillUpdate () {
+    componentWillUpdate (nextProps) {
       if (this.state.path !== window.location.pathname) {
         this.setState({
           path: window.location.pathname
         })
+      }
+      if (this.props.isSticky !== nextProps.isSticky) {
+        this.props.toggleFixed(nextProps.isSticky)
       }
     }
 
