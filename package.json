@@ -58,8 +58,6 @@
     "react-promise": "^2.0.0",
     "react-radio-group": "^3.0.2",
     "react-select": "^1.2.1",
-    "react-sticky": "^6.0.2",
-    "react-sticky-dynamic-header": "^0.1.2",
     "react-sticky-state": "^2.1.9",
     "react-timeseries-charts": "0.12.8",
     "react-transition-group": "^2.2.1",
