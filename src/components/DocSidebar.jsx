@@ -169,11 +169,11 @@ const DocSidebar = (props: tPROPS) => {
     'tab-hide': !showMobileSidebar
   })
 
-  let sidebarStyle = style
-
-  if (style.position === 'fixed') {
-    sidebarStyle = {...style, paddingTop: 'calc(1.4rem + 77px)', width: '16.8rem'}
-  }
+  // let sidebarStyle = style
+  //
+  // if (style.position === 'fixed') {
+  //   sidebarStyle = {...style, paddingTop: 'calc(1.4rem + 77px)', width: '16.8rem'}
+  // }
 
   return (
     <section>
@@ -181,7 +181,7 @@ const DocSidebar = (props: tPROPS) => {
         <DocBreadcrumbs path={path} yaml={yaml}/>
         <i className='fa fa-angle-down fa-2x'/>
       </div>
-      <div className={sidebarCx} style={sidebarStyle}>
+      <div className={sidebarCx}>
         {yaml.map((section, index) => (
           <div key={index}>
             <Section

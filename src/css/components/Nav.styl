@@ -4,6 +4,9 @@
   width: 100%
   border-bottom: 1px solid #ccc
 
+.header-main
+  height: 58px
+
 .blue-nav-bar
   display: flex
   flex-direction: row
@@ -62,12 +65,15 @@
   display: block
   position: relative
   margin-bottom: 0
-  padding: 1em 0.5em
+  padding: 1em 0.5em calc(1em + 8px)
   color: #666666
   line-height: 2em
 
 .emphasis
   color: $clrPrimary
+
+.nav-bar .header-selected
+  padding: 1em 0.5em
 
 .menu-header-underbar
   border-top: 4px solid #00AAFF
@@ -179,6 +185,31 @@
   .hhs
     float: right
     text-align: right
+
+.sticky
+  position: -webkit-sticky
+  position: sticky
+
+.sticky.sticky-fixed.is-sticky
+  margin-top: 0
+  margin-bottom: 0
+  position: fixed
+  -webkit-backface-visibility: hidden
+  -moz-backface-visibility: hidden
+  backface-visibility: hidden
+
+.sticky.sticky-fixed.is-sticky:not([style*="margin-top"])
+  margin-top: 0 !important
+
+.sticky.sticky-fixed.is-sticky:not([style*="margin-bottom"])
+  margin-bottom: 0 !important
+
+.sticky.sticky-fixed.is-absolute
+  position: absolute
+
+#nav
+  top: -1px
+  z-index: 10000
 
 @media $bpDesk
   .nav-li

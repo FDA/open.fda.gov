@@ -75,7 +75,7 @@ const BlogPosts = (props: tPROPS) => {
               className='blog-item'>
               {
                 link_flag == true &&
-                  <Link className='relative full-height btn-icon-right blog-text-item' to={update.path}>
+                  <Link className='full-height btn-icon-right blog-text-item' to={update.path}>
                     <div>
                       <Async promise={title} then={(val) => <h2 className='blog-header clr-primary-darker'>{val}</h2>}/>
                       <div className='clr-gray-light marg-b-1 t-marg-t-05 time-stamp'>{formattedDate}</div>
@@ -94,7 +94,7 @@ const BlogPosts = (props: tPROPS) => {
               }
               {
                 !link_flag &&
-                  <a className='relative full-height btn-icon-right blog-text-item' href={update.path}>
+                  <a className='full-height btn-icon-right blog-text-item' href={update.path}>
                     <div>
                       <Async promise={title} then={(val) => <h2 className='blog-header clr-primary-darker'>{val}</h2>}/>
                       <div className='clr-gray-light marg-b-1 t-marg-t-05 time-stamp'>{formattedDate}</div>

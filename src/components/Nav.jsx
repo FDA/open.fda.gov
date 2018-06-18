@@ -130,7 +130,7 @@ const Nav = (props: tPROPS) => {
                 <Link
                   title='Home'
                   to='/'
-                  className={activeDropdown==='Home' ? 'menu-header emphasis': path === '/' ? 'menu-header emphasis': 'menu-header'}
+                  className={path === '/' ? 'menu-header header-selected emphasis': activeDropdown==='Home' ? 'menu-header emphasis': 'menu-header'}
                   onClick={closeMobileNav}
                 >Home</Link>
                 <div className={path === '/' ? 'menu-header-underbar': 'menu-header-underbar display-none'} style={{width: 'calc(100% - 1em)'}}/>
@@ -138,7 +138,7 @@ const Nav = (props: tPROPS) => {
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                   title='About'
-                  className={activeDropdown==='About' ? 'menu-header emphasis': path.indexOf('about') >= 0 ? 'menu-header emphasis': 'menu-header'}
+                  className={path.indexOf('about') >= 0 ? 'menu-header header-selected emphasis': activeDropdown==='About' ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
                 >About <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
                 <div className={path.indexOf('about') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
@@ -154,7 +154,7 @@ const Nav = (props: tPROPS) => {
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                   title='Docs'
-                  className={activeDropdown==='Docs' ? 'menu-header emphasis': path.indexOf('docs') >= 0 ? 'menu-header emphasis': 'menu-header'}
+                  className={path.indexOf('docs') >= 0 ? 'menu-header header-selected emphasis': activeDropdown==='Docs' ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
                 >Docs<i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
                 <div className={path.indexOf('docs') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
@@ -170,7 +170,7 @@ const Nav = (props: tPROPS) => {
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                   title='Tools'
-                  className={activeDropdown==='Tools' ? 'menu-header emphasis': path.indexOf('tools') >= 0 ? 'menu-header emphasis': 'menu-header'}
+                  className={path.indexOf('tools') >= 0 ? 'menu-header header-selected emphasis': activeDropdown==='Tools' ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
                 >Tools <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
                 <div className={path.indexOf('tools') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
@@ -184,7 +184,7 @@ const Nav = (props: tPROPS) => {
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
                   title='Community'
-                  className={activeDropdown==='Community' ? 'menu-header emphasis': path.indexOf('community') >= 0 ? 'menu-header emphasis': 'menu-header'}
+                  className={path.indexOf('community') >= 0 ? 'menu-header header-selected emphasis': activeDropdown==='Community' ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
                 >Community <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none': '')}/></span>
                 <div className={path.indexOf('community') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>

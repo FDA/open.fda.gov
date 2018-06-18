@@ -39,7 +39,7 @@ const Hero = (props: tPROPS) => {
   } = props
 
   const heroCx = cx({
-    'flex-box relative dir-column': true,
+    'flex-box dir-column': true,
     'bg-gray': type !== 'dataset' && type !== 'endpoint',
     'bg-primary': type === 'dataset'
   })

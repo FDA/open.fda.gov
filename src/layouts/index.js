@@ -5,8 +5,8 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import DocSidebar from "../components/DocSidebar"
 import docsSidebar from "../pages/docs/doc-links.yaml"
-
-import { Sticky, StickyContainer } from "react-sticky"
+import Sticky from 'react-sticky-state'
+import StickySidebar from '../components/StickySidebar'
 
 DocumentTitle.displayName = 'Document Title'
 
@@ -33,12 +33,17 @@ class Layout extends React.Component {
 
   render() {
 
+    const scrollClass = {
+      down: 'sticky-scroll-down',
+      up: 'sticky-scroll-up'
+    }
+
     const hasSidebar = this.props.location.pathname.slice(0, 6) === `/docs/`
 
     return (
       <DocumentTitle title='openFDA' key='openFDA'>
         <div>
-          <div className='menu-shadow bg-primary-darker pad-t-1 pad-b-1'>
+          <div className='header-main menu-shadow bg-primary-darker pad-t-1 pad-b-1'>
             <div className='container clr-white smallest blue-nav-bar'>
               <a
                 href='https://www.fda.gov/'
@@ -96,45 +101,38 @@ class Layout extends React.Component {
               width='16px'
             />
             <span className='inline-block float-l'>
-            An official website of the United States Government
-          </span>*/}
+              An official website of the United States Government
+            </span>*/}
               </div>
             </div>
           </div>
-        <StickyContainer>
-          <Sticky>
-            {({style}) => <Nav meta={this.props.meta} style={style} />}
-            {/*{({ style }) => <h1 style={style}>Sticky element</h1>}*/}
+          <Sticky scrollClass={scrollClass}>
+            <div className='sticky' id='nav'><Nav meta={this.props.meta}/></div>
           </Sticky>
           {
             hasSidebar &&
-            <div className='body-container'>
-              <Sticky>
-                {({ style, isSticky }) =>
+              <div className='body-container'>
+                <StickySidebar enter='58' sidebarFixed={this.state.sidebarFixed} toggleFixed={this.toggleSidebarFixed}>
                   <DocSidebar
                     inline
-                    isSticky={isSticky}
-                    style={style}
-                    toggleFixed={this.toggleSidebarFixed}
                     yaml={docsSidebar}
-                  />}
-              </Sticky>
-              <div className={'doc-container ' + (this.state.sidebarFixed ? 'fixed-padding' : '')}>
-                {this.props.children()}
+                  />
+                </StickySidebar>
+                <div className={'doc-container ' + (this.state.sidebarFixed ? 'fixed-padding' : '')}>
+                  {this.props.children()}
+                </div>
               </div>
-            </div>
           }
           {
             !hasSidebar &&
-              <div className=''>
-                {this.props.children()}
-              </div>
+            <div className=''>
+              {this.props.children()}
+            </div>
           }
           {
             !hasSidebar &&
               <Footer/>
           }
-        </StickyContainer>
         </div>
       </DocumentTitle>
     )

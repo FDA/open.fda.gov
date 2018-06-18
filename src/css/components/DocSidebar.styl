@@ -9,6 +9,8 @@
   background-color: white
   z-index: 10
 
+#docSidebar
+  top: 76px
 
 .doc-sidebar
   height: 100vh
@@ -131,6 +133,14 @@
   -webkit-transform: rotate(-90deg)
   -ms-transform: rotate(-90deg)
   transform: rotate(-90deg)
+
+.sticky-sidebar
+  position: fixed
+  top: 76px
+  left: 0
+  right: 0
+  border-radius: 0
+  margin: 0
 
 @media $bpDesk
   .doc-sidebar-mobile
