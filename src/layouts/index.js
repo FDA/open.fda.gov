@@ -118,7 +118,7 @@ class Layout extends React.Component {
                     yaml={docsSidebar}
                   />
                 </StickySidebar>
-                <div className={'doc-container ' + (this.state.sidebarFixed ? 'fixed-padding' : '')}>
+                <div className={'doc-container ' + (this.state.sidebarFixed ? 'fixed-padding' : '')} id='doc-container'>
                   {this.props.children()}
                 </div>
               </div>

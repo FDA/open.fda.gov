@@ -1,6 +1,10 @@
 import React from 'react';
 
 export class StickySidebar extends React.Component {
+  constructor(props){
+    super(props)
+  }
+
   componentDidMount() {
     const setInitialHeights = (elements) => {
       [].forEach.call(elements, (sticky) => {
@@ -20,29 +24,46 @@ export class StickySidebar extends React.Component {
         const stickyEnter = parseInt(sticky.getAttribute('data-sticky-enter'), 10) || stickyInitial;
         const stickyExit = parseInt(sticky.getAttribute('data-sticky-exit'), 10) || bottom;
 
-        if (top >= stickyEnter && top <= stickyExit) {
-          sticky.classList.add('sticky-sidebar')
-          !this.props.sidebarFixed &&
+        let stickySidebar = false
+
+        if (document.getElementById('doc-sidebar').clientHeight < document.getElementById('doc-container').clientHeight) {
+          stickySidebar = true
+        }
+
+        console.log("sticky state: ", stickySidebar)
+        if (stickySidebar) {
+          if (top >= stickyEnter && top <= stickyExit) {
+            sticky.classList.add('sticky-sidebar')
+            !this.props.sidebarFixed &&
             this.props.toggleFixed(true)
-        } else {
+          } else {
+            sticky.classList.remove('sticky-sidebar')
+            this.props.sidebarFixed &&
+            this.props.toggleFixed(false)
+          }
+        } else if (sticky.classList.contains('sticky-sidebar')) {
           sticky.classList.remove('sticky-sidebar')
           this.props.sidebarFixed &&
           this.props.toggleFixed(false)
         }
+
       })
     })
   }
 
   render() {
     const { className, enter, exit, children } = this.props;
-    return (<div
-      className={`Sticky ${className}`}
-      data-sticky
-      data-sticky-enter={enter}
-      data-sticky-exit={exit}
-    >
+
+    return (
+      <div
+        className={`Sticky ${className}`}
+        data-sticky
+        data-sticky-enter={enter}
+        data-sticky-exit={exit}
+      >
       {children}
-    </div>);
+      </div>
+    )
   }
 }
 

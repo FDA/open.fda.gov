@@ -9,28 +9,10 @@
   background-color: white
   z-index: 10
 
-#docSidebar
-  top: 76px
 
 .doc-sidebar
-  height: 100vh
   width: 16.8rem
   padding: 1.4rem
-  border-right: 1px solid #f5eefe
-  background-color: #fbfafc
-  box-shadow: inset 0 4px 5px 0 rgba(116, 76, 158, 0.07), inset 0 1px 10px 0 rgba(157, 124, 191, 0.06), inset 0 2px 4px -1px rgba(157, 124, 191, 0.1)
-  overflow-y: auto
-  z-index: 5
-  -webkit-overflow-scrolling: touch
-
-
-.doc-sidebar::-webkit-scrollbar
-  width: 6px
-  height: 6px
-  &-thumb
-    background: $clrPrimary
-  &-track
-    background: $clrPrimaryAltLightest
 
 
 .sidebar-item, .sidebar-header
@@ -134,17 +116,43 @@
   -ms-transform: rotate(-90deg)
   transform: rotate(-90deg)
 
+
+.Sticky
+  height: -webkit-fill-available
+  width: 16.8rem
+  border-right: 1px solid #f5eefe
+  background-color: #fbfafc
+  box-shadow: inset 0 4px 5px 0 rgba(116, 76, 158, 0.07), inset 0 1px 10px 0 rgba(157, 124, 191, 0.06), inset 0 2px 4px -1px rgba(157, 124, 191, 0.1)
+
+
 .sticky-sidebar
+  height: 100vh
   position: fixed
   top: 76px
   left: 0
   right: 0
   border-radius: 0
   margin: 0
+  z-index: 5
+  overflow-y: auto
+  -webkit-overflow-scrolling: touch
+
+
+  &::-webkit-scrollbar
+    width: 6px
+    height: 6px
+    &-thumb
+      background: $clrPrimary
+    &-track
+      background: $clrPrimaryAltLightest
+
+
 
 @media $bpDesk
   .doc-sidebar-mobile
     display: none
+
+
 
 @media $tablet
   .doc-sidebar
