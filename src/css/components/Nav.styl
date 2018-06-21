@@ -1,6 +1,7 @@
 .main-nav-bar
   box-shadow: 0 3px 10px rgba(0,0,0,0.1)
   z-index: 100
+  height: 77px
   width: 100%
   border-bottom: 1px solid #ccc
 
@@ -30,12 +31,6 @@
 
 .fda-logo
   width: 180px
-
-.nav-bar-divider-line
-  border-right: 1px solid rgba(0,0,0,0.1)
-  margin: 0px 15px
-  height: 50px
-  width: 1px
 
 .dropdown
   position: relative
@@ -118,6 +113,31 @@
   display: flex
   align-items: center
 
+.sticky
+  position: -webkit-sticky
+  position: sticky
+
+.sticky.sticky-fixed.is-sticky
+  margin-top: 0
+  margin-bottom: 0
+  position: fixed
+  -webkit-backface-visibility: hidden
+  -moz-backface-visibility: hidden
+  backface-visibility: hidden
+
+.sticky.sticky-fixed.is-sticky:not([style*="margin-top"])
+  margin-top: 0 !important
+
+.sticky.sticky-fixed.is-sticky:not([style*="margin-bottom"])
+  margin-bottom: 0 !important
+
+.sticky.sticky-fixed.is-absolute
+  position: absolute
+
+#nav
+  top: -1px
+  z-index: 10000
+
 @media $bpTabRange
 
   .fda-bar
@@ -131,10 +151,25 @@
   .fda-logo
     display: none
 
-  .nav-bar-divider-line
+  .hhs
     display: none
 
 @media $tablet
+  .main-nav-bar
+    position: fixed
+    top: 58px
+
+
+  .sticky
+    position: fixed
+
+
+  .header-main
+    position: fixed
+    width: 100%
+    z-index: 100
+
+
   .nav-ul
     display: flex
     flex-direction: row
@@ -186,34 +221,9 @@
     float: right
     text-align: right
 
-.sticky
-  position: -webkit-sticky
-  position: sticky
 
-.sticky.sticky-fixed.is-sticky
-  margin-top: 0
-  margin-bottom: 0
-  position: fixed
-  -webkit-backface-visibility: hidden
-  -moz-backface-visibility: hidden
-  backface-visibility: hidden
-
-.sticky.sticky-fixed.is-sticky:not([style*="margin-top"])
-  margin-top: 0 !important
-
-.sticky.sticky-fixed.is-sticky:not([style*="margin-bottom"])
-  margin-bottom: 0 !important
-
-.sticky.sticky-fixed.is-absolute
-  position: absolute
-
-#nav
-  top: -1px
-  z-index: 10000
 
 @media $bpDesk
   .nav-li
     margin-right: 15px
     min-width: 160px
-
-

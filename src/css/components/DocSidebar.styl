@@ -1,5 +1,5 @@
 .doc-sidebar-mobile
-  position: fixed
+  height: 44px
   width: 100%
   display: flex
   flex-direction: row
@@ -157,4 +157,37 @@
 @media $tablet
   .doc-sidebar
     width: 100%
-    margin-top: 44px
+    height: calc(100vh - 171px)
+    overflow-y: auto
+
+  &::-webkit-scrollbar
+    width: 6px
+    height: 6px
+    &-thumb
+      background: $clrPrimary
+    &-track
+      background: $clrPrimaryAltLightest
+
+
+  .doc-sidebar-mobile
+    box-shadow: none
+
+
+  .Sticky
+    position: fixed
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1)
+    top: 135px
+    height: inherit
+    width: 100%
+    overflow-y: auto
+
+    section
+      background-color: #fbfafc
+      width: 100%
+      z-index: 5
+
+
+  .sticky-sidebar
+    height: inherit
+    overflow-y: inherit
+    top: 135px

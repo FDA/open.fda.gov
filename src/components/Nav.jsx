@@ -56,7 +56,7 @@ const Nav = (props: tPROPS) => {
   } = props
 
   const navCx = cx({
-    'col d-5 flex-row': true,
+    'bg-white col d-5 flex-row': true,
     'tab-hide': !showMobileNav,
   })
 
