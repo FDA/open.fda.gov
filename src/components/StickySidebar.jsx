@@ -3,6 +3,8 @@ import React from 'react';
 export class StickySidebar extends React.Component {
   constructor(props){
     super(props)
+
+    this.scrollListener = this.scrollListener.bind(this)
   }
 
   componentDidMount() {
@@ -15,39 +17,46 @@ export class StickySidebar extends React.Component {
     const stickies = document.querySelectorAll('[data-sticky]');
     setInitialHeights(stickies);
 
-    document.addEventListener('scroll', () => {
-      const top = document.documentElement.scrollTop || document.body.scrollTop;
-      const bottom = document.documentElement.scrollHeight || document.body.scrollHeight;
+    document.addEventListener('scroll', this.scrollListener)
+  }
 
-      [].forEach.call(stickies, (sticky) => {
-        const stickyInitial = parseInt(sticky.getAttribute('data-sticky-initial'), 10);
-        const stickyEnter = parseInt(sticky.getAttribute('data-sticky-enter'), 10) || stickyInitial;
-        const stickyExit = parseInt(sticky.getAttribute('data-sticky-exit'), 10) || bottom;
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.scrollListener);
+  }
 
-        let stickySidebar = false
+  scrollListener() {
+    const stickies = document.querySelectorAll('[data-sticky]');
+    const top = document.documentElement.scrollTop || document.body.scrollTop;
+    const bottom = document.documentElement.scrollHeight || document.body.scrollHeight;
 
-        if (document.getElementById('doc-sidebar').clientHeight < document.getElementById('doc-container').clientHeight) {
-          stickySidebar = true
-        }
+    [].forEach.call(stickies, (sticky) => {
+      const stickyInitial = parseInt(sticky.getAttribute('data-sticky-initial'), 10);
+      const stickyEnter = parseInt(sticky.getAttribute('data-sticky-enter'), 10) || stickyInitial;
+      const stickyExit = parseInt(sticky.getAttribute('data-sticky-exit'), 10) || bottom;
 
-        console.log("sticky state: ", stickySidebar)
-        if (stickySidebar) {
-          if (top >= stickyEnter && top <= stickyExit) {
-            sticky.classList.add('sticky-sidebar')
-            !this.props.sidebarFixed &&
-            this.props.toggleFixed(true)
-          } else {
-            sticky.classList.remove('sticky-sidebar')
-            this.props.sidebarFixed &&
-            this.props.toggleFixed(false)
-          }
-        } else if (sticky.classList.contains('sticky-sidebar')) {
+      let stickySidebar = false
+
+      if (document.getElementById('doc-sidebar').clientHeight < document.getElementById('doc-container').clientHeight) {
+        stickySidebar = true
+      }
+
+      console.log("sticky state: ", stickySidebar)
+      if (stickySidebar) {
+        if (top >= stickyEnter && top <= stickyExit) {
+          sticky.classList.add('sticky-sidebar')
+          !this.props.sidebarFixed &&
+          this.props.toggleFixed(true)
+        } else {
           sticky.classList.remove('sticky-sidebar')
           this.props.sidebarFixed &&
           this.props.toggleFixed(false)
         }
+      } else if (sticky.classList.contains('sticky-sidebar')) {
+        sticky.classList.remove('sticky-sidebar')
+        this.props.sidebarFixed &&
+        this.props.toggleFixed(false)
+      }
 
-      })
     })
   }
 

@@ -97,23 +97,23 @@ const EndpointBox = (props: tPROPS) => {
 
   const ep_path = {
     'food': {
-      'enforcement': '/docs/food/enforcement/',
-      'event': '/docs/food/enforcement'
+      'enforcement': '/apis/food/enforcement/',
+      'event': '/apis/food/enforcement'
     },
     'device': {
-      'event': '/docs/device/event/',
-      'classification': '/docs/device/classification',
-      '510k': '/docs/device/510k/',
-      'pma': '/docs/device/pma/',
-      'registrationlisting': '/docs/device/registrationlisting/',
-      'recall': '/docs/device/recall/',
-      'enforcement': '/docs/device/enforcement/',
-      'udi': '/docs/device/udi/'
+      'event': '/apis/device/event/',
+      'classification': '/apis/device/classification',
+      '510k': '/apis/device/510k/',
+      'pma': '/apis/device/pma/',
+      'registrationlisting': '/apis/device/registrationlisting/',
+      'recall': '/apis/device/recall/',
+      'enforcement': '/apis/device/enforcement/',
+      'udi': '/apis/device/udi/'
     },
     'drug': {
-      'event': '/docs/drug/event/',
-      'label': '/docs/drug/label/',
-      'enforcement': '/docs/drug/enforcement/'
+      'event': '/apis/drug/event/',
+      'label': '/apis/drug/label/',
+      'enforcement': '/apis/drug/enforcement/'
     },
   }
 

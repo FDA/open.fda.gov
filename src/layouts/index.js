@@ -4,7 +4,7 @@ import DocumentTitle from 'react-document-title'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import DocSidebar from "../components/DocSidebar"
-import docsSidebar from "../pages/docs/doc-links.yaml"
+import docsSidebar from "../pages/apis/doc-links.yaml"
 import Sticky from 'react-sticky-state'
 import StickySidebar from '../components/StickySidebar'
 
@@ -38,7 +38,7 @@ class Layout extends React.Component {
       up: 'sticky-scroll-up'
     }
 
-    const hasSidebar = this.props.location.pathname.slice(0, 6) === `/docs/`
+    const hasSidebar = this.props.location.pathname.slice(0, 6) === `/apis/`
 
     return (
       <DocumentTitle title='openFDA' key='openFDA'>

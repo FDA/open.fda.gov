@@ -5,7 +5,7 @@ import React from 'react'
 import { TimeSeries, TimeRange, sum } from "pondjs";
 import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable, styler, Legend, TimeMarker, EventMarker } from "react-timeseries-charts"
 import { API_LINK } from '../constants/api'
-import states from '../pages/docs/states.json'
+import states from '../pages/apis/states.json'
 import _ from 'lodash';
 import Parser from 'html-react-parser';
 import {default as $} from "jquery";

@@ -153,17 +153,17 @@ const Nav = (props: tPROPS) => {
               </div>
               <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                 <span
-                  title='Docs'
-                  className={path.indexOf('docs') >= 0 ? 'menu-header header-selected emphasis': activeDropdown==='Docs' ? 'menu-header emphasis': 'menu-header'}
+                  title='APIs'
+                  className={path.indexOf('apis') >= 0 ? 'menu-header header-selected emphasis': activeDropdown==='APIs' ? 'menu-header emphasis': 'menu-header'}
                   onTouchStart={toggleDropdownContent}
-                >Docs<i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
-                <div className={path.indexOf('docs') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
-                <div className={activeDropdown==='Docs' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                >APIs<i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
+                <div className={path.indexOf('apis') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
+                <div className={activeDropdown==='APIs' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/docs/' onClick={closeMobileNav}>API basics</Link>
-                    <Link className={linkCx} to='/docs/drug/' onClick={closeMobileNav}>Drug Endpoints</Link>
-                    <Link className={linkCx} to='/docs/device/' onClick={closeMobileNav}>Device Endpoints</Link>
-                    <Link className={linkCx} to='/docs/food/' onClick={closeMobileNav}>Food Endpoints</Link>
+                    <Link className={linkCx} to='/apis/' onClick={closeMobileNav}>API basics</Link>
+                    <Link className={linkCx} to='/apis/drug/' onClick={closeMobileNav}>Drug Endpoints</Link>
+                    <Link className={linkCx} to='/apis/device/' onClick={closeMobileNav}>Device Endpoints</Link>
+                    <Link className={linkCx} to='/apis/food/' onClick={closeMobileNav}>Food Endpoints</Link>
                   </div>
                 </div>
               </div>

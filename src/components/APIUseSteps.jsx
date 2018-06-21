@@ -29,7 +29,7 @@ const APIUseSteps = (props: tPROPS) => {
       <ul className='steps'>
         <li>
           <div className='step-num'>1</div>
-          <div className='step-desc'>If you haven’t already, read the <Link to='/docs/'>API Basics</Link> documentation.</div>
+          <div className='step-desc'>If you haven’t already, read the <Link to='/apis/'>API Basics</Link> documentation.</div>
         </li>
         <li>
           <div className='step-num'>2</div>

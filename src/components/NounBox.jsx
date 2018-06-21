@@ -43,10 +43,10 @@ const NounBox = (props: tPROPS) => {
   }
 
   const noun_path = {
-    food: '/docs/food/',
-    medical_devices: '/docs/device/',
-    drugs: '/docs/drug/',
-    animal_and_veterinary: '/docs/animal_and_veterinary/'
+    food: '/apis/food/',
+    medical_devices: '/apis/device/',
+    drugs: '/apis/drug/',
+    animal_and_veterinary: '/apis/animal_and_veterinary/'
   }
 
   return (
