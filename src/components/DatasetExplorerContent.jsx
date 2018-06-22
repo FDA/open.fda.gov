@@ -182,7 +182,8 @@ class ResultsComponent extends React.Component {
 
   componentWillReceiveProps(nextProps){
     if (nextProps.view){
-      const columnsData = this.getFormattedColumns(nextProps.view.columns)
+      const columnsData = this.getFormattedColumns(this.props.view.label === nextProps.view.label && this.state.columns.length > 0 ?
+        this.state.columns:nextProps.view.columns)
       const pivotBy = nextProps.view.pivotBy
 
       if(pivotBy && pivotBy.length) {
