@@ -1753,7 +1753,7 @@ class SelectedFiltersComponent extends React.Component {
         })
       } else if (
         filter.query_type === "range" &&
-        filter.type === "yearpicker" &&
+        filter.type === "yearpicker" || filter.type === "numeric_range" &&
         filter.value.length
       ) {
         filter_list.push({
