@@ -111,7 +111,7 @@ class Layout extends React.Component {
           </Sticky>
           {
             hasSidebar &&
-              <div className='body-container body-doc-container'>
+              <div className='body-container body-doc-container' id='body-doc-container'>
                 <StickySidebar enter='58' sidebarFixed={this.state.sidebarFixed} toggleFixed={this.toggleSidebarFixed}>
                   <DocSidebar
                     inline

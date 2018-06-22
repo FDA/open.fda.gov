@@ -36,7 +36,8 @@ export class StickySidebar extends React.Component {
 
       let stickySidebar = false
 
-      if (document.getElementById('doc-sidebar').clientHeight < document.getElementById('doc-container').clientHeight) {
+      if (document.getElementById('sticky-sidebar').clientHeight < document.getElementById('body-doc-container').clientHeight) {
+        console.log(document.getElementById('sticky-sidebar').clientHeight, " < ", document.getElementById('body-doc-container').clientHeight)
         stickySidebar = true
       }
 
@@ -66,6 +67,7 @@ export class StickySidebar extends React.Component {
     return (
       <div
         className={`Sticky ${className}`}
+        id='sticky-sidebar'
         data-sticky
         data-sticky-enter={enter}
         data-sticky-exit={exit}
