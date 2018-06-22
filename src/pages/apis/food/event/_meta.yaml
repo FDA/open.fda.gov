@@ -5,7 +5,7 @@ title: CAERS Reports
 description: An adverse event is submitted to the FDA to report adverse health effects and product complaints about foods, dietary supplements, and cosmetics.
 datasets:
   - CAERS
-path: /api_endpoints/food/event
+path: /apis/food/event
 api_path: /food/event
 start: 20040101
 status: foodevent

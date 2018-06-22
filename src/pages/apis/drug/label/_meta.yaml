@@ -5,7 +5,7 @@ datasets:
   - SPL
 label: Drug labeling
 title: Drug Labeling
-path: /api_endpoints/drug/label
+path: /apis/drug/label
 api_path: /drug/label
 start: 20090601
 status: druglabel

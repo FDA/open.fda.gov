@@ -290,3 +290,27 @@
           link: /apis/food/event/download/
         - title: Searchable fields
           link: /apis/food/event/searchable-fields/
+
+- title: Other API Endpoints
+  id: other-api-endpoints
+  link: /other/
+  collapse: true
+  items:
+    - title: NSDE
+      id: other-nsde
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/other/nsde/
+        - title: How to use the API
+          link: /apis/other/nsde/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/other/nsde/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/other/nsde/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/other/nsde/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/other/nsde/download/
+        - title: Searchable fields
+          link: /apis/other/nsde/searchable-fields/

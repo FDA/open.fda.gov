@@ -19,7 +19,7 @@ class IndexRoute extends React.Component {
           <li><strong>Reactions:</strong> Information on the reactions experienced by the patient.</li>
         </ul>
         <p>The order of these fields in the results can and will vary...</p>
-        <p>For count queries (such as: <a href="https://api.fda.gov/drug/event.json?search=patient.drug.openfda.pharm_class_epc:'nonsteroidal+antiinflammatory+drug'&count=patient.reaction.reactionmeddrapt.exact">https://api.fda.gov/drug/event.json?search=patient.drug.openfda.pharm_class_epc:'nonsteroidal+antiinflammatory+drug'&count=patient.reaction.reactionmeddrapt.exact</a>), the results section will look something like the following:</p>
+        <p>For count queries (such as: <a href="https://api.fda.gov/drug/event.json?count=patient.reaction.reactionmeddrapt.exact">https://api.fda.gov/drug/event.json?count=patient.reaction.reactionmeddrapt.exact</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}

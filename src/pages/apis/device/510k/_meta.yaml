@@ -5,7 +5,7 @@ title: Device 510(k)
 description: A 510(k) is a premarket submission made to FDA to demonstrate that the device to be marketed is at least as safe and effective, that is, substantially equivalent, to a legally marketed device that is not subject to PMA.
 datasets:
   - 510k
-path: /api_endpoints/device/510k
+path: /apis/device/510k
 api_path: /device/510k
 start: 19760101
 status: deviceclearance

@@ -4,7 +4,7 @@ label: Device registrations and listings
 title: Device Registrations and Listings
 description: The registration and listing dataset contains the location of medical device establishments and the devices manufactured at those establishments. Those who own or operate businesses involved in the production or distributions of medical devices are required to register with the FDA annually.
 datasets:
-path: /api_endpoints/device/registrationlisting
+path: /apis/device/registrationlisting
 api_path: /device/registrationlisting
 start:
 status: devicereglist

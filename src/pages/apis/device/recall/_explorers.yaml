@@ -10,7 +10,7 @@ regulationNumber:
   title: One recall for a *880.5200* regulation number
   description:
     - This query searches for records matching a certain search term, and asks for a single one.
-    - See the [reference](/device/recall/reference/) for more fields you can use to narrow searches for device recall.
+    - See [searchable fields](/apis/device/recall/searchable-fields/) for more fields you can use to narrow searches for device recall.
   params:
     - "*search* for all records with `openfda.regulation_number` equals *880.5200*"
     - "*limit* to 1 record"
@@ -19,7 +19,7 @@ topProductCodes:
   title: Count of top product codes for device recalls
   description:
     - This query is similar to the prior one, but returns a count of the most popular product codes.
-    - See the [reference](/device/recall/reference/) for more fields you can use to narrow searches for device recall.
+    - See [searchable fields](/apis/device/recall/searchable-fields/) for more fields you can use to narrow searches for device recall.
   params:
     - "*search* for all records."
     - count the field `product_code`

@@ -2,5 +2,5 @@ documentTitle: openFDA › Devices
 label: API categories
 title: Devices
 description: "The U.S. Food and Drug Administration (FDA) regulates medical devices in the United States. Medical devices range from simple tongue depressors and bedpans to complex programmable pacemakers and laser surgical devices."
-path: /api_endpoints/device/
+path: /apis/device/
 type: noun

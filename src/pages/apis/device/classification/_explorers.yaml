@@ -10,7 +10,7 @@ nob:
   title: One classification for a NOB product code
   description:
     - search for all records with `product_code` equals `NOB`.
-    - See the [reference](/device/classification/reference/) for more fields you can use to count and understand the nature of device classification.
+    - See [searchable fields](/apis/device/classification/searchable-fields/) for more fields you can use to count and understand the nature of device classification.
   params:
     - search for all records with `product_code` equals `LWP`.
     - limit to 1 record.
@@ -19,7 +19,7 @@ topFei:
   title: Count of top Facility Establishment Identifiers (FEI) for device classifications.
   description:
     - This query is similar to the prior one, but returns a count of the most frequent FEI numbers.
-    - See the [reference](/device/classification/reference/) for more fields you can use to count and understand the nature of device classification.
+    - See [searchable fields](/apis/device/classification/searchable-fields/) for more fields you can use to count and understand the nature of device classification.
   params:
     - search for all records.
     - count the field `openfda.fei_number`

@@ -10,7 +10,7 @@ oneLWP:
   title: One PMA record for the LWP product code
   description:
     - This query searches for records matching a certain search term, and asks for a single one.
-    - See the [reference](/device/pma/reference/) for more fields you can use to count and understand the nature of device PMA approval.
+    - See [searchable fields](/apis/device/pma/searchable-fields/) for more fields you can use to count and understand the nature of device PMA approval.
   params:
     - search for all records with `product_code` equals `LWP`.
     - limit to 1 record.
@@ -19,7 +19,7 @@ topAdvisory:
   title: Count of top advisory committees for PMA submissions.
   description:
     - This query is similar to the prior one, but returns a count of the most frequent advisory committees.
-    - See the [reference](/device/pma/reference/) for more fields you can use to count and understand the nature of device PMA approval.
+    - See [searchable fields](/apis/device/pma/searchable-fields/) for more fields you can use to count and understand the nature of device PMA approval.
   params:
     - search for all records.
     - count the field `advisory_committee`

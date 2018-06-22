@@ -2,7 +2,7 @@ oneReport:
   title: One enforcement report
   description:
     - "This query searches for all records in a certain date range, and asks for a single one."
-    - "See the [reference](/device/enforcement/reference/) for more about report_date. Brackets `[ ]` are used to specify a range for date, number, or string fields."
+    - "See [searchable fields](/apis/device/enforcement/searchable-fields/) for more about report_date. Brackets `[ ]` are used to specify a range for date, number, or string fields."
   params:
     - "Search for all records with report_date between Jan 01, 2004 and Dec 31, 2013."
     - "Limit to 1 record."

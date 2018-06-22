@@ -14,7 +14,7 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>Food Enforcement Overview</h2>
         <p>The openFDA food enforcement reports API returns data from the <Link to="/data/res/">FDA Recall Enterprise System (RES)</Link>, a database that contains information on recall event information submitted to FDA. Currently, this data covers publicly releasable records from 2004-present. The data is updated weekly.</p>
-        <p>The procedures followed to input recall information into RES when FDA learns of a recall event are outlined in <Link to="http://www.fda.gov/ICECI/ComplianceManuals/RegulatoryProceduresManual/ucm177304.htm">Chapter 7 of FDA’s Regulatory Procedure Manual</Link> The Regulatory Procedures Manual is a reference manual for FDA personnel. It provides FDA personnel with information on internal procedures to be used in processing domestic and import regulatory and enforcement matters.</p>
+        <p>The procedures followed to input recall information into RES when FDA learns of a recall event are outlined in <a href="http://www.fda.gov/ICECI/ComplianceManuals/RegulatoryProceduresManual/ucm177304.htm">Chapter 7 of FDA’s Regulatory Procedure Manual</a> The Regulatory Procedures Manual is a reference manual for FDA personnel. It provides FDA personnel with information on internal procedures to be used in processing domestic and import regulatory and enforcement matters.</p>
 
         <InteractiveInfographic
           infographicDefinitions={infographic_definitions}

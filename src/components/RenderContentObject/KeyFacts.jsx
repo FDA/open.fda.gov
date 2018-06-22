@@ -34,6 +34,9 @@ const KeyFacts = (props: tPROPS) => {
       'label': 'FDA SPL files',
       'enforcement': 'FDA Recall Enterprise System (RES)'
     },
+    'other': {
+      'nsde': 'NDC SPL Data Elements'
+    }
   }
 
   const source_link = {
@@ -55,6 +58,9 @@ const KeyFacts = (props: tPROPS) => {
       'label': '/data/spl/',
       'enforcement': '/data/res/'
     },
+    'other': {
+      'nsde': '/apis/other/nsde/'
+    }
   }
 
   const time_period = {
@@ -77,6 +83,9 @@ const KeyFacts = (props: tPROPS) => {
       'label': 'The bulk of the data is from June 2009 (when labeling was first posted publicly in the SPL format) to the present. However, there are a small number of records from earlier than mid-2009.',
       'enforcement': '2004 to present'
     },
+    'other': {
+      'nsde': '2009 to present'
+    }
   }
 
   const frequency = {
@@ -99,6 +108,9 @@ const KeyFacts = (props: tPROPS) => {
       'label': 'Weekly',
       'enforcement': 'Weekly'
     },
+    'other': {
+      'nsde': 'Daily'
+    }
   }
 
   return (

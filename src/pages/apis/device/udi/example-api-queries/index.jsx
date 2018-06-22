@@ -7,7 +7,7 @@ class IndexRoute extends React.Component {
   render() {
 
     const oneCompanyMed = explorers['oneCompanyMed']
-    const oneBrandMed = explorers['oneBrandMed']
+    const updated = explorers['updated']
 
     return (
       <section className="doc-content">
@@ -20,10 +20,10 @@ class IndexRoute extends React.Component {
           title={oneCompanyMed.title}
         />
         <QueryExplorer
-          desc={oneBrandMed.description}
-          originalQuery={oneBrandMed.query}
-          params={oneBrandMed.params}
-          title={oneBrandMed.title}
+          desc={updated.description}
+          originalQuery={updated.query}
+          params={updated.params}
+          title={updated.title}
         />
       </section>
     )

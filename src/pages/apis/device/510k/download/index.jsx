@@ -11,7 +11,7 @@ class IndexRoute extends React.Component {
     return (
       <section className="doc-content">
         <h2>Download the dataset</h2>
-        <p>Use the links below to download the dataset manually, or review the <Link to="/docs/downloads/">Downloads</Link> documentation for more information about other download methods.</p>
+        <p>Use the links below to download the dataset manually, or review the <Link to="/apis/downloads/">Downloads</Link> documentation for more information about other download methods.</p>
         <Downloads
           meta={meta}
         />
