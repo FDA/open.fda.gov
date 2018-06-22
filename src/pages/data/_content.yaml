@@ -22,4 +22,9 @@
   description:
     - Structured Product Labeling (SPL) is a document markup standard approved by Health Level Seven (HL7) and adopted by FDA as a mechanism for exchanging product and facility information.
     - See the [SPL web site](http://www.fda.gov/forindustry/datastandards/structuredproductlabeling/) for download information.
-
+-
+  url: /data/nsde/
+  title: NSDE
+  description:
+    - Comprehensive NDC SPL Data Elements.
+    - See the [NDC web page](https://www.fda.gov/forindustry/datastandards/structuredproductlabeling/ucm240580.htm) for download information.
