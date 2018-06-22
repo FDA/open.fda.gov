@@ -19,7 +19,7 @@ class IndexRoute extends React.Component {
           <li><code>Reactions:</code>Information on the reactions or symptoms experienced by the individual involved</li>
           <li><code>Outcomes:</code>Information on known outcomes or consequences of the adverse event</li>
         </ul>
-        <p>For count queries (such as: <a href="https://api.fda.gov/food/event.json?count=reactions.exact">https://api.fda.gov/food/event.json?count=reactions.exact</a>), the results section will look something like the following:</p>
+        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/food/event.json?count=reactions.exact">https://api.fda.gov/food/event.json?count=reactions.exact</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}

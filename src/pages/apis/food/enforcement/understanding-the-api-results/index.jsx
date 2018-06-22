@@ -27,7 +27,7 @@ class IndexRoute extends React.Component {
           <li><code>initial_firm_notification</code></li>
           <li><code>recall_initiation_date</code></li>
         </ul>
-        <p>For count queries (such as: <a href="https://api.fda.gov/food/enforcement.json?count=voluntary_mandated.exact">https://api.fda.gov/food/enforcement.json?count=voluntary_mandated.exact</a>), the results section will look something like the following:</p>
+        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/food/enforcement.json?count=voluntary_mandated.exact">https://api.fda.gov/food/enforcement.json?count=voluntary_mandated.exact</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}

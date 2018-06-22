@@ -17,7 +17,7 @@ class IndexRoute extends React.Component {
           <li>Product-specific fields, the order and contents of which are unique to each product.</li>
           <li><strong>An openfda section:</strong> An annotation with additional product identifiers, such as UPC and brand name, of the drug products listed in the labeling.</li>
         </ul>
-        <p>For count queries (such as: <a href="https://api.fda.gov/drug/label.json?count=openfda.product_type.exact">https://api.fda.gov/drug/label.json?count=openfda.product_type.exact</a>), the results section will look something like the following:</p>
+        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/drug/label.json?count=openfda.product_type.exact">https://api.fda.gov/drug/label.json?count=openfda.product_type.exact</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}

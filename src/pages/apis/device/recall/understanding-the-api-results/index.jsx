@@ -16,7 +16,7 @@ class IndexRoute extends React.Component {
           className='javascript'>
           {anatomy}
         </Highlight>
-        <p>For count queries (such as: <a href="https://api.fda.gov/device/recall.json?count=product_code">https://api.fda.gov/device/recall.json?count=product_code</a>), the results section will look something like the following:</p>
+        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/device/recall.json?count=product_code">https://api.fda.gov/device/recall.json?count=product_code</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {count}

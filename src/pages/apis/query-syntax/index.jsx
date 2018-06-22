@@ -14,7 +14,7 @@ class IndexRoute extends React.Component {
     return (
       <section className="doc-content">
         <h2>Query syntax</h2>
-        <p>Queries to the openFDA API are made up of *parameters* joined by an ampersand <code>&</code>. Each parameter is followed by an equals sign <code>=</code> and an argument.</p>
+        <p>Queries to the openFDA API are made up of <strong>parameters</strong> joined by an ampersand <code>&</code>. Each parameter is followed by an equals sign <code>=</code> and an argument.</p>
         <p>Searches have a special syntax: <code>search=field:term</code>. Note that there is only one equals sign <code>=</code> and there is a colon <code>:</code> between the field to search, and the term to search for.</p>
         <p>Here are a few syntax patterns that may help if you’re new to this API.</p>
         <ul>

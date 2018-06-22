@@ -92,7 +92,7 @@
     {
       "title": "<i><i class='datamap-infographic-header-text-bold'>Device 510(k)</i> by Risk Class (Low, Moderate, High)</i>",
       "subtitle": "",
-      "countBy": "device_class",
+      "countBy": "openfda.device_class",
       "xTitle": " Medical Speciality Device 510(k)s",
       "yTitle": "Risk",
       "type": "PieChart",

@@ -8,10 +8,11 @@
 - "OpenFDA is an initiative in the Office of Health Informatics (OHI) at the Food and Drug Administration. The core project team consists of the following individuals, in alphabetical order:"
 - ul:
   - "Letria Hall"
-  - "Biju Joseph*"
   - "Denis Krylov*"
   - "Patrick McConnell*"
   - "Edmond Mulaire*"
+  - "Jack Finch"
+  - "Ramakrishna Gundala"
   - "Lonnie Smith"
 
 - "*_Contractor to OHI_"
@@ -55,4 +56,4 @@
   - "Kelemework Yimam"
 
 - "## How can I join in?"
-- "The best place to start is on the [API basics](/api/reference/) page. It provides a great introduction to openFDA and how you can begin developing using the platform. We're also active on [GitHub](https://github.com/fda), [Twitter](https://twitter.com/openFDA), and [StackExchange](http://stackexchange.com/search?q=openfda). If there is a unique partnership opportunity or other collaboration you wish to discuss, you can email us at [open@fda.hhs.gov](mailto:open@fda.hhs.gov)."
+- "The best place to start is on the [API basics](/apis/) page. It provides a great introduction to openFDA and how you can begin developing using the platform. We're also active on [GitHub](https://github.com/fda), [Twitter](https://twitter.com/openFDA), and [StackExchange](http://stackexchange.com/search?q=openfda). If there is a unique partnership opportunity or other collaboration you wish to discuss, you can email us at [open@fda.hhs.gov](mailto:open@fda.hhs.gov)."

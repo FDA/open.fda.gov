@@ -2,9 +2,6 @@ import React from "react"
 import Link from "gatsby-link"
 
 import KeyFacts from '../../../../components/RenderContentObject/KeyFacts'
-import InteractiveInfographic from '../../../../components/InteractiveInfographic'
-
-import infographic_definitions from './_infographic_definitions.json'
 import meta from './_meta.yaml'
 
 class IndexRoute extends React.Component {
@@ -17,11 +14,6 @@ class IndexRoute extends React.Component {
         <p>The Food and Drug Administration (FDA) has established classifications for approximately 1,700 different generic types of devices and grouped them into 16 medical specialties referred to as panels. Each of these generic types of devices is assigned to one of three regulatory classes based on the level of control necessary to assure the safety and effectiveness of the device.</p>
         <p>The <strong>openFDA Device Classification API</strong> contains medical device names, their associated product codes, their medical specialty areas (panels) and their classification. The name and product code identify the generic category of a device for FDA. The product code assigned to a device is based upon the medical device product classification designated under 21 CFR Parts 862-892.</p>
         <p>For additional information, see <a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/Overview/ClassifyYourDevice/default.htm">here</a>.</p>
-
-        <InteractiveInfographic
-          infographicDefinitions={infographic_definitions}
-          meta={meta}
-        />
 
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
