@@ -20,6 +20,7 @@ import device_pma_meta from '../../apis/device/pma/_meta.yaml'
 import device_recall_meta from '../../apis/device/recall/_meta.yaml'
 import device_registration_listing_meta from '../../apis/device/registrationlisting/_meta.yaml'
 import device_udi_meta from '../../apis/device/udi/_meta.yaml'
+import other_nsde_meta from '../../apis/other/nsde/_meta.yaml'
 
 const ComposedSidebar: ReactClass = SideBarContainer(SideBar)
 
@@ -39,11 +40,14 @@ var endpoint_list = {
   'Medical Device PMA': device_pma_meta,
   'Medical Device Recall': device_recall_meta,
   'Medical Device Registration Listing': device_registration_listing_meta,
-  'Medical Device UDI': device_udi_meta
+  'Medical Device UDI': device_udi_meta,
+  'Other': 'other_header',
+  'NSDE': other_nsde_meta
 }
 
 let downloads_list = Object.keys(endpoint_list).map((key: string, i: number) => {
   if (typeof endpoint_list[key] === "string") {
+    console.log("key: ", key)
     return <li id={key} key={i}><h2>{key}</h2></li>
   }
   else {
