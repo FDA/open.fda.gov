@@ -41,7 +41,6 @@ export class StickySidebar extends React.Component {
         stickySidebar = true
       }
 
-      console.log("sticky state: ", stickySidebar)
       if (stickySidebar) {
         if (top >= stickyEnter && top <= stickyExit) {
           sticky.classList.add('sticky-sidebar')
