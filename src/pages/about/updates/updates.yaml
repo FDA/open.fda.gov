@@ -56,7 +56,7 @@ updates:
     date: 2016-09-26
     desc: "Community created apps can now be found directly on the openFDA website."
   - title: "New Dataset: Unique Device Identifier"
-    path: /docs/device/udi/
+    path: /apis/device/udi/
     date: 2016-09-26
     desc: "Read about the details of this newly available dataset and access the data through openFDA."
   - title: openFDA API Statistics Graph
@@ -76,10 +76,14 @@ updates:
     date: 2017-08-30
     desc: "Since its launch in June 2014, the impetus for openFDA has been to make it easier for an application, mobile device..."
   - title: New openFDA Dataset -  NSDE
-    path: /other/nsde/
+    path: /apis/other/nsde/
     date: 2017-12-28
     desc: "Medicare Part D Prescription Drug Event Editing & Coverage Gap Discount Program"
   - title: UDI Dataset Updated
     path: /about/updates/2018_04_20_udi_dataset_updated
+    date: 2018-04-20
+    desc: "openFDA is committed to transparency and always providing the best data available. This includes modifying released..."
+  - title: New Look, Same Great API
+    path: /about/updates/2018_06_22_new_look_same_great_api
     date: 2018-04-20
     desc: "openFDA is committed to transparency and always providing the best data available. This includes modifying released..."

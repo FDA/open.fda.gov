@@ -192,7 +192,7 @@ const Nav = (props: tPROPS) => {
                 <div className={activeDropdown==='Community' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
                     <a
-                      className={`${linkCx} link-external`}
+                      className={`${linkCx}`}
                       href='https://github.com/FDA'
                       onClick={closeMobileNav}
                       rel='noopener noreferrer'
@@ -200,7 +200,7 @@ const Nav = (props: tPROPS) => {
                       Source code (GitHub)
                     </a>
                     <a
-                      className={`${linkCx} link-external`}
+                      className={`${linkCx}`}
                       href='https://opendata.stackexchange.com/questions/tagged/openfda'
                       onClick={closeMobileNav}
                       rel='noopener noreferrer'
@@ -208,7 +208,7 @@ const Nav = (props: tPROPS) => {
                       Q&A (StackExchange)
                     </a>
                     <a
-                      className={`${linkCx} link-external`}
+                      className={`${linkCx}`}
                       href='https://twitter.com/openFDA'
                       onClick={closeMobileNav}
                       rel='noopener noreferrer'
