@@ -1,0 +1,162 @@
+
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "openFDA is a research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "openFDA is a research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    }
+  },
+  "results": [
+    {
+      "marketing_end_date": null,
+      "proprietary_name": "AMIDATE",
+      "product_type": "HUMAN PRESCRIPTION DRUG",
+      "application_number_or_citation": "NDA018227",
+      "marketing_start_date": 20160210,
+      "package_ndc": "0409-6695-10",
+      "marketing_category": "NDA",
+      "billing_unit": "ML",
+      "package_ndc11": "00409669510",
+      "dosage_form": "INJECTION, SOLUTION"
+    }
+  ],
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2018-06-22"
+    },
+    "results": [
+      {
+        "term": "HUMAN PRESCRIPTION DRUG",
+        "count": 187107
+      },
+      {
+        "term": "HUMAN OTC DRUG",
+        "count": 125681
+      },
+      {
+        "term": "OTC ANIMAL DRUG",
+        "count": 6234
+      },
+      {
+        "term": "PRESCRIPTION ANIMAL DRUG",
+        "count": 4848
+      },
+      {
+        "term": "NON-STANDARDIZED ALLERGENIC",
+        "count": 3259
+      },
+      {
+        "term": "HUMAN COMPOUNDED DRUG",
+        "count": 1534
+      },
+      {
+        "term": "BULK INGREDIENT",
+        "count": 1337
+      },
+      {
+        "term": "MEDICAL DEVICE",
+        "count": 1315
+      },
+      {
+        "term": "PLASMA DERIVATIVE",
+        "count": 674
+      },
+      {
+        "term": "VACCINE",
+        "count": 630
+      },
+      {
+        "term": "DIETARY SUPPLEMENT",
+        "count": 425
+      },
+      {
+        "term": "STANDARDIZED ALLERGENIC",
+        "count": 324
+      },
+      {
+        "term": "OTC TYPE A MEDICATED ARTICLE ANIMAL DRUG",
+        "count": 157
+      },
+      {
+        "term": "COSMETIC",
+        "count": 118
+      },
+      {
+        "term": "PRESCRIPTION MEDICAL DEVICE",
+        "count": 97
+      },
+      {
+        "term": "VFD TYPE A MEDICATED ARTICLE ANIMAL DRUG",
+        "count": 73
+      },
+      {
+        "term": "BULK INGREDIENT - ANIMAL DRUG",
+        "count": 27
+      },
+      {
+        "term": "MEDICAL FOOD",
+        "count": 27
+      },
+      {
+        "term": "OTC MEDICAL DEVICE",
+        "count": 25
+      },
+      {
+        "term": "CELLULAR THERAPY",
+        "count": 13
+      },
+      {
+        "term": "RECOMBINANT DEOXYRIBONUCLEIC ACID CONSTRUCT",
+        "count": 5
+      },
+      {
+        "term": "ANIMAL COMPOUNDED DRUG",
+        "count": 4
+      },
+      {
+        "term": "OTC TYPE C MEDICATED FEED ANIMAL DRUG",
+        "count": 4
+      },
+      {
+        "term": "LICENSED VACCINE BULK INTERMEDIATE",
+        "count": 3
+      },
+      {
+        "term": "DRUG FOR FURTHER PROCESSING",
+        "count": 2
+      },
+      {
+        "term": "OTC TYPE B MEDICATED FEED ANIMAL DRUG",
+        "count": 2
+      },
+      {
+        "term": "HUMAN PRESCRIPTION DRUG ",
+        "count": 1
+      }
+    ]
+  }
+}

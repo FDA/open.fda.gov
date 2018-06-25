@@ -26,6 +26,7 @@ const NounBox = (props: tPROPS) => {
     food: "Food",
     medical_devices: "Medical Devices",
     drugs: "Drugs",
+    other: "Other",
     animal_and_veterinary: "Animal and Veterinary"
   }
 
@@ -33,20 +34,23 @@ const NounBox = (props: tPROPS) => {
     food: '/img/grocery-bag.svg',
     medical_devices: '/img/stethoscope.svg',
     drugs: '/img/crucible.svg',
+    other: '/img/grocery-bag.svg',
     animal_and_veterinary: '/img/pet-meds.svg'
   }
   const bg_color = {
     food: {backgroundColor: "#1FA02B"},
-    medical_devices: {backgroundColor: "#F37549"},
+    medical_devices: {backgroundColor: "#c94747"},
     drugs: {backgroundColor: "#9958A3"},
+    other: {backgroundColor: "#099db7"},
     animal_and_veterinary: {backgroundColor: "#007CBA"}
   }
 
   const noun_path = {
-    food: '/api_endpoints/food/',
-    medical_devices: '/api_endpoints/device/',
-    drugs: '/api_endpoints/drug/',
-    animal_and_veterinary: '/api_endpoints/animal_and_veterinary/'
+    food: '/apis/food/',
+    medical_devices: '/apis/device/',
+    drugs: '/apis/drug/',
+    other: '/apis/other/',
+    animal_and_veterinary: '/apis/animal_and_veterinary/'
   }
 
   return (

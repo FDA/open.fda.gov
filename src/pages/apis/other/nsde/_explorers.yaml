@@ -1,0 +1,30 @@
+oneRecord:
+  params:
+    - search for all records and display one.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/other/nsde.json?limit=1'
+  description:
+    - This query searches for all records and asks for a single one.
+  title: One NSDE record
+byNDC:
+  params:
+  - search for a specific package_ndc.
+  - limit to 1 record.
+  query: 'https://api.fda.gov/other/nsde.json?search=package_ndc:"55700-019-60"'
+  description:
+    - This query searches for records with the specific package_ndc "55700-019-60", and returns one result.
+  title: NSDE Record by NDC
+onTheMarket:
+  params:
+  - search for records without a markering_end_date.
+  query: 'https://api.fda.gov/other/nsde.json?search=_missing_:"marketing_end_date"'
+  description:
+    - This query searches for records which don't have a marketing_end_date assigned, indicating that they're still on the market.
+  title: NSDE Products on the Market
+discontinued:
+  params:
+  - search for records with a marketing_end_date.
+  query: 'https://api.fda.gov/other/nsde.json?search=_exists_:"marketing_end_date"'
+  description:
+    - This query searches for records which have a marketing_end_date assigned, indicating that they're discontinued.
+  title: Discontinued NSDE Products

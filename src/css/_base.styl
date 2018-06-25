@@ -193,7 +193,6 @@ button
   font-size: $pSize
   outline: 0
   padding: 15px 20px
-  position: relative
 
   &:focus,
   &:active
@@ -263,9 +262,13 @@ code
 li.usage-api-li
   list-style: disc outside none
 
-.body-container
-  padding-top: 77.5px
+.body-doc-container
+  display: flex
 
 @media $tablet
   .body-container
-    padding-top: 70px
+    padding-top: 128px
+
+  .body-doc-container
+    display: flex
+    flex-direction: column

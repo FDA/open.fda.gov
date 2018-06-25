@@ -62,26 +62,55 @@ const BlogPosts = (props: tPROPS) => {
             formattedDate = dateFormat(date, 'mmmm d, yyyy').toUpperCase()
           }
 
+          let link_flag = true
+
+          if (update.path.indexOf("http") !== -1) {
+            link_flag = false
+          }
+          console.log("link_flag: ", link_flag, update.path)
+
           return (
             <li
               key={i}
               className='blog-item'>
-              <Link className='relative full-height btn-icon-right blog-text-item' to={update.path}>
-                <div>
-                  <Async promise={title} then={(val) => <h2 className='blog-header clr-primary-darker'>{val}</h2>}/>
-                  <div className='clr-gray-light marg-b-1 t-marg-t-05 time-stamp'>{formattedDate}</div>
-                  <p className='smallest txt-overflow-ellipsis'>{desc}</p>
-                  {
-                    small === false &&
-                    <span className='absolute bottom pad-b-2 weight-700 clr-primary'>READ MORE <i
-                      className='fa fa-angle-right'/></span>
-                  }
-                </div>
-                {
-                  small === true &&
-                  <i className='fa fa-angle-right fa-2x'/>
-                }
-              </Link>
+              {
+                link_flag == true &&
+                  <Link className='full-height btn-icon-right blog-text-item' to={update.path}>
+                    <div>
+                      <Async promise={title} then={(val) => <h2 className='blog-header clr-primary-darker'>{val}</h2>}/>
+                      <div className='clr-gray-light marg-b-1 t-marg-t-05 time-stamp'>{formattedDate}</div>
+                      <p className='smallest txt-overflow-ellipsis'>{desc}</p>
+                      {
+                        small === false &&
+                        <span className='absolute pad-b-2 weight-700 clr-primary'>READ MORE <i
+                          className='fa fa-angle-right'/></span>
+                      }
+                    </div>
+                    {
+                      small === true &&
+                      <i className='fa fa-angle-right fa-2x'/>
+                    }
+                  </Link>
+              }
+              {
+                !link_flag &&
+                  <a className='full-height btn-icon-right blog-text-item' href={update.path}>
+                    <div>
+                      <Async promise={title} then={(val) => <h2 className='blog-header clr-primary-darker'>{val}</h2>}/>
+                      <div className='clr-gray-light marg-b-1 t-marg-t-05 time-stamp'>{formattedDate}</div>
+                      <p className='smallest txt-overflow-ellipsis'>{desc}</p>
+                      {
+                        small === false &&
+                        <span className='absolute bottom pad-b-2 weight-700 clr-primary'>READ MORE <i
+                          className='fa fa-angle-right'/></span>
+                      }
+                    </div>
+                    {
+                      small === true &&
+                      <i className='fa fa-angle-right fa-2x'/>
+                    }
+                  </a>
+              }
             </li>
           )
         })

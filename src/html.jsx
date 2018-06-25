@@ -41,13 +41,16 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
         name='description'
         content='openFDA'
       />
+      <meta
+        http-equiv='Content-Type'
+        content='text/html; charset=UTF-8' />
       <link
         rel='preconnect'
         // get that handshake going to
         // cut down on our latency a bit
         href='https://cdnjs.cloudflare.com'
       />
-      <script src="https://use.fontawesome.com/300ab20b15.js"/>
+      <script src='https://use.fontawesome.com/300ab20b15.js'/>
       <link
         rel='shortcut icon'
         href={favicon}
@@ -90,6 +93,14 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
       <script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js' />
       <script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js' />
 
+      <script src="https://unpkg.com/react@15.6.1/dist/react.js" />
+      <script src="https://unpkg.com/react-dom@15.6.1/dist/react-dom.js" />
+      <script src="https://unpkg.com/prop-types@15.5.10/prop-types.js" />
+      <script src="https://unpkg.com/classnames@2.2.5/index.js" />
+      <script src="https://unpkg.com/react-input-autosize@2.0.0/dist/react-input-autosize.js" />
+      <script src="https://unpkg.com/react-select/dist/react-select.js" />
+
+      <link rel='stylesheet' href='https://unpkg.com/react-select/dist/react-select.css' />
     </head>
     <body>
       <div

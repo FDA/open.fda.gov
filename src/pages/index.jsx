@@ -12,25 +12,10 @@ const INDEX = () => (
       <section className='flex-box align-center just-center homepage-hero'>
         <div>
           <h3>Open-source APIs</h3>
-          <h6>and</h6>
-          <h3>Developer Community for FDA Data</h3>
-          <Link className='btn btn-icon-right marg-t-1 weight-700 bg-white clr-primary-darker' to='/docs/'>
+          <Link className='btn btn-icon-right marg-t-1 weight-700 bg-white clr-primary-darker' to='/apis/'>
             Learn More<i className='fa fa-arrow-right marg-l-1'/>
           </Link>
         </div>
-      </section>
-      <section className='noun-box-container flex-box dir-column just-center'>
-        <div className='flex-box dir-row just-between align-center flex-wrap'>
-          <NounBox noun_name='food'/>
-          <NounBox noun_name='medical_devices'/>
-        </div>
-        <div className='flex-box dir-row just-between align-center flex-wrap'>
-          <NounBox noun_name='drugs'/>
-          <NounBox noun_name='animal_and_veterinary'/>
-        </div>
-        <Link className='btn btn-icon-right txt-c clr-primary weight-700' to='/api_endpoints/'>
-          VIEW ALL<i className='fa fa-angle-right marg-l-1'/>
-        </Link>
       </section>
     </section>
     <section className='container-homepage'>
@@ -43,7 +28,7 @@ const INDEX = () => (
           </div>
           <i className='fa fa-angle-right fa-2x marg-l-1'/>
         </Link>
-        <Link className='link-card btn btn-icon-right weight-700' to='/about/statistics/'>
+        <Link className='link-card btn btn-icon-right weight-700' to='/tools/downloads/'>
           <img className='' src='/img/download.svg'/>
           <div className='flex-box dir-column marg-l-1 marg-r-1'>
             <h3 className='marg-b-1 clr-primary-darker'>Download OpenFDA Data</h3>
@@ -51,7 +36,7 @@ const INDEX = () => (
           </div>
           <i className='fa fa-angle-right fa-2x marg-l-1'/>
         </Link>
-        <Link className='link-card btn btn-icon-right weight-700' to='/about/statistics/'>
+        <Link className='link-card btn btn-icon-right weight-700' to='/community/'>
           <img className='' src='/img/lightbulb.svg'/>
           <div className='flex-box dir-column marg-l-1 marg-r-1'>
             <h3 className='marg-b-1 clr-primary-darker'>View Community Apps</h3>

@@ -44,6 +44,9 @@ const EndpointBox = (props: tPROPS) => {
       'label': 'Structured product information, including prescribing information, for approved drug products.',
       'enforcement': 'Drug product recall enforcement reports.'
     },
+    'other': {
+      'nsde': 'Comprehensive NDC SPL Data Elements File'
+    }
   }
 
   const ep_title = {
@@ -66,17 +69,21 @@ const EndpointBox = (props: tPROPS) => {
       'label': 'Product labeling',
       'enforcement': 'Recall enforcement reports'
     },
+    'other': {
+      'nsde': 'NDC SPL Data Elements'
+    }
   }
   const bg_color = {
     'food': {background: "linear-gradient(to right bottom, rgb(143, 209, 100), rgb(81, 161, 22))"},
-    'device': {background: "linear-gradient(to right bottom, rgb(255, 198, 59), rgb(243, 117, 73))"},
-    'drug': {background: "linear-gradient(to right bottom, rgb(220, 141, 188), rgb(153, 88, 163))"}
+    'device': {background: "linear-gradient(to right bottom, #ff8989, #c94747)"},
+    'drug': {background: "linear-gradient(to right bottom, rgb(220, 141, 188), rgb(153, 88, 163))"},
+    'other': {background: "linear-gradient(to right bottom, #9cf6f6, #099db7)"}
   }
 
   const icon = {
     'food': {
-      'enforcement': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-rotate-left absolute" style={{color: "white"}}/></div>,
-      'event': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-warning absolute" style={{color: "white"}}/></div>
+      'enforcement': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>,
+      'event': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>
     },
     'device': {
       'event': <div className="ep-icon" style={bg_color['device']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>,
@@ -89,32 +96,38 @@ const EndpointBox = (props: tPROPS) => {
       'udi': <div className="ep-icon" style={bg_color['device']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>
     },
     'drug': {
-      'event': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-warning absolute" style={{color: "white"}}/></div>,
+      'event': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>,
       'label': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>,
-      'enforcement': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-rotate-left absolute" style={{color: "white"}}/></div>
+      'enforcement': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>
     },
+    'other': {
+      'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>
+    }
   }
 
   const ep_path = {
     'food': {
-      'enforcement': '/docs/food/enforcement/',
-      'event': '/docs/food/enforcement'
+      'enforcement': '/apis/food/enforcement/',
+      'event': '/apis/food/enforcement'
     },
     'device': {
-      'event': '/docs/device/event/',
-      'classification': '/docs/device/classification',
-      '510k': '/docs/device/510k/',
-      'pma': '/docs/device/pma/',
-      'registrationlisting': '/docs/device/registrationlisting/',
-      'recall': '/docs/device/recall/',
-      'enforcement': '/docs/device/enforcement/',
-      'udi': '/docs/device/udi/'
+      'event': '/apis/device/event/',
+      'classification': '/apis/device/classification',
+      '510k': '/apis/device/510k/',
+      'pma': '/apis/device/pma/',
+      'registrationlisting': '/apis/device/registrationlisting/',
+      'recall': '/apis/device/recall/',
+      'enforcement': '/apis/device/enforcement/',
+      'udi': '/apis/device/udi/'
     },
     'drug': {
-      'event': '/docs/drug/event/',
-      'label': '/docs/drug/label/',
-      'enforcement': '/docs/drug/enforcement/'
+      'event': '/apis/drug/event/',
+      'label': '/apis/drug/label/',
+      'enforcement': '/apis/drug/enforcement/'
     },
+    'other': {
+      'nsde': '/apis/other/nsde/'
+    }
   }
 
   return (

@@ -25,7 +25,7 @@ const Noun = ({ meta, content, }: tPROPS) => (
           <a
             className={aCx}
             key={i}
-            href={'/api_endpoints' + c.url}>
+            href={c.url}>
             <p className={endCx}>api.fda.gov<strong>{c.url}</strong></p>
             <h2 className='clr-primary-darker'>{c.title}</h2>
             {

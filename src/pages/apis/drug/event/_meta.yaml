@@ -1,0 +1,12 @@
+documentTitle: openFDA › Drugs › Adverse events API
+label: Drug adverse events
+title: Drug Adverse Events
+description: "An adverse event is submitted to the FDA to report any undesirable experience associated with the use of a drug, including serious drug side effects, product use errors, product quality problems, and therapeutic failures."
+datasets:
+  - FAERS
+path: /apis/drug/event
+api_path: /drug/event
+start: 20040101
+status: drugevent
+dateConstraintKey: receivedate
+type: endpoint

@@ -143,6 +143,8 @@ const DocBreadcrumbs = props => {
 type tPROPS = {
   activeHeader: string;
   path: string;
+  isSticky: boolean;
+  style: object;
   yaml: object;
   showMobileSidebar: boolean;
   toggleSection: Function;
@@ -166,7 +168,7 @@ const DocSidebar = (props: tPROPS) => {
   })
 
   return (
-    <section>
+    <section id='doc-sidebar'>
       <div className='doc-sidebar-mobile' onClick={toggleMobileSidebar}>
         <DocBreadcrumbs path={path} yaml={yaml}/>
         <i className='fa fa-angle-down fa-2x'/>

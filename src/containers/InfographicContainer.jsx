@@ -2,12 +2,10 @@
 
 import React from 'react'
 
-import SideBar from '../components/SideBar'
 import Infographic from '../components/Infographic'
-import xhrGET from '../utils/xhr'
 import { API_LINK } from '../constants/api'
 import { default as $ } from "jquery"
-import 'whatwg-fetch'
+
 
 type tSTATE = {
   countParam: string;
@@ -113,13 +111,13 @@ class InfographicContainer extends React.Component {
   _getFilterSearch (param: string, range: string): string {
     // searchParam + range || searchParam || ''
     // if no need to filter just use raw searchParam IF available, else nothing
-    let search: string = param ? `search=${param}&` : ''
+    let search: string = param ? ('search=' + param + '&') : ''
     // if we explicitly need to filter date ranges for this endpoint
     // then we always include the range, but still check for whether
     // we need the searchParam or not
     // sorry this is complicated
     if (this.state.current.dateConstraint) {
-      search = param ? `search=${range}+AND+${param}&` : `search=${range}&`
+      search = param ? ('search=' +range + '+AND+' + param + '&') : ('search=' + range + '&')
     }
 
     return search
@@ -141,7 +139,7 @@ class InfographicContainer extends React.Component {
 
     // sometimes we want to filter by year, and sometimes we don't
     return curr.dateConstraint ?
-      `${curr.dateConstraint}:[${startDate}+TO+${endDate}]` :
+      (curr.dateConstraint + ':' + [startDate + '+TO+' + endDate]) :
       ''
   }
 
@@ -158,51 +156,51 @@ class InfographicContainer extends React.Component {
    * @returns {Promise} [like all async methods, returns a promise]
    */
   _fetchQueryAndUpdate (searchParam: string, countParam: string) {
-
-    let download_url = `${API_LINK}/download.json`
+    var that = this
+    let download_url = API_LINK + '/download.json'
     fetch(download_url)
-      .then(res => res.json())
-      .then(res => {
-          const range: string = this._getFilterRange(res)
-          const search: string = this._getFilterSearch(searchParam, range)
-          const query: string = `${API_LINK}${this.props.meta.api_path}.json?${search}count=${countParam}`
+      .then(function (res) {
+        return res.json()
+      }).then(function(res) {
+        const range: string = that._getFilterRange(res)
+        const search: string = that._getFilterSearch(searchParam, range)
+        const query: string = API_LINK + that.props.meta.api_path + '.json?' + search + 'count=' + countParam
 
-          const urls = [
-            `${API_LINK}${this.props.meta.api_path}.json?${search}`,
-            query
-          ];
-          Promise.all(urls.map($.getJSON)).then((results) => {
-            const recordsTotal: number = results[0].meta.results.total
+        const urls = [
+          API_LINK + that.props.meta.api_path + '.json?' + search,
+          query
+        ];
+        Promise.all(urls.map($.getJSON)).then(function(results) {
+          const recordsTotal: number = results[0].meta.results.total
 
-            // Get total number of records on the first call
-            // matching will always === total records first time
-            if (this.state.recordsTotal === 0) {
-              this.setState({
-                recordsTotal,
-              })
-            }
-
-            // has to be here because async
-            // don't want to set searchParam and then do
-            // the above check, we'd never update
-            this.setState({
-              matchingRecords: recordsTotal,
-              // for to update the selected radio, query field, etc
-              searchParam,
-              data: results[1],
-              // update the count param
-              countParam,
-              // update complete string for current query field
-              query,
-              // what type of chart to render
-              // we default to greater specificity (ie, defined by field)
-              // but we also fall back to the current explorer default
-              type: this.props.fieldsFlattened[countParam] || this.state.current.type,
+          // Get total number of records on the first call
+          // matching will always === total records first time
+          if (that.state.recordsTotal === 0) {
+            that.setState({
+              recordsTotal,
             })
-          }).catch(res => {
-            console.log(res.responseText, res.status)
-            this.setState({ data: res.responseJSON})
+          }
+
+          // has to be here because async
+          // don't want to set searchParam and then do
+          // the above check, we'd never update
+          that.setState({
+            matchingRecords: recordsTotal,
+            // for to update the selected radio, query field, etc
+            searchParam,
+            data: results[1],
+            // update the count param
+            countParam,
+            // update complete string for current query field
+            query,
+            // what type of chart to render
+            // we default to greater specificity (ie, defined by field)
+            // but we also fall back to the current explorer default
+            type: that.props.fieldsFlattened[countParam] || that.state.current.type,
           })
+        }).catch(function(res) {
+          that.setState({ data: res.responseJSON})
+        })
       })
   }
 

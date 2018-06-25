@@ -34,7 +34,7 @@ function checkObject(obj, path) {
   if (active[1].length > 0) {
     activeHeaders.push(...active[1])
   }
-  if (path.includes(obj.link)) {
+  if (path.indexOf(obj.link) >= 0) {
     activeHeaders.push(id)
   }
   return activeHeaders
@@ -65,11 +65,14 @@ const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClas
       })
     }
 
-    componentWillUpdate () {
+    componentWillUpdate (nextProps) {
       if (this.state.path !== window.location.pathname) {
         this.setState({
           path: window.location.pathname
         })
+      }
+      if (this.props.isSticky !== nextProps.isSticky) {
+        this.props.toggleFixed(nextProps.isSticky)
       }
     }
 

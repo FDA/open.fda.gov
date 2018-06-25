@@ -118,23 +118,6 @@ class Footer extends React.Component {
               Some links on this website may direct you to non-FDA locations. FDA does not endorse or guarantee the
               integrity of information on these external sites.
             </p>
-            <div className={hhsCx}>
-              <a
-                href='http://www.hhs.gov/'
-                className={hhsACx}
-                rel='noopener noreferrer'
-                target='_blank'>
-                <img
-                  className='absolute top'
-                  alt='Go to HHS website'
-                  height='16px'
-                  width='15px'
-                  src='/img/l_HHS_white.png'
-                />
-                U.S. Department of Health and Human Services
-              </a>
-              <strong className='clr-white row txt-r'>Food and Drug Administration</strong>
-            </div>
           </div>
         </div>
       </footer>
