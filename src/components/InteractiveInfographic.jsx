@@ -2,10 +2,7 @@
 
 import React from 'react'
 
-import HeatMapInfographic from '../components/HeatMapInfographic'
-import DataMapInfographic from '../components/DataMapInfographic'
 import PieChartInfographic from '../components/PieChartInfographic'
-import GridInfographic from '../components/GridInfographic'
 
 import Select from 'react-select'
 

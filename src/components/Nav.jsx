@@ -2,13 +2,11 @@
 
 import React from 'react'
 import cx from 'classnames'
-import ARIA from '../constants/aria'
 
 import NavContainer from '../containers/NavContainer'
 import Disclaimer from '../components/Disclaimer'
 
 import Link from 'gatsby-link'
-import { StickyContainer, Sticky } from "react-sticky"
 
 const linkCx: string = 'sub-menu-item no-underline'
 
@@ -33,7 +31,6 @@ type tPROPS = {
   handleCloseModal: Function;
   activeDropdown: string;
   path: string;
-  style: object;
   validated: boolean;
 };
 
@@ -51,7 +48,6 @@ const Nav = (props: tPROPS) => {
     handleCloseModal,
     activeDropdown,
     path,
-    style,
     validated
   } = props
 
@@ -61,7 +57,7 @@ const Nav = (props: tPROPS) => {
   })
 
   return (
-    <nav className='bg-white clr-gray flex-box dir-column main-nav-bar' style={style}>
+    <nav className='bg-white clr-gray flex-box dir-column main-nav-bar'>
       <Disclaimer validated={validated} handleCloseModal={handleCloseModal} showModal={showModal} />
       <a
         href='#hero'
