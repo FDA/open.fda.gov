@@ -391,6 +391,12 @@ properties:
        'true': 'true'
        'false': 'false'
     type: boolean
+  labeler_duns_number:
+    description: "The DUNS Number is a unique nine-digit identifier for businesses. It is used to establish a D&B® business credit file, which is often referenced by lenders and potential business partners to help predict the reliability and/or financial stability of the company in question. [The Dun & Bradstreet disclaimer text to go here]"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
   mri_safety:
     description: "Indicates the MRI Safety Information, if any, that is present in the device labeling. Please see the ASTM F2503-13 standard for more information."
     format:
@@ -403,6 +409,37 @@ properties:
        'MR Conditional': "MR Conditional"
        'Labeling does not contain MRI Safety Information': "Labeling does not contain MRI Safety Information"
     type: string
+  premarket_submissions:
+    items:
+      properties:
+        submission_number:
+          description: "Number associated with the regulatory decision regarding the applicant’s legal right to market a medical device for the following submission types: 510(k), PMA, PDP, HDE, BLA, and NDA."
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        supplement_number:
+          description: "Number assigned by FDA to a supplemental application for approval of a change in a medical device with an approved PMA."
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        submission_type:
+          description: "Indicates the premarket submission type."
+          format:
+          is_exact: false
+          possible_values:
+            type: one_of
+            value:
+             '510(k)': "510(k)"
+             'PMA': "PMA"
+             'PDP': "PDP"
+             'HDE': "HDE"
+             'BLA': "BLA"
+             'NDA': "NDA"
+          type: string
+      type: object
+    type: array
   product_codes:
     items:
       properties:
@@ -461,6 +498,30 @@ properties:
     is_exact: false
     possible_values:
     type: date
+  public_version_date:
+    description: "Auto assigned the day file is generated with Time Stamp; All existing records will have first date assigned the day download file is generated with this data element."
+    format: date
+    is_exact: false
+    possible_values:
+    type: date
+  public_version_number:
+    description: "Auto assigned version number, assigned just before file generation; All existing records will have version 1 assigned."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  public_version_status:
+    description: "Definition forthcoming."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  record_key:
+    description: "Current enhancements will allow the Primary DI to change after the DI record has been released to the public. To ensure records can be linked and managed, a record key will be provided; Unique alphanumeric value, auto generated."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
   record_status:
     description: "Indicates the status of the DI Record."
     format:

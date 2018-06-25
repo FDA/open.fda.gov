@@ -27,7 +27,7 @@ const getFieldNamesAndChartTypes = function (fields: Object): Object {
     let exactKey: ?string = null
 
     // recursion if we meet an field with type object
-    if (val.type === 'object') {
+    if (val.type === 'object' && (key !== 'meta')) {
       fieldMap[key] = getFieldNamesAndChartTypes(val.properties)
       return
     }
@@ -36,6 +36,11 @@ const getFieldNamesAndChartTypes = function (fields: Object): Object {
     // e.g. in /drug/event patient.drug is an array of drug objects
     if (val.type === 'array' && val.items.properties) {
       fieldMap[key] = getFieldNamesAndChartTypes(val.items.properties)
+      return
+    }
+
+    const hidden: boolean = val.hide || (val.items && val.items.hide)
+    if (hidden) {
       return
     }
 
