@@ -1,5 +1,5 @@
 - "openFDA is committed to transparency and always providing the best data available. This includes modifying released datasets when changes are made to the source data. In keeping with this pledge, we're proud to announce the release of updates to the UDI Dataset."
-- "The FDA has recently added several new elements to the Unique Device Identification dataset, and these new data elements are now available through the openFDA platform. The new dataset elements are listed below for ease of reference, but for full documentation, please visit [UDI Searchable Fields](/api/device/udi/searchable-fields)."
+- "The FDA has recently added several new elements to the Unique Device Identification dataset, and these new data elements are now available through the openFDA platform. The new dataset elements are listed below for ease of reference, but for full documentation, please visit [UDI Searchable Fields](/apis/device/udi/searchable-fields)."
 - "New Data Elements:"
 - ul:
   - "`labeler_duns_number`"

@@ -31,10 +31,6 @@ updates:
     path: /about/updates/2015_07_20_first_year_in_perspective/
     date: 2015-07-20
     desc: "On May 22, 2015, Dr. Taha Kass-Hout gave an update on the openFDA project at the Big Data in Biomedicine conference at S..."
-  - title: "OpenFDA: Drilling Into The Details"
-    path: /about/updates/2015_07_23_drilling_into_the_details/
-    date: 2015-07-23
-    desc: "By design, openFDA is an open system. It is built using open standards, uses open source software, and the code itself i..."
   - title: "Mark your calendars: A new release coming soon from openFDA"
     path: /about/updates/2015_08_06_new_release_coming_soon/
     date: 2015-08-06
@@ -85,5 +81,5 @@ updates:
     desc: "openFDA is committed to transparency and always providing the best data available. This includes modifying released..."
   - title: New Look, Same Great API
     path: /about/updates/2018_06_22_new_look_same_great_api
-    date: 2018-04-20
+    date: 2018-06-22
     desc: "openFDA is committed to transparency and always providing the best data available. This includes modifying released..."

@@ -12,9 +12,9 @@ Since its launch, several new datasets have been added to openFDA.  For more inf
 
 ## What does it do?
 
-OpenFDA provides APIs and [raw download access](https://open.fda.gov/update/openfda-now-allows-direct-downloads-of-data/) to a number of high-value, high priority and scalable structured datasets, including adverse events, drug product labeling, and recall enforcement reports.
+OpenFDA provides APIs and [raw download access](/about/updates/2015_12_23_direct_downloads/) to a number of high-value, high priority and scalable structured datasets, including adverse events, drug product labeling, and recall enforcement reports.
 
-In May 2015, FDA announced the first openFDA challenge to the developer community.  For more details regarding that challenge, please see this webpage: [https://open.fda.gov/update/an-open-challenge-to-tap-public-data/](https://open.fda.gov/update/an-open-challenge-to-tap-public-data/).
+In May 2015, FDA announced the first openFDA challenge to the developer community.  For more details regarding that challenge, please see this webpage: [An Open Challenge to Tap Public Data](/about/updates/2015_05_11_an_open_challenge_to_tap_public_data/).
 
 ## Who made openFDA?
 
@@ -73,4 +73,4 @@ The team also wishes to thank the following individuals and groups for their con
 
 ## How can I join in?
 
-The best place to start is on the [API basics](/api/reference/) page. It provides a great introduction to openFDA and how you can begin developing using the platform. We're also active on [GitHub](https://github.com/fda), [Twitter](https://twitter.com/openFDA), and [StackExchange](http://stackexchange.com/search?q=openfda). If there is a unique partnership opportunity or other collaboration you wish to discuss, you can email us at [open@fda.hhs.gov](mailto:open@fda.hhs.gov).
+The best place to start is on the [API basics](/apis/) page. It provides a great introduction to openFDA and how you can begin developing using the platform. We're also active on [GitHub](https://github.com/fda), [Twitter](https://twitter.com/openFDA), and [StackExchange](http://stackexchange.com/search?q=openfda). If there is a unique partnership opportunity or other collaboration you wish to discuss, you can email us at [open@fda.hhs.gov](mailto:open@fda.hhs.gov).

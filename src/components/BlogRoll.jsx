@@ -101,7 +101,7 @@ const BlogPosts = (props: tPROPS) => {
                       <p className='smallest txt-overflow-ellipsis'>{desc}</p>
                       {
                         small === false &&
-                        <span className='absolute bottom pad-b-2 weight-700 clr-primary'>READ MORE <i
+                        <span className='absolute pad-b-2 weight-700 clr-primary'>READ MORE <i
                           className='fa fa-angle-right'/></span>
                       }
                     </div>

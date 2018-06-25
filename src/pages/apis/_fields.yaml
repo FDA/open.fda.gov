@@ -36,14 +36,14 @@ properties:
             is_exact: false
             type: number
             pattern:
-            description: "Offset (page) of results, defined by the `skip` [query parameter](/api_basics/)."
+            description: "Offset (page) of results, defined by the `skip` [query parameter](/apis/)."
             possible_values:
           limit:
             format: int64
             is_exact: false
             type: number
             pattern:
-            description: "Number of records in this return, defined by the `limit` [query parameter](/api/). If there is no `limit` parameter, the API returns one result."
+            description: "Number of records in this return, defined by the `limit` [query parameter](/apis/). If there is no `limit` parameter, the API returns one result."
             possible_values:
           total:
             format: int64

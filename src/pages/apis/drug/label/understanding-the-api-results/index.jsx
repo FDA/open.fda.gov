@@ -10,7 +10,7 @@ class IndexRoute extends React.Component {
     return (
       <section className="doc-content">
         <h2>Understanding the API Results</h2>
-        <p>For <code>search</code> queries (such as: <a href="https://api.fda.gov/drug/label.json?search=effective_date:[20040101+TO+20081231]&limit=1">https://api.fda.gov/drug/label.json?search=effective_date:[20040101+TO+20081231]&limit=1</a>), the <code>results</code> section includes matching SPL reports returned by the API.</p>
+        <p>For <code>search</code> queries (such as: <a href="https://api.fda.gov/drug/label.json?search=effective_time:[20040101+TO+20081231]&limit=1">https://api.fda.gov/drug/label.json?search=effective_date:[20040101+TO+20081231]&limit=1</a>), the <code>results</code> section includes matching SPL reports returned by the API.</p>
         <p>Each SPL report consists of these major sections:</p>
         <ul>
           <li>Standard SPL fields, including unique identifiers.</li>
