@@ -1739,7 +1739,8 @@ class SelectedFiltersComponent extends React.Component {
   formatValues () {
     const filter_list = []
     this.props.applied_filters.forEach((filter,idx) => {
-      if (filter.query_type === "term" && filter.type === "checkbox") {
+      if ((filter.query_type === "term" || filter.query_type === "prefix" || filter.query_type === "exists") &&
+          (filter.type === "checkbox" || filter.type === "boolean")) {
         filter.value.forEach( (f, valueIdx) => {
           var valueObj = filter.options.filter(o => o.value === f)
           if(valueObj.length){
