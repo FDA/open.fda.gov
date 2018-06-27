@@ -1,0 +1,59 @@
+.sb-active:before
+  content: '\25BA'
+  font-size: 12px
+  left: 0
+  position: absolute
+  top: 11px
+  width: 20px
+html
+  -webkit-scrollbar
+    width: 1px
+
+@media $bpTab
+  .sb,
+  .sb-fixed,
+  .sb-bottom,
+  .sb-gradient
+    min-width: 200px
+
+  .sb
+    margin-right: 25px
+    // fallback for ie
+    width: 20%
+    width: calc(25% - 50px)
+
+  .sb-fixed
+    position: fixed
+    // fallback for ie
+    width: 200px
+    width: calc(100% / 4 - 50px)
+
+  .sb-fixed,
+  .sb-bottom
+    height: 90vh
+    height: calc(100% - 50px)
+    overflow: auto
+
+  .sb-bottom
+    position: absolute
+    bottom: 0px
+
+  .sb-fixed
+    top: 85px
+
+@media $bpDesk
+  .sb
+    margin-right: 50px
+
+@media $bpWide
+  .sb-gradient
+    left: 20px
+    left: calc((100vw - 1400px) / 2)
+
+  .sb-fixed,
+  .sb-bottom,
+  .sb-gradient
+    width: 200px
+    width: calc(1400px / 4 - 50px)
+
+

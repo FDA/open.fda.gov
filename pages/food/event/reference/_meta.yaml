@@ -1,9 +1,0 @@
-type: endpoint
-documentTitle: openFDA › Food › Adverse events reference guide
-name: Food adverse events reference
-description: An adverse event is submitted to the FDA to report adverse health effects and product complaints about foods, dietary supplements, and cosmetics.
-datasets:
-  - CAERS
-label: Food adverse events
-path: /food/event/reference
-status: foodevent

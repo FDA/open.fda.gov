@@ -1,0 +1,47 @@
+.apps-section
+  width: 1140px
+  margin: auto
+
+.apps-container
+  font-family: 'Source Sans Pro', sans-serif
+  list-style: none
+  display: flex
+  align-items: stretch
+  justify-content: center
+  flex-wrap: wrap
+
+.apps-container a
+  display: flex
+  padding: 20px
+  height: 160px
+  align-items: center
+  justify-content: center
+  width: 160px
+  text-align: center
+  border: 1px solid #ccc
+  margin: 10px
+  border-radius: 5px
+  background: #eef8fa
+  transition: all 0.15s linear
+  cursor: pointer
+  line-height: 20px
+  font-weight: bold
+  color: #00517d
+  background-image: url(/img/i_external.png);
+  background-repeat: no-repeat;
+  background-position: 97% 3%;
+  background-size: 15px;
+
+  &:hover
+    background: white
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1)
+    transform: translateY(-3px)
+    color: #00adef
+    background-image: url(/img/i_external.png);
+    background-repeat: no-repeat;
+    background-position: 97% 3%;
+    background-size: 15px;
+
+@media $tablet
+  .apps-section
+    width: 100%

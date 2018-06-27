@@ -1,0 +1,166 @@
+{
+  "globalDefs": {
+    "startYear": 2000,
+    "api": "/drug/event",
+    "apiName": "Reports",
+    "font": {
+      "color":"#000000",
+      "fontFamily": "Merriweather,Georgia,serif"
+    },
+    "tooltip": {
+      "fontSize": "11px",
+      "font": "Merriweather,Georgia,serif"
+    },
+    "pieChartConfig": {
+      "fill": "#8884d8",
+      "colors": [
+        "#0088FE",
+        "#1ECFFF",
+        "#00C49F",
+        "#FFBB28",
+        "#d62728"
+      ]
+    },
+    "lineChartConfig": {
+      "chartRow": {
+        "height": 200,
+        "trackerInfoWidth": 130
+      },
+      "chartContainer": {
+        "width": 700,
+        "showGrid": true,
+        "format": "year",
+        "timeAxisStyle": {
+          "labels": {
+            "labelColor": "black",
+            "labelWeight": 150,
+            "labelSize": 13
+          },
+          "axis": {
+            "axisColor": "grey",
+            "axisWidth": 1
+          }
+        }
+      },
+      "yAxis": {
+        "label": "Number of Drug Reports",
+        "min": 0,
+        "width": 70,
+        "type": "linear",
+        "labelOffset": 0,
+        "style": {
+          "labelFont": "Merriweather,Georgia,serif",
+          "labels": { 
+            "labelColor": "#000000", 
+            "labelWeight": 150, 
+            "labelSize": 11 
+          }, 
+          "axis": {
+            "axisColor": "#000000" 
+          } 
+        }
+      },
+      "lineChart": {
+        "interpolation": "curveBasis"
+      },
+      "colors": [
+        "#1f77b4", "#00d899", "#ff3300", "#2ca02c", "#ff7f0e", 
+        "#006666", "#990099", "#9467bd", "#c5b0d5", "#ff33cc",
+        "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+        "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+      ],
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "markerRadius": 0,
+        "markerStyle":{
+          "fill": "black"
+        },
+        "infoWidth": 175,
+        "infoStyle": { 
+          "fill": "white", 
+          "opacity": 0.90, 
+          "stroke": "#0000", 
+          "pointerEvents": "none" 
+        },
+        "markerLabelStyle": { 
+          "fill": "#000000" 
+        }
+      }
+    }
+  },
+  "choices": [
+    {
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Drug Adverse Events</i> by Type of Seriousness </i>",
+      "subtitle": "Device Recalls",
+      "yTitle": "Indication",
+      "xTitle": "",
+      "selectionPostFix": "-Related ",
+      "countBy": "patient.drug.drugindication.exact",
+      "dateField": "receivedate",
+      "subfield": "patient.drug.drugindication.exact",
+      "subfieldLabel": "Drug Indication",
+      "pieChartCategoryName": "Drug Indication",
+      "pieChartApiName": "Drug Adverse Events",
+      "type": "PieChart",
+      "lineLimiter": 6,
+      "defs": {
+        "seriousnessdeath": "Death",
+        "seriousnessdisabling": "Disabling",
+        "seriousnesshospitalization": "Hospitalization",
+        "seriousnesslifethreatening": "Life Threatening",
+        "seriousnessother": "Other"
+      },
+      "dataFunction": "_getAllDataByFields",
+      "fields":{
+        "subsetField": "serious",
+        "subsetValue": 1,
+        "categories": [
+          "seriousnessother",
+          "seriousnessdeath",
+          "seriousnessdisabling",
+          "seriousnesslifethreatening",
+          "seriousnesshospitalization"
+        ]
+      },
+      "acceptedTerms": {
+        "PULMONARY ARTERIAL HYPERTENSION": "Pulmonary Arterial Hypertension",
+        "HYPERTENSION": "Hypertension",
+        "RHEUMATOID ARTHRITIS": "Rheumatoid Arthritis",
+        "DIABETES MELLITUS": "Diabetes Mellitus",
+        "PAIN": "Pain",
+        "OSTEOPOROSIS": "Osteoporosis",
+        "PROSTATE CANCER": "Prostate Cancer",
+        "BIPOLAR DISORDER": "Bipolar Disorder",
+        "OVARIAN CANCER": "Ovarian Cancer",
+        "PNEUMONIA": "Pneumonia",
+        "SUICIDE ATTEMPT": "Suicide Attempt",
+        "GASTRIC CANCER": "Gastric Cancer",
+        "CARDIAC FAILURE": "Cardiac Failure"
+      },
+      "xLegendCoordinate": -8,
+      "pieChartConfig": {
+        "default": {
+          "id": "seriousnesshospitalization",
+          "index": 4
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Class"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 70 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    }
+  ]
+}

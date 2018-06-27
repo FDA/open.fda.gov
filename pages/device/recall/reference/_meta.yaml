@@ -1,9 +1,0 @@
-type: endpoint
-documentTitle: openFDA › Device › Recalls reference guide
-name: Device adverse events reference
-description: A recall is an action taken to address a problem with a medical device that violates FDA law.
-datasets:
-  - MAUDE
-label: Device recalls
-path: /device/recall/reference
-status: devicerecall

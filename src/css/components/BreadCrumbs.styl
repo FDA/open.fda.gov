@@ -1,0 +1,45 @@
+.breadcrumb
+  padding: 0.5em 0
+  font-size: 0.8rem
+
+.cat-menu-item
+  display: block
+  padding: 0.5em
+  font-size: 1em
+  line-height: 2em
+
+.endpoint-dropdown
+  position: relative
+  display: inline-block
+  z-index: 100
+
+.cat-emphasis
+  color: #FFFFFF
+
+.transparent
+  color: transparent
+
+.cat-menu-underbar
+  border-top: 4px solid #FFFFFF
+  margin: -12px 0px 5px 0.5em
+  bottom: 0
+  height: 1px
+  width: calc(100% - 39px)
+
+.cat-menu-underbar-hidden
+  border-top: 4px solid transparent
+  margin: -4px 0px 0px 0.5em
+  bottom: 0
+  height: 1px
+  width: calc(100% - 39px)
+
+@media $bpMob
+  .cat-menu-item
+    font-size: 4.5vw
+    font-weight: bold
+
+  .cat-menu-underbar
+    width: calc(100% - 1em)
+
+  .cat-menu-underbar-hidden
+    width: calc(100% - 1em)

@@ -1,0 +1,193 @@
+.doc-sidebar-mobile
+  height: 44px
+  width: 100%
+  display: flex
+  flex-direction: row
+  align-items: center
+  padding: 5px 20px
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1)
+  background-color: white
+  z-index: 10
+
+
+.doc-sidebar
+  padding: 24px
+
+
+.sidebar-item, .sidebar-header
+  color: $clrBase
+  border-radius: 0
+  font-size: $pSize
+  text-align: left
+  padding: 10px 10px 10px 0px
+
+  &.depth-2,
+  &.depth-3
+    font-size: $smallSize
+
+  &.depth-2
+    padding-left: 20px
+
+  &.depth-3
+    padding-left: 30px
+
+  &:hover
+    background-color: $clrGrayLightest
+
+  &.sidebar-cross::before,
+  &.sidebar-cross::after
+    left: 1px
+
+
+.sidebar-item
+  border-bottom: none
+  box-shadow: none
+  font-weight: normal
+  position: relative
+  cursor: pointer
+
+  &:before
+    content: ' '
+    position: absolute
+    display: block
+    border-radius: 100%
+    font-weight: normal
+    transform: scale(0.1)
+    height: 6px
+    width: 6px
+    margin-top: 5px
+    left: 0.3em
+
+  &.depth-3::before
+    left: 0.9em
+
+
+.sidebar-item-active
+  font-weight: bold
+  opacity: 1
+  color: $clrPrimary
+  fontWeight: 600
+  &:before
+    background: $clrPrimary
+    transform: scale(1)
+
+
+.sidebar-cross
+  position: relative
+  cursor: pointer
+  font-size: 17px
+
+
+.sidebar-cross::before,
+.sidebar-cross::after
+  content: ''
+  display: block
+  position: absolute
+  top: 50%
+  left: -20px
+  width: 11px
+  height: 3px
+  margin-top: -1px
+  background-color: #aaa
+  -webkit-transform-origin: 50% 50%
+  -ms-transform-origin: 50% 50%
+  transform-origin: 50% 50%
+  -webkit-transition: all 0.25s
+  transition: all 0.25s
+
+
+.sidebar-cross::before
+  -webkit-transform: rotate(-90deg)
+  -ms-transform: rotate(-90deg)
+  transform: rotate(-90deg)
+  opacity: 0
+
+
+.sidebar-cross.collapsed::before
+  -webkit-transform: rotate(0deg)
+  -ms-transform: rotate(0deg)
+  transform: rotate(0deg)
+  opacity: 1
+
+
+.sidebar-cross.collapsed::after
+  -webkit-transform: rotate(-90deg)
+  -ms-transform: rotate(-90deg)
+  transform: rotate(-90deg)
+
+
+.Sticky
+  height: -webkit-fill-available
+  min-width: 300px
+  width: 300px
+  border-right: 1px solid #f5eefe
+  background-color: #fbfafc
+  box-shadow: inset 0 4px 5px 0 rgba(116, 76, 158, 0.07), inset 0 1px 10px 0 rgba(157, 124, 191, 0.06), inset 0 2px 4px -1px rgba(157, 124, 191, 0.1)
+
+
+.sticky-sidebar
+  height: calc(100vh - 76px)
+  position: fixed
+  top: 76px
+  left: 0
+  right: 0
+  border-radius: 0
+  margin: 0
+  z-index: 5
+  overflow-y: auto
+  -webkit-overflow-scrolling: touch
+
+
+  &::-webkit-scrollbar
+    width: 6px
+    height: 6px
+    &-thumb
+      background: $clrPrimary
+    &-track
+      background: $clrPrimaryAltLightest
+
+
+
+@media $bpDesk
+  .doc-sidebar-mobile
+    display: none
+
+
+
+@media $tablet
+  .doc-sidebar
+    width: 100%
+    height: calc(100vh - 171px)
+    overflow-y: auto
+
+  &::-webkit-scrollbar
+    width: 6px
+    height: 6px
+    &-thumb
+      background: $clrPrimary
+    &-track
+      background: $clrPrimaryAltLightest
+
+
+  .doc-sidebar-mobile
+    box-shadow: none
+
+
+  .Sticky
+    position: fixed
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1)
+    top: 135px
+    height: inherit
+    width: 100%
+    overflow-y: auto
+
+    section
+      background-color: #fbfafc
+      width: 100%
+      z-index: 5
+
+
+  .sticky-sidebar
+    height: inherit
+    overflow-y: inherit
+    top: 135px

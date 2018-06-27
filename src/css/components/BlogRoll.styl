@@ -1,0 +1,115 @@
+.blog-cards, .blog-list
+  display: flex
+  align-items: center
+
+.blog-cards
+  flex-direction: column
+
+  .blog-container
+    width: 95%
+    max-width: 1400px
+    flex-direction: row
+
+  .blog-item
+    width: 22%
+    min-width: 312px
+    height: 245px
+    margin: 20px 10px 10px 20px
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 9px
+    border-radius: 6px
+
+  .blog-item:hover
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px
+    transform: translateY(-4px)
+
+  .blog-text-item
+    padding: 40px
+    flex-direction: column
+
+  .center-heading
+    margin: 30px 30px 10px
+
+.blog-list
+  flex-direction: column
+  padding-left: 20px
+  width: 100%
+
+  .blog-header-container
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    background: white
+    padding: 10px 20px
+    border: solid thin #ccc
+    border-bottom: none
+    border-radius: 5px 5px 0 0
+
+    .blog-header
+      font-size: 17px
+      font-family: source sans pro
+      font-weight: bold
+      text-transform: uppercase
+      letter-spacing: 2px
+      color: #5589a6
+
+  .blog-container
+    flex-direction: column
+    width: 100%
+    border-bottom: solid thin #ccc
+    border-radius: 0 0 5px 5px
+    overflow: hidden
+
+  .blog-item
+    width: 100%
+    border: solid thin #ccc
+    border-bottom: none
+
+  .blog-text-item
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+    padding: 20px
+
+    div
+      display: flex
+      flex-direction: column
+      overflow: hidden
+
+    p
+      margin-bottom: 0
+      padding-right: 30px
+
+.blog-container
+  display: flex
+  justify-content: space-evenly
+  flex-wrap: wrap
+
+.blog-item
+  transition: all 0.2s linear
+  background: white
+
+.blog-header
+  font-size: 18px
+  line-height: 22px
+
+.blog-text-item
+  display: flex
+
+  i
+    color: #00b1cb
+    transition: all 0.2s linear
+  
+.time-stamp
+  font-size: 13px
+  font-weight: bold
+  color: #9499a5
+  letter-spacing: 1px
+
+
+@media $tablet
+  .blog-list
+    padding-left: 0
+    padding-top: 4vw
+

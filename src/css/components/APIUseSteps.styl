@@ -1,0 +1,74 @@
+.steps
+  font-family: 'Source Sans Pro', sans-serif
+  list-style: none
+  display: flex
+  align-items: top
+  justify-content: space-between
+
+.steps li
+  display: flex
+  flex-direction: column
+  padding: 0 40px
+  align-items: center
+  width: 33%
+  text-align: center
+
+.steps li .step-num
+  font-size: 32px
+  width: 58px
+  height: 58px
+  background: #007cba
+  color: white
+  border-radius: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  font-weight: bold
+  margin-bottom: 15px
+  font-family: 'Merriweather', serif
+  position: relative
+
+.steps li .step-num:after
+  content: ''
+  height: 0px
+  width:300px
+  left: 100%
+  position: absolute
+  border-bottom: 4px dotted #007cba
+  top: 50%
+
+.steps li .step-num:before
+  left: auto
+  right: 100%
+
+.steps li:last-child .step-num:after, .steps li:first-child .step-num:before
+  display: none
+
+.steps li .step-desc
+  padding: 20px
+  background: #f7f7f7
+  position: relative
+  border-radius: 5px
+  border: 2px solid #ccc
+  width: 100%
+
+.steps li .step-desc:before
+  content: ''
+  position: absolute
+  width: 2px
+  height: 16px
+  background: #ccc
+  top: -17px
+  left: calc(50% - 1px)
+
+
+@media $tablet
+  .steps
+    flex-direction: column
+
+  .steps li
+    width: 100%
+    padding: 20px 40px
+
+  .steps li .step-num:after
+    width: 0

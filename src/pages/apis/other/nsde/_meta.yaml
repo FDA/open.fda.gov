@@ -1,0 +1,11 @@
+type: endpoint
+documentTitle: openFDA › Other › NSDE API
+label: NSDE
+title: NSDE
+description: ""
+datasets:
+  - CAERS
+path: /apis/other/nsde
+api_path: /other/nsde
+start: 20090601
+status: othernsde

@@ -1,0 +1,11 @@
+type: endpoint
+documentTitle: openFDA › Device › Classification
+label: Device classification
+title: Device Classification
+description: The U.S. Food and Drug Administration (FDA) regulates medical devices in the United States. Medical devices range from simple tongue depressors and bedpans to complex programmable pacemakers, laser surgical devices, in vitro diagnostic products, and certain electronic radiation emitting products.
+endpoint: device/classification
+datasets:
+path: /apis/device/classification
+api_path: /device/classification
+start:
+status: deviceclass

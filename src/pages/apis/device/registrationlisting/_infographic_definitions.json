@@ -1,0 +1,105 @@
+{
+  "choices": [
+    {
+      "title": "<i><i class='datamap-infographic-header-text-bold'> Device Registration and Listings </i>: by Manufacturer Type and Medical Specialty</i>",  
+      "defaults": {
+      },
+      "xField": "establishment_type.exact",
+      "yField": "medical_specialty_description",
+      "yName": "Drug Category",
+      "xName": "Administration Route",
+      "type": "Grid",
+      "xTermLimit":15,
+      "yLabel": "Number of Listings by Manufacturer Type",
+      "xLabel": "Number of Listings by Medical Specialty",
+      "defs": {
+        "Manufacture Medical Device": "Medical Device Manufacturer",
+        "Manufacture Medical Device for Another Party (Contract Manufacturer)": "Contract Manufacturer",
+        "Repack or Relabel Medical Device": "Repacking/Relabeling Service",
+        "Develop Specifications But Do Not Manufacture At This Facility": "Specifications Development",
+        "Export Device to the United States But Perform No Other Operation on Device": "Shipping Devices to U.S.",
+        "Sterilize Medical Device for Another Party (Contract Sterilizer)": "Contract Sterilizer",
+        "Complaint File Establishment per 21 CFR 820.198": "Complaint File Establishment",
+        "Remanufacture Medical Device": "Medical Device Remanufacturer",
+        "Manufacture Device in the United States for Export Only": "U.S. Manufacturer for Export Only",
+        "Foreign Private Label Distributor": "Foreign Private Label Distributor",
+        "Reprocess Single-Use Device": "Single-Use Device Reprocessor"
+      },
+      "yLabelStyle": {
+        "transform": "rotate(270deg) translateX(-40%) translateY(50%)"
+      },
+      "gridConfig":{
+        "borderHeight": 680,
+        "transform": "translate(250,10)",
+        "keyFormat": "Manufacturer Type: ${this.yKey.charAt(0).toUpperCase() + this.yKey.slice(1).toLowerCase()}\n Medical Specialty: ${this.xKey.charAt(0).toUpperCase() + this.xKey.slice(1).toLowerCase()}\n",
+        "valueFormatter": "${this.value}",
+        "colorCodes": {
+          "greens": ["#c2e2a5", "#9cc677", "#7bba4d", "#4aaa01", "#177d00"],
+          "reds":["#ffa1a4","#ff7c80","#fe5057", "#ED182B", "#bd0000"],
+          "zero": "#C7C7C7"
+        },
+        "theme": {
+          "fontSize": 11,
+          "fontFamily": "Merriweather,Georgia,serif",
+          "fontColor": "#000000"
+        },
+        "colorScales": {
+          "missingValue": "-",
+          "zero": "#C7C7C7",
+          "isYOY": false,
+          "all": {
+            "colors": ["#E1F4FF","#04A1FC"],
+            "range": [1,50000],
+            "extremity": "#0189D8"
+          }
+        },
+        "height": 500,
+        "width": 1000,
+        "indexBy": "xTerm",
+        "margin": {
+            "top": 25,
+            "right": 25,
+            "bottom": 80,
+            "left": 350
+        },
+        "minValue": -100,
+        "maxValue": 100,
+        "forceSquare": false,
+        "sizeVariation": 0,
+        "padding": 0,
+        "colors": "nivo",
+        "axisBottom": {
+            "orient": "bottom",
+            "tickSize": 5,
+            "tickPadding": 5,
+            "tickRotation": -35,
+            "legendPosition": "center",
+            "legendOffset": 36
+        },
+        "axisLeft": {
+            "orient": "right",
+            "tickSize": 5,
+            "tickPadding": 5,
+            "tickRotation": 0,
+            "legendPosition": "center",
+            "legendOffset": -40
+        },
+        "enableGridX": false,
+        "enableGridY": true,
+        "cellShape": "rect",
+        "cellOpacity": 1,
+        "cellBorderWidth": 1,
+        "cellBorderColor": "inherit:darker(2)",
+        "enableLabels": true,
+        "labelTextColor": "inherit:darker(5)",
+        "animate": true,
+        "motionStiffness": 120,
+        "motionDamping": 9,
+        "isInteractive": true,
+        "hoverTarget": "rowColumn",
+        "cellHoverOpacity": 1,
+        "cellHoverOthersOpacity": 0.5
+      }
+    }
+  ]
+}

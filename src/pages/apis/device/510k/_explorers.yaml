@@ -1,0 +1,26 @@
+advisoryCommittee:
+  title: One device 510(k) for a CV advisory committee
+  description:
+    - "This query searches for all records with a particular `advisory_committee`."
+  params:
+    - "*search* for all records with `advisory_committee` equal to `cv`."
+    - "*limit* to 1 record"
+  query: 'https://api.fda.gov/device/510k.json?search=advisory_committee:cv&limit=1'
+regulationNumber:
+  title: One device 510(k) for a *868.5895* regulation number
+  description:
+    - "This query searches for records matching a certain search term, and asks for a single one."
+    - "See [searchable fields](/apis/device/510k/searchable-fields/) for more fields you can use to narrow searches for device recall."
+  params:
+    - "*search* for all records with `openfda.regulation_number` equals *868.5895*"
+    - "*limit* to 1 record"
+  query: 'https://api.fda.gov/device/510k.json?search=openfda.regulation_number:868.5895&limit=1'
+topCountryCodes:
+  title: Count of top country codes for device 510(k)
+  description:
+    - "This query is similar to the prior one, but returns a count of the most frequent country codes."
+    - "See [searchable fields](/apis/device/510k/searchable-fields/) for more fields you can use to narrow searches for device recall."
+  params:
+    - "*search* for all records."
+    - count the field `country_code`
+  query: 'https://api.fda.gov/device/510k.json?count=country_code'

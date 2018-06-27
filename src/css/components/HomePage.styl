@@ -1,0 +1,178 @@
+.container-homepage
+  display: flex
+  flex-direction: row
+  width: 95%
+  max-width: 1140px
+  margin: 0 auto
+  padding-bottom: 40px
+
+.homepage-hero
+  height: 418px
+  width: 100%
+  color: white
+  margin-top: 30px
+  background-image: url('/img/binary-tunnel.jpg')
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+  overflow: hidden
+  border-radius: 6px
+  text-shadow: 0 4px 6px rgba(0,0,0,0.5)
+
+.homepage-hero > div
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  text-align: center
+  background: rgba(black, 0.5)
+  width: 100%
+  height: 45%
+
+  h3
+    font-size: 26px
+    margin-bottom: 10px
+
+  h6
+    margin-bottom: 10px
+    font-family: "Source Sans Pro"
+
+.homepage-hero .btn
+  text-shadow: none
+  box-shadow: 0 4px 7px rgba(0,0,0,0.3)
+  text-transform: uppercase
+
+.noun-box-container
+  width: 50%
+  padding-left: 20px
+  padding-right: 20px
+
+  > div:first-child
+    margin-top: 30px
+
+  .btn-icon-right
+    margin: 0 0 0 4%
+    background: white
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 9px
+    padding: 10px
+    transition: all 0.2s linear
+
+    &:hover
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px
+      transform: translateY(-4px)
+
+.divider-line
+  width: 100px
+  height: 2px
+  background: white
+  opacity: .5
+  margin: 20px auto
+  box-shadow: 0 4px 7px rgba(0,0,0,0.9)
+
+.homepage-link-list
+  padding-right: 10px
+
+.link-card
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  background-color: white
+  border: solid thin #ccc
+  padding: 25px 20px
+
+  > div
+    width: 100%
+
+  img
+    height: 64px
+    width: 64px
+
+  p
+    font-weight: 300
+    margin-bottom: 0
+
+  i
+    color: #00B1CB
+
+  h3
+    font-size: 17px
+
+.center-heading
+  max-width: 100%
+  text-align: center
+  font-size: 28px
+  font-family: 'Source Sans Pro', sans-serif
+  color: #00517D
+
+.center-heading span
+  padding: 0 20px
+
+.center-heading span:before, .center-heading span:after
+  content: ""
+  position: absolute
+  height: 1px
+  border-top: 1px solid #ccc
+  margin: 15px -5px
+  bottom: 0
+  width: 50px
+
+.center-heading span:before
+  right: 100%
+
+.center-heading span:after
+  left: 100%
+
+@media $bpDesk
+  .homepage-link-list
+    width: 70%
+
+@media $bpMob
+  .center-heading span:before, .center-heading span:after
+    display: none
+
+@media $tablet
+  .container-homepage
+    width: 95%
+    flex-direction: column
+
+  .homepage-hero
+    width: 100%
+    height: 338px
+    margin-top: 4vw
+
+    > div
+      height: 55%
+
+  .noun-box-container
+    width: 100%
+
+    > div
+      margin-top: 4vw
+
+    .btn-icon-right
+      margin: 4vw 0 0 0
+
+  .homepage-link-list
+    padding-right: 0
+
+  .link-card
+    margin-bottom: 4vw
+
+  .half-hero
+    width: 100%
+    margin: 0
+    min-height: 0px
+
+  .half-hero > div
+    margin: 30px
+
+  .blue-code-container > div
+    margin: 30px
+
+@media $bpMobSmall
+  .area-chart-container
+    background-image: none
+
+  .down-arrows-container
+    background-image: none

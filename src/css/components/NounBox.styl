@@ -1,0 +1,49 @@
+.bg-img-container
+  overflow: hidden
+
+.icon
+  display: inline
+  height: 55px
+
+.noun-box
+  height: 170px
+  text-align: center
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  border-radius: 6px
+  box-shadow: inset 0 0 0 1px #ccc
+
+.noun-card
+  width: 176px
+  box-shadow: rgba(0,0,0,0.1) 0px 4px 9px
+  transition: all 0.2s linear
+  margin: 0 0 20px 4%
+  border-radius: 7px
+  overflow: hidden
+
+.noun-card:hover
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px
+  transform: translateY(-4px)
+
+.noun-text-box > h3
+  font-size: 16px
+  padding-top: 10px
+
+.noun-text-box > span
+  line-height: 19px
+  font-size: 0.9rem
+  padding: 0 15px
+  font-weight: bold
+
+
+@media $tablet
+  .noun-card
+    width: 45.5vw
+    max-width: 250px
+    margin: 0
+
+  .noun-box
+    height: 45.5vw
+    max-height: 250px

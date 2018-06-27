@@ -1,0 +1,175 @@
+
+.table
+  width 100%
+  max-width 100%
+  margin-bottom 1rem
+  thead
+    th
+      vertical-align bottom
+      border-bottom 2px solid #eceeef
+  tbody
+    & + tbody
+      border-top 2px solid #eceeef
+  .table
+    background-color #fff
+
+.table th,
+.table td
+  padding 0.75rem
+  vertical-align top
+  border-top 1px solid #eceeef
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+
+.table-sm th,
+.table-sm td
+  padding 0.3rem
+
+.table-round
+  border-radius 5px
+
+.table-bordered
+  border 1px solid #eceeef
+
+.table-bordered th,
+.table-bordered td
+  border 1px solid #eceeef
+
+.table-bordered thead th,
+.table-bordered thead td
+  border-bottom-width 2px
+
+.table-striped
+  tbody
+    tr
+      &:nth-of-type(odd)
+        background-color rgba(0, 0, 0, 0.05)
+
+.table-hover
+  tbody
+    tr
+      &:hover
+        background-color rgba(0, 0, 0, 0.075)
+  .table-active
+    &:hover
+      background-color rgba(0, 0, 0, 0.075)
+  .table-success
+    &:hover
+      background-color #d0e9c6
+  .table-info
+    &:hover
+      background-color #c4e3f3
+  .table-warning
+    &:hover
+      background-color #faf2cc
+  .table-danger
+    &:hover
+      background-color #ebcccc
+
+.table-active,
+.table-active > th,
+.table-active > td
+  background-color rgba(0, 0, 0, 0.075)
+
+.table-hover .table-active:hover > td,
+.table-hover .table-active:hover > th
+  background-color rgba(0, 0, 0, 0.075)
+
+.table-success,
+.table-success > th,
+.table-success > td
+  background-color #dff0d8
+
+.table-hover .table-success:hover > td,
+.table-hover .table-success:hover > th
+  background-color #d0e9c6
+
+.table-info,
+.table-info > th,
+.table-info > td
+  background-color #d9edf7
+
+.table-hover .table-info:hover > td,
+.table-hover .table-info:hover > th
+  background-color #c4e3f3
+
+.table-warning,
+.table-warning > th,
+.table-warning > td
+  background-color #fcf8e3
+
+.table-hover .table-warning:hover > td,
+.table-hover .table-warning:hover > th
+  background-color #faf2cc
+
+.table-danger,
+.table-danger > th,
+.table-danger > td
+  background-color #f2dede
+
+.table-hover .table-danger:hover > td,
+.table-hover .table-danger:hover > th
+  background-color #ebcccc
+
+.thead-inverse
+  th
+    color #fff
+    background-color #373a3c
+
+.thead-default
+  th
+    color #55595c
+    background-color #eceeef
+
+.table-inverse
+  color #eceeef
+  background-color #373a3c
+  &.table-bordered
+    border 0
+
+.table-inverse th,
+.table-inverse td,
+.table-inverse thead th
+  border-color #55595c
+
+.table-responsive
+  display block
+  width 100%
+  min-height 0%
+  overflow-x auto
+
+.table-reflow
+  thead
+    float left
+  tbody
+    display block
+    white-space nowrap
+  tr
+    float left
+
+.table-reflow th,
+.table-reflow td
+  border-top 1px solid #eceeef
+  border-left 1px solid #eceeef
+
+.table-reflow th:last-child,
+.table-reflow td:last-child
+  border-right 1px solid #eceeef
+
+.table-reflow thead:last-child tr:last-child th,
+.table-reflow thead:last-child tr:last-child td,
+.table-reflow tbody:last-child tr:last-child th,
+.table-reflow tbody:last-child tr:last-child td,
+.table-reflow tfoot:last-child tr:last-child th,
+.table-reflow tfoot:last-child tr:last-child td
+  border-bottom 1px solid #eceeef
+
+.table-reflow tr th,
+.table-reflow tr td
+  display block !important
+  border 1px solid #eceeef
+
+.table-header
+  background $clrGrayLight
+  font-weight bold

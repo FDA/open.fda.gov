@@ -1,0 +1,85 @@
+updates:
+  - title: "FDA's path forward for open data and Next Generation Sequencing"
+    path: /about/updates/2014_03_06_fda_path_forward_for_open_data_and_next_gen_sequencing/
+    date: 2014-03-06
+    desc: "FDA has established an Office of Informatics and Technology Innovation (OITI) under the Chief Health Informatics Officer..."
+  - title: "Introducing openFDA"
+    path: /about/updates/2014_06_02_introducing_openfda/
+    date: 2014-06-02
+    desc: "Welcome to the new home of openFDA! We are incredibly excited to see so much interest in our work and hope that this sit..."
+  - title: "OpenFDA: Innovative initiative opens door to wealth of FDA’s publicly available data"
+    path: /about/updates/2014_06_02_openfda_opens_door_to_fda_public_data/
+    date: 2014-06-02
+    desc: "Today, I am pleased to announce the launch of openFDA, a new initiative from our Office of Informatics and Technology In..."
+  - title: "OpenFDA provides ready access to recall data"
+    path: /about/updates/2014_08_08_openfda_provides_ready_access_to_recall_data/
+    date: 2014-08-08
+    desc: "Every year, hundreds of human and animal foods, drugs, and medical devices are recalled from the market by manufacturers..."
+  - title: "Providing easy public access to prescription drug, over-the-counter drug, and biological product labeling"
+    path: /about/updates/2014_08_18_drug_product_labeling/
+    date: 2014-08-18
+    desc: "Every prescription drug (including biological drug products) approved by FDA for human use comes with FDA-approved label..."
+  - title: "Providing easy access to medical device reports submitted to FDA since the early 1990s"
+    path: /about/updates/2014_08_19_providing_easy_access_to_medical_device_reports/
+    date: 2014-08-19
+    desc: "In addition to food and drugs, FDA has regulatory oversight of tens of thousands of medical devices ranging from bandage..."
+  - title: "Announcing the OpenFDA Developer Challenge - An open call to tap public data and improve public health"
+    path: /about/updates/2015_05_11_an_open_challenge_to_tap_public_data/
+    date: 2015-05-11
+    desc: "The FDA is launching its very first openFDA challenge to the developer community to take advantage of the following data..."
+  - title: "OpenFDA: The First Year in Perspective"
+    path: /about/updates/2015_07_20_first_year_in_perspective/
+    date: 2015-07-20
+    desc: "On May 22, 2015, Dr. Taha Kass-Hout gave an update on the openFDA project at the Big Data in Biomedicine conference at S..."
+  - title: "Mark your calendars: A new release coming soon from openFDA"
+    path: /about/updates/2015_08_06_new_release_coming_soon/
+    date: 2015-08-06
+    desc: "The FDA created openFDA to make their public information about food, drugs, and devices more accessible and useful to de..."
+  - title: OpenFDA Unveils Cache of Medical Device Data
+    path: /about/updates/2015_08_31_medical_device/
+    date: 2015-08-31
+    desc: "OpenFDA is releasing information on medical devices that could spur innovation and advance scientific research..."
+  - title: OpenFDA Now Allows Direct Downloads of Data
+    path: /about/updates/2015_12_23_direct_downloads/
+    date: 2015-12-23
+    desc: "Since its launch in June 2014, the impetus for openFDA has been to make it easier to get access to publicly available FD..."
+  - title: openFDA Public Workshop Announcement
+    path: "https://www.federalregister.gov/documents/2016/06/01/2016-12826/openfda-public-workshop"
+    date: 2016-06-01
+    desc: "The Food and Drug Administration (FDA) is announcing a public workshop entitled: OpenFDA Public Workshop..."
+  - title: openFDA Community App webpage
+    path: /community/
+    date: 2016-09-26
+    desc: "Community created apps can now be found directly on the openFDA website."
+  - title: "New Dataset: Unique Device Identifier"
+    path: /apis/device/udi/
+    date: 2016-09-26
+    desc: "Read about the details of this newly available dataset and access the data through openFDA."
+  - title: openFDA API Statistics Graph
+    path: /about/statistics/
+    date: 2016-10-24
+    desc: "Learn how others are using the openFDA data by exploring this graphical representation of openFDA data usage."
+  - title: Making Available Reports of Adverse Events for Foods and Cosmetics via openFDA
+    path: https://blogs.fda.gov/fdavoice/index.php/2016/12/why-fda-is-making-data-extracted-from-reports-of-adverse-events-for-foods-and-cosmetics-available-to-the-public/?source=govdelivery&utm_medium=email&utm_source=govdelivery
+    date: 2016-12-06
+    desc: "Transparency in the actions we take as an agency, and our reasons for taking them, is an important value for FDA in its..."
+  - title: openFDA central download page
+    path: /tools/downloads
+    date: 2016-12-23
+    desc: "Downloading full datasets has never been easier! Visit our central download page to download any and all openFDA datasets."
+  - title: openFDA query result increased
+    path: /about/updates/2017_08_30_openfda_limit_increased
+    date: 2017-08-30
+    desc: "Since its launch in June 2014, the impetus for openFDA has been to make it easier for an application, mobile device..."
+  - title: New openFDA Dataset -  NSDE
+    path: /apis/other/nsde/
+    date: 2017-12-28
+    desc: "Medicare Part D Prescription Drug Event Editing & Coverage Gap Discount Program"
+  - title: UDI Dataset Updated
+    path: /about/updates/2018_04_20_udi_dataset_updated
+    date: 2018-04-20
+    desc: "openFDA is committed to transparency and always providing the best data available. This includes modifying released..."
+  - title: New Look, Same Great API
+    path: /about/updates/2018_06_22_new_look_same_great_api
+    date: 2018-06-22
+    desc: "openFDA is committed to transparency and always providing the best data available. This includes modifying released..."

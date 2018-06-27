@@ -1,0 +1,286 @@
+{
+  "globalDefs": {
+    "startYear": 2010,
+    "api": "/device/enforcement",
+    "apiName": "Reports",
+    "font": {
+      "color":"#000000",
+      "fontFamily": "Merriweather,Georgia,serif"
+    },
+    "tooltip": {
+      "fontSize": "11px",
+      "font": "Merriweather,Georgia,serif"
+    },
+    "pieChartConfig": {
+      "fill": "#8884d8",
+      "colors": [
+        "#0088FE",
+        "#1ECFFF",
+        "#00C49F",
+        "#FFBB28",
+        "#d62728"
+      ]
+    },
+    "lineChartConfig": {
+      "chartRow": {
+        "height": 200,
+        "trackerInfoWidth": 130
+      },
+      "chartContainer": {
+        "width": 700,
+        "showGrid": true,
+        "format": "year",
+        "timeAxisStyle": {
+          "labels": {
+            "labelColor": "black",
+            "labelWeight": 150,
+            "labelSize": 13
+          },
+          "axis": {
+            "axisColor": "grey",
+            "axisWidth": 1
+          }
+        }
+      },
+      "yAxis": {
+        "label": "Number of Device Reports",
+        "min": 0,
+        "width": 70,
+        "type": "linear",
+        "labelOffset": 0,
+        "style": {
+          "labelFont": "Merriweather,Georgia,serif",
+          "labels": { 
+            "labelColor": "#000000", 
+            "labelWeight": 150, 
+            "labelSize": 11 
+          }, 
+          "axis": {
+            "axisColor": "#000000" 
+          } 
+        }
+      },
+      "lineChart": {
+        "interpolation": "curveBasis"
+      },
+      "colors": [
+        "#1f77b4", "#00d899", "#ff3300", "#2ca02c", "#ff7f0e", 
+        "#006666", "#990099", "#9467bd", "#c5b0d5", "#ff33cc",
+        "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+        "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+      ],
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "markerRadius": 0,
+        "markerStyle":{
+          "fill": "black"
+        },
+        "infoWidth": 175,
+        "infoStyle": { 
+          "fill": "white", 
+          "opacity": 0.90, 
+          "stroke": "#0000", 
+          "pointerEvents": "none" 
+        },
+        "markerLabelStyle": { 
+          "fill": "#000000" 
+        }
+      }
+    }
+  },
+  "choices": [
+    {
+      "type": "PieChart",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device Recall Enforcement</i></i>",
+      "subtitle": "Device Recall Enforcement",
+      "yTitle": "Recalling Firm",
+      "xTitle": "",
+      "selectionPostFix": " ",
+      "countBy": "status.exact",
+      "dateField": "report_date",
+      "pieChartCategoryName": "Status",
+      "pieChartApiName": "Device Recall Enforcement Reports",
+      "subfield": "recalling_firm.exact",
+      "subfieldLabel": "Recalling Firm",
+      "lineLimiter": 5,
+      "defs": {
+        "Ongoing": "Ongoing",
+        "Terminated": "Terminated",
+        "Completed": "Completed"
+      },
+      "dataFunction": "_getAllData",
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "Ongoing",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "100 70 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    },
+    {
+      "type": "PieChart",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device Recall Enforcement</i></i>",
+      "subtitle": "Device Recall Enforcement",
+      "yTitle": "Recalling Firm",
+      "xTitle": "",
+      "selectionPostFix": " ",
+      "countBy": "classification.exact",
+      "dateField": "report_date",
+      "pieChartCategoryName": "Device Class",
+      "pieChartApiName": "Device Recall Enforcement Reports",
+      "subfield": "state.exact",
+      "subfieldLabel": "State",
+      "lineLimiter": 15,
+      "defs": {
+        "Class II": "Class II",
+        "Class I": "Class I",
+        "Class III": "Class III"
+      },
+      "dataFunction": "_getAllData",
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "Class II",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Type"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 70 540 510",
+        "fill": "#8884d8",
+        "textColor": "#000000",
+        "colors": [
+          "#0088FE",
+          "#1ECFFF",
+          "#00C49F",
+          "#FFBB28",
+          "#d62728"
+        ],
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    },
+    {
+      "type": "PieChart",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device Recall Enforcement</i></i>",
+      "subtitle": "Device Recall Enforcement",
+      "yTitle": "Recalling Firm",
+      "xTitle": "",
+      "selectionPostFix": " ",
+      "countBy": "classification.exact",
+      "dateField": "report_date",
+      "pieChartCategoryName": "Device Class",
+      "pieChartApiName": "Device Recall Enforcement Reports",
+      "subfield": "country.exact",
+      "subfieldLabel": "Country",
+      "lineLimiter": 7,
+      "defs": {
+        "Class II": "Class II",
+        "Class I": "Class I",
+        "Class III": "Class III"
+      },
+      "dataFunction": "_getAllData",
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "Class II",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Status"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 70 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    },
+    {
+      "type": "PieChart",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Device Recall Enforcement</i></i>",
+      "subtitle": "Device Recall Enforcement",
+      "yTitle": "Recalling Firm",
+      "xTitle": "",
+      "selectionPostFix": " ",
+      "countBy": "classification.exact",
+      "dateField": "report_date",
+      "subfield": "voluntary_mandated.exact",
+      "pieChartCategoryName": "Device Class",
+      "pieChartApiName": "Device Recall Enforcement Reports",
+      "subfieldLabel": "Voluntary Mandated",
+      "lineLimiter": 7,
+      "defs": {
+        "Class II": "Class II",
+        "Class I": "Class I",
+        "Class III": "Class III"
+      },
+      "dataFunction": "_getAllData",
+      "tooltip": {
+        "fontSize": "11px",
+        "font": "Merriweather,Georgia,serif"
+      },
+      "xLegendCoordinate": -30,
+      "pieChartConfig": {
+        "default": {
+          "id": "Class II",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Status"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "viewBox": "90 70 540 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 0 
+        }
+      }
+    }
+  ]
+}
