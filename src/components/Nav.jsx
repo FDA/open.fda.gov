@@ -157,6 +157,7 @@ const Nav = (props: tPROPS) => {
                 <div className={activeDropdown==='APIs' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
                     <Link className={linkCx} to='/apis/' onClick={closeMobileNav}>API basics</Link>
+                    <Link className={linkCx} to='/apis/animalandveterinary/' onClick={closeMobileNav}>Animal and Veterinary Endpoints</Link>
                     <Link className={linkCx} to='/apis/drug/' onClick={closeMobileNav}>Drug Endpoints</Link>
                     <Link className={linkCx} to='/apis/device/' onClick={closeMobileNav}>Device Endpoints</Link>
                     <Link className={linkCx} to='/apis/food/' onClick={closeMobileNav}>Food Endpoints</Link>

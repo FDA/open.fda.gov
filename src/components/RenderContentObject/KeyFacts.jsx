@@ -15,6 +15,9 @@ const KeyFacts = (props: tPROPS) => {
   } = props
 
   const source = {
+    'animalandveterinary': {
+      'label': 'Animal & Veterinary SPL files'
+    },
     'food': {
       'enforcement': 'FDA Recall Enterprise System (RES)',
       'event': 'Center for Food Safety and Applied Nutrition Adverse Event Reporting System (CAERS)'
@@ -40,6 +43,9 @@ const KeyFacts = (props: tPROPS) => {
   }
 
   const source_link = {
+    'animalandveterinary': {
+      'label': '/data/spl/'
+    },
     'food': {
       'enforcement': '/data/res/',
       'event': '/data/caers/'
@@ -64,6 +70,9 @@ const KeyFacts = (props: tPROPS) => {
   }
 
   const time_period = {
+    'animalandveterinary': {
+      'label': '2006 to present'
+    },
     'food': {
       'enforcement': '2004 to present',
       'event': '2004 to present'
@@ -89,6 +98,9 @@ const KeyFacts = (props: tPROPS) => {
   }
 
   const frequency = {
+    'animalandveterinary': {
+      'label': 'Weekly'
+    },
     'food': {
       'enforcement': 'Weekly',
       'event': 'Quarterly'
