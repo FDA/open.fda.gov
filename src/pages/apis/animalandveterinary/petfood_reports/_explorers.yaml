@@ -1,0 +1,24 @@
+oneRecord:
+  params:
+    - search for all records.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/animalandveterinary/pet_food.json?limit=1'
+  description:
+    - This query searches for a single record.
+  title: One pet food record
+countDeadlyProducts:
+  params:
+  - search for all records in which animals died.
+  - count the field product name
+  query: 'https://api.fda.gov/animalandveterinary/pet_food.json?search=low_level_term:"Death_by_euthanasia"+low_level_term:"Death"&count=product_name'
+  description:
+    - This query searches for records which include animal death.
+  title: Count of products linked to animal death
+femaleChihuahuas:
+  params:
+  - search for all records of female chihuahuas.
+  - limit to thirty records.
+  query: 'https://api.fda.gov/animalandveterinary/pet_food.json?search=gender:%22Female%22+AND+breed:%22Chihuahua%22&limit=30'
+  description:
+    - This query displays thirty records of female chihuahuas.
+  title: Records of female chihuahuas

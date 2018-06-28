@@ -16,7 +16,8 @@ const KeyFacts = (props: tPROPS) => {
 
   const source = {
     'animalandveterinary': {
-      'label': 'Animal & Veterinary SPL files'
+      'label': 'Animal & Veterinary SPL files',
+      'petfood_reports': 'Pet Food Recall'
     },
     'food': {
       'enforcement': 'FDA Recall Enterprise System (RES)',
@@ -44,7 +45,8 @@ const KeyFacts = (props: tPROPS) => {
 
   const source_link = {
     'animalandveterinary': {
-      'label': '/data/spl/'
+      'label': '/data/spl/',
+      'petfood_reports': '/data/petfood/'
     },
     'food': {
       'enforcement': '/data/res/',
@@ -71,7 +73,8 @@ const KeyFacts = (props: tPROPS) => {
 
   const time_period = {
     'animalandveterinary': {
-      'label': '2006 to present'
+      'label': '2006 to present',
+      'petfood_reports': '2002 to present'
     },
     'food': {
       'enforcement': '2004 to present',
@@ -99,7 +102,8 @@ const KeyFacts = (props: tPROPS) => {
 
   const frequency = {
     'animalandveterinary': {
-      'label': 'Weekly'
+      'label': 'Weekly',
+      'petfood_reports': 'Monthly'
     },
     'food': {
       'enforcement': 'Weekly',

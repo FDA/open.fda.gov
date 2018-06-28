@@ -100,7 +100,6 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
       <script src="https://unpkg.com/react-input-autosize@2.0.0/dist/react-input-autosize.js" />
       <script src="https://unpkg.com/react-select/dist/react-select.js" />
 
-      <link rel='stylesheet' href='https://unpkg.com/react-select/dist/react-select.css' />
     </head>
     <body>
       <div
