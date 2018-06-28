@@ -28,7 +28,8 @@ const EndpointBox = (props: tPROPS) => {
 
   const description = {
     'animalandveterinary': {
-      'event': 'Reports of drug side effects, product use errors, product quality problems, and therapeutic failures.'
+      'event': 'Reports of drug side effects, product use errors, product quality problems, and therapeutic failures.',
+      'label': 'Structured product information, including prescribing information, for approved animal & veterinary products.'
     },
     'food': {
       'enforcement': 'Food product recall enforcement reports.',
@@ -64,6 +65,7 @@ const EndpointBox = (props: tPROPS) => {
   const ep_title = {
     'animalandveterinary': {
       'event': 'Adverse event reports'
+      'label': 'Product labeling'
     },
     'food': {
       'enforcement': 'Recall enforcement reports',
@@ -107,6 +109,7 @@ const EndpointBox = (props: tPROPS) => {
   const icon = {
     'animalandveterinary': {
       'event': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>
+      'label': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>
     },
     'food': {
       'enforcement': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>,
@@ -142,6 +145,7 @@ const EndpointBox = (props: tPROPS) => {
   const ep_path = {
     'animalandveterinary': {
       'event': '/apis/animalandveterinary/event/'
+      'label': '/apis/animalandveterinary/label/'
     },
     'food': {
       'enforcement': '/apis/food/enforcement/',
