@@ -37,7 +37,6 @@ export class StickySidebar extends React.Component {
       let stickySidebar = false
 
       if (document.getElementById('sticky-sidebar').clientHeight < document.getElementById('body-doc-container').clientHeight) {
-        console.log(document.getElementById('sticky-sidebar').clientHeight, " < ", document.getElementById('body-doc-container').clientHeight)
         stickySidebar = true
       }
 
