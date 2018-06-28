@@ -64,7 +64,7 @@ const EndpointBox = (props: tPROPS) => {
 
   const ep_title = {
     'animalandveterinary': {
-      'event': 'Adverse event reports'
+      'event': 'Adverse event reports',
       'label': 'Product labeling'
     },
     'food': {
@@ -108,7 +108,7 @@ const EndpointBox = (props: tPROPS) => {
 
   const icon = {
     'animalandveterinary': {
-      'event': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>
+      'event': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>,
       'label': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>
     },
     'food': {
@@ -144,7 +144,7 @@ const EndpointBox = (props: tPROPS) => {
 
   const ep_path = {
     'animalandveterinary': {
-      'event': '/apis/animalandveterinary/event/'
+      'event': '/apis/animalandveterinary/event/',
       'label': '/apis/animalandveterinary/label/'
     },
     'food': {
