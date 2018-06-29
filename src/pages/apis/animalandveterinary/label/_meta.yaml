@@ -6,7 +6,7 @@ datasets:
 label: Animal Drug Labeling
 title: Animal Drug Labeling
 path: /apis/animalandveterinary/label
-api_path: /Animal Drug Labeling/label
+api_path: /animalandveterinary/label
 start: 20090601
 status: animalandveterinarylabel
 dateConstraintKey: effective_time
