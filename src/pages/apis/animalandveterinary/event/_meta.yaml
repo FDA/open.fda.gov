@@ -1,0 +1,13 @@
+documentTitle: openFDA › Animal & Veterinary › Adverse Events API
+name: Animal & Veterinary Adverse Events
+description: ""
+datasets:
+  - ADAE
+label: Animal & Veterinary Adverse Events
+title: Animal & Veterinary Adverse Events
+path: /apis/animalandveterinary/event
+api_path: /animalandveterinary/event
+start: 20090601
+status: animalandveterinaryevent
+dateConstraintKey: effective_time
+type: endpoint

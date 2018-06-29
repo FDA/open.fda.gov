@@ -273,6 +273,7 @@ const ApiUsage = (props:tPROPS) => {
                   <tr className="bg-primary-darkest clr-white">
                     <td colSpan="2"><strong>Animal & Veterinary</strong></td>
                   </tr>
+                  <tr><td>Adverse Event Reports</td><td>{this.docCount('animalandveterinaryevent')}</td></tr>
                   <tr><td>Labeling</td><td>{this.docCount('animalandveterinarylabel')}</td></tr>
                   <tr><td>Pet Food Reports</td><td>{this.docCount('animalandveterinarypetfood_reports')}</td></tr>
                   <tr><td>Phish-Pharm</td><td>{this.docCount('animalandveterinaryphishpharm')}</td></tr>

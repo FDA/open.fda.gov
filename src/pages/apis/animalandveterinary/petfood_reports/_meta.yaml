@@ -2,7 +2,7 @@ documentTitle: openFDA › Animal & Veterinary › Pet Food Reports API
 name: Pet Food Recall
 description: ""
 datasets:
-  - SPL
+  - Pet_Food
 label: Pet Food Recall
 title: Pet Food Recall
 path: /apis/animalandveterinary/petfood_reports

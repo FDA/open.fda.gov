@@ -1,0 +1,25 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › ADAE'
+crumbs:
+  - openFDA
+  - Datasets
+  - ADAE
+title: 'About FDA/CVM ADE'
+description: 'The primary purpose for maintaining the CVM ADE database is to provide an early warning or signaling system to CVM for adverse effects not detected during pre-market testing of FDA-approved animal drugs and for monitoring the performance of drugs not approved for use in animals.'
+source:
+  name: 'ADAE'
+  nameLong: 'Animal Drug Adverse Event'
+  link: 'http://www.fda.gov/AnimalVeterinary/SafetyHealth/ProductSafetyInformation/ucm055369.htm'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+time:
+  start: '1987'
+  current:
+  delay: '3 month'
+  frequency: 'Quarterly'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - "The primary purpose for maintaining the CVM ADE database is to provide an early warning or signaling system to CVM for adverse effects not detected during pre-market testing of FDA-approved animal drugs and for monitoring the performance of drugs not approved for use in animals. Information from these ADE reports is coded and entered into a computerized FDA/CVM ADE database. CVM scientists use the ADE database to make decisions about product safety which may include changes to the label or other regulatory action."

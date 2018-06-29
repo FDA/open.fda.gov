@@ -11,6 +11,7 @@ type tPROPS = {
 };
 
 const catMap: Object = Object.freeze({
+  'animalandveterinaryevent': 'Animal & Veterinary › Adverse Events',
   'animalandveterinarylabel': 'Animal & Veterinary › Labeling',
   'animalandveterinarypetfood_reports': 'Animal & Veterinary › Pet Food Reports',
   'animalandveterinaryphishpharm': 'Animal & Veterinary › Phish-Pharm',
@@ -32,6 +33,7 @@ const catMap: Object = Object.freeze({
 
 
 const endpointLinkMap: Object = Object.freeze({
+  'animalandveterinaryevent': 'animalandveterinary/event',
   'animalandveterinarylabel': 'animalandveterinary/label',
   'animalandveterinarypetfood_reports': 'animalandveterinary/petfood_reports',
   'animalandveterinaryphishpharm': 'animalandveterinary/phishpharm',
