@@ -1,0 +1,13 @@
+documentTitle: openFDA › Animal & Veterinary › Phish Pharm API
+name: Phish Pharm
+description: "Data from a free, searchable, literature database that details drug metabolism and pharmacokinetics in fish."
+datasets:
+  - SPL
+label: Phish Pharm
+title: Phish Pharm
+path: /apis/animalandveterinary/phishpharm
+api_path: /animalandveterinary/phishpharm
+start: 20090601
+status: animalandveterinaryphishpharm
+dateConstraintKey: effective_time
+type: endpoint
