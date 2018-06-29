@@ -15,7 +15,6 @@ class IndexRoute extends React.Component {
         <h2>Animal & Veterinary Adverse Events Overview</h2>
         <p>The FDA encourages veterinarians and animal owners to report adverse drug experiences and product defects associated with animal drugs or animal devices. Adverse drug experiences can include side effects or other problems, such as the drug not appearing effective. The FDA recommends that an animal drug adverse event reporter include details on the following: names and amounts of all drugs, products marketed as supplements, or vitamins the animal has been given; current type and/or brand of pet food and treats; information about any recent surgeries; and as much medical information as possible. Medical information may include: veterinary examination findings; bloodwork, urinalysis, and fecal exam results; x-ray findings; other relevant information such as blood pressure; and neurologic test results. However, the details and information submitted in any report may vary and in some cases certain information may not be included in a given report.</p>
         <p>To read more about animal & veterinary adverse events and adverse event reporting, see <a href="http://www.fda.gov/AnimalVeterinary/SafetyHealth/default.htm">Animal & Veterinary Safety & Health</a>.</p>
-        <p>Explore Animal & Veterinary Adverse Events with the <Link to='/tools/dataexplorer/'>openFDA Data Explorer</Link></p>
 
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
