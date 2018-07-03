@@ -51,7 +51,6 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
     }
 
     _toggleDropdownContent (e) {
-      console.log("e is: ", e)
       const title = e.target.getAttribute('title')
       if (this.state.activeDropdown != title) {
         this.setState({
@@ -74,7 +73,6 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
 
     _showDropdownContent (e) {
       if (this.state.showMobileNav === false) {
-        console.log("state stuff: ", this.state.path, window.location.pathname)
         const title = e.target.getAttribute('title')
         this.setState({
           activeDropdown: title
