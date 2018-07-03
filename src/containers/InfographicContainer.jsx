@@ -117,7 +117,7 @@ class InfographicContainer extends React.Component {
     // we need the searchParam or not
     // sorry this is complicated
     if (this.state.current.dateConstraint) {
-      search = param ? ('search=' +range + '+AND+' + param + '&') : ('search=' + range + '&')
+      search = param ? ('search=' + '(' + range + ')' + '+AND+' + param + '&') : ('search=' + range + '&')
     }
 
     return search

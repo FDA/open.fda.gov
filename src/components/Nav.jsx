@@ -8,7 +8,6 @@ import NavContainer from '../containers/NavContainer'
 import Disclaimer from '../components/Disclaimer'
 
 import Link from 'gatsby-link'
-import { StickyContainer, Sticky } from "react-sticky"
 
 const linkCx: string = 'sub-menu-item no-underline'
 
