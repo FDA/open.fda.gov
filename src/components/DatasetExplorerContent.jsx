@@ -1778,7 +1778,7 @@ class SelectedFiltersComponent extends React.Component {
           idx: idx
         })
       } else if (
-        filter.query_type === "term" &&
+        (filter.query_type === "term" || filter.query_type === "match") &&
         filter.value.length &&
         filter.type !== "checkbox"
       ){
