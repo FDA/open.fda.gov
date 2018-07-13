@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactModal from 'react-modal'
+import Link from 'gatsby-link'
 
 class HelpWindow extends React.Component {
 
@@ -30,6 +31,23 @@ class HelpWindow extends React.Component {
   }
 
   render (): ?React.Element {
+
+    const ep_path = {
+      "animaldrugs": "/apis/animalandveterinary/label/",
+      "petfoodrecalls": "/apis/animalandveterinary/petfood_reports/",
+      "phishpharm": "/apis/animalandveterinary/phishpharm/"
+    }
+
+    const help_text = this.props.help_text
+    let help_body = ''
+    if (typeof help_text === 'string') {
+      help_body = <p>{help_text}</p>
+    } else {
+      help_body = help_text.map(function(line, i) {
+        return <p key={i}>{line}</p>
+      })
+    }
+
     return (
       <i style={{textDecoration: "underline", fontWeight: "bold", color: "#00517d"}} onClick={this.openModal}>
         Help
@@ -43,7 +61,8 @@ class HelpWindow extends React.Component {
           ariaHideApp={false}
         >
           <h3>{this.props.help_header}</h3>
-          <p>{this.props.help_text}</p>
+          <p>For more information about the specifics of {this.props.dataset_label}, visit <Link to={ep_path[this.props.dataset_name]}>{ep_path[this.props.dataset_name]}</Link>.</p>
+          {help_body}
         </ReactModal>
       </i>
     )

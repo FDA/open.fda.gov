@@ -47,7 +47,6 @@ var endpoint_list = {
 
 let downloads_list = Object.keys(endpoint_list).map((key: string, i: number) => {
   if (typeof endpoint_list[key] === "string") {
-    console.log("key: ", key)
     return <li id={key} key={i}><h2>{key}</h2></li>
   }
   else {
