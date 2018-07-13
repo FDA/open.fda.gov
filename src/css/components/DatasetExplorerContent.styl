@@ -63,9 +63,19 @@
   flex-direction: column
   align-items: center
 
+.dataset-bar-chart
+
+  .ReactTable
+    margin-top: 20px
+
+  .rt-tr > .rt-td
+    text-align: center
+
+  .rt-tr > .rt-td ~ .rt-td
+    text-align: left
+
 .dataset-explorer-content
   position: relative
-  height: 100%
   background-color: #F2F5F7
   -webkit-transition: .3s
   -moz-transition: .3s
@@ -107,7 +117,6 @@
         margin-left: 5px
 
 .dataset-explorer-results
-  height: 100%
   padding: 15px 30px 15px 30px
 
   .blur

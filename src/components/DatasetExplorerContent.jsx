@@ -608,40 +608,73 @@ class BarChartComponent extends React.Component {
     //   this.refs.bar.container.childNodes[0].viewBox.baseVal.height = viewBox.height
 
     // }
+    let alpha = false
+
+    this.props.data.forEach(function (value) {
+      if (value.name.length > 25) {
+        alpha = true
+      }
+    })
 
 
     return (
-          <ResponsiveContainer className='chart-background bar-chart-background' width={this.props.barWidth} height={this.props.barHeight}>
-            <BarChart
-              ref="bar"
-              data={this.props.data}
-              {...this.props.chartConfig.barChart}
-            >
-              <XAxis dataKey="name" interval={0} tick={<CustomizedAxisTick/>}/>
-              <YAxisR label={{ value: this.props.yLabel, angle: -90, position: 'insideLeft' }}/>
-              <CartesianGrid strokeDasharray="8 8"/>
-              <Tooltip content={<CustomTooltip detail={this.props.detail} yLabel={this.props.xAxis}/>}/>
-              <LegendR height={36} verticalAlign='top'/>
+      <div className='dataset-bar-chart'>
+        <ResponsiveContainer className='chart-background bar-chart-background' width={this.props.barWidth} height={this.props.barHeight}>
+          <BarChart
+            ref="bar"
+            data={this.props.data}
+            {...this.props.chartConfig.barChart}
+          >
+            <XAxis dataKey={alpha ? "alpha" : "name"} interval={0} tick={<CustomizedAxisTick/>}/>
+            <YAxisR label={{ value: this.props.yLabel, angle: -90, position: 'insideLeft' }}/>
+            <CartesianGrid strokeDasharray="8 8"/>
+            <Tooltip content={<CustomTooltip detail={this.props.detail} yLabel={this.props.xAxis}/>}/>
+            <LegendR height={36} verticalAlign='top'/>
+            {
+              this.props.xAxis &&
+                <Bar
+                  dataKey={this.props.xAxis}
+                  fill="#8884d8"
+                  barCategoryGap={"50%"}
+                  barGap={"50%"}
+                />
+            }
+            {
+              this.props.detail &&
+                <Bar
+                  dataKey={this.props.detail}
+                  fill="#82ca9d"
+                  barCategoryGap={"50%"}
+                  barGap={"50%"}
+                />
+            }
+          </BarChart>
+        </ResponsiveContainer>
+        {
+          <ReactTable
+            data={this.props.data}
+            columns={[
               {
-                this.props.xAxis &&
-                  <Bar
-                    dataKey={this.props.xAxis}
-                    fill="#8884d8"
-                    barCategoryGap={"50%"}
-                    barGap={"50%"}
-                  />
-              }
+                Header: "Column",
+                accessor: "alpha",
+                width: 55
+              },
               {
-                this.props.detail &&
-                  <Bar
-                    dataKey={this.props.detail}
-                    fill="#82ca9d"
-                    barCategoryGap={"50%"}
-                    barGap={"50%"}
-                  />
+                Header: this.props.dataElement,
+                accessor: "name"
               }
-            </BarChart>
-          </ResponsiveContainer>
+            ]}
+            showPagination={false}
+            defaultPageSize={-1}
+            className="-striped -highlight"
+            style={{
+              width: '90%',
+              height: '600px',
+              position: 'relative'
+            }}
+          />
+        }
+      </div>
     )
   }
 }
@@ -1546,6 +1579,7 @@ class InfographicComponent extends React.Component {
 
     this.getBarData = this.getBarData.bind(this)
     this.changeXAxis = this.changeXAxis.bind(this)
+    this.toLetters = this.toLetters.bind(this)
   }
 
   componentDidMount () {
@@ -1562,6 +1596,14 @@ class InfographicComponent extends React.Component {
     }
   }
 
+  toLetters(num) {
+    "use strict";
+    var mod = num % 26,
+      pow = num / 26 | 0,
+      out = mod ? String.fromCharCode(64 + mod) : (--pow, 'Z');
+    return pow ? this.toLetters(pow) + out : out;
+  }
+
   getBarData (props, xAxis) {
     let data = []
 
@@ -1570,15 +1612,16 @@ class InfographicComponent extends React.Component {
       groupingField: xAxis.value
     }).then(results => {
       if (results.results) {
-        data = results.results.map(value => {
+        data = results.results.map((value, i) => {
           let count = value.count
           if (props.chartConfig.barChart.convert) {
             count = value.count / 24
           }
           return {
             name: value.term,
+            alpha: this.toLetters(i + 1),
             [props.chartConfig.barChart.countLabel]: count,
-            [props.chartConfig.barChart.detailLabel]: value[props.chartConfig.barChart.detail]
+            [(props.chartConfig.barChart.detailLabel ? props.chartConfig.barChart.detailLabel : 'detail')]: (props.chartConfig.barChart.detail ? value[props.chartConfig.barChart.detail] : 'detail')
           }
         }).slice(0,props.chartConfig.barChart.limiter)
 
@@ -1624,12 +1667,14 @@ class InfographicComponent extends React.Component {
             barHeight={600}
             barWidth='90%'
             data={this.state.data}
+            dataElement={this.state.xAxis.label}
             detail={this.props.chartConfig.barChart.detailLabel}
             dataset={this.props.dataset}
             drs={this.props.drs}
             chartConfig={this.props.chartConfig}
             yLabel={this.props.chartConfig.barChart.yAxisTitle}
             xAxis={this.props.chartConfig.barChart.countLabel}
+            xLabel={this.state.alpha ? "alpha" : "name"}
           />
       }
     }

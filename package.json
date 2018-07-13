@@ -56,6 +56,7 @@
     "rc-checkbox": "2.1.4",
     "rc-slider": "8.3.1",
     "react-autosuggest": "^9.3.2",
+    "react-basic-table": "^1.0.14",
     "react-chartjs": "^0.8.0",
     "react-collapsible": "^2.0.4",
     "react-custom-scrollbars": "^4.2.1",

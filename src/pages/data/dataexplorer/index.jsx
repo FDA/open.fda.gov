@@ -310,6 +310,8 @@ class DataExplorer extends React.Component {
 
                 <div className='dataset-explorer-help-link'>
                   <HelpWindow
+                    dataset_name={this.state.dataset.name}
+                    dataset_label={this.state.dataset.label}
                     help_header={this.state.dataset.label + ' ' + (this.state.dataset.views.length > 1 ? this.state.view.label: ' ')}
                     help_text={this.state.view.help_text}
                   />
