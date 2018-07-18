@@ -159,7 +159,7 @@ names:
             show: false
             showDefault: false
     endpoint: animalandveterinary/label.json
-    url: http://ec2-34-238-202-4.compute-1.amazonaws.com:8000
+    url: http://openfda-elb-adl-adv-query-large-1397444787.us-east-1.elb.amazonaws.com
     filters:
       options:
         - label: Time Period
