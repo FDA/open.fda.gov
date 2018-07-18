@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom'
 import { default as ReactTable } from "react-table"
 import Select from 'react-select'
 import FileSaver from 'file-saver'
-import jsonexport from 'jsonexport'
 import PropTypes from 'prop-types'
 import Moment from 'moment'
 import {default as $} from 'jquery'
@@ -173,10 +172,10 @@ class ResultsComponent extends React.Component {
     let tbody = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-tbody")[0];
 
     if (tbody.scrollHeight > tbody.clientHeight) {
-        thead.classList.add("vertical-scrollbar-present");
+        //thead.classList.add("vertical-scrollbar-present");
     }
     else {
-        thead.classList.remove("vertical-scrollbar-present");
+        //thead.classList.remove("vertical-scrollbar-present");
     }
   }
 
@@ -354,7 +353,7 @@ class ResultsComponent extends React.Component {
   }
 
   exportToCSV(){
-      try {
+      /*try {
           let csv = ''
           jsonexport(this.props.rows, function(err, export_csv){
               if(err) return console.log(err);
@@ -364,7 +363,7 @@ class ResultsComponent extends React.Component {
           FileSaver.saveAs(blob, this.props.dataset.label + ".csv");
       } catch (err) {
           console.error(err);
-      }
+      }*/
   }
 
   getFormattedColumns(columns){
@@ -512,10 +511,10 @@ class ResultsComponent extends React.Component {
                          src='/img/xls-icon.svg'/>Export to XLS
                 </a>
 
-                <a href='javascript:void(0)' onClick={this.exportToCSV} style={{ position: "absolute", right:30, lineHeight: 2.5, display: "inline"}} >
+                {/*<a href='javascript:void(0)' onClick={this.exportToCSV} style={{ position: "absolute", right:30, lineHeight: 2.5, display: "inline"}} >
                     <img alt='Export to CSV' style={{float: "left", width: 31, padding: 5}}
                          src='/img/csv-icon.svg'/>Export to CSV
-                </a>
+                </a>*/}
 
             </div>
 
