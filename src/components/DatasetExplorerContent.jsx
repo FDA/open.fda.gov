@@ -63,25 +63,25 @@ function flattenJSON(data) {
 
   for (var i =  0; i < data.length; i ++) {
     var newRow = {}
-    for(var item in data[i]){
+    for (var item in data[i]){
       if (typeof data[i][item] === "object") {
-        for (var name in data[i][item]){
-          if (typeof data[i][item][name] === 'object' && data[i][item][name].constructor === Array) {
-            newRow[name] = data[i][item][name].join("; ")
-          } else {
-            newRow[name] = data[i][item][name]
-          }
+        if (data[i][item] && data[i][item].constructor === Array) {
+            newRow[item] = data[i][item].join("; ")
+        } else if (data[i][item]) {
+          newRow[item] = flattenJSON(data[i][item])
         }
       } else {
-          newRow[item] = data[i][item]
+        newRow[item] = data[i][item]
       }
     }
+
     flattenedJSON.push(newRow)
   }
 
   return flattenedJSON
 
 }
+
 
 let checkAllColumnsOption = { Header: "Select All Columns", className: PropTypes.string , show: false}
 let resetColumnsOption = { Header: "Reset Column Selection", style: {fontSize: 16, fontWeight: 20}, show: false}
@@ -336,8 +336,25 @@ class ResultsComponent extends React.Component {
   exportToXLS() {
     try {
 
+      /* export only visible columns */
+      var visibleColumns = []
+      this.state.columns.forEach(function(column) {
+        if (column.show) {
+            visibleColumns.push(column.accessor)
+        }
+      })
+
+      var exportableRows = []
+      this.props.rows.forEach(function(row) {
+        var truncatedRow = {}
+        visibleColumns.forEach(function(visibleColumn) {
+            truncatedRow[visibleColumn] = getNestedValue(row, visibleColumn)
+        })
+        exportableRows.push(truncatedRow)
+      })
+
       /* make the worksheet */
-      var ws = XLSX.utils.json_to_sheet(flattenJSON(this.props.rows));
+      var ws = XLSX.utils.json_to_sheet(flattenJSON(exportableRows));
 
       /* add to workbook */
       var wb = XLSX.utils.book_new();
@@ -506,7 +523,7 @@ class ResultsComponent extends React.Component {
                 <input style={{ width: 240, height: 20, padding: 17, WebkitAppearance: 'none'}} value={this.state.search} onChange={e => this.setState({search: e.target.value})}
                        placeholder="Type to Search in Results..." type="search" autoFocus/>
 
-                <a href='javascript:void(0)' onClick={this.exportToXLS} style={{ position: "absolute", right:160, lineHeight: 2.5, display: "inline"}} >
+                <a href='javascript:void(0)' onClick={this.exportToXLS} style={{ position: "absolute", right:30, lineHeight: 2.5, display: "inline"}} >
                     <img alt='Export to XLS' style={{float: "left", width: 31, padding: 5}}
                          src='/img/xls-icon.svg'/>Export to XLS
                 </a>
