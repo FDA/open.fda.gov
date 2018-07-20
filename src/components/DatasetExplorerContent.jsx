@@ -520,7 +520,7 @@ class ResultsComponent extends React.Component {
           }
 
             <div style={{width: "67%"}}>
-                <input style={{ width: 240, height: 20, padding: 17, WebkitAppearance: 'none'}} value={this.state.search} onChange={e => this.setState({search: e.target.value})}
+                <input className='search-input' value={this.state.search} onChange={e => this.setState({search: e.target.value})}
                        placeholder="Type to Search in Results..." type="search" autoFocus/>
 
                 <a href='javascript:void(0)' onClick={this.exportToXLS} style={{ position: "absolute", right:30, lineHeight: 2.5, display: "inline"}} >
@@ -528,7 +528,7 @@ class ResultsComponent extends React.Component {
                          src='/img/xls-icon.svg'/>Export to XLS
                 </a>
 
-                {/*<a href='javascript:void(0)' onClick={this.exportToCSV} style={{ position: "absolute", right:30, lineHeight: 2.5, display: "inline"}} >
+                {/*<a href='javascript:void(0)' onClick={this.exportToCSV} style={{ position: "absolute", right:160, lineHeight: 2.5, display: "inline"}} >
                     <img alt='Export to CSV' style={{float: "left", width: 31, padding: 5}}
                          src='/img/csv-icon.svg'/>Export to CSV
                 </a>*/}
