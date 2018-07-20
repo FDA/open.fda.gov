@@ -15,11 +15,6 @@ names:
           - "Both table and chart allow you to narrow down the results displayed through the use of the filter panel on the left side of the screen. Any number of filters may be applied and each will narrow down the data accordingly. After selecting your desired filters simply press the Apply Filters button in the middle of the screen. If you don't wish to apply those filters, press the Clear All button. After applying filters, they'll be displayed above the table or chart, and can be removed individually or as a whole; removing filters in either of these ways is done automatically without needing to press Apply Filters. Please note that some combinations of specific filters may result in no data matching the total filter criteria and no results being displayed."
         show_collapse_rows_button: false
         columns:
-          - Header: Effective Date
-            accessor: effective_time
-            show: true
-            showDefault: true
-            type: date
           - Header: Product Type
             accessor: openfda.product_type
             show: true
@@ -38,16 +33,10 @@ names:
             show: true
             showDefault: true
             startCase: true
-          - Header: Generic Name
-            accessor: openfda.generic_name
-            show: true
-            showDefault: true
-            split: true
-            startCase: true
           - Header: Substance Name
             accessor: openfda.substance_name
             show: true
-            showDefault: false
+            showDefault: true
             split: true
           - Header: Inactive Ingredients
             accessor: inactive_ingredient
@@ -69,6 +58,17 @@ names:
             show: true
             showDefault: true
             split: true
+          - Header: Generic Name
+            accessor: openfda.generic_name
+            show: false
+            showDefault: false
+            split: true
+            startCase: true
+          - Header: Effective Date
+            accessor: effective_time
+            show: false
+            showDefault: false
+            type: date
           - Header: Active Ingredients
             accessor: active_ingredient
             filter_values:
@@ -84,8 +84,8 @@ names:
               - Composition
               - Key Ingredients
               - Key Ingredient
-            show: true
-            showDefault: true
+            show: false
+            showDefault: false
             split: true
             startCase: true
           - Header: Purpose
