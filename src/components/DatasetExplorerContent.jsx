@@ -626,11 +626,13 @@ class BarChartComponent extends React.Component {
     // }
     let alpha = false
 
-    this.props.data.forEach(function (value) {
-      if (value.name.length > 25) {
-        alpha = true
-      }
-    })
+    if (this.props.data) {
+      this.props.data.forEach(function (value) {
+        if (value.name.length > 25) {
+          alpha = true
+        }
+      })
+    }
 
 
     return (
@@ -667,6 +669,7 @@ class BarChartComponent extends React.Component {
           </BarChart>
         </ResponsiveContainer>
         {
+          alpha &&
           <ReactTable
             data={this.props.data}
             columns={[
@@ -1556,7 +1559,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
           closeOnSelect={true}
           placeholder={"Select Year"}
         />
-        <div style={{display:"flex"}}>
+        <div className='pie-bar-chart-container'>
           <PieChartComponent
             categories={this.state.categories}
             chartConfig={this.props.chartConfig}
@@ -1566,7 +1569,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
           <BarChartComponent
             applied_filters={this.props.applied_filters}
             barHeight={500}
-            barWidth='60%'
+            barWidth={this.props.chartConfig.barChart.width}
             data={this.state.data}
             detail={this.props.chartConfig.barChart.detailLabel}
             dataset={this.props.dataset}
