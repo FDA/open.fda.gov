@@ -172,10 +172,10 @@ class ResultsComponent extends React.Component {
     let tbody = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-tbody")[0];
 
     if (tbody.scrollHeight > tbody.clientHeight) {
-        //thead.classList.add("vertical-scrollbar-present");
+        thead.classList.add("vertical-scrollbar-present");
     }
     else {
-        //thead.classList.remove("vertical-scrollbar-present");
+        thead.classList.remove("vertical-scrollbar-present");
     }
   }
 
