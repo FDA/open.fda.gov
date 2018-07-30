@@ -6,12 +6,12 @@ oneProduct:
   params:
     - "Search for all products which have `finished` set to true."
     - "Limit to 1 record."
-  query: 'https://api.openfda-ndc-demo.semanticbits.com/drug/ndc.json?search=finished:true'
+  query: 'https://api.openfda-ndc-demo.semanticbits.com/drug/ndc.json?search=finished:true&limit=1'
 lotion:
   title: One lotion product
   description:
     - "This query searches all lotion products, and returns a single product."
-    - 'Double quotation marks `" "` surround phrases that must match exactly. The plus sign + is used in place of a space character ` `.'
+    - 'Double quotation marks `" "` surround phrases that must match exactly.'
   params:
   - "Search for all products which have `dosage_form` equal to 'LOTION'."
   - "Limit to 1 record."
