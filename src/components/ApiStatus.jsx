@@ -15,7 +15,7 @@ const catMap: Object = Object.freeze({
   'foodevent': 'Foods › Adverse Events',
   'drugevent': 'Drugs › Adverse Events',
   'druglabel': 'Drugs › Labeling',
-  'drucndc': 'Drugs › NDC Directory',
+  'drugndc': 'Drugs › NDC Directory',
   'drugenforcement': 'Drugs › Enforcement Reports',
   'deviceevent': 'Devices › Adverse Events',
   'devicerecall': 'Devices › Recalls',
