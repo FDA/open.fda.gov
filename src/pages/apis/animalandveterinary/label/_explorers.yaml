@@ -2,7 +2,7 @@ oneLabel:
   params:
     - search for all records with effective_time between Jun 01, 2011 and Dec 31, 2012.
     - limit to 1 record.
-  query: 'https://api.fda.gov/animalandveterinary/label.json?search=effective_time:[20110601+TO+20121231]&limit=1'
+  query: 'https://api.openfda-demo.semanticbits.com/animalandveterinary/label.json?search=effective_time:[20110601+TO+20121231]&limit=1'
   description:
     - This query searches for all records in a certain date range, and asks for a single one.
     - See the [reference](/animalandveterinary/label/reference/) for more about effective_time. Brackets [ ] are used to specify a range for date, number, or string fields.
@@ -11,7 +11,7 @@ boxedWarning:
   params:
   - search for all records that require specific veterinarian instructions.
   - limit to 1 record.
-  query: 'http://api.fda.gov/animalandveterinary/label.json?search=_exists_:adverse_reactions&limit=100'
+  query: 'https://api.openfda-demo.semanticbits.com/animalandveterinary/label.json?search=_exists_:adverse_reactions&limit=100'
   description:
     - This query searches for labels with veterinarian instructions, and returns one hundred results.
     - The `_exists_` search modifier lets you search for records that contain a specific field, no matter what its contents are. See the [API basics page](/api/) for more details.
@@ -19,7 +19,7 @@ boxedWarning:
 countByType:
   params:
   - count the field openfda.product_type (product type).
-  query: 'https://api.fda.gov/animalandveterinary/label.json?count=openfda.product_type.exact'
+  query: 'https://api.openfda-demo.semanticbits.com/animalandveterinary/label.json?count=openfda.product_type.exact'
   description:
     - "This query returns a count of the records in the dataset by product type. In this example, the suffix .exact is used, which tells the API to count the unique full phrases in the openfda.product_type field. Without it, the API will count each word in that field individually. That is, OTC ANIMAL DRUG, for example, would be counted as separate values: OTC and ANIMAL and DRUG."
     - "See the [API basics page](https://open.fda.gov/api/) for additional information and tips on how to search the openFDA APIs."
