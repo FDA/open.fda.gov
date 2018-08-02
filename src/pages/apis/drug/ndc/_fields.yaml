@@ -15,7 +15,6 @@ properties:
   spl_id:
     pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
     description: "Unique identifier for a particular version of a Structured Product Label for a product. Also referred to as the document ID."
-    format: date
     is_exact: false
     possible_values:
     type: string
@@ -160,7 +159,7 @@ properties:
         possible_values:
         type: string
       sample:
-        description: "Indicates whether this is a sample packaging or not"
+        description: "Indicates whether this is a sample packaging or not."
         format:
         is_exact: false
         possible_values:
