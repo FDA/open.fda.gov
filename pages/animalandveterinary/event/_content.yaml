@@ -4,5 +4,5 @@
 - "getting-started"
 - "downloads"
 - "### How to search this endpoint"
-- "Make API calls to `https://api.fda.gov/animalandveterinary/event.json` using search parameters for [fields specific to the animal drug adverse events endpoint.](/animalandveterinary/event/reference/)"
+- "Make API calls to `https://api.openfda-adae-demo.semanticbits.com/animalandveterinary/event.json` using search parameters for [fields specific to the animal drug adverse events endpoint.](/animalandveterinary/event/reference/)"
 - queryExplorer: oneReport
