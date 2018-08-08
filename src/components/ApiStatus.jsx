@@ -11,7 +11,7 @@ type tPROPS = {
 };
 
 const catMap: Object = Object.freeze({
-  'animalandveterinaryevent': 'Animal & Veterinary › Adverse Events',
+  'animalandveterinarydrugevent': 'Animal & Veterinary › Adverse Events',
   'foodenforcement': 'Foods › Enforcement Reports',
   'foodevent': 'Foods › Adverse Events',
   'drugevent': 'Drugs › Adverse Events',
@@ -30,7 +30,7 @@ const catMap: Object = Object.freeze({
 
 
 const endpointLinkMap: Object = Object.freeze({
-  'animalandveterinaryevent': 'animalandveterinary/event',
+  'animalandveterinarydrugevent': 'animalandveterinary/event',
   'foodevent': 'food/event',
   'foodenforcement': 'food/enforcement',
   'drugevent': 'drug/event',
@@ -62,6 +62,7 @@ const ApiStatus = (props: tPROPS) => (
       <ul className='flex-box dir-row flex-wrap'>
         {
           props.data.map((end: Object, i) => {
+            console.log("end: ", end)
             const { endpoint, status, } = end
 
             const catCx = cx({
