@@ -44,7 +44,7 @@ const QueryExplorer = (props: tPROPS) => {
     <section
       key={k}
       className='bg-gray-lightest marg-t-2 pad-2'>
-      <p><strong>Example API query</strong></p>
+      <p><strong>Example query</strong></p>
       <h3 className='font-size-2 marg-b-2'>{title}</h3>
       {
         desc &&

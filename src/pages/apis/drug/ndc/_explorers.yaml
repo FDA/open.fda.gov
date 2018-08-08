@@ -19,8 +19,8 @@ lotion:
 pharmClassCount:
   title: "Count of pharm classes"
   description:
-    - "This query searches the endpoint for all products, and tells the API to count how many included each `pharm_class`."
-    - "The suffix .exact is required by openFDA to count the unique full phrases in the field voluntary_mandated. Without it, the API will count each word in that field individually."
+    - "This query searches the endpoint for all products, and tells the Application Programming Interface to count how many included each `pharm_class`."
+    - "The suffix .exact is required by openFDA to count the unique full phrases in the field voluntary_mandated. Without it, the Application Programming Interface will count each word in that field individually."
   params:
   - "Count the field `pharm_class`."
   query: 'https://api.openfda-ndc-demo.semanticbits.com/drug/ndc.json?count=pharm_class.exact'

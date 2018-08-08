@@ -86,13 +86,13 @@
       items:
         - title: Overview
           link: /apis/drug/ndc/
-        - title: How to use the API
+        - title: How to use the Application Programming Interface
           link: /apis/drug/ndc/how-to-use-the-endpoint/
-        - title: Example API queries
+        - title: Example queries
           link: /apis/drug/ndc/example-api-queries/
-        - title: Explore the API with an interactive chart
+        - title: Explore the dataset with an interactive chart
           link: /apis/drug/ndc/explore-the-api-with-an-interactive-chart/
-        - title: Understanding the API Results
+        - title: Understanding the Results
           link: /apis/drug/ndc/understanding-the-api-results/
         - title: Download the dataset
           link: /apis/drug/ndc/download/
