@@ -5,4 +5,4 @@ oneReport:
     - See the [header fields reference](/animalandveterinary/event/reference/) for more about original_receive_date. Brackets `[ ]` are used to specify a range for date, number, or string fields.
   params:
     - search for all records with original_receive_date between Jan 01, 2004 and Nov 07, 2016. limit to 1 record.
-  query: 'http://api.fda.gov/animalandveterinary/event.json?search=original_receive_date:[20040101+TO+20161107]&limit=1'
+  query: 'https://api.openfda-adae-demo.semanticbits.com/animalandveterinary/event.json?search=original_receive_date:[20040101+TO+20161107]&limit=1'

@@ -39,6 +39,30 @@
   - title: Download API fields
     link: /apis/download-api-fields/
 
+- title: Animal & Veterinary API Endpoints
+  id: animalandveterinary-api-endpoints
+  link: /animalandveterinary/
+  collapse: true
+  items:
+    - title: Adverse Events
+      id: animalandveterinary-adverse-events
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/animalandveterinary/event/
+        - title: How to use the API
+          link: /apis/animalandveterinary/event/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/animalandveterinary/event/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/animalandveterinary/event/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/animalandveterinary/event/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/animalandveterinary/event/download/
+        - title: Searchable fields
+          link: /apis/animalandveterinary/event/searchable-fields
+
 - title: Drug API Endpoints
   id: drug-api-endpoints
   link: /drug/

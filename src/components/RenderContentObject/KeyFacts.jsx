@@ -15,6 +15,9 @@ const KeyFacts = (props: tPROPS) => {
   } = props
 
   const source = {
+    'animalandveterinary': {
+      'event': 'Animal Drug Adverse Events (ADAE)'
+    },
     'food': {
       'enforcement': 'FDA Recall Enterprise System (RES)',
       'event': 'Center for Food Safety and Applied Nutrition Adverse Event Reporting System (CAERS)'
@@ -40,6 +43,9 @@ const KeyFacts = (props: tPROPS) => {
   }
 
   const source_link = {
+    'animalandveterinary': {
+      'event': '/data/adae/'
+    },
     'food': {
       'enforcement': '/data/res/',
       'event': '/data/caers/'
@@ -64,6 +70,9 @@ const KeyFacts = (props: tPROPS) => {
   }
 
   const time_period = {
+    'animalandveterinary': {
+      'event': '1987 to present'
+    },
     'food': {
       'enforcement': '2004 to present',
       'event': '2004 to present'
@@ -89,6 +98,9 @@ const KeyFacts = (props: tPROPS) => {
   }
 
   const frequency = {
+    'animalandveterinary': {
+      'event': 'Quarterly'
+    },
     'food': {
       'enforcement': 'Weekly',
       'event': 'Quarterly'
