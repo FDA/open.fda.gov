@@ -35,7 +35,7 @@ const xlsxDownloadMap: Object = Object.freeze({
 })
 
 const yamlDownloadMap: Object = Object.freeze({
-  'animalandveterinaryevent': '/fields/animalandveterinaryevent_reference.yaml',
+  'animalandveterinaryevent': '/fields/animalandveterinaryevent.yaml',
   'foodevent': '/fields/foodevent.yaml',
   'foodenforcement': '/fields/foodenforcement.yaml',
   'drugevent': '/fields/drugevent.yaml',
