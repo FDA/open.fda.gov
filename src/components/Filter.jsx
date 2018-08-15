@@ -278,131 +278,6 @@ class HelpWindow extends React.Component {
 }
 
 
-class YearPickerFilterComponent extends React.Component {
-
-  constructor(props: Object) {
-    super(props)
-
-    const startYear = this.props.option.start_year
-    const endYear = Moment().format('YYYY')
-    let years = this.getOptions()
-
-    this.state = {
-      years: years
-    }
-
-    this.onChangeStart = this.onChangeStart.bind(this)
-    this.onChangeEnd = this.onChangeEnd.bind(this)
-    this.getOptions = this.getOptions.bind(this)
-  }
-
-  /*componentDidMount () {
-    if (this.props.onChangeYear) {
-      this.props.onChangeYear(Moment(this.state.startYear + '0101').format('YYYYMMDD'), Moment(this.state.endYear + '1231').format('YYYYMMDD'), {
-        field: this.props.option.field,
-        idx: this.props.option.idx,
-      })
-    }
-  }*/
-
-  componentWillReceiveProps (nextProps) {
-    if (!nextProps.filters[nextProps.option.idx].value.length) {
-      this.setState({
-        startYear: 'Select start date',
-        endYear: 'Select end date'
-      })
-    }
-  }
-
-  getOptions () {
-    let list = [];
-    for (let i = this.props.option.start_year; i <= Moment().format('YYYY'); i++) {
-      list.push({label: i, value: i});
-    }
-    return list
-  }
-
-  handleKeyPress(e) {
-    if(e.key === "Enter"){
-      const value = e.target.value
-
-      if(this.props.onChange){
-        this.props.onChange(value, {
-          field: this.props.option.field,
-          idx: this.props.option.idx
-        })
-      }
-    }
-  }
-
-  onChangeStart (startYear) {
-    this.setState({
-      startYear: startYear.value
-    })
-
-    let endYear = this.state.endYear + '0101'
-
-    if (!Moment(endYear).isValid()) {
-      endYear = Moment().format('YYYYMMDD')
-    }
-
-    if (this.props.onChangeYear) {
-      this.props.onChangeYear(Moment(startYear.value + '0101').format('YYYYMMDD'), Moment(endYear).format('YYYYMMDD'), {
-        field: this.props.option.field,
-        idx: this.props.option.idx
-      })
-    }
-  }
-
-  onChangeEnd (endYear) {
-    this.setState({
-      endYear: endYear.value
-    })
-
-    let startYear = this.state.startYear + '0101'
-
-    if (!Moment(startYear).isValid()) {
-      startYear = this.props.option.start_year + '0101'
-    }
-
-    if (this.props.onChangeYear) {
-      this.props.onChangeYear(Moment(startYear).format('YYYYMMDD'), Moment(endYear.value + '1231').format('YYYYMMDD'), {
-        field: this.props.option.field,
-        idx: this.props.option.idx
-      })
-    }
-  }
-
-
-  render (): ?React.Element {
-    return (
-      <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
-        <p>Start Year:</p>
-        <Select
-          value={this.state.startYear}
-          className='filter-select'
-          placeholder='Select start date'
-          onChange={this.onChangeStart}
-          options={this.state.years}
-          id={this.props.option.idx.toString()}
-          clearable={false}
-        />
-        <p>End Year:</p>
-        <Select
-          value={this.state.endYear}
-          className='filter-select'
-          placeholder='Select end date'
-          onChange={this.onChangeEnd}
-          options={this.state.years}
-          id={this.props.option.idx.toString()}
-          clearable={false}
-        />
-      </div>
-    )
-  }
-}
-
-
 class CheckboxFilterComponent extends React.Component {
 
   constructor (props: Object) {
@@ -647,6 +522,131 @@ class FreeTextFilterComponent extends React.Component {
           aria-label={this.props.option.label}
         />
         {elements}
+      </div>
+    )
+  }
+}
+
+
+class YearPickerFilterComponent extends React.Component {
+
+  constructor(props: Object) {
+    super(props)
+
+    const startYear = this.props.option.start_year
+    const endYear = Moment().format('YYYY')
+    let years = this.getOptions()
+
+    this.state = {
+      years: years
+    }
+
+    this.onChangeStart = this.onChangeStart.bind(this)
+    this.onChangeEnd = this.onChangeEnd.bind(this)
+    this.getOptions = this.getOptions.bind(this)
+  }
+
+  /*componentDidMount () {
+    if (this.props.onChangeYear) {
+      this.props.onChangeYear(Moment(this.state.startYear + '0101').format('YYYYMMDD'), Moment(this.state.endYear + '1231').format('YYYYMMDD'), {
+        field: this.props.option.field,
+        idx: this.props.option.idx,
+      })
+    }
+  }*/
+
+  componentWillReceiveProps (nextProps) {
+    if (!nextProps.filters[nextProps.option.idx].value.length) {
+      this.setState({
+        startYear: 'Select start date',
+        endYear: 'Select end date'
+      })
+    }
+  }
+
+  getOptions () {
+    let list = [];
+    for (let i = this.props.option.start_year; i <= Moment().format('YYYY'); i++) {
+      list.push({label: i, value: i});
+    }
+    return list
+  }
+
+  handleKeyPress(e) {
+    if(e.key === "Enter"){
+      const value = e.target.value
+
+      if(this.props.onChange){
+        this.props.onChange(value, {
+          field: this.props.option.field,
+          idx: this.props.option.idx
+        })
+      }
+    }
+  }
+
+  onChangeStart (startYear) {
+    this.setState({
+      startYear: startYear.value
+    })
+
+    let endYear = this.state.endYear + '1231'
+
+    if (!Moment(endYear).isValid()) {
+      endYear = Moment().format('YYYYMMDD')
+    }
+
+    if (this.props.onChangeYear) {
+      this.props.onChangeYear(Moment(startYear.value + '0101').format('YYYYMMDD'), Moment(endYear).format('YYYYMMDD'), {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
+    }
+  }
+
+  onChangeEnd (endYear) {
+    this.setState({
+      endYear: endYear.value
+    })
+
+    let startYear = this.state.startYear + '0101'
+
+    if (!Moment(startYear).isValid()) {
+      startYear = this.props.option.start_year + '0101'
+    }
+
+    if (this.props.onChangeYear) {
+      this.props.onChangeYear(Moment(startYear).format('YYYYMMDD'), Moment(endYear.value + '1231').format('YYYYMMDD'), {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
+    }
+  }
+
+
+  render (): ?React.Element {
+    return (
+      <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
+        <p>Start Year:</p>
+        <Select
+          value={this.state.startYear}
+          className='filter-select'
+          placeholder='Select start date'
+          onChange={this.onChangeStart}
+          options={this.state.years}
+          id={this.props.option.idx.toString()}
+          clearable={false}
+        />
+        <p>End Year:</p>
+        <Select
+          value={this.state.endYear}
+          className='filter-select'
+          placeholder='Select end date'
+          onChange={this.onChangeEnd}
+          options={this.state.years}
+          id={this.props.option.idx.toString()}
+          clearable={false}
+        />
       </div>
     )
   }
@@ -950,17 +950,17 @@ class FilterComponent extends React.Component {
           </div>
         )
       } else if (option.type === "numeric_range") {
-          return (
-              <div className='filter-item-container' key={`div${idx}`}>
-                  <h3 className='filter-header'>{option.label}</h3>
-                  <RangeQueryFilterComponent
-                      filters={this.state.selected_filters}
-                      key={`filter${idx}`}
-                      onChangeYear={this.onChangeYearPicker}
-                      option={option}
-                  />
-              </div>
-          )
+        return (
+          <div className='filter-item-container' key={`div${idx}`}>
+            <h3 className='filter-header'>{option.label}</h3>
+            <RangeQueryFilterComponent
+              filters={this.state.selected_filters}
+              key={`filter${idx}`}
+              onChangeYear={this.onChangeYearPicker}
+              option={option}
+            />
+          </div>
+        )
       }
 
     })

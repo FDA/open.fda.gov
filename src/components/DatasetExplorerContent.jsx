@@ -1819,7 +1819,7 @@ class SelectedFiltersComponent extends React.Component {
         })
       } else if (
         filter.query_type === "range" &&
-        filter.type === "yearpicker" || filter.type === "numeric_range" &&
+        (filter.type === "yearpicker" || filter.type === "numeric_range") &&
         filter.value.length
       ) {
         filter_list.push({
@@ -1868,9 +1868,7 @@ class SelectedFiltersComponent extends React.Component {
           <span>
             {`${filter.label}: ${filter.value}`}
           </span>
-          { filter.query_type === "range" ? null :
-            <i className='fa fa-times-circle' />
-          }
+          <i className='fa fa-times-circle' />
         </button>
       )
     })

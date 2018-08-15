@@ -159,7 +159,7 @@ names:
             show: false
             showDefault: false
     endpoint: animalandveterinary/label.json
-    url: http://openfda-elb-adl-adv-query-large-1397444787.us-east-1.elb.amazonaws.com
+    url: http://openfda-elb-adl-api-1588645505.us-east-1.elb.amazonaws.com
     filters:
       options:
         - label: Time Period
@@ -400,7 +400,7 @@ names:
             show: false
             showDefault: false
     endpoint: animalandveterinary/petfood_reports.json
-    url: http://openfda-elb-petfoods-2018-04-09-468912113.us-east-1.elb.amazonaws.com
+    url: http://openfda-elb-petfoods-api-771294776.us-east-1.elb.amazonaws.com
     filters:
       options:
         - label: Report Year
@@ -594,7 +594,7 @@ names:
             showDefault: false
             split: true
     endpoint: animaldrug/phishpharm.json
-    url: http://ec2-52-71-40-8.compute-1.amazonaws.com:8000
+    url: http://openfda-phishpharm-elb-730455221.us-east-1.elb.amazonaws.com
     filters:
       options:
         - label: Time frame to search
