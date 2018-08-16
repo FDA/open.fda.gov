@@ -3,6 +3,7 @@ names:
     label: Phish-Pharm
     path: phishpharm
     showChartView: true
+    showFormView: true
     views:
       tableView:
         label:
@@ -122,7 +123,7 @@ names:
             showDefault: false
             split: true
     endpoint: animaldrug/phishpharm.json
-    url: http://openfda-phishpharm-elb-730455221.us-east-1.elb.amazonaws.com
+    url: https://api.openfda-phishpharm.semanticbits.com
     filters:
       options:
         - label: Time frame to search
@@ -205,6 +206,7 @@ names:
     label: Animal Drug Labeling
     path: animaldrug
     showChartView: true
+    showFormView: false
     drugtype: animal
     views:
       listingLabels:
@@ -361,7 +363,7 @@ names:
             show: false
             showDefault: false
     endpoint: animalandveterinary/label.json
-    url: http://openfda-elb-adl-api-1588645505.us-east-1.elb.amazonaws.com
+    url: https://api.openfda-adl.semanticbits.com
     filters:
       options:
         - label: Time Period
@@ -466,6 +468,7 @@ names:
     label: Pet Food Reports
     path: petfoodreports
     showChartView: true
+    showFormView: false
     views:
       lltView:
         label: Frequency of Reported Signs
@@ -602,7 +605,7 @@ names:
             show: false
             showDefault: false
     endpoint: animalandveterinary/petfood_reports.json
-    url: http://openfda-elb-petfoods-api-771294776.us-east-1.elb.amazonaws.com
+    url: https://api.openfda-petfoods.semanticbits.com
     filters:
       options:
         - label: Report Year
