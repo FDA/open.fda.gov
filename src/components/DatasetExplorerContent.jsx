@@ -538,32 +538,67 @@ class ResultsComponent extends React.Component {
         </div>
 
       <ReactTable
-          expanded={this.state.expanded}
-          data={data}
-          pageSize={this.state.pageSize}
-          columns={this.state.columns}
-          pivotBy={this.state.pivotBy}
-          showPageSizeOptions={true}
-          pageSizeOptions={[10, 25, 50, 100, 200, 250, 500, 1000]}
-          showPagination={true}
-          showPaginationTop={true}
-          resized={this.state.resized}
-          onSortedChange={sorted => this.setState({ sorted })}
-          onPageChange={page => this.setState({ page })}
-          onPageSizeChange={(pageSize, page) =>
-              this.setState({ page, pageSize })}
-          onExpandedChange={expanded => this.setState({ expanded })}
-          onResizedChange={resized => this.setState({ resized })}
-          onFilteredChange={filtered => this.setState({ filtered })}
-          filtered={this.state.filtered}
-          minRows={10}
-          filterable={false}
-          style={{
-            height: 800,
-            width: "100%"
-          }}
-          className="-striped -highlight"
-          ref={(element) => { this.dataTableElement = element; }}
+        expanded={this.state.expanded}
+        data={data}
+        pageSize={this.state.pageSize}
+        columns={this.state.columns}
+        pivotBy={this.state.pivotBy}
+        showPageSizeOptions={true}
+        pageSizeOptions={[10, 25, 50, 100, 200, 250, 500, 1000]}
+        showPagination={true}
+        showPaginationTop={true}
+        resized={this.state.resized}
+        onSortedChange={sorted => this.setState({ sorted })}
+        onPageChange={page => this.setState({ page })}
+        onPageSizeChange={(pageSize, page) =>
+            this.setState({ page, pageSize })}
+        onExpandedChange={expanded => this.setState({ expanded })}
+        onResizedChange={resized => this.setState({ resized })}
+        onFilteredChange={filtered => this.setState({ filtered })}
+        filtered={this.state.filtered}
+        minRows={10}
+        filterable={false}
+        style={{
+          height: 800,
+          width: "100%"
+        }}
+        className="-striped -highlight"
+        ref={(element) => { this.dataTableElement = element; }}
+        SubComponent={row => {
+          // a SubComponent for the "form view."
+          const columns = [
+            {
+              Header: "Property",
+              accessor: "property",
+              width: 200,
+              Cell: ci => {
+                return `${ci.value}:`;
+              },
+              style: {
+                backgroundColor: "#DDD",
+                textAlign: "right",
+                fontWeight: "bold"
+              }
+            },
+            { Header: "Value", accessor: "value" }
+          ];
+          const rowData = Object.keys(row.original).map(key => {
+            return {
+              property: key,
+              value: row.original[key] != null ? row.original[key].toString(): ''
+            };
+          });
+          return (
+            <div style={{ padding: "10px" }}>
+              <ReactTable
+                data={rowData}
+                columns={columns}
+                pageSize={rowData.length}
+                showPagination={false}
+              />
+            </div>
+          );
+        }}
         />
       </div>
     )

@@ -1,4 +1,206 @@
 names:
+  phishpharm:
+    label: Phish-Pharm
+    path: phishpharm
+    showChartView: true
+    views:
+      tableView:
+        label:
+        searchType: nonLLT
+        help_text:
+          - "There are two ways to explore the Phish-Pharm data: in a table or visualized in a variety of charts."
+          - "The default view is the table, which allows you to click on individual columns to sort the table by those results. The table displays 25 rows by default, but that number can be modified through a dropdown list. The next and previous buttons allow you to navigate through the all of the available data; you can also directly input what 'page' of data you'd like to view. The final major feature of the table view is the ability to export results in CSV or XLS format."
+          - "The chart view visualizes data in one of two charts: Half Life, a bar chart which counts the total number of reports for whatever data element you select, and Number of Drugs by Year, a line chart which displays the selected data elements over time."
+          - "Both table and chart allow you to narrow down the results displayed through the use of the filter panel on the left side of the screen. Any number of filters may be applied and each will narrow down the data accordingly. After selecting your desired filters simply press the Apply Filters button in the middle of the screen. If you don't wish to apply those filters, press the Clear All button. After applying filters, they'll be displayed above the table or chart, and can be removed individually or as a whole; removing filters in either of these ways is done automatically without needing to press Apply Filters. Please note that some combinations of specific filters may result in no data matching the total filter criteria and no results being displayed."
+        show_collapse_rows_button: false
+        columns:
+          - Header: Drug/Chem
+            accessor: drug
+            show: true
+            showDefault: false
+          - Header: Drug Class
+            accessor: drug_class
+            show: true
+            showDefault: true
+            split: true
+          - Header: Route
+            accessor: route
+            show: true
+            showDefault: true
+            startCase: true
+          - Header: Genus Species
+            accessor: genus_species
+            show: true
+            showDefault: true
+            split: true
+            startCase: true
+          - Header: Date
+            accessor: pub_date
+            show: true
+            showDefault: true
+            split: true
+            startCase: true
+          - Header: Water
+            accessor: water_type
+            show: true
+            showDefault: true
+            split: true
+            startCase: true
+          - Header: Authors
+            accessor: pub_authors
+            show: true
+            showDefault: true
+            split: true
+            startCase: true
+          - Header: Citations
+            accessor: pub_citation
+            show: true
+            showDefault: true
+          - Header: Dosage
+            accessor: dosage
+            show: false
+            showDefault: true
+          - Header: Is Half Life Estimated
+            accessor: is_half_life_estimated
+            show: false
+            showDefault: false
+          - Header: Half Life Detail
+            accessor: half_life_detail
+            show: false
+            showDefault: true
+          - Header: Water Temperature
+            accessor: water_temperature
+            show: false
+            showDefault: true
+          - Header: Pharmacokinetic Model
+            accessor: pharmacokinetic_model
+            show: false
+            showDefault: false
+          - Header: Clearance
+            accessor: clearance
+            show: false
+            showDefault: false
+          - Header: Water Temperature Detail
+            accessor: water_temperature_detail
+            show: false
+            showDefault: false
+          - Header: Published URL
+            accessor: pub_url
+            show: false
+            showDefault: false
+          - Header: Comments
+            accessor: comments
+            show: false
+            showDefault: false
+            split: true
+          - Header: Method
+            accessor: method
+            show: false
+            showDefault: false
+          - Header: Dosage Detail
+            accessor: dosage_detail
+            show: false
+            showDefault: false
+          - Header: Protein Binding
+            accessor: protein_binding
+            show: false
+            showDefault: false
+          - Header: Weight
+            accessor: weight
+            show: false
+          - Header: Metabolites
+            accessor: metabolites
+            show: false
+            showDefault: false
+            split: true
+          - Header: Half Life
+            accessor: half_life
+            show: false
+          - Header: Weight Detail
+            accessor: weight_detail
+            show: false
+            showDefault: false
+            split: true
+    endpoint: animaldrug/phishpharm.json
+    url: http://openfda-phishpharm-elb-730455221.us-east-1.elb.amazonaws.com
+    filters:
+      options:
+        - label: Time frame to search
+          type: numeric_range
+          start_value: 1961
+          end_value: 2018
+          field: pub_date
+          query_type: range
+          placeholder: Select Time Period
+        - label: Drug/Chem
+          field: drug.exact
+          autocomplete_field: drug
+          type: select_autocomplete
+          remove_chars: drug/chem
+          can_query: true
+          placeholder: Select Drug or Start Typing
+          query_type: term
+          limit: 100
+        - label: Drug Class
+          field: drug_class.exact
+          autocomplete_field: drug_class
+          type: select_autocomplete
+          remove_chars: drug class
+          can_query: true
+          placeholder: Select Drug Class or Start Typing
+          query_type: term
+          limit: 100
+        - label: Route
+          field: route.exact
+          autocomplete_field: route
+          query_type: term
+          type: select_autocomplete
+          can_query: true
+          placeholder: Select Route or Start Typing
+          limit: 100
+        - label: Fish Species
+          field: species.exact
+          autocomplete_field: species
+          query_type: term
+          type: select_autocomplete
+          can_query: true
+          placeholder: Select Species or Start Typing
+          limit: 100
+        - label: Genus Species
+          type: select_autocomplete
+          field: genus_species.exact
+          autocomplete_field: genus_species
+          query_type: term
+          placeholder: Select Genus Species or Start Typing
+          limit: 100
+          can_query: true
+        - label: Sample
+          type: select_autocomplete
+          can_query: true
+          field: sample.exact
+          query_type: term
+          autocomplete_field: sample
+          placeholder: Select Sample or Start Typing
+          limit: 100
+        - label: Water
+          type: select_autocomplete
+          query_type: term
+          field: water_type.exact
+          autocomplete_field: water_type
+          can_query: true
+          placeholder: Select Water Type or Start Typing
+          limit: 100
+        - label: Authors
+          type: select_autocomplete
+          can_query: true
+          field: pub_authors.exact
+          query_type: term
+          autocomplete_field: pub_authors
+          placeholder: Select Authors or Start Typing
+          limit: 100
+    exportOptions:
+      - label: CSV
+      - label: JSON
   animaldrugs:
     label: Animal Drug Labeling
     path: animaldrug
@@ -467,208 +669,6 @@ names:
           remove_chars: state
           placeholder: Select State or Start Typing
           query_type: term
-          limit: 100
-    exportOptions:
-      - label: CSV
-      - label: JSON
-  phishpharm:
-    label: Phish-Pharm
-    path: phishpharm
-    showChartView: true
-    views:
-      tableView:
-        label:
-        searchType: nonLLT
-        help_text:
-          - "There are two ways to explore the Phish-Pharm data: in a table or visualized in a variety of charts."
-          - "The default view is the table, which allows you to click on individual columns to sort the table by those results. The table displays 25 rows by default, but that number can be modified through a dropdown list. The next and previous buttons allow you to navigate through the all of the available data; you can also directly input what 'page' of data you'd like to view. The final major feature of the table view is the ability to export results in CSV or XLS format."
-          - "The chart view visualizes data in one of two charts: Half Life, a bar chart which counts the total number of reports for whatever data element you select, and Number of Drugs by Year, a line chart which displays the selected data elements over time."
-          - "Both table and chart allow you to narrow down the results displayed through the use of the filter panel on the left side of the screen. Any number of filters may be applied and each will narrow down the data accordingly. After selecting your desired filters simply press the Apply Filters button in the middle of the screen. If you don't wish to apply those filters, press the Clear All button. After applying filters, they'll be displayed above the table or chart, and can be removed individually or as a whole; removing filters in either of these ways is done automatically without needing to press Apply Filters. Please note that some combinations of specific filters may result in no data matching the total filter criteria and no results being displayed."
-        show_collapse_rows_button: false
-        columns:
-          - Header: Drug/Chem
-            accessor: drug
-            show: true
-            showDefault: false
-          - Header: Drug Class
-            accessor: drug_class
-            show: true
-            showDefault: true
-            split: true
-          - Header: Route
-            accessor: route
-            show: true
-            showDefault: true
-            startCase: true
-          - Header: Genus Species
-            accessor: genus_species
-            show: true
-            showDefault: true
-            split: true
-            startCase: true
-          - Header: Date
-            accessor: pub_date
-            show: true
-            showDefault: true
-            split: true
-            startCase: true
-          - Header: Water
-            accessor: water_type
-            show: true
-            showDefault: true
-            split: true
-            startCase: true
-          - Header: Authors
-            accessor: pub_authors
-            show: true
-            showDefault: true
-            split: true
-            startCase: true
-          - Header: Citations
-            accessor: pub_citation
-            show: true
-            showDefault: true
-          - Header: Dosage
-            accessor: dosage
-            show: false
-            showDefault: true
-          - Header: Is Half Life Estimated
-            accessor: is_half_life_estimated
-            show: false
-            showDefault: false
-          - Header: Half Life Detail
-            accessor: half_life_detail
-            show: false
-            showDefault: true
-          - Header: Water Temperature
-            accessor: water_temperature
-            show: false
-            showDefault: true
-          - Header: Pharmacokinetic Model
-            accessor: pharmacokinetic_model
-            show: false
-            showDefault: false
-          - Header: Clearance
-            accessor: clearance
-            show: false
-            showDefault: false
-          - Header: Water Temperature Detail
-            accessor: water_temperature_detail
-            show: false
-            showDefault: false
-          - Header: Published URL
-            accessor: pub_url
-            show: false
-            showDefault: false
-          - Header: Comments
-            accessor: comments
-            show: false
-            showDefault: false
-            split: true
-          - Header: Method
-            accessor: method
-            show: false
-            showDefault: false
-          - Header: Dosage Detail
-            accessor: dosage_detail
-            show: false
-            showDefault: false
-          - Header: Protein Binding
-            accessor: protein_binding
-            show: false
-            showDefault: false
-          - Header: Weight
-            accessor: weight
-            show: false
-          - Header: Metabolites
-            accessor: metabolites
-            show: false
-            showDefault: false
-            split: true
-          - Header: Half Life
-            accessor: half_life
-            show: false
-          - Header: Weight Detail
-            accessor: weight_detail
-            show: false
-            showDefault: false
-            split: true
-    endpoint: animaldrug/phishpharm.json
-    url: http://openfda-phishpharm-elb-730455221.us-east-1.elb.amazonaws.com
-    filters:
-      options:
-        - label: Time frame to search
-          type: numeric_range
-          start_value: 1961
-          end_value: 2018
-          field: pub_date
-          query_type: range
-          placeholder: Select Time Period
-        - label: Drug/Chem
-          field: drug.exact
-          autocomplete_field: drug
-          type: select_autocomplete
-          remove_chars: drug/chem
-          can_query: true
-          placeholder: Select Drug or Start Typing
-          query_type: term
-          limit: 100
-        - label: Drug Class
-          field: drug_class.exact
-          autocomplete_field: drug_class
-          type: select_autocomplete
-          remove_chars: drug class
-          can_query: true
-          placeholder: Select Drug Class or Start Typing
-          query_type: term
-          limit: 100
-        - label: Route
-          field: route.exact
-          autocomplete_field: route
-          query_type: term
-          type: select_autocomplete
-          can_query: true
-          placeholder: Select Route or Start Typing
-          limit: 100
-        - label: Fish Species
-          field: species.exact
-          autocomplete_field: species
-          query_type: term
-          type: select_autocomplete
-          can_query: true
-          placeholder: Select Species or Start Typing
-          limit: 100
-        - label: Genus Species
-          type: select_autocomplete
-          field: genus_species.exact
-          autocomplete_field: genus_species
-          query_type: term
-          placeholder: Select Genus Species or Start Typing
-          limit: 100
-          can_query: true
-        - label: Sample
-          type: select_autocomplete
-          can_query: true
-          field: sample.exact
-          query_type: term
-          autocomplete_field: sample
-          placeholder: Select Sample or Start Typing
-          limit: 100
-        - label: Water
-          type: select_autocomplete
-          query_type: term
-          field: water_type.exact
-          autocomplete_field: water_type
-          can_query: true
-          placeholder: Select Water Type or Start Typing
-          limit: 100
-        - label: Authors
-          type: select_autocomplete
-          can_query: true
-          field: pub_authors.exact
-          query_type: term
-          autocomplete_field: pub_authors
-          placeholder: Select Authors or Start Typing
           limit: 100
     exportOptions:
       - label: CSV
