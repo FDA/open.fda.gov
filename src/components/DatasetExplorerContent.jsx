@@ -564,7 +564,7 @@ class ResultsComponent extends React.Component {
         }}
         className="-striped -highlight"
         ref={(element) => { this.dataTableElement = element; }}
-        SubComponent={row => {
+        SubComponent={this.props.dataset.showFormView && (row => {
           // a SubComponent for the "form view."
           const columns = [
             {
@@ -598,7 +598,7 @@ class ResultsComponent extends React.Component {
               />
             </div>
           );
-        }}
+        })}
         />
       </div>
     )
