@@ -158,7 +158,7 @@ class InfographicContainer extends React.Component {
    */
   _fetchQueryAndUpdate (searchParam: string, countParam: string) {
     var that = this
-    let download_url = API_LINK + '/download.json'
+    let download_url = 'https://api.fda.gov/download.json'
     fetch(download_url)
       .then(function (res) {
         return res.json()
