@@ -28,7 +28,7 @@ const EndpointBox = (props: tPROPS) => {
     'animalandveterinary': {
       'event': 'Reports of drug side effects, product use errors, product quality problems, and therapeutic failures.',
       'label': 'Structured product information, including prescribing information, for approved animal & veterinary products.',
-      'petfood_reports': 'Pet food product recall enforcement reports.',
+      'petfood_reports': 'Pet food product reports.',
       'phishpharm': 'A free, searchable, literature database that details drug metabolism, depletion, and pharmacokinetics in fish.'
     },
     'food': {

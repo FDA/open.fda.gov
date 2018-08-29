@@ -18,7 +18,7 @@ const KeyFacts = (props: tPROPS) => {
     'animalandveterinary': {
       'event': 'Animal Drug Adverse Events (ADAE)',
       'label': 'Animal & Veterinary SPL files',
-      'petfood_reports': 'Pet Food Recalls',
+      'petfood_reports': 'Pet Food Reports',
       'phishpharm': 'Animal & Veterinary SPL files'
     },
     'food': {
