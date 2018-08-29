@@ -2,9 +2,7 @@ import React from "react"
 import Link from "gatsby-link"
 
 import KeyFacts from '../../../../components/RenderContentObject/KeyFacts'
-import InteractiveInfographic from '../../../../components/InteractiveInfographic'
 
-import infographic_definitions from './_infographic_definitions.json'
 import meta from './_meta.yaml'
 
 class IndexRoute extends React.Component {
@@ -18,8 +16,8 @@ class IndexRoute extends React.Component {
         <p>Explore Phish-Pharm with the <Link to='/tools/dataexplorer/'>openFDA Data Explorer</Link></p>
 
         <KeyFacts
-          noun_name={meta.api_path.split("/")[1]}
-          endpoint_name={meta.api_path.split("/")[2]}
+          noun_name={meta.path.split("/")[2]}
+          endpoint_name={meta.path.split("/")[3]}
         />
 
         <h3>Responsible use of the data</h3>
