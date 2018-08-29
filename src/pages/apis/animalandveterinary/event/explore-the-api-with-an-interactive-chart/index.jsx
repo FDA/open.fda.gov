@@ -21,6 +21,7 @@ class IndexRoute extends React.Component {
           fieldsFlattened={fieldsFlattened}
           fields={fields}
           infographics={infographics}
+          api='https://api.openfda-adae-demo.semanticbits.com'
           meta={meta}
         />
       </section>

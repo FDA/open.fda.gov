@@ -7,7 +7,6 @@ class IndexRoute extends React.Component {
   render() {
 
     const oneRecord = explorers['oneRecord']
-    const countDeadlyProducts = explorers['countDeadlyProducts']
     const femaleChihuahuas = explorers['femaleChihuahuas']
 
     return (
@@ -19,12 +18,6 @@ class IndexRoute extends React.Component {
           originalQuery={oneRecord.query}
           params={oneRecord.params}
           title={oneRecord.title}
-        />
-        <QueryExplorer
-          desc={countDeadlyProducts.description}
-          originalQuery={countDeadlyProducts.query}
-          params={countDeadlyProducts.params}
-          title={countDeadlyProducts.title}
         />
         <QueryExplorer
           desc={femaleChihuahuas.description}
