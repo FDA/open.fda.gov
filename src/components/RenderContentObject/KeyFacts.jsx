@@ -83,7 +83,7 @@ const KeyFacts = (props: tPROPS) => {
     'drug': {
       'event': 'Currently, this API includes publically releasable records submitted to the FDA through FAERS since 2004',
       'label': 'The bulk of the data is from June 2009 (when labeling was first posted publicly in the SPL format) to the present. However, there are a small number of records from earlier than mid-2009.',
-      'ndc': '1972 to present',
+      'ndc': 'Present',
       'enforcement': '2004 to present'
     },
     'other': {
