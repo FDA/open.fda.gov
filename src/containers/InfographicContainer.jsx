@@ -165,10 +165,10 @@ class InfographicContainer extends React.Component {
       }).then(function(res) {
         const range: string = that._getFilterRange(res)
         const search: string = that._getFilterSearch(searchParam, range)
-        const query: string = API_LINK + that.props.meta.api_path + '.json?' + search + 'count=' + countParam
+        const query: string = that.props.api + that.props.meta.api_path + '.json?' + search + 'count=' + countParam
 
         const urls = [
-          API_LINK + that.props.meta.api_path + '.json?' + search,
+          that.props.api + that.props.meta.api_path + '.json?' + search,
           query
         ];
         Promise.all(urls.map($.getJSON)).then(function(results) {
