@@ -275,7 +275,7 @@ properties:
             items:
               description: "The name by which the product is presented by the marketing authorization holder."
               format:
-              is_exact: true
+              is_exact: false
               possible_values:
               type: string
           generic_name:
@@ -283,7 +283,7 @@ properties:
             items:
               description: "The generic name(s) of the veterinary medicinal product."
               format:
-              is_exact: true
+              is_exact: false
               possible_values:
               type: string
           manufacturer_name:
@@ -291,7 +291,7 @@ properties:
             items:
               description: "Manufacturer of the veterinary medicinal product involved in the adverse event."
               format:
-              is_exact: true
+              is_exact: false
               possible_values:
               type: string
           package_ndc:
@@ -315,7 +315,7 @@ properties:
             items:
               description: "Type of veterinary medicinal product involved in the adverse event."
               format:
-              is_exact: true
+              is_exact: false
               possible_values:
               type: string
           rxcui:
@@ -347,7 +347,7 @@ properties:
             items:
               description: "The substance name of the veterinary medicinal product."
               format:
-              is_exact: true
+              is_exact: false
               possible_values:
               type: string
       previous_ae_to_drug:

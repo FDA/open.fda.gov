@@ -49,7 +49,7 @@ const KeyFacts = (props: tPROPS) => {
     'animalandveterinary': {
       'event': '/data/adae/',
       'label': '/data/spl/',
-      'petfood_reports': '/data/petfood/',
+      'petfood_reports': '/data/pet_food/',
       'phishpharm': '/data/phishpharm/'
     },
     'food': {
