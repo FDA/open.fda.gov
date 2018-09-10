@@ -6,7 +6,7 @@ datasets:
 label: Phish Pharm
 title: Phish Pharm
 path: /apis/animalandveterinary/phishpharm
-api_path: /animaldrug/phishpharm
+api_path: /animalandveterinary/phishpharm
 start: 20090601
 status: animalandveterinaryphishpharm
 dateConstraintKey: effective_time

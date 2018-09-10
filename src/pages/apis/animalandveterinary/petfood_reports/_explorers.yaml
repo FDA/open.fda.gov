@@ -2,7 +2,7 @@ oneRecord:
   params:
     - search for all records.
     - limit to 1 record.
-  query: 'https://api.openfda-petfoods.semanticbits.com/animalandveterinary/petfood_reports.json?limit=1'
+  query: 'https://openfda-api.preprod.fda.gov/animalandveterinary/petfood_reports.json?limit=1'
   description:
     - This query searches for a single record.
   title: One pet food record
@@ -10,7 +10,7 @@ femaleChihuahuas:
   params:
   - search for all records of female chihuahuas.
   - limit to thirty records.
-  query: 'https://api.openfda-petfoods.semanticbits.com/animalandveterinary/petfood_reports.json?search=gender:%22Female%22+AND+breed:%22Chihuahua%22&limit=30'
+  query: 'https://openfda-api.preprod.fda.gov/animalandveterinary/petfood_reports.json?search=gender:%22Female%22+AND+breed:%22Chihuahua%22&limit=30'
   description:
     - This query displays thirty records of female chihuahuas.
   title: Records of female chihuahuas
