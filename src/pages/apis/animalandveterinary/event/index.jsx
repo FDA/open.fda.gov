@@ -2,9 +2,7 @@ import React from "react"
 import Link from "gatsby-link"
 
 import KeyFacts from '../../../../components/RenderContentObject/KeyFacts'
-import InteractiveInfographic from '../../../../components/InteractiveInfographic'
 
-import infographic_definitions from './_infographic_definitions.json'
 import meta from './_meta.yaml'
 
 class IndexRoute extends React.Component {
