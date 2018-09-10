@@ -2,9 +2,8 @@ import React from "react"
 import Link from "gatsby-link"
 
 import KeyFacts from '../../../../components/RenderContentObject/KeyFacts'
-import InteractiveInfographic from '../../../../components/InteractiveInfographic'
+import ExplorerLink from '../../../../components/ExplorerLink'
 
-import infographic_definitions from './_infographic_definitions.json'
 import meta from './_meta.yaml'
 
 class IndexRoute extends React.Component {
@@ -17,7 +16,10 @@ class IndexRoute extends React.Component {
         <p>The labeling is a 'living document' that changes over time to reflect increased knowledge about the safety and effectiveness of the drug.</p>
         <p>The openFDA drug product labels API returns data from these submissions for both prescription and over-the-counter (OTC) drugs. The labels are broken into sections, such as indications for use (prescription drugs) or purpose (OTC drugs), adverse reactions, and so forth. There is considerable variation between drug products in terms of these sections and their contents, since the information required for safe and effective use varies with the unique characteristics of each drug product.</p>
         <p>To read more about animal drug products, please visit the <a href="http://www.fda.gov/AnimalVeterinary/Products/default.htm">Animal and Veterinary Products</a>.</p>
-        <p>Explore Animal Drug Labeling with the <Link to='/tools/dataexplorer/'>openFDA Data Explorer</Link></p>
+
+        <ExplorerLink
+          endpoint_name='Animal Drug Labeling'
+        />
 
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
