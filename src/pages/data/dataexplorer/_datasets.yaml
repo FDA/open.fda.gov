@@ -123,7 +123,7 @@ names:
             showDefault: false
             split: true
     endpoint: animaldrug/phishpharm.json
-    url: https://api.openfda-phishpharm.semanticbits.com
+    url: https://openfda-api.preprod.fda.gov
     filters:
       options:
         - label: Time frame to search
@@ -363,7 +363,7 @@ names:
             show: false
             showDefault: false
     endpoint: animalandveterinary/label.json
-    url: https://api.openfda-adl.semanticbits.com
+    url: https://openfda-api.preprod.fda.gov
     filters:
       options:
         - label: Time Period
@@ -605,7 +605,7 @@ names:
             show: false
             showDefault: false
     endpoint: animalandveterinary/petfood_reports.json
-    url: https://api.openfda-petfoods.semanticbits.com
+    url: https://openfda-api.preprod.fda.gov
     filters:
       options:
         - label: Report Year
