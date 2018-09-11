@@ -1,0 +1,634 @@
+properties:
+  uuid:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: ""
+    possible_values:
+  definition_type:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: ""
+    possible_values:
+  definition_level:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: ""
+    possible_values:
+  substance_class:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: ""
+    possible_values:
+  status:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: ""
+    possible_values:
+  version:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: ""
+    possible_values:
+  approved_by:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: ""
+    possible_values:
+  notes:
+    type: object
+    properties:
+      note:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      access:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      references:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      created_by:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      created:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      last_edited:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      uuid:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      last_edited_by:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+  approval_id:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: ""
+    possible_values:
+  tags:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: ""
+    possible_values:
+  names:
+    type: object
+    properties:
+      uuid:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      name:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      type:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      domains:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      languages:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      name_jurisdiction:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      name_orgs:
+        type: object
+        properties:
+          uuid:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+          name_org:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+          references:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+      preferred:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      display_name:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      references:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+  codes:
+    type: object
+    properties:
+      uuid:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      code_system:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      code:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      type:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      url:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      references:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+  relationships:
+    type: object
+    properties:
+      uuid:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      related_substance:
+        type: object
+        properties:
+          ref_pname:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+          related_substance:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+          originator_uuid:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+          type:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+          references:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+      originator_uuid:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      type:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      references:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+  references:
+    type: object
+    properties:
+      uuid:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      citation:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      doc_type:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      public_domain:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      tags:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+  structure:
+    type: object
+    properties:
+      id:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      digest:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      molfile:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      smiles:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      formula:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      optical_activity:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      stereo_centers:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      defined_stereo:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      ez_centers:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      charge:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      molecular_weight:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      count:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      self:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      hash:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      stereochemistry:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      references:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+  moieties:
+    type: object
+    properties:
+      uuid:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      id:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      digest:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      molfile:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      smiles:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      formula:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      optical_activity:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      stereo_centers:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      defined_stereo:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      ez_centers:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      charge:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      molecular_weight:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      count:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      self:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      hash:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      stereochemistry:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: ""
+        possible_values:
+      references:
+        type: object
+        properties:
+          uuid:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+          citation:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+          doc_type:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+          public_domain:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+          tags:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: ""
+            possible_values:
+type: object
