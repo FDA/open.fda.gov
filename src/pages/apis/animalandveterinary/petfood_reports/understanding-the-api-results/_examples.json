@@ -49,5 +49,95 @@
         "llt_freq": 1
       }
     ]
-  }
+  },
+  "count": [
+    {
+      "term": "Dry",
+      "count": 1817
+    },
+    {
+      "term": "Canned",
+      "count": 667
+    },
+    {
+      "term": "Treat",
+      "count": 591
+    },
+    {
+      "term": "Other",
+      "count": 455
+    },
+    {
+      "term": "Raw",
+      "count": 135
+    },
+    {
+      "term": "Dental",
+      "count": 74
+    },
+    {
+      "term": "Tubbed",
+      "count": 70
+    },
+    {
+      "term": "Bone",
+      "count": 69
+    },
+    {
+      "term": "Pouched",
+      "count": 49
+    },
+    {
+      "term": "Rolled",
+      "count": 19
+    },
+    {
+      "term": "Milk Replacer",
+      "count": 9
+    },
+    {
+      "term": "Semi-Moist",
+      "count": 6
+    },
+    {
+      "term": "Not Reported",
+      "count": 4
+    },
+    {
+      "term": "Bird Food",
+      "count": 3
+    },
+    {
+      "term": "Supplement",
+      "count": 2
+    },
+    {
+      "term": "Tray",
+      "count": 1
+    },
+    {
+      "term": "Raw; Bone",
+      "count": 1
+    },
+    {
+      "term": "Mixed bag, made by PetCo, no known brands",
+      "count": 1
+    },
+    {
+      "term": "Mars",
+      "count": 1
+    },
+    {
+      "term": "Manufacturer",
+      "count": 1
+    },
+    {
+      "term": "Dried",
+      "count": 1
+    },
+    {
+      "term": "Bone; Raw",
+      "count": 1
+    }
+  ]
 }
