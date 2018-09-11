@@ -218,5 +218,47 @@
     },
     "treated_for_ae": "false",
     "onset_date": "20160320"
-  }
+  },
+  "count": [
+    {
+      "term": "other",
+      "count": 527983
+    },
+    {
+      "term": "owner",
+      "count": 145689
+    },
+    {
+      "term": "animal",
+      "count": 145689
+    },
+    {
+      "term": "veterinarian",
+      "count": 98654
+    },
+    {
+      "term": "professional",
+      "count": 29258
+    },
+    {
+      "term": "health",
+      "count": 29258
+    },
+    {
+      "term": "care",
+      "count": 29258
+    },
+    {
+      "term": "patient",
+      "count": 1516
+    },
+    {
+      "term": "unknown",
+      "count": 100
+    },
+    {
+      "term": "physician",
+      "count": 45
+    }
+  ]
 }
