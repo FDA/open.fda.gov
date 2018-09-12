@@ -35,7 +35,8 @@ const KeyFacts = (props: tPROPS) => {
       'enforcement': 'FDA Recall Enterprise System (RES)'
     },
     'other': {
-      'nsde': 'NDC SPL Data Elements'
+      'nsde': 'NDC SPL Data Elements',
+      'substance': 'Substance Data Reports'
     }
   }
 
@@ -59,7 +60,8 @@ const KeyFacts = (props: tPROPS) => {
       'enforcement': '/data/res/'
     },
     'other': {
-      'nsde': '/apis/other/nsde/'
+      'nsde': '/apis/other/nsde/',
+      'substance': '/apis/other/substance/'
     }
   }
 
@@ -84,7 +86,8 @@ const KeyFacts = (props: tPROPS) => {
       'enforcement': '2004 to present'
     },
     'other': {
-      'nsde': '2009 to present'
+      'nsde': '2009 to present',
+      'substance': 'Current'
     }
   }
 
@@ -109,7 +112,8 @@ const KeyFacts = (props: tPROPS) => {
       'enforcement': 'Weekly'
     },
     'other': {
-      'nsde': 'Daily'
+      'nsde': 'Daily',
+      'substance': 'Daily'
     }
   }
 

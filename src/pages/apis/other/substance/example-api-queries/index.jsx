@@ -7,9 +7,9 @@ class IndexRoute extends React.Component {
   render() {
 
     const oneRecord = explorers['oneRecord']
-    const byNDC = explorers['byNDC']
-    const onTheMarket = explorers['onTheMarket']
-    const discontinued = explorers['discontinued']
+    const byName = explorers['byName']
+    const byUNII = explorers['byUNII']
+    const bySmiles = explorers['bySmiles']
 
     return (
       <section className="doc-content">
@@ -22,22 +22,22 @@ class IndexRoute extends React.Component {
           title={oneRecord.title}
         />
         <QueryExplorer
-          desc={byNDC.description}
-          originalQuery={byNDC.query}
-          params={byNDC.params}
-          title={byNDC.title}
+          desc={byName.description}
+          originalQuery={byName.query}
+          params={byName.params}
+          title={byName.title}
         />
         <QueryExplorer
-          desc={onTheMarket.description}
-          originalQuery={onTheMarket.query}
-          params={onTheMarket.params}
-          title={onTheMarket.title}
+          desc={byUNII.description}
+          originalQuery={byUNII.query}
+          params={byUNII.params}
+          title={byUNII.title}
         />
         <QueryExplorer
-          desc={discontinued.description}
-          originalQuery={discontinued.query}
-          params={discontinued.params}
-          title={discontinued.title}
+          desc={bySmiles.description}
+          originalQuery={bySmiles.query}
+          params={bySmiles.params}
+          title={bySmiles.title}
         />
       </section>
     )

@@ -2,29 +2,29 @@ oneRecord:
   params:
     - search for all records and display one.
     - limit to 1 record.
-  query: 'https://api.fda.gov/other/nsde.json?limit=1'
+  query: 'http://ec2-18-212-116-135.compute-1.amazonaws.com:8000/other/substance.json?limit=1'
   description:
     - This query searches for all records and asks for a single one.
-  title: One NSDE record
-byNDC:
+  title: One Substance Data record
+byName:
   params:
-  - search for a specific package_ndc.
+  - search for a specific name.
   - limit to 1 record.
-  query: 'https://api.fda.gov/other/nsde.json?search=package_ndc:"55700-019-60"'
+  query: 'http://ec2-18-212-116-135.compute-1.amazonaws.com:8000/other/substance.json?search=names.name="PARACETAMOL"'
   description:
-    - This query searches for records with the specific package_ndc "55700-019-60", and returns one result.
-  title: NSDE Record by NDC
-onTheMarket:
+    - This query searches for records with the specific name "PARACETAMOL", and returns one result.
+  title: Substance Data Record by Name
+byUNII:
   params:
-  - search for records without a markering_end_date.
-  query: 'https://api.fda.gov/other/nsde.json?search=_missing_:"marketing_end_date"'
+  - search for records by UNII.
+  query: 'http://ec2-18-212-116-135.compute-1.amazonaws.com:8000/other/substance.json?search=relationships.related_substance.linking_id="09211A0HHL"'
   description:
-    - This query searches for records which don't have a marketing_end_date assigned, indicating that they're still on the market.
-  title: NSDE Products on the Market
-discontinued:
+    - This query searches for records with the specific UNII "09211A0HHL".
+  title: Substance Data Record by UNII
+bySmiles:
   params:
-  - search for records with a marketing_end_date.
-  query: 'https://api.fda.gov/other/nsde.json?search=_exists_:"marketing_end_date"'
+  - search for records by chemical structure.
+  query: 'http://ec2-18-212-116-135.compute-1.amazonaws.com:8000/other/substance.json?search=moieties.smiles="c1ccccc1"'
   description:
-    - This query searches for records which have a marketing_end_date assigned, indicating that they're discontinued.
-  title: Discontinued NSDE Products
+    - This query searches for records which have the specific chemical structure designated by the SMILES string "c1ccccc1".
+  title: Substance Data Record by SMILES

@@ -1,14 +1,18 @@
-- title: "Drugs on and off the market"
-  short: "On/Off the Market"
-  dataset: NSDE
+- title: "Substance Class by Approval Status"
+  short: "Substance Class"
+  dataset: Substance
   description:
-    - "NSDE provides marketing information for OTC and prescription drugs for both humans and animals, as demonstrated below."
-  countParam: "product_type"
+    - "The Substance dataset includes a wide range of substance classes."
+  countParam: "substance_class"
   filters:
-    - title: "All NSDE records by product type"
+    - title: "All Substance Data Records"
       searchParam: ''
-    - title: "Drugs on the market"
-      searchParam: '_missing_:"marketing_end_date"'
-    - title: "Drugs off the market"
-      searchParam: '_exists_:"marketing_end_date"'
+    - title: "Approved Status"
+      searchParam: 'status:"approved"'
+    - title: "Non-approved Status"
+      searchParam: 'status:"non-approved"'
+    - title: "Failed Status"
+      searchParam: 'status:"FAILED"'
+    - title: "Alternative Status"
+      searchParam: 'status:"alternative"'
   type: Line
