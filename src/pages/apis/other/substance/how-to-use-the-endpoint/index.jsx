@@ -17,7 +17,7 @@ class IndexRoute extends React.Component {
 
         <h3>Making a simple API Call</h3>
         <p>You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key.</p>
-        <p>In the example below, we are searching the records in the drug adverse events endpoint for matches which have a <code>uuid</code>. We are requesting to see the first 5 records that match.</p>
+        <p>In the example below, we are searching the records in the Substance Data endpoint for matches which have a <code>uuid</code>. We are requesting to see the first 5 records that match.</p>
         <APIQueryBreakdown endpoint_path='/other/substance.json' query='_exists_:"uuid"'/>
 
         <h3>Some key pointers</h3>

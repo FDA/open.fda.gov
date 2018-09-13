@@ -1,8 +1,8 @@
 - title: "Substance Class by Approval Status"
-  short: "Substance Class"
+  short: "Approval Status"
   dataset: Substance
   description:
-    - "The Substance dataset includes a wide range of substance classes."
+    - "The Substance dataset includes information about the approval status of the substances."
   countParam: "substance_class"
   filters:
     - title: "All Substance Data Records"
@@ -15,4 +15,51 @@
       searchParam: 'status:"FAILED"'
     - title: "Alternative Status"
       searchParam: 'status:"alternative"'
-  type: Line
+  type: Donut
+- title: "Substance Data by Substance Class"
+  short: "Substance Class"
+  dataset: Substance
+  description:
+    - "The Substance dataset includes a wide range of substance classes."
+  countParam: "names.name.exact"
+  filters:
+    - title: "All Substance Data Records"
+      searchParam: ''
+    - title: "Chemical"
+      searchParam: 'substance_class:"chemical"'
+    - title: "Structurally Diverse"
+      searchParam: 'substance_class:"structurallyDiverse"'
+    - title: "Concept"
+      searchParam: 'substance_class:"concept"'
+    - title: "Mixture"
+      searchParam: 'substance_class:"mixture"'
+    - title: "Protein"
+      searchParam: 'substance_class:"protein"'
+    - title: "Polymer"
+      searchParam: 'substance_class:"polymer"'
+    - title: "Nucleic Acid"
+      searchParam: 'substance_class:"nucleicAcid"'
+  type: Bar
+
+- title: "Substance Data by Molecular Weight"
+  short: "Molecular Weight"
+  dataset: Substance
+  description:
+    - "The Substance dataset can be queried based on molecular weight."
+  countParam: "names.name.exact"
+  filters:
+    - title: "All Substance Data Records"
+      searchParam: ''
+    - title: "Molecular Weight 0:200"
+      searchParam: 'molecular_weight:[0+TO+200]'
+    - title: "Molecular Weight 200:400"
+      searchParam: 'molecular_weight:[200+TO+400]'
+    - title: "Molecular Weight 400:600"
+      searchParam: 'molecular_weight:[400+TO+600]'
+    - title: "Molecular Weight 600:800"
+      searchParam: 'molecular_weight:[600+TO+800]'
+    - title: "Molecular Weight 800:1000"
+      searchParam: 'molecular_weight:[800+TO+999]'
+    - title: "Molecular Weight >1000"
+      searchParam: 'molecular_weight:>1000'
+  type: Bar

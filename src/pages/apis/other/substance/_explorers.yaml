@@ -14,6 +14,13 @@ byName:
   description:
     - This query searches for records with the specific name "PARACETAMOL", and returns one result.
   title: Substance Data Record by Name
+byCASRegistryNumber:
+  params:
+  - search for records by CAS Registry Number.
+  query: 'http://ec2-18-212-116-135.compute-1.amazonaws.com:8000/other/substance.json?search=codes.code:"220127-57-1"'
+  description:
+    - This query searches for records with the specific CAS Registry Number "220127-57-1".
+  title: Substance Data Record by CAS Registry Number
 byUNII:
   params:
   - search for records by UNII.

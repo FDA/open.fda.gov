@@ -8,6 +8,7 @@ class IndexRoute extends React.Component {
 
     const oneRecord = explorers['oneRecord']
     const byName = explorers['byName']
+    const byCASRegistryNumber = explorers['byCASRegistryNumber']
     const byUNII = explorers['byUNII']
     const bySmiles = explorers['bySmiles']
 
@@ -26,6 +27,12 @@ class IndexRoute extends React.Component {
           originalQuery={byName.query}
           params={byName.params}
           title={byName.title}
+        />
+        <QueryExplorer
+          desc={byCASRegistryNumber.description}
+          originalQuery={byCASRegistryNumber.query}
+          params={byCASRegistryNumber.params}
+          title={byCASRegistryNumber.title}
         />
         <QueryExplorer
           desc={byUNII.description}

@@ -27,6 +27,15 @@ properties:
     pattern:
     description: ""
     possible_values:
+      type: one_of
+      value:
+        "chemical": ""
+        "structurallyDiverse": ""
+        "concept": ""
+        "mixture": ""
+        "protein": ""
+        "polymer": ""
+        "nucleicAcid": ""
   status:
     format:
     is_exact: false
@@ -34,6 +43,12 @@ properties:
     pattern:
     description: ""
     possible_values:
+      type: one_of
+      value:
+        "approved": ""
+        "non-approved": ""
+        "FAILED": ""
+        "alternative": ""
   version:
     format:
     is_exact: false
