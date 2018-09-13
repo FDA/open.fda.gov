@@ -21,7 +21,7 @@
   dataset: Substance
   description:
     - "The Substance dataset includes a wide range of substance classes."
-  countParam: "names.name.exact"
+  countParam: "names.name"
   filters:
     - title: "All Substance Data Records"
       searchParam: ''
@@ -46,7 +46,7 @@
   dataset: Substance
   description:
     - "The Substance dataset can be queried based on molecular weight."
-  countParam: "names.name.exact"
+  countParam: "names.name"
   filters:
     - title: "All Substance Data Records"
       searchParam: ''
