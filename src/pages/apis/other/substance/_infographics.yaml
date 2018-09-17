@@ -48,8 +48,6 @@
     - "The Substance dataset can be queried based on molecular weight."
   countParam: "names.name"
   filters:
-    - title: "All Substance Data Records"
-      searchParam: ''
     - title: "Molecular Weight 0:200"
       searchParam: 'molecular_weight:[0+TO+200]'
     - title: "Molecular Weight 200:400"
