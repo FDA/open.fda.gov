@@ -22,6 +22,8 @@ class IndexRoute extends React.Component {
 
         <h3>Responsible use of the data</h3>
         <p>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products. We may limit or otherwise restrict your access to the API in line with our <Link to="/terms/">Terms of Service</Link>.</p>
+        <p>Adverse event reports submitted to FDA do not undergo extensive validation or verification. Therefore, <strong>a causal relationship cannot be established between product and reactions listed in a report.</strong> While a suspected relationship may exist, it is not medically validated and should not be the sole source of information for clinical decision making or other assumptions about the safety or effectiveness of a product.</p>
+        <p>Additionally, it is important to remember that adverse event reports represent a small percentage of total usage numbers of a product. Commonly used products may have a higher number of reported adverse events due to the higher total number of animals being given the product.</p>
       </section>
     )
   }
