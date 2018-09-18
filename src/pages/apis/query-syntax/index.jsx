@@ -19,8 +19,9 @@ class IndexRoute extends React.Component {
         <p>Here are a few syntax patterns that may help if you’re new to this API.</p>
         <ul>
           <li><p><code>search=field:term</code>: Search within a specific <code>field</code> for a <code>term</code>.</p></li>
-          <li><p><code>search=field:term+AND+field:term</code>: Search for records that match **both** terms.</p></li>
-          <li><p><code>search=field:term+field:term</code>: Search for records that match **either** of two terms.</p></li>
+          <li><p><code>search=field:term+AND+field:term</code>: Search for records that match <strong>both</strong> terms.</p></li>
+          <li><p><code>search=field:term+field:term</code>: Search for records that match <strong>either</strong> of two terms.</p></li>
+          <li><p><code>sort=report_date:desc</code>: Sort records by a specific <code>field</code> in descending order</p></li>
           <li><p><code>search=field:term&count=another_field</code>: Search for matching records. Then within that set of records, count the number of times that the unique values of a field appear. Instead of looking at individual records, you can use the <code>count</code> parameter to count how often certain terms (like drug names or patient reactions) appear in the matching set of records.</p></li>
         </ul>
         <p>Here are some example queries that demonstrate how these searches and the <code>count</code> parameter work, all using the drug adverse events endpoint.</p>
@@ -41,6 +42,12 @@ class IndexRoute extends React.Component {
           originalQuery={searchAny.query}
           params={searchAny.params}
           title={searchAny.title}
+        />
+        <QueryExplorer
+          desc={count.description}
+          originalQuery={count.query}
+          params={count.params}
+          title={count.title}
         />
         <QueryExplorer
           desc={count.description}

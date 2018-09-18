@@ -25,6 +25,16 @@ searchAny:
   params:
     - 'Search for records where the field `patient.reaction.reactionmeddrapt` (patient reaction) contains **fatigue** or `occurcountry` (country where the event happened) was **ca** (the country code for Canada)'
   query: 'https://api.fda.gov/drug/event.json?search=patient.reaction.reactionmeddrapt:"fatigue"+occurcountry:"ca"&limit=1'
+sortDesc:
+  title: Sort in descending order
+  description:
+    - 'This query looks in the `drug/event` endpoint for ten records and sorts them in descending order by received date.'
+  params:
+    - 'Search for ten records'
+    - 'Sort the results in descending order'
+    - 'Sort by the field `receivedate`'
+  query: 'https://api.fda.gov/drug/event.json?sort=receivedate:desc&limit=10'
+
 count:
   title: Counting records where certain terms occur
   description:
