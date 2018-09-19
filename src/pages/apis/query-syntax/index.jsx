@@ -44,10 +44,10 @@ class IndexRoute extends React.Component {
           title={searchAny.title}
         />
         <QueryExplorer
-          desc={count.description}
-          originalQuery={count.query}
-          params={count.params}
-          title={count.title}
+          desc={sortDesc.description}
+          originalQuery={sortDesc.query}
+          params={sortDesc.params}
+          title={sortDesc.title}
         />
         <QueryExplorer
           desc={count.description}

@@ -34,7 +34,6 @@ sortDesc:
     - 'Sort the results in descending order'
     - 'Sort by the field `receivedate`'
   query: 'https://api.fda.gov/drug/event.json?sort=receivedate:desc&limit=10'
-
 count:
   title: Counting records where certain terms occur
   description:
