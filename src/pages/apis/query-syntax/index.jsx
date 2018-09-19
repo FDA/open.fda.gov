@@ -9,6 +9,7 @@ class IndexRoute extends React.Component {
     const searchSingleTerm = explorers['searchSingleTerm']
     const searchAll = explorers['searchAll']
     const searchAny = explorers['searchAny']
+    const sortDesc = explorers['sortDesc']
     const count = explorers['count']
 
     return (
