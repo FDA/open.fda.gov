@@ -1,4 +1,281 @@
 names:
+  animaldrugs:
+    label: Animal Drug Labeling
+    path: animaldrug
+    showChartView: true
+    showFormView: false
+    drugtype: animal
+    views:
+      listingLabels:
+        label: Listing of Labels
+        searchType: nonLLT
+        help_text:
+          - "There are two ways to explore the Animal Drug Labeling data: in a table or visualized in a variety of charts."
+          - "The default view is the table, which allows you to select which columns you'd like to view and click on individual columns to sort the table by those results. The table displays 25 rows by default, but that number can be modified through a dropdown list. The next and previous buttons allow you to navigate through the all of the available data; you can also directly input what 'page' of data you'd like to view. The final major feature of the table view is the ability to export results in CSV or XLS format."
+          - "The chart view visualizes data in one of two charts: Total Labels, a bar chart which counts the total number of labels for whatever data element you select, and Filter Data by Year, a combination pie chart and bar chart which allow you to filter data by year and product type."
+          - "Both table and chart allow you to narrow down the results displayed through the use of the filter panel on the left side of the screen. Any number of filters may be applied and each will narrow down the data accordingly. After selecting your desired filters simply press the Apply Filters button in the middle of the screen. If you don't wish to apply those filters, press the Clear All button. After applying filters, they'll be displayed above the table or chart, and can be removed individually or as a whole; removing filters in either of these ways is done automatically without needing to press Apply Filters. Please note that some combinations of specific filters may result in no data matching the total filter criteria and no results being displayed."
+        show_collapse_rows_button: false
+        columns:
+          - Header: Product Type
+            accessor: openfda.product_type
+            show: true
+            showDefault: true
+          - Header: Marketing Category
+            accessor: openfda.application_number
+            show: true
+            showDefault: true
+            getPreNumbersPart: true
+          - Header: Manufacturer Name
+            accessor: openfda.manufacturer_name
+            show: true
+            showDefault: true
+          - Header: Brand Name
+            accessor: openfda.brand_name
+            show: true
+            showDefault: true
+            startCase: true
+          - Header: Substance Name
+            accessor: openfda.substance_name
+            show: true
+            showDefault: true
+            split: true
+          - Header: Inactive Ingredients
+            accessor: inactive_ingredient
+            show: true
+            showDefault: true
+            filter_values:
+              - Also Contains
+              - Also Contain
+              - Contains
+              - Contain
+              - Inactive Ingredients
+              - Inactive Ingredient
+              - Other Ingredients
+              - Other Ingredient
+            split: true
+            startCase: true
+          - Header: NDC
+            accessor: openfda.product_ndc
+            show: true
+            showDefault: true
+            split: true
+          - Header: Generic Name
+            accessor: openfda.generic_name
+            show: false
+            showDefault: false
+            split: true
+            startCase: true
+          - Header: Effective Date
+            accessor: effective_time
+            show: false
+            showDefault: false
+            type: date
+          - Header: Active Ingredients
+            accessor: active_ingredient
+            filter_values:
+              - Active Ingredients
+              - Active Ingredient
+              - Active
+              - Ingredient
+              - Ingredients
+              - Contains
+              - Contain
+              - Drug Facts
+              - Drug Fact
+              - Composition
+              - Key Ingredients
+              - Key Ingredient
+            show: false
+            showDefault: false
+            split: true
+            startCase: true
+          - Header: Purpose
+            accessor: purpose
+            show: false
+            showDefault: false
+          - Header: Keep out of reach of children
+            accessor: keep_out_of_reach_of_children
+            show: false
+            showDefault: false
+          - Header: Warnings
+            accessor: warnings
+            show: false
+            showDefault: false
+          - Header: Questions
+            accessor: questions
+            show: false
+            showDefault: false
+          - Header: SPL Product Data Elements
+            accessor: spl_product_data_elements
+            show: false
+            showDefault: false
+          - Header: SPL ID
+            accessor: openfda.spl_id
+            show: false
+            showDefault: false
+          - Header: Route
+            accessor: route
+            show: false
+            showDefault: false
+          - Header: Application Number
+            accessor: openfda.application_number
+            show: false
+            showDefault: false
+          - Header: Marketing Status
+            accessor: openfda.marketing_status
+            show: false
+            showDefault: false
+          - Header: Is original packager
+            accessor: openfda.is_original_packager
+            show: false
+          - Header: SPL Set ID
+            accessor: openfda.spl_set_id
+            show: false
+            showDefault: false
+          - Header: UNII
+            accessor: openfda.unii
+            show: false
+            showDefault: false
+          - Header: Dosage
+            accessor: dosage_and_administration
+            show: false
+          - Header: Pregnancy or breast feeding
+            accessor: pregnancy_or_breast_feeding
+            show: false
+            showDefault: false
+          - Header: Stop Use
+            accessor: stop_use
+            show: false
+            showDefault: false
+          - Header: Storage and Handling
+            accessor: storage_and_handling
+            show: false
+            showDefault: false
+          - Header: Do Not Use
+            accessor: do_not_use
+            show: false
+            showDefault: false
+          - Header: Package label principal display
+            accessor: package_label_principal_display_panel
+            show: false
+            showDefault: false
+          - Header: Indications and Usage
+            accessor: indications_and_usage
+            show: false
+            showDefault: false
+    endpoint: animalandveterinary/label.json
+    url: http://ec2-54-161-122-197.compute-1.amazonaws.com:8000
+    filters:
+      options:
+        - label: Time Period
+          type: yearpicker
+          start_year: 1994
+          field: effective_time
+          query_type: range
+          placeholder: Select Time Period
+        - label: Product type
+          type: checkbox
+          query_type: term
+          field: openfda.product_type_exact
+          options:
+            - label: Over the counter
+              value: OTC ANIMAL DRUG
+            - label: OTC type A
+              value: OTC TYPE A MEDICATED ARTICLE ANIMAL DRUG
+            - label: OTC type C
+              value: OTC TYPE C MEDICATED FEED ANIMAL DRUG
+            - label: Prescription
+              value: PRESCRIPTION ANIMAL DRUG
+            - label: VFD type A
+              value: VFD TYPE A MEDICATED ARTICLE ANIMAL DRUG
+        - label: Marketing Status
+          type: checkbox
+          query_type: term
+          field: openfda.marketing_status
+          options:
+            - label: Active
+              value: active
+            - label: Completed
+              value: completed
+            - label: New
+              value: new
+        - label: Marketing Category
+          type: checkbox
+          query_type: prefix
+          field: openfda.application_number.exact
+          options:
+            - label: NADA
+              value: NADA
+            - label: ANADA
+              value: ANADA
+        - label: Drug Approval Status
+          type: boolean
+          field: openfda.application_number
+          query_type: exists
+          options:
+            - label: Approved
+              value: true
+            - label: Unapproved
+              value: false
+        - label: Brand Name
+          field: openfda.brand_name_exact
+          autocomplete_field: openfda.brand_name
+          query_type: term
+          type: select_autocomplete
+          can_query: true
+          placeholder: Search Brand Name
+          limit: 100
+        - label: Generic Name
+          field: openfda.generic_name_exact
+          autocomplete_field: openfda.generic_name
+          query_type: term
+          type: select_autocomplete
+          can_query: true
+          placeholder: Search Generic Name
+          limit: 100
+        - label: Manufacturer Name
+          type: select_autocomplete
+          field: openfda.manufacturer_name_exact
+          autocomplete_field: openfda.manufacturer_name
+          query_type: term
+          placeholder: Search Manufacturer Name
+          limit: 100
+          can_query: true
+        - label: Substance Name
+          field: openfda.substance_name_exact
+          autocomplete_field: openfda.substance_name
+          type: select_autocomplete
+          remove_chars: active ingredients
+          can_query: true
+          placeholder: Search Substance Name
+          query_type: term
+          limit: 100
+        - label: Inactive Ingredients
+          field: inactive_ingredient
+          type: free_text
+          query_type: match
+          remove_chars: inactive ingredients
+          placeholder: Type Inactive Ingredient
+          limit: 100
+        - label: NDC Code
+          type: select_autocomplete
+          can_query: true
+          field: openfda.product_ndc_exact
+          query_type: term
+          autocomplete_field: openfda.product_ndc
+          placeholder: E.g. 59822-1
+          limit: 100
+        - label: Application Number
+          type: select_autocomplete
+          can_query: true
+          field: openfda.application_number
+          query_type: term
+          autocomplete_field: openfda.application_number
+          placeholder: E.g. ANADA200224
+          limit: 100
+    exportOptions:
+      - label: CSV
+      - label: JSON
   petfoodrecalls:
     label: Pet Food Reports
     path: petfoodreports
@@ -410,268 +687,6 @@ names:
           query_type: term
           autocomplete_field: pub_authors
           placeholder: Select Authors or Start Typing
-          limit: 100
-    exportOptions:
-      - label: CSV
-      - label: JSON
-  animaldrugs:
-    label: Animal Drug Labeling
-    path: animaldrug
-    showChartView: true
-    showFormView: false
-    drugtype: animal
-    views:
-      listingLabels:
-        label: Listing of Labels
-        searchType: nonLLT
-        help_text:
-          - "There are two ways to explore the Animal Drug Labeling data: in a table or visualized in a variety of charts."
-          - "The default view is the table, which allows you to select which columns you'd like to view and click on individual columns to sort the table by those results. The table displays 25 rows by default, but that number can be modified through a dropdown list. The next and previous buttons allow you to navigate through the all of the available data; you can also directly input what 'page' of data you'd like to view. The final major feature of the table view is the ability to export results in CSV or XLS format."
-          - "The chart view visualizes data in one of two charts: Total Labels, a bar chart which counts the total number of labels for whatever data element you select, and Filter Data by Year, a combination pie chart and bar chart which allow you to filter data by year and product type."
-          - "Both table and chart allow you to narrow down the results displayed through the use of the filter panel on the left side of the screen. Any number of filters may be applied and each will narrow down the data accordingly. After selecting your desired filters simply press the Apply Filters button in the middle of the screen. If you don't wish to apply those filters, press the Clear All button. After applying filters, they'll be displayed above the table or chart, and can be removed individually or as a whole; removing filters in either of these ways is done automatically without needing to press Apply Filters. Please note that some combinations of specific filters may result in no data matching the total filter criteria and no results being displayed."
-        show_collapse_rows_button: false
-        columns:
-          - Header: Product Type
-            accessor: openfda.product_type
-            show: true
-            showDefault: true
-          - Header: Marketing Category
-            accessor: openfda.application_number
-            show: true
-            showDefault: true
-            getPreNumbersPart: true
-          - Header: Manufacturer Name
-            accessor: openfda.manufacturer_name
-            show: true
-            showDefault: true
-          - Header: Brand Name
-            accessor: openfda.brand_name
-            show: true
-            showDefault: true
-            startCase: true
-          - Header: Substance Name
-            accessor: openfda.substance_name
-            show: true
-            showDefault: true
-            split: true
-          - Header: Inactive Ingredients
-            accessor: inactive_ingredient
-            show: true
-            showDefault: true
-            filter_values:
-              - Also Contains
-              - Also Contain
-              - Contains
-              - Contain
-              - Inactive Ingredients
-              - Inactive Ingredient
-              - Other Ingredients
-              - Other Ingredient
-            split: true
-            startCase: true
-          - Header: NDC
-            accessor: openfda.product_ndc
-            show: true
-            showDefault: true
-            split: true
-          - Header: Generic Name
-            accessor: openfda.generic_name
-            show: false
-            showDefault: false
-            split: true
-            startCase: true
-          - Header: Effective Date
-            accessor: effective_time
-            show: false
-            showDefault: false
-            type: date
-          - Header: Active Ingredients
-            accessor: active_ingredient
-            filter_values:
-              - Active Ingredients
-              - Active Ingredient
-              - Active
-              - Ingredient
-              - Ingredients
-              - Contains
-              - Contain
-              - Drug Facts
-              - Drug Fact
-              - Composition
-              - Key Ingredients
-              - Key Ingredient
-            show: false
-            showDefault: false
-            split: true
-            startCase: true
-          - Header: Purpose
-            accessor: purpose
-            show: false
-            showDefault: false
-          - Header: Keep out of reach of children
-            accessor: keep_out_of_reach_of_children
-            show: false
-            showDefault: false
-          - Header: Warnings
-            accessor: warnings
-            show: false
-            showDefault: false
-          - Header: Questions
-            accessor: questions
-            show: false
-            showDefault: false
-          - Header: SPL Product Data Elements
-            accessor: spl_product_data_elements
-            show: false
-            showDefault: false
-          - Header: SPL ID
-            accessor: openfda.spl_id
-            show: false
-            showDefault: false
-          - Header: Route
-            accessor: route
-            show: false
-            showDefault: false
-          - Header: Application Number
-            accessor: openfda.application_number
-            show: false
-            showDefault: false
-          - Header: Is original packager
-            accessor: openfda.is_original_packager
-            show: false
-          - Header: SPL Set ID
-            accessor: openfda.spl_set_id
-            show: false
-            showDefault: false
-          - Header: UNII
-            accessor: openfda.unii
-            show: false
-            showDefault: false
-          - Header: Dosage
-            accessor: dosage_and_administration
-            show: false
-          - Header: Pregnancy or breast feeding
-            accessor: pregnancy_or_breast_feeding
-            show: false
-            showDefault: false
-          - Header: Stop Use
-            accessor: stop_use
-            show: false
-            showDefault: false
-          - Header: Storage and Handling
-            accessor: storage_and_handling
-            show: false
-            showDefault: false
-          - Header: Do Not Use
-            accessor: do_not_use
-            show: false
-            showDefault: false
-          - Header: Package label principal display
-            accessor: package_label_principal_display_panel
-            show: false
-            showDefault: false
-          - Header: Indications and Usage
-            accessor: indications_and_usage
-            show: false
-            showDefault: false
-    endpoint: animalandveterinary/label.json
-    url: https://openfda-api.preprod.fda.gov
-    filters:
-      options:
-        - label: Time Period
-          type: yearpicker
-          start_year: 1994
-          field: effective_time
-          query_type: range
-          placeholder: Select Time Period
-        - label: Product type
-          type: checkbox
-          query_type: term
-          field: openfda.product_type_exact
-          options:
-            - label: Over the counter
-              value: OTC ANIMAL DRUG
-            - label: OTC type A
-              value: OTC TYPE A MEDICATED ARTICLE ANIMAL DRUG
-            - label: OTC type C
-              value: OTC TYPE C MEDICATED FEED ANIMAL DRUG
-            - label: Prescription
-              value: PRESCRIPTION ANIMAL DRUG
-            - label: VFD type A
-              value: VFD TYPE A MEDICATED ARTICLE ANIMAL DRUG
-        - label: Marketing Category
-          type: checkbox
-          query_type: prefix
-          field: openfda.application_number.exact
-          options:
-            - label: NADA
-              value: NADA
-            - label: ANADA
-              value: ANADA
-        - label: Drug Approval Status
-          type: boolean
-          field: openfda.application_number
-          query_type: exists
-          options:
-            - label: Approved
-              value: true
-            - label: Unapproved
-              value: false
-        - label: Brand Name
-          field: openfda.brand_name_exact
-          autocomplete_field: openfda.brand_name
-          query_type: term
-          type: select_autocomplete
-          can_query: true
-          placeholder: Search Brand Name
-          limit: 100
-        - label: Generic Name
-          field: openfda.generic_name_exact
-          autocomplete_field: openfda.generic_name
-          query_type: term
-          type: select_autocomplete
-          can_query: true
-          placeholder: Search Generic Name
-          limit: 100
-        - label: Manufacturer Name
-          type: select_autocomplete
-          field: openfda.manufacturer_name_exact
-          autocomplete_field: openfda.manufacturer_name
-          query_type: term
-          placeholder: Search Manufacturer Name
-          limit: 100
-          can_query: true
-        - label: Substance Name
-          field: openfda.substance_name_exact
-          autocomplete_field: openfda.substance_name
-          type: select_autocomplete
-          remove_chars: active ingredients
-          can_query: true
-          placeholder: Search Substance Name
-          query_type: term
-          limit: 100
-        - label: Inactive Ingredients
-          field: inactive_ingredient
-          type: free_text
-          query_type: match
-          remove_chars: inactive ingredients
-          placeholder: Type Inactive Ingredient
-          limit: 100
-        - label: NDC Code
-          type: select_autocomplete
-          can_query: true
-          field: openfda.product_ndc_exact
-          query_type: term
-          autocomplete_field: openfda.product_ndc
-          placeholder: E.g. 59822-1
-          limit: 100
-        - label: Application Number
-          type: select_autocomplete
-          can_query: true
-          field: openfda.application_number
-          query_type: term
-          autocomplete_field: openfda.application_number
-          placeholder: E.g. ANADA200224
           limit: 100
     exportOptions:
       - label: CSV

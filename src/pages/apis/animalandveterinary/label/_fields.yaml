@@ -486,6 +486,20 @@ properties:
           pattern:
           description: "Name of manufacturer or company that makes this drug product, corresponding to the labeler code segment of the NDC."
           possible_values:
+      marketing_status:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "What stage of marketing the product is in."
+          possible_values:
+            type: one_of
+            value:
+              active: "A product that is being actively marketed."
+              completed: "A product that is complete but not yet actively marketed."
+              new: "A new product to the market."
       nui:
         type: array
         items:
