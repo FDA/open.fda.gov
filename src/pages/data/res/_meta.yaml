@@ -9,7 +9,7 @@ description: 'Structured Product Labeling (SPL) is a document markup standard ap
 source:
   name: 'RES'
   nameLong: 'FDA Recall Enterprise System'
-  link: 'http://www.fda.gov/ICECI/ComplianceManuals/RegulatoryProceduresManual/ucm177308.htm'
+  link: 'https://www.fda.gov/downloads/ICECI/ComplianceManuals/RegulatoryProceduresManual/UCM074312.pdf'
   linkDownload: 'http://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm'
 license:
   name: 'Public Domain and CC0'
