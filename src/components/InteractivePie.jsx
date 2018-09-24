@@ -2,23 +2,23 @@
 
 import React from 'react'
 
-import { PieChart, Pie, Cell, Sector , Legend} from "Recharts";
+import { PieChart, Pie, Cell, Sector , Legend} from "recharts";
 
 // refer to http://jsfiddle.net/ro31mjuf/
 
 const RADIAN = Math.PI / 180;
-                                  
+
 const renderActiveShape = (props) => {
-  const { cx, 
-          cy, 
-          midAngle, 
-          innerRadius, 
-          outerRadius, 
-          startAngle, 
+  const { cx,
+          cy,
+          midAngle,
+          innerRadius,
+          outerRadius,
+          startAngle,
           endAngle,
-          fill, 
-          payload, 
-          percent, 
+          fill,
+          payload,
+          percent,
           value,
           pct,
           name,
@@ -39,16 +39,16 @@ const renderActiveShape = (props) => {
 
   return (
     <g>
-      <text 
-        x={cx} 
-        y={cy-10} 
-        dy={8} 
-        textAnchor="middle" 
-        id="textLabel1" 
+      <text
+        x={cx}
+        y={cy-10}
+        dy={8}
+        textAnchor="middle"
+        id="textLabel1"
         className="piechart-centered-title"
       >
       </text>
-      <text 
+      <text
         x={cx}
         y={cy+10}
         dy={8}
@@ -57,7 +57,7 @@ const renderActiveShape = (props) => {
         className="piechart-centered-title"
       >
       </text>
-      
+
       <Sector
         cx={cx}
         cy={cy}
@@ -88,7 +88,7 @@ class TwoLevelPieChart extends React.Component {
 
    constructor (props: Object) {
     super(props)
-    
+
     this.state = {
       activeIndex: null
     }
@@ -130,8 +130,8 @@ class TwoLevelPieChart extends React.Component {
 
   render (): ?React.Element {
     return (
-      <PieChart 
-        width={this.props.width} 
+      <PieChart
+        width={this.props.width}
         height={this.props.height}
       >
         <Pie
@@ -139,8 +139,8 @@ class TwoLevelPieChart extends React.Component {
           dataKey="value"
           activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
-          data={this.props.data} 
-          cx={this.props.radius.cx} 
+          data={this.props.data}
+          cx={this.props.radius.cx}
           cy={this.props.radius.cy}
           innerRadius={this.props.radius.innerRadius}
           outerRadius={this.props.radius.outerRadius}
