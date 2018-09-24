@@ -10,7 +10,7 @@ import _ from 'lodash';
 import Parser from 'html-react-parser';
 import {default as $} from "jquery";
 import TwoLevelPieChart from './InteractivePie';
-import { PieChart, Pie, Sector } from "Recharts";
+import { PieChart, Pie, Sector } from "recharts";
 import Select from 'react-select'
 import 'whatwg-fetch'
 import createClass from 'create-react-class';
@@ -62,11 +62,11 @@ const GravatarOption = createClass({
         title={this.props.option.title}>
         <input type="checkbox" checked={this.props.option.isSelected}/>
           <div style={{
-              width: 20, 
-              height: 20, 
+              width: 20,
+              height: 20,
               backgroundColor: this.props.option.color,
               display: 'inline-block',
-              paddingTop: 5 
+              paddingTop: 5
             }}>
           </div>
           {"  "}{ this.props.option.label }
@@ -108,7 +108,7 @@ class PieChartInfographic extends React.Component {
     super(props)
 
     if(
-        this.props.api == undefined || 
+        this.props.api == undefined ||
         this.props.infographicDefinitions === undefined
       ) {
       throw "Invalid Props"
@@ -150,7 +150,7 @@ class PieChartInfographic extends React.Component {
 
   }
   componentWillReceiveProps(){
-    
+
     this.setState({lineChartLoaded: 0}, this.componentDidMount())
   }
   componentDidMount () {
@@ -165,7 +165,7 @@ class PieChartInfographic extends React.Component {
         const apiParts = that.props.globalDefs.api.split('/'),
               latestDataDate = new Date(download_res.results[apiParts[1]][apiParts[2]].export_date),
               latestYear = latestDataDate.getFullYear()
-        
+
         const currentDate = new Date()
 
         that.setState({
@@ -187,7 +187,7 @@ class PieChartInfographic extends React.Component {
       })
   }
 
-  fetchJSON (url: string): Object {  
+  fetchJSON (url: string): Object {
     return new Promise((resolve, reject) => {
       $.getJSON(url)
         .done((json) => resolve(json, url))
@@ -270,7 +270,7 @@ class PieChartInfographic extends React.Component {
       } else if (that.props.infographicDefinitions.pieChartConfig.sort === "ascending"){
         res = results[0].results.sort( (a,b) => a.count - b.count)
       }
-      /// 
+      ///
 
       var total = res.map( (item) => {
         return item.count
@@ -280,7 +280,7 @@ class PieChartInfographic extends React.Component {
       if(that.props.infographicDefinitions.excludeFields !== undefined){
         res = res.filter(value => {
           return (that.props.infographicDefinitions.excludeFields.indexOf(value.term) === -1)
-        })  
+        })
       }
       ///
 
@@ -336,7 +336,7 @@ class PieChartInfographic extends React.Component {
                                  value.term.indexOf("®") === -1
 
             var isAnAcceptedTerm = that.props.infographicDefinitions.acceptedTerms !== undefined ?
-                                   that.props.infographicDefinitions.acceptedTerms[value.term.toUpperCase()] !== undefined : 
+                                   that.props.infographicDefinitions.acceptedTerms[value.term.toUpperCase()] !== undefined :
                                    true;
 
             var excludedField = false
@@ -355,7 +355,7 @@ class PieChartInfographic extends React.Component {
               if(that.props.infographicDefinitions.subfield_filter){
                 value_term = value_term.replace(that.props.infographicDefinitions.subfield_filter, '')
               }
-              /// 
+              ///
 
               /// split by space and uppercase first letter, lowercase [0:]
               value_term.split(" ").forEach( (word,idx) => {
@@ -366,7 +366,7 @@ class PieChartInfographic extends React.Component {
                   term += word[0].toUpperCase() + word.slice(1,word.length).toLowerCase().replace('.','')
                 }
               })
-              // 
+              //
 
               terms[term] = value.term
 
@@ -396,7 +396,7 @@ class PieChartInfographic extends React.Component {
 
           columns = columns.filter((column, index) => errors.indexOf(index) === -1)
 
-          // columns = 
+          // columns =
 
           //// End ERROR handing //////
 
@@ -422,7 +422,7 @@ class PieChartInfographic extends React.Component {
             cleanedColumnName = !cleanedColumnName ? column : cleanedColumnName
             return cleanedColumnName.slice(0,55)
           })
-          
+
           const listOfSeries = []
 
           for (var i = 0, len = results.length; i < len; i++) {
@@ -454,7 +454,7 @@ class PieChartInfographic extends React.Component {
           listOfSeries.forEach( arr => {
             arr.forEach( val => {
               // add timestamp for each series to timestamps with default 0
-              timestamps[val[0]] = 0 
+              timestamps[val[0]] = 0
             })
           })
           var timestamps = Object.keys(timestamps).sort();
@@ -576,7 +576,7 @@ class PieChartInfographic extends React.Component {
     timestamps.forEach( (key, i) => {
       var int = parseInt(key)
       if(int > 0){
-        final.push([int].concat(rows[i])) 
+        final.push([int].concat(rows[i]))
       }
     });
     return {
@@ -588,8 +588,8 @@ class PieChartInfographic extends React.Component {
 
   onSelectionChange (selectionObj) {
     var selection = selectionObj.label;
-    var selectionName = this.props.infographicDefinitions.selectionPostFix !== undefined ? 
-                        selection +  this.props.infographicDefinitions.selectionPostFix : 
+    var selectionName = this.props.infographicDefinitions.selectionPostFix !== undefined ?
+                        selection +  this.props.infographicDefinitions.selectionPostFix :
                         selection;
 
     let toggle = null
@@ -653,7 +653,7 @@ class PieChartInfographic extends React.Component {
       )
 
       const eventData = e.toJSON().data;
-      
+
       let infoValues = this.state.selected.map( label => {
           return {
             label : label.length < 20 ? label : label.slice(0,20) + " ... ",
@@ -674,7 +674,7 @@ class PieChartInfographic extends React.Component {
       // const v = `${eventValue}`;
 
       this.setState({
-        tracker: eventTime, 
+        tracker: eventTime,
         trackerEvent: e,
         trackerInfoValues: infoValues,
         infoHeight: infoHeight
@@ -690,11 +690,11 @@ class PieChartInfographic extends React.Component {
       <div>
         <input type="checkbox" checked={this.props.isSelected} onChange={() => {} }/>
         <div style={{
-            width: 20, 
-            height: 20, 
+            width: 20,
+            height: 20,
             backgroundColor: option.color,
             display: 'inline-block',
-            paddingTop: 5 
+            paddingTop: 5
           }}>
         </div>
             {"  "}{option.label}
@@ -737,13 +737,13 @@ class PieChartInfographic extends React.Component {
 
 
           <p>
-            Display of 
+            Display of
             {' '}
-            <i className='datamap-infographic-header-text-bold'>{this.props.globalDefs.apiName}</i>             
+            <i className='datamap-infographic-header-text-bold'>{this.props.globalDefs.apiName}</i>
             {' by '}
             <i className='datamap-infographic-header-text-bold'>{this.props.parent.state.choice.subfieldLabel}</i>
             {' '}for{' '}
-            <i className='datamap-infographic-header-text-bold'>{this.state.selectedClassName}</i> 
+            <i className='datamap-infographic-header-text-bold'>{this.state.selectedClassName}</i>
             {' '}
             {this.props.infographicDefinitions.yTitle}
           </p>
@@ -758,13 +758,13 @@ class PieChartInfographic extends React.Component {
             {...this.props.globalDefs.pieChartConfig}
             {...this.props.infographicDefinitions.pieChartConfig}
           />
-          { !this.state.sparklineData ? 
+          { !this.state.sparklineData ?
                 <div className="infographic-loading-div">
                   <img src="/img/loading.gif" className="infographic-loading-img"/>
-                </div> 
-                : 
+                </div>
+                :
                 <ChartContainer
-                  timeRange={this.state.timerange} 
+                  timeRange={this.state.timerange}
                   enablePanZoom={this.state.enablePanZoom}
                   onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
                   trackerPosition={this.state.tracker}
@@ -777,13 +777,13 @@ class PieChartInfographic extends React.Component {
                     <ChartRow
                       {...this.props.globalDefs.lineChartConfig.chartRow}
                     >
-                        <YAxis 
+                        <YAxis
                           id="axis1"
                           max={this.state.sparklineDataMax}
                           {...this.props.globalDefs.lineChartConfig.yAxis}
                         />
                         <Charts>
-                            <LineChart 
+                            <LineChart
                               style={this.state.legendStyle}
                               axis="axis1"
                               series={this.state.sparklineData}

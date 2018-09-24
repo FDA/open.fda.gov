@@ -4,9 +4,9 @@
   "version": "2.0.0",
   "author": "Jack Finch <jack.finch@semanticbits.com>",
   "scripts": {
-    "dev:css": "stylus -w ./src/css/app.styl -o ./src/css/build/app.css -I ./node-modules/nib",
-    "dev:site": "gatsby develop -H 127.0.0.1 -p 3000",
-    "build": "gatsby build --verbose",
+    "dev:css": "./node_modules/.bin/stylus -o ./src/css/build/app.css -I ./node-modules/nib ./src/css/app.styl",
+    "dev:site": "./node_modules/.bin/gatsby develop -H 0.0.0.0 -p 3000",
+    "build": "./node_modules/.bin/gatsby build --verbose",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'"
   },
   "repository": {
