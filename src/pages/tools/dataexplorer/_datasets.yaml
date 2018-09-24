@@ -25,6 +25,10 @@ names:
             show: true
             showDefault: true
             getPreNumbersPart: true
+          - Header: Marketing Status
+            accessor: openfda.marketing_status
+            show: false
+            showDefault: false
           - Header: Manufacturer Name
             accessor: openfda.manufacturer_name
             show: true
@@ -39,21 +43,6 @@ names:
             show: true
             showDefault: true
             split: true
-          - Header: Inactive Ingredients
-            accessor: inactive_ingredient
-            show: true
-            showDefault: true
-            filter_values:
-              - Also Contains
-              - Also Contain
-              - Contains
-              - Contain
-              - Inactive Ingredients
-              - Inactive Ingredient
-              - Other Ingredients
-              - Other Ingredient
-            split: true
-            startCase: true
           - Header: NDC
             accessor: openfda.product_ndc
             show: true
@@ -63,6 +52,21 @@ names:
             accessor: openfda.generic_name
             show: false
             showDefault: false
+            split: true
+            startCase: true
+          - Header: Inactive Ingredients
+            accessor: inactive_ingredient
+            show: false
+            showDefault: false
+            filter_values:
+              - Also Contains
+              - Also Contain
+              - Contains
+              - Contain
+              - Inactive Ingredients
+              - Inactive Ingredient
+              - Other Ingredients
+              - Other Ingredient
             split: true
             startCase: true
           - Header: Effective Date
@@ -119,10 +123,6 @@ names:
             showDefault: false
           - Header: Application Number
             accessor: openfda.application_number
-            show: false
-            showDefault: false
-          - Header: Marketing Status
-            accessor: openfda.marketing_status
             show: false
             showDefault: false
           - Header: Is original packager
