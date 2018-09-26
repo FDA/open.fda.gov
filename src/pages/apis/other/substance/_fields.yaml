@@ -64,6 +64,7 @@ properties:
     description: ""
     possible_values:
   notes:
+    description: "A list of notes for the record."
     type: object
     properties:
       note:
@@ -71,7 +72,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "Any note about the record that do not fit into other fields."
         possible_values:
       access:
         format:
@@ -127,7 +128,7 @@ properties:
     is_exact: false
     type: string
     pattern:
-    description: ""
+    description: "The Unique Ingredient Identifier (UNII, aka 'Approval ID') is a unique ID generated for each substance record."
     possible_values:
   tags:
     format:
@@ -137,6 +138,7 @@ properties:
     description: ""
     possible_values:
   names:
+    description: "The list of names associated with a record. These include scientific, common, generic and brand names for substances and concepts. Name objects include both the name as a string, as well as other information."
     type: object
     properties:
       uuid:
@@ -151,14 +153,14 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The literal string text of a name."
         possible_values:
       type:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The type of the name (bn, cn, sys, etc)."
         possible_values:
       domains:
         format:
@@ -172,7 +174,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A list of abbreviated languages that the name is in."
         possible_values:
       name_jurisdiction:
         format:
@@ -210,14 +212,14 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "True if this is the preferred name for the substance."
         possible_values:
       display_name:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "True if this is to be the displayed name for the substance."
         possible_values:
       references:
         format:
@@ -227,6 +229,7 @@ properties:
         description: ""
         possible_values:
   codes:
+    description: "A list of codes of various systems and types."
     type: object
     properties:
       uuid:
@@ -241,21 +244,21 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The orginizational system which defines the code meanings."
         possible_values:
       code:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The code value."
         possible_values:
       type:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The type of code (Primary, Alternative, Generic, etc.).."
         possible_values:
       url:
         format:
@@ -272,6 +275,7 @@ properties:
         description: ""
         possible_values:
   relationships:
+    description: "A list of related records which share any sort of hierarchical relationship with this record."
     type: object
     properties:
       uuid:
@@ -279,7 +283,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The UUID of the related substance."
         possible_values:
       related_substance:
         type: object
@@ -331,7 +335,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The type of relationship between the to records. For example, 'active moiety', 'metabolite->parent', or 'parent ->salt/solvent'."
         possible_values:
       references:
         format:
@@ -341,6 +345,7 @@ properties:
         description: ""
         possible_values:
   references:
+    description: "A list of references."
     type: object
     properties:
       uuid:
@@ -355,7 +360,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The reference text or citation."
         possible_values:
       doc_type:
         format:
@@ -494,6 +499,7 @@ properties:
         description: ""
         possible_values:
   moieties:
+    description: "A list of substances which are moieties of the record."
     type: object
     properties:
       uuid:
@@ -522,49 +528,49 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The tab delimited text that makes up the record's molfile."
         possible_values:
       smiles:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The ASCII string describing the records structure using the SMILES format."
         possible_values:
       formula:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The chemical formula of the record."
         possible_values:
       optical_activity:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The optical activity or rotation of the material, recorded using chirality prefixes or as UNSPECIFIED."
         possible_values:
       stereo_centers:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A count of possible stereocenters."
         possible_values:
       defined_stereo:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A count of defined stereocenters."
         possible_values:
       ez_centers:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A count of E-Z, or absolute double bond stereochemistry centers."
         possible_values:
       charge:
         format:
@@ -578,7 +584,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The molecular weight or relative molecular mass of the record."
         possible_values:
       count:
         format:
@@ -606,7 +612,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The records type of stereochemistry(absolute, achiral, racemic etc.)."
         possible_values:
       references:
         type: object
