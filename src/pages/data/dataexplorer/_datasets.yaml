@@ -74,7 +74,7 @@ names:
             show: false
             showDefault: false
             type: date
-          - Header: Active Ingredients
+          - Header: Active Ingredients in Labeling
             accessor: active_ingredient
             filter_values:
               - Active Ingredients
@@ -208,6 +208,8 @@ names:
               value: NADA
             - label: ANADA
               value: ANADA
+            - label: MIF
+              value: MIF
         - label: Drug Approval Status
           type: boolean
           field: openfda.application_number
@@ -241,13 +243,13 @@ names:
           placeholder: Search Manufacturer Name
           limit: 100
           can_query: true
-        - label: Substance Name
+        - label: Active Ingredients
           field: openfda.substance_name_exact
           autocomplete_field: openfda.substance_name
           type: select_autocomplete
           remove_chars: active ingredients
           can_query: true
-          placeholder: Search Substance Name
+          placeholder: Search Active Ingredients
           query_type: term
           limit: 100
         - label: Inactive Ingredients
