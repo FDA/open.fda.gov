@@ -4,28 +4,28 @@ properties:
     is_exact: false
     type: string
     pattern:
-    description: ""
+    description: "A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record)."
     possible_values:
   definition_type:
     format:
     is_exact: false
     type: string
     pattern:
-    description: ""
+    description: "The type of definition ('primary' or 'alternative'). Primary definitions are the main descriptive form of the substance definition, while 'alternative' definitions may be seen as definitional 'synonyms' of some primary record."
     possible_values:
   definition_level:
     format:
     is_exact: false
     type: string
     pattern:
-    description: ""
+    description: "The level of completeness and specificity of the definition (e.g. 'complete', 'incomplete', 'representative')."
     possible_values:
   substance_class:
     format:
     is_exact: false
     type: string
     pattern:
-    description: ""
+    description: "This value wall always be 'reference' if it is intended as a real reference and 'mention' if it is a place-holder. However, it can also specify a full substance class, in which case the whole record reference object is meant to be a full entire record rather than a reference."
     possible_values:
       type: one_of
       value:
@@ -41,7 +41,7 @@ properties:
     is_exact: false
     type: string
     pattern:
-    description: ""
+    description: "The current record status (e.g. 'pending', 'approved'). This is not a regulatory status, but simply the status of record validation and curation. ."
     possible_values:
       type: one_of
       value:
@@ -54,14 +54,14 @@ properties:
     is_exact: false
     type: string
     pattern:
-    description: ""
+    description: "The version of GSRS for which."
     possible_values:
   approved_by:
     format:
     is_exact: false
     type: string
     pattern:
-    description: ""
+    description: "A string representing a user or entity which approved the assignment of UNII, or approval ID."
     possible_values:
   notes:
     description: "A list of notes for the record."
@@ -79,49 +79,49 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "Marking the record or element as belonging to certain groups for use in tracking which groups should receive visibility, export and/or inclusion in specific reports."
         possible_values:
       references:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
         possible_values:
       created_by:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A string representing a user or entity which originally created the record (or element)."
         possible_values:
       created:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A UNIX timestamp marking when the record (or element) was created (or sometimes exported) in its original form."
         possible_values:
       last_edited:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
-        possible_values:
-      uuid:
-        format:
-        is_exact: false
-        type: string
-        pattern:
-        description: ""
+        description: "A UNIX timestamp marking when the record was last edited (or sometimes exported) to form the record (or element) in its current state."
         possible_values:
       last_edited_by:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A string representing a user or entity which last edited the record (or element)."
+        possible_values:
+      uuid:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record)."
         possible_values:
   approval_id:
     format:
@@ -146,7 +146,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record)."
         possible_values:
       name:
         format:
@@ -167,7 +167,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The list of domains that this name is used in (e.g. 'drug', 'cosmetic', etc)."
         possible_values:
       languages:
         format:
@@ -181,7 +181,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The list of jurisdictions where that name is used."
         possible_values:
       name_orgs:
         type: object
@@ -191,21 +191,21 @@ properties:
             is_exact: false
             type: string
             pattern:
-            description: ""
+            description: "A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record)."
             possible_values:
           name_org:
             format:
             is_exact: false
             type: string
             pattern:
-            description: ""
+            description: "The list of naming organizations that have marked this name as official in some way."
             possible_values:
           references:
             format:
             is_exact: false
             type: string
             pattern:
-            description: ""
+            description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
             possible_values:
       preferred:
         format:
@@ -226,7 +226,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
         possible_values:
   codes:
     description: "A list of codes of various systems and types."
@@ -237,7 +237,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record)."
         possible_values:
       code_system:
         format:
@@ -265,14 +265,14 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The url to further information regarding this code."
         possible_values:
       references:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
         possible_values:
   relationships:
     description: "A list of related records which share any sort of hierarchical relationship with this record."
@@ -300,35 +300,35 @@ properties:
             is_exact: false
             type: string
             pattern:
-            description: ""
+            description: "A reference to the related substance (or concept) record."
             possible_values:
           originator_uuid:
             format:
             is_exact: false
             type: string
             pattern:
-            description: ""
+            description: "The UUID of the equivalent inverted relationship (if present) on the other record."
             possible_values:
           type:
             format:
             is_exact: false
             type: string
             pattern:
-            description: ""
+            description: "The type of the name (e.g. 'bn' for 'brand name', 'cn' for 'common name', and 'sys' for 'systematic name', etc)."
             possible_values:
           references:
             format:
             is_exact: false
             type: string
             pattern:
-            description: ""
+            description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
             possible_values:
       originator_uuid:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The UUID of the equivalent inverted relationship (if present) on the other record."
         possible_values:
       type:
         format:
@@ -342,7 +342,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
         possible_values:
   references:
     description: "A list of references."
@@ -353,7 +353,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record)."
         possible_values:
       citation:
         format:
@@ -367,21 +367,21 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The type of reference or document represented (e.g. 'INN', 'Journal Article', etc)."
         possible_values:
       public_domain:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A marking of whether the reference itself is known to be publicly accessible."
         possible_values:
       tags:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A collection of strings which mark the reference as having specific properties (nomenclature, spectra, definition, etc)."
         possible_values:
   structure:
     type: object
@@ -391,84 +391,84 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The identifier of the structural element itself (this is still a UUID)."
         possible_values:
       digest:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A hash of the raw structural information encoded."
         possible_values:
       molfile:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The chemical structure in MDL Molfile format (V2000)."
         possible_values:
       smiles:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The chemical structure in SMILES format."
         possible_values:
       formula:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The chemical formula of the record."
         possible_values:
       optical_activity:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The optical activity or rotation of the material. '(+)' and '(-)' are used for optically active materials where activity is known and significantly useful for definition. '(+-)' is used for racemic mixtures."
         possible_values:
       stereo_centers:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A count of possible stereocenters."
         possible_values:
       defined_stereo:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A count of defined stereocenters."
         possible_values:
       ez_centers:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A count of E/Z, or absolute double bond stereochemistry centers."
         possible_values:
       charge:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The net charge of the structure."
         possible_values:
       molecular_weight:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The molecular weight of the structure."
         possible_values:
       count:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The exact number of times that the structure is repeated."
         possible_values:
       self:
         format:
@@ -482,21 +482,21 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A hash of the defining structural information. Here, the lychi layer 4 is used."
         possible_values:
       stereochemistry:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The structure's type of stereochemistry (absolute, achiral, racemic, etc.)."
         possible_values:
       references:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
         possible_values:
   moieties:
     description: "A list of substances which are moieties of the record."
@@ -507,21 +507,21 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record)."
         possible_values:
       id:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The identifier of the structural element itself (this is still a UUID)."
         possible_values:
       digest:
         format:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A hash of the raw structural information encoded."
         possible_values:
       molfile:
         format:
@@ -577,7 +577,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The net charge of the structure."
         possible_values:
       molecular_weight:
         format:
@@ -591,7 +591,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "The exact number of times that the structure is repeated."
         possible_values:
       self:
         format:
@@ -605,7 +605,7 @@ properties:
         is_exact: false
         type: string
         pattern:
-        description: ""
+        description: "A hash of the defining structural information. Here, the lychi layer 4 is used."
         possible_values:
       stereochemistry:
         format:
@@ -622,34 +622,34 @@ properties:
             is_exact: false
             type: string
             pattern:
-            description: ""
+            description: "A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record)."
             possible_values:
           citation:
             format:
             is_exact: false
             type: string
             pattern:
-            description: ""
+            description: "The reference text or citation."
             possible_values:
           doc_type:
             format:
             is_exact: false
             type: string
             pattern:
-            description: ""
+            description: "The type of reference or document represented (e.g. 'INN', 'Journal Article', etc)."
             possible_values:
           public_domain:
             format:
             is_exact: false
             type: string
             pattern:
-            description: ""
+            description: "A marking of whether the reference itself is known to be publicly accessible."
             possible_values:
           tags:
             format:
             is_exact: false
             type: string
             pattern:
-            description: ""
+            description: "A collection of strings which mark the reference as having specific properties (nomenclature, spectra, definition, etc)."
             possible_values:
 type: object
