@@ -9,6 +9,7 @@ type tSTATE = {
   activeDropdown: string;
   path: string;
   validated: boolean;
+  ndcValidated: boolean;
 };
 
 const NavContainer = function (ComposedNav: ReactClass): ReactClass {
@@ -18,7 +19,8 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
       showModal: false,
       activeDropdown: ' ',
       path: ' ',
-      validated: false
+      validated: false,
+      ndcValidated: false
     };
 
     componentDidMount () {
@@ -81,17 +83,33 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
     }
 
     _handleOpenModal () {
-      this.setState({
-        validated: false,
-        showModal: true
-      })
+      if (window.location.pathname === '/apis/drug/ndc/') {
+        this.setState({
+          validated: false,
+          ndcValidated: false,
+          showModal: true
+        })
+      } else {
+        this.setState({
+          validated: false,
+          showModal: true
+        })
+      }
     }
 
     _handleCloseModal () {
-      this.setState({
-        validated: true,
-        showModal: false
-      })
+      if (window.location.pathname === '/apis/drug/ndc/') {
+        this.setState({
+          validated: true,
+          ndcValidated: true,
+          showModal: false
+        })
+      } else {
+        this.setState({
+          validated: true,
+          showModal: false
+        })
+      }
     }
 
     render (): React.Element {

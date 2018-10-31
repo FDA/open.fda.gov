@@ -6,6 +6,7 @@ import Link from 'gatsby-link'
 import ComposedDisclaimer from '../containers/DisclaimerContainer'
 
 type tPROPS = {
+  path: string,
   showModal: boolean,
   handleCloseModal: Function,
   hideModal: Function
@@ -22,6 +23,7 @@ type tPROPS = {
  */
 const Disclaimer = (props: tPROPS) => {
   const {
+    path,
     showModal,
     handleCloseModal,
     hideModal
@@ -39,7 +41,11 @@ const Disclaimer = (props: tPROPS) => {
     >
       <h4 className="modal-header">Disclaimer</h4>
       <div className='modal-body'>
-        <span>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='underline' to='/terms/'> Terms of Service</Link></span>
+        <p>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='underline' to='/terms/'> Terms of Service</Link></p>
+        {
+          path === '/apis/drug/ndc/' &&
+          <p>NDC disclaimer text placeholder.</p>
+        }
       </div>
       <button className='button bg-primary clr-white' onClick={() => handleCloseModal(hideModal)}>ACCEPT</button>
     </ReactModal>

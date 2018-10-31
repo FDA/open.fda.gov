@@ -33,6 +33,7 @@ type tPROPS = {
   activeDropdown: string;
   path: string;
   style: object;
+  ndcValidated: boolean;
   validated: boolean;
 };
 
@@ -51,6 +52,7 @@ const Nav = (props: tPROPS) => {
     activeDropdown,
     path,
     style,
+    ndcValidated,
     validated
   } = props
 
@@ -61,7 +63,7 @@ const Nav = (props: tPROPS) => {
 
   return (
     <nav className='bg-white clr-gray flex-box dir-column main-nav-bar' style={style}>
-      <Disclaimer validated={validated} handleCloseModal={handleCloseModal} showModal={showModal} />
+      <Disclaimer ndcValidated={ndcValidated} validated={validated} handleCloseModal={handleCloseModal} showModal={showModal} />
       <a
         href='#hero'
         className='visually-hidden'>
