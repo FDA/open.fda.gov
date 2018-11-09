@@ -41,7 +41,7 @@ const Disclaimer = (props: tPROPS) => {
       <div className='modal-body'>
         <span>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='underline' to='/terms/'> Terms of Service</Link></span>
       </div>
-      <button className='button bg-primary clr-white' onClick={() => handleCloseModal(hideModal)}>ACCEPT</button>
+      <button id='disclaimer-accept-button' className='button bg-primary clr-white' onClick={() => handleCloseModal(hideModal)}>ACCEPT</button>
     </ReactModal>
   )
 }

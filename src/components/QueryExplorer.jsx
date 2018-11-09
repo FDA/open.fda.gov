@@ -87,6 +87,7 @@ const QueryExplorer = (props: tPROPS) => {
       />
       <button
         className={btnCx}
+        id='run-query'
         onClick={fetchQuery.bind(null, queryToRun)}>
         Run query
       </button>
@@ -95,6 +96,7 @@ const QueryExplorer = (props: tPROPS) => {
         <button
           aria-label='Close result of query'
           className='bg-secondary-dark hvr-bg-secondary-darkest clr-white marg-t-2 marg-b-2'
+          id='close-query'
           onClick={toggleQuery}
           style={{
             marginLeft: '10px',
@@ -106,6 +108,7 @@ const QueryExplorer = (props: tPROPS) => {
         showResult &&
         <div
           className='overflow-scroll always-show-scroll'
+          id='query-result'
           style={{
             maxHeight: '500px',
           }}>

@@ -10,7 +10,7 @@ import Hero from '../../../components/Hero/index'
 export default () => (
   <section>
     <Hero
-      title='OpenFDA updates'
+      title='openFDA updates'
     />
     <BlogRoll small={false}/>
   </section>

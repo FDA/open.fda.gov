@@ -17,6 +17,7 @@ const ApiKey = (props: Object) => (
           props.showForm === false &&
           <button
             className='block marg-b-2 bg-primary clr-white weight-700'
+            id='get-api-key'
             onClick={props.transformButton}>
             <i className="fa fa-key "/> Get your API key
           </button>
@@ -36,6 +37,7 @@ const ApiKey = (props: Object) => (
             </label>
             <button
               className='block marg-b-2 bg-primary clr-white weight-700'
+              id='api-key-submit'
               onClick={props.onSubmit}>
               Get API key
             </button>
@@ -45,7 +47,7 @@ const ApiKey = (props: Object) => (
           props.apiKey &&
           <div>
             <strong>Congrats! Your API Key is:</strong>
-            <code className='pad-1 marg-t-1'>{props.apiKey}</code>
+            <code className='pad-1 marg-t-1' id='api-key-result'>{props.apiKey}</code>
           </div>
         }
       </div>

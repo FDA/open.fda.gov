@@ -67,10 +67,10 @@ const BlogPosts = (props: tPROPS) => {
           if (update.path.indexOf("http") !== -1) {
             link_flag = false
           }
-          console.log("link_flag: ", link_flag, update.path)
 
           return (
             <li
+              id={"blog-item-" + i}
               key={i}
               className='blog-item'>
               {
@@ -135,6 +135,7 @@ const BlogRoll = (props: tPROPS) => {
         {
           small === true &&
             <Link
+              id='blogroll-view-all'
               className='btn-icon-right weight-700'
               to='/about/updates/'>
               VIEW ALL <i className='fa fa-angle-right'/>

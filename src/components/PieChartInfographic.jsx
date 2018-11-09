@@ -711,7 +711,7 @@ class PieChartInfographic extends React.Component {
   }
 
   render (): ?React.Element {
-    if (!this.state.data) return <span />
+    if (!this.state.data) return <span id='no-data'/>
       var viewBox = this.props.infographicDefinitions.pieChartConfig.viewBox;
       $('.recharts-surface').removeAttr('viewBox');
       $('.recharts-surface').each(function () { $(this)[0].setAttribute('viewBox', viewBox) });
@@ -719,7 +719,7 @@ class PieChartInfographic extends React.Component {
       this.setPieChartText()
 
     return (
-        <section className='infographic-container'>
+        <section className='infographic-container' id='infographic-container'>
         <div>
           <p className='datamap-infographic-header'>
             {Parser(this.props.infographicDefinitions.title)}

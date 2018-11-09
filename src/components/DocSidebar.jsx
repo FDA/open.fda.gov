@@ -7,12 +7,14 @@ import ComposedDocSidebar from "../containers/DocSidebarContainer";
 const Section = props => {
   let isHeader = false
   let long_title = props.id
+  let id = long_title.toLowerCase().split(' ').join('-')
   if (props.collapse === true) {
     isHeader = true
   }
   return (
     <div className='pad-l-1 pad-b-2'>
       <h3 className={isHeader ? ("row sidebar-cross" + (props.activeHeader.indexOf(long_title) > -1 ? ' ': ' collapsed')): ' '}
+        id={id}
         title={long_title}
         onClick={props.toggleSection}>
         {props.title}
@@ -70,6 +72,8 @@ const SectionLink = props => {
   if (Object.keys(item).indexOf("link") === -1) {
     isHeader = true
     long_title = item.id
+  } else if (link === '/apis/') {
+    long_title = 'apis'
   } else {
     long_title = link.split('/').slice(2, -1).join('_')
   }
@@ -85,16 +89,18 @@ const SectionLink = props => {
     <li>
       {Object.keys(item).indexOf("link") === -1 ? (
         <span className={itemCx + (props.activeHeader.indexOf(long_title) > -1 ? ' ': ' collapsed')}
+          id={long_title}
           title={long_title}
           onClick={props.toggleSection}>
           {title}
         </span>
       ) : link.charAt(0) === `#` ? (
-        <a href={link} className={itemCx} onClick={props.toggleMobileSidebar}>
+        <a id={long_title} href={link} className={itemCx} onClick={props.toggleMobileSidebar}>
           {title}
         </a>
       ) : (
         <Link
+          id={long_title}
           to={link}
           key={link}
           className={itemCx}
@@ -178,6 +184,7 @@ const DocSidebar = (props: tPROPS) => {
           <div key={index}>
             <Section
               {...section}
+              id={section.title}
               title={section.title}
               index={index}
               activeHeader={activeHeader}

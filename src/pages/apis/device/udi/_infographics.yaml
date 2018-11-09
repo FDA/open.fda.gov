@@ -1,4 +1,4 @@
-- title: "UDI Listing by Brand Name"
+- title: "UDI listing by brand name"
   short: "By Brand Name"
   description:
     - "This chart is generated based on queries against the UDI API endpoint. The chart is provided here to help illustrate how the UDI data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results). For example, observe how the results differ if you count using brand_name.exact rather than brand_name."
