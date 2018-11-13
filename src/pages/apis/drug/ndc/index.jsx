@@ -15,6 +15,7 @@ class IndexRoute extends React.Component {
         <p>The Drug Listing Act of 1972 requires registered drug establishments to provide the Food and Drug Administration (FDA) with a current list of all drugs manufactured, prepared, propagated, compounded, or processed by it for commercial distribution.</p>
         <p>The openFDA drug NDC Directory endpoint returns data from the <Link to="/data/ndc/">NDC Directory</Link>, a database that contains information on the National Drug Code (NDC). FDA publishes the listed NDC numbers and the information submitted as part of the listing information in the NDC Directory which is updated daily.</p>
         <p>The information submitted as part of the listing process, the NDC number, and the NDC Directory are used in the implementation and enforcement of the Act.</p>
+        <p>If you experience any issues accessing the data or issues related to data accuracy, please report your concerns via the <a href="https://www.accessdata.fda.gov/scripts/email/cder/comment.cfm">CDER Contact form</a>.</p>
 
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
