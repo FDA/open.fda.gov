@@ -2,7 +2,7 @@ oneRecord:
   params:
     - search for all records and display one.
     - limit to 1 record.
-  query: 'http://ec2-18-212-116-135.compute-1.amazonaws.com:8000/other/substance.json?limit=1'
+  query: 'http://54.196.38.238:8000/other/substance.json?limit=1'
   description:
     - This query searches for all records and asks for a single one.
   title: One Substance Data record
@@ -10,28 +10,28 @@ byName:
   params:
   - search for a specific name.
   - limit to 1 record.
-  query: 'http://ec2-18-212-116-135.compute-1.amazonaws.com:8000/other/substance.json?search=names.name="PARACETAMOL"'
+  query: 'http://54.196.38.238:8000/other/substance.json?search=names.name="PARACETAMOL"'
   description:
     - This query searches for records with the specific name "PARACETAMOL", and returns one result.
   title: Substance Data Record by Name
 byCASRegistryNumber:
   params:
   - search for records by CAS Registry Number.
-  query: 'http://ec2-18-212-116-135.compute-1.amazonaws.com:8000/other/substance.json?search=codes.code:"220127-57-1"'
+  query: 'http://54.196.38.238:8000/other/substance.json?search=codes.code:"220127-57-1"'
   description:
     - This query searches for records with the specific CAS Registry Number "220127-57-1".
   title: Substance Data Record by CAS Registry Number
 byUNII:
   params:
   - search for records by UNII.
-  query: 'http://ec2-18-212-116-135.compute-1.amazonaws.com:8000/other/substance.json?search=relationships.related_substance.linking_id="09211A0HHL"'
+  query: 'http://54.196.38.238:8000/other/substance.json?search=relationships.related_substance.linking_id="09211A0HHL"'
   description:
     - This query searches for records with the specific UNII "09211A0HHL".
   title: Substance Data Record by UNII
 bySmiles:
   params:
   - search for records by chemical structure.
-  query: 'http://ec2-18-212-116-135.compute-1.amazonaws.com:8000/other/substance.json?search=moieties.smiles="c1ccccc1"'
+  query: 'http://54.196.38.238:8000/other/substance.json?search=moieties.smiles="c1ccccc1"'
   description:
     - This query searches for records which have the specific chemical structure designated by the SMILES string "c1ccccc1".
   title: Substance Data Record by SMILES
