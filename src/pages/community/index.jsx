@@ -22,8 +22,7 @@ export default () => (
             <a
               key={i}
               className={aCx}
-              href={tool.url}
-              target='_blank'>
+              href={tool.url}>
               {tool.title}
             </a>
           ))
