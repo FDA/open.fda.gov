@@ -2,7 +2,7 @@
 
 import React from 'react'
 import cx from 'classnames'
-import BreadCrumbs from '../BreadCrumbs'
+import BreadCrumbs from '../Breadcrumbs'
 import dateFormat from 'dateformat'
 
 

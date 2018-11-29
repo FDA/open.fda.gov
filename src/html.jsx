@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react'
+import faviconPNG from './favicon.png'
 
 const webFontLoader: string = `
   WebFontConfig = {
@@ -18,7 +19,6 @@ const webFontLoader: string = `
 type tPROPS = {
   body: string,
   title: string,
-  favicon: string,
 };
 
 const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headComponents }: tPROPS) => (
@@ -53,7 +53,7 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
       <script src='https://use.fontawesome.com/300ab20b15.js'/>
       <link
         rel='shortcut icon'
-        href={favicon}
+        href={faviconPNG}
       />
       <script
         async

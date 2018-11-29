@@ -105,11 +105,11 @@ const BreadCrumbs = (props: tPROPS) => {
         aria-label='Breadcrumb navigation.'
         className='container flex-box just-between align-center dir-row clr-gray responsive-header'>
         <div className='breadcrumb'>
-          <a
+          <Link
             className='clr-white pad-r-1'
-            href='/'>
+            to='/'>
             openFDA
-          </a>
+          </Link>
           {
             crumbs.map((crumb: string, i) => {
               const isLast: boolean = i === crumbs.length - 1
@@ -128,11 +128,11 @@ const BreadCrumbs = (props: tPROPS) => {
                   <span className="clr-white" style={{opacity: '50%'}}>/</span>
                   {
                     !isLast ?
-                      <a
+                      <Link
                         className='clr-white pad-r-1 pad-l-1'
-                        href={`${window.location.origin}/${safeUrl}/`}>
+                        to={safeUrl}>
                         {safeCrumb}
-                      </a>
+                      </Link>
                     :
                       <span className='clr-white marg-l-1'>
                         {crumb}

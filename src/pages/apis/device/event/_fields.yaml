@@ -853,6 +853,12 @@ properties:
         'Y': "The report is about the quality, performance, or safety of a device—for example, defects or malfunctions. This flag is set when a device malfunction could lead to a death or serious injury if the malfunction were to recur."
         'N': "The report is not about a defect or malfunction."
     type: string
+  product_problems:
+    description: "Details about the specific product problems."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
   remedial_action:
     description: "Follow-up actions taken by the device manufacturer at the time of the report submission, if applicable."
     format:

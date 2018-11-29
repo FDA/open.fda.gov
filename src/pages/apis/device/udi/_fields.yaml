@@ -59,7 +59,7 @@ properties:
   device_description:
     description: "Additional relevant information about the device that is not already captured as a distinct GUDID data attribute."
     format:
-    is_exact: false
+    is_exact: true
     possible_values:
     type: string
   device_sizes:

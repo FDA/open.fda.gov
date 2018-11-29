@@ -143,7 +143,7 @@ const Nav = (props: tPROPS) => {
                 <div className={path.indexOf('about') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown==='About' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/about/introduction/' onClick={closeMobileNav}>What is openFDA?</Link>
+                    <Link className={linkCx} to='/about/' onClick={closeMobileNav}>What is openFDA?</Link>
                     <Link className={linkCx} to='/about/updates/' onClick={closeMobileNav}>Updates</Link>
                     <Link className={linkCx} to='/about/status/' onClick={closeMobileNav}>API status</Link>
                     <Link className={linkCx} to='/about/statistics/' onClick={closeMobileNav}>API usage statistics</Link>
