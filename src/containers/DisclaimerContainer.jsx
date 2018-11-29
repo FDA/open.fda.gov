@@ -3,45 +3,30 @@
 import React from 'react'
 
 type tSTATE = {
-  path: string;
   showModal: boolean;
 };
 
 const DisclaimerContainer = function (ComposedDisclaimer: ReactClass): ReactClass {
   class HOC extends React.Component {
     state: tSTATE = {
-      path: ' ',
       showModal: false
     };
 
     componentDidMount () {
-      if (this.props.validated === false || window.location.pathname === '/apis/drug/ndc/') {
+      if (this.props.validated == false) {
         this.setState({
-          path: window.location.pathname,
           showModal: true
         })
       }
     }
 
     componentWillReceiveProps (nextProps) {
-      if (nextProps.ndcValidated === false && window.location.pathname === '/apis/drug/ndc/') {
+      if (this.props.validated == true && nextProps.validated == false) {
         this.setState({
-          path: window.location.pathname,
           showModal: true
         })
-      } else if (this.props.ndcValidated === false && nextProps.ndcValidated === true && window.location.pathname === '/apis/drug/ndc/') {
+      } else if (this.props.validated == false && nextProps.validated == true) {
         this.setState({
-          path: window.location.pathname,
-          showModal: false
-        })
-      } else if (this.props.validated === true && nextProps.validated === false) {
-        this.setState({
-          path: window.location.pathname,
-          showModal: true
-        })
-      } else if (this.props.validated === false && nextProps.validated === true) {
-        this.setState({
-          path: window.location.pathname,
           showModal: false
         })
       }
