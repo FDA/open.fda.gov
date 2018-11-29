@@ -82,6 +82,7 @@ const Nav = (props: tPROPS) => {
               <div className="nav-bar-divider-line"/>*/}
               <img
                 className='open-fda-logo'
+                id='open_fda_logo'
                 alt='Go to openFDA homepage'
                 src='/img/l_openFDA.png'
               />

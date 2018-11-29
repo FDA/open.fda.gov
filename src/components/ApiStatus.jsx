@@ -89,6 +89,7 @@ const ApiStatus = (props: tPROPS) => (
                   <li className='clr-base marg-r-2 small'>
                     Status
                     <p
+                      id={endpoint}
                       style={pStyl}
                       className='clr-white marg-t-2 pad-1 txt-c weight-600'>
                       {
