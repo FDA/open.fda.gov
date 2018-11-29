@@ -1,0 +1,30 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › NDC'
+crumbs:
+  - openFDA
+  - Datasets
+  - NDC
+title: 'National Drug Code Directory (NDC)'
+description: 'Drug products are identified and reported using a unique, three-segment number, called the National Drug Code (NDC), which serves as a universal product identifier for drugs.'
+source:
+  name: 'NDC'
+  nameLong: 'NDC Directory'
+  link: 'https://www.fda.gov/drugs/informationondrugs/ucm142438.htm'
+  linkDownload: 'https://www.accessdata.fda.gov/cder/ndctext.zip'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+  time:
+  start:
+  current:
+  delay:
+  frequency: 'Daily'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - 'The Drug Listing Act of 1972 requires registered drug establishments to provide the Food and Drug Administration (FDA) with a current list of all drugs manufactured, prepared, propagated, compounded, or processed by it for commercial distribution.  (See Section 510 of the Federal Food, Drug, and Cosmetic Act (Act) (21 U.S.C. § 360)). Drug products are identified and reported using a unique, three-segment number, called the National Drug Code (NDC), which serves as a universal product identifier for drugs. FDA publishes the listed NDC numbers and the information submitted as part of the listing information in the NDC Directory which is updated daily.'
+  - 'The information submitted as part of the listing process, the NDC number, and the NDC Directory are used in the implementation and enforcement of the Act.'
+  - 'The NDC Directory does not contain all listed drugs. The new version includes the final marketed drugs which listing information were submitted electronically. It does not include animal drugs, blood products, or human drugs that are not in final marketed form, such as Active Pharmaceutical Ingredients(APIs), drugs for further processing, drugs manufactured exclusively for a private label distributor, or drugs that are marketed solely as part of a kit or combination product or inner layer of a multi-level packaged product not marketed individually. For more information about how certain kits or multi-level packaged drugs are addressed in the new NDC Directory, see the NDC Directory Package File definitions document.'
+  - 'Each listed drug product is assigned a unique 10-digit, 3-segment number. This number, known as the NDC, identifies the labeler, product, and trade package size. The first segment, the labeler code, is assigned by the FDA. A labeler is any firm that manufactures (including repackers or relabelers), or distributes (under its own name) the drug. The second segment, the product code, identifies a specific strength, dosage form, and formulation of a drug for a particular firm. Different formulations or different strengths of the same formulation should be assigned different product codes. This means even if the same formulations of a drug product ultimately deliver different strengths of the active ingredient to the recipient, they should be assigned different product codes. Also, drug products that share the same formulation but have different product characteristics that clearly distinguish one drug product version from another can not share the same product code under the same labeler code. The third segment, the package code, identifies package sizes and types. Different package codes only differentiate between different quantitative and qualitative attributes of the product packaging. Both the product and package codes are assigned by the firm. The NDC will be in one of the following configurations: 4-4-2, 5-3-2, or 5-4-1.'
+  - 'The previous version of the NDC Directory only included listed human prescription drugs and insulin products and excluded many products, including Over The Counter (OTC) products. The new edition of the NDC Directory includes electronically listed human prescription and OTC drugs that have been manufactured, prepared, propagated, compounded, or processed by registered establishments for commercial distribution.'

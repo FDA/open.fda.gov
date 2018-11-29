@@ -42,6 +42,7 @@ const EndpointBox = (props: tPROPS) => {
     'drug': {
       'event': 'Reports of drug side effects, product use errors, product quality problems, and therapeutic failures.',
       'label': 'Structured product information, including prescribing information, for approved drug products.',
+      'ndc': 'NDC directory containing information on the National Drug Code (NDC)',
       'enforcement': 'Drug product recall enforcement reports.'
     },
     'other': {
@@ -67,6 +68,7 @@ const EndpointBox = (props: tPROPS) => {
     'drug': {
       'event': 'Adverse events',
       'label': 'Product labeling',
+      'ndc': 'NDC Directory',
       'enforcement': 'Recall enforcement reports'
     },
     'other': {
@@ -98,6 +100,7 @@ const EndpointBox = (props: tPROPS) => {
     'drug': {
       'event': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>,
       'label': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>,
+      'ndc': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
       'enforcement': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>
     },
     'other': {
@@ -123,6 +126,7 @@ const EndpointBox = (props: tPROPS) => {
     'drug': {
       'event': '/apis/drug/event/',
       'label': '/apis/drug/label/',
+      'ndc': '/apis/drug/ndc/',
       'enforcement': '/apis/drug/enforcement/'
     },
     'other': {

@@ -1,0 +1,139 @@
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2018-07-30",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 142572
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2018-07-30",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 142572
+      }
+    }
+  },
+  "result": {
+    "product_ndc": "68682-065",
+    "generic_name": "Methoxsalen",
+    "labeler_name": "Oceanside Pharmaceuticals",
+    "packaging": [
+      {
+        "marketing_start_date": "20140715",
+        "package_ndc": "68682-065-10",
+        "description": "50 CAPSULE, LIQUID FILLED in 1 BOTTLE, PLASTIC (68682-065-10) ",
+        "sample": false
+      }
+    ],
+    "brand_name": "Methoxsalen",
+    "active_ingredients": [
+      {
+        "strength": "10 mg/1",
+        "name": "METHOXSALEN"
+      }
+    ],
+    "finished": true,
+    "openfda": {
+      "nui": [
+        "N0000175879",
+        "N0000175984",
+        "N0000007909",
+        "N0000010217",
+        "N0000009801"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "pharm_class_moa": [
+        "Photoabsorption [MoA]"
+      ],
+      "spl_set_id": [
+        "28cdcef9-0623-4c5a-bd18-aa3d2a3d40f8"
+      ],
+      "pharm_class_cs": [
+        "Psoralens [Chemical/Ingredient]"
+      ],
+      "upc": [
+        "0368682065107"
+      ],
+      "manufacturer_name": [
+        "Oceanside Pharmaceuticals"
+      ],
+      "pharm_class_pe": [
+        "Photosensitizing Activity [PE]"
+      ],
+      "pharm_class_epc": [
+        "Psoralen [EPC]",
+        "Photoactivated Radical Generator [EPC]"
+      ],
+      "unii": [
+        "U4VJ29L7BQ"
+      ],
+      "rxcui": [
+        "1812434"
+      ]
+    },
+    "listing_expiration_date": "20181231",
+    "marketing_category": "NDA AUTHORIZED GENERIC",
+    "dosage_form": "CAPSULE, LIQUID FILLED",
+    "spl_id": "12b39571-f883-4a2a-a909-aef528d77d0a",
+    "route": [
+      "ORAL"
+    ],
+    "marketing_start_date": "20140715",
+    "product_type": "HUMAN PRESCRIPTION DRUG",
+    "product_id": "68682-065_12b39571-f883-4a2a-a909-aef528d77d0a",
+    "application_number": "NDA019600",
+    "brand_name_base": "Methoxsalen",
+    "pharm_class": [
+      "Photoabsorption [MoA]",
+      "Photoactivated Radical Generator [EPC]",
+      "Photosensitizing Activity [PE]",
+      "Psoralen [EPC]",
+      "Psoralens [Chemical/Ingredient]"
+    ]
+  },
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2018-07-30"
+    },
+    "results": [
+      {
+        "term": "CII",
+        "count": 2315
+      },
+      {
+        "term": "CIV",
+        "count": 2188
+      },
+      {
+        "term": "CIII",
+        "count": 756
+      },
+      {
+        "term": "CV",
+        "count": 212
+      },
+      {
+        "term": "CI",
+        "count": 6
+      }
+    ]
+  }
+}
