@@ -10,7 +10,11 @@ This repository contains the main open.fda.gov website.
 
 ## Running the site
 
-`npm run dev`
+`mkdir -p './src/css/build'`
+
+`npm run dev:css`
+
+`npm run dev:site`
 
 ## Running the site in Docker
 
