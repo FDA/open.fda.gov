@@ -1,6 +1,6 @@
 import React from 'react'
 import { TimeSeries, TimeRange} from "pondjs"
-import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable, styler, Legend, TimeMarker } from "react-timeseries-charts"
+import { Charts, ChartContainer, ChartRow, YAxis, LineChart, Resizable, styler, Legend, TimeMarker } from "react-timeseries-charts"
 import bp from '../constants/breakpoints'
 import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
@@ -85,7 +85,6 @@ const ApiUsage = (props:tPROPS) => {
         color:"#000000",
         yLegendCoordinate: -200,
         toolTipLabel: "API Calls",
-        columns: ["value"]
       }
 
       this.onHighlightChange = this.onHighlightChange.bind(this)
@@ -100,7 +99,7 @@ const ApiUsage = (props:tPROPS) => {
     handleUsageResponse (data) {
 
       const graphData = {
-        labels: [],
+        labels: [{label: "API Calls", value: 0}],
         datasets: [
           {
             fillColor: "rgba(172,194,132,0.4)",
@@ -169,6 +168,7 @@ const ApiUsage = (props:tPROPS) => {
       this.state.data = graphData
       this.setState(this.state)
     }
+
     refreshPrefix (evt) {
       this.state.prefix = evt.target.getAttribute('data-prefix')
       this.refreshBreadcrumbs()
@@ -176,7 +176,6 @@ const ApiUsage = (props:tPROPS) => {
     }
 
     refreshBreadcrumbs () {
-
       const i = this.state.breadcrumbs.indexOf(this.state.prefix)
       if (i < 0) {
         this.state.breadcrumbs.push(this.state.prefix)
@@ -195,9 +194,11 @@ const ApiUsage = (props:tPROPS) => {
           that.handleUsageResponse(data)
         })
     }
+
     docCount (typeName:string):string {
       return this.formatNumber(this.state.indexInfo[typeName])
     }
+
     formatNumber (n:number):string {
       return n ? this.nf.format(n) : "0"
     }
@@ -207,7 +208,9 @@ const ApiUsage = (props:tPROPS) => {
     }
 
     onHighlightChange () {}
+
     onChartResize () {}
+
     onSelectionChange(selection) {
       this.setState({ 
         selection
@@ -270,9 +273,7 @@ const ApiUsage = (props:tPROPS) => {
             <div>
               <table className="table-sm table-bordered">
                 <tbody>
-                  <tr className="bg-primary-darkest clr-white">
-                    <td colSpan="2"><strong>Drugs</strong></td>
-                  </tr>
+                  <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Drugs</strong></td></tr>
                   <tr><td>Labeling</td><td id='druglabel'>{this.docCount('druglabel')}</td></tr>
                   <tr><td>Adverse Event Reports</td><td id='drugevent'>{this.docCount('drugevent')}</td></tr>
                   <tr><td>Enforcement Reports</td><td id='drugenforcement'>{this.docCount('drugenforcement')}</td></tr>
@@ -291,8 +292,8 @@ const ApiUsage = (props:tPROPS) => {
                   <tr><td>UDIs</td><td id='deviceudi'>{this.docCount('deviceudi')}</td></tr>
                   <tr><td>Enforcement Reports</td><td id='deviceenforcement'>{this.docCount('deviceenforcement')}</td></tr>
 
-                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Other</strong></td></tr>
-                  <tr> <td>NSDE</td><td id='othernsde'>{this.docCount('othernsde')}</td> </tr>
+                  <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Other</strong></td></tr>
+                  <tr><td>NSDE</td><td id='othernsde'>{this.docCount('othernsde')}</td></tr>
                   </tbody>
 
                 </table>
@@ -321,7 +322,7 @@ const ApiUsage = (props:tPROPS) => {
                     onTrackerChanged={this.onTrackerChanged}
                     onChartResize={this.handleChartResize}
                   >
-                      <ChartRow 
+                      <ChartRow
                         trackerInfoValues={this.state.trackerInfoValues}
                         trackerTime={this.state.tracker}
                         trackerTimeFormat={this.state.trackerTimeFormat}

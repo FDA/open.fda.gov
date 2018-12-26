@@ -1,6 +1,6 @@
 import React from "react"
 
-import QueryExplorer from '../../../../../components/QueryExplorer'
+import QueryTour from '../../../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
@@ -14,23 +14,26 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>Example food event API queries</h2>
         <p>To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
-        <QueryExplorer
+        <QueryTour
           desc={oneReport.description}
-          originalQuery={oneReport.query}
+          query={oneReport.query}
           params={oneReport.params}
           title={oneReport.title}
+          name={'oneReport'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={industry.description}
-          originalQuery={industry.query}
+          query={industry.query}
           params={industry.params}
           title={industry.title}
+          name={'industry'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={reaction.description}
-          originalQuery={reaction.query}
+          query={reaction.query}
           params={reaction.params}
           title={reaction.title}
+          name={'reaction'}
         />
       </section>
     )

@@ -1,5 +1,6 @@
 import React from "react"
 
+import QueryTour from '../../../components/QueryTour'
 import QueryExplorer from '../../../components/QueryExplorer'
 import explorers from '../_explorers.yaml'
 
@@ -26,35 +27,40 @@ class IndexRoute extends React.Component {
           <li><p><code>search=field:term&count=another_field</code>: Search for matching records. Then within that set of records, count the number of times that the unique values of a field appear. Instead of looking at individual records, you can use the <code>count</code> parameter to count how often certain terms (like drug names or patient reactions) appear in the matching set of records.</p></li>
         </ul>
         <p>Here are some example queries that demonstrate how these searches and the <code>count</code> parameter work, all using the drug adverse events endpoint.</p>
-        <QueryExplorer
+        <QueryTour
           desc={searchSingleTerm.description}
-          originalQuery={searchSingleTerm.query}
+          query={searchSingleTerm.query}
           params={searchSingleTerm.params}
           title={searchSingleTerm.title}
+          name={'searchSingleTerm'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={searchAll.description}
-          originalQuery={searchAll.query}
+          query={searchAll.query}
           params={searchAll.params}
           title={searchAll.title}
+          name={'searchAll'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={searchAny.description}
-          originalQuery={searchAny.query}
+          query={searchAny.query}
           params={searchAny.params}
           title={searchAny.title}
+          name={'searchAny'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={sortDesc.description}
-          originalQuery={sortDesc.query}
+          query={sortDesc.query}
           params={sortDesc.params}
           title={sortDesc.title}
+          name={'sortDesc'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={count.description}
-          originalQuery={count.query}
+          query={count.query}
           params={count.params}
           title={count.title}
+          name={'count'}
         />
       </section>
     )

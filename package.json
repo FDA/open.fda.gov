@@ -53,6 +53,7 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-document-title": "^2.0.3",
     "react-highlight": "^0.10.0",
+    "react-joyride": "^2.0.0-15",
     "react-modal": "^3.1.0",
     "react-promise": "^2.0.0",
     "react-radio-group": "^3.0.2",

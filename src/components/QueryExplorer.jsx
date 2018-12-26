@@ -12,6 +12,7 @@ type tPROPS = {
   fetchQuery: Function;
   k: number;
   level: number;
+  name: string;
   params: Array<string>;
   queryToRun: string;
   result: string;
@@ -31,6 +32,7 @@ const QueryExplorer = (props: tPROPS) => {
     desc,
     fetchQuery,
     k,
+    name,
     params,
     queryToRun,
     result,
@@ -43,9 +45,13 @@ const QueryExplorer = (props: tPROPS) => {
   return (
     <section
       key={k}
-      className='bg-gray-lightest marg-t-2 pad-2'>
+      className='bg-gray-lightest marg-t-2 pad-2'
+      id={'explorer' + (name ? ('-' + name) : '')}>
       <p><strong>Example API query</strong></p>
-      <h3 className='font-size-2 marg-b-2'>{title}</h3>
+      <h3
+        className='font-size-2 marg-b-2'
+        id={'title' + (name ? ('-' + name) : '')}
+      >{title}</h3>
       {
         desc &&
         desc.map((d: string, i) => {
@@ -54,6 +60,7 @@ const QueryExplorer = (props: tPROPS) => {
           return (
             <div
               key={i}
+              id={'desc' + (name ? ('-' + name) : '')}
               tabIndex={0}
               className='reverse-pre'
               dangerouslySetInnerHTML={{__html: html}}
@@ -62,7 +69,9 @@ const QueryExplorer = (props: tPROPS) => {
         })
       }
       {params &&
-        <ol className='b-t-1 marg-t-3 marg-b-2'>
+        <ol
+          className='b-t-1 marg-t-3 marg-b-2'
+          id={'params' + (name ? ('-' + name) : '')}>
           {
             params.map((param: string, i) => {
               const html: string = marked(param)
@@ -82,12 +91,13 @@ const QueryExplorer = (props: tPROPS) => {
       <textarea
         aria-label='Current Query'
         className='bg-gray-dark clr-gray-lightest block row pad-1 small mono'
+        id={'query' + (name ? ('-' + name) : '')}
         value={queryToRun}
         onChange={updateQuery}
       />
       <button
         className={btnCx}
-        id='run-query'
+        id={'run-query' + (name ? ('-' + name) : '')}
         onClick={fetchQuery.bind(null, queryToRun)}>
         Run query
       </button>
@@ -96,7 +106,7 @@ const QueryExplorer = (props: tPROPS) => {
         <button
           aria-label='Close result of query'
           className='bg-secondary-dark hvr-bg-secondary-darkest clr-white marg-t-2 marg-b-2'
-          id='close-query'
+          id={'close-query' + (name ? ('-' + name) : '')}
           onClick={toggleQuery}
           style={{
             marginLeft: '10px',
@@ -108,7 +118,7 @@ const QueryExplorer = (props: tPROPS) => {
         showResult &&
         <div
           className='overflow-scroll always-show-scroll'
-          id='query-result'
+          id={'query-result' + (name ? ('-' + name) : '')}
           style={{
             maxHeight: '500px',
           }}>
