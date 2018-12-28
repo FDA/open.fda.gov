@@ -341,6 +341,7 @@ class InfographicContainer extends React.Component {
           <Infographic
             { ...this.props }
             { ...this.state }
+
             onSearchChangeUpdate={this._update.bind(this)}
             onSearchChange={this._onSearchChange.bind(this)}
             records={this.state.matchingRecords}

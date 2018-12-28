@@ -20,6 +20,7 @@ type tPROPS = {
   title: string;
   toggleQuery: Function;
   updateQuery: Function;
+  tourStart: Function;
 };
 
 const btnCx = cx({
@@ -40,13 +41,15 @@ const QueryExplorer = (props: tPROPS) => {
     title,
     toggleQuery,
     updateQuery,
+    tourStart
   } = props
 
   return (
     <section
       key={k}
-      className='bg-gray-lightest marg-t-2 pad-2'
+      className='bg-gray-lightest marg-t-2 pad-2 relative'
       id={'explorer' + (name ? ('-' + name) : '')}>
+      <i className="fa fa-lg fa-question-circle clr-primary-alt-dark tourStart" onClick={tourStart}/>
       <p><strong>Example API query</strong></p>
       <h3
         className='font-size-2 marg-b-2'

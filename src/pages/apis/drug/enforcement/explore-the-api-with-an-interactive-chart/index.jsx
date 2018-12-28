@@ -1,6 +1,7 @@
 import React from "react"
 
 import InfographicContainer from '../../../../../containers/InfographicContainer'
+import InteractiveInfographicTour from '../../../../../components/InteractiveInfographicTour'
 
 import infographics from '../_infographics.yaml'
 import fields from '../_fields.yaml'
@@ -16,7 +17,7 @@ class IndexRoute extends React.Component {
 
     return (
       <section className="doc-content">
-        <InfographicContainer
+        <InteractiveInfographicTour
           fieldsMapped={fieldsMapped}
           fieldsFlattened={fieldsFlattened}
           fields={fields}

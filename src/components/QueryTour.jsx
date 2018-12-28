@@ -12,7 +12,7 @@ class QueryTour extends React.Component {
     super(props)
 
     this.state = {
-      tourRun: true
+      tourRun: false
     }
 
     this.handleClickStart = this.handleClickStart.bind(this)
@@ -28,7 +28,6 @@ class QueryTour extends React.Component {
   handleClickStart = e => {
     e.preventDefault()
 
-    console.log("setting tourRun to true", this.state.tourRun)
 
     this.setState({
       tourRun: true
@@ -53,6 +52,7 @@ class QueryTour extends React.Component {
         target: ('#explorer-' + this.props.name),
         content: 'This tool is intended to demonstrate an example openFDA query.',
         placement: 'top',
+        disableBeacon: true,
         placementBeacon: 'top-end'
       },
       {
@@ -101,6 +101,7 @@ class QueryTour extends React.Component {
         />
         <QueryExplorer
           closeTour={this.closeTour}
+          tourStart={this.handleClickStart}
           desc={this.props.desc}
           name={this.props.name}
           originalQuery={this.props.query}
