@@ -1,0 +1,13 @@
+documentTitle: openFDA › Drugs › Orange Book
+name: Orange Book
+description: "The publication Approved Drug Products with Therapeutic Equivalence Evaluations (commonly known as the Orange Book) identifies drug products approved on the basis of safety and effectiveness by the Food and Drug Administration (FDA) under the Federal Food, Drug, and Cosmetic Act (the Act) and related patent and exclusivity information."
+datasets:
+  - Orange Book
+label: Orange Book
+title: Orange Book
+path: /apis/drug/orangebook
+api_path: /drug/orangebook
+start: 20090101
+status: drugorangebook
+dateConstraintKey: listing_expiration_date
+type: endpoint

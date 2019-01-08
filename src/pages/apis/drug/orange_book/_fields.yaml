@@ -1,0 +1,155 @@
+properties:
+  active_ingredients:
+    type: object
+    properties:
+      name:
+        description: "The names of the active, medicinal ingredients in the drug product."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      strength:
+        description: "The strength of the active, medicinal ingredients in the drug product."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+  dosage_form:
+    description: "The drug’s dosage form. There is no standard, but values may include terms like `tablet` or `solution for injection`."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  route:
+    description: "The route of administation of the drug product."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  brand_name:
+    description: "Brand or trade name of the drug product."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  applicant_name:
+    description: "Name of the Applicant for the drug product."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  applicant_full_name:
+    description: "The full name of the firm holding legal responsibility for the new drug application."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  application_type:
+    description: "The type of new drug application approval."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  application_number:
+    pattern: ^[BLA|ANDA|NDA]{3,4}[0-9]{6}$
+    description: "The FDA assigned number to the application."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  product_number:
+    description: "The FDA assigned number to identify the application products. Each strength is a separate product. May repeat for multiple part products."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  therapeutic_equivalence_codes:
+    description: "The TE Code indicates the therapeutic equivalence rating of generic to innovator Rx products."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  approval_date:
+    description: "The date the product was approved as stated in the FDA approval letter to the applicant."
+    format: date
+    is_exact: false
+    possible_values:
+    type: date
+  approved_prior_to_1982:
+    description: 'Products approved prior to the January 1, 1982 contain the phrase: "Approved prior to Jan 1, 1982".'
+    format:
+    is_exact: false
+    possible_values:
+    type: boolean
+  reference_listed_drug:
+    description: "The RLD is a drug product approved under section 505(c) of the FD&C Act for which FDA has made a finding of safety and effectiveness. In the electronic Orange Book, an RLD is identified by “RLD” in the RLD column."
+    format:
+    is_exact: false
+    possible_values:
+    type: boolean
+  product_type:
+    description: "The group or category of approved drugs."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  patents:
+    type: object
+    properties:
+      patent_number:
+        description: "Patent numbers as submitted by the applicant holder for patents covered by the statutory provisions.  May repeat for multiple applications and multiple products. Includes pediatric exclusivity granted by the agency."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      expire_date:
+        description: "The date the patent expires as submitted by the applicant holder including applicable extensions."
+        format: date
+        is_exact: false
+        possible_values:
+        type: date
+      drug_substance_flag:
+        description: "Patents submitted on FDA Form 3542 and listed after August 18, 2003 may have a drug substance flag indicating the sponsor submitted the patent as claiming the drug substance."
+        format:
+        is_exact: false
+        possible_values:
+        type: boolean
+      drug_product_flag:
+        description: "Patents submitted on FDA Form 3542 and listed after August 18, 2003 may have a drug product flag indicating the sponsor submitted the patent as claiming the drug product."
+        format:
+        is_exact: false
+        possible_values:
+        type: boolean
+      patent_use_code:
+        description: "Code to designate a use patent that covers the approved indication or use of a drug product.  May repeat for multiple applications, multiple products and multiple patents."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      patent_delist_flag:
+        description: "Sponsor has requested patent be delisted. This patent has remained listed because, under Section 505(j)(5)(D)(i) of the Act, a first applicant may retain eligibility for 180-day exclusivity based on a paragraph IV certification to this patent for a certain period. Applicants under Section 505(b)(2) are not required to certify to patents where this flag is set to Y."
+        format:
+        is_exact: false
+        possible_values:
+        type: boolean
+      patent_submission_date:
+        description: "The date on which the FDA receives patent information from the new drug application (NDA) holder."
+        format: date
+        is_exact: false
+        possible_values:
+        type: date
+  exclusivity:
+    type: object
+    properties:
+      exclusivity_code:
+        description: "Code to designate exclusivity granted by the FDA to a drug product."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      exclusivity_expire_date:
+        description: "The date the exclusivity expires."
+        format: date
+        is_exact: false
+        possible_values:
+        type: date

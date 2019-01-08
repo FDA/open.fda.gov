@@ -43,7 +43,8 @@ const EndpointBox = (props: tPROPS) => {
       'event': 'Reports of drug side effects, product use errors, product quality problems, and therapeutic failures.',
       'label': 'Structured product information, including prescribing information, for approved drug products.',
       'ndc': 'NDC directory containing information on the National Drug Code (NDC)',
-      'enforcement': 'Drug product recall enforcement reports.'
+      'enforcement': 'Drug product recall enforcement reports.',
+      'orangebook': 'Approved Drug Products with Therapeutic Equivalence Evaluations (Orange Book).'
     },
     'other': {
       'nsde': 'Comprehensive NDC SPL Data Elements File'
@@ -69,7 +70,8 @@ const EndpointBox = (props: tPROPS) => {
       'event': 'Adverse events',
       'label': 'Product labeling',
       'ndc': 'NDC Directory',
-      'enforcement': 'Recall enforcement reports'
+      'enforcement': 'Recall enforcement reports',
+      'orangebook': 'Orange Book',
     },
     'other': {
       'nsde': 'NDC SPL Data Elements'
@@ -101,7 +103,8 @@ const EndpointBox = (props: tPROPS) => {
       'event': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>,
       'label': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>,
       'ndc': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
-      'enforcement': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>
+      'enforcement': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>,
+      'orangebook': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-book" style={{color: "white"}}/></div>
     },
     'other': {
       'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>
@@ -127,7 +130,8 @@ const EndpointBox = (props: tPROPS) => {
       'event': '/apis/drug/event/',
       'label': '/apis/drug/label/',
       'ndc': '/apis/drug/ndc/',
-      'enforcement': '/apis/drug/enforcement/'
+      'enforcement': '/apis/drug/enforcement/',
+      'orangebook': '/apis/drug/orange_book/'
     },
     'other': {
       'nsde': '/apis/other/nsde/'
