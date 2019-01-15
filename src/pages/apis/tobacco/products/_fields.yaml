@@ -1,0 +1,15 @@
+properties:
+  product_category:
+    description:
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  product_name:
+    description:
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+
+type: object

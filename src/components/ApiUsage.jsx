@@ -293,6 +293,10 @@ const ApiUsage = (props:tPROPS) => {
                   <tr><td>UDIs</td><td>{this.docCount('deviceudi')}</td></tr>
                   <tr><td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td></tr>
 
+                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Tobacco</strong></td></tr>
+                  <tr> <td>Tobacco Establishments</td><td>{this.docCount('tobaccoestablishments')}</td> </tr>
+                  <tr> <td>Tobacco Product listings</td><td>{this.docCount('tobaccoproducts')}</td> </tr>
+
                   <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Other</strong></td></tr>
                   <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
                   </tbody>

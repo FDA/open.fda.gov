@@ -1,0 +1,206 @@
+{
+  "globalDefs": {
+    "startYear": 2013,
+    "api": "/food/event",
+    "apiName": "Events",
+    "font": {
+      "color":"#000000",
+      "fontFamily": "Merriweather,Georgia,serif"
+    },
+    "tooltip": {
+      "fontSize": "11px",
+      "font": "Merriweather,Georgia,serif"
+    },
+    "pieChartConfig": {
+      "fill": "#8884d8",
+      "colors": [
+        "#0088FE",
+        "#1ECFFF",
+        "#00C49F",
+        "#FFBB28",
+        "#d62728"
+      ]
+    },
+    "lineChartConfig": {
+      "chartRow": {
+        "height": 200,
+        "trackerInfoWidth": 130
+      },
+      "chartContainer": {
+        "width": 700,
+        "showGrid": true,
+        "format": "year",
+        "timeAxisStyle": {
+          "labels": {
+            "labelColor": "black",
+            "labelWeight": 150,
+            "labelSize": 13
+          },
+          "axis": {
+            "axisColor": "grey",
+            "axisWidth": 1
+          }
+        }
+      },
+      "yAxis": {
+        "label": "Number of Events",
+        "min": 0,
+        "width": 70,
+        "type": "linear",
+        "labelOffset": 0,
+        "style": {
+          "labelFont": "Merriweather,Georgia,serif",
+          "labels": { 
+            "labelColor": "#000000", 
+            "labelWeight": 150, 
+            "labelSize": 11 
+          }, 
+          "axis": {
+            "axisColor": "#000000" 
+          } 
+        }
+      },
+      "lineChart": {
+        "interpolation": "curveBasis"
+      },
+      "colors": [
+        "#1f77b4", "#00d899", "#ff3300", "#2ca02c", "#ff7f0e", 
+        "#006666", "#990099", "#9467bd", "#c5b0d5", "#ff33cc",
+        "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+        "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+      ],
+      "eventMarker": {
+        "infoTimeFormat":"%m-%Y",
+        "markerRadius": 0,
+        "markerStyle":{
+          "fill": "black"
+        },
+        "infoWidth": 175,
+        "infoStyle": { 
+          "fill": "white", 
+          "opacity": 0.90, 
+          "stroke": "#0000", 
+          "pointerEvents": "none" 
+        },
+        "markerLabelStyle": { 
+          "fill": "#000000" 
+        }
+      }
+    }
+  },
+  "choices": [
+    {
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Food Adverse Event Reports</i> by Reactions</i>",
+      "subtitle": "",
+      "xTitle": " Reports",
+      "yTitle": "Reaction",
+      "type": "PieChart",
+      "countBy": "reactions.exact",
+      "dateField": "date_started",
+      "subfield": "outcomes.exact",
+      "subfieldLabel": "Outcomes",
+      "pieChartCategoryName": "Reactions",
+      "pieChartApiName": "Food Adverse Event Reports",
+      "lineLimiter": 10,
+      "xLegendCoordinate": -20,
+      "dataFunction": "_getAllData",
+      "defs": {
+        "DIARRHOEA": "Diarrhoea",
+        "VOMITING": "Vomiting",
+        "NAUSEA": "Nausea",
+        "ABDOMINAL PAIN": "Abdominal Pain",
+        "MALAISE": "Malaise",
+        "OVARIAN CANCER": "Ovarian Cancer",
+        "CHOKING": "Choking",
+        "HEADACHE": "Headache",
+        "HYPERSENSITIVITY": "Hypersensitivity"
+      },
+      "pieChartConfig": {
+        "default": {
+          "id": "DIARRHOEA",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Reaction"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "sort": "descending",
+        "categoryLimiter":  7,
+        "viewBox": "100 70 510 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 10 
+        }
+      }
+    },
+    {
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Food Adverse Event Reports</i> by Reactions</i>",
+      "subtitle": "",
+      "xTitle": " Reports ",
+      "yTitle": "Reaction",
+      "type": "PieChart",
+      "countBy": "reactions.exact",
+      "dateField": "date_started",
+      "subfield": "products.industry_name.exact",
+      "subfieldLabel": "Industry Name",
+      "pieChartCategoryName": "Reactions",
+      "pieChartApiName": "Food Adverse Event Reports",
+      "lineLimiter": 10,
+      "xLegendCoordinate": -20,
+      "dataFunction": "_getAllData",
+      "defs": {
+        "DIARRHOEA": "Diarrhoea",
+        "VOMITING": "Vomiting",
+        "NAUSEA": "Nausea",
+        "ABDOMINAL PAIN": "Abdominal Pain",
+        "MALAISE": "Malaise",
+        "OVARIAN CANCER": "Ovarian Cancer",
+        "CHOKING": "Choking",
+        "HEADACHE": "Headache",
+        "HYPERSENSITIVITY": "Hypersensitivity",
+        "ABDOMINAL PAIN UPPER": "ABDOMINAL PAIN UPPER",
+        "DYSPNOEA": "DYSPNOEA",
+        "DIZZINESS": "DIZZINESS",
+        "PRURITUS": "PRURITUS",
+        "PAIN": "PAIN"
+      },
+      "excludeFields": [
+        "CHOKING",
+        "OVARIAN CANCER"
+      ],
+      "pieChartConfig": {
+        "default": {
+          "id": "DIARRHOEA",
+          "index": 0
+        },
+        "radius": {
+          "cx": 305,
+          "cy": 200,
+          "innerRadius": 60,
+          "outerRadius": 80
+        },
+        "textLabel": ["Percentage", "by Reaction"],
+        "width": 450,
+        "widthReset": 365,
+        "height": 450,
+        "sort": "descending",
+        "categoryLimiter":  7,
+        "viewBox": "110 70 510 510",
+        "margin":{ 
+          "top": 5,
+          "right": 5,
+          "bottom": 5, 
+          "left": 10 
+        }
+      }
+    }
+  ]
+}

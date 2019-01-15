@@ -309,6 +309,48 @@
         - title: Searchable fields
           link: /apis/food/event/searchable-fields/
 
+- title: Tobacco API Endpoints
+  id: tobacco-api-endpoints
+  link: /tobacco/
+  collapse: true
+  items:
+    - title: Establishment Registrations
+      id: establishment-registrations
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/tobacco/establishments/
+        - title: How to use the API
+          link: /apis/tobacco/establishments/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/tobacco/establishments/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/tobacco/establishments/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/tobacco/establishments/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/tobacco/establishments/download/
+        - title: Searchable fields
+          link: /apis/tobacco/establishments/searchable-fields/
+    - title: Product Listings
+      collapse: true
+      id: product-listings
+      items:
+        - title: Overview
+          link: /apis/tobacco/products/
+        - title: How to use the API
+          link: /apis/tobacco/products/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/tobacco/products/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/tobacco/products/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/tobacco/products/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/tobacco/products/download/
+        - title: Searchable fields
+          link: /apis/tobacco/products/searchable-fields/
+
 - title: Other API Endpoints
   id: other-api-endpoints
   link: /other/

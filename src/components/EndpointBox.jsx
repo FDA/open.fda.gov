@@ -45,6 +45,10 @@ const EndpointBox = (props: tPROPS) => {
       'ndc': 'NDC directory containing information on the National Drug Code (NDC)',
       'enforcement': 'Drug product recall enforcement reports.'
     },
+   'tobacco': {
+      'establishments': 'Tobacco establishments registrations.',
+      'products': 'Product Listings.'
+    },
     'other': {
       'nsde': 'Comprehensive NDC SPL Data Elements File'
     }
@@ -71,6 +75,10 @@ const EndpointBox = (props: tPROPS) => {
       'ndc': 'NDC Directory',
       'enforcement': 'Recall enforcement reports'
     },
+    'tobacco': {
+      'establishments': 'Establishment registrations',
+      'products': 'Product Listings'
+    },
     'other': {
       'nsde': 'NDC SPL Data Elements'
     }
@@ -79,7 +87,8 @@ const EndpointBox = (props: tPROPS) => {
     'food': {background: "linear-gradient(to right bottom, rgb(143, 209, 100), rgb(81, 161, 22))"},
     'device': {background: "linear-gradient(to right bottom, #ff8989, #c94747)"},
     'drug': {background: "linear-gradient(to right bottom, rgb(220, 141, 188), rgb(153, 88, 163))"},
-    'other': {background: "linear-gradient(to right bottom, #9cf6f6, #099db7)"}
+    'other': {background: "linear-gradient(to right bottom, #9cf6f6, #099db7)"},
+    'tobacco': {background: "linear-gradient(to right bottom, rgb(217, 179, 140), rgb(134, 89, 45))"}
   }
 
   const icon = {
@@ -105,6 +114,10 @@ const EndpointBox = (props: tPROPS) => {
     },
     'other': {
       'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>
+    },
+    'tobacco': {
+      'establishments': <div className="ep-icon" style={bg_color['tobacco']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>,
+      'products': <div className="ep-icon" style={bg_color['tobacco']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>
     }
   }
 
@@ -131,6 +144,10 @@ const EndpointBox = (props: tPROPS) => {
     },
     'other': {
       'nsde': '/apis/other/nsde/'
+    },
+    'tobacco': {
+      'establishments': '/apis/tobacco/establishments/',
+      'products': '/apis/tobacco/products'
     }
   }
 

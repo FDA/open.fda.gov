@@ -1,0 +1,11 @@
+type: endpoint
+documentTitle: openFDA › Tobacco › Product API
+label: TOBACCO Products
+title: TOBACCO Products
+description: An adverse event is submitted to the FDA to report adverse health effects and product complaints about foods, dietary supplements, and cosmetics.
+datasets:
+  - TOBACCOPRODUCTS
+path: /apis/tobacco/products
+api_path: /tobacco/products
+start: 20040101
+status: tobaccoproducts

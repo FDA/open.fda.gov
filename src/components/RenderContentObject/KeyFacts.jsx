@@ -37,6 +37,10 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': 'NDC SPL Data Elements'
+    },
+    'tobacco': {
+      'establishments': 'Tobacco establishment registrations',
+      'products': 'Tobacco product listings'
     }
   }
 
@@ -62,6 +66,10 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': '/apis/other/nsde/'
+    },
+    'tobacco': {
+      'establishments': '/apis/tobacco/establishments/',
+      'products': '/apis/tobacco/products/'
     }
   }
 
@@ -88,6 +96,10 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': '2009 to present'
+    },
+    'tobacco': {
+      'establishments': '2012 to present',
+      'products': '2012 to present'
     }
   }
 
@@ -114,6 +126,10 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': 'Daily'
+    },
+    'tobacco': {
+      'establishments': 'Weekly',
+      'products': 'Bi-weekly'
     }
   }
 

@@ -1,0 +1,19 @@
+oneEstablishment:
+  title: One establishement registration
+  description:
+    - "This query searches for all records in a certain date range, and asks for a single one."
+    - "See [searchable fields](/apis/tobacco/enforcement/searchable-fields/) for more about operation_type."
+  params:
+    - "Search for all records with operation_type matches with BLENDING."
+    - "Limit to 1 record."
+  query: 'https://api.fda.gov/tobacco/establishments.json?search=operation_type:BLENDING&limit=1'
+establishmentInAddress:
+  title: One establishement registration in a state Virginia
+  description:
+    - "This query searches records in a VA, and returns a single record."
+    - 'Double quotation marks `" "` surround phrases that must match exactly.'
+  params:
+  - "Search for all records where establishments in VA state."
+  - "Limit to 1 record."
+  query: 'https://api.fda.gov/tobacco/establishments.json?search=address:"VA"&limit=1'
+

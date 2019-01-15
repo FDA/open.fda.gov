@@ -1,0 +1,9 @@
+searchOneProduct:
+  title: One tobacco product
+  description:
+    - This query searches for a tobacco products which has 'Menthol' in product name and belongs to 'E-liquid' category and asks for a single one.
+    - See [searchable fields](/apis/tobacco/products/searchable-fields/) for more about product_name. Brackets [ ] are used to specify a range for date, number, or string fields.
+  params:
+    - search for all records with product_name matches with 'Menthol' and category with 'E-liquid'.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/tobacco/products.json?search=product_name:"Menthol"+AND+product_category:E-liquid&limit=1'

@@ -1,0 +1,10 @@
+- title: "Number of products with from all product categories"
+  short: "Product categories"
+  dataset: TOBACCOPRODUCTS
+  description:
+    - "NSDE provides marketing information for OTC and prescription drugs for both humans and animals, as demonstrated below."
+  countParam: "product_category"
+  filters:
+    - title: "All Tobacco products by product  category"
+      searchParam: ''
+  type: Line

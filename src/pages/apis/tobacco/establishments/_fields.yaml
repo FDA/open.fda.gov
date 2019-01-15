@@ -1,0 +1,39 @@
+properties:
+  owner_name:
+    description:
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  address:
+    description:
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  fei_number:
+    description: "FDA Establishment Identifier number assigned by the FDA for tracking inspections."
+    format: date
+    is_exact: true
+    possible_values:
+    type: string
+  operation_type:
+    description: "Operation type of Tobacco establishment."
+    format:
+    is_exact: true
+    possible_values:
+      type: one_of
+      value:
+        "BLENDING": "Blending"
+        "LABELING": "Labeling"
+        "MANUFACTURING": "Manufacturing"
+        "PACKAGING": "Packaging"
+    type: string
+  establishment_name:
+    description: "Name of the establishment"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+
+type: object

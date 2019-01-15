@@ -135,7 +135,8 @@ class InfographicContainer extends React.Component {
     // first date of data by endpoint, from _meta.yaml
     const startDate: string = this.props.meta.start
     // search up to the last time we updated an openfda dataset
-    const endDate: string = data.meta.last_updated.replace(/-+/g, '')
+    // const endDate: string = data.meta.last_updated.replace(/-+/g, '')
+    const endDate: string = '2015-11-11'
 
     // sometimes we want to filter by year, and sometimes we don't
     return curr.dateConstraint ?
