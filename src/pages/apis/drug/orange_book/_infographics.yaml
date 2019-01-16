@@ -1,50 +1,56 @@
-- title: "Top Pharm Class Results"
-  short: "Pharm Class"
+- title: "Top dosage form results"
+  short: "Dosage form"
   description:
-    - "Display the top pharm classes among all NDC products."
-  countParam: "pharm_class.exact"
+    - "Display the top dosage forms of among all products."
+  countParam: "dosage_form"
   filters:
     - title: "All products"
       searchParam: ""
-    - title: "Pharm Class CS"
-      searchParam: "_exists_:openfda.pharm_class_cs"
-    - title: "Pharm Class EPC"
-      searchParam: "_exists_:openfda.pharm_class_epc"
-    - title: "Pharm Class MOA"
-      searchParam: "_exists_:openfda.pharm_class_moa"
-    - title: "Pharm Class PE"
-      searchParam: "_exists_:openfda.pharm_class_pe"
+    - title: "Therapeutic Equivalence Code AB"
+      searchParam: "therapeutic_equivalence_codes:AB"
+    - title: "Therapeutic Equivalence Code AP"
+      searchParam: "therapeutic_equivalence_codes:AP"
+    - title: "Therapeutic Equivalence Code AA"
+      searchParam: "therapeutic_equivalence_codes:AA"
+    - title: "Therapeutic Equivalence Code AT"
+      searchParam: "therapeutic_equivalence_codes:AT"
   type: Bar
   dateConstraint: false
-- title: "Products by DEA Schedule"
-  short: "DEA Schedule"
+- title: "Routes of administration"
+  short: "Routes of administration"
   description:
-    - "All products fall into one of several DEA schedules. Values are CI, CII, CIII, CIV, and CV."
-  countParam: "dea_schedule"
+    - "Most drug products describe a product with a single route of administration — oral, intravenous, topical, and so forth. Click the buttons below to see the top routes of administration."
+  countParam: "route.exact"
   filters:
     - title: "All products"
       searchParam: ""
-    - title: "Finished products"
-      searchParam: "finished:true"
-    - title: "Unfinished products"
-      searchParam: "finished:false"
-  type: Donut
-  dateConstraint: false
-- title: "Marketing End Dates Over Time"
-  short: "Over Time"
-  description:
-    - "Many products have an end date associated - this is a visualization of those dates over time."
-  countParam: "marketing_end_date"
-  filters:
-    - title: "All products"
-      searchParam: ""
-    - title: "Human OTC drug"
-      searchParam: 'product_type.exact:"HUMAN OTC DRUG"'
-    - title: "Human prescription drug"
-      searchParam: 'product_type.exact:"HUMAN PRESCRIPTION DRUG"'
-    - title: "Bulk ingredient"
-      searchParam: 'product_type.exact:"BULK INGREDIENT"'
-    - title: "Drug for further processing"
-      searchParam: 'product_type.exact:"DRUG FOR FURTHER PROCESSING"'
+    - title: "Over-the-counter drug labeling"
+      searchParam: "product_type:otc"
+    - title: "Prescription drug labeling"
+      searchParam: "product_type:prescription"
+    - title: "Discontinued"
+      searchParam: "product_type:discontinued"
   type: Line
+  dateConstraint: false
+- title: "Therapeutic Equivalence"
+  short: "Therapeutic Equivalence"
+  description:
+    - "This is a visualization of approval dates over time."
+  countParam: "approval_date"
+  filters:
+    - title: "All products"
+      searchParam: ""
+    - title: "Over-the-counter drug labeling"
+      searchParam: "product_type:otc"
+    - title: "Prescription drug labeling"
+      searchParam: "product_type:prescription"
+    - title: "Discontinued"
+      searchParam: "product_type:discontinued"
+    - title: "Oral route of administation"
+      searchParam: "route:oral"
+    - title: "Intravenous route of administation"
+      searchParam: "route:intravenous"
+    - title: "Topical route of administation"
+      searchParam: "route:topical"
+  type: Bar
   dateConstraint: false

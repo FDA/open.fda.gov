@@ -131,7 +131,7 @@ const EndpointBox = (props: tPROPS) => {
       'label': '/apis/drug/label/',
       'ndc': '/apis/drug/ndc/',
       'enforcement': '/apis/drug/enforcement/',
-      'orangebook': '/apis/drug/orange_book/'
+      'orangebook': '/apis/drug/orangebook/'
     },
     'other': {
       'nsde': '/apis/other/nsde/'

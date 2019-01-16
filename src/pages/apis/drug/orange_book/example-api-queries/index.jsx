@@ -8,12 +8,12 @@ class IndexRoute extends React.Component {
 
     const oneProduct = explorers['oneProduct']
     const lotion = explorers['lotion']
-    const pharmClassCount = explorers['pharmClassCount']
+    const countByType = explorers['countByType']
 
     return (
       <section className="doc-content">
-        <h2>Example drug Orange Book queries</h2>
-        <p>To help get you started, we have provided some query examples below. Use the Run query button to call the Application Programming Interface and get back results. You can experiment by editing the example queries in the black text box.</p>
+        <h2>Example drug labeling API queries</h2>
+        <p>To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
         <QueryExplorer
           desc={oneProduct.description}
           originalQuery={oneProduct.query}
@@ -27,10 +27,10 @@ class IndexRoute extends React.Component {
           title={lotion.title}
         />
         <QueryExplorer
-          desc={pharmClassCount.description}
-          originalQuery={pharmClassCount.query}
-          params={pharmClassCount.params}
-          title={pharmClassCount.title}
+          desc={countByType.description}
+          originalQuery={countByType.query}
+          params={countByType.params}
+          title={countByType.title}
         />
       </section>
     )

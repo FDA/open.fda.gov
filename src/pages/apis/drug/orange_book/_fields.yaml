@@ -153,3 +153,152 @@ properties:
         is_exact: false
         possible_values:
         type: date
+  openfda:
+    type: object
+    properties:
+      application_number:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[BLA|ANDA|NDA]{3,4}[0-9]{6}$
+          description: "This corresponds to the NDA, ANDA, or BLA number reported by the labeler for products which have the corresponding Marketing Category designated. If the designated Marketing Category is OTC Monograph Final or OTC Monograph Not Final, then the application number will be the CFR citation corresponding to the appropriate Monograph (e.g. “part 341”). For unapproved drugs, this field will be null."
+          possible_values:
+      brand_name:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Brand or trade name of the drug product."
+          possible_values:
+      generic_name:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Generic name(s) of the drug product."
+          possible_values:
+      manufacturer_name:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Name of manufacturer or company that makes this drug product, corresponding to the labeler code segment of the NDC."
+          possible_values:
+      nui:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[N][0-9]{10}$
+          description: "Unique identifier applied to a drug concept within the National Drug File Reference Terminology (NDF-RT)."
+          possible_values:
+            type: reference
+            value:
+              name: "NDF-RT"
+              link: "https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/NDFRT/"
+      package_ndc:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[0-9]{5,4}-[0-9]{4,3}-[0-9]{1,2}$
+          description: "This number, known as the NDC, identifies the labeler, product, and trade package size. The first segment, the labeler code, is assigned by the FDA. A labeler is any firm that manufactures (including repackers or relabelers), or distributes (under its own name) the drug."
+          possible_values:
+      product_ndc:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[0-9]{5,4}-[0-9]{4,3}$
+          description: "The labeler manufacturer code and product code segments of the NDC number, separated by a hyphen."
+          possible_values:
+      product_type:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description:
+          possible_values:
+            type: reference
+            value:
+              name: "Type of drug product"
+              link: http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162063.htm
+      route:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "The route of administation of the drug product."
+          possible_values:
+            type: reference
+            value:
+              name: "Route of administration"
+              link: http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162034.htm
+      rxcui:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[0-9]{6}$
+          description: "The RxNorm Concept Unique Identifier. RxCUI is a unique number that describes a semantic concept about the drug product, including its ingredients, strength, and dose forms."
+          possible_values:
+            type: reference
+            value:
+              name: "RxNorm and RxCUI documentation"
+              link: "https://www.nlm.nih.gov/research/umls/rxnorm/docs/2012/rxnorm_doco_full_2012-3.html"
+      spl_id:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          description: "Unique identifier for a particular version of a Structured Product Label for a product. Also referred to as the document ID."
+          possible_values:
+      spl_set_id:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          description: "Unique identifier for the Structured Product Label for a product, which is stable across versions of the label. Also referred to as the set ID."
+          possible_values:
+      substance_name:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "The list of active ingredients of a drug product."
+          possible_values:
+      unii:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[A-Z0-9]{10}$
+          description: "Unique Ingredient Identifier, which is a non-proprietary, free, unique, unambiguous, non-semantic, alphanumeric identifier based on a substance’s molecular structure and/or descriptive information."
+          possible_values:
+            type: reference
+            value:
+              name: "Unique Ingredient Identifiers"
+              link: "http://fdasis.nlm.nih.gov/srs/srs.jsp"

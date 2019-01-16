@@ -98,6 +98,24 @@
           link: /apis/drug/ndc/download/
         - title: Searchable fields
           link: /apis/drug/ndc/searchable-fields
+    - title: Orange Book
+      id: drug-orange-book
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/drug/orange_book/
+        - title: How to use the Application Programming Interface
+          link: /apis/drug/orange_book/how-to-use-the-endpoint/
+        - title: Example queries
+          link: /apis/drug/orange_book/example-api-queries/
+        - title: Explore the dataset with an interactive chart
+          link: /apis/drug/orange_book/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the Results
+          link: /apis/drug/orange_book/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/drug/orange_book/download/
+        - title: Searchable fields
+          link: /apis/drug/orange_book/searchable-fields
     - title: Recall Enforcement Reports
       id: drug-recall-enforcement-reports
       collapse: true

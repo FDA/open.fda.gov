@@ -1,26 +1,26 @@
 oneProduct:
   title: One product
   description:
-    - "This query searches for all finished products, and asks for a single one."
-    - "See the [searchable fields](/apis/drug/ndc/searchable-fields/) for more about `finished`."
+    - "This query searches for all products, and asks for a single one."
   params:
-    - "Search for all products which have `finished` set to true."
+    - "Search for all products.."
     - "Limit to 1 record."
-  query: 'https://api.fda.gov/drug/ndc.json?search=finished:true&limit=1'
+  query: 'https://api.orange-book.semanticbits.com/drug/orangebook.json?limit=1'
 lotion:
   title: One lotion product
   description:
-    - "This query searches all lotion products, and returns a single product."
+    - "This query searches all lotion products."
+    - "Limit to 1 record."
     - 'Double quotation marks `" "` surround phrases that must match exactly.'
   params:
   - "Search for all products which have `dosage_form` equal to 'LOTION'."
   - "Limit to 1 record."
-  query: 'https://api.fda.gov/drug/ndc.json?search=dosage_form:"LOTION"&limit=1'
-pharmClassCount:
-  title: "Count of pharm classes"
+  query: 'https://api.orange-book.semanticbits.com/drug/orangebook.json?search=dosage_form:"LOTION"&limit=1'
+countByType:
+  title: Count of products, by product type
   description:
-    - "This query searches the endpoint for all products, and tells the Application Programming Interface to count how many included each `pharm_class`."
-    - "The suffix .exact is required by openFDA to count the unique full phrases in the field voluntary_mandated. Without it, the Application Programming Interface will count each word in that field individually."
+    - "This query compares the number of OTC and prescription products."
+    - "The suffix .exact is required by openFDA to count the unique full phrases in the field openfda.product_type. Without it, the API will count each word in that field individually—HUMAN OTC DRUG would be counted as separate values, HUMAN and OTC and DRUG."
   params:
-  - "Count the field `pharm_class`."
-  query: 'https://api.fda.gov/drug/ndc.json?count=pharm_class.exact'
+  - "Count the field openfda.product_type (product type)."
+  query: 'https://api.orange-book.semanticbits.com/drug/orangebook.json?count=product_type.exact'
