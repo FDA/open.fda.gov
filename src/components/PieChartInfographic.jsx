@@ -161,10 +161,11 @@ class PieChartInfographic extends React.Component {
       .then(function(download_res) {
         return download_res.json()
       }).then(function(download_res) {
+        console.log("download_res: ", download_res.results, that.props.globalDefs.api.split('/'))
 
-        const apiParts = that.props.globalDefs.api.split('/'),
-              latestDataDate = new Date(download_res.results[apiParts[1]][apiParts[2]].export_date),
-              latestYear = latestDataDate.getFullYear()
+        // const apiParts = that.props.globalDefs.api.split('/'),
+        //       latestDataDate = new Date(download_res.results[apiParts[1]][apiParts[2]].export_date),
+        //       latestYear = latestDataDate.getFullYear()
 
         const currentDate = new Date()
 
@@ -326,6 +327,8 @@ class PieChartInfographic extends React.Component {
         var terms = {};
 
         var localSearchField = searchField;
+
+        console.log("res: ", res)
 
         var columns = res.results.filter( (value) => {
             var hasInvalidChar = value.term.indexOf("^") === -1 &&

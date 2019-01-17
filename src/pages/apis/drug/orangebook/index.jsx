@@ -16,6 +16,11 @@ class IndexRoute extends React.Component {
         <p>The main criterion for the inclusion of any product is that the product is the subject of an application with an approval that has not been withdrawn for safety or efficacy reasons.</p>
         <p>Inclusion of products in the Orange Book is independent of any current regulatory action through administrative or judicial means against a drug product.  In addition, the Orange Book contains therapeutic equivalence evaluations for approved multisource prescription drug products.</p>
 
+        <InteractiveInfographic
+          infographicDefinitions={infographic_definitions}
+          meta={meta}
+        />
+
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
           endpoint_name={meta.api_path.split("/")[2]}
