@@ -66,7 +66,7 @@ properties:
   therapeutic_equivalence_codes:
     description: "The TE Code indicates the therapeutic equivalence rating of generic to innovator Rx products."
     format:
-    is_exact: true
+    is_exact: false
     possible_values:
     type: string
   approval_date:

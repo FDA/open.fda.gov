@@ -32,8 +32,8 @@
       searchParam: "product_type:discontinued"
   type: Line
   dateConstraint: false
-- title: "Therapeutic Equivalence"
-  short: "Therapeutic Equivalence"
+- title: "Approval over time"
+  short: "Approval over time"
   description:
     - "This is a visualization of approval dates over time."
   countParam: "approval_date"

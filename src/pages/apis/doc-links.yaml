@@ -103,19 +103,19 @@
       collapse: true
       items:
         - title: Overview
-          link: /apis/drug/orange_book/
+          link: /apis/drug/orangebook/
         - title: How to use the Application Programming Interface
-          link: /apis/drug/orange_book/how-to-use-the-endpoint/
+          link: /apis/drug/orangebook/how-to-use-the-endpoint/
         - title: Example queries
-          link: /apis/drug/orange_book/example-api-queries/
+          link: /apis/drug/orangebook/example-api-queries/
         - title: Explore the dataset with an interactive chart
-          link: /apis/drug/orange_book/explore-the-api-with-an-interactive-chart/
+          link: /apis/drug/orangebook/explore-the-api-with-an-interactive-chart/
         - title: Understanding the Results
-          link: /apis/drug/orange_book/understanding-the-api-results/
+          link: /apis/drug/orangebook/understanding-the-api-results/
         - title: Download the dataset
-          link: /apis/drug/orange_book/download/
+          link: /apis/drug/orangebook/download/
         - title: Searchable fields
-          link: /apis/drug/orange_book/searchable-fields
+          link: /apis/drug/orangebook/searchable-fields
     - title: Recall Enforcement Reports
       id: drug-recall-enforcement-reports
       collapse: true
