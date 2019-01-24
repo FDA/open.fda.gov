@@ -128,7 +128,7 @@ const KeyFacts = (props: tPROPS) => {
       'nsde': 'Daily'
     },
     'tobacco': {
-      'establishments': 'Weekly',
+      'establishments': 'Bi-weekly',
       'products': 'Bi-weekly'
     }
   }

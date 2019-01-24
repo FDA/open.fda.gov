@@ -47,7 +47,7 @@ const EndpointBox = (props: tPROPS) => {
     },
    'tobacco': {
       'establishments': 'Tobacco establishments registrations.',
-      'products': 'Product Listings.'
+      'products': 'Product listings.'
     },
     'other': {
       'nsde': 'Comprehensive NDC SPL Data Elements File'
@@ -77,7 +77,7 @@ const EndpointBox = (props: tPROPS) => {
     },
     'tobacco': {
       'establishments': 'Establishment registrations',
-      'products': 'Product Listings'
+      'products': 'Product listings'
     },
     'other': {
       'nsde': 'NDC SPL Data Elements'

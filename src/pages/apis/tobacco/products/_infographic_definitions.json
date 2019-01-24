@@ -1,7 +1,7 @@
 {
   "globalDefs": {
     "startYear": 2013,
-    "api": "/food/event",
+    "api": "/tobacco/products",
     "apiName": "Events",
     "font": {
       "color":"#000000",

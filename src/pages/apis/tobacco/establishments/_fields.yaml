@@ -1,12 +1,12 @@
 properties:
   owner_name:
-    description:
+    description: "Tobacco establishment owner name"
     format:
     is_exact: true
     possible_values:
     type: string
   address:
-    description:
+    description: "Address of the establishment"
     format:
     is_exact: true
     possible_values:

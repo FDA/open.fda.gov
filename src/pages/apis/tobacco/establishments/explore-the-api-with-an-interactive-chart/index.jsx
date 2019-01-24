@@ -16,13 +16,13 @@ class IndexRoute extends React.Component {
 
     return (
       <section className="doc-content">
-        {/*<InfographicContainer*/}
-          {/*fieldsMapped={fieldsMapped}*/}
-          {/*fieldsFlattened={fieldsFlattened}*/}
-          {/*fields={fields}*/}
-          {/*infographics={infographics}*/}
-          {/*meta={meta}*/}
-        {/*/>*/}
+        <InfographicContainer
+          fieldsMapped={fieldsMapped}
+          fieldsFlattened={fieldsFlattened}
+          fields={fields}
+          infographics={infographics}
+          meta={meta}
+        />
       </section>
     )
   }

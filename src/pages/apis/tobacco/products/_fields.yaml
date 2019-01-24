@@ -2,13 +2,13 @@ properties:
   product_category:
     description:
     format:
-    is_exact: false
+    is_exact: true
     possible_values:
     type: string
   product_name:
     description:
     format:
-    is_exact: false
+    is_exact: true
     possible_values:
     type: string
 

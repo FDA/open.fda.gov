@@ -13,14 +13,26 @@ class IndexRoute extends React.Component {
     return (
       <section className="doc-content">
         <h2>Tobacco Establishments Overview</h2>
+          <p> The FDA Center for Tobacco Products (CTP) is responsible for carrying out the Family Smoking Prevention and Tobacco Control Act, which Congress passed in 2009. This law—commonly called the Tobacco Control Act—gives us broad authority to regulate the manufacturing, distribution, and marketing of tobacco products.</p>
+          <h5>Vision Statement</h5>
+          <p>To make tobacco-related death and disease part of America’s past, not America’s future and, by doing so, ensure a healthier life for every family.</p>
+
+          <h5>Mission Statement</h5>
+          <p>To protect Americans from tobacco-related death and disease by regulating the manufacture, distribution, and marketing of tobacco products and by educating the public, especially young people, about tobacco products and the dangers their use poses to themselves and others.
+          For more information, see <a href="https://www.fda.gov/TobaccoProducts/AboutCTP/ucm383225.htm">here</a>.
+          </p>
+
+        <KeyFacts
+          noun_name={meta.api_path.split("/")[1]}
+          endpoint_name={meta.api_path.split("/")[2]}
+        />
 
         <h3>Responsible use of the data</h3>
         <p>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products. We may limit or otherwise restrict your access to the API in line with our <Link to="/terms/">Terms of Service</Link></p>
 
         <h3>Disclaimer</h3>
-        <p>This data should not be used as a method to collect data to issue alerts to the public, nor should it be used to track the lifecycle of a recall. FDA seeks publicity about a recall only when it believes the public needs to be alerted to a serious hazard. FDA works with industry and our state partners to publish press releases and other public notices about recalls that may potentially present a significant or serious risk to the consumer or user of the product. <a href="http://www.fda.gov/AboutFDA/ContactFDA/StayInformed/RSSFeeds/Recalls/rss.xml">Subscribe to this Recall/Safety Alert feed here</a></p>
-        <p>Further, FDA does not update the status of a recall after the recall has been classified according to its level of hazard. As such, the status of a recall (open, completed, or terminated) will remain unchanged after published in the Enforcement Reports.</p>
-      </section>
+        <p>Registration of an establishment, assignment of an FDA Establishment Identifier (FEI) number, or listing of a product does not constitute a jurisdictional determination, or an agency review or determination that the establishment or product is in compliance with FDA regulatory requirements.</p>
+     </section>
     )
   }
 }

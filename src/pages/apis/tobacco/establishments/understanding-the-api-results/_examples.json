@@ -1,50 +1,29 @@
 {
-  "anatomy": {
+  "search": {
     "meta": {
-      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
-      "license": "http://open.fda.gov/license",
-      "last_updated": "2015-10-29",
-      "results": {
-        "skip": 0,
-        "limit": 1,
-        "total": 1355
-      }
+        "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+        "terms": "https://open.fda.gov/terms/",
+        "license": "https://open.fda.gov/license/",
+        "last_updated": "2018-12-27",
+        "results": {
+            "skip": 0,
+            "limit": 1,
+            "total": 1378
+        }
     },
     "results": [
-      {}
+        {
+            "operator_name": "EKO VAPORS LLC",
+            "owner_name": "EKO VAPORS LLC",
+            "address": "523 E MAIN ST CUSHING, OK 74023 US",
+            "fei_number": 3011159296,
+            "operation_type": [
+                "LABELING",
+                "MANUFACTURING"
+            ],
+            "establishment_name": "EKO VAPORS LLC"
+        }
     ]
-  },
-  "meta": {
-    "meta": {
-      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
-      "license": "http://open.fda.gov/license",
-      "last_updated": "2015-10-29",
-      "results": {
-        "skip": 0,
-        "limit": 1,
-        "total": 1355
-      }
-    }
-  },
-  "result": {
-    "reason_for_recall": "Cass-Clay Creamery is voluntarily recalling a number of ice cream products because they may contain undeclared soy (lecithin).",
-    "status": "Ongoing",
-    "distribution_pattern": "ND, AZ, MN, SD, KS",
-    "product_quantity": "81 containers",
-    "recall_initiation_date": "20120720",
-    "state": "ND",
-    "event_id": "62644",
-    "product_type": "Food",
-    "product_description": "Cass-Clay   , Swiss Chip, 3 Gallon(11.34 L).",
-    "country": "US",
-    "city": "Fargo",
-    "recalling_firm": "Cass Clay Creamery AMPI Fargo Division",
-    "report_date": "20120905",
-    "voluntary_mandated": "Voluntary: Firm Initiated",
-    "classification": "Class II",
-    "code_info": "all products that has a plant code of \"38-25\".",
-    "openfda": {},
-    "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit"
   },
   "count": {
     "meta": {

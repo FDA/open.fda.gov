@@ -7,6 +7,7 @@ class IndexRoute extends React.Component {
   render() {
 
     const searchOneProduct = explorers['searchOneProduct']
+    const countOfProducts = explorers['countOfProducts']
     const industry = explorers['industry']
 
     return (
@@ -18,6 +19,13 @@ class IndexRoute extends React.Component {
           originalQuery={searchOneProduct.query}
           params={searchOneProduct.params}
           title={searchOneProduct.title}
+        />
+
+        <QueryExplorer
+          desc={countOfProducts.description}
+          originalQuery={countOfProducts.query}
+          params={countOfProducts.params}
+          title={countOfProducts.title}
         />
       </section>
     )

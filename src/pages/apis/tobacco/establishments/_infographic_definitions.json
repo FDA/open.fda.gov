@@ -1,7 +1,7 @@
 {
   "globalDefs": {
     "startYear": 2012,
-    "api": "/food/enforcement",
+    "api": "/tobacco/establishments",
     "apiName": "Reports",
     "font": {
       "color":"#000000",
@@ -87,106 +87,5 @@
         }
       }
     }
-  },
-  "choices": [
-    {
-      "title": "<i><i class='datamap-infographic-header-text-bold'>Food Recall Enforcement Reports</i> by Classification</i>",
-      "subtitle": "",
-      "xTitle": " Food Recall Reports ",
-      "yTitle": "Hazard",
-      "type": "PieChart",
-      "countBy": "classification.exact",
-      "dateField": "report_date",
-      "subfield": "state.exact",
-      "subfieldLabel": "State",
-      "pieChartCategoryName": "Classification",
-      "pieChartApiName": "Food Enforcement Reports",
-      "lineLimiter": 15,
-      "xLegendCoordinate": -35,
-      "dataFunction": "_getAllData",
-      "defs": {
-        "Class I": "Class I",
-        "Class II": "Class II",
-        "Class III": "Class III",
-        "Not Yet Classified": "Not Yet Classified"
-      },
-      "excludeFields": [
-        "Not Yet Classified"
-      ],
-      "pieChartConfig": {
-        "default": {
-          "id": "Class I",
-          "index": 1
-        },
-        "radius": {
-          "cx": 305,
-          "cy": 200,
-          "innerRadius": 60,
-          "outerRadius": 80
-        },
-        "textLabel": ["Percentage", "by Class"],
-        "width": 450,
-        "widthReset": 365,
-        "height": 450,
-        "sort": "descending",
-        "categoryLimiter":  7,
-        "viewBox": "110 65 510 510",
-        "margin":{ 
-          "top": 5,
-          "right": 5,
-          "bottom": 5, 
-          "left": 10 
-        }
-      }
-    },
-    {
-      "title": "<i><i class='datamap-infographic-header-text-bold'>Food Recall Enforcement Reports</i> by Classification</i>",
-      "subtitle": "",
-      "xTitle": " Food Recall Reports",
-      "yTitle": "Hazard",
-      "type": "PieChart",
-      "countBy": "classification.exact",
-      "dateField": "report_date",
-      "subfield": "recalling_firm.exact",
-      "subfieldLabel": "Recalling Firm",
-      "pieChartCategoryName": "Classification",
-      "pieChartApiName": "Food Enforcement Reports",
-      "lineLimiter": 10,
-      "xLegendCoordinate": -35,
-      "dataFunction": "_getAllData",
-      "defs": {
-        "Class I": "Class I",
-        "Class II": "Class II",
-        "Class III": "Class III"
-      },
-      "excludeFields": [
-        "Not Yet Classified"
-      ],
-      "pieChartConfig": {
-        "default": {
-          "id": "Class I",
-          "index": 1
-        },
-        "radius": {
-          "cx": 305,
-          "cy": 200,
-          "innerRadius": 60,
-          "outerRadius": 80
-        },
-        "textLabel": ["Percentage", "by Class"],
-        "width": 450,
-        "widthReset": 365,
-        "height": 450,
-        "sort": "descending",
-        "categoryLimiter":  7,
-        "viewBox": "110 65 510 510",
-        "margin":{ 
-          "top": 5,
-          "right": 5,
-          "bottom": 5, 
-          "left": 10 
-        }
-      }
-    }
-  ]
+  }
 }
