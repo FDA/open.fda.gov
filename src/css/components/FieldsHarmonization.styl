@@ -1,0 +1,53 @@
+.noun-buttons
+  right: 0
+  display: flex
+  flex-direction: row
+  cursor: pointer
+
+  > div
+    flex: 1
+    padding: 15px
+    text-align: center
+
+  > div:first-child
+    border-radius: 5px 0 0 0
+
+  > div:last-child
+    border-radius: 0 5px 0 0
+
+  > .selected
+    background-color: #017bba
+    border: 1px solid #017bba
+    color: white
+
+  > .unselected
+    border: 1px solid #cccccc
+
+    i
+      color: #00aaff
+
+  span
+    padding-left: 7px
+    font-weight: 600
+
+.checkbox-cell
+  display: flex
+  height: 100%
+  width: 100%
+  align-items: center
+  justify-content: center
+
+.fields-tooltip
+  display: flex
+  background-color: white
+  white-space: normal
+  width: 800px
+
+  .tooltip-header
+    margin-bottom: 10px
+
+.__react_component_tooltip.show
+  opacity: 1
+  margin-top: 0px
+  margin-left: 0px
+  visibility: visible

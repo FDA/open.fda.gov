@@ -49,6 +49,14 @@ properties:
           possible_values:
           type: string
         type: array
+      k_number:
+        items:
+          description: "FDA-assigned premarket notification number, including leading letters. Leading letters “BK” indicates 510(k) clearance, or Premarket Notification, cleared by Center for Biologics Evaluation and Research. Leading letters “DEN” indicates De Novo, or Evaluation of Automatic Class III Designation. Leading letter “K” indicates 510(k) clearance, or Premarket Notification. `Source`: 510(k)"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        type: array
       medical_specialty_description:
         description: "Regulation Medical Specialty is assigned based on the regulation (e.g. 21 CFR Part 888 is Orthopedic Devices) which is why Class 3 devices lack the “Regulation Medical Specialty” field."
         format:

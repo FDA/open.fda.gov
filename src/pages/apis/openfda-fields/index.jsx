@@ -1,7 +1,9 @@
 import React from "react"
+import FieldsHarmonization from "../../../components/FieldsHarmonization"
 
 import Fields from '../../../components/RenderContentObject/Fields'
 import fields from './_fields.yaml'
+import master_harmonization from './master_harmonization.yaml'
 
 class IndexRoute extends React.Component {
   render() {
@@ -51,6 +53,9 @@ class IndexRoute extends React.Component {
           <p>Not all records have harmonized fields. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if the drug name is misspelled. Some drug products will have <strong>openfda</strong> sections, while others will never, if there was no match during the harmonization process.  Conversely, searching in these fields will only return a subset of records from a given endpoint.</p>
         </div>
         <p>The documentation below describes fields that you may find in an <code>openfda</code> section of an API result. They are organized by the dataset from which they originate.</p>
+        <FieldsHarmonization
+          master_harmonization={master_harmonization}
+        />
         <div>
           <h2>NDC</h2>
           <p>NDC stands for <a href="http://www.fda.gov/Drugs/InformationOnDrugs/ucm142438.htm">National Drug Code</a>. The Drug Listing Act of 1972 requires registered drug establishments to provide the FDA with a current list of all drugs manufactured, prepared, propagated, compounded, or processed by it for commercial distribution. (See Section 510 of the Federal Food, Drug, and Cosmetic Act (Act) (21 U.S.C. § 360)).</p>
