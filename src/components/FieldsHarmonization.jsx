@@ -1,23 +1,17 @@
 import React from 'react'
 import marked from 'marked'
-import Select from 'react-select'
 import 'react-select/dist/react-select.css'
-import yamlGet from '../utils/yamlGet'
 import { default as ReactTable } from "react-table";
-import update from "immutability-helper/index";
 import ReactTooltip from 'react-tooltip'
 
-import device510k from '../../static/fields/deviceclearance.yaml'
-import deviceclassification from '../../static/fields/deviceclass.yaml'
-import devicepma from '../../static/fields/devicepma.yaml'
-import devicerecall from '../../static/fields/devicerecall.yaml'
-import drugenforcement from '../../static/fields/drugenforcement.yaml'
-import druglabel from '../../static/fields/druglabel.yaml'
-import drugndc from '../../static/fields/drugndc.yaml'
+import device510k from '../constants/fields/deviceclearance.yaml'
+import deviceclassification from '../constants/fields/deviceclass.yaml'
+import devicepma from '../constants/fields/devicepma.yaml'
+import devicerecall from '../constants/fields/devicerecall.yaml'
+import drugenforcement from '../constants/fields/drugenforcement.yaml'
+import druglabel from '../constants/fields/druglabel.yaml'
+import drugndc from '../constants/fields/drugndc.yaml'
 import Values from './RenderContentObject/Values'
-
-
-
 
 
 class FieldsHarmonization extends React.Component {
@@ -26,8 +20,6 @@ class FieldsHarmonization extends React.Component {
     super(props)
 
     let master_harmonization = props.master_harmonization
-    console.log(props)
-    console.log(props.master_harmonization)
 
     let nouns = []
     Object.keys(master_harmonization).forEach(function (noun) {
@@ -52,22 +44,20 @@ class FieldsHarmonization extends React.Component {
     this.onChangeNoun = this.onChangeNoun.bind(this)
   }
 
+  componentDidMount () {
+    this.getData()
+  }
+
   componentDidUpdate (prevProps, prevState) {
     if (prevState.selected_noun !== this.state.selected_noun) {
       this.getData()
     }
   }
 
-  componentWillReceiveProps (nextProps) {
-    this.getData()
-  }
-
   fieldDefinitionTooltip (dataTip) {
     if (dataTip == null) {
       return <span/>
     }
-
-    console.log("datatip: ", dataTip)
 
     const dictionary = {
       device510k: device510k,
@@ -78,10 +68,8 @@ class FieldsHarmonization extends React.Component {
       druglabel: druglabel,
       drugndc: drugndc
     }
-    console.log("dictionary: ", dictionary, dataTip.split(','))
 
     let field_name = [dataTip.split(',')[0]]
-    console.log('openfda: ', dictionary[dataTip.split(',')[1]].properties.openfda)
     let field = dictionary[dataTip.split(',')[1]]['properties']['openfda']['properties'][dataTip.split(',')[0]]
     // array
     let type: string = ''
@@ -224,7 +212,6 @@ class FieldsHarmonization extends React.Component {
 
     for (const [endpoint_name, endpoint_value] of Object.entries(this.props.master_harmonization[this.state.selected_noun])) {
       if (Array.isArray(endpoint_value) && endpoint_value.length) {
-        console.log("ep: ", endpoint_name, "is array", endpoint_value)
         endpoint_value.forEach(function (field, index) {
           if (Object.keys(fields).indexOf(field) === -1) {
             fields[field] = data.length
@@ -232,13 +219,10 @@ class FieldsHarmonization extends React.Component {
               field: [field, noun + endpoint_name],
               [endpoint_name]: true
             })
-            console.log("noun: ", noun, "ep name: ", endpoint_name)
-            console.log("ep name: ", endpoint_name)
           } else {
             data[fields[field]][endpoint_name] = true
           }
           if (col_list.indexOf(endpoint_name) === -1) {
-            console.log("adding to columns")
             columns.push({
               Header: endpoint_headers[endpoint_name],
               accessor: endpoint_name,
@@ -252,7 +236,6 @@ class FieldsHarmonization extends React.Component {
       }
     }
     console.log(col_list, columns)
-    console.log("data: ", data)
     this.setState({
       columns: columns,
       data: data
@@ -286,8 +269,6 @@ class FieldsHarmonization extends React.Component {
       </div>
       )
     })
-
-    console.log("state: ", this.state)
 
     return (
       <section id='fields-harmonization'>

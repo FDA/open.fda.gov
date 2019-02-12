@@ -485,6 +485,12 @@ properties:
           pattern:
           description: "Generic name(s) of the drug product."
           possible_values:
+      is_original_packager:
+        description: "Whether or not the drug has been repackaged for distribution."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
       manufacturer_name:
         type: array
         items:
@@ -507,6 +513,15 @@ properties:
             value:
               name: "NDF-RT"
               link: "https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/NDFRT/"
+      original_packager_product_ndc:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[0-9]{5,4}-[0-9]{4,3}-[0-9]{1,2}$
+          description: "This ndc identifies the original packager."
+          possible_values:
       package_ndc:
         type: array
         items:
