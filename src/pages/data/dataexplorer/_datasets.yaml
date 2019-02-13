@@ -164,7 +164,7 @@ names:
             show: false
             showDefault: false
     endpoint: animalandveterinary/label.json
-    url: http://ec2-54-161-122-197.compute-1.amazonaws.com:8000
+    url: https://openfda-api.preprod.fda.gov
     filters:
       options:
         - label: Time Period
