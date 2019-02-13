@@ -37,14 +37,23 @@
   align-items: center
   justify-content: center
 
+.tippy-popper
+  max-width: 800px
+
 .fields-tooltip
-  display: flex
   background-color: white
+  display: flex
+  flex-direction: column
+  padding: 10px 20px
   white-space: normal
   width: 800px
 
   .tooltip-header
+    color: black
     margin-bottom: 10px
+
+.fields-tooltip.before
+  border-right: 8px solid #222
 
 .__react_component_tooltip.show
   opacity: 1

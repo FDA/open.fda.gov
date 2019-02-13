@@ -1,8 +1,7 @@
 import React from 'react'
 import marked from 'marked'
-import 'react-select/dist/react-select.css'
-import { default as ReactTable } from "react-table";
-import ReactTooltip from 'react-tooltip'
+import { default as ReactTable } from "react-table"
+import { Tooltip } from 'react-tippy'
 
 import device510k from '../constants/fields/deviceclearance.yaml'
 import deviceclassification from '../constants/fields/deviceclass.yaml'
@@ -22,6 +21,7 @@ class FieldsHarmonization extends React.Component {
     let master_harmonization = props.master_harmonization
 
     let nouns = []
+    let selected_noun = ''
     Object.keys(master_harmonization).forEach(function (noun) {
       let empty = true
       Object.values(master_harmonization[noun]).forEach(function (endpoint_value) {
@@ -34,11 +34,17 @@ class FieldsHarmonization extends React.Component {
       }
     })
 
+    if (this.props.selected_noun) {
+      selected_noun = this.props.selected_noun
+    } else {
+      selected_noun = nouns[0]
+    }
+
     this.state = {
       columns: [],
       data: {},
       nouns: nouns,
-      selected_noun: nouns[0]
+      selected_noun: selected_noun
     }
 
     this.onChangeNoun = this.onChangeNoun.bind(this)
@@ -69,8 +75,8 @@ class FieldsHarmonization extends React.Component {
       drugndc: drugndc
     }
 
-    let field_name = [dataTip.split(',')[0]]
-    let field = dictionary[dataTip.split(',')[1]]['properties']['openfda']['properties'][dataTip.split(',')[0]]
+    let field_name = dataTip[0]
+    let field = dictionary[dataTip[1]]['properties']['openfda']['properties'][field_name]
     // array
     let type: string = ''
     // one_of, etc
@@ -101,7 +107,7 @@ class FieldsHarmonization extends React.Component {
     }
 
     return (
-      <div>
+      <div className='fields-tooltip'>
         <h3 className='tooltip-header'>{field_name}</h3>
         <div className={divCx}>
           <pre className='pad-1 hljs-string inline-block'>
@@ -191,19 +197,16 @@ class FieldsHarmonization extends React.Component {
     let columns = [{
       Header: 'Field',
       accessor: 'field',
-      Cell: row => <div>
-        <span data-tip={row.value} data-for={row.value[0]} id={row.value[0]}>{row.value[0]}</span>
-        <ReactTooltip
-          border={true}
-          className='fields-tooltip'
-          effect="solid"
-          getContent={dataTip => this.fieldDefinitionTooltip(dataTip)}
-          id={row.value[0]}
-          offset={{right: 10}}
-          place="right"
-          type="light"
-        />
-      </div>
+      Cell: row => <Tooltip
+        arrow={true}
+        html={this.fieldDefinitionTooltip(row.value)}
+        interactive
+        position='right'
+        theme='light'
+        trigger='mouseenter'>
+        <span>{row.value[0]}</span>
+      </Tooltip>,
+      width: 242
     }]
 
     let fields = {}
@@ -235,7 +238,6 @@ class FieldsHarmonization extends React.Component {
         })
       }
     }
-    console.log(col_list, columns)
     this.setState({
       columns: columns,
       data: data
@@ -283,6 +285,7 @@ class FieldsHarmonization extends React.Component {
           showPagination={false}
           defaultPageSize={-1}
           className="-striped -highlight"
+          resizable={false}
           style={{
             width: '100%',
             height: '494px',
