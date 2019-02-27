@@ -1,6 +1,6 @@
 import React from "react"
 
-import QueryExplorer from '../../../../../components/QueryExplorer'
+import QueryTour from '../../../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
@@ -14,23 +14,26 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>Example drug labeling API queries</h2>
         <p>To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
-        <QueryExplorer
+        <QueryTour
           desc={oneLabel.description}
-          originalQuery={oneLabel.query}
+          query={oneLabel.query}
           params={oneLabel.params}
           title={oneLabel.title}
+          name={'oneLabel'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={boxedWarning.description}
-          originalQuery={boxedWarning.query}
+          query={boxedWarning.query}
           params={boxedWarning.params}
           title={boxedWarning.title}
+          name={'boxedWarning'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={countByType.description}
-          originalQuery={countByType.query}
+          query={countByType.query}
           params={countByType.params}
           title={countByType.title}
+          name={'countByType'}
         />
       </section>
     )

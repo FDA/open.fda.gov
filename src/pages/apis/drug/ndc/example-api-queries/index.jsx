@@ -1,6 +1,6 @@
 import React from "react"
 
-import QueryExplorer from '../../../../../components/QueryExplorer'
+import QueryTour from '../../../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
@@ -14,23 +14,26 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>Example drug NDC queries</h2>
         <p>To help get you started, we have provided some query examples below. Use the Run query button to call the Application Programming Interface and get back results. You can experiment by editing the example queries in the black text box.</p>
-        <QueryExplorer
+        <QueryTour
           desc={oneProduct.description}
-          originalQuery={oneProduct.query}
+          query={oneProduct.query}
           params={oneProduct.params}
           title={oneProduct.title}
+          name={'oneProduct'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={lotion.description}
-          originalQuery={lotion.query}
+          query={lotion.query}
           params={lotion.params}
           title={lotion.title}
+          name={'lotion'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={pharmClassCount.description}
-          originalQuery={pharmClassCount.query}
+          query={pharmClassCount.query}
           params={pharmClassCount.params}
           title={pharmClassCount.title}
+          name={'pharmClassCount'}
         />
       </section>
     )

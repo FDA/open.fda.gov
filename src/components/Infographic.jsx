@@ -20,6 +20,7 @@ type tEXPLORER = {
 };
 
 type tPROPS = {
+  tourStar: Function;
   current: tEXPLORER;
   data: Object;
   fields: Object;
@@ -40,6 +41,7 @@ type tPROPS = {
 
 const Infographic = (props: tPROPS) => {
   const {
+    tourStart,
     current,
     data,
     fields,
@@ -152,12 +154,13 @@ const Infographic = (props: tPROPS) => {
           Skip visualization options. Go to data visualization
         </a>
 
-        <div className="tab">
+        <div className="tab" id="infographic-tabs">
           {
             Object.keys(tabs).map((value,i) => {
               return <button
                 onClick={() => { handler(tabs[value])} }
                 key={i}
+                id={'tab-' + i}
                 className={container.state.selected === value ? "tab active": "tab"}>
                 {tabs[value].short}
               </button>
@@ -187,6 +190,7 @@ const Infographic = (props: tPROPS) => {
                 </span>
                 <select
                   className='select clr-primary'
+                  id='view-select'
                   value={props.countParam}
                   onChange={onCountChangeAndUpdate}
                   // inline because of uncss
@@ -236,6 +240,7 @@ const Infographic = (props: tPROPS) => {
                 <textarea
                   aria-label='Search parameter'
                   className={textAreaCx}
+                  id='search-parameter'
                   value={props.nextSearchParam}
                   onChange={onSearchChange}
                   onKeyPress={onKeyPress}
@@ -262,9 +267,11 @@ const Infographic = (props: tPROPS) => {
           </aside>
 
           <div
-            className='col dir-column bg-gray-lightest t-4 m-pad-t-1 pad-2'
+            className='col dir-column bg-gray-lightest t-4 m-pad-t-1 pad-2 relative'
             tabIndex={0}
             id='chartWrapper'>
+            <i className="fa fa-lg fa-question-circle clr-primary-alt-dark tourStart" onClick={tourStart}/>
+
             {
               data.error &&
               <span className='clr-secondary weight-600 txt-c'>
@@ -332,6 +339,7 @@ const Infographic = (props: tPROPS) => {
             <textarea
               aria-label='Current query'
               className={textAreaCx}
+              id='current-query'
               value={props.query}
               rows={3}
               readOnly
