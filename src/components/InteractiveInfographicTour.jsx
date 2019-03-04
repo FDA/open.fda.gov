@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import Joyride from 'react-joyride'
+import Joyride, { STATUS } from 'react-joyride'
 import InfographicContainer from '../containers/InfographicContainer'
 
 
@@ -16,7 +16,7 @@ class InteractiveInfographicTour extends React.Component {
     }
 
     this.handleClickStart = this.handleClickStart.bind(this)
-    this.callback = this.callback.bind(this)
+    this.handleJoyrideCallback = this.handleJoyrideCallback.bind(this)
     this.closeTour = this.closeTour.bind(this)
   }
 
@@ -40,9 +40,12 @@ class InteractiveInfographicTour extends React.Component {
     })
   }
 
-  callback = (data) => {
-    const { action, index, type } = data;
-  }
+  handleJoyrideCallback = data => {
+    const { status, type } = data;
+    if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status)) {
+      this.setState({ tourRun: false });
+    }
+  };
 
 
   render (): ?React.Element {
@@ -107,7 +110,7 @@ class InteractiveInfographicTour extends React.Component {
             }
           }}
           run={this.state.tourRun}
-          callback={this.props.callback}
+          callback={this.handleJoyrideCallback}
         />
         <InfographicContainer
           tourStart={this.handleClickStart}
