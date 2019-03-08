@@ -2,7 +2,8 @@ import React from 'react'
 import '../css/components/FieldDownload.scss'
 
 const pdfDownloadMap: Object = Object.freeze({
-  'animalandveterinarydrugevent': '/fields/animalandveterinaryevent_reference.pdf',
+  'animalandveterinaryevent': '/fields/animalandveterinaryevent_reference.pdf',
+  'animalandveterinarylabel': '/fields/animalandveterinarylabel_reference.pdf',
   'foodevent': '/fields/foodevent_reference.pdf',
   'foodenforcement': '/fields/foodenforcement_reference.pdf',
   'drugevent': '/fields/drugevent_reference.pdf',
@@ -25,7 +26,8 @@ const pdfDownloadMap: Object = Object.freeze({
 })
 
 const xlsxDownloadMap: Object = Object.freeze({
-  'animalandveterinarydrugevent': '/fields/animalandveterinaryevent_reference.xlsx',
+  'animalandveterinaryevent': '/fields/animalandveterinaryevent_reference.xlsx',
+  'animalandveterinarylabel': '/fields/animalandveterinarylabel_reference.xlsx',
   'foodevent': '/fields/foodevent_reference.xlsx',
   'foodenforcement': '/fields/foodenforcement_reference.xlsx',
   'drugevent': '/fields/drugevent_reference.xlsx',
@@ -48,7 +50,8 @@ const xlsxDownloadMap: Object = Object.freeze({
 })
 
 const yamlDownloadMap: Object = Object.freeze({
-  'animalandveterinarydrugevent': '/fields/animalandveterinaryevent.yaml',
+  'animalandveterinaryevent': '/fields/animalandveterinaryevent.yaml',
+  'animalandveterinarylabel': '/fields/animalandveterinarylabel.yaml',
   'foodevent': '/fields/foodevent.yaml',
   'foodenforcement': '/fields/foodenforcement.yaml',
   'drugevent': '/fields/drugevent.yaml',
