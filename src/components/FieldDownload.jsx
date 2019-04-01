@@ -61,21 +61,15 @@ const FieldDownload = (props: tPROPS) => {
 
   return (
     <section className="marg-t-2" key={k}>
-      <button className="button bg-primary">
-        <a href={pdfDownloadMap[meta.status]} className="clr-white weight-700" download="fields.pdf">
-          <fa className="fa fa-file-pdf-o fa-lg marg-r-1" />Download PDF
-        </a>
-      </button>
-      <button className="button bg-primary marg-l-2">
-        <a href={xlsxDownloadMap[meta.status]} className="clr-white weight-700" download="fields.xlsx">
-          <fa className="fa fa-file-excel-o fa-lg marg-r-1" />Download XLSX
-        </a>
-      </button>
-      <button className="button bg-primary marg-l-2">
-        <a href={yamlDownloadMap[meta.status]} className="clr-white weight-700" download="fields.yaml">
-          <fa className="fa fa-file-code-o fa-lg marg-r-1" />Download YAML
-        </a>
-      </button>
+      <a href={pdfDownloadMap[meta.status]} className="field-button bg-primary clr-white weight-700" download="fields.pdf">
+        <fa className="fa fa-file-pdf-o fa-lg marg-r-1" />Download PDF
+      </a>
+      <a href={xlsxDownloadMap[meta.status]} className="field-button bg-primary marg-l-2 clr-white weight-700" download="fields.xlsx">
+        <fa className="fa fa-file-excel-o fa-lg marg-r-1" />Download XLSX
+      </a>
+      <a href={yamlDownloadMap[meta.status]} className="field-button bg-primary marg-l-2 clr-white weight-700" download="fields.yaml">
+        <fa className="fa fa-file-code-o fa-lg marg-r-1" />Download YAML
+      </a>
     </section>
   )
 }

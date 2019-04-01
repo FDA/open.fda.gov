@@ -176,7 +176,6 @@ const Nav = (props: tPROPS) => {
                   <div className='sub-menu-container' role='navigation'>
                     <Link className={linkCx} to='/tools/' onClick={closeMobileNav}>Research tools</Link>
                     <Link className={linkCx} to='/tools/downloads/' onClick={closeMobileNav}>Downloads</Link>
-                    <Link className={linkCx} to='/tools/dataexplorer/' onClick={closeMobileNav}>Dataset Explorer</Link>
                   </div>
                 </div>
               </div>

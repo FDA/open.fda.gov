@@ -5,7 +5,6 @@ import React from 'react'
 import PieChartInfographic from '../components/PieChartInfographic'
 
 import Select from 'react-select'
-import 'react-select/dist/react-select.css'
 
 type tPROPS = {
   meta: Array<Object|string>;
@@ -57,7 +56,9 @@ class InteractiveInfographic extends React.Component {
             globalDefs={this.props.infographicDefinitions.globalDefs}
             parent={this}
           />
-        break
+        break;
+        default:
+          break;
     }
     this.setState({ 
       infographic,
