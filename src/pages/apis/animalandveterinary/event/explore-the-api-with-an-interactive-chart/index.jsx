@@ -21,7 +21,7 @@ class IndexRoute extends React.Component {
           fieldsFlattened={fieldsFlattened}
           fields={fields}
           infographics={infographics}
-          api='https://openfda-api.preprod.fda.gov'
+          api='https://api.fda.gov'
           meta={meta}
         />
       </section>
