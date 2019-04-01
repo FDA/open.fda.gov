@@ -83,3 +83,7 @@ updates:
     path: /about/updates/2018_06_22_new_look_same_great_api
     date: 2018-06-22
     desc: "openFDA is committed to transparency and always providing the best data available. This includes modifying released..."
+  - title: New openFDA Dataset -  NDC Directory
+    path: /apis/drug/ndc/
+    date: 2018-11-29
+    desc: "The NDC Directory is now available via openFDA."

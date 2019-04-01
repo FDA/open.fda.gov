@@ -1,11 +1,12 @@
 import React from 'react'
 import { TimeSeries, TimeRange} from "pondjs"
-import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable, styler, Legend, TimeMarker } from "react-timeseries-charts"
+import { Charts, ChartContainer, ChartRow, YAxis, LineChart, styler } from "react-timeseries-charts"
 import bp from '../constants/breakpoints'
 import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
 
+// Update total usage numbers with: https://api.fda.gov/usage.json?end_at=2019-02-21 - last 2019-02-21
 type tPROPS = {
     accessSinceLaunch: string,
     dynamicDisclaimer: string
@@ -277,8 +278,9 @@ const ApiUsage = (props:tPROPS) => {
                   <tr className="bg-primary-darkest clr-white">
                     <td colSpan="2"><strong>Drugs</strong></td>
                   </tr>
-                  <tr><td>Labeling</td><td>{this.docCount('druglabel')}</td></tr>
                   <tr><td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td></tr>
+                  <tr><td>Labeling</td><td>{this.docCount('druglabel')}</td></tr>
+                  <tr><td>NDC Directory</td><td>{this.docCount('ndc')}</td></tr>
                   <tr><td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td></tr>
 
                   <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Foods</strong></td></tr>

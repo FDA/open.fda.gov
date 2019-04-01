@@ -68,42 +68,6 @@
   link: /drug/
   collapse: true
   items:
-    - title: Recall Enforcement Reports
-      id: drug-recall-enforcement-reports
-      collapse: true
-      items:
-        - title: Overview
-          link: /apis/drug/enforcement/
-        - title: How to use the API
-          link: /apis/drug/enforcement/how-to-use-the-endpoint/
-        - title: Example API queries
-          link: /apis/drug/enforcement/example-api-queries/
-        - title: Explore the API with an interactive chart
-          link: /apis/drug/enforcement/explore-the-api-with-an-interactive-chart/
-        - title: Understanding the API Results
-          link: /apis/drug/enforcement/understanding-the-api-results/
-        - title: Download the dataset
-          link: /apis/drug/enforcement/download/
-        - title: Searchable fields
-          link: /apis/drug/enforcement/searchable-fields/
-    - title: Product Labeling
-      id: drug-product-labeling
-      collapse: true
-      items:
-        - title: Overview
-          link: /apis/drug/label/
-        - title: How to use the API
-          link: /apis/drug/label/how-to-use-the-endpoint/
-        - title: Example API queries
-          link: /apis/drug/label/example-api-queries/
-        - title: Explore the API with an interactive chart
-          link: /apis/drug/label/explore-the-api-with-an-interactive-chart/
-        - title: Understanding the API Results
-          link: /apis/drug/label/understanding-the-api-results/
-        - title: Download the dataset
-          link: /apis/drug/label/download/
-        - title: Searchable fields
-          link: /apis/drug/label/searchable-fields
     - title: Adverse Events
       id: drug-adverse-events
       collapse: true
@@ -122,6 +86,60 @@
           link: /apis/drug/event/download/
         - title: Searchable fields
           link: /apis/drug/event/searchable-fields
+    - title: Product Labeling
+      id: drug-product-labeling
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/drug/label/
+        - title: How to use the API
+          link: /apis/drug/label/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/drug/label/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/drug/label/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/drug/label/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/drug/label/download/
+        - title: Searchable fields
+          link: /apis/drug/label/searchable-fields
+    - title: NDC Directory
+      id: drug-ndc
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/drug/ndc/
+        - title: How to use the Application Programming Interface
+          link: /apis/drug/ndc/how-to-use-the-endpoint/
+        - title: Example queries
+          link: /apis/drug/ndc/example-api-queries/
+        - title: Explore the dataset with an interactive chart
+          link: /apis/drug/ndc/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the Results
+          link: /apis/drug/ndc/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/drug/ndc/download/
+        - title: Searchable fields
+          link: /apis/drug/ndc/searchable-fields
+    - title: Recall Enforcement Reports
+      id: drug-recall-enforcement-reports
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/drug/enforcement/
+        - title: How to use the API
+          link: /apis/drug/enforcement/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/drug/enforcement/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/drug/enforcement/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/drug/enforcement/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/drug/enforcement/download/
+        - title: Searchable fields
+          link: /apis/drug/enforcement/searchable-fields/
 
 - title: Device API Endpoints
   id: device-api-endpoints

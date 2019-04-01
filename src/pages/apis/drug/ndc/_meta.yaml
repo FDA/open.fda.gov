@@ -1,0 +1,13 @@
+documentTitle: openFDA › Drugs › NDC Directory
+name: National Drug Code Directory
+description: "Drug products are identified and reported using a unique, three-segment number, called the National Drug Code (NDC), which serves as a universal product identifier for drugs."
+datasets:
+  - NDC
+label: National Drug Code Directory
+title: National Drug Code Directory
+path: /apis/drug/ndc
+api_path: /drug/ndc
+start: 20090101
+status: drugndc
+dateConstraintKey: listing_expiration_date
+type: endpoint

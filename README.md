@@ -10,15 +10,19 @@ This repository contains the main open.fda.gov website.
 
 ## Running the site
 
-`npm run dev`
+`mkdir -p './src/css/build'`
+
+`npm run dev:css`
+
+`npm run dev:site`
 
 ## Running the site in Docker
-First you have to build a docker image using:
+
 `docker build -t open.fda.gov .`
 
-Any time after that you can run it using: `docker run -d -P open.fda.gov`
+`docker run -p 3000:3000  open.fda.gov`
 
-The website will be available on port 3000 at docker-machine IP (e.g: `http://localhost:3000/` or `http://0.0.0.0:3000/`)
+The website will then be available at `http://localhost:3000/` 
 
 ## Description of project structure
 
