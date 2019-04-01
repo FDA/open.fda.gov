@@ -91,7 +91,7 @@ const EndpointBox = (props: tPROPS) => {
 
   const icon = {
     'animalandveterinary': {
-      'event': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>
+      'event': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>
     },
     'food': {
       'enforcement': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>,
