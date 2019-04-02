@@ -8,6 +8,6 @@ title: Animal & Veterinary Adverse Events
 path: /apis/animalandveterinary/event
 api_path: /animalandveterinary/event
 start: 20090601
-status: animalandveterinaryevent
+status: animalandveterinarydrugevent
 dateConstraintKey: effective_time
 type: endpoint
