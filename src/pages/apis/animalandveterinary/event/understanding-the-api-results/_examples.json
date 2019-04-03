@@ -1,0 +1,264 @@
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2016-11-04",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 138
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2016-11-04",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 3253
+      }
+    }
+  },
+  "header": {
+    "results": [
+      {
+        "receiver": {
+          "country": "USA",
+          "street_address": "7500 Standish Place (HFV-210) Room N403",
+          "city": "Rockville",
+          "organization": "Food and Drug Administration Center for Veterinary Medicine",
+          "state": "MD",
+          "postal_code": "20855"
+        },
+        "unique_aer_id_number": "USA-USFDACVM-2016-US-006919",
+        "original_receive_date": "20160118",
+        "primary_reporter": "Animal Owner",
+        "secondary_reporter": "Other",
+        "report_id": "N141175",
+        "serious_ae": "false",
+        "type_of_information": "Lack Of Expected Effectiveness"
+      }
+    ]
+  },
+  "animal": {
+    "results": [
+      {
+        "number_of_animals_affected": "1",
+        "number_of_animals_treated": "1",
+        "animal": {
+          "gender": "Male",
+          "species": "Dog",
+          "female_animal_physiological_status": "NOT APPLICABLE",
+          "weight": {
+            "qualifier": "Unknown"
+          },
+          "reproductive_status": "Unknown",
+          "age": {
+            "qualifier": "Unknown"
+          },
+          "breed": {
+            "is_crossbred": "false",
+            "breed_component": "Coton de Tuléar"
+          }
+        },
+        "health_assessment_prior_to_exposure": {
+          "assessed_by": "Veterinarian",
+          "condition": "Unknown"
+        }
+      }
+    ]
+  },
+  "drugs": {
+    "results": [
+      {
+        "drug": [
+          {
+            "used_according_to_label": "true",
+            "frequency_of_administration": {
+              "unit": "Day",
+              "value": "1"
+            },
+            "previous_exposure_to_drug": "false",
+            "last_exposure_date": "20150603",
+            "brand_name": "Capstar",
+            "active_ingredients": [
+              {
+                "dose": {
+                  "denominator_unit": "Unknown",
+                  "numerator_unit": "Unknown",
+                  "denominator": "1",
+                  "numerator": "1"
+                },
+                "name": "nitenpyram"
+              }
+            ],
+            "atc_vet_code": "QP53BX02",
+            "manufacturer": {
+              "registration_number": "USA-USFDACVM-N141175",
+              "name": "Elanco US Inc"
+            },
+            "dosage_form": "Tablet",
+            "dose": {
+              "denominator_unit": "Unknown",
+              "numerator_unit": "tablet",
+              "denominator": "1",
+              "numerator": "1"
+            },
+            "route": "Oral",
+            "first_exposure_date": "20150601",
+            "administered_by": "Animal Owner"
+          }
+        ]
+      }
+    ]
+  },
+  "openfda": {
+    "results": [
+      {
+        "openfda": {
+          "product_ndc": [
+            "43846-0049"
+          ],
+          "spl_id": [
+            "c8a5c6bb-6301-4fba-9973-68d0a6521760"
+          ],
+          "substance_name": [
+            "BARIUM CARBONATE",
+            "DRYOPTERIS FILIX-MAS ROOT",
+            "TURPENTINE OIL",
+            "OYSTER SHELL CALCIUM CARBONATE, CRUDE",
+            "SCHOENOCAULON OFFICINALE SEED",
+            "SULFUR",
+            "ARTEMISIA VULGARIS ROOT",
+            "ARTEMISIA CINA FLOWER",
+            "SPIGELIA ANTHELMIA"
+          ],
+          "product_type": [
+            "OTC ANIMAL DRUG"
+          ],
+          "is_original_packager": [
+            true
+          ],
+          "package_ndc": [
+            "43846-0049-1"
+          ],
+          "generic_name": [
+            "ARTEMISIA VULGARIS, CINA, FILIX MAS, SABADILLA, SPIGELIA ANTHELMIA, BARYTA CARBONICA, CALCAREA CARBONICA, SULPHUR, TEREBINTHINA"
+          ],
+          "spl_set_id": [
+            "001d66b0-4d56-4c04-8f70-c8e7e0020299"
+          ],
+          "brand_name": [
+            "Parasite Formula"
+          ],
+          "manufacturer_name": [
+            "Peaceful Mountain, Inc."
+          ]
+        }
+      }
+    ]
+  },
+  "reactions": {
+    "reaction": [
+      {
+        "veddra_term_code": "1018",
+        "number_of_animals_affected": "1",
+        "accuracy": "Actual",
+        "veddra_versions": "11",
+        "veddra_term_name": "Lethargy (see also Central nervous system depression in 'Neurological')"
+      },
+      {
+        "veddra_term_code": "668",
+        "number_of_animals_affected": "1",
+        "accuracy": "Actual",
+        "veddra_versions": "11",
+        "veddra_term_name": "Collapse"
+      },
+      {
+        "veddra_term_code": "1501",
+        "number_of_animals_affected": "1",
+        "accuracy": "Actual",
+        "veddra_versions": "11",
+        "veddra_term_name": "Gum disorder NOS"
+      },
+      {
+        "veddra_term_code": "1207",
+        "number_of_animals_affected": "1",
+        "accuracy": "Actual",
+        "veddra_versions": "11",
+        "veddra_term_name": "Not eating"
+      },
+      {
+        "veddra_term_code": "315",
+        "number_of_animals_affected": "1",
+        "accuracy": "Actual",
+        "veddra_versions": "11",
+        "veddra_term_name": "Bloody diarrhoea"
+      },
+      {
+        "veddra_term_code": "142",
+        "number_of_animals_affected": "1",
+        "accuracy": "Actual",
+        "veddra_versions": "11",
+        "veddra_term_name": "Anaemia NOS"
+      }
+    ],
+    "duration": {
+      "unit": "Day",
+      "value": "3"
+    },
+    "treated_for_ae": "false",
+    "onset_date": "20160320"
+  },
+  "count": [
+    {
+      "term": "other",
+      "count": 527983
+    },
+    {
+      "term": "owner",
+      "count": 145689
+    },
+    {
+      "term": "animal",
+      "count": 145689
+    },
+    {
+      "term": "veterinarian",
+      "count": 98654
+    },
+    {
+      "term": "professional",
+      "count": 29258
+    },
+    {
+      "term": "health",
+      "count": 29258
+    },
+    {
+      "term": "care",
+      "count": 29258
+    },
+    {
+      "term": "patient",
+      "count": 1516
+    },
+    {
+      "term": "unknown",
+      "count": 100
+    },
+    {
+      "term": "physician",
+      "count": 45
+    }
+  ]
+}

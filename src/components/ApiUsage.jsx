@@ -6,7 +6,8 @@ import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
 
-// Update total usage numbers with: https://api.fda.gov/usage.json?end_at=2019-02-21 - last 2019-02-21
+// Update total usage numbers with: https://api.fda.gov/usage.json?end_at=2019-03-21 - last 2019-03-21
+// Update in pages/about/statistics/_content.yaml
 type tPROPS = {
     accessSinceLaunch: string,
     dynamicDisclaimer: string
@@ -271,6 +272,10 @@ const ApiUsage = (props:tPROPS) => {
             <div>
               <table className="table-sm table-bordered">
                 <tbody>
+                  <tr className="bg-primary-darkest clr-white">
+                    <td colSpan="2"><strong>Animal & Veterinary</strong></td>
+                  </tr>
+                  <tr><td>Adverse Event Reports</td><td>{this.docCount('animalandveterinarydrugevent')}</td></tr>
                   <tr className="bg-primary-darkest clr-white">
                     <td colSpan="2"><strong>Drugs</strong></td>
                   </tr>

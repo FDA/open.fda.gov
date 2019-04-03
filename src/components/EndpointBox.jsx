@@ -25,6 +25,9 @@ const EndpointBox = (props: tPROPS) => {
   } = props
 
   const description = {
+    'animalandveterinary': {
+      'event': 'Reports of drug side effects, product use errors, product quality problems, and therapeutic failures.'
+    },
     'food': {
       'enforcement': 'Food product recall enforcement reports.',
       'event': 'Food, dietary supplement, and cosmetic adverse event reports.'
@@ -51,6 +54,9 @@ const EndpointBox = (props: tPROPS) => {
   }
 
   const ep_title = {
+    'animalandveterinary': {
+      'event': 'Adverse event reports'
+    },
     'food': {
       'enforcement': 'Recall enforcement reports',
       'event': 'CAERS reports'
@@ -76,6 +82,7 @@ const EndpointBox = (props: tPROPS) => {
     }
   }
   const bg_color = {
+    'animalandveterinary': {background: "linear-gradient(to right bottom, #9cf6f6, #007CBA)"},
     'food': {background: "linear-gradient(to right bottom, rgb(143, 209, 100), rgb(81, 161, 22))"},
     'device': {background: "linear-gradient(to right bottom, #ff8989, #c94747)"},
     'drug': {background: "linear-gradient(to right bottom, rgb(220, 141, 188), rgb(153, 88, 163))"},
@@ -83,6 +90,9 @@ const EndpointBox = (props: tPROPS) => {
   }
 
   const icon = {
+    'animalandveterinary': {
+      'event': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>
+    },
     'food': {
       'enforcement': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>,
       'event': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>
@@ -109,6 +119,9 @@ const EndpointBox = (props: tPROPS) => {
   }
 
   const ep_path = {
+    'animalandveterinary': {
+      'event': '/apis/animalandveterinary/event/'
+    },
     'food': {
       'enforcement': '/apis/food/enforcement/',
       'event': '/apis/food/enforcement'

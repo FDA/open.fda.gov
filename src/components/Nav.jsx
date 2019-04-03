@@ -2,7 +2,6 @@
 
 import React from 'react'
 import cx from 'classnames'
-import ARIA from '../constants/aria'
 
 import NavContainer from '../containers/NavContainer'
 import Disclaimer from '../components/Disclaimer'
@@ -32,7 +31,6 @@ type tPROPS = {
   handleCloseModal: Function;
   activeDropdown: string;
   path: string;
-  style: object;
   validated: boolean;
 };
 
@@ -50,7 +48,6 @@ const Nav = (props: tPROPS) => {
     handleCloseModal,
     activeDropdown,
     path,
-    style,
     validated
   } = props
 
@@ -60,7 +57,7 @@ const Nav = (props: tPROPS) => {
   })
 
   return (
-    <nav className='bg-white clr-gray flex-box dir-column main-nav-bar' style={style}>
+    <nav className='bg-white clr-gray flex-box dir-column main-nav-bar'>
       <Disclaimer validated={validated} handleCloseModal={handleCloseModal} showModal={showModal} />
       <a
         href='#hero'
@@ -160,6 +157,7 @@ const Nav = (props: tPROPS) => {
                 <div className={activeDropdown==='APIs' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
                     <Link className={linkCx} to='/apis/' onClick={closeMobileNav}>API basics</Link>
+                    <Link className={linkCx} to='/apis/animalandveterinary/' onClick={closeMobileNav}>Animal and Veterinary Endpoints</Link>
                     <Link className={linkCx} to='/apis/drug/' onClick={closeMobileNav}>Drug Endpoints</Link>
                     <Link className={linkCx} to='/apis/device/' onClick={closeMobileNav}>Device Endpoints</Link>
                     <Link className={linkCx} to='/apis/food/' onClick={closeMobileNav}>Food Endpoints</Link>
