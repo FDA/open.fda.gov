@@ -87,3 +87,7 @@ updates:
     path: /apis/drug/ndc/
     date: 2018-11-29
     desc: "The NDC Directory is now available via openFDA."
+  - title: Animal Drug Adverse Events Now Available
+    path: /about/updates/2019_04_03_Animal_Drug_Adverse_Events_Now_Available
+    date: 2019-04-03
+    desc: 'The first openFDA animal drug dataset "Animal Drug Adverse Event Reports" is available via openFDA.'
