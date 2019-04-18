@@ -139,7 +139,7 @@ class InfographicContainer extends React.Component {
 
     // sometimes we want to filter by year, and sometimes we don't
     return curr.dateConstraint ?
-      (curr.dateConstraint + ':' + [startDate + '+TO+' + endDate]) :
+      (curr.dateConstraint + ':' + '[' + startDate + '+TO+' + endDate + ']') :
       ''
   }
 
