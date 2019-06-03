@@ -4,8 +4,6 @@
   url: 'http://esridc.github.io/openfda'
 - title: 'Local Alternatives'
   url: 'https://devis18f.herokuapp.com/'
-- title: 'MedCheck'
-  url: 'https://medcheck.octoconsulting.com/#/'
 - title: 'Search Food Recalls'
   url: 'https://acumen-gsa-prototype.herokuapp.com/#/search'
 - title: 'ResearchAE'

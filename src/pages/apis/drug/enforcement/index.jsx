@@ -38,14 +38,14 @@ class IndexRoute extends React.Component {
           <li><a href="https://www.fda.gov/ForConsumers/ConsumerUpdates/ucm049070.htm">FDA 101: Product Recalls from First Alert to Effectiveness Checks</a></li>
           <li><Link to="/data/res/">FDA’s RES database</Link></li>
           <li><a href="http://www.fda.gov/Safety/recalls/default.htm">FDA’s Recalls press release page</a></li>
-          <li><a href="https://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm">FDA’s weekly Enforcement Report</a></li>
+          <li><a href="https://www.fda.gov/Safety/recalls-market-withdrawals-safety-alerts/enforcement-reports">FDA’s weekly Enforcement Report</a></li>
         </ul>
 
         <h3>Responsible use of the data</h3>
         <p>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products. We may limit or otherwise restrict your access to the API in line with our <Link to="/terms/">Terms of Service</Link></p>
 
         <h3>Disclaimer</h3>
-        <p>This data should not be used as a method to collect data to issue alerts to the public, nor should it be used to track the lifecycle of a recall. FDA seeks publicity about a recall only when it believes the public needs to be alerted to a serious hazard. FDA works with industry and our state partners to publish press releases and other public notices about recalls that may potentially present a significant or serious risk to the consumer or user of the product. <a href="http://www.fda.gov/AboutFDA/ContactFDA/StayInformed/RSSFeeds/Recalls/rss.xml">Subscribe to this Recall/Safety Alert feed here</a></p>
+        <p>This data should not be used as a method to collect data to issue alerts to the public, nor should it be used to track the lifecycle of a recall. FDA seeks publicity about a recall only when it believes the public needs to be alerted to a serious hazard. FDA works with industry and our state partners to publish press releases and other public notices about recalls that may potentially present a significant or serious risk to the consumer or user of the product.</p>
         <p>Further, FDA does not update the status of a recall after the recall has been classified according to its level of hazard. As such, the status of a recall (open, completed, or terminated) will remain unchanged after published in the Enforcement Reports.</p>
       </section>
     )

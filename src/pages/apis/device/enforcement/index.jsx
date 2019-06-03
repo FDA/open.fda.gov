@@ -30,12 +30,12 @@ class IndexRoute extends React.Component {
         <p>Recalls are an appropriate alternative method for removing or correcting marketed consumer products, their labeling, and/or promotional literature that violate the laws administered by the Food and Drug Administration (FDA). Recalls afford equal consumer protection but generally are more efficient and timely than formal administrative or civil actions, especially when the product has been widely distributed.</p>
         <p>Manufacturers and/or distributors may initiate a recall at any time to fulfill their responsibility to protect the public health from products that present a risk of injury or gross deception, or are otherwise defective. Firms may also initiate a recall following notification of a problem by FDA or a state agency, in response to a formal request by FDA, or as ordered by FDA.</p>
         <p>The procedures followed to input recall information into RES when FDA learns of a recall event are outlined in Chapter 7 of FDA’s Regulatory Procedure Manual. The Regulatory Procedures Manual is a reference manual for FDA personnel. It provides FDA personnel with information on internal procedures to be used in processing domestic and import regulatory and enforcement matters.</p>
-        <p>An enforcement report contains information on actions taken in connection with FDA regulatory activities. Whereas not all recalls are announced in the media or on <a href="http://www.fda.gov/Safety/recalls/default.htm">FDA’s Recalls press release page</a>, all recalls monitored by FDA are included in <a href="http://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm">FDA’s weekly Enforcement Report</a> once they are classified according to the level of hazard involved.</p>
+        <p>An enforcement report contains information on actions taken in connection with FDA regulatory activities. Whereas not all recalls are announced in the media or on <a href="http://www.fda.gov/Safety/recalls/default.htm">FDA’s Recalls press release page</a>, all recalls monitored by FDA are included in <a href="http://www.fda.gov/Safety/Recalls/EnforcementReports/default.htm">FDA’s weekly Enforcement Report</a> once they are classified according to the level of hazard involved.</p>
         <p>For more information about the Device Recall Enforcement Reporting, please visit:</p>
         <ul>
           <li><a href="https://www.fda.gov/ForConsumers/ConsumerUpdates/ucm049070.htm">FDA 101: Product Recalls from First Alert to Effectiveness Checks</a></li>
           <li><a href="http://www.fda.gov/Safety/recalls/default.htm">FDA’s Recalls press release page</a></li>
-          <li><a href="https://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm">FDA’s weekly Enforcement Report</a></li>
+          <li><a href="https://www.fda.gov/Safety/Recalls/EnforcementReports/default.htm">FDA’s weekly Enforcement Report</a></li>
         </ul>
 
         <h3>Responsible use of the data</h3>
