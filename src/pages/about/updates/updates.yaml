@@ -64,7 +64,7 @@ updates:
     date: 2016-12-06
     desc: "Transparency in the actions we take as an agency, and our reasons for taking them, is an important value for FDA in its..."
   - title: openFDA central download page
-    path: /tools/downloads
+    path: /downloads
     date: 2016-12-23
     desc: "Downloading full datasets has never been easier! Visit our central download page to download any and all openFDA datasets."
   - title: openFDA query result increased
