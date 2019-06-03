@@ -10,7 +10,7 @@ source:
   name: 'RES'
   nameLong: 'FDA Recall Enterprise System'
   link: 'https://www.fda.gov/downloads/ICECI/ComplianceManuals/RegulatoryProceduresManual/UCM074312.pdf'
-  linkDownload: 'http://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm'
+  linkDownload: 'http://www.fda.gov/Safety/Recalls/EnforcementReports/default.htm'
 license:
   name: 'Public Domain and CC0'
   link: 'http://creativecommons.org/publicdomain/zero/1.0/'
