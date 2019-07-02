@@ -16,7 +16,7 @@ class IndexRoute extends React.Component {
           <li>Standard orange book fields.</li>
           <li><strong>An openfda section:</strong> An annotation with additional product identifiers, such as UPC and brand name, of the drug products listed in the labeling.</li>
         </ul>
-        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/drug/orangebook.json?count=openfda.product_type.exact">https://api.fda.gov/drug/orangebook.json?count=openfda.product_type.exact</a>), the results section will look something like the following:</p>
+        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/drug/orangebook.json?count=product_type.exact">https://api.fda.gov/drug/orangebook.json?count=product_type.exact</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}

@@ -3,7 +3,7 @@ oneProduct:
   description:
     - "This query searches for all products, and asks for a single one."
   params:
-    - "Search for all products.."
+    - "Search for all products."
     - "Limit to 1 record."
   query: 'https://api.orange-book.semanticbits.com/drug/orangebook.json?limit=1'
 lotion:
@@ -20,7 +20,7 @@ countByType:
   title: Count of products, by product type
   description:
     - "This query compares the number of OTC and prescription products."
-    - "The suffix .exact is required by openFDA to count the unique full phrases in the field openfda.product_type. Without it, the API will count each word in that field individually—HUMAN OTC DRUG would be counted as separate values, HUMAN and OTC and DRUG."
+    - "The suffix .exact is required by openFDA to count the unique full phrases in the field product_type. Without it, the API will count each word in that field individually—HUMAN OTC DRUG would be counted as separate values, HUMAN and OTC and DRUG."
   params:
-  - "Count the field openfda.product_type (product type)."
+  - "Count the field product_type (product type)."
   query: 'https://api.orange-book.semanticbits.com/drug/orangebook.json?count=product_type.exact'

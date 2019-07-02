@@ -9,11 +9,15 @@
     "results": [
       {
         "term": "HUMAN PRESCRIPTION DRUG",
-        "count": 18315
+        "count": 20718
+      },
+      {
+        "term": "DISCONTINUED",
+        "count": 15863
       },
       {
         "term": "HUMAN OTC DRUG",
-        "count": 628
+        "count": 717
       }
     ]
   }
