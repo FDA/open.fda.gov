@@ -347,10 +347,15 @@ class ResultsComponent extends React.Component {
       var exportableRows = []
       this.props.rows.forEach(function(row) {
         var truncatedRow = {}
+        var rowData = ""
         visibleColumns.forEach(function(visibleColumn) {
-            truncatedRow[visibleColumn] = getNestedValue(row, visibleColumn)
+            var columnValue = getNestedValue(row, visibleColumn)
+            truncatedRow[visibleColumn] = columnValue
+            rowData += columnValue ? columnValue : ""
         })
-        exportableRows.push(truncatedRow)
+          if(rowData) {
+            exportableRows.push(truncatedRow)
+          }
       })
 
       /* make the worksheet */
