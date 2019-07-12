@@ -59,7 +59,7 @@ class IndexRoute extends React.Component {
           <h2>Limits of openFDA harmonization</h2>
           <p>Not all records have harmonized fields. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if the drug name is misspelled. Some drug products will have <strong>openfda</strong> sections, while others will never, if there was no match during the harmonization process.  Conversely, searching in these fields will only return a subset of records from a given endpoint.</p>
         </div>
-
+{/*
         <p>The documentation below describes fields that you may find in an <code>openfda</code> section of an API result. They are organized by the dataset from which they originate.</p>
         <div>
           <h2>NDC</h2>
@@ -98,7 +98,7 @@ class IndexRoute extends React.Component {
             data={field_list['RxNorm']}
             fields={fields}
           />
-        </div>
+        </div>*/}
       </section>
     )
   }
