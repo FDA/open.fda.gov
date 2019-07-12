@@ -140,6 +140,24 @@
           link: /apis/drug/enforcement/download/
         - title: Searchable fields
           link: /apis/drug/enforcement/searchable-fields/
+    - title: Drugs@FDA
+      id: drug-drugs-fda
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/drug/drugsfda/
+        - title: How to use the API
+          link: /apis/drug/drugsfda/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/drug/drugsfda/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/drug/drugsfda/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/drug/drugsfda/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/drug/drugsfda/download/
+        - title: Searchable fields
+          link: /apis/drug/drugsfda/searchable-fields/
 
 - title: Device API Endpoints
   id: device-api-endpoints

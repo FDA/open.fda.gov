@@ -1,0 +1,42 @@
+- title: "Sponsored Applications by Route"
+  short: "Sponsors by Route"
+  description:
+    - "Display the top sponsors filtered by route."
+  countParam: "sponsor_name"
+  filters:
+    - title: "All applicaitions"
+      searchParam: ""
+    - title: "Oral"
+      searchParam: 'products.route:oral'
+    - title: "Injection"
+      searchParam: 'products.route:injection'
+    - title: "Topical"
+      searchParam: 'products.route:topical'
+    - title: "Ophthalmic"
+      searchParam: 'products.route:ophthalmic'
+    - title: "Intravenous"
+      searchParam: 'products.route:intravenous'
+    - title: "Inhalation"
+      searchParam: 'products.route:inhalation'
+  type: Bar
+  dateConstraint: false
+- title: "Marketing Status"
+  short: "Marketing Status"
+  description:
+    - "Marketing Status filtered by dosage form."
+  countParam: "products.marketing_status"
+  filters:
+    - title: "All applications"
+      searchParam: ""
+    - title: "Tablet"
+      searchParam: "products.dosage_form:tablet"
+    - title: "Injectable"
+      searchParam: "products.dosage_form:injectable"
+    - title: "Capsule"
+      searchParam: "products.dosage_form:capsule"
+    - title: "Solution"
+      searchParam: "products.dosage_form:solution"
+    - title: "Cream"
+      searchParam: "products.dosage_form:cream"
+  type: Donut
+  dateConstraint: false

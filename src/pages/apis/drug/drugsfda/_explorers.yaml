@@ -1,0 +1,24 @@
+oneApplication:
+  title: "One application"
+  description:
+    - "This query searches for all applications, and asks for a single one."
+  params:
+    - "Search for all applications."
+    - "Limit to 1 application."
+  query: 'http://ec2-18-233-57-46.compute-1.amazonaws.com:8000/drug/drugsfda.json?limit=1'
+lotion:
+  title: "One lotion product"
+  description:
+    - "This query searches all applications with lotion products, and returns a single application."
+    - 'Double quotation marks `" "` surround phrases that must match exactly.'
+  params:
+  - "Search for all applications which have a product with `dosage_form` exactly equal to 'LOTION'."
+  - "Limit to 1 record."
+  query: 'http://ec2-18-233-57-46.compute-1.amazonaws.com:8000/drug/drugsfda.json?search=products.dosage_form:"LOTION"&limit=1'
+sponsorNameCount:
+  title: "Count of sponsors"
+  description:
+    - "This query searches the endpoint for all applications, and tells the Application Programming Interface to count how many included each `sponsor_name`."
+  params:
+  - "Count the field `sponsor_name`."
+  query: 'http://ec2-18-233-57-46.compute-1.amazonaws.com:8000/drug/drugsfda.json?count=sponsor_name'

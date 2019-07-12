@@ -23,6 +23,10 @@ export default () => (
           noun_name='drug'
           endpoint_name='enforcement'
         />
+        <EndpointBox
+          noun_name='drug'
+          endpoint_name='drugsfda'
+        />
       </div>
     </div>
   </section>
