@@ -40,3 +40,21 @@
       searchParam: "products.dosage_form:cream"
   type: Donut
   dateConstraint: false
+#- title: "Submissions, 1980 - 2019"
+#  short: "Over Time"
+#  description:
+#    - "This is a visualization of approved submissions over time."
+#  countParam: "submissions.submission_status_date"
+#  filters:
+#    - title: "All applications"
+#      searchParam: "submissions.submission_status_date:[19800101+TO+20191213]"
+#    - title: "Approved submissions"
+#      searchParam: 'submissions.submission_status_date:[19800101+TO+20191213]+AND+submissions.submission_status:AP'
+#    - title: "Approved submissions"
+#      searchParam: 'submissions.submission_status_date:[19800101+TO+20191213]+AND+submissions.submission_status:TA'
+#    - title: "Original submissions"
+#      searchParam: 'submissions.submission_status_date:[19800101+TO+20191213]+AND+submissions.submission_status:ORIG'
+#    - title: "Supplemental submissions"
+#      searchParam: 'submissions.submission_status_date:[19800101+TO+20191213]+AND+submissions.submission_type:SUPPL'
+#  type: Line
+#  dateConstraint: false

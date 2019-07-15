@@ -237,7 +237,7 @@ properties:
         possible_values:
         type: string
       reference_drug:
-        description: "Pending."
+        description: "Pending"
         format:
         is_exact: false
         possible_values:
