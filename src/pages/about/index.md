@@ -50,7 +50,10 @@ The team also wishes to thank the following individuals and groups for their con
 - Angelique Hebert
 - Sean Herron
 - Steven Hubbard
-- Iodine, Inc. (_Previous Contractor_)
+- Adam Baker, Iodine _(former contractor)_
+- Thomas Goetz, Iodine _(former contractor)_
+- Matt Mohebi, Iodine _(former contractor)_
+- Hans Nelson, Iodine _(former contractor)_
 - Taha Kass-Hout
 - Milan Kubic
 - Joshua Lehman
