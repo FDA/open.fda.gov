@@ -8,7 +8,7 @@ title: 'Animal & Veterinary Adverse Events (ADAE)'
 description: 'Reported adverse drug and device experiences in animals.'
 source:
   name: 'ADAE'
-  nameLong: 'Animal & Veterinary Adverse Events'
+  nameLong: 'Animal & Veterinary Adverse Events for Animal Drugs and Devices'
   link: 'https://www.fda.gov/animal-veterinary/product-safety-information/adverse-event-reports-animal-drugs-and-devices'
   linkDownload:
 license:
