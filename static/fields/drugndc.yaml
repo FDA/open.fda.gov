@@ -103,11 +103,11 @@ properties:
     possible_values:
       type: one_of
       value:
-        '1': "ci"
-        '2': "cii"
-        '3': "cii"
-        '4': "civ"
-        '5': "cv"
+        '1': "CI"
+        '2': "CII"
+        '3': "CIII"
+        '4': "CIV"
+        '5': "CV"
     type: string
   listing_expiration_date:
     description: "This is the date when the listing record will expire if not updated or certified by the firm."
