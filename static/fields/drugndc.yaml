@@ -90,21 +90,6 @@ properties:
     is_exact: false
     possible_values:
     type: string
-  active_ingredients:
-    type: object
-    properties:
-      name:
-        description: "The names of the active, medicinal ingredients in the drug product."
-        format:
-        is_exact: true
-        possible_values:
-        type: string
-      strength:
-        description: "The strength of the active, medicinal ingredients in the drug product."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
   pharm_class:
     description: "These are the reported pharmacological class categories corresponding to the SubstanceNames listed above."
     format:
@@ -130,6 +115,21 @@ properties:
     is_exact: false
     possible_values:
     type: string
+  active_ingredients:
+    type: object
+    properties:
+      name:
+        description: "The names of the active, medicinal ingredients in the drug product."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      strength:
+        description: "The strength of the active, medicinal ingredients in the drug product."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
   packaging:
     type: object
     properties:
