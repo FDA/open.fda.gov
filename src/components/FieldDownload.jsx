@@ -15,7 +15,8 @@ const pdfDownloadMap: Object = Object.freeze({
   'deviceclearance': '/fields/deviceclearance_reference.pdf',
   'devicepma': '/fields/devicepma_reference.pdf',
   'deviceudi': '/fields/deviceudi_reference.pdf',
-  'deviceenforcement': '/fields/deviceenforcement_reference.pdf'
+  'deviceenforcement': '/fields/deviceenforcement_reference.pdf',
+  'othernsde': '/fields/othernsde_reference.pdf'
 })
 
 const xlsxDownloadMap: Object = Object.freeze({
@@ -33,7 +34,8 @@ const xlsxDownloadMap: Object = Object.freeze({
   'deviceclearance': '/fields/deviceclearance_reference.xlsx',
   'devicepma': '/fields/devicepma_reference.xlsx',
   'deviceudi': '/fields/deviceudi_reference.xlsx',
-  'deviceenforcement': '/fields/deviceenforcement_reference.xlsx'
+  'deviceenforcement': '/fields/deviceenforcement_reference.xlsx',
+  'othernsde': '/fields/othernsde_reference.xlsx'
 })
 
 const yamlDownloadMap: Object = Object.freeze({
@@ -51,7 +53,8 @@ const yamlDownloadMap: Object = Object.freeze({
   'deviceclearance': '/fields/deviceclearance.yaml',
   'devicepma': '/fields/devicepma.yaml',
   'deviceudi': '/fields/deviceudi.yaml',
-  'deviceenforcement': '/fields/deviceenforcement.yaml'
+  'deviceenforcement': '/fields/deviceenforcement.yaml',
+  'othernsde': '/fields/othernsde.yaml'
 })
 
 
