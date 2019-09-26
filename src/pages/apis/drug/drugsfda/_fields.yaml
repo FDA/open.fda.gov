@@ -6,12 +6,6 @@ properties:
     is_exact: false
     possible_values:
     type: string
-  application_public_notes:
-    description: "Pending."
-    format:
-    is_exact: false
-    possible_values:
-    type: string
   openfda:
     type: object
     properties:
@@ -237,13 +231,13 @@ properties:
         possible_values:
         type: string
       reference_drug:
-        description: "Pending."
+        description: "A previously approved drug product for which an applicant may seek approval of a generic drug."
         format:
         is_exact: false
         possible_values:
         type: boolean
       reference_standard:
-        description: "Pending."
+        description: "The previously approved drug selected by FDA that an applicant must use in the conduct of in vivo bioequivalence studies required for approval of an ANDA."
         format:
         is_exact: false
         possible_values:
@@ -289,7 +283,7 @@ properties:
         possible_values:
         type: string
       review_priority:
-        description: "Pending."
+        description: "Indicates the review priority designation."
         format:
         is_exact: false
         possible_values:
@@ -313,7 +307,7 @@ properties:
         possible_values:
         type: string
       submission_property_type_code:
-        description: "Pending."
+        description: "A code representing the submission property for a submission."
         format:
         is_exact: false
         possible_values:
