@@ -9,8 +9,8 @@ description: 'A PMA is an application submitted to FDA to request approval to ma
 source:
   name: 'PMA'
   nameLong: 'Premarket Approval'
-  link: 'http://www.fda.gov/MedicalDevices/ProductsandMedicalProcedures/DeviceApprovalsandClearances/default.htm'
-  linkDownload: 'http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPMN/pmn.cfm'
+  link: 'https://www.fda.gov/medical-devices/device-approvals-denials-and-clearances/pma-approvals'
+  linkDownload: 'https://www.fda.gov/medical-devices/device-approvals-denials-and-clearances/pma-approvals#pma'
 license:
   name: 'Public Domain and CC0'
   link: 'http://creativecommons.org/publicdomain/zero/1.0/'

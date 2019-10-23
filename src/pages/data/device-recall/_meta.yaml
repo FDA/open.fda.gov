@@ -9,8 +9,8 @@ description: 'A recall is an action taken to address a problem with a medical de
 source:
   name: 'Device Recalls'
   nameLong: 'Device Recalls'
-  link: 'http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRES/res.cfm'
-  linkDownload: 'http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRES/res.cfm'
+  link: 'https://www.fda.gov/medical-devices/medical-device-safety/medical-device-recalls'
+  linkDownload: 'https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfres/res.cfm'
 license:
   name: 'Public Domain and CC0'
   link: 'http://creativecommons.org/publicdomain/zero/1.0/'
