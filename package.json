@@ -22,7 +22,7 @@
     "copy-webpack-plugin": "4.2.0",
     "create-react-class": "15.6.3",
     "dateformat": "3.0.2",
-    "eslint": "4.9.0",
+    "eslint": "4.19.1",
     "eslint-config-react-tools": "1.1.2",
     "eslint-plugin-babel": "4.1.2",
     "eslint-plugin-jsx-a11y": "5.1.1",
