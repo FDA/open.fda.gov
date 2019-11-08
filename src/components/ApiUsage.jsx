@@ -6,7 +6,7 @@ import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
 
-// Update total usage numbers with: https://api.fda.gov/usage.json?end_at=2019-04-21 - last 2019-04-21
+// Update total usage numbers with: https://api.fda.gov/usage.json?end_at=2019-11-08 - last 2019-11-08
 // Update in pages/about/statistics/_content.yaml
 type tPROPS = {
     accessSinceLaunch: string,
