@@ -123,7 +123,7 @@ properties:
         pattern:
         description: "A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record)."
         possible_values:
-  approval_id:
+  unii:
     format:
     is_exact: false
     type: string
@@ -286,21 +286,22 @@ properties:
         description: "The UUID of the related substance."
         possible_values:
       related_substance:
+        description: "A reference to the related substance (or concept) record."
         type: object
         properties:
+          linking_id:
+            format:
+            is_exact: false
+            type: string
+            pattern:
+            description: "The approvalID of the record if it exists, otherwise some compact and exchangable ID useful for linking to the referenced record (often the first 8 chars of its uuid)."
+            possible_values:
           ref_pname:
             format:
             is_exact: false
             type: string
             pattern:
-            description: ""
-            possible_values:
-          related_substance:
-            format:
-            is_exact: false
-            type: string
-            pattern:
-            description: "A reference to the related substance (or concept) record."
+            description: "The 'Priority Name' (usually the display name) of the record being referenced."
             possible_values:
           originator_uuid:
             format:

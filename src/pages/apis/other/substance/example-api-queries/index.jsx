@@ -10,7 +10,6 @@ class IndexRoute extends React.Component {
     const byName = explorers['byName']
     const byCASRegistryNumber = explorers['byCASRegistryNumber']
     const byUNII = explorers['byUNII']
-    const bySmiles = explorers['bySmiles']
 
     return (
       <section className="doc-content">
@@ -39,12 +38,6 @@ class IndexRoute extends React.Component {
           originalQuery={byUNII.query}
           params={byUNII.params}
           title={byUNII.title}
-        />
-        <QueryExplorer
-          desc={bySmiles.description}
-          originalQuery={bySmiles.query}
-          params={bySmiles.params}
-          title={bySmiles.title}
         />
       </section>
     )
