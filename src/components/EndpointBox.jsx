@@ -104,7 +104,7 @@ const EndpointBox = (props: tPROPS) => {
     },
     'other': {
       'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
-      'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-file-invoice" style={{color: "white"}}/></div>
+      'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{color: "white"}}/></div>
     }
   }
 
