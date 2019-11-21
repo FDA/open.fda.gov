@@ -1,15 +1,15 @@
-- title: "Substance Class by Approval Status"
-  short: "Approval Status"
+- title: "Substance Class by Validation Status"
+  short: "Validation Status"
   dataset: Substance
   description:
-    - "The Substance dataset includes information about the approval status of the substances."
+    - "The Substance dataset includes information about the validation status of the substances."
   countParam: "substance_class"
   filters:
     - title: "All Substance Data Records"
       searchParam: ''
-    - title: "Approved Status"
+    - title: "Validation Status"
       searchParam: 'status:"approved"'
-    - title: "Non-approved Status"
+    - title: "Not Validated Status"
       searchParam: 'status:"non-approved"'
     - title: "Failed Status"
       searchParam: 'status:"FAILED"'

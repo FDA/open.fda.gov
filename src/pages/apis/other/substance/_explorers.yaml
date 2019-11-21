@@ -16,11 +16,11 @@ byName:
   title: Substance Data Record by Name
 byCASRegistryNumber:
   params:
-  - search for records by CAS Registry Number.
+  - search for records by Named Codes.
   query: 'https://openfda-api.preprod.fda.gov/other/substance.json?search=codes.code:"220127-57-1"'
   description:
     - This query searches for records with the specific CAS Registry Number "220127-57-1".
-  title: Substance Data Record by CAS Registry Number
+  title: Substance Data Record by Named Code
 byUNII:
   params:
   - search for records by UNII.
@@ -28,3 +28,11 @@ byUNII:
   description:
     - This query searches for records with the specific UNII "09211A0HHL".
   title: Substance Data Record by UNII
+byFormula:
+  params:
+  - search for a specific molecular formula.
+  - limit to 1 record.
+  query: 'https://openfda-api.preprod.fda.gov/other/substance.json?search=structure.formula:"C6H12"'
+  description:
+    - This query searches for records with the specific molecular formula "C6H12", and returns one result.
+  title: Substance Data Record by Molecular Formula
