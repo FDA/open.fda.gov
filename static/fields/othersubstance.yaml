@@ -1,52 +1,53 @@
 properties:
   codes:
-    description: 'A list of codes used for this record, containing external identifiers, external classification designations, and external link-outs.'
-    properties:
-      code:
-        description: 'The literal code value.'
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      code_system:
-        description: 'The orginizational system which defines the code meaning (e.g. the originating database or classification system).'
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      comments:
-        description: 'Any comments regarding the relationship.'
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      references:
-        items:
-          description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
+    items:
+      description: 'A list of codes used for this record, containing external identifiers, external classification designations, and external link-outs.'
+      properties:
+        code:
+          description: 'The literal code value.'
           format:
           is_exact: false
           possible_values:
           type: string
-        type: array
-      type:
-        description: 'The type of the code (e.g. "PRIMARY" for a primary code, "SECONDARY" for a secondary code, and "SUPERSEDED" for a code which has been superseded by another code, etc).'
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      url:
-        description: 'The url to further information regarding this code.'
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      uuid:
-        description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-    type: object
+        code_system:
+          description: 'The orginizational system which defines the code meaning (e.g. the originating database or classification system).'
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        comments:
+          description: 'Any comments regarding the relationship.'
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        references:
+          items:
+            description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          type: array
+        type:
+          description: 'The type of the code (e.g. "PRIMARY" for a primary code, "SECONDARY" for a secondary code, and "SUPERSEDED" for a code which has been superseded by another code, etc).'
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        url:
+          description: 'The url to further information regarding this code.'
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        uuid:
+          description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+    type: array
   definition_level: 'The level of completeness and specificity of the definition (e.g. "complete", "incomplete", "representative").'
     description:
     format:
@@ -647,21 +648,22 @@ properties:
               possible_values:
               type: string
             sites:
-              description: 'A list of explicit detailed sites where the linkage is applicable. A linkage site is always describing how the nucleoside connects to the NEXT nucleoside in the series. So a sequence of length 2 will have only 1 linkage, specified at the 1st site (not the second).'
-              properties:
-                residue_index:
-                  description: 'The index of the residue on that subunit being specified.'
-                  format:
-                  is_exact: false
-                  possible_values:
-                  type: integer
-                subunit_index:
-                  description: 'The index of the subunit being specified.'
-                  format:
-                  is_exact: false
-                  possible_values:
-                  type: integer
-              type: object
+              items:
+                description: 'A list of explicit detailed sites where the linkage is applicable. A linkage site is always describing how the nucleoside connects to the NEXT nucleoside in the series. So a sequence of length 2 will have only 1 linkage, specified at the 1st site (not the second).'
+                properties:
+                  residue_index:
+                    description: 'The index of the residue on that subunit being specified.'
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: integer
+                  subunit_index:
+                    description: 'The index of the subunit being specified.'
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: integer
+              type: array
             structural_modification_type:
               description: 'The type of structural modification.'
               format:
@@ -897,35 +899,36 @@ properties:
           type: string
         type: array
       name_orgs:
-        properties:
-          deprecated_date:
-            description: "A UNIX timestamp for when the naming organization deprecated the name's status (if it has been deprecated)."
-            format:
-            is_exact: false
-            possible_values:
-            type: integer
-          name_org:
-            description: 'A string representing the naming organization which has designated the name as official in some regard. (e.g. "USAN", "INN").'
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          references:
-            description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
-            items:
-              description:
+        items:
+          properties:
+            deprecated_date:
+              description: "A UNIX timestamp for when the naming organization deprecated the name's status (if it has been deprecated)."
+              format:
+              is_exact: false
+              possible_values:
+              type: integer
+            name_org:
+              description: 'A string representing the naming organization which has designated the name as official in some regard. (e.g. "USAN", "INN").'
               format:
               is_exact: false
               possible_values:
               type: string
-            type: array
-          uuid:
-            description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-        type: object
+            references:
+              description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
+              items:
+                description:
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              type: array
+            uuid:
+              description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+        type: array
       preferred:
         description: 'True if this is a "preferred name" for the substance (each substance may have many).'
         format:
@@ -1305,6 +1308,7 @@ properties:
             is_exact: false
             possible_values:
             type: string
+        type: object
       idealized_structure:
         description: 'A form of the structure which is meant for communicating a more accurate, but sometimes less intuitive view of the polymeric structure. This form of the polymer definition is also not meant to be an exhaustive cannonical form, but is meant to be the most compatible aranagement possible for unerstanding the structural units.'
         properties:
@@ -1376,153 +1380,157 @@ properties:
             is_exact: false
             possible_values:
             type: string
+        type: object
       monomers:
         description: 'A list of starting materials and/or conceptual "monomers" that either were used in the synthesis of the polymer, or "could have been used" in its synthesis. Each "monomer" has a type, an extent (or amount) and a reference to another substance record. It is important to note, despite the name, that catalysts and non-monomer starting materials may be captured here as well.'
-        properties:
-          amount:
-            description: 'Marking the record or element as belonging to certain groups for use in tracking which groups should receive visibility, export and/or inclusion in specific reports.'
-            properties:
-              average:
-                description: "The amount's numeric average if present."
-                format:
-                is_exact: false
-                possible_values:
-                type: float
-              high:
-                description: 'The highest numerical value likely for the average amount. (highest average).'
-                format:
-                is_exact: false
-                possible_values:
-                type: float
-              high_limit:
-                description: 'The highest allowable numeric value usable for the amount. (highest limit).'
-                format:
-                is_exact: false
-                possible_values:
-                type: float
-              low:
-                description: 'The lowest numerical value likely for the average amount. (lowest average).'
-                format:
-                is_exact: false
-                possible_values:
-                type: float
-              low_limit:
-                description: 'The lowest allowable numeric value usable for the amount. (lowest limit).'
-                format:
-                is_exact: false
-                possible_values:
-                type: float
-              non_numeric_value:
-                description: 'A textual description of a value which can not be quantified numerically. For example, "solubility" may be described quantitatively or it may be described with certain textual categories. Non-numeric values are meant to specify qualitative values and other values not easily described by numbers or ranges of numbers.'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              references:
-                items:
-                  description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
+        items:
+          properties:
+            amount:
+              description: 'Marking the record or element as belonging to certain groups for use in tracking which groups should receive visibility, export and/or inclusion in specific reports.'
+              properties:
+                average:
+                  description: "The amount's numeric average if present."
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: float
+                high:
+                  description: 'The highest numerical value likely for the average amount. (highest average).'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: float
+                high_limit:
+                  description: 'The highest allowable numeric value usable for the amount. (highest limit).'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: float
+                low:
+                  description: 'The lowest numerical value likely for the average amount. (lowest average).'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: float
+                low_limit:
+                  description: 'The lowest allowable numeric value usable for the amount. (lowest limit).'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: float
+                non_numeric_value:
+                  description: 'A textual description of a value which can not be quantified numerically. For example, "solubility" may be described quantitatively or it may be described with certain textual categories. Non-numeric values are meant to specify qualitative values and other values not easily described by numbers or ranges of numbers.'
                   format:
                   is_exact: false
                   possible_values:
                   type: string
-                type: array
-              type:
-                description: "The type of the amount specified ('mol ratio'. 'degree of polymerization', 'weight ratio', etc.)."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              units:
-                description: "The amount's unit of measurement."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              uuid:
-                description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-          defining:
-            description: 'A flag for whether or not the monomer / starting material is considered canonically defining for the polymer.'
-            format:
-            is_exact: false
-            possible_values:
-            type: boolean
-          monomer_substance:
-            description: 'A reference to the substance which is used as a starting material or monomer.'
-            properties:
-              linking_id:
-                description: 'The approvalID of the record if it exists, otherwise some compact and exchangable ID useful for linking to the referenced record (often the first 8 chars of its uuid).'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              name:
-                description: 'The literal string text of a name.'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              ref_pname:
-                description: 'The "Priority Name" (usually the display name) of the record being referenced.'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              references:
-                items:
-                  description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
+                references:
+                  items:
+                    description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  type: array
+                type:
+                  description: "The type of the amount specified ('mol ratio'. 'degree of polymerization', 'weight ratio', etc.)."
                   format:
                   is_exact: false
                   possible_values:
                   type: string
-                type: array
-              refuuid:
-                description: 'The UUID of the related record.'
+                units:
+                  description: "The amount's unit of measurement."
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                uuid:
+                  description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+            defining:
+              description: 'A flag for whether or not the monomer / starting material is considered canonically defining for the polymer.'
+              format:
+              is_exact: false
+              possible_values:
+              type: boolean
+            monomer_substance:
+              description: 'A reference to the substance which is used as a starting material or monomer.'
+              properties:
+                linking_id:
+                  description: 'The approvalID of the record if it exists, otherwise some compact and exchangable ID useful for linking to the referenced record (often the first 8 chars of its uuid).'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                name:
+                  description: 'The literal string text of a name.'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                ref_pname:
+                  description: 'The "Priority Name" (usually the display name) of the record being referenced.'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                references:
+                  items:
+                    description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  type: array
+                refuuid:
+                  description: 'The UUID of the related record.'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                substance_class:
+                  description: 'This value wall always be "reference" if it is intended as a real reference and "mention" if it is a place-holder. However, it can also specify a full substance class, in which case the whole record reference object is meant to be a full entire record rather than a reference.'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                unii:
+                  description: 'The Unique Ingredient Identifier (UNII, aka "Approval ID") is a unique ID generated for each substance record.'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                uuid:
+                  description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+              type: object
+            references:
+              items:
+                description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
                 format:
                 is_exact: false
                 possible_values:
                 type: string
-              substance_class:
-                description: 'This value wall always be "reference" if it is intended as a real reference and "mention" if it is a place-holder. However, it can also specify a full substance class, in which case the whole record reference object is meant to be a full entire record rather than a reference.'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              unii:
-                description: 'The Unique Ingredient Identifier (UNII, aka "Approval ID") is a unique ID generated for each substance record.'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              uuid:
-                description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-          references:
-            items:
-              description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
+              type: array
+            type:
+              description: "The chemical's type or role in polymerization ('initiator', 'monomer', 'starting material', etc.)."
               format:
               is_exact: false
               possible_values:
               type: string
-            type: array
-          type:
-            description: "The chemical's type or role in polymerization ('initiator', 'monomer', 'starting material', etc.)."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          uuid:
-            description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
-            format:
-            is_exact: false
-            possible_values:
-            type: string
+            uuid:
+              description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+        type: array
       references:
         items:
           description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
@@ -1533,102 +1541,104 @@ properties:
         type: array
       structural_units:
         description: 'A list of SRUs (Structural Repeating Units) as well as non-repeating structural units which comprise the polymer. Each unit present has a chemical structure, a label, an extent/amount, a type and information about how the unit can connect to other units and/or itself. This can be seen as the set of "pieces" which can be combined together to make the polymer in question.'
-        properties:
-          amount:
-            description: 'The value or amount that describes the relationship between the two records. An amount is not always present, but sometimes quantifies the interaction between two records in some context (e.g. "the IC50 for an inhibitor").'
-            properties:
-              average:
-                description: "The amount's numeric average if present."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              high:
-                description: 'The highest numerical value likely for the average amount. (highest average).'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              high_limit:
-                description: 'The highest allowable numeric value usable for the amount. (highest limit).'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              low:
-                description: 'The lowest numerical value likely for the average amount. (lowest average).'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              low_limit:
-                description: 'The lowest allowable numeric value usable for the amount. (lowest limit).'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              non_numeric_value:
-                description: 'A textual description of a value which can not be quantified numerically. For example, "solubility" may be described quantitatively or it may be described with certain textual categories. Non-numeric values are meant to specify qualitative values and other values not easily described by numbers or ranges of numbers.'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              references:
-                items:
-                  description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
+        items:
+          properties:
+            amount:
+              description: 'The value or amount that describes the relationship between the two records. An amount is not always present, but sometimes quantifies the interaction between two records in some context (e.g. "the IC50 for an inhibitor").'
+              properties:
+                average:
+                  description: "The amount's numeric average if present."
                   format:
                   is_exact: false
                   possible_values:
                   type: string
-                type: array
-              type:
-                description: "The type of the amount specified ('mol ratio'. 'degree of polymerization', 'weight ratio', etc.)."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              units:
-                description: "The amount's unit of measurement."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              uuid:
-                description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-          attachment_count:
-            description: 'A count of the attachment points allowed for the given structural unit'
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          attachment_map:
-            description: 'A map detailing the allowed connections between each connection point in the structural unit (specified by using R-Group aliases) and the set of allowed other connection points where they can connect'
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          label:
-            description: 'A label for the structural unit, typically a sequential capital letter starting with "A" ("A","B","C", etc)'
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          structure:
-            description: 'The molfile-format structure of the structural unit'
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          type:
-            description: 'The type of structural unit specified, describing whether it is an end group, SRU, or fragment.'
-            format:
-            is_exact: false
-            possible_values:
-            type: string
+                high:
+                  description: 'The highest numerical value likely for the average amount. (highest average).'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                high_limit:
+                  description: 'The highest allowable numeric value usable for the amount. (highest limit).'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                low:
+                  description: 'The lowest numerical value likely for the average amount. (lowest average).'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                low_limit:
+                  description: 'The lowest allowable numeric value usable for the amount. (lowest limit).'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                non_numeric_value:
+                  description: 'A textual description of a value which can not be quantified numerically. For example, "solubility" may be described quantitatively or it may be described with certain textual categories. Non-numeric values are meant to specify qualitative values and other values not easily described by numbers or ranges of numbers.'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                references:
+                  items:
+                    description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  type: array
+                type:
+                  description: "The type of the amount specified ('mol ratio'. 'degree of polymerization', 'weight ratio', etc.)."
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                units:
+                  description: "The amount's unit of measurement."
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+                uuid:
+                  description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
+                  format:
+                  is_exact: false
+                  possible_values:
+                  type: string
+            attachment_count:
+              description: 'A count of the attachment points allowed for the given structural unit'
+              format:
+              is_exact: false
+              possible_values:
+              type: float
+            attachment_map:
+              description: 'A map detailing the allowed connections between each connection point in the structural unit (specified by using R-Group aliases) and the set of allowed other connection points where they can connect'
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+            label:
+              description: 'A label for the structural unit, typically a sequential capital letter starting with "A" ("A","B","C", etc)'
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+            structure:
+              description: 'The molfile-format structure of the structural unit'
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+            type:
+              description: 'The type of structural unit specified, describing whether it is an end group, SRU, or fragment.'
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+        type: array
       uuid:
         description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
         format:
@@ -1930,45 +1940,46 @@ properties:
         type: object
       other_links:
         description: 'The set of links, other than disulfide links, which connect different amino acid residues found within the protein.'
-        properties:
-          linkage_type:
-            description: 'The type of linkage which connects the residues in a protein.'
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          references:
-            items:
-              description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
+        items:
+          properties:
+            linkage_type:
+              description: 'The type of linkage which connects the residues in a protein.'
               format:
               is_exact: false
               possible_values:
               type: string
-            type: array
-          sites:
-            description: 'A list of explicit detailed sites where the linkage is applicable. A linkage site is always describing how the nucleoside connects to the NEXT nucleoside in the series. So a sequence of length 2 will have only 1 linkage, specified at the 1st site (not the second).'
-            items:
-              properties:
-                residue_index:
-                  description: 'The index of the residue on that subunit being specified.'
-                  format:
-                  is_exact: false
-                  possible_values:
-                  type: integer
-                subunit_index:
-                  description: 'The index of the subunit being specified.'
-                  format:
-                  is_exact: false
-                  possible_values:
-                  type: integer
-            type: array
-          uuid:
-            description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-        type: object
+            references:
+              items:
+                description: "A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes. The included references are considered to be the supporting origins of the data element in question."
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              type: array
+            sites:
+              description: 'A list of explicit detailed sites where the linkage is applicable. A linkage site is always describing how the nucleoside connects to the NEXT nucleoside in the series. So a sequence of length 2 will have only 1 linkage, specified at the 1st site (not the second).'
+              items:
+                properties:
+                  residue_index:
+                    description: 'The index of the residue on that subunit being specified.'
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: integer
+                  subunit_index:
+                    description: 'The index of the subunit being specified.'
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: integer
+              type: array
+            uuid:
+              description: 'A Universally Unique Identifier (also sometimes called a GUID) for the element. Most GSRS elements have a uuid to be used for tracking, processing and referencing a record (and any element of that record).'
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+        type: array
       protein_sub_type:
         description: 'A comma-separated set of subtypes descriptive of the protein.'
         format:
@@ -2060,7 +2071,7 @@ properties:
           format:
           is_exact: false
           possible_values:
-          type: string
+          type: float
         id:
           description: 'The identifier of the structural element itself (this is still a UUID).'
           format:
@@ -2633,7 +2644,7 @@ properties:
         format:
         is_exact: false
         possible_values:
-        type: string
+        type: float
       molfile:
         description: 'The chemical structure in MDL Molfile format (V2000).'
         format:
