@@ -15,7 +15,7 @@ class IndexRoute extends React.Component {
         <ul>
           <li><code>Substance:</code>The top level fields of each record.</li>
           <li><code>Codes:</code>A list of codes used for this record, containing external identifiers, external classification designations, and external link-outs.</li>
-          <li><code>Mixture:</code>A container for the mixture information necesary to define a mixture substance. This includes the mixture components and an optioanl source material reference.</li>
+          <li><code>Mixture:</code>A container for the mixture information necessary to define a mixture substance. This includes the mixture components and an optioanl source material reference.</li>
           <li><code>Modifications:</code>A container for the set of physical, structural and agent modifications on the substance record.</li>
           <li><code>Moieties:</code>A list of the important component chemical structures which comprise a chemical substance, as well as their relative ratios to each other (especially important in the case of non-stoichiometric chemical substances). These "moieties" are typically the unique set of disconnected covalent structures found in the substance.</li>
           <li><code>Names:</code>The list of names associated with a record. These include scientific, common, generic and brand names for substances and concepts. Name objects include both the name as a string, as well as other information.</li>
@@ -25,10 +25,10 @@ class IndexRoute extends React.Component {
           <li><code>Protein:</code>The definitional information of a protein substance. Contains information about the amino acid sequence, gylcosylation, classification, disulfide links and other links.</li>
           <li><code>References:</code>A list of reference uuids, which refer back to the root record's references, essentially acting as footnotes.</li>
           <li><code>Relationships:</code>A list of related records which share some known relationship with this record (e.g. salt forms, metabolites, impurities, etc).</li>
-          <li><code>Structurally Diverse:</code>The definitional information of a structurally diverse substance. This includes informaiton about the source of the material (e.g. taxonomy for organisms) as well as the state, form and part of the source material used.</li>
+          <li><code>Structurally Diverse:</code>The definitional information of a structurally diverse substance. This includes information about the source of the material (e.g. taxonomy for organisms) as well as the state, form and part of the source material used.</li>
           <li><code>Structure:</code>Chemical structure of a chemical substance.</li>
           </ul>
-        <p>For count queries (such as: <a href="https://openfda-api.preprod.fda.gov/other/substance.json?count=status">https://openfda-api.preprod.fda.gov/other/substance.json?count=status</a>), the results section will look something like the following:</p>
+        <p>For count queries (such as: <a href="https://openfda-api.preprod.fda.gov/other/substance.json?count=substance_class">https://openfda-api.preprod.fda.gov/other/substance.json?count=substance_class</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}

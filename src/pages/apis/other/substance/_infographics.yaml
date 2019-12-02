@@ -1,20 +1,24 @@
-- title: "Substance Class by Validation Status"
+- title: "Substance Class by Property Type"
   short: "Validation Status"
   dataset: Substance
   description:
-    - "The Substance dataset includes information about the validation status of the substances."
+    - "The Substance dataset includes information about the property type of the substances."
   countParam: "substance_class"
   filters:
     - title: "All Substance Data Records"
       searchParam: ''
-    - title: "Validation Status"
-      searchParam: 'status:"approved"'
-    - title: "Not Validated Status"
-      searchParam: 'status:"non-approved"'
-    - title: "Failed Status"
-      searchParam: 'status:"FAILED"'
-    - title: "Alternative Status"
-      searchParam: 'status:"alternative"'
+    - title: "Chemical"
+      searchParam: 'properties.property_type:"CHEMICAL"'
+    - title: "Pharmacokinetic"
+      searchParam: 'properties.property_type:"PHARMACOKINETIC"'
+    - title: "Physical"
+      searchParam: 'properties.property_type:"PHYSICAL"'
+    - title: "Biological"
+      searchParam: 'properties.property_type:"BIOLOGICAL"'
+    - title: "Toxicity"
+      searchParam: 'properties.property_type:"TOXICITY"'
+    - title: "Ennzymatic"
+      searchParam: 'properties.property_type:"ENZYMATIC"'
   type: Donut
 - title: "Substance Data by Substance Class"
   short: "Substance Class"

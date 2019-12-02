@@ -48,14 +48,14 @@ properties:
           possible_values:
           type: string
     type: array
-  definition_level: 'The level of completeness and specificity of the definition (e.g. "complete", "incomplete", "representative").'
-    description:
+  definition_level:
+    description: 'The level of completeness and specificity of the definition (e.g. "complete", "incomplete", "representative").'
     format:
     is_exact: false
     possible_values:
     type: string
-  definition_type: 'The type of definition ("primary" or "alternative"). Primary definitions are the main descriptive form of the substance definition, while "alternative" definitions may be seen as definitional "synonyms" of some primary record.'
-    description:
+  definition_type:
+    description: 'The type of definition ("primary" or "alternative"). Primary definitions are the main descriptive form of the substance definition, while "alternative" definitions may be seen as definitional "synonyms" of some primary record.'
     format:
     is_exact: false
     possible_values:
@@ -224,8 +224,8 @@ properties:
               is_exact: false
               possible_values:
               type: string
-            agent_modification_role: 'The role of the agent in the modification process.'
-              description:
+            agent_modification_role:
+              description: 'The role of the agent in the modification process.'
               format:
               is_exact: false
               possible_values:
@@ -2322,12 +2322,6 @@ properties:
           possible_values:
           type: string
     type: array
-  status:
-    description: 'The current record status (e.g. "pending", "approved"). This is not a regulatory status, but simply the status of record validation and curation. .'
-    format:
-    is_exact: false
-    possible_values:
-    type: string
   structurally_diverse:
     description: 'The definitional information of a structurally diverse substance. This includes informaiton about the source of the material (e.g. taxonomy for organisms) as well as the state, form and part of the source material used.'
     properties:

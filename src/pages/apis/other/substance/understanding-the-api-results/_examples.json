@@ -43,20 +43,36 @@
   ],
   "count": [
     {
-      "term": "approved",
-      "count": 96686
+      "term": "chemical",
+      "count": 72108
     },
     {
-      "term": "non-approved",
-      "count": 5226
+      "term": "structurallyDiverse",
+      "count": 25508
     },
     {
-      "term": "FAILED",
-      "count": 48
+      "term": "protein",
+      "count": 4175
     },
     {
-      "term": "alternative",
-      "count": 33
+      "term": "mixture",
+      "count": 2508
+    },
+    {
+      "term": "polymer",
+      "count": 2128
+    },
+    {
+      "term": "concept",
+      "count": 713
+    },
+    {
+      "term": "nucleicAcid",
+      "count": 190
+    },
+    {
+      "term": "specifiedSubstanceG1",
+      "count": 23
     }
   ]
 }
