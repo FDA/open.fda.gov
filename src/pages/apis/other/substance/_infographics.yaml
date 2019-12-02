@@ -1,5 +1,5 @@
 - title: "Substance Class by Property Type"
-  short: "Validation Status"
+  short: "Property Type"
   dataset: Substance
   description:
     - "The Substance dataset includes information about the property type of the substances."
