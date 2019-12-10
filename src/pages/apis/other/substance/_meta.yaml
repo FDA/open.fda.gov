@@ -1,0 +1,11 @@
+type: endpoint
+documentTitle: openFDA › Other › Substance Data API
+label: Substance Data
+title: Substance Data
+description: ""
+datasets:
+  - CAERS
+path: /apis/other/substance
+api_path: /other/substance
+start: 20090601
+status: othersubstance

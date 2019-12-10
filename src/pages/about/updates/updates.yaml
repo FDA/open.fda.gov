@@ -91,3 +91,7 @@ updates:
     path: /about/updates/2019_04_03_Animal_Drug_Adverse_Events_Now_Available
     date: 2019-04-03
     desc: 'The first openFDA animal drug dataset "Animal Drug Adverse Event Reports" is available via openFDA.'
+  - title: New openFDA Dataset - Substance Data
+    path: /apis/other/substance/
+    date: 2019-12-10
+    desc: "The Substance Data endpoint is now available via openFDA."

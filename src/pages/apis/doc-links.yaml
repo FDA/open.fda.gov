@@ -356,3 +356,21 @@
           link: /apis/other/nsde/download/
         - title: Searchable fields
           link: /apis/other/nsde/searchable-fields/
+    - title: Substance Data Reports
+      id: other-substance
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/other/substance/
+        - title: How to use the API
+          link: /apis/other/substance/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/other/substance/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/other/substance/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/other/substance/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/other/substance/download/
+        - title: Searchable fields
+          link: /apis/other/substance/searchable-fields/
