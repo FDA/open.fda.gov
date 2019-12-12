@@ -92,7 +92,7 @@
     {
       "title": "<i><i class='datamap-infographic-header-text-bold'>Drug Adverse Events</i> by Type of Seriousness </i>",
       "subtitle": "Device Recalls",
-      "yTitle": "Indication",
+      "yTitle": "",
       "xTitle": "",
       "selectionPostFix": "-Related ",
       "countBy": "patient.drug.drugindication.exact",
