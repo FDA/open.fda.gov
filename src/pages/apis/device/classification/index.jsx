@@ -2,6 +2,9 @@ import React from "react"
 import Link from "gatsby-link"
 
 import KeyFacts from '../../../../components/RenderContentObject/KeyFacts'
+import FieldsHarmonization from '../../../../components/FieldsHarmonization'
+
+import master_harmonization from '../../../../constants/fields/master_harmonization.yaml'
 import meta from './_meta.yaml'
 
 class IndexRoute extends React.Component {
@@ -18,6 +21,15 @@ class IndexRoute extends React.Component {
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
           endpoint_name={meta.api_path.split("/")[2]}
+        />
+
+        <h3>Fields Harmonization</h3>
+        <p>Different datasets use different unique identifiers, which can make it difficult to find the same device in each dataset.</p>
+        <p>openFDA features harmonization on specific identifiers to make it easier to both search for and understand the drug products returned by API queries. These additional fields are attached to records in all categories, if applicable.</p>
+        <p>Review the chart below to better understand which fields are harmonized.</p>
+        <FieldsHarmonization
+          master_harmonization={master_harmonization}
+          selected_noun='device'
         />
 
         <h3>Responsible use of the data</h3>
