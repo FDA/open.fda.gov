@@ -16,6 +16,100 @@ names:
           - "Both table and chart allow you to narrow down the results displayed through the use of the filter panel on the left side of the screen. Any number of filters may be applied and each will narrow down the data accordingly. After selecting your desired filters simply press the Apply Filters button in the middle of the screen. If you don't wish to apply those filters, press the Clear All button. After applying filters, they'll be displayed above the table or chart, and can be removed individually or as a whole; removing filters in either of these ways is done automatically without needing to press Apply Filters. Please note that some combinations of specific filters may result in no data matching the total filter criteria and no results being displayed."
         show_collapse_rows_button: false
         columns:
+          - Header: Labeler Name
+            accessor: labeler_name
+            show: true
+            showDefault: true
+          - Header: Labeler DUNS Number
+            accessor: labeler_duns_number
+            show: true
+            showDefault: true
+          - Header: Inactive Ingredient Name
+            accessor: inactive_ingredient_name
+            show: true
+            showDefault: true
+          - Header: Source NDC Product Code
+            accessor: source_ndc_product_code
+            show: true
+            showDefault: true
+          - Header: DEA Schedule
+            accessor: dea_schedule
+            show: true
+            showDefault: true
+          - Header: Dosage Form
+            accessor: dosage_form
+            show: true
+            showDefault: true
+          - Header: Establishment
+            accessor: establishment
+            show: true
+            array: true
+            nested_properties:
+             - Header: DUNS Number
+               accessor: duns_number
+             - Header: Establishment Name
+               accessor: name
+             - Header: Business Operation
+               accessor: business_operation
+            showDefault: true
+          - Header: Route Of Administration
+            accessor: route_of_Administration
+            show: true
+            showDefault: true
+          - Header: Route Of Administration
+            accessor: route_of_Administration
+            show: true
+            showDefault: true
+          - Header: Package
+            accessor: package
+            show: true
+            showDefault: true
+            array: true
+            nested_properties:
+             - Header: NDC Code
+               accessor: ndc_code
+             - Header: Amount
+               accessor: amount
+               buildData: true
+               sub_properties: [amount_numerator, amount_denominator]
+             - Header: Type
+               accessor: type
+          - Header: Active Ingredient Info
+            accessor: active_ingredient_data
+            show: true
+            showDefault: true
+            array: true
+            nested_properties:
+              - Header: Ingredient Name
+                accessor: ingredient_name
+              - Header: Active Moiety
+                accessor: active_moiety_name
+              - Header: Basis Of Strength
+                accessor: basis_of_strength
+              - Header: Strength
+                accessor: strength
+                buildData: true
+                sub_properties: [strength_numerator, strength_denominator]
+          - Header: Product Characteristics
+            accessor: product_characteristics
+            show: true
+            showDefault: true
+            array: true
+            nested_properties:
+              - Header: Product Shape
+                accessor: product_shape
+              - Header: Product Size
+                accessor: product_size
+                buildData: true
+                sub_properties: [value, unit]
+              - Header: Product Color
+                accessor: product_color
+              - Header: Product Imprint
+                accessor: product_imprint
+              - Header: Product Scoring
+                accessor: product_scoring
+              - Header: Product Flavor
+                accessor: product_flavor
           - Header: Product Type
             accessor: openfda.product_type
             show: true
@@ -226,6 +320,30 @@ names:
           type: select_autocomplete
           can_query: true
           placeholder: Search Brand Name
+          limit: 100
+        - label: Labeler Name
+          field: labeler_name.exact
+          autocomplete_field: labeler_name
+          query_type: term
+          type: select_autocomplete
+          can_query: true
+          placeholder: Search Labeler Name
+          limit: 100
+        - label: Establishment Name
+          field: establishment.name.exact
+          autocomplete_field: establishment.name
+          query_type: term
+          type: select_autocomplete
+          can_query: true
+          placeholder: Search Establishment Name
+          limit: 100
+        - label: Business Operation
+          field: establishment.business_operation.exact
+          autocomplete_field: establishment.business_operation
+          query_type: term
+          type: select_autocomplete
+          can_query: true
+          placeholder: Search Business Operation
           limit: 100
         - label: Generic Name
           field: openfda.generic_name_exact
