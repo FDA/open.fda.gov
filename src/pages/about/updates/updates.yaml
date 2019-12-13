@@ -95,3 +95,7 @@ updates:
     path: /apis/other/substance/
     date: 2019-12-10
     desc: "The Substance Data endpoint is now available via openFDA."
+  - title: Harmonization Explained
+    path: /apis/openfda-fields/
+    date: 2019-12-13
+    desc: "We've expanded on our harmonization documentation, detailing which specific fields are harmonized."
