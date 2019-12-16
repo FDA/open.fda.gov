@@ -252,7 +252,7 @@ names:
             show: false
             showDefault: false
     endpoint: animalandveterinary/label.json
-    url: http://localhost:8000
+    url: https://openfda-api.preprod.fda.gov
     filters:
       options:
         - label: Time Period
