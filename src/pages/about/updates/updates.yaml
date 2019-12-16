@@ -100,6 +100,6 @@ updates:
     date: 2019-12-13
     desc: "We've expanded on our harmonization documentation, detailing which specific fields are harmonized."
   - title: 200 Million API Calls
-    path: /apis/openfda-fields/
+    path: /about/statistics/
     date: 2019-12-16
     desc: "The openFDA team is proud to announce that openFDA has now surpassed an astounding milestone: 200 million API calls."
