@@ -7,7 +7,8 @@ class IndexRoute extends React.Component {
   render() {
 
     const oneProduct = explorers['oneProduct']
-    const lotion = explorers['lotion']
+    const singleSource = explorers['singleSource']
+    const expiring2020 = explorers['expiring2020']
     const countByType = explorers['countByType']
 
     return (
@@ -21,10 +22,16 @@ class IndexRoute extends React.Component {
           title={oneProduct.title}
         />
         <QueryExplorer
-          desc={lotion.description}
-          originalQuery={lotion.query}
-          params={lotion.params}
-          title={lotion.title}
+          desc={singleSource.description}
+          originalQuery={singleSource.query}
+          params={singleSource.params}
+          title={singleSource.title}
+        />
+        <QueryExplorer
+          desc={expiring2020.description}
+          originalQuery={expiring2020.query}
+          params={expiring2020.params}
+          title={expiring2020.title}
         />
         <QueryExplorer
           desc={countByType.description}

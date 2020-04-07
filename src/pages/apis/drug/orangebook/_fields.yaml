@@ -15,25 +15,25 @@ properties:
         possible_values:
         type: string
   dosage_form:
-    description: "The drug’s dosage form. There is no standard, but values may include terms like `tablet` or `solution for injection`."
+    description: "The product dosage form."
     format:
     is_exact: true
     possible_values:
     type: string
   route:
-    description: "The route of administation of the drug product."
+    description: "The product route of administration."
     format:
     is_exact: true
     possible_values:
     type: string
   brand_name:
-    description: "Brand or trade name of the drug product."
+    description: "The trade name of the product as shown on the labeling."
     format:
     is_exact: true
     possible_values:
     type: string
   applicant_name:
-    description: "Name of the Applicant for the drug product."
+    description: "The firm name holding legal responsibility for the new drug application.  The firm name is condensed to a maximum twenty-character unique string."
     format:
     is_exact: true
     possible_values:
@@ -45,20 +45,20 @@ properties:
     possible_values:
     type: string
   application_type:
-    description: "The type of new drug application approval."
+    description: 'The type of new drug application approval.  New Drug Applications (NDA or innovator)  are ”N”. Abbreviated New Drug Applications (ANDA or generic) are “A”.'
     format:
     is_exact: false
     possible_values:
     type: string
   application_number:
     pattern: ^[BLA|ANDA|NDA]{3,4}[0-9]{6}$
-    description: "The FDA assigned number to the application."
+    description: "The FDA assigned number to the application. Format is nnnnnn."
     format:
     is_exact: false
     possible_values:
     type: string
   product_number:
-    description: "The FDA assigned number to identify the application products. Each strength is a separate product. May repeat for multiple part products."
+    description: "The FDA assigned number to identify the application products. Each strength is a separate product.  May repeat for multiple part products. Format is nnn."
     format:
     is_exact: false
     possible_values:
@@ -70,7 +70,7 @@ properties:
     possible_values:
     type: string
   approval_date:
-    description: "The date the product was approved as stated in the FDA approval letter to the applicant."
+    description: 'The date the product was approved as stated in the FDA approval letter to the applicant.  The format is Mmm dd, yyyy.  Products approved prior to the January 1, 1982 contain the phrase: "Approved prior to Jan 1, 1982".'
     format: date
     is_exact: false
     possible_values:
@@ -97,13 +97,13 @@ properties:
     type: object
     properties:
       patent_number:
-        description: "Patent numbers as submitted by the applicant holder for patents covered by the statutory provisions.  May repeat for multiple applications and multiple products. Includes pediatric exclusivity granted by the agency."
+        description: "Patent numbers as submitted by the applicant holder for patents covered by the statutory provisions.  May repeat for multiple applications and multiple products. Includes pediatric exclusivity granted by the agency.  Format is nnnnnnnnnnn."
         format:
         is_exact: false
         possible_values:
         type: string
       expire_date:
-        description: "The date the patent expires as submitted by the applicant holder including applicable extensions."
+        description: "The date the patent expires as submitted by the applicant holder including applicable extensions.  The format is MMM DD, YYYY."
         format: date
         is_exact: false
         possible_values:
@@ -121,19 +121,19 @@ properties:
         possible_values:
         type: boolean
       patent_use_code:
-        description: "Code to designate a use patent that covers the approved indication or use of a drug product.  May repeat for multiple applications, multiple products and multiple patents."
+        description: "The first code to designate a use patent that covers the approved indication or use of a drug product.  May repeat for multiple applications, multiple products and multiple patents.  Format is nnnnnnnnnn."
         format:
         is_exact: false
         possible_values:
         type: string
       patent_delist_flag:
-        description: "Sponsor has requested patent be delisted. This patent has remained listed because, under Section 505(j)(5)(D)(i) of the Act, a first applicant may retain eligibility for 180-day exclusivity based on a paragraph IV certification to this patent for a certain period. Applicants under Section 505(b)(2) are not required to certify to patents where this flag is set to Y."
+        description: "Sponsor has requested patent be delisted.  This patent has remained listed because, under Section 505(j)(5)(D)(i) of the Act, a first applicant may retain eligibility for 180-day exclusivity based on a paragraph IV certification to this patent for a certain period.  Applicants under Section 505(b)(2) are not required to certify to patents where this flag is set to Y.  Format is Y or null."
         format:
         is_exact: false
         possible_values:
         type: boolean
       patent_submission_date:
-        description: "The date on which the FDA receives patent information from the new drug application (NDA) holder."
+        description: "The date on which the FDA receives patent information from the new drug application (NDA) holder. Format is Mmm d, yyyy"
         format: date
         is_exact: false
         possible_values:
@@ -142,13 +142,13 @@ properties:
     type: object
     properties:
       exclusivity_code:
-        description: "Code to designate exclusivity granted by the FDA to a drug product."
+        description: "The first code to designate the type of exclusivity granted by the FDA to a drug product.  Format is nnnnnnnnnn."
         format:
         is_exact: false
         possible_values:
         type: string
       exclusivity_expire_date:
-        description: "The date the exclusivity expires."
+        description: "The date the exclusivity expires. Format is MMM DD, YYYY."
         format: date
         is_exact: false
         possible_values:
