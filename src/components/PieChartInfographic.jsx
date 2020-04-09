@@ -132,7 +132,7 @@ class PieChartInfographic extends React.Component {
       trackerInfoValues: "",
       infoHeight: 0,
       activeIndex: null,
-      choosenColumn: null,
+      chosenColumn: null,
       columnStyles: null,
       lineChartLoaded: 0,
       width: this.props.globalDefs.lineChartConfig.width
@@ -161,7 +161,6 @@ class PieChartInfographic extends React.Component {
       .then(function(download_res) {
         return download_res.json()
       }).then(function(download_res) {
-        console.log("download_res: ", download_res.results, that.props.globalDefs.api.split('/'))
 
         // const apiParts = that.props.globalDefs.api.split('/'),
         //       latestDataDate = new Date(download_res.results[apiParts[1]][apiParts[2]].export_date),
@@ -328,7 +327,6 @@ class PieChartInfographic extends React.Component {
 
         var localSearchField = searchField;
 
-        console.log("res: ", res)
 
         var columns = res.results.filter( (value) => {
             var hasInvalidChar = value.term.indexOf("^") === -1 &&
@@ -516,7 +514,9 @@ class PieChartInfographic extends React.Component {
               formattedColumn = column[0].toUpperCase() + column.slice(1,column.length)
             }
             return {
-              label: formattedColumn,
+              label: that.props.infographicDefinitions.selectionPostFix.hasOwnProperty(column) ?
+                that.props.infographicDefinitions.selectionPostFix[column]: formattedColumn,
+              value: formattedColumn,
               color: legendStyle1[column].normal.stroke,
               isSelected: false
             }
@@ -590,21 +590,21 @@ class PieChartInfographic extends React.Component {
   }
 
   onSelectionChange (selectionObj) {
-    var selection = selectionObj.label;
-    var selectionName = this.props.infographicDefinitions.selectionPostFix !== undefined ?
-                        selection +  this.props.infographicDefinitions.selectionPostFix :
+    var selection = selectionObj.value;
+    var selectionName = this.props.infographicDefinitions.selectionPostFix.hasOwnProperty(selection) ?
+                        this.props.infographicDefinitions.selectionPostFix[selection]:
                         selection;
 
     let toggle = null
     let selected = []
     let maxes = []
     const columnStyles = this.state.columnStyles.map(obj => {
-      if(obj.label === selection){
+      if(obj.value === selection){
         obj.isSelected = obj.isSelected ? false : true
         toggle = obj.isSelected ? 1 : 0;
       }
       if(obj.isSelected){
-        selected.push(obj.label)
+        selected.push(obj.value)
         maxes.push(this.state.allMaxes[obj.label])
       }
       return obj
@@ -631,7 +631,7 @@ class PieChartInfographic extends React.Component {
     this.setState({
       sparklineDataMax: maxes.length ? Math.max(...maxes)+Math.round(Math.random() * 100, 2)/100 : 10,
       sparklineData: this.state.sparklineData,
-      choosenColumn: selectionObj,
+      chosenColumn: selectionObj,
       selection,
       selected,
       legendStyle,
@@ -658,10 +658,15 @@ class PieChartInfographic extends React.Component {
       const eventData = e.toJSON().data;
 
       let infoValues = this.state.selected.map( label => {
-          return {
-            label : label.length < 20 ? label : label.slice(0,20) + " ... ",
-            value: eventData[label]
-          }
+        console.log("post fix: ", this.props.infographicDefinitions.selectionPostFix)
+        let formattedLabel = this.props.infographicDefinitions.selectionPostFix.hasOwnProperty(label) ?
+          this.props.infographicDefinitions.selectionPostFix[label]:
+          label.length < 20 ? label : label.slice(0,20) + " ... "
+        console.log("formattedLabel: ", formattedLabel)
+        return {
+          label : formattedLabel,
+          value: eventData[label]
+        }
       })
       const defaultInfoValues = [
         {
@@ -813,7 +818,7 @@ class PieChartInfographic extends React.Component {
             <div className="piechart-legend">
               <Select
                 name="toggle"
-                value={this.state.choosenColumn}
+                value={this.state.chosenColumn}
                 optionComponent={GravatarOption}
                 arrowRenderer={()=>{<span></span>}}
                 menuStyle={{maxHeight: 130  }}

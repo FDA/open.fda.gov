@@ -94,7 +94,7 @@
       "subtitle": "Device Recalls",
       "yTitle": "Indication",
       "xTitle": "",
-      "selectionPostFix": "-Related ",
+      "selectionPostFix": {},
       "countBy": "patient.drug.drugindication.exact",
       "dateField": "receivedate",
       "subfield": "patient.drug.drugindication.exact",

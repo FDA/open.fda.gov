@@ -5,6 +5,7 @@
       "defaults": {},
       "xField": "submission_type_id",
       "yField": "medical_specialty_description",
+      "selectionPostFix": {},
       "yName": "Drug Category",
       "xName": "Administration Route",
       "type": "Grid",

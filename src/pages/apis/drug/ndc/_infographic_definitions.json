@@ -95,7 +95,7 @@
       "subtitle": "Drug Enforcement Reports",
       "yTitle": "Drugs",
       "xTitle": "",
-      "selectionPostFix": " ",
+      "selectionPostFix": {},
       "countBy": "classification.exact",
       "dateField": "report_date",
       "subfield": "state.exact",

@@ -1,6 +1,6 @@
 {
   "globalDefs": {
-    "startYear": 2009,
+    "startYear": 2005,
     "api": "/drug/orangebook",
     "apiName": "Orange Book",
     "font": {
@@ -91,15 +91,15 @@
   "choices": [
     {
       "type": "PieChart",
-      "title": "<i><i class='datamap-infographic-header-text-bold'>Drug Records</i> by Product Type, Administation Route </i>",
+      "title": "<i><i class='datamap-infographic-header-text-bold'>Drug Records</i> by Product Type, Application Type</i>",
       "subtitle": "Orange Book",
       "yTitle": "Product Type",
       "xTitle": "",
-      "selectionPostFix": " ",
+      "selectionPostFix": {"A": "ANDA", "N": "NDA"},
       "countBy": "product_type.exact",
       "dateField": "approval_date",
-      "subfield": "route.exact",
-      "subfieldLabel": "Route",
+      "subfield": "application_type",
+      "subfieldLabel": "Application Type",
       "pieChartCategoryName": "Product Type",
       "pieChartApiName": "Orange Book",
       "lineLimiter": 10,
@@ -140,7 +140,7 @@
       "subtitle": "Orange Book",
       "yTitle": "Product Type",
       "xTitle": "",
-      "selectionPostFix": " ",
+      "selectionPostFix": {},
       "countBy": "product_type.exact",
       "dateField": "approval_date",
       "subfield": "brand_name.exact",
@@ -188,7 +188,7 @@
       "subtitle": "Orange Book",
       "yTitle": "Product Type",
       "xTitle": "",
-      "selectionPostFix": " ",
+      "selectionPostFix": {},
       "countBy": "product_type.exact",
       "dateField": "approval_date",
       "subfield": "product_number",

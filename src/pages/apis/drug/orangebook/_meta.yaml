@@ -7,7 +7,7 @@ label: Orange Book
 title: Orange Book
 path: /apis/drug/orangebook
 api_path: /drug/orangebook
-start: 20090101
+start: 20000101
 status: drugorangebook
-dateConstraintKey: listing_expiration_date
+dateConstraintKey: approval_date
 type: endpoint

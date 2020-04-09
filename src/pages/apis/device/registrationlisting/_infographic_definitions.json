@@ -6,6 +6,7 @@
       },
       "xField": "establishment_type.exact",
       "yField": "medical_specialty_description",
+      "selectionPostFix": {},
       "yName": "Drug Category",
       "xName": "Administration Route",
       "type": "Grid",
