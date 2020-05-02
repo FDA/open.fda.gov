@@ -1,5 +1,5 @@
 oneReport:
-  title: One adverse event report
+  title: One device recall
   description:
     - This query searches for all records with a particular `product_code`.
   params:

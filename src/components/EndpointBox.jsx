@@ -49,7 +49,8 @@ const EndpointBox = (props: tPROPS) => {
       'enforcement': 'Drug product recall enforcement reports.'
     },
     'other': {
-      'nsde': 'Comprehensive NDC SPL Data Elements File'
+      'nsde': 'Comprehensive NDC SPL Data Elements File',
+      'substance': 'Substance information that is precise to the molecular level for use internally and externally (where appropriate).'
     }
   }
 
@@ -78,7 +79,8 @@ const EndpointBox = (props: tPROPS) => {
       'enforcement': 'Recall enforcement reports'
     },
     'other': {
-      'nsde': 'NDC SPL Data Elements'
+      'nsde': 'NDC SPL Data Elements',
+      'substance': 'Substance Data'
     }
   }
   const bg_color = {
@@ -114,7 +116,8 @@ const EndpointBox = (props: tPROPS) => {
       'enforcement': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>
     },
     'other': {
-      'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>
+      'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
+      'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{color: "white"}}/></div>
     }
   }
 
@@ -143,7 +146,8 @@ const EndpointBox = (props: tPROPS) => {
       'enforcement': '/apis/drug/enforcement/'
     },
     'other': {
-      'nsde': '/apis/other/nsde/'
+      'nsde': '/apis/other/nsde/',
+      'substance': '/apis/other/substance/'
     }
   }
 

@@ -33,9 +33,12 @@ const _renderLi = (props: tLiProps) => {
   let field_keys: Array = Object.keys(field)
 
   if (field) {
+    console.log("fields: ", field)
     desc = field.description
     pattern = field.pattern
-    type = field.type
+    if (typeof field.type === "string") {
+      type = field.type
+    }
     values = field.possible_values
     isExact = field.is_exact && field.is_exact
   }
@@ -47,7 +50,8 @@ const _renderLi = (props: tLiProps) => {
     type2 = field.items.type
   }
 
-  if (field_keys.indexOf("type") === -1) {
+
+  if (field_keys.indexOf("type") === -1 || typeof field.type !== "string") {
     return (
       render_object({
         fields: field,
@@ -214,6 +218,7 @@ const FieldExplorer = (props: tPROPS) => {
     updateSelected
   } = props
 
+  console.log("props: ", props)
   let field_names = get_fields(fields.properties)
 
   return (

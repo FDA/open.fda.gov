@@ -98,6 +98,14 @@ properties:
           possible_values:
           type: string
         type: array
+      k_number:
+        items:
+          description: "FDA-assigned premarket notification number, including leading letters. Leading letters “BK” indicates 510(k) clearance, or Premarket Notification, cleared by Center for Biologics Evaluation and Research. Leading letters “DEN” indicates De Novo, or Evaluation of Automatic Class III Designation. Leading letter “K” indicates 510(k) clearance, or Premarket Notification. `Source`: 510(k)"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        type: array
       registration_number:
         items:
           description: "Facility identifier assigned to facility by the FDA Office of Regulatory Affairs."

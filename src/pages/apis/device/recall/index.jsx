@@ -3,6 +3,9 @@ import Link from "gatsby-link"
 
 import KeyFacts from '../../../../components/RenderContentObject/KeyFacts'
 import InteractiveInfographic from '../../../../components/InteractiveInfographic'
+import FieldsHarmonization from '../../../../components/FieldsHarmonization'
+
+import master_harmonization from '../../../../constants/fields/master_harmonization.yaml'
 
 import infographic_definitions from './_infographic_definitions.json'
 import meta from './_meta.yaml'
@@ -17,7 +20,7 @@ class IndexRoute extends React.Component {
         <p>Recall as defined in 21 CFR 7.3(g) is “a firm’s removal or correction of a marketed product that the Food and Drug Administration considers to be in violation of the laws it administers and against which the agency would initiate legal action, e.g., seizure. Recall does not include a market withdrawal or a stock recovery.” If a firm conducts a recall to reduce a risk to health, the firm is required to submit a written report to the FDA with the information described in 21 CFR 806.10.</p>
         <p>For additional background information about medical device recalls, see <a href="https://www.fda.gov/MedicalDevices/Safety/ListofRecalls/ucm329946.htm">here</a>.</p>
 
-          <InteractiveInfographic
+        <InteractiveInfographic
           infographicDefinitions={infographic_definitions}
           meta={meta}
         />
@@ -25,6 +28,15 @@ class IndexRoute extends React.Component {
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
           endpoint_name={meta.api_path.split("/")[2]}
+        />
+
+        <h3>Fields Harmonization</h3>
+        <p>Different datasets use different unique identifiers, which can make it difficult to find the same device in each dataset.</p>
+        <p>openFDA features harmonization on specific identifiers to make it easier to both search for and understand the drug products returned by API queries. These additional fields are attached to records in all categories, if applicable.</p>
+        <p>Review the chart below to better understand which fields are harmonized.</p>
+        <FieldsHarmonization
+          master_harmonization={master_harmonization}
+          selected_noun='device'
         />
 
         <h3>Responsible use of the data</h3>
