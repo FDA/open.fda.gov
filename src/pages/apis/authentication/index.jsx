@@ -20,6 +20,8 @@ class IndexRoute extends React.Component {
         <p>Your API key should be passed to the API as the value of the <code>api_key</code> parameter. Include it before other parameters, such as the <code>search</code> parameter. For example:</p>
         <p><code>https://api.fda.gov/drug/event.json?api_key=yourAPIKeyHere&search=...</code></p>
         <h3>HTTPS requests only</h3>
+        <p>Alternatively your API key may be provided as a basic auth username. For example:</p>
+        <p><code>Authorization: Basic eW91ckFQSUtleUhlcmU6</code></p>
         <p>OpenFDA requires you to use <code>https://api.fda.gov</code> for all queries to ensure secure communication.</p>
       </section>
     )
