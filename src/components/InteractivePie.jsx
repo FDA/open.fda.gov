@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { PieChart, Pie, Cell, Sector , Legend} from "recharts";
+import { PieChart, Pie, Cell, Sector , Label} from "recharts";
 
 // refer to http://jsfiddle.net/ro31mjuf/
 
@@ -21,8 +21,7 @@ const renderActiveShape = (props) => {
           percent,
           value,
           pct,
-          name,
-          textLabel
+          name
         } = props;
 
   const sin = Math.sin(-RADIAN * midAngle);
@@ -36,7 +35,6 @@ const renderActiveShape = (props) => {
   const textAnchor = cos >= 0 ? 'start' : 'end';
   const subName = name !== undefined && typeof name == 'string' ? name.split('(')[0] : ''
 
-
   return (
     <g>
       <text
@@ -47,6 +45,7 @@ const renderActiveShape = (props) => {
         id="textLabel1"
         className="piechart-centered-title"
       >
+        {subName}
       </text>
       <text
         x={cx}
@@ -56,6 +55,7 @@ const renderActiveShape = (props) => {
         id="textLabel2"
         className="piechart-centered-title"
       >
+        {pct}
       </text>
 
       <Sector
@@ -78,19 +78,20 @@ const renderActiveShape = (props) => {
       />
       <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none"/>
       <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none"/>
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333" className="piechart-label">{`${subName}`}</text>
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey+15} textAnchor={textAnchor} fill="#333" className="piechart-label">{`${pct}`}</text>
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey+5} textAnchor={textAnchor} fill="#333" className="piechart-label">{`${value}`}</text>
+      {/*<text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey+15} textAnchor={textAnchor} fill="#333" className="piechart-label">{`${pct}`}</text>*/}
     </g>
   );
 };
 
 class TwoLevelPieChart extends React.Component {
 
-   constructor (props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {
-      activeIndex: null
+      activeIndex: null,
+      totalRecords: 0
     }
 
     this.onPieEnter = this.onPieEnter.bind(this)
@@ -99,8 +100,14 @@ class TwoLevelPieChart extends React.Component {
 
   componentDidMount () {
     const activeIndex = this.props.default.index || 0;
+
+    let totalRecords = 0
+    for (let i = 0; i < this.props.data.length; i++) {
+      totalRecords = totalRecords + this.props.data[i].value
+    }
     this.state = {
-      activeIndex: activeIndex
+      activeIndex: activeIndex,
+      totalRecords: totalRecords
     }
     this.props.parent.setState({
       activeIndex
@@ -117,12 +124,23 @@ class TwoLevelPieChart extends React.Component {
   }
 
   onPieClick(data, index) {
-    this.setState({
-      activeIndex: index,
-    });
-    this.props.parent.setState({
-      activeIndex: index
-    })
+    if (this.state.activeIndex !== index) {
+      this.setState({
+        activeIndex: index,
+        total: false
+      });
+      this.props.parent.setState({
+        activeIndex: index
+      })
+    } else {
+      this.setState({
+        activeIndex: undefined,
+        total: true
+      });
+      this.props.parent.setState({
+        activeIndex: undefined
+      })
+    }
     if(this.props.onClick!== undefined){
       this.props.onClick(data, index)
     }
@@ -146,13 +164,15 @@ class TwoLevelPieChart extends React.Component {
           outerRadius={this.props.radius.outerRadius}
           fill={this.props.fill}
           onClick={this.onPieClick}
-          textLabel={this.props.textLabel}
         >
           {
             this.props.data.map((entry, index) => <Cell key={index} fill={ this.props.colors[index % this.props.colors.length] } />)
           }
+          {
+            this.state.total ? <Label value={'Total: ' + this.state.totalRecords} offset={0} position="center" /> : <span/>
+          }
         </Pie>
-       </PieChart>
+      </PieChart>
     );
   }
 }

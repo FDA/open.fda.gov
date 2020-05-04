@@ -5,7 +5,8 @@
     "apiName": "Orange Book",
     "font": {
       "color":"#000000",
-      "fontFamily": "Merriweather,Georgia,serif"
+      "fontFamily": "Merriweather,Georgia,serif",
+      "size":"16px"
     },
     "tooltip": {
       "fontSize": "11px",

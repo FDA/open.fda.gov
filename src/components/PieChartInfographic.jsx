@@ -195,11 +195,6 @@ class PieChartInfographic extends React.Component {
     });
   }
 
-  setPieChartText(){
-    $("#textLabel1").text(this.props.infographicDefinitions.pieChartConfig.textLabel[0])
-    $("#textLabel2").text(this.props.infographicDefinitions.pieChartConfig.textLabel[1])
-  }
-
   _getAllDataByFields () {
 
     var urls = [`${this.state.API_LINK}${this.props.api}.json?count=${this.props.infographicDefinitions.fields.subsetField}`]
@@ -296,27 +291,31 @@ class PieChartInfographic extends React.Component {
   }
 
   onClick (data, index){
-    if(this.state.activeIndex === index && this.state.lineChartLoaded > 0){
-      return
-    }
+    // if(this.state.activeIndex === index && this.state.lineChartLoaded > 0){
+    //   return
+    // }
     this.setState({
       sparklineData: null
     })
 
     const that = this;
 
+
     let searchField;
-    if(this.props.infographicDefinitions.dataFunction === "_getAllDataByFields"){
-      searchField = `${data.id}:${this.props.infographicDefinitions.fields.subsetValue}`
+    if(this.state.activeIndex === index && this.state.lineChartLoaded > 0){
+      searchField = ''
+    }else if(this.props.infographicDefinitions.dataFunction === "_getAllDataByFields"){
+      searchField = `search=${data.id}:${this.props.infographicDefinitions.fields.subsetValue}`
     } else if (this.props.infographicDefinitions.dataFunction === "_getAllData") {
-      searchField = `${that.props.infographicDefinitions.countBy}:"${data.id}"`
+      searchField = `search=${that.props.infographicDefinitions.countBy}:"${data.id}"`
 
       if(this.props.infographicDefinitions.existsField){
         searchField += `+AND+_exists_:${this.props.infographicDefinitions.subfield}`
       }
     }
 
-    const subfields_url = `${that.state.API_LINK}${that.props.api}.json?search=${searchField}&count=${that.props.infographicDefinitions.subfield}`
+
+    const subfields_url = `${that.state.API_LINK}${that.props.api}.json?${searchField}&count=${that.props.infographicDefinitions.subfield}`
 
     fetch(subfields_url)
       .then(function(res) {
@@ -380,22 +379,28 @@ class PieChartInfographic extends React.Component {
 
         var timeseries_urls =  columns.map( value => {
           var dirtyValue = that.state.terms[value]
-          return `${that.state.API_LINK}${that.props.api}.json?search=${searchField}+AND+${that.props.infographicDefinitions.subfield}:"${dirtyValue}"&count=${that.props.infographicDefinitions.dateField}`
+          let modifiedSearchField;
+          if (searchField.includes('search')) {
+            modifiedSearchField = `${searchField}+AND+${that.props.infographicDefinitions.subfield}`
+          } else {
+            modifiedSearchField = `search=${that.props.infographicDefinitions.subfield}`
+          }
+          return `${that.state.API_LINK}${that.props.api}.json?${modifiedSearchField}:"${dirtyValue}"&count=${that.props.infographicDefinitions.dateField}`
         }).slice(0,that.props.infographicDefinitions.lineLimiter)
 
         Promise.all(timeseries_urls.map(that.fetchJSON).map(r => r.catch(e => e))).then( results => {
 
 
           //// ERROR handing //////
-          const errors = results.map( (r, index) => {
+          const errors = results.map( (r, i) => {
             if(typeof(r) !== "object"){
-              return index
+              return i
             }
           }).filter(r => r !== undefined)
 
-          results = results.filter((r,index) => errors.indexOf(index) === -1)
+          results = results.filter((r,i) => errors.indexOf(i) === -1)
 
-          columns = columns.filter((column, index) => errors.indexOf(index) === -1)
+          columns = columns.filter((column, i) => errors.indexOf(i) === -1)
 
           // columns =
 
@@ -471,10 +476,10 @@ class PieChartInfographic extends React.Component {
             arr.forEach( val => {
               var timestamp = val[0],
                   value = val[1],
-                  index = timestampsPosition[timestamp];
+                  i = timestampsPosition[timestamp];
 
               // add the value for the timestamp in item array
-              normalizedSerie[index] = value
+              normalizedSerie[i] = value
             })
             normalizedSeries.push(normalizedSerie)
           })
@@ -545,13 +550,12 @@ class PieChartInfographic extends React.Component {
             that.onSelectionChange(styl)
           })
 
-          if(that.refs){
-            that.refs.child.setState({
-              activeIndex: index
-            })
-          }
+          // if(that.refs){
+          //   that.refs.child.setState({
+          //     activeIndex: index
+          //   })
+          // }
 
-          that.setPieChartText()
           var vals = $("text").filter(function () {
               return $(that).attr("transform") == "rotate(-90)"
           })
@@ -637,15 +641,13 @@ class PieChartInfographic extends React.Component {
       legendStyle,
       columnStyles,
       selectionName: selectionName
-    }, function(){
-      this.setTextStyle()
-      this.setPieChartText()
     })
   }
 
   setTextStyle(){
     $("text").css("font-family",this.props.globalDefs.font.fontFamily)
     $('text').css('fill', this.props.globalDefs.font.color)
+    $('text').css('font-size', this.props.globalDefs.font.size)
   }
 
   handleTrackerChanged(t) {
@@ -658,11 +660,9 @@ class PieChartInfographic extends React.Component {
       const eventData = e.toJSON().data;
 
       let infoValues = this.state.selected.map( label => {
-        console.log("post fix: ", this.props.infographicDefinitions.selectionPostFix)
         let formattedLabel = this.props.infographicDefinitions.selectionPostFix.hasOwnProperty(label) ?
           this.props.infographicDefinitions.selectionPostFix[label]:
           label.length < 20 ? label : label.slice(0,20) + " ... "
-        console.log("formattedLabel: ", formattedLabel)
         return {
           label : formattedLabel,
           value: eventData[label]
@@ -724,7 +724,6 @@ class PieChartInfographic extends React.Component {
       $('.recharts-surface').removeAttr('viewBox');
       $('.recharts-surface').each(function () { $(this)[0].setAttribute('viewBox', viewBox) });
       $('.recharts-wrapper').width(this.props.infographicDefinitions.pieChartConfig.widthReset)
-      this.setPieChartText()
 
     return (
         <section className='infographic-container'>
@@ -746,13 +745,11 @@ class PieChartInfographic extends React.Component {
 
           <p>
             Display of
-            {' '}
-            <i className='datamap-infographic-header-text-bold'>{this.props.globalDefs.apiName}</i>
-            {' by '}
-            <i className='datamap-infographic-header-text-bold'>{this.props.parent.state.choice.subfieldLabel}</i>
-            {' '}for{' '}
-            <i className='datamap-infographic-header-text-bold'>{this.state.selectedClassName}</i>
-            {' '}
+            <i className='datamap-infographic-header-text-bold'> {this.props.globalDefs.apiName} </i>
+            by
+            <i className='datamap-infographic-header-text-bold'> {this.props.parent.state.choice.subfieldLabel} </i>
+            for
+            <i className='datamap-infographic-header-text-bold'> {this.state.selectedClassName} </i>
             {this.props.infographicDefinitions.yTitle}
           </p>
         </div>
