@@ -62,9 +62,6 @@ const ApiStatus = (props: tPROPS) => (
       title='API status'
       description='This is the current status of the openFDA API endpoints, including when they were last updated.'
     />
-    <div className=' clr-white bg-secondary-darkest'>
-      <div className='container warning-box pad-b-1 pad-t-1'>The temporary suspension of updates to the openFDA datasets has ended.  Currently, all openFDA datasets are in the process of being updated. Please send inquiries regarding this matter to: <a className='clr-white underline' href="mailto:open@fda.hhs.gov">open@fda.hhs.gov</a>.</div>
-    </div>
     <section className='container clearfix marg-t-3 marg-b-3 relative'>
       <ul className='flex-box dir-row flex-wrap'>
         {
