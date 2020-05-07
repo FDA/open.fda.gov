@@ -22,6 +22,7 @@ import device_pma_meta from '../apis/device/pma/_meta.yaml'
 import device_recall_meta from '../apis/device/recall/_meta.yaml'
 import device_registration_listing_meta from '../apis/device/registrationlisting/_meta.yaml'
 import device_udi_meta from '../apis/device/udi/_meta.yaml'
+import device_serologytest_meta from '../apis/device/serologytest/_meta.yaml'
 import other_nsde_meta from '../apis/other/nsde/_meta.yaml'
 import other_substance_meta from '../apis/other/substance/_meta.yaml'
 
@@ -47,6 +48,7 @@ var endpoint_list = {
   'Medical Device Recall': device_recall_meta,
   'Medical Device Registration Listing': device_registration_listing_meta,
   'Medical Device UDI': device_udi_meta,
+  'Medical Device Serological Testing Validation': device_serologytest_meta,
   'Other': 'other_header',
   'NSDE': other_nsde_meta,
   'Substance': other_substance_meta

@@ -1,0 +1,163 @@
+properties:
+  manufacturer:
+    description: ""
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  device:
+    description: ""
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  date_performed:
+    description: ""
+    format: date
+    is_exact: false
+    possible_values:
+    type: date
+  lot_number:
+    description: ""
+    format:
+    is_exact: true
+    type: string
+  panel:
+    description: ""
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  sample_no:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  sample_id:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  type:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  group:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  days_from_symptom:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igm_result:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igg_result:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  iga_resul:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  pan_result:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igm_igg_result:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  control:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igm_titer:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  igg_titer:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  igm_truth:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igg_truth:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  antibody_truth:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igm_agree:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igg_agree:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  iga_agree:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  pan_agree:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igm_igg_agree:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  antibody_agree:
+    description: ""
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+type: object

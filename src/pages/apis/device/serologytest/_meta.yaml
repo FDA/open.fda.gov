@@ -1,0 +1,11 @@
+type: endpoint
+documentTitle: openFDA › Device › Serological testing validation API
+label: Device serological testing validation
+title: Device Serological Testing Validation
+description:
+datasets:
+  - 510k
+path: /apis/device/serologytest
+api_path: /device/serologytest
+start: 20200101
+status: deviceserologytest
