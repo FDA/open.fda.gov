@@ -1,34 +1,18 @@
-- title: "Device 510(k) by advisory committee"
-  short: "By advisory committee"
+- title: "Serological Testing Validation by Antibody Agree"
+  short: "By antibody agree"
   description:
-    - "The advisory committee is the code under which the product was originally classified, based on the product code. This is a historical designation for the group that initially placed a device into Class I, Class II, or Class III following the medical device amendments of May 28, 1976."
-  countParam: "advisory_committee_description"
+    - "The antibody_truth field reflects the true qualitative antibody presence result."
+  countParam: "antibody_truth"
   filters:
-    - title: "All 510(k)"
+    - title: "All results"
       searchParam: ""
-    - title: "Clearance type *Traditional*"
-      searchParam: "clearance_type:Traditional"
-    - title: "Decision type is *Substantially Equivalent*"
-      searchParam: "decision_description:Substantially+Equivalent"
-    - title: "Device class *I* (generally less risk to patients)"
-      searchParam: "openfda.device_class:1"
-    - title: "Device class III (generally more risk to patients)"
-      searchParam: "openfda.device_class:3"
-  filterByDate: false
-  type: Bar
-- title: "Device 510(k) by country"
-  short: "By country"
-  description:
-    - "The country listed on the postal delivery address of the applicant."
-  countParam: "country_code"
-  filters:
-    - title: "All 510(k)"
-      searchParam: ""
-    - title: "All 510(k) except *US*"
-      searchParam: "country_code:(NOT US)"
-    - title: "Advisory committee set to *Anesthesiology* and Country not *US*"
-      searchParam: "advisory_committee:AN+AND+country_code:(NOT US)"
-    - title: "Device class *III* and *Not US*"
-      searchParam: "openfda.device_class:3+AND+country_code:(NOT US)"
+    - title: "Antibody Agree True Positive"
+      searchParam: "antibody_agree:TP"
+    - title: "Antibody Agree True Negative"
+      searchParam: "antibody_agree:TN"
+    - title: "Antibody Agree False Positive"
+      searchParam: "antibody_agree:FP"
+    - title: "Antibody Agree False Negative"
+      searchParam: "antibody_agree:FN"
   filterByDate: false
   type: Bar

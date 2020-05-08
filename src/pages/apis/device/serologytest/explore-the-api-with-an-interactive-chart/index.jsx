@@ -3,7 +3,7 @@ import React from "react"
 import InteractiveInfographicTour from '../../../../../components/InteractiveInfographicTour'
 
 import infographics from '../_infographics.yaml'
-import fields from '../../../../../constants/fields/deviceclearance.yaml'
+import fields from '../../../../../constants/fields/deviceserologytest.yaml'
 import meta from '../_meta.yaml'
 import mapFields from "../../../../../utils/mapFields";
 import flattenFields from "../../../../../utils/flattenFields";

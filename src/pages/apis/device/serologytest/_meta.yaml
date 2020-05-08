@@ -4,7 +4,7 @@ label: Device serological testing validation
 title: Device Serological Testing Validation
 description:
 datasets:
-  - 510k
+  - serologytest
 path: /apis/device/serologytest
 api_path: /device/serologytest
 start: 20200101

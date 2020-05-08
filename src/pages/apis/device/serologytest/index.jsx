@@ -19,10 +19,10 @@ class IndexRoute extends React.Component {
         <p>The <strong>openFDA Device 510(k) Clearances API</strong> contains details about specific products and the original sponsors of premarket notification applications. It also contains administrative and tracking information about the applications and receipt and decision dates.</p>
         <p>For additional information, please visit the FDA's <a href="https://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/PremarketSubmissions/PremarketNotification510k/default.htm">Premarket Notification 510(k) page</a>.</p>
 
-        <InteractiveInfographic
-          infographicDefinitions={infographic_definitions}
-          meta={meta}
-        />
+        {/*<InteractiveInfographic*/}
+          {/*infographicDefinitions={infographic_definitions}*/}
+          {/*meta={meta}*/}
+        {/*/>*/}
 
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}

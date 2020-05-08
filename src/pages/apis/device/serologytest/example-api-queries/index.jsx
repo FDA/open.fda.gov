@@ -6,34 +6,34 @@ import explorers from '../_explorers.yaml'
 class IndexRoute extends React.Component {
   render() {
 
-    const advisoryCommittee = explorers['advisoryCommittee']
-    const regulationNumber = explorers['regulationNumber']
-    const topCountryCodes = explorers['topCountryCodes']
+    const oneSample = explorers['oneSample']
+    const antibodyPositive = explorers['antibodyPositive']
+    const countType = explorers['countType']
 
     return (
       <section className="doc-content">
         <h2>Example 510(k) API queries</h2>
         <p>To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
         <QueryTour
-          desc={advisoryCommittee.description}
-          query={advisoryCommittee.query}
-          params={advisoryCommittee.params}
-          title={advisoryCommittee.title}
-          name={'advisoryCommittee'}
+          desc={oneSample.description}
+          query={oneSample.query}
+          params={oneSample.params}
+          title={oneSample.title}
+          name={'oneSample'}
         />
         <QueryTour
-          desc={regulationNumber.description}
-          query={regulationNumber.query}
-          params={regulationNumber.params}
-          title={regulationNumber.title}
-          name={'regulationNumber'}
+          desc={antibodyPositive.description}
+          query={antibodyPositive.query}
+          params={antibodyPositive.params}
+          title={antibodyPositive.title}
+          name={'antibodyPositive'}
         />
         <QueryTour
-          desc={topCountryCodes.description}
-          query={topCountryCodes.query}
-          params={topCountryCodes.params}
-          title={topCountryCodes.title}
-          name={'topCountryCodes'}
+          desc={countType.description}
+          query={countType.query}
+          params={countType.params}
+          title={countType.title}
+          name={'countType'}
         />
       </section>
     )
