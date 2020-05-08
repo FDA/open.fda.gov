@@ -15,9 +15,8 @@ class IndexRoute extends React.Component {
     return (
       <section className="doc-content">
         <h2>Device Serological Testing Validation Overview</h2>
-        <p>A 510(k) is a premarket submission made to FDA to demonstrate that the device to be marketed is at least as safe and effective, that is, substantially equivalent, to a legally marketed device (21 CFR 807.92(a)(3)) that is not subject to PMA. Submitters must compare their device to one or more similar legally marketed devices and make and support their substantial equivalency claims. A legally marketed device, as described in 21 CFR 807.92(a)(3), is a device that was legally marketed prior to May 28, 1976 (preamendments device), for which a PMA is not required, or a device which has been reclassified from Class III to Class II or I, or a device which has been found substantially equivalent through the 510(k) process. The legally marketed device(s) to which equivalence is drawn is commonly known as the “predicate".</p>
-        <p>The <strong>openFDA Device 510(k) Clearances API</strong> contains details about specific products and the original sponsors of premarket notification applications. It also contains administrative and tracking information about the applications and receipt and decision dates.</p>
-        <p>For additional information, please visit the FDA's <a href="https://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/HowtoMarketYourDevice/PremarketSubmissions/PremarketNotification510k/default.htm">Premarket Notification 510(k) page</a>.</p>
+        <p>Serology tests detect the presence of antibodies in the blood when the body is responding to a specific infection, like COVID-19. In other words, the tests detect the body’s immune response to the infection caused by the virus rather than detecting the virus itself. In the early days of an infection when the body’s immune response is still building, antibodies may not be detected. This limits the test’s effectiveness for diagnosing COVID-19, and this is one reason serology tests should not be used as the sole basis to diagnose COVID-19. Serology tests could play a role in the fight against COVID-19 by helping healthcare professionals identify individuals have developed an immune response to SARS-CoV-2. In addition, these test results can aid in determining who may donate a part of their blood called convalescent plasma, which may serve as a possible treatment for those who are seriously ill from COVID-19. However, to use these test properly, it is important to understand their performance characteristics and limitations. Moreover, studies are underway to address questions that will better inform the appropriate use of these tests, such as whether the presence of antibodies conveys a level of immunity that would prevent or minimize the severity of re-infection as well as the duration for which immunity lasts.</p>
+        <p>For additional information, please visit the FDA's <a href="https://www.fda.gov/medical-devices/emergency-situations-medical-devices/eua-authorized-serology-test-performance">EUA Authorized Serology Test Performance page</a>.</p>
 
         {/*<InteractiveInfographic*/}
           {/*infographicDefinitions={infographic_definitions}*/}
@@ -27,15 +26,6 @@ class IndexRoute extends React.Component {
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
           endpoint_name={meta.api_path.split("/")[2]}
-        />
-
-        <h3>Fields Harmonization</h3>
-        <p>Different datasets use different unique identifiers, which can make it difficult to find the same device in each dataset.</p>
-        <p>openFDA features harmonization on specific identifiers to make it easier to both search for and understand the drug products returned by API queries. These additional fields are attached to records in all categories, if applicable.</p>
-        <p>Review the chart below to better understand which fields are harmonized.</p>
-        <FieldsHarmonization
-          master_harmonization={master_harmonization}
-          selected_noun='device'
         />
 
         <h3>Responsible use of the data</h3>
