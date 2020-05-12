@@ -12,17 +12,17 @@ class IndexRoute extends React.Component {
       <section className='doc-content'>
         <h2>How to use the API</h2>
         <p>Getting started with and learning how to use the API is relatively straightforward. Here are some recommended steps:</p>
-        <APIUseSteps endpoint_name='Device Serological Testing Validation' endpoint_path='/apis/device/serologytest/'/>
+        <APIUseSteps endpoint_name='Serological Testing Validation' endpoint_path='/apis/device/serologytest/'/>
         <p>Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the <Link to="/apis/authentication/">Authentication</Link> documentation.</p>
 
         <h3>Making a simple API Call</h3>
         <p>You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key.</p>
-        <p>In the example below, we are searching the records in the 510k endpoint for matches with <code>cv</code> in the <code>advisory_committee</code> field. We are requesting to see the first 5 records that match."</p>
-        <APIQueryBreakdown endpoint_path='/device/serologytest.json' query='advisory_committee:cv'/>
+        <p>In the example below, we are searching the records in the Serological Testing Validation endpoint for matches with <code>TN</code> in the <code>antibody_agree</code> field. We are requesting to see the first 5 records that match."</p>
+        <APIQueryBreakdown endpoint_path='/device/serologytest.json' query='antibody_agree:TN'/>
 
         <h3>Some key pointers</h3>
         <ul>
-          <li>An openFDA API query always begins with the base endpoint, which in this case is: <code>https://api.fda.gov/device/510k.json</code></li>
+          <li>An openFDA API query always begins with the base endpoint, which in this case is: <code>https://api.fda.gov/device/serologytest.json</code></li>
           <li>Searches have a special syntax: <code>search=field:term</code></li>
           <li>Unless otherwise specified, the API will return only one matching record for a search. You can specify the number of records to be returned by using the limit parameter. The maximum limit allowed is 99 for any single API call. If no limit is set, the API will return one matching record.</li>
         </ul>

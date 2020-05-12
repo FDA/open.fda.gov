@@ -132,20 +132,20 @@
       "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
       "terms": "https://open.fda.gov/terms/",
       "license": "https://open.fda.gov/license/",
-      "last_updated": "2017-12-02"
+      "last_updated": "2020-05-08"
     },
     "results": [
       {
-        "term": "",
-        "count": 622
+        "term": "TN",
+        "count": 80
       },
       {
-        "term": "3005747797",
-        "count": 541
+        "term": "TP",
+        "count": 27
       },
       {
-        "term": "3010041511",
-        "count": 475
+        "term": "FN",
+        "count": 3
       }
     ]
   }

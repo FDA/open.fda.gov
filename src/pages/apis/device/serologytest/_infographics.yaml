@@ -1,5 +1,5 @@
-- title: "Serological Testing Validation by Antibody Agree"
-  short: "By antibody agree"
+- title: "Antibody Truth by Antibody Agree"
+  short: "Antibody truth"
   description:
     - "The antibody_truth field reflects the true qualitative antibody presence result."
   countParam: "antibody_truth"
@@ -16,3 +16,43 @@
       searchParam: "antibody_agree:FN"
   filterByDate: false
   type: Bar
+- title: "Ratio of Antibody Agree"
+  short: "Antibody agree"
+  description:
+    - "The antibody_truth field reflects agreement between all antibody results and antibody_truth."
+  countParam: "antibody_agree"
+  filters:
+    - title: "All results"
+      searchParam: ""
+    - title: "Antibody Truth is Positive"
+      searchParam: "antibody_truth:Positive"
+    - title: "Antibody Truth is Negative"
+      searchParam: "antibody_true:Negative"
+    - title: "Positives Group"
+      searchParam: "group:Positives"
+    - title: "Negatives Group"
+      searchParam: "group:Negatives"
+  filterByDate: false
+  type: Pie
+- title: "Results over Time"
+  short: "Results over Time"
+  description:
+    - "The date_performed field reflects the date the test was performed."
+  countParam: "date_performed"
+  filters:
+    - title: "All results"
+      searchParam: ""
+    - title: "Antibody Truth is Positive"
+      searchParam: "antibody_truth:Positive"
+    - title: "Antibody Truth is Negative"
+      searchParam: "antibody_true:Negative"
+    - title: "Antibody Agree True Positive"
+      searchParam: "antibody_agree:TP"
+    - title: "Antibody Agree True Negative"
+      searchParam: "antibody_agree:TN"
+    - title: "Antibody Agree False Positive"
+      searchParam: "antibody_agree:FP"
+    - title: "Antibody Agree False Negative"
+      searchParam: "antibody_agree:FN"
+  filterByDate: false
+  type: Line
