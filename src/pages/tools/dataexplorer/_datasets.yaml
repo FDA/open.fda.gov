@@ -29,11 +29,11 @@ names:
             accessor: openfda.marketing_status
             show: false
             showDefault: false
-          - Header: Manufacturer Name
+          - Header: Labeler Name
             accessor: openfda.manufacturer_name
             show: true
             showDefault: true
-          - Header: Brand Name
+          - Header: Proprietary Name
             accessor: openfda.brand_name
             show: true
             showDefault: true
@@ -270,8 +270,6 @@ names:
               value: OTC ANIMAL DRUG
             - label: OTC type A
               value: OTC TYPE A MEDICATED ARTICLE ANIMAL DRUG
-            - label: OTC type C
-              value: OTC TYPE C MEDICATED FEED ANIMAL DRUG
             - label: Prescription
               value: PRESCRIPTION ANIMAL DRUG
             - label: VFD type A
@@ -281,11 +279,11 @@ names:
           query_type: term
           field: openfda.marketing_status
           options:
-            - label: Active
+            - label: Marketed
               value: active
-            - label: Completed
+            - label: Not Marketed
               value: completed
-            - label: New
+            - label: Reserve
               value: new
         - label: Marketing Category
           type: checkbox
