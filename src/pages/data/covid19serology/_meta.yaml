@@ -1,10 +1,10 @@
 type: dataset
-documentTitle: 'openFDA › Datasets › Serological Testing Validation'
+documentTitle: 'openFDA › Datasets › COVID-19 Serological Testing Validation'
 crumbs:
   - openFDA
   - Datasets
   - Serological Testing Validation
-title: 'Serological Testing Validation'
+title: 'COVID-19 Serological Testing Validation'
 description: 'Serology tests detect the presence of antibodies in the blood when the body is responding to a specific infection, like COVID-19.'
 source:
   name: 'EUA Serology Tests'

@@ -10,7 +10,7 @@ antibodyPositive:
   title: One sample with a positive antibody result
   description:
     - "This query searches for records matching a certain search term, and asks for a single one."
-    - "See [searchable fields](/apis/device/serologytest/searchable-fields/) for more fields you can use to narrow searches for serological testing validation."
+    - "See [searchable fields](/apis/device/covid19serology/searchable-fields/) for more fields you can use to narrow searches for serological testing validation."
   params:
     - "*search* for all records with `antibody_truth` is *Positive*"
     - "*limit* to 1 record"

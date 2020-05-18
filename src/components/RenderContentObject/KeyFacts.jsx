@@ -14,6 +14,7 @@ const KeyFacts = (props: tPROPS) => {
     endpoint_name
   } = props
 
+  console.log(noun_name, endpoint_name)
   const source = {
     'animalandveterinary': {
       'event': 'Animal Drug Adverse Events (ADAE)'
@@ -31,7 +32,7 @@ const KeyFacts = (props: tPROPS) => {
       'recall': 'Medical Device Recalls',
       'enforcement': 'FDA Recall Enterprise System (RES)',
       'udi': 'Global Unique Device Identification Database (GUDID)',
-      'serologytest': 'Serological Testing Validation'
+      'covid19serology': 'COVID-19 Serological Testing Validation'
     },
     'drug': {
       'event': 'FDA Adverse Event Reporting System (FAERS)',
@@ -61,7 +62,7 @@ const KeyFacts = (props: tPROPS) => {
       'registrationlisting': '/data/registrationlisting/',
       'recall': '/data/device-recall/',
       'enforcement': '/data/res/',
-      'serologytest': '/data/serologytest/'
+      'covid19serology': '/data/covid19serology/'
     },
     'drug': {
       'event': '/data/faers/',
@@ -92,7 +93,7 @@ const KeyFacts = (props: tPROPS) => {
       'recall': '2002 to present',
       'enforcement': '2004 to present',
       'udi': '2013 to present',
-      'serologytest': '2020 to present'
+      'covid19serology': '2020 to present'
     },
     'drug': {
       'event': 'Currently, this API includes publically releasable records submitted to the FDA through FAERS since 2004',
@@ -123,7 +124,7 @@ const KeyFacts = (props: tPROPS) => {
       'recall': 'Monthly',
       'enforcement': 'Weekly',
       'udi': 'Weekly',
-      'serologytest': 'Weekly'
+      'covid19serology': 'Weekly'
     },
     'drug': {
       'event': 'Quarterly. However, please be advised that the data in this API may lag by 3 months or more at any given time, depending on when the quarterly FAERS data is released.',

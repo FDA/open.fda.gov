@@ -272,24 +272,24 @@
           link: /apis/device/registrationlisting/download/
         - title: Searchable fields
           link: /apis/device/registrationlisting/searchable-fields/
-    - title: Serological Testing Validation
+    - title: COVID-19 Serological Testing Validation
       id: device-serological-testing-validation
       collapse: true
       items:
         - title: Overview
-          link: /apis/device/serologytest/
+          link: /apis/device/covid19serology/
         - title: How to use the API
-          link: /apis/device/serologytest/how-to-use-the-endpoint/
+          link: /apis/device/covid19serology/how-to-use-the-endpoint/
         - title: Example API queries
-          link: /apis/device/serologytest/example-api-queries/
+          link: /apis/device/covid19serology/example-api-queries/
         - title: Explore the API with an interactive chart
-          link: /apis/device/serologytest/explore-the-api-with-an-interactive-chart/
+          link: /apis/device/covid19serology/explore-the-api-with-an-interactive-chart/
         - title: Understanding the API Results
-          link: /apis/device/serologytest/understanding-the-api-results/
+          link: /apis/device/covid19serology/understanding-the-api-results/
         - title: Download the dataset
-          link: /apis/device/serologytest/download/
+          link: /apis/device/covid19serology/download/
         - title: Searchable fields
-          link: /apis/device/serologytest/searchable-fields/
+          link: /apis/device/covid19serology/searchable-fields/
     - title: Unique Device Identifier
       id: device-unique-device-identifier
       collapse: true

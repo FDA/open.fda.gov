@@ -70,7 +70,7 @@ properties:
     is_exact: false
     possible_values:
     type: string
-  iga_resul:
+  iga_result:
     description: "The test result for qualitative detection of IgA antibodies."
     format:
     is_exact: false

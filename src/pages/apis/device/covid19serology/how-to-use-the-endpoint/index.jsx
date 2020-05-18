@@ -12,7 +12,7 @@ class IndexRoute extends React.Component {
       <section className='doc-content'>
         <h2>How to use the API</h2>
         <p>Getting started with and learning how to use the API is relatively straightforward. Here are some recommended steps:</p>
-        <APIUseSteps endpoint_name='Serological Testing Validation' endpoint_path='/apis/device/serologytest/'/>
+        <APIUseSteps endpoint_name='Serological Testing Validation' endpoint_path='/apis/device/covid19serology/'/>
         <p>Then, when you are ready, obtain an API Key. While you don’t need an API Key to try or use the API, we recommend you get one if you are planning to use the API on a regular basis. For more information on API Keys, see the <Link to="/apis/authentication/">Authentication</Link> documentation.</p>
 
         <h3>Making a simple API Call</h3>

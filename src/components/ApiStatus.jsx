@@ -26,7 +26,7 @@ const catMap: Object = Object.freeze({
   'devicepma': 'Devices › PMA',
   'deviceudi': 'Devices › UDI',
   'deviceenforcement': 'Devices › Enforcement Reports',
-  'deviceserologytest': 'Devices › Serological Testing Validation',
+  'deviceserologytest': 'Devices › COVID-19 Serological Testing Validation',
   'othernsde': 'Other › NSDE',
   'othersubstance': 'Other › Substance'
 })

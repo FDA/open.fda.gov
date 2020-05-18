@@ -1,11 +1,11 @@
 type: endpoint
-documentTitle: openFDA › Device › Serological testing validation API
+documentTitle: openFDA › Device › COVID-19 Serological testing validation API
 label: Device serological testing validation
 title: Device Serological Testing Validation
 description:
 datasets:
-  - serologytest
-path: /apis/device/serologytest
+  - covid19serology
+path: /apis/device/covid19serology
 api_path: /device/serologytest
 start: 20200101
 status: deviceserologytest
