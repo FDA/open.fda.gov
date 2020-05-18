@@ -14,7 +14,6 @@ const KeyFacts = (props: tPROPS) => {
     endpoint_name
   } = props
 
-  console.log(noun_name, endpoint_name)
   const source = {
     'animalandveterinary': {
       'event': 'Animal Drug Adverse Events (ADAE)'
