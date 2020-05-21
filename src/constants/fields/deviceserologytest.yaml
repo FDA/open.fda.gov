@@ -106,6 +106,12 @@ properties:
     is_exact: false
     possible_values:
     type: integer
+  pan_titer:
+    description: "The CDC spike titer for Pan-Ig in the sample."
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
   igm_truth:
     description: "The true qualitative IgM result."
     format:
