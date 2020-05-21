@@ -78,7 +78,7 @@
     "victory": "0.26.1",
     "whatwg-fetch": "2.0.3",
     "with-query": "^1.1.2",
-    "xlsx": "^0.12.12"
+    "xlsx": "^0.16.1"
   },
   "keywords": [
     "gatsby"

@@ -20,8 +20,13 @@ names:
             accessor: openfda.product_type
             show: true
             showDefault: true
-          - Header: Marketing Category
+          - Header: Application Number
             accessor: openfda.application_number
+            show: true
+            showDefault: true
+            getPreNumbersPart: true
+          - Header: Marketing Category
+            accessor: openfda.marketing_category
             show: true
             showDefault: true
             getPreNumbersPart: true
@@ -283,19 +288,23 @@ names:
               value: active
             - label: Not Marketed
               value: completed
-            - label: Reserve
-              value: new
         - label: Marketing Category
           type: checkbox
           query_type: prefix
-          field: openfda.application_number.exact
+          field: openfda.marketing_category
           options:
             - label: NADA
-              value: NADA
+              value: nada
             - label: ANADA
-              value: ANADA
+              value: anada
+            - label: Conditional NADA
+              value: conditional nada
             - label: MIF
-              value: MIF
+              value: legally marketed unapproved new animal drugs for minor species
+            - label: Unapproved Drug
+              value: unapproved drug other
+            - label: Unapproved Homeopathic
+              value: unapproved homeopathic
         - label: Drug Approval Status
           type: boolean
           field: openfda.application_number
