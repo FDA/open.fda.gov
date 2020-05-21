@@ -41,7 +41,7 @@ const EndpointBox = (props: tPROPS) => {
       'recall': 'A recall is an action taken to address a problem with a medical device that violates FDA law. Recalls occur when a medical device is defective, when it could be a risk to health, or when it is both defective and a risk to health.',
       'enforcement': 'Medical device product recall enforcement reports.',
       'udi': 'Global Unique Device Identification Database (GUIDID) Device Identification dataset.',
-      'serologytest': 'Placeholder.'
+      'serologytest': 'Serology tests detect the presence of antibodies in the blood when the body is responding to a specific infection, like COVID-19.'
     },
     'drug': {
       'event': 'Reports of drug side effects, product use errors, product quality problems, and therapeutic failures.',
