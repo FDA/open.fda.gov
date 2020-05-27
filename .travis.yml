@@ -1,9 +1,15 @@
+sudo: false
+
 language: node_js
+
 node_js:
   - "stable"
-before_script:
-  - echo "Testing before script"
-  - npm i -g npm@latest-version
-script:
-  - npm build
 
+install:
+  - npm ci
+
+script:
+  - npm run build
+
+notifications:
+  email: false
