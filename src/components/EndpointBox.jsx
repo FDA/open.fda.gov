@@ -141,7 +141,7 @@ const EndpointBox = (props: tPROPS) => {
       'recall': '/apis/device/recall/',
       'enforcement': '/apis/device/enforcement/',
       'udi': '/apis/device/udi/',
-      'serologytest': '/apis/device/serologytest/'
+      'serologytest': '/apis/device/covid19serology/'
     },
     'drug': {
       'event': '/apis/drug/event/',
