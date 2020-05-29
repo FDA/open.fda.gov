@@ -10,8 +10,8 @@ class IndexRoute extends React.Component {
     return (
       <section className="doc-content">
         <h2>Understanding the API Results</h2>
-        <p>For <code>search</code> queries (such as: <a href="https://api.fda.gov/device/serologytest.json?search=product_code:KTN&limit=1">https://api.fda.gov/device/serologytest.json?search=group:Negatives&limit=1</a>), the <code>results</code> section includes matching Serological Test Validation reports returned by the API.</p>
-        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/device/serologytest.json?count=openfda.fei_number">https://api.fda.gov/device/serologytest.json?count=antibody_agree</a>), the results section will look something like the following:</p>
+        <p>For <code>search</code> queries (such as: <a href="https://api.fda.gov/device/covid19serology.json?search=product_code:KTN&limit=1">https://api.fda.gov/device/covid19serology.json?search=group:Negatives&limit=1</a>), the <code>results</code> section includes matching Serological Test Evaluations reports returned by the API.</p>
+        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/device/covid19serology.json?count=openfda.fei_number">https://api.fda.gov/device/covid19serology.json?count=antibody_agree</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}

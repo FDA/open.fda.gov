@@ -31,7 +31,7 @@ const KeyFacts = (props: tPROPS) => {
       'recall': 'Medical Device Recalls',
       'enforcement': 'FDA Recall Enterprise System (RES)',
       'udi': 'Global Unique Device Identification Database (GUDID)',
-      'covid19serology': 'COVID-19 Serological Testing Validation'
+      'covid19serology': 'Independent testing by US Government Laboratories'
     },
     'drug': {
       'event': 'FDA Adverse Event Reporting System (FAERS)',

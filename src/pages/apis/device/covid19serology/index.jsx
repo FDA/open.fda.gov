@@ -16,7 +16,6 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>Independent Evaluations of COVID-19 Serological Tests</h2>
         <p>Serology tests detect the presence of antibodies in the blood when the body is responding to a specific infection, like COVID-19. In other words, the tests detect the body’s immune response to the infection caused by the virus rather than detecting the virus itself. In the early days of an infection when the body’s immune response is still building, antibodies may not be detected. This limits the test’s effectiveness for diagnosing COVID-19, and this is one reason serology tests should not be used as the sole basis to diagnose COVID-19. Serology tests could play a role in the fight against COVID-19 by helping healthcare professionals identify individuals have developed an immune response to SARS-CoV-2. In addition, these test results can aid in determining who may donate a part of their blood called convalescent plasma, which may serve as a possible treatment for those who are seriously ill from COVID-19. However, to use these test properly, it is important to understand their performance characteristics and limitations. Moreover, studies are underway to address questions that will better inform the appropriate use of these tests, such as whether the presence of antibodies conveys a level of immunity that would prevent or minimize the severity of re-infection as well as the duration for which immunity lasts.</p>
-        <p>For additional information, please visit the FDA's <a href="https://www.fda.gov/medical-devices/emergency-situations-medical-devices/eua-authorized-serology-test-performance">EUA Authorized Serology Test Performance page</a>.</p>
 
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
@@ -36,7 +35,7 @@ class IndexRoute extends React.Component {
 
         <h5>Positive samples</h5>
         <p>Positive samples used in Panel 1 were from patients previously confirmed to have SARS-CoV-2 infection with a nucleic acid amplification test (NAAT). Time between symptom onset, NAAT testing, and sample collection is not known for all samples. Both SARS-CoV-2 IgM and IgG antibodies are present in all Panel 1 positive samples. The Centers for Disease Control and prevention (CDC) detected the presence of IgG and IgM antibodies at their laboratory using their SARS-CoV-2 spike enzyme-linked immunosorbent assay (ELISA) tests. (See <a href="https://www.cdc.gov/coronavirus/2019-ncov/lab/serology-testing.html">Serology Testing for COVID-19</a>, which notes “CDC’s serologic test is designed and validated for broad-based surveillance and research that will give us information needed to guide the response to the pandemic and protect the public’s health. The test is not currently designed to test individuals who want to know if they have been previously infected with COVID-19.”) The presence of antibodies was confirmed at FNLCR using CDC’s developed ELISAs (pan-Ig, IgG, and IgM) as well as an IgG Receptor Binding Domain (RBD) ELISA developed by the Krammer Laboratory at the Icahn School of Medicine at Mount Sinai. (An implementation of this test, the COVID-19 ELISA IgG Antibody Test, has been granted an EUA authorization by FDA for use at the Mount Sinai Laboratory (MSL), Center for Clinical Laboratories, a division of the Department of Pathology, Molecular, and Cell-Based Medicine, New York, NY. See this <a href="https://www.fda.gov/media/137029/download">EUA Summary</a>.) The positive samples selected may not reflect the distribution of antibody levels in patient populations that would be evaluated by such a test. Because all samples are positive for both IgM and IgG, this evaluation cannot verify that tests intended to detect IgM and IgG antibodies separately detect these antibodies independently.</p>
-        <p>Positive samples were qualitatively assessed at dilutions of 1:100, 1:400, 1:1600, and 1:6400 by CDC on their Pan-Ig assay, their IgM assay, and their IgG assay. Some samples were run at additional dilutions. Any samples tested with a dilution more than 1:6400 that were positive at a dilution of 1:6400 were assigned a titer of 6400 because 1:6400 is the highest dilution at which all Panel 1 positive samples were assessed. Two of these samples, C0107 and C0176, were positive for IgG antibodies at a dilution of 1:25600.</p>
+        <p>Positive samples were assessed at dilutions of 1:100, 1:400, 1:1600, and 1:6400 by CDC on their Pan-Ig assay, their IgM assay, and their IgG assay. Some samples were run at additional dilutions. Any samples that were positive at a dilution greater than 1:6400 were assigned a titer of 6400 because 1:6400 was the highest dilution at which all Panel 1 positive samples were assessed. Two of these samples, C0107 and C0176, were positive for IgG antibodies at a dilution of 1:25600.</p>
 
         <h5>Negative Samples</h5>
         <p>All Panel 1 negative samples were collected prior to 2020, before the SARS-CoV-2 virus is known to have circulated in the United States. Panel 1 groups include:</p>
@@ -44,7 +43,7 @@ class IndexRoute extends React.Component {
           <li>“Negatives” (n=70): selected without regard for clinical status. This group includes a sample, C0063, that showed reactivity in the pan-Ig CDC spike ELISA at FNLCR. It includes another sample, C0087, that showed reactivity in the IgG RBD ELISA at FNLCR.</li>
           <li>“HIV+” (n=10): selected from banked serum from HIV+ patients. (HIV+ samples were deemed appropriate for inclusion in the panel: (1) to increase the sample size and reduce the confidence interval; and (2) to identify any possibility of cross-reactivity with HIV+ samples. It is anticipated that other types of samples, as they become available, may also be evaluated in any future analyses.) This group includes 3 samples, C0018, C0155, and C0182, that showed reactivity in the IgG RBD ELISA at FNLCR.</li>
         </ul>
-        <p>All Panel 1 negative samples were qualitatively assessed at dilutions of 1:100 and 1:400 by CDC on their Pan-Ig assay. A subset were assessed in parallel at additional dilutions and on the CDC IgM and IgG assays. All Panel 1 negative samples were negative at a dilution of 1:100 on the CDC Pan-Ig assay. These samples were assigned an undetectable titer (represented as zero (0) in the line data) for the Pan-Ig assay, the IgM assay, and the IgG assay.</p>
+        <p>All Panel 1 negative samples were assessed at dilutions of 1:100 and 1:400 by CDC on their Pan-Ig assay. A subset of samples was assessed in parallel at additional dilutions and on the CDC IgM and IgG assays. All Panel 1 negative samples were negative at a dilution of 1:100 on the CDC Pan-Ig assay. These samples were assigned an undetectable titer (represented as zero (0) in the line data) for the Pan-Ig assay, the IgM assay, and the IgG assay.</p>
 
         <h3>Analysis</h3>
         <p>Samples used in this evaluation were not randomly selected, and sensitivity (PPA) and specificity (NPA) estimates shown may not be indicative of the real-world performance of these tests. Sensitivity and specificity were calculated for each antibody (e.g., IgM, IgG, IgA, and Pan Ig, as applicable) separately. In addition, for tests that measure multiple antibodies separately, sensitivity and specificity were estimated in a combined manner, where a positive result for any antibody a test is intended to detect was considered as a positive test result and a negative result meant that a sample tested negative for all antibodies a test is intended to detect. Positive and negative predictive values were calculated for combined sensitivity and specificity for tests that measure multiple antibodies separately and assuming a prevalence of 5%. Cross-reactivity with HIV+ was evaluated, and results are presented separately in the individual test reports. If cross-reactivity was detected, the samples with HIV+ were not included in calculations of specificity.</p>
@@ -76,291 +75,7 @@ class IndexRoute extends React.Component {
         <h2>Summary test results</h2>
         <p>Where the Marketing Status below is shown as “EUA Authorized,” the test has been reviewed by FDA under the Emergency Use Authorization (EUA) process and may be distributed in the United States. Where the Marketing Status below is shown as “Voluntarily withdrawn from the notification list,” the manufacturer has voluntarily stopped distribution and requested FDA to remove their test from the list of commercial manufacturers distributing serology test kits under the policy outlined in Section IV.D of the <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/policy-coronavirus-disease-2019-tests-during-public-health-emergency-revised">Policy for Coronavirus Disease-2019 Tests</a>. Where the Marketing Status below is shown as “Removed,” FDA has determined that an EUA request has not been submitted within a reasonable period of time, or significant problems were identified with the test and cannot be or have not been addressed in a timely manner.</p>
         <h3>EUA Authorized</h3>
-        <h4>Cellex, Inc. Cellex qSARs-CoV-2 IgG/IgM Rapid Test</h4>
-        <p><strong>Manufacturer:</strong> Cellex, Inc.</p>
-        <p><strong>Device:</strong> Cellex qSARs-CoV-2 IgG/IgM Rapid Test</p>
-        <p><strong>Date Performed:</strong> 2020-05-08</p>
-        <p><strong>Lot Number:</strong> 20200424WI5515C025</p>
-        <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> EUA Authorized</p>
-        <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
-          <thead>
-            <tr>
-              <th style={{textAlign:'left'}}>
-                Antibody
-              </th>
-              <th style={{textAlign:'left'}}>
-                Performance Measure
-              </th>
-              <th style={{textAlign:'left'}}>
-                Estimate of Performance
-              </th>
-              <th style={{textAlign:'left'}}>
-                95% Confidence Interval
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgM
-              </td>
-              <td style={{textAlign:'left'}}>
-                Sensitivity
-              </td>
-              <td style={{textAlign:'left'}}>
-                6.7% (2/30)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (1.8%; 21.3%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgM
-              </td>
-              <td style={{textAlign:'left'}}>
-                Specificity
-              </td>
-              <td style={{textAlign:'left'}}>
-                100% (80/80)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (95.4%; 100%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgG
-              </td>
-              <td style={{textAlign:'left'}}>
-                Sensitivity
-              </td>
-              <td style={{textAlign:'left'}}>
-                76.7% (23/30)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (59.1%; 88.2%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgG
-              </td>
-              <td style={{textAlign:'left'}}>
-                Specificity
-              </td>
-              <td style={{textAlign:'left'}}>
-                100% (80/80)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (95.4%; 100%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                Sensitivity
-              </td>
-              <td style={{textAlign:'left'}}>
-                76.7% (23/30)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (59.1%; 88.2%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                Specificity
-              </td>
-              <td style={{textAlign:'left'}}>
-                100% (80/80)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (95.4%; 100%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                PPV at prevalence = 5%
-              </td>
-              <td style={{textAlign:'left'}}>
-                100%
-              </td>
-              <td style={{textAlign:'left'}}>
-                (40.3%; 100%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                NPV at prevalence = 5%
-              </td>
-              <td style={{textAlign:'left'}}>
-                98.8%
-              </td>
-              <td style={{textAlign:'left'}}>
-                (97.8%; 99.4%)
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <p><a href="https://www.fda.gov">NCI’s Independent Evaluation Report</a></p>
-        <p><a href="https://www.fda.gov">Data File</a></p>
-
-        <h4>ChemBio DPP COVID-19 IgM/IgG System</h4>
-        <p><strong>Manufacturer:</strong> ChemBio</p>
-        <p><strong>Device:</strong> DPP COVID-19 IgM/IgG System</p>
-        <p><strong>Date Performed:</strong> 2020-04-21</p>
-        <p><strong>Lot Number:</strong> 204IG001Z</p>
-        <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> EUA Authorized</p>
-        <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
-          <thead>
-            <tr>
-              <th style={{textAlign:'left'}}>
-                Antibody
-              </th>
-              <th style={{textAlign:'left'}}>
-                Performance Measure
-              </th>
-              <th style={{textAlign:'left'}}>
-                Estimate of Performance
-              </th>
-              <th style={{textAlign:'left'}}>
-                95% Confidence Interval
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgM
-              </td>
-              <td style={{textAlign:'left'}}>
-                Sensitivity
-              </td>
-              <td style={{textAlign:'left'}}>
-                57.1% (16/28)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (39.1%; 73.5%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgM
-              </td>
-              <td style={{textAlign:'left'}}>
-                Specificity
-              </td>
-              <td style={{textAlign:'left'}}>
-                86.2% (69/80)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (77.0%; 92.1%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgG
-              </td>
-              <td style={{textAlign:'left'}}>
-                Sensitivity
-              </td>
-              <td style={{textAlign:'left'}}>
-                78.6% (22/28)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (60.5%; 89.8%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgG
-              </td>
-              <td style={{textAlign:'left'}}>
-                Specificity
-              </td>
-              <td style={{textAlign:'left'}}>
-                91.2% (73/80)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (83.0%; 95.7%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                Sensitivity
-              </td>
-              <td style={{textAlign:'left'}}>
-                82.1% (23/28)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (64.4%; 92.1%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                Specificity
-              </td>
-              <td style={{textAlign:'left'}}>
-                81.2% (65/80)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (71.3%; 88.3%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                PPV at prevalence = 5%
-              </td>
-              <td style={{textAlign:'left'}}>
-                18.7%
-              </td>
-              <td style={{textAlign:'left'}}>
-                (10.6%; 29.3%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                NPV at prevalence = 5%
-              </td>
-              <td style={{textAlign:'left'}}>
-                98.9%
-              </td>
-              <td style={{textAlign:'left'}}>
-                (97.4%; 99.5%)
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <p><a href="https://www.fda.gov">NCI’s Independent Evaluation Report</a></p>
-        <p><a href="https://www.fda.gov">Data File</a></p>
-
-        <h3>Euroimmun SARS-COV-2 ELISA (IgG)</h3>
+        <h4>Euroimmun SARS-COV-2 ELISA (IgG)</h4>
         <p><strong>Manufacturer:</strong> Euroimmun</p>
         <p><strong>Device:</strong> SARS-COV-2 ELISA (IgG)</p>
         <p><strong>Date Performed:</strong> 2020-04-21</p>
@@ -446,151 +161,8 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.fda.gov/media/137720/download">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.fda.gov/media/137719/download">Data File</a></p>
 
-        <h2>Removed</h2>
-        <h3>Tianjin Beroni Biotechnology Co., Ltd. SARS-COV-2 IgG/IgM Antibody Detection Kit</h3>
-        <p><strong>Manufacturer:</strong> Tianjin Beroni Biotechnology Co., Ltd.</p>
-        <p><strong>Device:</strong> SARS-COV-2 IgG/IgM Antibody Detection Kit</p>
-        <p><strong>Date Performed:</strong> 2020-04-21</p>
-        <p><strong>Lot Number:</strong> 20200405 (Test Strip)</p>
-        <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Removed</p>
-        <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
-          <thead>
-            <tr>
-              <th style={{textAlign:'left'}}>
-                Antibody
-              </th>
-              <th style={{textAlign:'left'}}>
-                Performance Measure
-              </th>
-              <th style={{textAlign:'left'}}>
-                Estimate of Performance
-              </th>
-              <th style={{textAlign:'left'}}>
-                95% Confidence Interval
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgM
-              </td>
-              <td style={{textAlign:'left'}}>
-                Sensitivity
-              </td>
-              <td style={{textAlign:'left'}}>
-                83.3% (25/30)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (66.4%; 92.7%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgM
-              </td>
-              <td style={{textAlign:'left'}}>
-                Specificity
-              </td>
-              <td style={{textAlign:'left'}}>
-                100% (70/70)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (94.8%; 100%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgG
-              </td>
-              <td style={{textAlign:'left'}}>
-                Sensitivity
-              </td>
-              <td style={{textAlign:'left'}}>
-                30.0% (9/30)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (16.7%; 47.9%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgG
-              </td>
-              <td style={{textAlign:'left'}}>
-                Specificity
-              </td>
-              <td style={{textAlign:'left'}}>
-                100% (70/70)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (94.8%; 100%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                Sensitivity
-              </td>
-              <td style={{textAlign:'left'}}>
-                90.0% (27/30)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (74.4%; 96.5%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                Specificity
-              </td>
-              <td style={{textAlign:'left'}}>
-                100% (70/70)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (94.8%; 100%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                PPV at prevalence = 5%
-              </td>
-              <td style={{textAlign:'left'}}>
-                100%
-              </td>
-              <td style={{textAlign:'left'}}>
-                (43.0%; 100%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                NPV at prevalence = 5%
-              </td>
-              <td style={{textAlign:'left'}}>
-                99.5%
-              </td>
-              <td style={{textAlign:'left'}}>
-                (98.6%; 99.8%)
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <p><a href="https://www.fda.gov">NCI’s Independent Evaluation Report</a></p>
-        <p><a href="https://www.fda.gov">Data File</a></p>
-
-        <h2>Voluntarily withdrawn from the notification list</h2>
-        <h3>Biomedomics COVID-19 IgM-IgG Rapid Test kit</h3>
+        <h3>Voluntarily withdrawn from the notification list</h3>
+        <h4>Biomedomics COVID-19 IgM-IgG Rapid Test kit</h4>
         <p><strong>Manufacturer:</strong> Biomedomics</p>
         <p><strong>Device:</strong> COVID-19 IgM-IgG Rapid Test kit</p>
         <p><strong>Date Performed:</strong> 2020-04-21</p>
@@ -732,7 +304,7 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.fda.gov">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.fda.gov">Data File</a></p>
 
-        <h3>Phamatech COVID19 RAPID TEST</h3>
+        <h4>Phamatech COVID19 RAPID TEST</h4>
         <p><strong>Manufacturer:</strong> Phamatech</p>
         <p><strong>Device:</strong> COVID19 RAPID TEST</p>
         <p><strong>Date Performed:</strong> 2020-04-21</p>
@@ -874,7 +446,7 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.fda.gov">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.fda.gov">Data File</a></p>
 
-        <h3>TESTSEALABS SARS-COV-2-IgG/IgM Test Cassette</h3>
+        <h4>TESTSEALABS SARS-COV-2-IgG/IgM Test Cassette</h4>
         <p><strong>Manufacturer:</strong> TESTSEALABS</p>
         <p><strong>Device:</strong> SARS-COV-2-IgG/IgM Test Cassette</p>
         <p><strong>Date Performed:</strong> 2020-04-21</p>
@@ -1018,13 +590,6 @@ class IndexRoute extends React.Component {
 
         <h2>Learn more</h2>
         <p>General information: <a href="https://www.fda.gov/medical-devices/emergency-situations-medical-devices/eua-authorized-serology-test-performance">Learn more about EUA Authorized Serology Test Performance</a></p>
-
-
-
-
-
-
-
       </section>
     )
   }
