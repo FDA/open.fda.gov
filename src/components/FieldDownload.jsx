@@ -16,7 +16,7 @@ const pdfDownloadMap: Object = Object.freeze({
   'devicepma': '/fields/devicepma_reference.pdf',
   'deviceudi': '/fields/deviceudi_reference.pdf',
   'deviceenforcement': '/fields/deviceenforcement_reference.pdf',
-  'devicecovid19serology': '/fields/devicecovid19serology_reference.pdf',
+  'covid19serology': '/fields/devicecovid19serology_reference.pdf',
   'othernsde': '/fields/othernsde_reference.pdf',
   'othersubstance': '/fields/othersubstance_reference.pdf'
 })
@@ -37,7 +37,7 @@ const xlsxDownloadMap: Object = Object.freeze({
   'devicepma': '/fields/devicepma_reference.xlsx',
   'deviceudi': '/fields/deviceudi_reference.xlsx',
   'deviceenforcement': '/fields/deviceenforcement_reference.xlsx',
-  'devicecovid19serology': '/fields/devicecovid19serology_reference.xlsx',
+  'covid19serology': '/fields/devicecovid19serology_reference.xlsx',
   'othernsde': '/fields/othernsde_reference.xlsx',
   'othersubstance': '/fields/othersubstance_reference.xlsx'
 })
@@ -58,7 +58,7 @@ const yamlDownloadMap: Object = Object.freeze({
   'devicepma': '/fields/devicepma.yaml',
   'deviceudi': '/fields/deviceudi.yaml',
   'deviceenforcement': '/fields/deviceenforcement.yaml',
-  'devicecovid19serology': '/fields/devicecovid19serology.yaml',
+  'covid19serology': '/fields/devicecovid19serology.yaml',
   'othernsde': '/fields/othernsde.yaml',
   'othersubstance': '/fields/othersubstance.yaml'
 })

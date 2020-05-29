@@ -20,12 +20,12 @@ properties:
   lot_number:
     description: "The manufacturer's unique identification of the lot(s) from which the tested devices were drawn."
     format:
-    is_exact: true
+    is_exact: false
     type: string
   panel:
     description: "The testing program's unique identification of the panel of clinical samples against which the devices were tested."
     format:
-    is_exact: true
+    is_exact: false
     possible_values:
     type: string
   sample_no:

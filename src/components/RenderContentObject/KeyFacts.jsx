@@ -123,7 +123,7 @@ const KeyFacts = (props: tPROPS) => {
       'recall': 'Monthly',
       'enforcement': 'Weekly',
       'udi': 'Weekly',
-      'covid19serology': 'Weekly'
+      'covid19serology': 'Intermittently'
     },
     'drug': {
       'event': 'Quarterly. However, please be advised that the data in this API may lag by 3 months or more at any given time, depending on when the quarterly FAERS data is released.',
