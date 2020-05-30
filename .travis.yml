@@ -9,6 +9,7 @@ install:
   - npm ci
 
 script:
+  - npm run dev:css
   - npm run build
 
 notifications:
