@@ -14,8 +14,7 @@ script:
 notifications:
   email: false
 
-deploy:
-  provider: script
-  script: npm run build
-  on:
-    branch: feature/FDA-88
+branches:
+  only:
+    - master
+    - /^feature.*$/
