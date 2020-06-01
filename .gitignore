@@ -10,4 +10,4 @@ npm-debug.log.931881047
 /src/css/build/app.css
 .DS_Store
 .cache
-package-lock.json
+#package-lock.json
