@@ -272,7 +272,7 @@
           link: /apis/device/registrationlisting/download/
         - title: Searchable fields
           link: /apis/device/registrationlisting/searchable-fields/
-    - title: COVID-19 Serological Testing Validation
+    - title: COVID-19 Serological Testing Evaluations
       id: device-serological-testing-validation
       collapse: true
       items:

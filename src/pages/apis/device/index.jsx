@@ -40,7 +40,7 @@ export default () => (
         />
         <EndpointBox
           noun_name='device'
-          endpoint_name='serologytest'
+          endpoint_name='covid19serology'
         />
       </div>
     </div>

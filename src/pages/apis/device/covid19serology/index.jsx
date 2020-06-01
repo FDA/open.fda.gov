@@ -161,14 +161,156 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.fda.gov/media/137720/download">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.fda.gov/media/137719/download">Data File</a></p>
 
-        <h3>Voluntarily withdrawn from the notification list</h3>
+        <h4>Healgen COVID-19 IgG/IgM Rapid Test Cassette</h4>
+        <p><strong>Manufacturer:</strong> Healgen</p>
+        <p><strong>Device:</strong> COVID-19 IgG/IgM Rapid Test Cassette</p>
+        <p><strong>Date Performed:</strong> 2020-04-21</p>
+        <p><strong>Lot Number:</strong> 2003292</p>
+        <p><strong>Panel:</strong> Panel 1</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
+          <thead>
+          <tr>
+            <th style={{textAlign:'left'}}>
+              Antibody
+            </th>
+            <th style={{textAlign:'left'}}>
+              Performance Measure
+            </th>
+            <th style={{textAlign:'left'}}>
+              Estimate of Performance
+            </th>
+            <th style={{textAlign:'left'}}>
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgM
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              100% (30/30)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (88.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgM
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              100% (80/80)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              96.7% (29/30)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (83.3%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              97.5% (78/80)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (91.3%; 99.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Combined
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              100% (30/30)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (88.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Combined
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              97.5% (78/80)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (91.3%; 99.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Combined
+            </td>
+            <td style={{textAlign:'left'}}>
+              PPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              67.8%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (34.9%; 88.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Combined
+            </td>
+            <td style={{textAlign:'left'}}>
+              NPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              100%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (99.4%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.fda.gov">NCI’s Independent Evaluation Report</a></p>
+        <p><a href="https://www.fda.gov">Data File</a></p>
+
+        <h3>Removed from the notification list</h3>
         <h4>Biomedomics COVID-19 IgM-IgG Rapid Test kit</h4>
         <p><strong>Manufacturer:</strong> Biomedomics</p>
         <p><strong>Device:</strong> COVID-19 IgM-IgG Rapid Test kit</p>
         <p><strong>Date Performed:</strong> 2020-04-21</p>
         <p><strong>Lot Number:</strong> 51-200404</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Voluntarily withdrawn from the notification list</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
             <tr>
@@ -310,7 +452,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-04-21</p>
         <p><strong>Lot Number:</strong> NCP20030239</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Voluntarily withdrawn from the notification list</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
             <tr>
@@ -439,148 +581,6 @@ class IndexRoute extends React.Component {
               </td>
               <td style={{textAlign:'left'}}>
                 (98.2%; 99.7%)
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <p><a href="https://www.fda.gov">NCI’s Independent Evaluation Report</a></p>
-        <p><a href="https://www.fda.gov">Data File</a></p>
-
-        <h4>TESTSEALABS SARS-COV-2-IgG/IgM Test Cassette</h4>
-        <p><strong>Manufacturer:</strong> TESTSEALABS</p>
-        <p><strong>Device:</strong> SARS-COV-2-IgG/IgM Test Cassette</p>
-        <p><strong>Date Performed:</strong> 2020-04-21</p>
-        <p><strong>Lot Number:</strong> 20200320</p>
-        <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Voluntarily withdrawn from the notification list</p>
-        <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
-          <thead>
-            <tr>
-              <th style={{textAlign:'left'}}>
-                Antibody
-              </th>
-              <th style={{textAlign:'left'}}>
-                Performance Measure
-              </th>
-              <th style={{textAlign:'left'}}>
-                Estimate of Performance
-              </th>
-              <th style={{textAlign:'left'}}>
-                95% Confidence Interval
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgM
-              </td>
-              <td style={{textAlign:'left'}}>
-                Sensitivity
-              </td>
-              <td style={{textAlign:'left'}}>
-                73.3% (22/30)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (55.6%; 85.8%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgM
-              </td>
-              <td style={{textAlign:'left'}}>
-                Specificity
-              </td>
-              <td style={{textAlign:'left'}}>
-                98.8% (79/80)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (93.3%; 99.8%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgG
-              </td>
-              <td style={{textAlign:'left'}}>
-                Sensitivity
-              </td>
-              <td style={{textAlign:'left'}}>
-                40.0% (12/30)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (24.6%; 57.7%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                IgG
-              </td>
-              <td style={{textAlign:'left'}}>
-                Specificity
-              </td>
-              <td style={{textAlign:'left'}}>
-                93.8% (75/80)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (86.2%; 97.3%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                Sensitivity
-              </td>
-              <td style={{textAlign:'left'}}>
-                83.3% (25/30)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (66.4%; 92.7%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                Specificity
-              </td>
-              <td style={{textAlign:'left'}}>
-                92.5% (74/80)
-              </td>
-              <td style={{textAlign:'left'}}>
-                (84.6%; 96.5%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                PPV at prevalence = 5%
-              </td>
-              <td style={{textAlign:'left'}}>
-                36.9%
-              </td>
-              <td style={{textAlign:'left'}}>
-                (18.5%; 58.2%)
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:'left'}}>
-                Combined
-              </td>
-              <td style={{textAlign:'left'}}>
-                NPV at prevalence = 5%
-              </td>
-              <td style={{textAlign:'left'}}>
-                99.1%
-              </td>
-              <td style={{textAlign:'left'}}>
-                (98.0%; 99.6%)
               </td>
             </tr>
           </tbody>
