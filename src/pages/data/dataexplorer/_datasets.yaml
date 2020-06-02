@@ -279,6 +279,8 @@ names:
               value: PRESCRIPTION ANIMAL DRUG
             - label: VFD type A
               value: VFD TYPE A MEDICATED ARTICLE ANIMAL DRUG
+            - label: Recombinant DNA construct
+              value: RECOMBINANT DEOXYRIBONUCLEIC ACID CONSTRUCT
         - label: Marketing Status
           type: checkbox
           query_type: term
