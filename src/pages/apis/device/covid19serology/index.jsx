@@ -158,8 +158,8 @@ class IndexRoute extends React.Component {
             </tr>
           </tbody>
         </table>
-        <p><a href="https://www.fda.gov/media/137720/download">NCI’s Independent Evaluation Report</a></p>
-        <p><a href="https://www.fda.gov/media/137719/download">Data File</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3246-a001.pdf">NCI’s Independent Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3246-a001.csv">Data File</a></p>
 
         <h4>Healgen COVID-19 IgG/IgM Rapid Test Cassette</h4>
         <p><strong>Manufacturer:</strong> Healgen</p>
@@ -300,8 +300,8 @@ class IndexRoute extends React.Component {
           </tr>
           </tbody>
         </table>
-        <p><a href="https://www.fda.gov">NCI’s Independent Evaluation Report</a></p>
-        <p><a href="https://www.fda.gov">Data File</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3247-a001.pdf">NCI’s Independent Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3247-a001.csv">Data File</a></p>
 
         <h3>Removed from the notification list</h3>
         <h4>Biomedomics COVID-19 IgM-IgG Rapid Test kit</h4>
@@ -443,8 +443,8 @@ class IndexRoute extends React.Component {
             </tr>
           </tbody>
         </table>
-        <p><a href="https://www.fda.gov">NCI’s Independent Evaluation Report</a></p>
-        <p><a href="https://www.fda.gov">Data File</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3248-a001.pdf">NCI’s Independent Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3248-a001.csv">Data File</a></p>
 
         <h4>Phamatech COVID19 RAPID TEST</h4>
         <p><strong>Manufacturer:</strong> Phamatech</p>
@@ -585,8 +585,8 @@ class IndexRoute extends React.Component {
             </tr>
           </tbody>
         </table>
-        <p><a href="https://www.fda.gov">NCI’s Independent Evaluation Report</a></p>
-        <p><a href="https://www.fda.gov">Data File</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3249-a001.pdf">NCI’s Independent Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3249-a001.csv">Data File</a></p>
 
         <h2>Learn more</h2>
         <p>General information: <a href="https://www.fda.gov/medical-devices/emergency-situations-medical-devices/eua-authorized-serology-test-performance">Learn more about EUA Authorized Serology Test Performance</a></p>

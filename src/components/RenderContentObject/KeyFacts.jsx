@@ -141,22 +141,25 @@ const KeyFacts = (props: tPROPS) => {
     <section className="key-facts">
       <h3>Key Facts</h3>
       <ul>
-        <li>
-          <i className="fa fa-database"/>
-          <div className="label">Source of the data:</div>
-          <div className="value">
-            {
-              source_link[noun_name].hasOwnProperty(endpoint_name) &&
-              <Link to={source_link[noun_name][endpoint_name]}>
-                {source[noun_name][endpoint_name]}
-              </Link>
-            }
-            {
-              !(source_link[noun_name].hasOwnProperty(endpoint_name)) &&
-              source[noun_name][endpoint_name]
-            }
-          </div>
-        </li>
+        {
+          !(endpoint_name === 'covid19serology') &&
+            <li>
+              <i className="fa fa-database"/>
+              <div className="label">Source of the data:</div>
+              <div className="value">
+                {
+                  source_link[noun_name].hasOwnProperty(endpoint_name) &&
+                  <Link to={source_link[noun_name][endpoint_name]}>
+                    {source[noun_name][endpoint_name]}
+                  </Link>
+                }
+                {
+                  !(source_link[noun_name].hasOwnProperty(endpoint_name)) &&
+                  source[noun_name][endpoint_name]
+                }
+              </div>
+            </li>
+        }
         <li>
           <i className="fa fa-edit"/>
           <div className="label">Changes to the source data:</div>
