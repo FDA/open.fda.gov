@@ -39,15 +39,15 @@ class IndexRoute extends React.Component {
 
     return (
       <section className="doc-content">
-        <h2>OpenFDA fields</h2>
+        <h2>openFDA fields</h2>
         <p>Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.</p>
-        <p>OpenFDA features harmonization on drug identifiers, to make it easier to both search for and understand the drug products returned by API queries. These additional fields are attached to records in all categories, if applicable.</p>
+        <p>openFDA features harmonization on drug identifiers, to make it easier to both search for and understand the drug products returned by API queries. These additional fields are attached to records in all categories, if applicable.</p>
         <p>When you query an endpoint, you can search by:</p>
         <ul>
           <li><p>Fields native to records served by that endpoint.</p></li>
           <li><p>Harmonized <code>openFDA</code> fields, if they exist.</p></li>
         </ul>
-        <p>OpenFDA does not rewrite original records. These additional fields are annotations, in special <code>openfda</code> dictionary of values.</p>
+        <p>openFDA does not rewrite original records. These additional fields are annotations, in special <code>openfda</code> dictionary of values.</p>
 
         <h2>Harmonization Chart</h2>
         <p>The below chart provides the specific fields which are harmonized in each category. Note that not all datasets utilize harmonization.</p>

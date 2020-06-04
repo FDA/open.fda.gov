@@ -6,7 +6,7 @@
 - 'Below you can learn more about our challenges and how to get started. Choose to focus on Adverse Events & Spikes OR Structured Product Labeling & Language. Starting with Level 1, see how far you can get. For more detailed instructions, see “How to Participate” section below.'
 
 - "## Background on openFDA"
-- "OpenFDA is an [Elasticsearch-based](https://www.elastic.co/) [API](http://apievangelist.com) that serves public FDA data about drugs, devices, and foods. It was created by FDA's Chief Health Informatics officer, Taha Kass-Hout, MD, MS and launched in Beta mode in June 2014 to facilitate easy access to public data, to ensure the security of public FDA data, and ultimately to educate the public and save lives."
+- "openFDA is an [Elasticsearch-based](https://www.elastic.co/) [API](http://apievangelist.com) that serves public FDA data about drugs, devices, and foods. It was created by FDA's Chief Health Informatics officer, Taha Kass-Hout, MD, MS and launched in Beta mode in June 2014 to facilitate easy access to public data, to ensure the security of public FDA data, and ultimately to educate the public and save lives."
 - "The concept is to index high-value public-access data, format and document that data in developer and consumer-friendly standards, and make it available via a public-access portal that enables developers to quickly and easily use it in applications. [Learn more about openFDA](https://open.fda.gov/about/)."
 
 - "## Research challenge"

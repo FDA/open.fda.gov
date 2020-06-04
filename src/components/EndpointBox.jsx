@@ -40,7 +40,8 @@ const EndpointBox = (props: tPROPS) => {
       'registrationlisting': 'The registration and listing dataset contains the location of medical device establishments and the devices manufactured at those establishments.',
       'recall': 'A recall is an action taken to address a problem with a medical device that violates FDA law. Recalls occur when a medical device is defective, when it could be a risk to health, or when it is both defective and a risk to health.',
       'enforcement': 'Medical device product recall enforcement reports.',
-      'udi': 'Global Unique Device Identification Database (GUIDID) Device Identification dataset.'
+      'udi': 'Global Unique Device Identification Database (GUIDID) Device Identification dataset.',
+      'covid19serology': 'Serology tests detect the presence of antibodies in the blood when the body is responding to a specific infection, like COVID-19.'
     },
     'drug': {
       'event': 'Reports of drug side effects, product use errors, product quality problems, and therapeutic failures.',
@@ -70,7 +71,8 @@ const EndpointBox = (props: tPROPS) => {
       'registrationlisting': 'Registrations and listings',
       'recall': 'Recalls',
       'enforcement': 'Recall enforcement reports',
-      'udi': 'Unique device identifier'
+      'udi': 'Unique device identifier',
+      'covid19serology': 'Serological testing evaluations'
     },
     'drug': {
       'event': 'Adverse events',
@@ -107,7 +109,8 @@ const EndpointBox = (props: tPROPS) => {
       'registrationlisting': <div className="ep-icon" style={bg_color['device']}><i className="fa fa-3x fa-book" style={{color: "white"}}/></div>,
       'recall': <div className="ep-icon" style={bg_color['device']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>,
       'enforcement': <div className="ep-icon" style={bg_color['device']}><i className="fa fa-3x fa-bar-chart" style={{color: "white"}}/></div>,
-      'udi': <div className="ep-icon" style={bg_color['device']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>
+      'udi': <div className="ep-icon" style={bg_color['device']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>,
+      'covid19serology': <div className="ep-icon" style={bg_color['device']}><i className="fa fa-3x fa-bar-chart" style={{color: "white"}}/></div>
     },
     'drug': {
       'event': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-warning" style={{color: "white"}}/></div>,
@@ -137,7 +140,8 @@ const EndpointBox = (props: tPROPS) => {
       'registrationlisting': '/apis/device/registrationlisting/',
       'recall': '/apis/device/recall/',
       'enforcement': '/apis/device/enforcement/',
-      'udi': '/apis/device/udi/'
+      'udi': '/apis/device/udi/',
+      'covid19serology': '/apis/device/covid19serology/'
     },
     'drug': {
       'event': '/apis/drug/event/',

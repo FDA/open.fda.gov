@@ -22,7 +22,7 @@ class IndexRoute extends React.Component {
         <h3>HTTPS requests only</h3>
         <p>Alternatively your API key may be provided as a basic auth username. For example:</p>
         <p><code>Authorization: Basic eW91ckFQSUtleUhlcmU6</code></p>
-        <p>OpenFDA requires you to use <code>https://api.fda.gov</code> for all queries to ensure secure communication.</p>
+        <p>openFDA requires you to use <code>https://api.fda.gov</code> for all queries to ensure secure communication.</p>
       </section>
     )
   }
