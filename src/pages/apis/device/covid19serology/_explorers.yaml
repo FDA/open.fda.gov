@@ -5,7 +5,7 @@ oneSample:
   params:
     - "*search* for all records."
     - "*limit* to 1 record"
-  query: 'https://openfda-api.preprod.fda.gov/device/covid19serology.json?limit=1'
+  query: 'https://api.fda.gov/device/covid19serology.json?limit=1'
 antibodyPositive:
   title: One sample with a positive antibody result
   description:
@@ -14,7 +14,7 @@ antibodyPositive:
   params:
     - "*search* for all records with `antibody_truth` is *Positive*"
     - "*limit* to 1 record"
-  query: 'https://openfda-api.preprod.fda.gov/device/covid19serology.json?search=antibody_truth:"Positive"&limit=1'
+  query: 'https://api.fda.gov/device/covid19serology.json?search=antibody_truth:"Positive"&limit=1'
 countType:
   title: Count of different sample materials
   description:
@@ -22,4 +22,4 @@ countType:
   params:
     - "*search* for all records."
     - "count the field `type`"
-  query: 'https://openfda-api.preprod.fda.gov/device/covid19serology.json?count=type'
+  query: 'https://api.fda.gov/device/covid19serology.json?count=type'

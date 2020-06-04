@@ -103,7 +103,3 @@ updates:
     path: /about/statistics/
     date: 2019-12-16
     desc: "The openFDA team is proud to announce that openFDA has now surpassed an astounding milestone: 200 million API calls."
-  - title: New openFDA Dataset - Serological Testing Evaluations
-    path: /apis/device/covid19serology/
-    date: 2020-05-15
-    desc: "The COVID-19 Serological Testing Evaluations endpoint is now available via openFDA."
