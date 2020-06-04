@@ -72,7 +72,7 @@ const EndpointBox = (props: tPROPS) => {
       'recall': 'Recalls',
       'enforcement': 'Recall enforcement reports',
       'udi': 'Unique device identifier',
-      'covid19serology': 'Serological testing evaluations'
+      'covid19serology': 'COVID-19 serological testing evaluations'
     },
     'drug': {
       'event': 'Adverse events',

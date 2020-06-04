@@ -48,7 +48,7 @@ var endpoint_list = {
   'Medical Device Recall': device_recall_meta,
   'Medical Device Registration Listing': device_registration_listing_meta,
   'Medical Device UDI': device_udi_meta,
-  'Medical Device Serological Testing Evaluations': device_covid19serology_meta,
+  'COVID-19 Serological Testing Evaluations': device_covid19serology_meta,
   'Other': 'other_header',
   'NSDE': other_nsde_meta,
   'Substance': other_substance_meta
