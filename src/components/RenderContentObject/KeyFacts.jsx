@@ -61,7 +61,6 @@ const KeyFacts = (props: tPROPS) => {
       'registrationlisting': '/data/registrationlisting/',
       'recall': '/data/device-recall/',
       'enforcement': '/data/res/',
-      'covid19serology': '/data/covid19serology/'
     },
     'drug': {
       'event': '/data/faers/',
@@ -141,29 +140,26 @@ const KeyFacts = (props: tPROPS) => {
     <section className="key-facts">
       <h3>Key Facts</h3>
       <ul>
-        {
-          !(endpoint_name === 'covid19serology') &&
-            <li>
-              <i className="fa fa-database"/>
-              <div className="label">Source of the data:</div>
-              <div className="value">
-                {
-                  source_link[noun_name].hasOwnProperty(endpoint_name) &&
-                  <Link to={source_link[noun_name][endpoint_name]}>
-                    {source[noun_name][endpoint_name]}
-                  </Link>
-                }
-                {
-                  !(source_link[noun_name].hasOwnProperty(endpoint_name)) &&
-                  source[noun_name][endpoint_name]
-                }
-              </div>
-            </li>
-        }
+        <li>
+          <i className="fa fa-database"/>
+          <div className="label">Source of the data:</div>
+          <div className="value">
+            {
+              source_link[noun_name].hasOwnProperty(endpoint_name) &&
+              <Link to={source_link[noun_name][endpoint_name]}>
+                {source[noun_name][endpoint_name]}
+              </Link>
+            }
+            {
+              !(source_link[noun_name].hasOwnProperty(endpoint_name)) &&
+              source[noun_name][endpoint_name]
+            }
+          </div>
+        </li>
         <li>
           <i className="fa fa-edit"/>
           <div className="label">Changes to the source data:</div>
-          <div className="value">OpenFDA annotates the original records with <Link to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>special fields </Link>
+          <div className="value">openFDA annotates the original records with <Link to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>special fields </Link>
             and converts the data into JSON, which is a widely used machine readable format.</div>
         </li>
         <li>
