@@ -348,7 +348,7 @@ names:
           can_query: true
           placeholder: Search Generic Name
           limit: 100
-        - label: Manufacturer Name
+        - label: Labeler Name
           type: select_autocomplete
           field: openfda.manufacturer_name_exact
           autocomplete_field: openfda.manufacturer_name
