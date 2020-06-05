@@ -290,6 +290,8 @@ names:
               value: active
             - label: Not Marketed
               value: completed
+            - label: Reserve
+              value: new
         - label: Marketing Category
           type: checkbox
           query_type: prefix
@@ -353,7 +355,7 @@ names:
           field: openfda.manufacturer_name_exact
           autocomplete_field: openfda.manufacturer_name
           query_type: term
-          placeholder: Search Manufacturer Name
+          placeholder: Search Labeler Name
           limit: 100
           can_query: true
         - label: Active Ingredients
