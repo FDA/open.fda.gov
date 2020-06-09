@@ -327,17 +327,15 @@ properties:
                 type: string
               type: array
             regulation_number:
-              items:
-                description: "The classification regulation in the Code of Federal Regulations (CFR) under which the device is identified, described, and formally classified (Code of Federal regulations Title 21, 862.00 through 892.00). The classification regulation covers various aspects of design, clinical evaluation, manufacturing, packaging, labeling, and postmarket surveillance of the specific medical device."
-                format:
-                is_exact: true
-                possible_values:
-                  type: reference
-                  value:
-                    name: "CFR database"
-                    link: "http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/cfrsearch.cfm"
-                type: string
-              type: array
+              description: "The classification regulation in the Code of Federal Regulations (CFR) under which the device is identified, described, and formally classified (Code of Federal regulations Title 21, 862.00 through 892.00). The classification regulation covers various aspects of design, clinical evaluation, manufacturing, packaging, labeling, and postmarket surveillance of the specific medical device."
+              format:
+              is_exact: true
+              possible_values:
+                type: reference
+                value:
+                  name: "CFR database"
+                  link: "http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/cfrsearch.cfm"
+              type: string
           type: object
         other_id_number:
           description: "Any other identifier that might be used to identify the device. Expect wide variability in the use of this field. It is commonly empty, or marked `NA`, `N/A`, `*`, or `UNK`, if unknown or not applicable."
@@ -822,13 +820,13 @@ properties:
               'No Information': "No Information"
               'Not Applicable': "Not Applicable"
               'Death': "Death"
-          type: string
+          type: array
         sequence_number_treatment:
           description: "Treatment the patient received."
           format:
           is_exact: true
           possible_values:
-          type: string
+          type: array
       type: object
     type: array
   previous_use_code:
@@ -843,6 +841,12 @@ properties:
         'U': "Unknown."
         '*': "Invalid data or this information was not provided."
     type: string
+  product_problems:
+    description:  "The product problems that were reported to the FDA if there was a concern about the quality, authenticity, performance, or safety of any medication or device."
+    format:
+    is_exact: false
+    possible_values:
+    type: array
   product_problem_flag:
     description:  "Indicates whether or not a report was about the quality, performance or safety of a device."
     format:
@@ -870,7 +874,7 @@ properties:
         'Patient Monitoring': "Patient Monitoring"
         'Modification/Adjustment': "Modification/Adjustment"
         'Invalid Data': "Invalid Data"
-    type: string
+    type: array
   removal_correction_number:
     description: "If a corrective action was reported to FDA under <a href='http://www.law.cornell.edu/uscode/text/21/360i'>21 USC 360i(f)</a>, the correction or removal reporting number (according to the format directed by <a href='http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?CFRPart=807'>21 CFR 807</a>). If a firm has not submitted a correction or removal report to the FDA, but the FDA has assigned a recall number to the corrective action, the recall number may be used."
     format:
