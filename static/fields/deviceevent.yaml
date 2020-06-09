@@ -864,7 +864,7 @@ properties:
         'N': "The report is not about a defect or malfunction."
     type: string
   remedial_action:
-      items:
+    items:
       description: "Follow-up actions taken by the device manufacturer at the time of the report submission, if applicable."
       format:
       is_exact: true
