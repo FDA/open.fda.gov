@@ -803,29 +803,33 @@ properties:
           possible_values:
           type: string
         sequence_number_outcome:
-          description: "Outcome associated with the adverse event for this patient. Expect wide variability in this field; each string in the list of strings may contain multiple outcomes, separated by commas, and with numbers, which may or may not be related to the `patient_sequence_number`."
-          format:
-          is_exact: true
-          possible_values:
-            type: one_of
-            value:
-              'Life Threatening': "Life Threatening"
-              'Hospitalization': "Hospitalization"
-              'Disability': "Disability"
-              'Congenital Anomaly': "Congenital Anomaly"
-              'Required Intervention': "Required Intervention"
-              'Other': "Other"
-              'Invalid Data': "Invalid Data"
-              'Unknown': "Unknown"
-              'No Information': "No Information"
-              'Not Applicable': "Not Applicable"
-              'Death': "Death"
+          items:
+            description: "Outcome associated with the adverse event for this patient. Expect wide variability in this field; each string in the list of strings may contain multiple outcomes, separated by commas, and with numbers, which may or may not be related to the `patient_sequence_number`."
+            format:
+            is_exact: true
+            possible_values:
+              type: one_of
+              value:
+                'Life Threatening': "Life Threatening"
+                'Hospitalization': "Hospitalization"
+                'Disability': "Disability"
+                'Congenital Anomaly': "Congenital Anomaly"
+                'Required Intervention': "Required Intervention"
+                'Other': "Other"
+                'Invalid Data': "Invalid Data"
+                'Unknown': "Unknown"
+                'No Information': "No Information"
+                'Not Applicable': "Not Applicable"
+                'Death': "Death"
+            type: string
           type: array
         sequence_number_treatment:
-          description: "Treatment the patient received."
-          format:
-          is_exact: true
-          possible_values:
+          items:
+            description: "Treatment the patient received."
+            format:
+            is_exact: true
+            possible_values:
+            type: string
           type: array
       type: object
     type: array
@@ -842,10 +846,12 @@ properties:
         '*': "Invalid data or this information was not provided."
     type: string
   product_problems:
-    description:  "The product problems that were reported to the FDA if there was a concern about the quality, authenticity, performance, or safety of any medication or device."
-    format:
-    is_exact: false
-    possible_values:
+    items:
+      description:  "The product problems that were reported to the FDA if there was a concern about the quality, authenticity, performance, or safety of any medication or device."
+      format:
+      is_exact: false
+      possible_values:
+      type: string
     type: array
   product_problem_flag:
     description:  "Indicates whether or not a report was about the quality, performance or safety of a device."
@@ -858,22 +864,24 @@ properties:
         'N': "The report is not about a defect or malfunction."
     type: string
   remedial_action:
-    description: "Follow-up actions taken by the device manufacturer at the time of the report submission, if applicable."
-    format:
-    is_exact: true
-    possible_values:
-      type: one_of
-      value:
-        'Recall': "Recall"
-        'Repair': "Repair"
-        'Replace': "Replace"
-        'Relabeling': "Relabeling"
-        'Other': "Other"
-        'Notification': "Notification"
-        'Inspection': "Inspection"
-        'Patient Monitoring': "Patient Monitoring"
-        'Modification/Adjustment': "Modification/Adjustment"
-        'Invalid Data': "Invalid Data"
+    items:
+      description: "Follow-up actions taken by the device manufacturer at the time of the report submission, if applicable."
+      format:
+      is_exact: true
+      possible_values:
+        type: one_of
+        value:
+          'Recall': "Recall"
+          'Repair': "Repair"
+          'Replace': "Replace"
+          'Relabeling': "Relabeling"
+          'Other': "Other"
+          'Notification': "Notification"
+          'Inspection': "Inspection"
+          'Patient Monitoring': "Patient Monitoring"
+          'Modification/Adjustment': "Modification/Adjustment"
+          'Invalid Data': "Invalid Data"
+      type: string
     type: array
   removal_correction_number:
     description: "If a corrective action was reported to FDA under <a href='http://www.law.cornell.edu/uscode/text/21/360i'>21 USC 360i(f)</a>, the correction or removal reporting number (according to the format directed by <a href='http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/CFRSearch.cfm?CFRPart=807'>21 CFR 807</a>). If a firm has not submitted a correction or removal report to the FDA, but the FDA has assigned a recall number to the corrective action, the recall number may be used."
