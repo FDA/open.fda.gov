@@ -122,7 +122,7 @@
             "value": "generic_name_exact"
           },
           {
-            "label": "Manufacturer Name",
+            "label": "Labeler Name",
             "value": "manufacturer_name_exact"
           },
           {
@@ -327,6 +327,51 @@
             "value": "pub_authors.exact"
           }
         ]
+      }
+    }
+  },
+  "adndc": {
+    "totalLabels": {
+      "title": "Total Listings",
+      "type": "bar",
+      "barChart": {
+        "count": "product_ndc",
+        "countLabel": "Listings",
+        "title": "Listings",
+        "yAxisTitle": "Listings",
+        "xOptions": [
+          {
+            "label": "Substance Name",
+            "value": "substance_name.exact"
+          },
+          {
+            "label": "Brand Name",
+            "value": "brand_name.exact"
+          },
+          {
+            "label": "Generic Name",
+            "value": "generic_name.exact"
+          },
+          {
+            "label": "Labeler Name",
+            "value": "manufacturer_name.exact"
+          },
+          {
+            "label": "Product Type",
+            "value": "product_type.exact"
+          },
+          {
+            "label": "Inactive Ingredients",
+            "value": "marketing_category"
+          }
+        ],
+        "margin": {
+          "top": 5,
+          "right": 30,
+          "left": 20,
+          "bottom": 180
+        },
+        "limiter": 10
       }
     }
   }
