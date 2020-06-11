@@ -61,7 +61,11 @@ class HelpWindow extends React.Component {
           ariaHideApp={false}
         >
           <h3>{this.props.help_header}</h3>
-          <p>For more information about the specifics of {this.props.dataset_label}, visit <Link to={ep_path[this.props.dataset_name]}>{ep_path[this.props.dataset_name]}</Link>.</p>
+          {
+            this.props.dataset_name in ep_path &&
+              <p>For more information about the specifics of {this.props.dataset_label}, visit <Link
+                to={ep_path[this.props.dataset_name]}>{ep_path[this.props.dataset_name]}</Link>.</p>
+          }
           {help_body}
         </ReactModal>
       </i>

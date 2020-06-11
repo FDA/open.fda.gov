@@ -393,417 +393,137 @@ names:
     exportOptions:
       - label: CSV
       - label: JSON
-  petfoodrecalls:
-    label: Pet Food Reports
-    path: petfoodreports
+  adndc:
+    label: ADNDC
+    path: adndc
     showChartView: true
     showFormView: false
-    views:
-      lltView:
-        label: Frequency of Reported Signs
-        searchType: LLT
-        help_text:
-          - "There are two ways to explore the Pet Food Reports data: in a table or visualized in a variety of charts."
-          - "The default view is the table, which allows you to click on individual columns to sort the table by those results. The table displays 25 rows by default, but that number can be modified through a dropdown list. The next and previous buttons allow you to navigate through the all of the available data; you can also directly input what 'page' of data you'd like to view. Each row in the Frequency of Reported Signs view allows you to drill down into the nested data by clicking the arrows left of the row. The final major feature of the table view is the ability to export results in CSV or XLS format."
-          - "The chart view visualizes data in one of two charts: Incidents by Year, a line chart which displays the selected data elements over time, and Total Reports, a bar chart which counts the total number of reports for whatever data element you select."
-          - "Both table and chart allow you to narrow down the results displayed through the use of the filter panel on the left side of the screen. Any number of filters may be applied and each will narrow down the data accordingly. After selecting your desired filters simply press the Apply Filters button in the middle of the screen. If you don't wish to apply those filters, press the Clear All button. After applying filters, they'll be displayed above the table or chart, and can be removed individually or as a whole; removing filters in either of these ways is done automatically without needing to press Apply Filters. Please note that some combinations of specific filters may result in no data matching the total filter criteria and no results being displayed."
-        show_collapse_rows_button: false
-        hide_manage_columns: true
-        columns:
-          - Header: Product Name
-            accessor: product
-            show: true
-            sum: true
-          - Header: Flavor
-            count_name: flavor
-            accessor: flavor
-            show: true
-            unique_count: true
-            sortable: false
-          - Header: Formulation
-            count_name: formulation
-            accessor: formulation
-            show: true
-            sortable: false
-            unique_count: true
-          - Header: Reported Sign
-            count_name: sign
-            accessor: reaction
-            show: true
-            unique_count: true
-            split: true
-          - Header: Frequency of Reported Sign
-            count_name: total
-            accessor: frequency
-            show: true
-            sum: true
-            sortType: commaSeparatedNumbers
-        pivotBy:
-          - product
-          - flavor
-          - formulation
-      listingRecalls:
-        label: Reports of Reactions
-        searchType: nonLLT
-        help_text:
-          - "There are two ways to explore the Pet Food Reports data: in a table or visualized in a variety of charts."
-          - "The default view is the table, which allows you to click on individual columns to sort the table by those results. The table displays 25 rows by default, but that number can be modified through a dropdown list. The next and previous buttons allow you to navigate through the all of the available data; you can also directly input what 'page' of data you'd like to view. The final major feature of the table view is the ability to export results in CSV or XLS format."
-          - "The chart view visualizes data in one of two charts: Incidents by Year, a line chart which displays the selected data elements over time, and Total Reports, a bar chart which counts the total number of reports for whatever data element you select."
-          - "Both table and chart allow you to narrow down the results displayed through the use of the filter panel on the left side of the screen. Any number of filters may be applied and each will narrow down the data accordingly. After selecting your desired filters simply press the Apply Filters button in the middle of the screen. If you don't wish to apply those filters, press the Clear All button. After applying filters, they'll be displayed above the table or chart, and can be removed individually or as a whole; removing filters in either of these ways is done automatically without needing to press Apply Filters. Please note that some combinations of specific filters may result in no data matching the total filter criteria and no results being displayed."
-        show_collapse_rows_button: false
-        columns:
-          - Header: Identifier
-            accessor: identifier
-            show: false
-            showDefault: false
-          - Header: Name
-            accessor: product.name
-            show: true
-            showDefault: true
-          - Header: Flavor
-            accessor: product.flavor
-            show: true
-            showDefault: true
-          - Header: Formulation
-            accessor: product.formulation
-            show: true
-            showDefault: true
-          - Header: Number Fed
-            accessor: number_fed
-            show: true
-            showDefault: true
-          - Header: Number Reacted
-            accessor: number_reacted
-            show: true
-            showDefault: true
-          - Header: Number Died
-            accessor: number_died
-            show: true
-            showDefault: true
-          - Header: State
-            accessor: state
-            show: false
-            showDefault: false
-          - Header: Report Year
-            accessor: report_year
-            show: true
-            showDefault: true
-          - Header: Reported Sign
-            accessor: reaction.clinical_sign
-            show: true
-            showDefault: true
-            split: true
-          - Header: Species
-            accessor: animal.species
-            show: false
-            showDefault: false
-          - Header: Breed
-            accessor: animal.breed
-            show: false
-            showDefault: false
-          - Header: Gender
-            accessor: animal.gender
-            show: false
-            showDefault: false
-          - Header: Weight
-            accessor: animal.weight
-            show: false
-            showDefault: false
-            childColumn: Weight UOM
-          - Header: Weight UOM
-            accessor: animal.weight_uom
-            show: false
-            showDefault: false
-            hideInManageColumns: true
-          - Header: Age
-            accessor: animal.age
-            show: false
-            showDefault: false
-            childColumn: Age Units
-          - Header: Age Units
-            accessor: animal.age_units
-            show: false
-            showDefault: false
-            hideInManageColumns: true
-          - Header: Reproductive Status
-            accessor: animal.reproductive_status
-            show: false
-            showDefault: false
-          - Header: Animal Number
-            accessor: animal.animal_number
-            show: false
-            showDefault: false
-    endpoint: animalandveterinary/petfood_reports.json
-    url: https://openfda-api.preprod.fda.gov
-    filters:
-      options:
-        - label: Report Year
-          field: report_year.exact
-          autocomplete_field: report_year
-          type: select_autocomplete
-          can_query: true
-          remove_chars: report years
-          placeholder: Select Year or Start Typing
-          query_type: term
-          limit: 5000
-        - label: Product Name
-          field: product.name.exact
-          autocomplete_field: product.name
-          type: select_autocomplete
-          can_query: true
-          remove_chars: product names
-          placeholder: Select Product or Start Typing
-          query_type: term
-          limit: 100
-        - label: Formulation
-          field: product.formulation.exact
-          autocomplete_field: product.formulation
-          type: select_autocomplete
-          remove_chars: formulations
-          help_id: petfood_formulation
-          placeholder: Select Formulation or Start Typing
-          can_query: true
-          query_type: term
-          limit: 100
-        - label: Species
-          field: animal.species.exact
-          autocomplete_field: animal.species
-          type: select_autocomplete
-          can_query: true
-          remove_chars: species
-          placeholder: Select Species or Start Typing
-          query_type: term
-          limit: 100
-        - label: Breed
-          field: animal.breed.exact
-          autocomplete_field: animal.breed
-          type: select_autocomplete
-          can_query: true
-          remove_chars: breed
-          placeholder: Select Breed or Start Typing
-          query_type: term
-          limit: 100
-        - label: Reported Sign
-          field: reaction.clinical_sign.exact
-          autocomplete_field: reaction.clinical_sign
-          type: select_autocomplete
-          remove_chars: reactions
-          help_id: petfood_reaction
-          can_query: true
-          placeholder: Select Reaction or Start Typing
-          query_type: term
-          limit: 100
-        - label: State
-          field: state.exact
-          autocomplete_field: state
-          type: select_autocomplete
-          can_query: true
-          remove_chars: state
-          placeholder: Select State or Start Typing
-          query_type: term
-          limit: 100
-    exportOptions:
-      - label: CSV
-      - label: JSON
-  phishpharm:
-    label: Phish-Pharm
-    path: phishpharm
-    showChartView: true
-    showFormView: true
     views:
       tableView:
         label:
         searchType: nonLLT
         help_text:
-          - "There are two ways to explore the Phish-Pharm data: in a table or visualized in a variety of charts."
+          - "There are two ways to explore the Animal Drug Listing data: in a table or visualized in a variety of charts."
           - "The default view is the table, which allows you to click on individual columns to sort the table by those results. The table displays 25 rows by default, but that number can be modified through a dropdown list. The next and previous buttons allow you to navigate through the all of the available data; you can also directly input what 'page' of data you'd like to view. The final major feature of the table view is the ability to export results in CSV or XLS format."
-          - "The chart view visualizes data in one of two charts: Half Life, a bar chart which counts the total number of reports for whatever data element you select, and Number of Drugs by Year, a line chart which displays the selected data elements over time."
+          - "The chart view visualizes data in a bar chart which counts the total number of listings for whatever data element you select."
           - "Both table and chart allow you to narrow down the results displayed through the use of the filter panel on the left side of the screen. Any number of filters may be applied and each will narrow down the data accordingly. After selecting your desired filters simply press the Apply Filters button in the middle of the screen. If you don't wish to apply those filters, press the Clear All button. After applying filters, they'll be displayed above the table or chart, and can be removed individually or as a whole; removing filters in either of these ways is done automatically without needing to press Apply Filters. Please note that some combinations of specific filters may result in no data matching the total filter criteria and no results being displayed."
         show_collapse_rows_button: false
         columns:
-          - Header: Drug/Chem
-            accessor: drug
+          - Header: SPL ID
+            accessor: spl_id
             show: true
             showDefault: false
-          - Header: Drug Class
-            accessor: drug_class
+          - Header: Product NDC
+            accessor: product_ndc
             show: true
             showDefault: true
-            split: true
-          - Header: Route
-            accessor: route
+          - Header: Brand Name
+            accessor: brand_name
             show: true
             showDefault: true
-            startCase: true
-          - Header: Genus Species
-            accessor: genus_species
+          - Header: Generic Name
+            accessor: generic_name
             show: true
             showDefault: true
-            split: true
-            startCase: true
-          - Header: Date
-            accessor: pub_date
+          - Header: Substance Name
+            accessor: substance_name
             show: true
             showDefault: true
-            split: true
-            startCase: true
-          - Header: Water
-            accessor: water_type
+          - Header: Labeler Name
+            accessor: manufacturer_name
             show: true
             showDefault: true
-            split: true
-            startCase: true
-          - Header: Authors
-            accessor: pub_authors
+          - Header: Product Type
+            accessor: product_type
             show: true
             showDefault: true
-            split: true
-            startCase: true
-          - Header: Citations
-            accessor: pub_citation
+          - Header: Marketing Category
+            accessor: marketing_category
             show: true
             showDefault: true
-          - Header: Dosage
-            accessor: dosage
+          - Header: Application Number
+            accessor: application_number
+            show: true
+            showDefault: true
+          - Header: Link
+            accessor: link
             show: false
             showDefault: true
-          - Header: Is Half Life Estimated
-            accessor: is_half_life_estimated
-            show: false
-            showDefault: false
-          - Header: Half Life Detail
-            accessor: half_life_detail
-            show: false
-            showDefault: true
-          - Header: Water Temperature
-            accessor: water_temperature
-            show: false
-            showDefault: true
-          - Header: Pharmacokinetic Model
-            accessor: pharmacokinetic_model
-            show: false
-            showDefault: false
-          - Header: Clearance
-            accessor: clearance
-            show: false
-            showDefault: false
-          - Header: Water Temperature Detail
-            accessor: water_temperature_detail
-            show: false
-            showDefault: false
-          - Header: Published URL
-            accessor: pub_url
-            show: false
-            showDefault: false
-          - Header: Comments
-            accessor: comments
-            show: false
-            showDefault: false
-            split: true
-          - Header: Method
-            accessor: method
-            show: false
-            showDefault: false
-          - Header: Dosage Detail
-            accessor: dosage_detail
-            show: false
-            showDefault: false
-          - Header: Protein Binding
-            accessor: protein_binding
-            show: false
-            showDefault: false
-          - Header: Weight
-            accessor: weight
-            show: false
-          - Header: Metabolites
-            accessor: metabolites
-            show: false
-            showDefault: false
-            split: true
-          - Header: Half Life
-            accessor: half_life
-            show: false
-          - Header: Weight Detail
-            accessor: weight_detail
-            show: false
-            showDefault: false
-            split: true
-    endpoint: animalandveterinary/phishpharm.json
+    endpoint: animalandveterinary/adndc.json
     url: https://openfda-api.preprod.fda.gov
     filters:
       options:
-        - label: Time frame to search
-          type: numeric_range
-          start_value: 1961
-          end_value: 2018
-          field: pub_date
-          query_type: range
-          placeholder: Select Time Period
-        - label: Drug/Chem
-          field: drug.exact
-          autocomplete_field: drug
-          type: select_autocomplete
-          remove_chars: drug/chem
-          can_query: true
-          placeholder: Select Drug or Start Typing
+        - label: SPL ID
+          field: spl_id
+          autocomplete_field: spl_id
           query_type: term
+          type: select_autocomplete
+          can_query: true
+          placeholder: Select SPL ID
           limit: 100
-        - label: Drug Class
-          field: drug_class.exact
-          autocomplete_field: drug_class
-          type: select_autocomplete
-          remove_chars: drug class
-          can_query: true
-          placeholder: Select Drug Class or Start Typing
+        - label: Product NDC
+          field: product_ndc
+          autocomplete_field: product_ndc
           query_type: term
+          type: select_autocomplete
+          can_query: true
+          placeholder: Select Product NDC
           limit: 100
-        - label: Route
-          field: route.exact
-          autocomplete_field: route
+        - label: Brand Name
+          field: brand_name.exact
+          autocomplete_field: brand_name
           query_type: term
           type: select_autocomplete
           can_query: true
-          placeholder: Select Route or Start Typing
+          placeholder: Select Brand Name
           limit: 100
-        - label: Fish Species
-          field: species.exact
-          autocomplete_field: species
+        - label: Generic Name
+          field: generic_name.exact
+          autocomplete_field: generic_name
           query_type: term
           type: select_autocomplete
           can_query: true
-          placeholder: Select Species or Start Typing
+          placeholder: Select Generic Name
           limit: 100
-        - label: Genus Species
-          type: select_autocomplete
-          field: genus_species.exact
-          autocomplete_field: genus_species
+        - label: Substance Name
+          field: substance_name.exact
+          autocomplete_field: substance_name
           query_type: term
-          placeholder: Select Genus Species or Start Typing
+          type: select_autocomplete
+          can_query: true
+          placeholder: Select Substance Name
           limit: 100
-          can_query: true
-        - label: Sample
+        - label: Labeler Name
+          field: manufacturer_name.exact
+          autocomplete_field: manufacturer_name
+          query_type: term
           type: select_autocomplete
           can_query: true
-          field: sample.exact
-          query_type: term
-          autocomplete_field: sample
-          placeholder: Select Sample or Start Typing
+          placeholder: Select Manufacturer Name
           limit: 100
-        - label: Water
-          type: select_autocomplete
+        - label: Product Type
+          field: product_type.exact
+          autocomplete_field: product_type
           query_type: term
-          field: water_type.exact
-          autocomplete_field: water_type
+          type: select_autocomplete
           can_query: true
-          placeholder: Select Water Type or Start Typing
+          placeholder: Select Product Type
           limit: 100
-        - label: Authors
+        - label: Marketing Category
+          field: marketing_category
+          autocomplete_field: marketing_category
+          query_type: term
           type: select_autocomplete
           can_query: true
-          field: pub_authors.exact
+          placeholder: Select Brand
+          limit: 100
+        - label: Application Number
+          field: application_number
+          autocomplete_field: application_number
           query_type: term
-          autocomplete_field: pub_authors
-          placeholder: Select Authors or Start Typing
+          type: select_autocomplete
+          can_query: true
+          placeholder: Select Application Number
           limit: 100
     exportOptions:
       - label: CSV
