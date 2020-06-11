@@ -20,11 +20,6 @@ names:
             accessor: openfda.product_type
             show: true
             showDefault: true
-          - Header: Application Number
-            accessor: openfda.application_number
-            show: true
-            showDefault: true
-            getPreNumbersPart: true
           - Header: Marketing Category
             accessor: openfda.marketing_category
             show: true
@@ -130,6 +125,7 @@ names:
             accessor: openfda.application_number
             show: false
             showDefault: false
+            getPreNumbersPart: true
           - Header: Is original packager
             accessor: openfda.is_original_packager
             show: false
