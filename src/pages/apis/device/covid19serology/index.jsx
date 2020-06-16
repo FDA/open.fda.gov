@@ -440,7 +440,7 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3247-a001.pdf">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3247-a001.csv">Data File</a></p>
 
-        <h3>Removed</h3>
+        <h3>Removed from the notification list</h3>
         <h3>Abacus Pharma International SARS-CoV-2 IgM/IgG AB Antibody Rapid Test (Immunochromatography)</h3>
         <p><strong>Manufacturer:</strong> Abacus Pharma International</p>
         <p><strong>Device:</strong> SARS-CoV-2 IgM/IgG AB Antibody Rapid Test (Immunochromatography)</p>
