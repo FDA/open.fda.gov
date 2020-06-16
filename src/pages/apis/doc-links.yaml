@@ -29,6 +29,8 @@
     link: /apis/missing-values/
   - title: Timeseries
     link: /apis/timeseries/
+  - title: Paging
+    link: /apis/paging/
 
 - title: Download the API
   id: download-the-api
