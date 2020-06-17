@@ -41,8 +41,8 @@
   short: "Drug interactions"
   dataset: SPL
   description:
-    - Drug product labeling must indicate known interactions with foods and other drug products. This chart shows top classes of drugs whose labeling notes caffeine, grapefruit, or alcohol in the interactions section.
-  countParam: "openfda.pharm_class_epc.exact"
+    - Drug product labeling must indicate known interactions with foods and other drug products. This chart shows top drug substances (active ingredients) whose labeling notes caffeine, grapefruit, or alcohol in the interactions section.
+  countParam: "openfda.substance_name.exact"
   filters:
     - title: "Labeling noting caffeine in the interactions section"
       searchParam: "drug_interactions:caffeine"
