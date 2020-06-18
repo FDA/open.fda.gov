@@ -185,9 +185,10 @@ class FieldsHarmonization extends React.Component {
       'classification': 'Classification',
       'enforcement': 'Enforcement',
       'event': 'Event',
-      'pma': 'Pre-market Approval',
+      'pma': 'PMA',
       'recall': 'Recall',
-      'registrationlisting': 'Registration Listing',
+      'registrationlisting': 'Registration',
+      'udi': 'UDI',
       'label': 'Label',
       'ndc': 'NDC',
       'nsde': 'NSDE'
@@ -283,7 +284,7 @@ class FieldsHarmonization extends React.Component {
           data={this.state.data}
           columns={this.state.columns}
           showPagination={false}
-          defaultPageSize={-1}
+          minRows={0}
           className="-striped -highlight"
           resizable={false}
           style={{
