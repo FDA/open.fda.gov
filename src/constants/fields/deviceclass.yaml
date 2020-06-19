@@ -114,6 +114,12 @@ properties:
           possible_values:
           type: string
         type: array
+      pma_number:
+        description: "FDA-assigned premarket application number, including leading letters. Leading letter “D” indicates Product Development Protocol type of Premarket Approval. Leading letters “BP” indicates Premarket Approval by Center for Biologics Evaluation and Research. Leading letter “H” indicates Humanitarian Device Exemption approval. Leading letter “N” indicates New Drug Application. Early PMAs were approved as NDAs. Leading letter “P” indicates Premarket Approval."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
     type: object
   product_code:
     description: "A three-letter identifier assigned to a device category. Assignment is based upon the medical device classification designated under 21 CFR Parts 862-892, and the technology and intended use of the device. Occasionally these codes are changed over time."
