@@ -18,7 +18,7 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
       showModal: false,
       activeDropdown: ' ',
       path: ' ',
-      validated: false
+      validated: !!sessionStorage.getItem('nav.disclaimer.accepted')
     };
 
     componentDidMount () {
@@ -92,6 +92,7 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
         validated: true,
         showModal: false
       })
+      sessionStorage.setItem('nav.disclaimer.accepted', 'true')
     }
 
     render (): React.Element {
