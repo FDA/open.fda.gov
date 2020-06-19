@@ -70,7 +70,25 @@ drug:
     - pharm_class_cs
     - nui
     - pharm_class_pe
-  event: []
+  event:
+    - manufacturer_name
+    - unii
+    - product_type
+    - spl_set_id
+    - route
+    - generic_name
+    - brand_name
+    - product_ndc
+    - substance_name
+    - spl_id
+    - package_ndc
+    - application_number
+    - rxcui
+    - pharm_class_moa
+    - pharm_class_epc
+    - pharm_class_cs
+    - nui
+    - pharm_class_pe
   label:
     - manufacturer_name
     - unii
@@ -94,17 +112,17 @@ drug:
     - nui
     - pharm_class_pe
   ndc:
-    - spl_set_id
-    - unii
     - manufacturer_name
+    - unii
+    - spl_set_id
     - is_original_packager
-    - rxcui
     - upc
-    - pharm_class_epc
-    - pharm_class_pe
-    - nui
+    - rxcui
     - pharm_class_moa
+    - pharm_class_epc
     - pharm_class_cs
+    - nui
+    - pharm_class_pe
 food:
   enforcement: []
   event: []
