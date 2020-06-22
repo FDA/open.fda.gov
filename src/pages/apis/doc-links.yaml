@@ -32,7 +32,7 @@
   - title: Paging
     link: /apis/paging/
 
-- title: Download the API
+- title: Download the Data
   id: download-the-api
   collapse: true
   items:
@@ -112,7 +112,7 @@
       items:
         - title: Overview
           link: /apis/drug/ndc/
-        - title: How to use the Application Programming Interface
+        - title: How to use the API
           link: /apis/drug/ndc/how-to-use-the-endpoint/
         - title: Example queries
           link: /apis/drug/ndc/example-api-queries/
