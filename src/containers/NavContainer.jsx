@@ -18,13 +18,14 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
       showModal: false,
       activeDropdown: ' ',
       path: ' ',
-      validated: !!sessionStorage.getItem('nav.disclaimer.accepted')
+      validated: false
     };
 
     componentDidMount () {
       this.setState({
         path: window.location.pathname,
-        showModal: true
+        showModal: true,
+        validated: !!sessionStorage.getItem('nav.disclaimer.accepted')
       })
     }
 
