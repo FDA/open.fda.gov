@@ -24,7 +24,8 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
     componentDidMount () {
       this.setState({
         path: window.location.pathname,
-        showModal: true
+        showModal: true,
+        validated: !!sessionStorage.getItem('nav.disclaimer.accepted')
       })
     }
 
@@ -92,6 +93,7 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
         validated: true,
         showModal: false
       })
+      sessionStorage.setItem('nav.disclaimer.accepted', 'true')
     }
 
     render (): React.Element {

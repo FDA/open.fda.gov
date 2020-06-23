@@ -171,13 +171,11 @@ properties:
         possible_values:
         type: string
       registration_number:
-        items:
-          description:
-          format:
-          is_exact: false
-          possible_values:
-          type: string
-        type: array
+        description: "Facility identifier assigned to facility by the FDA Office of Regulatory Affairs."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
       regulation_number:
         items:
           description: "The classification regulation in the Code of Federal Regulations (CFR) under which the device is identified, described, and formally classified (Code of Federal regulations Title 21, 862.00 through 892.00). The classification regulation covers various aspects of design, clinical evaluation, manufacturing, packaging, labeling, and postmarket surveillance of the specific medical device."

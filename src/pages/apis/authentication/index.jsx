@@ -11,8 +11,8 @@ class IndexRoute extends React.Component {
         <h2>Authentication</h2>
         <p>An API key is required to make calls to the openFDA API. The key is free of charge. Your use of the API may be subject to certain limitations on access, calls, or use. These limitations are designed to manage load on the system, promote equitable access, and prevent abuse. Here are openFDA's standard limits:</p>
         <ul>
-          <li><p><b>With no API key:</b> 40 requests per minute, per IP address. 1000 requests per day, per IP address.</p></li>
-          <li><p><b>With an API key:</b> 240 requests per minute, per key. 120000 requests per day, per key.</p></li>
+          <li><p><b>With no API key:</b> 240 requests per minute, per IP address. 1,000 requests per day, per IP address.</p></li>
+          <li><p><b>With an API key:</b> 240 requests per minute, per key. 120,000 requests per day, per key.</p></li>
         </ul>
         <p>If you anticipate usage above the limits provided by an API key, please <a href="mailto:open@fda.hhs.gov">contact us</a>. We’ll work with you to figure out a good solution to your requirements. Signing up for an API key means you agree to our <Link to="/terms/">terms of service</Link>.</p>
         <ApiKey/>
