@@ -24,10 +24,10 @@
   filters:
     - title: "All products"
       searchParam: ""
-    - title: "Finished products"
-      searchParam: "finished:true"
-    - title: "Unfinished products"
-      searchParam: "finished:false"
+    - title: "Over-the-counter drugs"
+      searchParam: "product_type.exact:\"HUMAN OTC DRUG\""
+    - title: "Prescription drugs"
+      searchParam: "product_type.exact:\"HUMAN PRESCRIPTION DRUG\""
   type: Donut
   dateConstraint: false
 - title: "Marketing End Dates Over Time"
@@ -42,9 +42,7 @@
       searchParam: 'product_type.exact:"HUMAN OTC DRUG"'
     - title: "Human prescription drug"
       searchParam: 'product_type.exact:"HUMAN PRESCRIPTION DRUG"'
-    - title: "Bulk ingredient"
-      searchParam: 'product_type.exact:"BULK INGREDIENT"'
-    - title: "Drug for further processing"
-      searchParam: 'product_type.exact:"DRUG FOR FURTHER PROCESSING"'
+    - title: "With Ibuprofen as an active ingredient"
+      searchParam: 'active_ingredients.name.exact:IBUPROFEN'
   type: Line
   dateConstraint: false
