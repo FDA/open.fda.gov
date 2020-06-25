@@ -1,10 +1,12 @@
 import React from 'react'
+import { navigate } from '@reach/router'
 import { TimeSeries, TimeRange} from "pondjs"
 import { Charts, ChartContainer, ChartRow, YAxis, LineChart, styler } from "react-timeseries-charts"
 import bp from '../constants/breakpoints'
 import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
+import scrollIntoView from 'scroll-into-view'
 
 // Update total usage numbers with: https://api.fda.gov/usage.json?end_at=2020-06-25 - last 2020-06-25
 // Update in pages/about/statistics/_content.yaml
@@ -57,6 +59,7 @@ const ApiUsage = (props:tPROPS) => {
         dynamicDisclaimer: props.dynamicDisclaimer,
         clickEndpointDisclaimer: props.clickEndpointDisclaimer,
         data: null,
+        indexInfo: {},
         prefix: "1/" + API_NAME + "/",
         breadcrumbs: ["1/" + API_NAME + "/"],
         width: 1100,
@@ -197,9 +200,15 @@ const ApiUsage = (props:tPROPS) => {
           that.handleUsageResponse(data)
         })
     }
+
     docCount (typeName:string):string {
-      return this.formatNumber(this.state.indexInfo[typeName])
+      if (typeName in this.state.indexInfo) {
+        return this.formatNumber(this.state.indexInfo[typeName])
+      } else {
+        return 0
+      }
     }
+
     formatNumber (n:number):string {
       return n ? this.nf.format(n) : "0"
     }
@@ -235,6 +244,10 @@ const ApiUsage = (props:tPROPS) => {
       })
     }
 
+    linkClickHandler() {
+
+    }
+
     render () {
       if (this.state.data) {
 
@@ -264,6 +277,10 @@ const ApiUsage = (props:tPROPS) => {
               <div className='marg-t-2'>
                 <h6 className='font-size-3 txt-c'>Total API Calls since Launch</h6>
                 <h5 className='txt-c clr-green'>{this.state['sinceLaunchUsage']}</h5>
+              </div>
+
+              <div className='marg-t-2 b-t-2 pad-t-2'>
+                <h5 className='usage-hash-link' onClick={() => document.getElementById("usage-by-dataset").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})}>View Usage Statistics by Dataset</h5>
               </div>
 
               <div className='marg-t-2 b-t-2 pad-t-2'>
@@ -316,10 +333,10 @@ const ApiUsage = (props:tPROPS) => {
               <h2 className='txt-c marg-t-2'>API Calls in the Past 30 Days: {this.totalCount('lastThirtyDayUsage')}</h2>
               <div className='italic txt-c t-6 smallest'> {this.state.dynamicDisclaimer}</div>
               <div className='marg-l-1'>
-                
-                { !this.state.series ? null : 
-                  <ChartContainer 
-                    timeRange={this.state.timerange} 
+
+                { !this.state.series ? null :
+                  <ChartContainer
+                    timeRange={this.state.timerange}
                     enablePanZoom={this.state.enablePanZoom}
                     onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
                     trackerPosition={this.state.tracker}
@@ -330,21 +347,21 @@ const ApiUsage = (props:tPROPS) => {
                     onTrackerChanged={this.onTrackerChanged}
                     onChartResize={this.handleChartResize}
                   >
-                      <ChartRow 
+                      <ChartRow
                         trackerInfoValues={this.state.trackerInfoValues}
                         trackerTime={this.state.tracker}
                         trackerTimeFormat={this.state.trackerTimeFormat}
                         timeFormat={this.state.trackerTimeFormat}
                         {...this.state.chartRow}
                       >
-                          <YAxis 
+                          <YAxis
                             id="axis1"
                             max={this.state.max}
                             min={this.state.min}
                             {...this.state.yAxis}
                           />
                           <Charts>
-                              <LineChart 
+                              <LineChart
                                 axis="axis1"
                                 style={this.state.style}
                                 series={this.state.series}
@@ -361,40 +378,42 @@ const ApiUsage = (props:tPROPS) => {
                 }
 
               </div>
-              <h3 className='txt-c marg-t-3 b-t-light-1'>API Calls in Past 30 Days by Dataset</h3>
-              <div className='italic txt-c t-6 smallest'> {this.state.clickEndpointDisclaimer}</div>
-              <div className='marg-l-1 marg-t-1 font-size-3 b-t-light-1'>
-                {
-                  this.state.breadcrumbs.map((b, i) => {
-                    if ((this.state.breadcrumbs.length - 1) > i) {
-                      // render link
-                      return (
-                        <span key={i}> 
-                          {(i > 0 ? ' > ' : '') } 
-                          <a 
-                            key={'p' + i} 
-                            onClick={(e) => this.refreshPrefix(e)} 
-                            data-prefix={b}
-                          >
-                            {b.substring(0, b.length - 1).split('/').pop()}
-                          </a>
-                        </span>
-                      )
-                    }
-                    else {
-                      // render without link
-                      return (<span key={i}>{ (i > 0 ? ' > ' : '') + b.substring(0, b.length - 1).split('/').pop()}</span>)
-                    }
-                  })
-                }
-              </div>
-              <div className='marg-1'>
+              <div id='usage-by-dataset'>
+                <h3 className='txt-c marg-t-3 b-t-light-1'>API Calls in Past 30 Days by Dataset</h3>
+                <div className='italic txt-c t-6 smallest'> {this.state.clickEndpointDisclaimer}</div>
+                <div className='marg-l-1 marg-t-1 font-size-3 b-t-light-1'>
+                  {
+                    this.state.breadcrumbs.map((b, i) => {
+                      if ((this.state.breadcrumbs.length - 1) > i) {
+                        // render link
+                        return (
+                          <span key={i}>
+                            {(i > 0 ? ' > ' : '') }
+                            <a
+                              key={'p' + i}
+                              onClick={(e) => this.refreshPrefix(e)}
+                              data-prefix={b}
+                            >
+                              {b.substring(0, b.length - 1).split('/').pop()}
+                            </a>
+                          </span>
+                        )
+                      }
+                      else {
+                        // render without link
+                        return (<span key={i}>{ (i > 0 ? ' > ' : '') + b.substring(0, b.length - 1).split('/').pop()}</span>)
+                      }
+                    })
+                  }
+                </div>
+                <div className='marg-1'>
 
-                <Table labels={['API', 'Hits']}
-                       rows={this.state.data.table}
-                       cols={['path', 'hits']}
-                       formatters={{path: pathFormat}}/>
+                  <Table labels={['API', 'Hits']}
+                         rows={this.state.data.table}
+                         cols={['path', 'hits']}
+                         formatters={{path: pathFormat}}/>
 
+                </div>
               </div>
             </div>
 
