@@ -1,12 +1,10 @@
 import React from 'react'
-import { navigate } from '@reach/router'
 import { TimeSeries, TimeRange} from "pondjs"
 import { Charts, ChartContainer, ChartRow, YAxis, LineChart, styler } from "react-timeseries-charts"
 import bp from '../constants/breakpoints'
 import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
-import scrollIntoView from 'scroll-into-view'
 
 // Update total usage numbers with: https://api.fda.gov/usage.json?end_at=2020-06-25 - last 2020-06-25
 // Update in pages/about/statistics/_content.yaml
