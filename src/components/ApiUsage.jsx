@@ -290,6 +290,9 @@ const ApiUsage = (props:tPROPS) => {
               <div className='marg-t-2 b-t-2 pad-t-2'>
                 <h5 className='usage-hash-link' onClick={() => document.getElementById("usage-by-dataset").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})}>View Usage Statistics by Dataset</h5>
               </div>
+              <div className='marg-t-2 b-t-2 pad-t-2'>
+                <h5 className='usage-hash-link' onClick={() => document.getElementById("dataset-downloads").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})}>View Download Statistics</h5>
+              </div>
 
               <div className='marg-t-2 b-t-2 pad-t-2'>
                 <h5 className='font-size-3 txt-c'>Size of Dataset</h5>
@@ -336,7 +339,7 @@ const ApiUsage = (props:tPROPS) => {
 
               </div>
 
-              <div className='marg-t-2 b-t-2 pad-t-2'>
+              <div className='marg-t-2 b-t-2 pad-t-2' id="dataset-downloads">
                 <h5 className='font-size-3 txt-c'>Dataset Downloads</h5>
 
                 <div>
