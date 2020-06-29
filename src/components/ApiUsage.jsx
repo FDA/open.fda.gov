@@ -291,7 +291,7 @@ const ApiUsage = (props:tPROPS) => {
                 <h5 className='usage-hash-link' onClick={() => document.getElementById("usage-by-dataset").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})}>View Usage Statistics by Dataset</h5>
               </div>
               <div className='marg-t-2 b-t-2 pad-t-2'>
-                <h5 className='usage-hash-link' onClick={() => document.getElementById("dataset-downloads").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})}>View Download Statistics</h5>
+                <h5 className='usage-hash-link' onClick={() => document.getElementById("dataset-downloads-scroll-anchor").scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})}>View Download Statistics</h5>
               </div>
 
               <div className='marg-t-2 b-t-2 pad-t-2'>
@@ -327,7 +327,7 @@ const ApiUsage = (props:tPROPS) => {
                   <tr><td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td></tr>
                   <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.docCount('covid19serology')}</td></tr>
 
-                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Other</strong></td></tr>
+                  <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"> <td colSpan="2"><strong>Other</strong></td></tr>
                   <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
                   <tr> <td>Substance</td><td>{this.docCount('othersubstance')}</td> </tr>
                   </tbody>
@@ -339,7 +339,7 @@ const ApiUsage = (props:tPROPS) => {
 
               </div>
 
-              <div className='marg-t-2 b-t-2 pad-t-2' id="dataset-downloads">
+              <div className='marg-t-2 b-t-2 pad-t-2'>
                 <h5 className='font-size-3 txt-c'>Dataset Downloads</h5>
 
                 <div>
