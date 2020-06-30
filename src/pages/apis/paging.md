@@ -2,9 +2,9 @@
  title: Paging 
 ---
 openFDA is designed primarily for real-time queries. Using combinations of the `skip`/`limit` 
-[parameters](/apis/query-parameters/) you can page through a result set that has up to `25,100` hits.
+[parameters](/apis/query-parameters/) you can page through a result set that has up to `26,000` hits.
 This limit is in place to protect openFDA infrastructure and is sufficient in most cases;
-however, sometimes it is desirable to navigate through a result set that exceeds `25,100` search matches.
+however, sometimes it is desirable to navigate through a result set that exceeds `26,000` search matches.
 If you are unable to narrow your search criteria to decrease the number of hits, consider the following strategies
 to obtain data from large result sets:
 
