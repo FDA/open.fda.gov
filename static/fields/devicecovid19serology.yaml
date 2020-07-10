@@ -17,6 +17,12 @@ properties:
     is_exact: false
     possible_values:
     type: date
+  evaluation_id:
+    description: "The unique identifier for each evaluation."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
   lot_number:
     description: "The manufacturer's unique identification of the lot(s) from which the tested devices were drawn."
     format:
