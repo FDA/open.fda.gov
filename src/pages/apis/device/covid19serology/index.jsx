@@ -2772,6 +2772,148 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3266-a001.pdf">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3266-a001.csv">Data File</a></p>
 
+        <h4>GenBody Inc. GenBody COVID-19 IgM/IgG</h4>
+        <p><strong>Manufacturer:</strong> GenBody Inc.</p>
+        <p><strong>Device:</strong> GenBody COVID-19 IgM/IgG</p>
+        <p><strong>Date Performed:</strong> 2020-06-11</p>
+        <p><strong>Lot Number:</strong> FJFB30201</p>
+        <p><strong>Panel:</strong> Panel 2</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              40.0% (12/30)
+            </td>
+            <td style="text-align:left;">
+              (24.6%; 57.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              98.8% (79/80)
+            </td>
+            <td style="text-align:left;">
+              (93.3%; 99.8%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              56.7% (17/30)
+            </td>
+            <td style="text-align:left;">
+              (39.2%; 72.6%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              60.0% (18/30)
+            </td>
+            <td style="text-align:left;">
+              (42.3%; 75.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              98.8% (79/80)
+            </td>
+            <td style="text-align:left;">
+              (93.3%; 99.8%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              72.5%
+            </td>
+            <td style="text-align:left;">
+              (24.9%; 95.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              97.9%
+            </td>
+            <td style="text-align:left;">
+              (96.8%; 98.7%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3300-a001.pdf">NCI’s Independent Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3300-a001.csv">Data File</a></p>
+
         <h4>GP Getein Biotech, Inc. One Step Test for Novel Coronavirus (2019-nCoV) IgM/IgG antibody (Colloidal Gold)</h4>
         <p><strong>Manufacturer:</strong> GP Getein Biotech, Inc.</p>
         <p><strong>Device:</strong> One Step Test for Novel Coronavirus (2019-nCoV) IgM/IgG antibody (Colloidal Gold)</p>
@@ -4191,6 +4333,148 @@ class IndexRoute extends React.Component {
         </table>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3251-a001.pdf">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3251-a001.csv">Data File</a></p>
+
+        <h3>Tianjin New Bay Bioresearch C. #1 Quik Pac II COVID-19 IgG &amp; IgM Test</h3>
+        <p><strong>Manufacturer:</strong> Tianjin New Bay Bioresearch C. #1</p>
+        <p><strong>Device:</strong> Quik Pac II COVID-19 IgG &amp; IgM Test</p>
+        <p><strong>Date Performed:</strong> 2020-06-10</p>
+        <p><strong>Lot Number:</strong> 2005059</p>
+        <p><strong>Panel:</strong> Panel 2</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              93.3% (28/30)
+            </td>
+            <td style="text-align:left;">
+              (78.7%; 98.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              97.5% (78/80)
+            </td>
+            <td style="text-align:left;">
+              (91.3%; 99.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              73.3% (22/30)
+            </td>
+            <td style="text-align:left;">
+              (55.6%; 85.8%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              96.7% (29/30)
+            </td>
+            <td style="text-align:left;">
+              (83.3%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              97.5% (78/80)
+            </td>
+            <td style="text-align:left;">
+              (91.3%; 99.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              67.1%
+            </td>
+            <td style="text-align:left;">
+              (33.5%; 88.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.8%
+            </td>
+            <td style="text-align:left;">
+              (99.0%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3298-a001.pdf">NCI’s Independent Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3298-a001.csv">Data File</a></p>
 
         <h4>W.H.P.M, Inc. Covisure Covid-19 IgM/IgG Rapid Test</h4>
         <p><strong>Manufacturer:</strong> W.H.P.M, Inc.</p>
