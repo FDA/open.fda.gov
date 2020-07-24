@@ -1,10 +1,36 @@
-- title: "Tobacco adverse events"
-  short: "Tobacco adverse events"
-  dataset: TOBACCO
+- title: "Reported Events Over Time"
+  short: "Over Time"
+  dataset: tobaccoevent
   description:
-    - "Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects."
+    - "Reported events over time."
   countParam: "submission_date"
   filters:
     - title: "All Tobacco adverse events"
       searchParam: ''
+    - title: "Seizure Reported"
+      searchParam: 'reported_health_problems:Seizure'
+    - title: "Shortness of Breath Reported"
+      searchParam: 'reported_health_problems:"Shortness of breath"'
+    - title: "Nausea Reported"
+      searchParam: 'reported_health_problems:Nausea'
+    - title: "Cough Reported"
+      searchParam: 'reported_health_problems:Cough'
   type: Line
+- title: "Reported Product Problems"
+  short: "Product Problems"
+  dataset: tobaccoevent
+  description:
+    - "Reported product problems filtered by year."
+  countParam: "reported_product_problems"
+  filters:
+    - title: "All Tobacco adverse events"
+      searchParam: ''
+    - title: "2017"
+      searchParam: 'submission_date:[20170101+TO+20171231]'
+    - title: "2018"
+      searchParam: 'submission_date:[20180101+TO+20181231]'
+    - title: "2019"
+      searchParam: 'submission_date:[20190101+TO+20191231]'
+    - title: "2020"
+      searchParam: 'submission_date:[20200101+TO+20201231]'
+  type: Bar
