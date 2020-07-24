@@ -1,0 +1,8 @@
+oneReport:
+  title: One adverse event report
+  description:
+    - This query searches for all records in a certain date range, and asks for a single one.
+    - See the [header fields reference](/apis/tobacco/event/searchable-fields/) for more about submission_date. Brackets `[ ]` are used to specify a range for date, number, or string fields.
+  params:
+    - search for all records with submission_date between Jan 01, 2018 and July 23, 2020. limit to 1 record.
+  query: 'https://openfda-api.preprod.fda.gov/tobacco/event.json?search=submission_date:[20180101+TO+20200723]&limit=1'

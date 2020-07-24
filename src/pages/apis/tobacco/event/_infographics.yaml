@@ -1,0 +1,10 @@
+- title: "Tobacco adverse events"
+  short: "Tobacco adverse events"
+  dataset: TOBACCO
+  description:
+    - "Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects."
+  countParam: "submission_date"
+  filters:
+    - title: "All Tobacco adverse events"
+      searchParam: ''
+  type: Line

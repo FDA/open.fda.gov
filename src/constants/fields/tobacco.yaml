@@ -1,0 +1,115 @@
+properties:
+  submission_date:
+    description: "Date the report was received by FDA."
+    format: date
+    is_exact: false
+    possible_values:
+    type: string
+  reported_product_problems:
+    description: "The reported age of the consumer at the time of the adverse event report, expressed in the unit in the field `age_unit`."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  reported_health_problems:
+    description: "The reported age of the consumer at the time of the adverse event report, expressed in the unit in the field `age_unit`."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  report_id:
+    description: "The reported age of the consumer at the time of the adverse event report, expressed in the unit in the field `age_unit`."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  product_type:
+    description: "The reported age of the consumer at the time of the adverse event report, expressed in the unit in the field `age_unit`."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  number_tobacco_products:
+    description: "The reported age of the consumer at the time of the adverse event report, expressed in the unit in the field `age_unit`."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  number_product_problems:
+    description: "The reported age of the consumer at the time of the adverse event report, expressed in the unit in the field `age_unit`."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  number_health_problems:
+    description: "The reported age of the consumer at the time of the adverse event report, expressed in the unit in the field `age_unit`."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  nonuser_affected:
+    description: "The reported age of the consumer at the time of the adverse event report, expressed in the unit in the field `age_unit`."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  meta:
+    format:
+    type: object
+    description: 'This section contains a disclaimer and license information. The field `last_updated` indicates when the data files were exported.'
+    hide: true
+    possible_values:
+    properties:
+      type: object
+      disclaimer:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Important details notes about openFDA data and limitations of the dataset."
+        hide: true
+        possible_values:
+      license:
+        format:
+        is_exact: false
+        type: string
+        pattern:
+        description: "Link to a web page with license terms that govern data within openFDA."
+        hide: true
+        possible_values:
+      last_updated:
+        format: date
+        is_exact: false
+        type: string
+        pattern:
+        description: "The last date when this openFDA endpoint was updated. Note that this does not correspond to the most recent record for the endpoint or dataset. Rather, it is the last time the openFDA API was itself updated."
+        hide: true
+        possible_values:
+      results:
+        type: object
+        properties:
+          skip:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Offset (page) of results, defined by the `skip` [query parameter](/api/)."
+            hide: true
+            possible_values:
+          limit:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Number of records in this return, defined by the `limit` [query parameter](/api/). If there is no `limit` parameter, the API returns one result."
+            hide: true
+            possible_values:
+          total:
+            format: int64
+            is_exact: false
+            type: number
+            pattern:
+            description: "Total number of records matching the search criteria."
+            hide: true
+            possible_values:
+type: object

@@ -52,6 +52,9 @@ const EndpointBox = (props: tPROPS) => {
     'other': {
       'nsde': 'Comprehensive NDC SPL Data Elements File',
       'substance': 'Substance information that is precise to the molecular level for use internally and externally (where appropriate).'
+    },
+    'tobacco': {
+      'event': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.'
     }
   }
 
@@ -83,6 +86,9 @@ const EndpointBox = (props: tPROPS) => {
     'other': {
       'nsde': 'NDC SPL Data Elements',
       'substance': 'Substance Data'
+    },
+    'tobacco': {
+      'event': 'Tobacco Adverse Events'
     }
   }
   const bg_color = {
@@ -90,7 +96,8 @@ const EndpointBox = (props: tPROPS) => {
     'food': {background: "linear-gradient(to right bottom, rgb(143, 209, 100), rgb(81, 161, 22))"},
     'device': {background: "linear-gradient(to right bottom, #ff8989, #c94747)"},
     'drug': {background: "linear-gradient(to right bottom, rgb(220, 141, 188), rgb(153, 88, 163))"},
-    'other': {background: "linear-gradient(to right bottom, #9cf6f6, #099db7)"}
+    'other': {background: "linear-gradient(to right bottom, #9cf6f6, #099db7)"},
+    'tobacco': {background: "linear-gradient(to right bottom, #9cf6f6, #099db7)"}
   }
 
   const icon = {
@@ -121,6 +128,9 @@ const EndpointBox = (props: tPROPS) => {
     'other': {
       'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
       'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{color: "white"}}/></div>
+    },
+    'tobacco': {
+      'event': <div className="ep-icon" style={bg_color['tobacco']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>
     }
   }
 
@@ -152,6 +162,9 @@ const EndpointBox = (props: tPROPS) => {
     'other': {
       'nsde': '/apis/other/nsde/',
       'substance': '/apis/other/substance/'
+    },
+    'tobacco': {
+      'event': '/apis/tobacco/event/'
     }
   }
 

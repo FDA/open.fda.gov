@@ -42,6 +42,9 @@ const KeyFacts = (props: tPROPS) => {
     'other': {
       'nsde': 'NDC SPL Data Elements',
       'substance': 'Substance Data Reports'
+    },
+    'tobacco': {
+      'event': 'Tobacco Adverse Events'
     }
   }
 
@@ -71,6 +74,9 @@ const KeyFacts = (props: tPROPS) => {
     'other': {
       'nsde': '/apis/other/nsde/',
       'substance': '/apis/other/substance/'
+    },
+    'tobacco': {
+      'event': '/data/tobacco/'
     }
   }
 
@@ -102,6 +108,9 @@ const KeyFacts = (props: tPROPS) => {
     'other': {
       'nsde': '2009 to present',
       'substance': 'Current'
+    },
+    'tobacco': {
+      'event':'2017 to present'
     }
   }
 
@@ -133,6 +142,9 @@ const KeyFacts = (props: tPROPS) => {
     'other': {
       'nsde': 'Daily',
       'substance': 'Daily'
+    },
+    'tobacco': {
+      'event':'Quarterly'
     }
   }
 
