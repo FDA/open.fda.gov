@@ -97,7 +97,7 @@ const EndpointBox = (props: tPROPS) => {
     'device': {background: "linear-gradient(to right bottom, #ff8989, #c94747)"},
     'drug': {background: "linear-gradient(to right bottom, rgb(220, 141, 188), rgb(153, 88, 163))"},
     'other': {background: "linear-gradient(to right bottom, #9cf6f6, #099db7)"},
-    'tobacco': {background: "linear-gradient(to right bottom, #9cf6f6, #099db7)"}
+    'tobacco': {background: "linear-gradient(to right bottom, #e6ccb3, #6d5843)"}
   }
 
   const icon = {
@@ -130,7 +130,7 @@ const EndpointBox = (props: tPROPS) => {
       'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{color: "white"}}/></div>
     },
     'tobacco': {
-      'event': <div className="ep-icon" style={bg_color['tobacco']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>
+      'event': <div className="ep-icon" style={bg_color['tobacco']}><i className="fa fa-3x fa-leaf" style={{color: "white"}}/></div>
     }
   }
 

@@ -7,7 +7,7 @@ properties:
     possible_values:
     type: number
   submission_date:
-    description: "Date of Original Receipt to CTP."
+    description: "Date of Original Receipt to FDA."
     format: date
     is_exact: false
     possible_values:
@@ -36,20 +36,20 @@ properties:
     possible_values:
     type: boolean
   product_type:
-    description: "Text reflecting the SRP tobacco Product Type selected by the reporter. If two or more types were reported, both are displayed."
+    description: "Text reflecting the SRP tobacco Product Type selected by the reporter."
     format:
     is_exact: true
     possible_values:
-    type: string
+    type: array of strings
   reported_health_problems:
-    description: "Text reflecting the MedDRA terms selected by the reporter.  When two or more terms were reported, they are all displayed and separated by forward slashes. If there are duplicate terms reported such as cough/dry eye, both are displayed. When no health problem is reported the text “No information provided” is displayed."
+    description: "Text reflecting the MedDRA terms selected by the reporter."
     format:
     is_exact: true
     possible_values:
-    type: string
+    type: array of strings
   reported_product_problems:
-    description: "Text reflecting the SRP categorical list of values. When two or more values were reported, they are all displayed and separated by forward slashes. When no product problem is reported the text “No information provided” is displayed."
+    description: "Text reflecting the SRP categorical list of values."
     format:
     is_exact: true
     possible_values:
-    type: string
+    type: array of strings

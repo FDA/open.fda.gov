@@ -10,9 +10,9 @@ class IndexRoute extends React.Component {
     return (
       <section className="doc-content">
         <h2>Understanding the API Results</h2>
-        <p>For <code>search</code> queries (such as: <a href="https://openfda-api.preprod.fda.gov/tobacco/event.json?search=submission_date:20131218&limit=1">https://openfda-api.preprod.fda.gov/tobacco/event.json?search=submission_date:20200101&limit=1</a>), the <code>results</code> section includes matching adverse events reports returned by the API.</p>
+        <p>For <code>search</code> queries (such as: <a href="https://api.fda.gov/tobacco/event.json?search=submission_date:20131218&limit=1">https://openfda-api.preprod.fda.gov/tobacco/event.json?search=submission_date:20200101&limit=1</a>), the <code>results</code> section includes matching adverse events reports returned by the API.</p>
 
-        <p>For <code>count</code> queries (such as: <a href="https://openfda-api.preprod.fda.gov/tobacco/event.json?count=product_type.exact">https://openfda-api.preprod.fda.gov/tobacco/event.json?count=product_type.exact</a>), the results section will look something like the following:</p>
+        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/tobacco/event.json?count=product_type.exact">https://openfda-api.preprod.fda.gov/tobacco/event.json?count=product_type.exact</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}
