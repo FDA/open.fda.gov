@@ -21,7 +21,7 @@
   dataset: tobaccoevent
   description:
     - "Reported product problems filtered by year."
-  countParam: "reported_product_problems"
+  countParam: "reported_product_problems.exact"
   filters:
     - title: "All Tobacco adverse events"
       searchParam: ''
