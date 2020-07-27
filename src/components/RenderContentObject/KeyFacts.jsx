@@ -11,7 +11,8 @@ type tPROPS = {
 const KeyFacts = (props: tPROPS) => {
   const {
     noun_name,
-    endpoint_name
+    endpoint_name,
+    harmonized
   } = props
 
   const source = {
@@ -171,8 +172,14 @@ const KeyFacts = (props: tPROPS) => {
         <li>
           <i className="fa fa-edit"/>
           <div className="label">Changes to the source data:</div>
-          <div className="value">openFDA annotates the original records with <Link to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>special fields </Link>
-            and converts the data into JSON, which is a widely used machine readable format.</div>
+          {harmonized ?
+            <div className="value">openFDA annotates the original records with <Link
+                to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>special fields </Link>
+              and converts the data into JSON, which is a widely used machine readable format.</div> :
+            <div className="value">openFDA may change some <Link
+                to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>field names </Link>
+              and converts the data into JSON, which is a widely used machine readable format.</div>
+          }
         </li>
         <li>
           <i className="fa fa-calendar"/>
