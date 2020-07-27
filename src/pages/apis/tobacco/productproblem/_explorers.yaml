@@ -1,23 +1,23 @@
 oneRecord:
-  title: One Tobacco Adverse Event
+  title: One Tobacco Product Problem Report
   params:
     - Search for all records and display one.
     - limit to 1 record.
   description:
     - This query searches for all records and asks for a single one.
-  query: 'https://openfda-api.preprod.fda.gov/tobacco/event.json?limit=1'
+  query: 'https://openfda-api.preprod.fda.gov/tobacco/productproblem.json?limit=1'
 dateRange:
-  title: Adverse event reports by submission date
+  title: Product problem reports by submission date
   description:
     - This query searches for all records in a certain date range.
-    - See the [header fields reference](/apis/tobacco/event/searchable-fields/) for more about submission_date. Brackets `[ ]` are used to specify a range for date, number, or string fields.
+    - See the [header fields reference](/apis/tobacco/productproblem/searchable-fields/) for more about submission_date. Brackets `[ ]` are used to specify a range for date, number, or string fields.
   params:
     - search for all records with submission_date between Jan 01, 2018 and July 23, 2020.
-  query: 'https://openfda-api.preprod.fda.gov/tobacco/event.json?search=submission_date:[20180101+TO+20200723]'
+  query: 'https://openfda-api.preprod.fda.gov/tobacco/productproblem.json?search=submission_date:[20180101+TO+20200723]'
 productType:
-  title: Adverse event reports by product type
+  title: Product problem reports by product type
   description:
     - The suffix .exact is required by openFDA to count the unique full phrases in the field product_type. Without it, the API will count each word in that field individually—Firm Initiated would be counted as separate values, Firm and Initiated.
   params:
     - search the tobacco product types selected by the reporter
-  query: 'https://openfda-api.preprod.fda.gov/tobacco/event.json?count=product_type.exact'
+  query: 'https://openfda-api.preprod.fda.gov/tobacco/productproblem.json?count=product_type.exact'

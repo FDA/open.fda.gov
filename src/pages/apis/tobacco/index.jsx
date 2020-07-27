@@ -9,7 +9,7 @@ export default () => (
       <div className='flex-row just-center align-center flex-wrap'>
         <EndpointBox
           noun_name='tobacco'
-          endpoint_name='event'
+          endpoint_name='productproblem'
         />
       </div>
     </div>

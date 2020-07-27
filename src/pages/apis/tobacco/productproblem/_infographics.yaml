@@ -1,11 +1,11 @@
-- title: "Reported Events Over Time"
+- title: "Reports Over Time"
   short: "Over Time"
-  dataset: tobaccoevent
+  dataset: tobaccoproductproblem
   description:
-    - "Reported events over time."
+    - "Reports displayed over time."
   countParam: "submission_date"
   filters:
-    - title: "All Tobacco adverse events"
+    - title: "All Tobacco Product Problem Reports"
       searchParam: ''
     - title: "Seizure Reported"
       searchParam: 'reported_health_problems:Seizure'
@@ -18,12 +18,12 @@
   type: Line
 - title: "Reported Product Problems"
   short: "Product Problems"
-  dataset: tobaccoevent
+  dataset: tobaccoproductproblem
   description:
     - "Reported product problems filtered by year."
   countParam: "reported_product_problems.exact"
   filters:
-    - title: "All Tobacco adverse events"
+    - title: "All Tobacco Product Problem Reports"
       searchParam: ''
     - title: "2017"
       searchParam: 'submission_date:[20170101+TO+20171231]'

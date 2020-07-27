@@ -400,21 +400,21 @@
   link: /tobacco/
   collapse: true
   items:
-    - title: Adverse Events
-      id: tobacco-adverse-events
+    - title: Product Problem
+      id: tobacco-product-problem
       collapse: true
       items:
         - title: Overview
-          link: /apis/tobacco/event/
+          link: /apis/tobacco/productproblem/
         - title: How to use the API
-          link: /apis/tobacco/event/how-to-use-the-endpoint/
+          link: /apis/tobacco/productproblem/how-to-use-the-endpoint/
         - title: Example API queries
-          link: /apis/tobacco/event/example-api-queries/
+          link: /apis/tobacco/productproblem/example-api-queries/
         - title: Explore the API with an interactive chart
-          link: /apis/tobacco/event/explore-the-api-with-an-interactive-chart/
+          link: /apis/tobacco/productproblem/explore-the-api-with-an-interactive-chart/
         - title: Understanding the API Results
-          link: /apis/tobacco/event/understanding-the-api-results/
+          link: /apis/tobacco/productproblem/understanding-the-api-results/
         - title: Download the dataset
-          link: /apis/tobacco/event/download/
+          link: /apis/tobacco/productproblem/download/
         - title: Searchable fields
-          link: /apis/tobacco/event/searchable-fields
+          link: /apis/tobacco/productproblem/searchable-fields

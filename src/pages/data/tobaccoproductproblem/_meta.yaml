@@ -1,14 +1,14 @@
 type: dataset
-documentTitle: 'openFDA › Datasets › Tobacco'
+documentTitle: 'openFDA › Datasets › Tobacco Product Problem Reports'
 crumbs:
   - openFDA
   - Datasets
-  - Tobacco
-title: 'Tobacco Adverse Events'
+  - Tobacco Product Problem Reports
+title: 'Tobacco Product Problem Reports'
 description: 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.'
 source:
-  name: 'Tobacco Adverse Events'
-  nameLong: 'Tobacco'
+  name: 'Tobacco Product Problem Reports'
+  nameLong: 'Tobacco Product Problem Reports'
   link: 'https://www.fda.gov/tobacco-products/tobacco-science-research/tobacco-product-problem-reports'
   linkDownload:
 license:

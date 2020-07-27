@@ -9,7 +9,7 @@ class IndexRoute extends React.Component {
 
     return (
       <section className="doc-content">
-        <h2>Tobacco Adverse Events Overview</h2>
+        <h2>Tobacco Product Problem Overview</h2>
           <p> The U.S. Food and Drug Administration (FDA) regulates all tobacco products in the United States.</p>
           <p>  <a href="https://www.safetyreporting.hhs.gov/srp2/CTP/TobaccoProductsParts.html">Tobacco products</a> are made or derived from tobacco and include any associated parts that are necessary
             for their use. For example, both a pipe device and the pipe tobacco are regulated by the FDA.</p>

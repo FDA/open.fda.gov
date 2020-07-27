@@ -45,7 +45,7 @@ const KeyFacts = (props: tPROPS) => {
       'substance': 'Substance Data Reports'
     },
     'tobacco': {
-      'event': 'Tobacco Adverse Events'
+      'productproblem': 'Tobacco Product Problem'
     }
   }
 
@@ -77,7 +77,7 @@ const KeyFacts = (props: tPROPS) => {
       'substance': '/apis/other/substance/'
     },
     'tobacco': {
-      'event': '/data/tobacco/'
+      'productproblem': '/data/tobaccoproductproblem/'
     }
   }
 
@@ -111,7 +111,7 @@ const KeyFacts = (props: tPROPS) => {
       'substance': 'Current'
     },
     'tobacco': {
-      'event':'2017 to present'
+      'productproblem':'2017 to present'
     }
   }
 
@@ -145,7 +145,7 @@ const KeyFacts = (props: tPROPS) => {
       'substance': 'Daily'
     },
     'tobacco': {
-      'event':'Quarterly'
+      'productproblem':'Quarterly'
     }
   }
 
