@@ -29,7 +29,7 @@ const catMap: Object = Object.freeze({
   'covid19serology': 'Devices › COVID-19 Serological Testing Evaluations',
   'othernsde': 'Other › NSDE',
   'othersubstance': 'Other › Substance',
-  'tobaccoproductproblem': 'Tobacco › Product Problem'
+  'tobaccoproductproblem': 'Tobacco › Product Problem Reports'
 })
 
 

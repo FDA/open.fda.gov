@@ -328,7 +328,7 @@ const ApiUsage = (props:tPROPS) => {
                   <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.docCount('covid19serology')}</td></tr>
 
                   <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"> <td colSpan="2"><strong>Tobacco</strong></td></tr>
-                  <tr> <td>Adverse Event Reports</td><td>{this.docCount('tobaccoevent')}</td> </tr>
+                  <tr> <td>Product Problem Reports</td><td>{this.docCount('tobaccoproductproblem')}</td> </tr>
 
                   <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"> <td colSpan="2"><strong>Other</strong></td></tr>
                   <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
