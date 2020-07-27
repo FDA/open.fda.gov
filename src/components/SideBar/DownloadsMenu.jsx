@@ -53,7 +53,7 @@ const DownloadsMenu = (props: Object) => {
       {
         content.map((c: string|Object, i: number) => {
           let header: number = 0
-          if (c === 'Animal Drug' || c === 'Food' || c === 'Human Drug' || c === 'Medical Device' || c === 'Other'){
+          if (c === 'Animal Drug' || c === 'Food' || c === 'Human Drug' || c === 'Medical Device' || c=== 'Tobacco' || c === 'Other'){
             header = 1
           }
 

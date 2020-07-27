@@ -18,7 +18,8 @@ const pdfDownloadMap: Object = Object.freeze({
   'deviceenforcement': '/fields/deviceenforcement_reference.pdf',
   'covid19serology': '/fields/devicecovid19serology_reference.pdf',
   'othernsde': '/fields/othernsde_reference.pdf',
-  'othersubstance': '/fields/othersubstance_reference.pdf'
+  'othersubstance': '/fields/othersubstance_reference.pdf',
+  'tobaccoevent': '/fields/tobaccoevent_reference.pdf'
 })
 
 const xlsxDownloadMap: Object = Object.freeze({
@@ -39,7 +40,8 @@ const xlsxDownloadMap: Object = Object.freeze({
   'deviceenforcement': '/fields/deviceenforcement_reference.xlsx',
   'covid19serology': '/fields/devicecovid19serology_reference.xlsx',
   'othernsde': '/fields/othernsde_reference.xlsx',
-  'othersubstance': '/fields/othersubstance_reference.xlsx'
+  'othersubstance': '/fields/othersubstance_reference.xlsx',
+  'tobaccoevent': '/fields/tobaccoevent_reference.xlsx'
 })
 
 const yamlDownloadMap: Object = Object.freeze({
@@ -60,7 +62,8 @@ const yamlDownloadMap: Object = Object.freeze({
   'deviceenforcement': '/fields/deviceenforcement.yaml',
   'covid19serology': '/fields/devicecovid19serology.yaml',
   'othernsde': '/fields/othernsde.yaml',
-  'othersubstance': '/fields/othersubstance.yaml'
+  'othersubstance': '/fields/othersubstance.yaml',
+  'tobaccoevent': '/fields/tobaccoevent.yaml'
 })
 
 
