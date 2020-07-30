@@ -130,11 +130,11 @@ const EndpointBox = (props: tPROPS) => {
     },
     'food': {
       'enforcement': '/apis/food/enforcement/',
-      'event': '/apis/food/enforcement'
+      'event': '/apis/food/event/'
     },
     'device': {
       'event': '/apis/device/event/',
-      'classification': '/apis/device/classification',
+      'classification': '/apis/device/classification/',
       '510k': '/apis/device/510k/',
       'pma': '/apis/device/pma/',
       'registrationlisting': '/apis/device/registrationlisting/',
