@@ -54,7 +54,7 @@ const EndpointBox = (props: tPROPS) => {
       'substance': 'Substance information that is precise to the molecular level for use internally and externally (where appropriate).'
     },
     'tobacco': {
-      'productproblem': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.'
+      'problem': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.'
     }
   }
 
@@ -88,7 +88,7 @@ const EndpointBox = (props: tPROPS) => {
       'substance': 'Substance Data'
     },
     'tobacco': {
-      'productproblem': 'Tobacco Product Problem'
+      'problem': 'Tobacco Problem Reports'
     }
   }
   const bg_color = {
@@ -130,7 +130,7 @@ const EndpointBox = (props: tPROPS) => {
       'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{color: "white"}}/></div>
     },
     'tobacco': {
-      'productproblem': <div className="ep-icon" style={bg_color['tobacco']}><i className="fa fa-3x fa-leaf" style={{color: "white"}}/></div>
+      'problem': <div className="ep-icon" style={bg_color['tobacco']}><i className="fa fa-3x fa-leaf" style={{color: "white"}}/></div>
     }
   }
 
@@ -164,7 +164,7 @@ const EndpointBox = (props: tPROPS) => {
       'substance': '/apis/other/substance/'
     },
     'tobacco': {
-      'productproblem': '/apis/tobacco/productproblem/'
+      'problem': '/apis/tobacco/problem/'
     }
   }
 

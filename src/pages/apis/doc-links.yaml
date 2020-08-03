@@ -400,21 +400,21 @@
   link: /tobacco/
   collapse: true
   items:
-    - title: Product Problem
-      id: tobacco-product-problem
+    - title: Problem Reports
+      id: tobacco-problem
       collapse: true
       items:
         - title: Overview
-          link: /apis/tobacco/productproblem/
+          link: /apis/tobacco/problem/
         - title: How to use the API
-          link: /apis/tobacco/productproblem/how-to-use-the-endpoint/
+          link: /apis/tobacco/problem/how-to-use-the-endpoint/
         - title: Example API queries
-          link: /apis/tobacco/productproblem/example-api-queries/
+          link: /apis/tobacco/problem/example-api-queries/
         - title: Explore the API with an interactive chart
-          link: /apis/tobacco/productproblem/explore-the-api-with-an-interactive-chart/
+          link: /apis/tobacco/problem/explore-the-api-with-an-interactive-chart/
         - title: Understanding the API Results
-          link: /apis/tobacco/productproblem/understanding-the-api-results/
+          link: /apis/tobacco/problem/understanding-the-api-results/
         - title: Download the dataset
-          link: /apis/tobacco/productproblem/download/
+          link: /apis/tobacco/problem/download/
         - title: Searchable fields
-          link: /apis/tobacco/productproblem/searchable-fields
+          link: /apis/tobacco/problem/searchable-fields
