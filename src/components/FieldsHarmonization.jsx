@@ -198,6 +198,15 @@ class FieldsHarmonization extends React.Component {
     let columns = [{
       Header: 'Field',
       accessor: 'field',
+      Cell: row => <Tooltip
+          arrow={true}
+          html={this.fieldDefinitionTooltip(row.value)}
+          interactive
+          position='right'
+          theme='light'
+          trigger='mouseenter'>
+        <span>{row.value[0]}</span>
+      </Tooltip>,
       width: 242
     }]
 
