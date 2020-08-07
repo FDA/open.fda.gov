@@ -48,7 +48,7 @@
           }
         },
         "lineChart": {
-          "interpolation": "curveBasis"
+          "interpolation": "curveMonotoneX"
         },
         "colors": [
           "#1f77b4", "#00d899", "#ff3300", "#2ca02c", "#ff7f0e", 
