@@ -432,8 +432,9 @@ class PieChartInfographic extends React.Component {
               points: results[i].results.filter(v => {
                 return parseInt(v.time.slice(0,4)) >= that.props.globalDefs.startYear
               }).map(function(i){
-                  let x = i.time.slice(0,4) + '-' + i.time.slice(4,6) + '-' + i.time.slice(6,8)
-                  return [new Date(x), i.count]
+                let x = i.time.slice(0,4) + '-' + i.time.slice(4,6) + '-' + i.time.slice(6,8)
+                let xDate = new Date(x)
+                return [new Date(xDate.getTime() - xDate.getTimezoneOffset() * -60000), i.count]
               })
             }).monthlyRollup({
               aggregation: {
@@ -649,16 +650,16 @@ class PieChartInfographic extends React.Component {
     if (t) {
       const e = this.state.sparklineData.atTime(t);
       const eventTime = new Date(
-          e.begin().getTime() + (e.end().getTime() - e.begin().getTime()) / 2
+          e.begin().getTime()
       )
 
       const eventData = e.toJSON().data;
 
       let infoValues = this.state.selected.map( label => {
-          return {
-            label : label.length < 20 ? label : label.slice(0,20) + " ... ",
-            value: eventData[label]
-          }
+        return {
+          label : label.length < 20 ? label : label.slice(0,20) + " ... ",
+          value: eventData[label]
+        }
       })
       const defaultInfoValues = [
         {
@@ -789,6 +790,7 @@ class PieChartInfographic extends React.Component {
                               series={this.state.sparklineData}
                               columns={this.state.lineChartColumns}
                               onSelectionChange={this.onSelectionChange}
+                              smooth={true}
                               {...this.props.globalDefs.lineChartConfig.lineChart}
                             />
                               <EventMarker
