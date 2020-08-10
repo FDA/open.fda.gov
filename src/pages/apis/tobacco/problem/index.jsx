@@ -39,7 +39,7 @@ class IndexRoute extends React.Component {
         </ul>
 
         <h3>How do I request a copy of a submitted report?</h3>
-        <p>If you submitted the report - you may view your submission by following the instructions found in the Frequently Asked Questions about the Safety Reporting Portal, see <a href="https://www.fda.gov/regulatory-information/freedom-information/how-make-foia-request" target="_blank">How do I view a submitted report?</a>.</p>
+        <p>If you submitted the report - you may view your submission by following the instructions found in the Frequently Asked Questions about the Safety Reporting Portal, see <a href="https://www.safetyreporting.hhs.gov/SRP2/en/FAQ.aspx" target="_blank">How do I view a submitted report?</a>.</p>
         <p>You can <a href="https://www.fda.gov/regulatory-information/freedom-information/how-make-foia-request" target="_blank">request a copy of reports</a> submitted by others under the <a href="https://www.fda.gov/regulatory-information/freedom-information" target="_blank">Freedom of Information Act.</a> Per the provisions of the FOIA and the Privacy Act, access to personally identifiable information cannot be given to unauthorized third parties without the individuals' written consent and will not be included in the responses to these requests.</p>
 
         <h3>How do I report a problem with a tobacco product?</h3>
