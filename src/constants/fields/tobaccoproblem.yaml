@@ -6,7 +6,7 @@ properties:
     possible_values:
     type: number
   submission_date:
-    description: "Date of Original Receipt to FDA."
+    description: "Date report was received by CTP; this is the earliest date of report receipt, either to Safety Reporting Portal (SRP) or by other means"
     format: date
     is_exact: false
     possible_values:
@@ -54,7 +54,7 @@ properties:
     possible_values:
     type: number
   nonuser_affected:
-    description: "Displays text reflecting the response to this optional question as “No information provided” if not answered, or Yes/No."
+    description: "Displays text reflecting the response to this optional question (2017 - 12/14/2018) or required question (12/15/2018 onward) as “No information provided” if not answered, or Yes/No."
     format:
     is_exact: false
     possible_values:
