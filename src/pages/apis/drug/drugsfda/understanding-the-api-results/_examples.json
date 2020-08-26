@@ -31,16 +31,24 @@
   "result": {
     "submissions": [
       {
-        "application_docs_type": "Review",
-        "application_docs_id": "22662",
-        "application_docs_title": "0",
+        "application_docs_title": [
+          {
+            "type": "Review",
+            "id": "22662",
+            "url": "http://www.accessdata.fda.gov/drugsatfda_docs/anda/pre96/084321_probenecid-colchicine_toc.cfm",
+            "title": "0"
+          }
+        ],
         "submission_type": "ORIG",
-        "submission_property_type_code": "Null",
+        "submission_property_type": [
+          {
+            "code": "Null",
+            "id": "0"
+          }
+        ],
         "submission_status_date": "19760311",
         "application_docs_date": "20030730",
         "submission_status": "AP",
-        "submission_property_type_id": "0",
-        "application_docs_url": "http://www.accessdata.fda.gov/drugsatfda_docs/anda/pre96/084321_probenecid-colchicine_toc.cfm",
         "submission_number": "1"
       }
     ],
