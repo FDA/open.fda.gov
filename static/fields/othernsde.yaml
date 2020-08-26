@@ -92,6 +92,18 @@ properties:
       pattern:
       description: "The National Council for Prescription Drug Programs (NCPDP) developed the Billing Unit Standard to assist in consistent and accurate billing of pharmaceutical products. Information on the NCPDP Billing Unit Standard may be found at http://www.ncpdp.org/PDF/BUS_overview.pdfdisclaimer icon. This column may contain a NCPDP Billing Unit (GM, ML or EA)."
       possible_values:
+  inactivation_date:
+    description: "The date on which registration or listing data was inactivated by FDA due to inaccuracies, incompleteness or incompliance."
+    format: date
+    is_exact: false
+    possible_values:
+    type: string
+  reactivation_date:
+    description: "The date on which a previously FDA inactivated registration or listing data is reactivated."
+    format: date
+    is_exact: false
+    possible_values:
+    type: string
   meta:
     format:
     type: object

@@ -1,6 +1,6 @@
 import React from "react"
 
-import QueryExplorer from '../../../../../components/QueryExplorer'
+import QueryTour from '../../../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
@@ -13,17 +13,19 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>Example Device Unique Device Identifier API queries</h2>
         <p>To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
-        <QueryExplorer
+        <QueryTour
           desc={oneCompanyMed.description}
-          originalQuery={oneCompanyMed.query}
+          query={oneCompanyMed.query}
           params={oneCompanyMed.params}
           title={oneCompanyMed.title}
+          name={'oneCompanyMed'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={updated.description}
-          originalQuery={updated.query}
+          query={updated.query}
           params={updated.params}
           title={updated.title}
+          name={'updated'}
         />
       </section>
     )

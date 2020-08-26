@@ -29,8 +29,10 @@
     link: /apis/missing-values/
   - title: Timeseries
     link: /apis/timeseries/
+  - title: Paging
+    link: /apis/paging/
 
-- title: Download the API
+- title: Download the Data
   id: download-the-api
   collapse: true
   items:
@@ -110,7 +112,7 @@
       items:
         - title: Overview
           link: /apis/drug/ndc/
-        - title: How to use the Application Programming Interface
+        - title: How to use the API
           link: /apis/drug/ndc/how-to-use-the-endpoint/
         - title: Example queries
           link: /apis/drug/ndc/example-api-queries/
@@ -290,6 +292,24 @@
           link: /apis/device/registrationlisting/download/
         - title: Searchable fields
           link: /apis/device/registrationlisting/searchable-fields/
+    - title: COVID-19 Serological Testing Evaluations
+      id: device-serological-testing-validation
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/device/covid19serology/
+        - title: How to use the API
+          link: /apis/device/covid19serology/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/device/covid19serology/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/device/covid19serology/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/device/covid19serology/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/device/covid19serology/download/
+        - title: Searchable fields
+          link: /apis/device/covid19serology/searchable-fields/
     - title: Unique Device Identifier
       id: device-unique-device-identifier
       collapse: true
@@ -374,3 +394,21 @@
           link: /apis/other/nsde/download/
         - title: Searchable fields
           link: /apis/other/nsde/searchable-fields/
+    - title: Substance Data Reports
+      id: other-substance
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/other/substance/
+        - title: How to use the API
+          link: /apis/other/substance/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/other/substance/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/other/substance/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/other/substance/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/other/substance/download/
+        - title: Searchable fields
+          link: /apis/other/substance/searchable-fields/

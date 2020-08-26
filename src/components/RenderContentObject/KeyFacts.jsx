@@ -30,7 +30,8 @@ const KeyFacts = (props: tPROPS) => {
       'registrationlisting': 'Registration and Listing',
       'recall': 'Medical Device Recalls',
       'enforcement': 'FDA Recall Enterprise System (RES)',
-      'udi': 'Global Unique Device Identification Database (GUDID)'
+      'udi': 'Global Unique Device Identification Database (GUDID)',
+      'covid19serology': 'Independent testing by US Government Laboratories'
     },
     'drug': {
       'event': 'FDA Adverse Event Reporting System (FAERS)',
@@ -40,7 +41,8 @@ const KeyFacts = (props: tPROPS) => {
       'drugsfda': 'Drugs@FDA'
     },
     'other': {
-      'nsde': 'NDC SPL Data Elements'
+      'nsde': 'NDC SPL Data Elements',
+      'substance': 'Substance Data Reports'
     }
   }
 
@@ -59,7 +61,7 @@ const KeyFacts = (props: tPROPS) => {
       'pma': '/data/pma/',
       'registrationlisting': '/data/registrationlisting/',
       'recall': '/data/device-recall/',
-      'enforcement': '/data/res/'
+      'enforcement': '/data/res/',
     },
     'drug': {
       'event': '/data/faers/',
@@ -69,7 +71,8 @@ const KeyFacts = (props: tPROPS) => {
       'drugsfda': '/data/drugsfda/'
     },
     'other': {
-      'nsde': '/apis/other/nsde/'
+      'nsde': '/apis/other/nsde/',
+      'substance': '/apis/other/substance/'
     }
   }
 
@@ -89,7 +92,8 @@ const KeyFacts = (props: tPROPS) => {
       'registrationlisting': '2007 to present',
       'recall': '2002 to present',
       'enforcement': '2004 to present',
-      'udi': '2013 to present'
+      'udi': '2013 to present',
+      'covid19serology': '2020 to present'
     },
     'drug': {
       'event': 'Currently, this API includes publically releasable records submitted to the FDA through FAERS since 2004',
@@ -99,7 +103,8 @@ const KeyFacts = (props: tPROPS) => {
       'drugsfda': '1939 to present'
     },
     'other': {
-      'nsde': '2009 to present'
+      'nsde': '2009 to present',
+      'substance': 'Current'
     }
   }
 
@@ -119,7 +124,8 @@ const KeyFacts = (props: tPROPS) => {
       'registrationlisting': 'Monthly',
       'recall': 'Monthly',
       'enforcement': 'Weekly',
-      'udi': 'Weekly'
+      'udi': 'Weekly',
+      'covid19serology': 'Intermittently'
     },
     'drug': {
       'event': 'Quarterly. However, please be advised that the data in this API may lag by 3 months or more at any given time, depending on when the quarterly FAERS data is released.',
@@ -129,7 +135,8 @@ const KeyFacts = (props: tPROPS) => {
       'drugsfda': 'Weekly',
     },
     'other': {
-      'nsde': 'Daily'
+      'nsde': 'Daily',
+      'substance': 'Daily'
     }
   }
 
@@ -156,7 +163,7 @@ const KeyFacts = (props: tPROPS) => {
         <li>
           <i className="fa fa-edit"/>
           <div className="label">Changes to the source data:</div>
-          <div className="value">OpenFDA annotates the original records with <Link to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>special fields </Link>
+          <div className="value">openFDA annotates the original records with <Link to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>special fields </Link>
             and converts the data into JSON, which is a widely used machine readable format.</div>
         </li>
         <li>

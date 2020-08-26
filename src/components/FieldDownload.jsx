@@ -16,7 +16,10 @@ const pdfDownloadMap: Object = Object.freeze({
   'deviceclearance': '/fields/deviceclearance_reference.pdf',
   'devicepma': '/fields/devicepma_reference.pdf',
   'deviceudi': '/fields/deviceudi_reference.pdf',
-  'deviceenforcement': '/fields/deviceenforcement_reference.pdf'
+  'deviceenforcement': '/fields/deviceenforcement_reference.pdf',
+  'covid19serology': '/fields/devicecovid19serology_reference.pdf',
+  'othernsde': '/fields/othernsde_reference.pdf',
+  'othersubstance': '/fields/othersubstance_reference.pdf'
 })
 
 const xlsxDownloadMap: Object = Object.freeze({
@@ -35,7 +38,10 @@ const xlsxDownloadMap: Object = Object.freeze({
   'deviceclearance': '/fields/deviceclearance_reference.xlsx',
   'devicepma': '/fields/devicepma_reference.xlsx',
   'deviceudi': '/fields/deviceudi_reference.xlsx',
-  'deviceenforcement': '/fields/deviceenforcement_reference.xlsx'
+  'deviceenforcement': '/fields/deviceenforcement_reference.xlsx',
+  'covid19serology': '/fields/devicecovid19serology_reference.xlsx',
+  'othernsde': '/fields/othernsde_reference.xlsx',
+  'othersubstance': '/fields/othersubstance_reference.xlsx'
 })
 
 const yamlDownloadMap: Object = Object.freeze({
@@ -54,7 +60,10 @@ const yamlDownloadMap: Object = Object.freeze({
   'deviceclearance': '/fields/deviceclearance.yaml',
   'devicepma': '/fields/devicepma.yaml',
   'deviceudi': '/fields/deviceudi.yaml',
-  'deviceenforcement': '/fields/deviceenforcement.yaml'
+  'deviceenforcement': '/fields/deviceenforcement.yaml',
+  'covid19serology': '/fields/devicecovid19serology.yaml',
+  'othernsde': '/fields/othernsde.yaml',
+  'othersubstance': '/fields/othersubstance.yaml'
 })
 
 
@@ -67,15 +76,21 @@ const FieldDownload = (props: tPROPS) => {
 
   return (
     <section className="marg-t-2" key={k}>
-      <a href={pdfDownloadMap[meta.status]} className="field-button bg-primary clr-white weight-700" download="fields.pdf">
-        <fa className="fa fa-file-pdf-o fa-lg marg-r-1" />Download PDF
-      </a>
-      <a href={xlsxDownloadMap[meta.status]} className="field-button bg-primary marg-l-2 clr-white weight-700" download="fields.xlsx">
-        <fa className="fa fa-file-excel-o fa-lg marg-r-1" />Download XLSX
-      </a>
-      <a href={yamlDownloadMap[meta.status]} className="field-button bg-primary marg-l-2 clr-white weight-700" download="fields.yaml">
-        <fa className="fa fa-file-code-o fa-lg marg-r-1" />Download YAML
-      </a>
+      <button className="button bg-primary">
+        <a href={pdfDownloadMap[meta.status]} className="clr-white weight-700" download="fields.pdf">
+          <fa className="fa fa-file-pdf-o fa-lg marg-r-1" />Download PDF
+        </a>
+      </button>
+      <button className="button bg-primary marg-l-2">
+        <a href={xlsxDownloadMap[meta.status]} className="clr-white weight-700" download="fields.xlsx">
+          <fa className="fa fa-file-excel-o fa-lg marg-r-1" />Download XLSX
+        </a>
+      </button>
+      <button className="button bg-primary marg-l-2">
+        <a href={yamlDownloadMap[meta.status]} className="clr-white weight-700" download="fields.yaml">
+          <fa className="fa fa-file-code-o fa-lg marg-r-1" />Download YAML
+        </a>
+      </button>
     </section>
   )
 }

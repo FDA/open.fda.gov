@@ -1,6 +1,6 @@
 import React from "react"
 
-import QueryExplorer from '../../../../../components/QueryExplorer'
+import QueryTour from '../../../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
@@ -15,29 +15,33 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>Example NSDE API queries</h2>
         <p>To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
-        <QueryExplorer
+        <QueryTour
           desc={oneRecord.description}
-          originalQuery={oneRecord.query}
+          query={oneRecord.query}
           params={oneRecord.params}
           title={oneRecord.title}
+          name={'oneRecord'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={byNDC.description}
-          originalQuery={byNDC.query}
+          query={byNDC.query}
           params={byNDC.params}
           title={byNDC.title}
+          name={'byNDC'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={onTheMarket.description}
-          originalQuery={onTheMarket.query}
+          query={onTheMarket.query}
           params={onTheMarket.params}
           title={onTheMarket.title}
+          name={'onTheMarket'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={discontinued.description}
-          originalQuery={discontinued.query}
+          query={discontinued.query}
           params={discontinued.params}
           title={discontinued.title}
+          name={'discontinued'}
         />
       </section>
     )

@@ -38,6 +38,10 @@ export default () => (
           noun_name='device'
           endpoint_name='udi'
         />
+        <EndpointBox
+          noun_name='device'
+          endpoint_name='covid19serology'
+        />
       </div>
     </div>
   </section>

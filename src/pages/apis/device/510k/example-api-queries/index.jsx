@@ -1,6 +1,6 @@
 import React from "react"
 
-import QueryExplorer from '../../../../../components/QueryExplorer'
+import QueryTour from '../../../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
@@ -14,23 +14,26 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>Example 510(k) API queries</h2>
         <p>To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
-        <QueryExplorer
+        <QueryTour
           desc={advisoryCommittee.description}
-          originalQuery={advisoryCommittee.query}
+          query={advisoryCommittee.query}
           params={advisoryCommittee.params}
           title={advisoryCommittee.title}
+          name={'advisoryCommittee'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={regulationNumber.description}
-          originalQuery={regulationNumber.query}
+          query={regulationNumber.query}
           params={regulationNumber.params}
           title={regulationNumber.title}
+          name={'regulationNumber'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={topCountryCodes.description}
-          originalQuery={topCountryCodes.query}
+          query={topCountryCodes.query}
           params={topCountryCodes.params}
           title={topCountryCodes.title}
+          name={'topCountryCodes'}
         />
       </section>
     )

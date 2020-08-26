@@ -6,7 +6,7 @@ import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
 
-// Update total usage numbers with: https://api.fda.gov/usage.json?end_at=2019-04-21 - last 2019-04-21
+// Update total usage numbers with: https://api.fda.gov/usage.json?end_at=2020-06-25 - last 2020-06-25
 // Update in pages/about/statistics/_content.yaml
 type tPROPS = {
     accessSinceLaunch: string,
@@ -57,6 +57,8 @@ const ApiUsage = (props:tPROPS) => {
         dynamicDisclaimer: props.dynamicDisclaimer,
         clickEndpointDisclaimer: props.clickEndpointDisclaimer,
         data: null,
+        indexInfo: {},
+        downloadStats: {},
         prefix: "1/" + API_NAME + "/",
         breadcrumbs: ["1/" + API_NAME + "/"],
         width: 1100,
@@ -166,6 +168,7 @@ const ApiUsage = (props:tPROPS) => {
       this.state.maxTime = maxTime
       this.state.timerange = new TimeRange(minTime, maxTime)
       this.state.indexInfo = data.indexInfo
+      this.state.downloadStats = data.downloadStats || {}
       this.state.lastThirtyDayUsage = data.lastThirtyDayUsage
 
       this.state.data = graphData
@@ -197,9 +200,23 @@ const ApiUsage = (props:tPROPS) => {
           that.handleUsageResponse(data)
         })
     }
+
     docCount (typeName:string):string {
-      return this.formatNumber(this.state.indexInfo[typeName])
+      if (typeName in this.state.indexInfo) {
+        return this.formatNumber(this.state.indexInfo[typeName])
+      } else {
+        return 0
+      }
     }
+
+    downloadCount (typeName:string):string {
+      if (typeName in this.state.downloadStats) {
+        return this.formatNumber(this.state.downloadStats[typeName])
+      } else {
+        return 0
+      }
+    }
+
     formatNumber (n:number):string {
       return n ? this.nf.format(n) : "0"
     }
@@ -211,7 +228,7 @@ const ApiUsage = (props:tPROPS) => {
     onHighlightChange () {}
     onChartResize () {}
     onSelectionChange(selection) {
-      this.setState({ 
+      this.setState({
         selection
       })
     }
@@ -233,6 +250,10 @@ const ApiUsage = (props:tPROPS) => {
         trackerInfoValues: [{label: this.state.toolTipLabel, value: value}],
         tracker
       })
+    }
+
+    linkClickHandler() {
+
     }
 
     render () {
@@ -267,6 +288,13 @@ const ApiUsage = (props:tPROPS) => {
               </div>
 
               <div className='marg-t-2 b-t-2 pad-t-2'>
+                <h5 className='usage-hash-link' onClick={() => document.getElementById("usage-by-dataset").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})}>View Usage Statistics by Dataset</h5>
+              </div>
+              <div className='marg-t-2 b-t-2 pad-t-2'>
+                <h5 className='usage-hash-link' onClick={() => document.getElementById("dataset-downloads-scroll-anchor").scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})}>View Download Statistics</h5>
+              </div>
+
+              <div className='marg-t-2 b-t-2 pad-t-2'>
                 <h5 className='font-size-3 txt-c'>Size of Dataset</h5>
 
             <div>
@@ -298,12 +326,59 @@ const ApiUsage = (props:tPROPS) => {
                   <tr><td>Adverse Event Reports</td><td>{this.docCount('deviceevent')}</td></tr>
                   <tr><td>UDIs</td><td>{this.docCount('deviceudi')}</td></tr>
                   <tr><td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td></tr>
+                  <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.docCount('covid19serology')}</td></tr>
 
-                  <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Other</strong></td></tr>
+                  <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"> <td colSpan="2"><strong>Other</strong></td></tr>
                   <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
+                  <tr> <td>Substance</td><td>{this.docCount('othersubstance')}</td> </tr>
                   </tbody>
 
                 </table>
+
+                </div>
+
+
+              </div>
+
+              <div className='marg-t-2 b-t-2 pad-t-2'>
+                <h5 className='font-size-3 txt-c'>Dataset Downloads</h5>
+
+                <div>
+                  <table className="table-sm table-bordered">
+                    <tbody>
+                    <tr className="bg-primary-darkest clr-white">
+                      <td colSpan="2"><strong>Animal & Veterinary</strong></td>
+                    </tr>
+                    <tr><td>Adverse Event Reports</td><td>{this.downloadCount('animalandveterinarydrugevent')}</td></tr>
+                    <tr className="bg-primary-darkest clr-white">
+                      <td colSpan="2"><strong>Drugs</strong></td>
+                    </tr>
+                    <tr><td>Adverse Event Reports</td><td>{this.downloadCount('drugevent')}</td></tr>
+                    <tr><td>Labeling</td><td>{this.downloadCount('druglabel')}</td></tr>
+                    <tr><td>NDC Directory</td><td>{this.downloadCount('ndc')}</td></tr>
+                    <tr><td>Enforcement Reports</td><td>{this.downloadCount('drugenforcement')}</td></tr>
+
+                    <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Foods</strong></td></tr>
+                    <tr><td>Adverse Event Reports</td><td>{this.downloadCount('foodevent')}</td></tr>
+                    <tr><td>Enforcement Reports</td><td>{this.downloadCount('foodenforcement')}</td></tr>
+
+                    <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Devices</strong></td></tr>
+                    <tr><td>Classifications</td><td>{this.downloadCount('deviceclass')}</td></tr>
+                    <tr><td>Registration and listing</td><td>{this.downloadCount('devicereglist')}</td></tr>
+                    <tr><td>Premarket Approvals (PMAs)</td><td>{this.downloadCount('devicepma')}</td></tr>
+                    <tr><td>510Ks</td><td>{this.downloadCount('deviceclearance')}</td></tr>
+                    <tr><td>Recalls</td><td>{this.downloadCount('devicerecall')}</td></tr>
+                    <tr><td>Adverse Event Reports</td><td>{this.downloadCount('deviceevent')}</td></tr>
+                    <tr><td>UDIs</td><td>{this.downloadCount('deviceudi')}</td></tr>
+                    <tr><td>Enforcement Reports</td><td>{this.downloadCount('deviceenforcement')}</td></tr>
+                    <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.downloadCount('covid19serology')}</td></tr>
+
+                    <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Other</strong></td></tr>
+                    <tr> <td>NSDE</td><td>{this.downloadCount('othernsde')}</td> </tr>
+                    <tr> <td>Substance</td><td>{this.downloadCount('othersubstance')}</td> </tr>
+                    </tbody>
+
+                  </table>
 
                 </div>
 
@@ -315,10 +390,10 @@ const ApiUsage = (props:tPROPS) => {
               <h2 className='txt-c marg-t-2'>API Calls in the Past 30 Days: {this.totalCount('lastThirtyDayUsage')}</h2>
               <div className='italic txt-c t-6 smallest'> {this.state.dynamicDisclaimer}</div>
               <div className='marg-l-1'>
-                
-                { !this.state.series ? null : 
-                  <ChartContainer 
-                    timeRange={this.state.timerange} 
+
+                { !this.state.series ? null :
+                  <ChartContainer
+                    timeRange={this.state.timerange}
                     enablePanZoom={this.state.enablePanZoom}
                     onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
                     trackerPosition={this.state.tracker}
@@ -329,21 +404,21 @@ const ApiUsage = (props:tPROPS) => {
                     onTrackerChanged={this.onTrackerChanged}
                     onChartResize={this.handleChartResize}
                   >
-                      <ChartRow 
+                      <ChartRow
                         trackerInfoValues={this.state.trackerInfoValues}
                         trackerTime={this.state.tracker}
                         trackerTimeFormat={this.state.trackerTimeFormat}
                         timeFormat={this.state.trackerTimeFormat}
                         {...this.state.chartRow}
                       >
-                          <YAxis 
+                          <YAxis
                             id="axis1"
                             max={this.state.max}
                             min={this.state.min}
                             {...this.state.yAxis}
                           />
                           <Charts>
-                              <LineChart 
+                              <LineChart
                                 axis="axis1"
                                 style={this.state.style}
                                 series={this.state.series}
@@ -360,40 +435,42 @@ const ApiUsage = (props:tPROPS) => {
                 }
 
               </div>
-              <h3 className='txt-c marg-t-3 b-t-light-1'>API Calls in Past 30 Days by Dataset</h3>
-              <div className='italic txt-c t-6 smallest'> {this.state.clickEndpointDisclaimer}</div>
-              <div className='marg-l-1 marg-t-1 font-size-3 b-t-light-1'>
-                {
-                  this.state.breadcrumbs.map((b, i) => {
-                    if ((this.state.breadcrumbs.length - 1) > i) {
-                      // render link
-                      return (
-                        <span key={i}> 
-                          {(i > 0 ? ' > ' : '') } 
-                          <a 
-                            key={'p' + i} 
-                            onClick={(e) => this.refreshPrefix(e)} 
-                            data-prefix={b}
-                          >
-                            {b.substring(0, b.length - 1).split('/').pop()}
-                          </a>
-                        </span>
-                      )
-                    }
-                    else {
-                      // render without link
-                      return (<span key={i}>{ (i > 0 ? ' > ' : '') + b.substring(0, b.length - 1).split('/').pop()}</span>)
-                    }
-                  })
-                }
-              </div>
-              <div className='marg-1'>
+              <div id='usage-by-dataset'>
+                <h3 className='txt-c marg-t-3 b-t-light-1'>API Calls in Past 30 Days by Dataset</h3>
+                <div className='italic txt-c t-6 smallest'> {this.state.clickEndpointDisclaimer}</div>
+                <div className='marg-l-1 marg-t-1 font-size-3 b-t-light-1'>
+                  {
+                    this.state.breadcrumbs.map((b, i) => {
+                      if ((this.state.breadcrumbs.length - 1) > i) {
+                        // render link
+                        return (
+                          <span key={i}>
+                            {(i > 0 ? ' > ' : '') }
+                            <a
+                              key={'p' + i}
+                              onClick={(e) => this.refreshPrefix(e)}
+                              data-prefix={b}
+                            >
+                              {b.substring(0, b.length - 1).split('/').pop()}
+                            </a>
+                          </span>
+                        )
+                      }
+                      else {
+                        // render without link
+                        return (<span key={i}>{ (i > 0 ? ' > ' : '') + b.substring(0, b.length - 1).split('/').pop()}</span>)
+                      }
+                    })
+                  }
+                </div>
+                <div className='marg-1'>
 
-                <Table labels={['API', 'Hits']}
-                       rows={this.state.data.table}
-                       cols={['path', 'hits']}
-                       formatters={{path: pathFormat}}/>
+                  <Table labels={['API', 'Hits']}
+                         rows={this.state.data.table}
+                         cols={['path', 'hits']}
+                         formatters={{path: pathFormat}}/>
 
+                </div>
               </div>
             </div>
 

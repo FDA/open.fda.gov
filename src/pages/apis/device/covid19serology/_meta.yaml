@@ -1,0 +1,11 @@
+type: endpoint
+documentTitle: openFDA › Device › COVID-19 serological testing evaluations API
+label: COVID-19 serological testing evaluations
+title: COVID-19 Serological Testing Evaluations
+description:
+datasets:
+  - covid19serology
+path: /apis/device/covid19serology
+api_path: /device/covid19serology
+start: 20200101
+status: covid19serology
