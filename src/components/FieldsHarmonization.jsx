@@ -10,6 +10,7 @@ import devicerecall from '../constants/fields/devicerecall.yaml'
 import drugenforcement from '../constants/fields/drugenforcement.yaml'
 import druglabel from '../constants/fields/druglabel.yaml'
 import drugndc from '../constants/fields/drugndc.yaml'
+import drugsfda from '../constants/fields/drugsfda.yaml'
 import Values from './RenderContentObject/Values'
 
 
@@ -70,12 +71,14 @@ class FieldsHarmonization extends React.Component {
       deviceclassification: deviceclassification,
       devicepma: devicepma,
       devicerecall: devicerecall,
+      drugdrugsfda: drugsfda,
       drugenforcement: drugenforcement,
       druglabel: druglabel,
       drugndc: drugndc
     }
 
     let field_name = dataTip[0]
+    console.log(field_name, dataTip)
     let field = dictionary[dataTip[1]]['properties']['openfda']['properties'][field_name]
     // array
     let type: string = ''
@@ -189,6 +192,7 @@ class FieldsHarmonization extends React.Component {
       'recall': 'Recall',
       'registrationlisting': 'Registration',
       'udi': 'UDI',
+      'drugsfda': 'Drugs@FDA',
       'label': 'Label',
       'ndc': 'NDC',
       'nsde': 'NSDE'

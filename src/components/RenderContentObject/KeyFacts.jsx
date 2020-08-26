@@ -37,7 +37,8 @@ const KeyFacts = (props: tPROPS) => {
       'event': 'FDA Adverse Event Reporting System (FAERS)',
       'label': 'FDA SPL files',
       'ndc': 'NDC Directory',
-      'enforcement': 'FDA Recall Enterprise System (RES)'
+      'enforcement': 'FDA Recall Enterprise System (RES)',
+      'drugsfda': 'Drugs@FDA'
     },
     'other': {
       'nsde': 'NDC SPL Data Elements',
@@ -66,7 +67,8 @@ const KeyFacts = (props: tPROPS) => {
       'event': '/data/faers/',
       'label': '/data/spl/',
       'ndc': '/data/ndc/',
-      'enforcement': '/data/res/'
+      'enforcement': '/data/res/',
+      'drugsfda': '/data/drugsfda/'
     },
     'other': {
       'nsde': '/apis/other/nsde/',
@@ -97,7 +99,8 @@ const KeyFacts = (props: tPROPS) => {
       'event': 'Currently, this API includes publically releasable records submitted to the FDA through FAERS since 2004',
       'label': 'The bulk of the data is from June 2009 (when labeling was first posted publicly in the SPL format) to the present. However, there are a small number of records from earlier than mid-2009.',
       'ndc': 'Present',
-      'enforcement': '2004 to present'
+      'enforcement': '2004 to present',
+      'drugsfda': '1939 to present'
     },
     'other': {
       'nsde': '2009 to present',
@@ -128,7 +131,8 @@ const KeyFacts = (props: tPROPS) => {
       'event': 'Quarterly. However, please be advised that the data in this API may lag by 3 months or more at any given time, depending on when the quarterly FAERS data is released.',
       'label': 'Weekly',
       'ndc': 'Daily',
-      'enforcement': 'Weekly'
+      'enforcement': 'Weekly',
+      'drugsfda': 'Weekly',
     },
     'other': {
       'nsde': 'Daily',

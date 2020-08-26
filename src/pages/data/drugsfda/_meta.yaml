@@ -1,0 +1,29 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › Drugs@FDA'
+crumbs:
+  - openFDA
+  - Datasets
+  - Drugs@FDA
+title: 'Drugs@FDA'
+description: 'Drugs@FDA includes most of the drug products approved since 1939. The majority of patient information, labels, approval letters, reviews, and other information are available for drug products approved since 1998.'
+source:
+  name: 'Drugs@FDA'
+  nameLong: 'Drugs@FDA'
+  link: 'https://www.fda.gov/drugs/drug-approvals-and-databases/about-drugsfda'
+  linkDownload: 'https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+  time:
+  start:
+  current:
+  delay:
+  frequency: 'Weekly'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - 'Drugs@FDA allows you to search for official information about FDA approved innovator (brand name) and generic drugs and therapeutic biological products.'
+  - 'Drugs@FDA contains information about the following FDA-approved products for human use:'
+  - 'Prescription brand-name drug products, generic drug products, and many therapeutic biological products'
+  - 'Over-the-counter brand-name and generic drugs'
