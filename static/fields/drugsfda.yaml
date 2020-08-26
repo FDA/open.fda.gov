@@ -6,12 +6,6 @@ properties:
     is_exact: false
     possible_values:
     type: string
-  application_public_notes:
-    description: "Pending."
-    format:
-    is_exact: false
-    possible_values:
-    type: string
   openfda:
     type: object
     properties:
@@ -237,17 +231,17 @@ properties:
         possible_values:
         type: string
       reference_drug:
-        description: "Pending"
+        description: "Indicates whether the drug product is a reference drug."
         format:
         is_exact: false
         possible_values:
-        type: boolean
+        type: string
       reference_standard:
-        description: "Pending."
+        description: "Indicates whether the drug product is a reference standard."
         format:
         is_exact: false
         possible_values:
-        type: boolean
+        type: string
       route:
         description: "The route of administation of the drug product."
         format:
@@ -270,24 +264,54 @@ properties:
     type: object
     description: "Submissions are used to group supporting documents relative to an application. A submission belongs to only one specific application. There must be at least one submission for each application."
     properties:
-      applications_doc_date:
-        description: "The date of publication of the applications document."
-        format: date
-        is_exact: false
-        possible_values:
-        type: string
-      application_docs_title:
-        description: "The title of the applications document."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      application_docs_url:
-        description: "The url to access the applications document."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
+      submission_property_type:
+        type: array
+        items:
+          code:
+            description: "The code indicating the submission property type."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          id:
+            description: "The id of the submission property type."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+      application_docs:
+        type: array
+        items:
+          id:
+            description: "The id of the applications document."
+            format: date
+            is_exact: false
+            possible_values:
+            type: string
+          date:
+            description: "The date of publication of the applications document."
+            format: date
+            is_exact: false
+            possible_values:
+            type: string
+          title:
+            description: "The title of the applications document."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          type:
+            description: "The type of the applications document."
+            format: date
+            is_exact: false
+            possible_values:
+            type: string
+          url:
+            description: "The url to access the applications document."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
       review_priority:
         description: "Pending."
         format:
@@ -308,18 +332,6 @@ properties:
         type: string
       submission_number:
         description: "A unique identifier for each submission under that application."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      submission_property_type_code:
-        description: "Pending."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      submission_property_type_id:
-        description: "Pending."
         format:
         is_exact: false
         possible_values:

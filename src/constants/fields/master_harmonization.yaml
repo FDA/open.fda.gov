@@ -48,6 +48,25 @@ device:
     - device_class
     - medical_specialty_description
 drug:
+  drugsfda:
+    - manufacturer_name
+    - unii
+    - product_type
+    - spl_set_id
+    - route
+    - generic_name
+    - brand_name
+    - product_ndc
+    - substance_name
+    - spl_id
+    - package_ndc
+    - application_number
+    - rxcui
+    - pharm_class_moa
+    - pharm_class_epc
+    - pharm_class_cs
+    - nui
+    - pharm_class_pe
   enforcement:
     - manufacturer_name
     - unii
