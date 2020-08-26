@@ -107,3 +107,7 @@ updates:
     path: /about/updates/2020_06_04_COVID-19_Serological_Testing_Evaluations_Now_Available
     date: 2020-06-05
     desc: 'The new dataset "Independent Evaluations of COVID-19 Serological Tests" is available via openFDA.'
+  - title: New openFDA Dataset -  Drugs@FDA
+    path: /apis/drug/drugsfda/
+    date: 2020-08-26
+    desc: "Drugs@FDA is now available via openFDA."
