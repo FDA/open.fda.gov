@@ -17,7 +17,7 @@ names:
         show_collapse_rows_button: false
         columns:
           - Header: Product Type
-            accessor: openfda.product_type
+            accessor: product_type
             show: true
             showDefault: true
           - Header: Marketing Category
@@ -30,21 +30,21 @@ names:
             show: false
             showDefault: false
           - Header: Labeler Name
-            accessor: openfda.manufacturer_name
+            accessor: manufacturer_name
             show: true
             showDefault: true
           - Header: Proprietary Name
-            accessor: openfda.brand_name
+            accessor: brand_name
             show: true
             showDefault: true
             startCase: true
           - Header: Substance Name
-            accessor: openfda.substance_name
+            accessor: substance_name
             show: true
             showDefault: true
             split: true
           - Header: NDC
-            accessor: openfda.product_ndc
+            accessor: product_ndc
             show: true
             showDefault: true
             split: true
@@ -122,7 +122,7 @@ names:
             show: false
             showDefault: false
           - Header: Application Number
-            accessor: openfda.application_number
+            accessor: application_number
             show: false
             showDefault: false
             getPreNumbersPart: true
@@ -265,7 +265,7 @@ names:
         - label: Product type
           type: checkbox
           query_type: term
-          field: openfda.product_type_exact
+          field: product_type_exact
           options:
             - label: Over the counter
               value: OTC ANIMAL DRUG
@@ -307,7 +307,7 @@ names:
               value: unapproved homeopathic
         - label: Drug Approval Status
           type: boolean
-          field: openfda.application_number
+          field: application_number
           query_type: exists
           options:
             - label: Approved
@@ -315,7 +315,7 @@ names:
             - label: Unapproved
               value: false
         - label: Brand Name
-          field: openfda.brand_name_exact
+          field: brand_name_exact
           autocomplete_field: openfda.brand_name
           query_type: term
           type: select_autocomplete
@@ -348,7 +348,7 @@ names:
           limit: 100
         - label: Labeler Name
           type: select_autocomplete
-          field: openfda.manufacturer_name_exact
+          field: manufacturer_name_exact
           autocomplete_field: openfda.manufacturer_name
           query_type: term
           placeholder: Search Labeler Name
@@ -373,7 +373,7 @@ names:
         - label: NDC Code
           type: select_autocomplete
           can_query: true
-          field: openfda.product_ndc_exact
+          field: product_ndc_exact
           query_type: term
           autocomplete_field: openfda.product_ndc
           placeholder: E.g. 59822-1
@@ -381,7 +381,7 @@ names:
         - label: Application Number
           type: select_autocomplete
           can_query: true
-          field: openfda.application_number
+          field: application_number
           query_type: term
           autocomplete_field: openfda.application_number
           placeholder: E.g. ANADA200224
