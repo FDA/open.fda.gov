@@ -14,10 +14,10 @@ dateRange:
   params:
     - search for all records with submission_date between Jan 01, 2018 and July 23, 2020.
   query: 'https://openfda-api.preprod.fda.gov/tobacco/problem.json?search=submission_date:[20180101+TO+20200723]'
-productType:
-  title: Problem reports by product type
+tobaccoProducts:
+  title: Problem reports by tobacco product
   description:
     - The suffix .exact is required by openFDA to count the unique full phrases in the field product_type. Without it, the API will count each word in that field individually—Firm Initiated would be counted as separate values, Firm and Initiated.
   params:
-    - search the tobacco product types selected by the reporter
-  query: 'https://openfda-api.preprod.fda.gov/tobacco/problem.json?count=product_type.exact'
+    - search the tobacco products selected by the reporter
+  query: 'https://openfda-api.preprod.fda.gov/tobacco/problem.json?count=tobacco_products.exact'

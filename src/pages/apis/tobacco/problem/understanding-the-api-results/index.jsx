@@ -12,7 +12,7 @@ class IndexRoute extends React.Component {
         <h2>Understanding the API Results</h2>
         <p>For <code>search</code> queries (such as: <a href="https://api.fda.gov/tobacco/problem.json?search=submission_date:20131218&limit=1">https://api.fda.gov/tobacco/problem.json?search=submission_date:20200101&limit=1</a>), the <code>results</code> section includes matching adverse events reports returned by the API.</p>
 
-        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/tobacco/problem.json?count=product_type.exact">https://api.fda.gov/tobacco/problem.json?count=product_type.exact</a>), the results section will look something like the following:</p>
+        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/tobacco/problem.json?count=tobacco_products.exact">https://api.fda.gov/tobacco/problem.json?count=tobacco_products.exact</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}

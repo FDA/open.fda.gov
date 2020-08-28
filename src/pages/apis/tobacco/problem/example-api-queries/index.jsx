@@ -8,7 +8,7 @@ class IndexRoute extends React.Component {
 
     const oneRecord = explorers['oneRecord']
     const dateRange = explorers['dateRange']
-    const productType = explorers['productType']
+    const tobaccoProducts = explorers['tobaccoProducts']
 
     return (
       <section className="doc-content">
@@ -28,10 +28,10 @@ class IndexRoute extends React.Component {
           title={dateRange.title}
         />
         <QueryExplorer
-          desc={productType.description}
-          originalQuery={productType.query}
-          params={productType.params}
-          title={productType.title}
+          desc={tobaccoProducts.description}
+          originalQuery={tobaccoProducts.query}
+          params={tobaccoProducts.params}
+          title={tobaccoProducts.title}
         />
       </section>
     )
