@@ -17,7 +17,7 @@ names:
         show_collapse_rows_button: false
         columns:
           - Header: Product Type
-            accessor: product_type
+            accessor: product_type.exact
             show: true
             showDefault: true
           - Header: Marketing Category
@@ -125,7 +125,7 @@ names:
             accessor: application_number
             show: false
             showDefault: false
-            getPreNumbersPart: true
+            getPreNumbersPart: false
           - Header: Is original packager
             accessor: openfda.is_original_packager
             show: false
