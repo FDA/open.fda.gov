@@ -6,7 +6,7 @@ properties:
     possible_values:
     type: number
   date_submitted:
-    description: "Date report was received by CTP; this is the earliest date of report receipt, either to Safety Reporting Portal (SRP) or by other means. Date follows format: four-digit year, two-digit month, two-digit day."
+    description: "Date report was received by CTP; this is the earliest date of report receipt, either to Safety Reporting Portal (SRP) or by other means. Date follows format: One or two-digit month/one or two-digit day/four-digit year."
     format: date
     is_exact: false
     pattern: "YYYYmmdd"
