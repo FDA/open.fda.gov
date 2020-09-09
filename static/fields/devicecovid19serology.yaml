@@ -76,7 +76,7 @@ properties:
     is_exact: false
     possible_values:
     type: string
-  iga_resul:
+  iga_result:
     description: "The test result for qualitative detection of IgA antibodies."
     format:
     is_exact: false
@@ -90,6 +90,12 @@ properties:
     type: string
   igm_igg_result:
     description: "The test result for qualitative detection of (IgM / IgG) combined antibodies."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igm_iga_result:
+    description: "The test result for qualitative detection of (IgM / IgA) combined antibodies."
     format:
     is_exact: false
     possible_values:
@@ -186,6 +192,18 @@ properties:
     type: string
   igm_igg_agree:
     description: "Agreement between igm_igg_result and antibody_truth."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'TN': "True Negative"
+        'TP': "True Positive"
+        'FN': "False Negative"
+        'FP': "False Positive"
+    type: string
+  igm_iga_agree:
+    description: "Agreement between igm_iga_result and antibody_truth."
     format:
     is_exact: false
     possible_values:
