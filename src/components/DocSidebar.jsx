@@ -45,7 +45,7 @@ const SectionLinks = props => {
 }
 
 const APINavLink = props => {
-    let isActive = window.location.href.endsWith(props.to);
+    let isActive = typeof window !== "undefined" ? window.location.href.endsWith(props.to) : false;
     let className = isActive ? props.className +" sidebar-item-active" : props.className;
 
     return (
