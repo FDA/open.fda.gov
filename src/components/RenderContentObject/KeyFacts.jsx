@@ -17,9 +17,7 @@ const KeyFacts = (props: tPROPS) => {
   const source = {
     'animalandveterinary': {
       'event': 'Animal Drug Adverse Events (ADAE)',
-      'label': 'Animal & Veterinary SPL files',
-      'petfood_reports': 'Pet Food Reports',
-      'phishpharm': 'Animal & Veterinary SPL files'
+      'label': 'Animal & Veterinary SPL files'
     },
     'food': {
       'enforcement': 'FDA Recall Enterprise System (RES)',
@@ -33,24 +31,25 @@ const KeyFacts = (props: tPROPS) => {
       'registrationlisting': 'Registration and Listing',
       'recall': 'Medical Device Recalls',
       'enforcement': 'FDA Recall Enterprise System (RES)',
-      'udi': 'Global Unique Device Identification Database (GUDID)'
+      'udi': 'Global Unique Device Identification Database (GUDID)',
+      'covid19serology': 'Independent testing by US Government Laboratories'
     },
     'drug': {
       'event': 'FDA Adverse Event Reporting System (FAERS)',
       'label': 'FDA SPL files',
-      'enforcement': 'FDA Recall Enterprise System (RES)'
+      'ndc': 'NDC Directory',
+      'enforcement': 'FDA Recall Enterprise System (RES)',
+      'drugsfda': 'Drugs@FDA'
     },
     'other': {
-      'nsde': 'NDC SPL Data Elements'
+      'nsde': 'NDC SPL Data Elements',
+      'substance': 'Substance Data Reports'
     }
   }
 
   const source_link = {
     'animalandveterinary': {
-      'event': '/data/adae/',
-      'label': '/data/spl/',
-      'petfood_reports': '/data/pet_food/',
-      'phishpharm': '/data/phishpharm/'
+      'event': '/data/adae/'
     },
     'food': {
       'enforcement': '/data/res/',
@@ -63,24 +62,25 @@ const KeyFacts = (props: tPROPS) => {
       'pma': '/data/pma/',
       'registrationlisting': '/data/registrationlisting/',
       'recall': '/data/device-recall/',
-      'enforcement': '/data/res/'
+      'enforcement': '/data/res/',
     },
     'drug': {
       'event': '/data/faers/',
       'label': '/data/spl/',
-      'enforcement': '/data/res/'
+      'ndc': '/data/ndc/',
+      'enforcement': '/data/res/',
+      'drugsfda': '/data/drugsfda/'
     },
     'other': {
-      'nsde': '/apis/other/nsde/'
+      'nsde': '/apis/other/nsde/',
+      'substance': '/apis/other/substance/'
     }
   }
 
   const time_period = {
     'animalandveterinary': {
       'event': '1987 to present',
-      'label': '2006 to present',
-      'petfood_reports': '2002 to present',
-      'phishpharm': '1961 to 2013'
+      'label': '2006 to present'
     },
     'food': {
       'enforcement': '2004 to present',
@@ -94,24 +94,26 @@ const KeyFacts = (props: tPROPS) => {
       'registrationlisting': '2007 to present',
       'recall': '2002 to present',
       'enforcement': '2004 to present',
-      'udi': '2013 to present'
+      'udi': '2013 to present',
+      'covid19serology': '2020 to present'
     },
     'drug': {
       'event': 'Currently, this API includes publically releasable records submitted to the FDA through FAERS since 2004',
       'label': 'The bulk of the data is from June 2009 (when labeling was first posted publicly in the SPL format) to the present. However, there are a small number of records from earlier than mid-2009.',
-      'enforcement': '2004 to present'
+      'ndc': 'Present',
+      'enforcement': '2004 to present',
+      'drugsfda': '1939 to present'
     },
     'other': {
-      'nsde': '2009 to present'
+      'nsde': '2009 to present',
+      'substance': 'Current'
     }
   }
 
   const frequency = {
     'animalandveterinary': {
       'event': 'Quarterly',
-      'label': 'Weekly',
-      'petfood_reports': 'Monthly',
-      'phishpharm': 'N/A'
+      'label': 'Weekly'
     },
     'food': {
       'enforcement': 'Weekly',
@@ -125,15 +127,19 @@ const KeyFacts = (props: tPROPS) => {
       'registrationlisting': 'Monthly',
       'recall': 'Monthly',
       'enforcement': 'Weekly',
-      'udi': 'Weekly'
+      'udi': 'Weekly',
+      'covid19serology': 'Intermittently'
     },
     'drug': {
       'event': 'Quarterly. However, please be advised that the data in this API may lag by 3 months or more at any given time, depending on when the quarterly FAERS data is released.',
       'label': 'Weekly',
-      'enforcement': 'Weekly'
+      'ndc': 'Daily',
+      'enforcement': 'Weekly',
+      'drugsfda': 'Weekly',
     },
     'other': {
-      'nsde': 'Daily'
+      'nsde': 'Daily',
+      'substance': 'Daily'
     }
   }
 
@@ -160,7 +166,7 @@ const KeyFacts = (props: tPROPS) => {
         <li>
           <i className="fa fa-edit"/>
           <div className="label">Changes to the source data:</div>
-          <div className="value">OpenFDA annotates the original records with <Link to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>special fields </Link>
+          <div className="value">openFDA annotates the original records with <Link to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>special fields </Link>
             and converts the data into JSON, which is a widely used machine readable format.</div>
         </li>
         <li>

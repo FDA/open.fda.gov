@@ -1,0 +1,20 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - "stable"
+
+install:
+  - npm ci
+
+script:
+  - npm run dev:css
+  - npm run build
+
+notifications:
+  email: false
+
+branches:
+  only:
+    - master

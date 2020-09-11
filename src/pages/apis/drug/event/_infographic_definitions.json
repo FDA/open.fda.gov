@@ -61,7 +61,7 @@
         }
       },
       "lineChart": {
-        "interpolation": "curveBasis"
+        "interpolation": "curveMonotoneX"
       },
       "colors": [
         "#1f77b4", "#00d899", "#ff3300", "#2ca02c", "#ff7f0e", 
@@ -92,7 +92,7 @@
     {
       "title": "<i><i class='datamap-infographic-header-text-bold'>Drug Adverse Events</i> by Type of Seriousness </i>",
       "subtitle": "Device Recalls",
-      "yTitle": "Indication",
+      "yTitle": "",
       "xTitle": "",
       "selectionPostFix": "-Related ",
       "countBy": "patient.drug.drugindication.exact",

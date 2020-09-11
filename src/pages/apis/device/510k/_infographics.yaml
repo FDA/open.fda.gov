@@ -13,7 +13,7 @@
     - title: "Device class *I* (generally less risk to patients)"
       searchParam: "openfda.device_class:1"
     - title: "Device class III (generally more risk to patients)"
-      searchParam: "openfda.device_class:1"
+      searchParam: "openfda.device_class:3"
   filterByDate: false
   type: Bar
 - title: "Device 510(k) by country"

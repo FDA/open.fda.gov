@@ -28,10 +28,10 @@ const INDEX = () => (
           </div>
           <i className='fa fa-angle-right fa-2x marg-l-1'/>
         </Link>
-        <Link className='link-card btn btn-icon-right weight-700' to='/tools/downloads/'>
+        <Link className='link-card btn btn-icon-right weight-700' to='/downloads/'>
           <img className='' src='/img/download.svg'/>
           <div className='flex-box dir-column marg-l-1 marg-r-1'>
-            <h3 className='marg-b-1 clr-primary-darker'>Download OpenFDA Data</h3>
+            <h3 className='marg-b-1 clr-primary-darker'>Download openFDA Data</h3>
             <p className='smallest'>The endpoints' data may be downloaded in zipped JSON format.</p>
           </div>
           <i className='fa fa-angle-right fa-2x marg-l-1'/>
@@ -40,7 +40,7 @@ const INDEX = () => (
           <img className='' src='/img/lightbulb.svg'/>
           <div className='flex-box dir-column marg-l-1 marg-r-1'>
             <h3 className='marg-b-1 clr-primary-darker'>View Community Apps</h3>
-            <p className='smallest'>OpenFDA features an open user community for sharing open source code, examples, and ideas.</p>
+            <p className='smallest'>openFDA features an open user community for sharing open source code, examples, and ideas.</p>
           </div>
           <i className='fa fa-angle-right fa-2x marg-l-1'/>
         </Link>

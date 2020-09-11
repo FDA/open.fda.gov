@@ -1,0 +1,46 @@
+- title: "Substance Class by Property Type"
+  short: "Property Type"
+  dataset: Substance
+  description:
+    - "The Substance dataset includes information about the property type of the substances."
+  countParam: "substance_class"
+  filters:
+    - title: "All Substance Data Records"
+      searchParam: ''
+    - title: "Chemical"
+      searchParam: 'properties.property_type:"CHEMICAL"'
+    - title: "Pharmacokinetic"
+      searchParam: 'properties.property_type:"PHARMACOKINETIC"'
+    - title: "Physical"
+      searchParam: 'properties.property_type:"PHYSICAL"'
+    - title: "Biological"
+      searchParam: 'properties.property_type:"BIOLOGICAL"'
+    - title: "Toxicity"
+      searchParam: 'properties.property_type:"TOXICITY"'
+    - title: "Ennzymatic"
+      searchParam: 'properties.property_type:"ENZYMATIC"'
+  type: Donut
+- title: "Substance Data by Substance Class"
+  short: "Substance Class"
+  dataset: Substance
+  description:
+    - "The Substance dataset includes a wide range of substance classes."
+  countParam: "names.name"
+  filters:
+    - title: "All Substance Data Records"
+      searchParam: ''
+    - title: "Chemical"
+      searchParam: 'substance_class:"chemical"'
+    - title: "Structurally Diverse"
+      searchParam: 'substance_class:"structurallyDiverse"'
+    - title: "Concept"
+      searchParam: 'substance_class:"concept"'
+    - title: "Mixture"
+      searchParam: 'substance_class:"mixture"'
+    - title: "Protein"
+      searchParam: 'substance_class:"protein"'
+    - title: "Polymer"
+      searchParam: 'substance_class:"polymer"'
+    - title: "Nucleic Acid"
+      searchParam: 'substance_class:"nucleicAcid"'
+  type: Bar

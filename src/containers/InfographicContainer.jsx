@@ -139,7 +139,7 @@ class InfographicContainer extends React.Component {
 
     // sometimes we want to filter by year, and sometimes we don't
     return curr.dateConstraint ?
-      (curr.dateConstraint + ':' + [startDate + '+TO+' + endDate]) :
+      (curr.dateConstraint + ':' + '[' + startDate + '+TO+' + endDate + ']') :
       ''
   }
 
@@ -157,17 +157,17 @@ class InfographicContainer extends React.Component {
    */
   _fetchQueryAndUpdate (searchParam: string, countParam: string) {
     var that = this
-    let download_url = 'https://api.fda.gov/download.json'
+    let download_url = API_LINK + '/download.json'
     fetch(download_url)
       .then(function (res) {
         return res.json()
       }).then(function(res) {
         const range: string = that._getFilterRange(res)
         const search: string = that._getFilterSearch(searchParam, range)
-        const query: string = that.props.api + that.props.meta.api_path + '.json?' + search + 'count=' + countParam
+        const query: string = API_LINK + that.props.meta.api_path + '.json?' + search + 'count=' + countParam
 
         const urls = [
-          that.props.api + that.props.meta.api_path + '.json?' + search,
+          API_LINK + that.props.meta.api_path + '.json?' + search,
           query
         ];
         Promise.all(urls.map($.getJSON)).then(function(results) {
@@ -341,6 +341,7 @@ class InfographicContainer extends React.Component {
           <Infographic
             { ...this.props }
             { ...this.state }
+
             onSearchChangeUpdate={this._update.bind(this)}
             onSearchChange={this._onSearchChange.bind(this)}
             records={this.state.matchingRecords}

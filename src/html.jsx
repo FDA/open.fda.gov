@@ -6,7 +6,7 @@ import faviconPNG from './favicon.png'
 const webFontLoader: string = `
   WebFontConfig = {
     google: {
-      families: ['Merriweather:400,700', 'Source Sans Pro:00,400i,600,600i,700,700i,900']
+      families: ['Merriweather:400,700', 'Source Sans Pro:400,400i,600,600i,700,700i,900']
     }
   }
   ;(function(d) {
@@ -99,6 +99,11 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
       <script src="https://unpkg.com/classnames@2.2.5/index.js" />
       <script src="https://unpkg.com/react-input-autosize@2.0.0/dist/react-input-autosize.js" />
       <script src="https://unpkg.com/react-select@1.2.1/dist/react-select.js" />
+
+      {
+        // We participate in the US government's analytics program. See the data at analytics.usa.gov.}
+      }
+      <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS" id="_fed_an_ua_tag" />
 
       <link rel='stylesheet' href='https://unpkg.com/react-select@1.2.1/dist/react-select.css' />
     </head>
