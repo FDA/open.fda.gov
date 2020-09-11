@@ -29,6 +29,7 @@ class IndexRoute extends React.Component {
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
           endpoint_name={meta.api_path.split("/")[2]}
+          harmonized={true}
         />
 
         <h3>Fields Harmonization</h3>

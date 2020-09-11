@@ -1,0 +1,62 @@
+properties:
+  report_id:
+    description: "7-digit Individual Case Safety Record (ICSR) number (no spaces)."
+    format: integer
+    is_exact: false
+    possible_values:
+    type: number
+  date_submitted:
+    description: "Date report was received by CTP; this is the earliest date of report receipt, either to Safety Reporting Portal (SRP) or by other means. Date follows format: two-digit month/two-digit day/four-digit year."
+    format: date
+    is_exact: false
+    pattern: "YYYYmmdd"
+    type: string
+  number_tobacco_products:
+    description: "System-calculated number of Tobacco Product Problems reported, displayed as a whole number, ≥ 0."
+    format: integer
+    is_exact: false
+    possible_values:
+    type: number
+  tobacco_products:
+    type: array
+    items:
+      description: "Text reflecting the SRP tobacco products selected by the reporter."
+      format:
+      is_exact: true
+      possible_values:
+      type: string
+  number_health_problems:
+    description: "System-calculated number of Health Problems (i.e., MedDRA terms selected from a standardized list of symptoms, signs, diagnoses and outcomes) reported, displayed as a whole number, ≥0."
+    format: integer
+    is_exact: false
+    possible_values:
+    type: number
+  reported_health_problems:
+    type: array
+    items:
+      description: "Text reflecting the MedDRA terms selected by the reporter."
+      format:
+      is_exact: true
+      possible_values:
+      type: string
+  nonuser_affected:
+    description: "Displays text reflecting the response to this optional question (2017 - 12/14/2018) or required question (12/15/2018 onward) as “No information provided” if not answered, or Yes/No."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  number_product_problems:
+    description: "System-calculated number of categorical Product Problems reported, displayed as a whole number, ≥0."
+    format: integer
+    is_exact: false
+    possible_values:
+    type: number
+  reported_product_problems:
+    type: array
+    items:
+      description: "Text reflecting the SRP categorical list of values."
+      format:
+      is_exact: true
+      possible_values:
+      type: string
+type: object

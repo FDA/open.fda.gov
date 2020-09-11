@@ -44,14 +44,14 @@ const SectionLinks = props => {
   )
 }
 
-// const APINavLink = props => {
-//     let isActive = window.location.href.endsWith(props.to);
-//     let className = isActive ? props.className +" sidebar-item-active" : props.className;
-//
-//     return (
-//         <Link  {...props} className={className}> {props.title}</Link>
-//     );
-// }
+const APINavLink = props => {
+    let isActive = typeof window !== "undefined" ? window.location.href.endsWith(props.to) : false;
+    let className = isActive ? props.className +" sidebar-item-active" : props.className;
+
+    return (
+        <Link  {...props} className={className}> {props.title}</Link>
+    );
+}
 
 const SectionLink = props => {
 
@@ -102,24 +102,14 @@ const SectionLink = props => {
           {title}
         </a>
       ) : (
-          <Link
-              to={link}
-              key={link}
-              className={itemCx}
-              activeClassName='sidebar-item-active'
-              onClick={props.toggleMobileSidebar}
-              exact
-          >
-            {title}
-          </Link>
-          // <APINavLink
-          // to={link}
-          // key={link}
-          // className={itemCx}
-          // activeClassName='sidebar-item-active'
-          // onClick={props.toggleMobileSidebar}
-          // title={title}
-          // />
+          <APINavLink
+          to={link}
+          key={link}
+          className={itemCx}
+          activeClassName='sidebar-item-active'
+          onClick={props.toggleMobileSidebar}
+          title={title}
+          />
       )
       }
       {childnodes ?
