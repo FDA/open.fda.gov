@@ -115,7 +115,7 @@
           },
           {
             "label": "Brand Name",
-            "value": "brand_name_exact"
+            "value": "brand_name.exact"
           },
           {
             "label": "Generic Name",
@@ -123,11 +123,11 @@
           },
           {
             "label": "Labeler Name",
-            "value": "manufacturer_name_exact"
+            "value": "manufacturer_name.exact"
           },
           {
             "label": "Product Type",
-            "value": "product_type_exact"
+            "value": "product_type.exact"
           }
         ],
         "margin": {
