@@ -9,15 +9,23 @@ export default () => (
       <div className='flex-row just-center align-center flex-wrap'>
         <EndpointBox
           noun_name='drug'
-          endpoint_name='enforcement'
-        />
-        <EndpointBox
-          noun_name='drug'
           endpoint_name='event'
         />
         <EndpointBox
           noun_name='drug'
           endpoint_name='label'
+        />
+        <EndpointBox
+          noun_name='drug'
+          endpoint_name='ndc'
+        />
+        <EndpointBox
+          noun_name='drug'
+          endpoint_name='enforcement'
+        />
+        <EndpointBox
+          noun_name='drug'
+          endpoint_name='drugsfda'
         />
       </div>
     </div>

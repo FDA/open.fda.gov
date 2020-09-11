@@ -12,7 +12,7 @@ class IndexRoute extends React.Component {
 
     return (
       <section className="doc-content">
-        <h2>Device Recall Overview</h2>
+        <h2>Unique Device Identifier Overview</h2>
         <p>The openFDA unique device identifier API returns data from the Global Unique Device Identification Database (GUDID), which contains information submitted to the FDA about medical devices that have Unique Device Identifiers (UDI).</p>
         <p>UDIs are unique numeric or alphanumeric codes that consist of two parts—a device identifier (DI) and a production identifier (PI). UDIs are intended to increase electronic tracking abilities for devices involved in adverse events. Submission to the GUDID database is required for manufacturers of medical devices. The FDA is establishing the unique device identification system to adequately identify devices sold in the U.S.- from manufacturing through distribution to patient use.</p>
         <p>To learn more about UDIs, see the <a href="https://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">FDA's General information about UDI page</a>.</p>

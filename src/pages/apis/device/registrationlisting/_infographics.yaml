@@ -7,7 +7,7 @@
     - title: "All registrations and listings"
       searchParam: ""
     - title: "Devices with the word *implant* in the name"
-      searchParam: "device_name:implant"
+      searchParam: "products.openfda.device_name:implant"
     - title: "Proprietary name includes the term *pump*"
       searchParam: "proprietary_name:pump"
     - title: "*Device class I or II*"

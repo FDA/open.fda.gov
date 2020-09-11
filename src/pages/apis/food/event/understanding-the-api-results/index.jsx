@@ -10,7 +10,7 @@ class IndexRoute extends React.Component {
     return (
       <section className="doc-content">
         <h2>Understanding the API Results</h2>
-        <p>For <code>search</code> queries (such as: <a href='https://api.fda.gov/food/event.json?search=outcomes:"serious+injuries"'>https://api.fda.gov/food/event.json?search=outcomes:"serious+injuries"</a>), the <code>results</code> section includes matching adverse event reports returned by the API.</p>
+        <p>For <code>search</code> queries (such as: <a href='https://api.fda.gov/food/event.json?search=outcomes:"medically+important"'>https://api.fda.gov/food/event.json?search=outcomes:"medically+important"</a>), the <code>results</code> section includes matching adverse event reports returned by the API.</p>
         <p>Each adverse event report consists of these major sections:</p>
         <ul>
           <li><code>Header:</code>General information about the adverse event</li>

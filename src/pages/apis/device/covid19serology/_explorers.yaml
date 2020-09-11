@@ -1,0 +1,25 @@
+oneSample:
+  title: One sample result
+  description:
+    - "This query searches for all records."
+  params:
+    - "*search* for all records."
+    - "*limit* to 1 record"
+  query: 'https://api.fda.gov/device/covid19serology.json?limit=1'
+antibodyPositive:
+  title: One sample with a positive antibody result
+  description:
+    - "This query searches for records matching a certain search term, and asks for a single one."
+    - "See [searchable fields](/apis/device/covid19serology/searchable-fields/) for more fields you can use to narrow searches for serological testing evaluations."
+  params:
+    - "*search* for all records with `antibody_truth` is *Positive*"
+    - "*limit* to 1 record"
+  query: 'https://api.fda.gov/device/covid19serology.json?search=antibody_truth:"Positive"&limit=1'
+countType:
+  title: Count of different sample materials
+  description:
+    - "This query returns a count of the samples received of each material type."
+  params:
+    - "*search* for all records."
+    - "count the field `type`"
+  query: 'https://api.fda.gov/device/covid19serology.json?count=type'

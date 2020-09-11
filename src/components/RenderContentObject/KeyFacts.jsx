@@ -62,7 +62,7 @@ const KeyFacts = (props: tPROPS) => {
       'pma': '/data/pma/',
       'registrationlisting': '/data/registrationlisting/',
       'recall': '/data/device-recall/',
-      'enforcement': '/data/res/'
+      'enforcement': '/data/res/',
     },
     'drug': {
       'event': '/data/faers/',

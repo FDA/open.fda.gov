@@ -217,6 +217,15 @@ const Nav = (props: tPROPS) => {
                   </div>
                 </div>
               </div>
+              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
+                <Link
+                  title='Downloads'
+                  to='/downloads/'
+                  className={path === '/downloads/' ? 'menu-header header-selected emphasis': activeDropdown==='Downloads' ? 'menu-header emphasis': 'menu-header'}
+                  onTouchStart={toggleDropdownContent}
+                >Downloads</Link>
+                <div className={path === '/downloads/' ? 'menu-header-underbar': 'menu-header-underbar display-none'} style={{width: 'calc(100% - 1em)'}}/>
+              </div>
               <div className='dropdown'>
                 <button
                   title='Disclaimer'

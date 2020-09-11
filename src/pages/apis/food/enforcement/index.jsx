@@ -14,7 +14,7 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>Food Enforcement Overview</h2>
         <p>The openFDA food enforcement reports API returns data from the <Link to="/data/res/">FDA Recall Enterprise System (RES)</Link>, a database that contains information on recall event information submitted to FDA. Currently, this data covers publicly releasable records from 2004-present. The data is updated weekly.</p>
-        <p>The procedures followed to input recall information into RES when FDA learns of a recall event are outlined in <a href="http://www.fda.gov/ICECI/ComplianceManuals/RegulatoryProceduresManual/ucm177304.htm">Chapter 7 of FDA’s Regulatory Procedure Manual</a> The Regulatory Procedures Manual is a reference manual for FDA personnel. It provides FDA personnel with information on internal procedures to be used in processing domestic and import regulatory and enforcement matters.</p>
+        <p>The procedures followed to input recall information into RES when FDA learns of a recall event are outlined in <a href="https://www.fda.gov/media/71814/download">Chapter 7 of FDA’s Regulatory Procedure Manual</a> The Regulatory Procedures Manual is a reference manual for FDA personnel. It provides FDA personnel with information on internal procedures to be used in processing domestic and import regulatory and enforcement matters.</p>
 
         <InteractiveInfographic
           infographicDefinitions={infographic_definitions}
@@ -39,14 +39,14 @@ class IndexRoute extends React.Component {
           <li><a href="https://www.fda.gov/ForConsumers/ConsumerUpdates/ucm049070.htm">FDA 101: Product Recalls from First Alert to Effectiveness Checks</a></li>
           <li><Link to="/data/res/">FDA’s RES database</Link></li>
           <li><a href="http://www.fda.gov/Safety/recalls/default.htm">FDA’s Recalls press release page</a></li>
-          <li><a href="https://www.fda.gov/%20Safety/Recalls/EnforcementReports/default.htm">FDA’s weekly Enforcement Report</a></li>
+          <li><a href="https://www.fda.gov/Safety/Recalls/EnforcementReports/default.htm">FDA’s weekly Enforcement Report</a></li>
         </ul>
 
         <h3>Responsible use of the data</h3>
         <p>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products. We may limit or otherwise restrict your access to the API in line with our <Link to="/terms/">Terms of Service</Link></p>
 
         <h3>Disclaimer</h3>
-        <p>This data should not be used as a method to collect data to issue alerts to the public, nor should it be used to track the lifecycle of a recall. FDA seeks publicity about a recall only when it believes the public needs to be alerted to a serious hazard. FDA works with industry and our state partners to publish press releases and other public notices about recalls that may potentially present a significant or serious risk to the consumer or user of the product. <a href="http://www.fda.gov/AboutFDA/ContactFDA/StayInformed/RSSFeeds/Recalls/rss.xml">Subscribe to this Recall/Safety Alert feed here</a></p>
+        <p>This data should not be used as a method to collect data to issue alerts to the public, nor should it be used to track the lifecycle of a recall. FDA seeks publicity about a recall only when it believes the public needs to be alerted to a serious hazard. FDA works with industry and our state partners to publish press releases and other public notices about recalls that may potentially present a significant or serious risk to the consumer or user of the product.</p>
         <p>Further, FDA does not update the status of a recall after the recall has been classified according to its level of hazard. As such, the status of a recall (open, completed, or terminated) will remain unchanged after published in the Enforcement Reports.</p>
       </section>
     )

@@ -1,6 +1,6 @@
 import React from "react"
 
-import QueryExplorer from '../../../../../components/QueryExplorer'
+import QueryTour from '../../../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
@@ -14,23 +14,26 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>Example Device Classification API queries</h2>
         <p>To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
-        <QueryExplorer
+        <QueryTour
           desc={oneDevice.description}
-          originalQuery={oneDevice.query}
+          query={oneDevice.query}
           params={oneDevice.params}
           title={oneDevice.title}
+          name={'oneDevice'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={nob.description}
-          originalQuery={nob.query}
+          query={nob.query}
           params={nob.params}
           title={nob.title}
+          name={'nob'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={topFei.description}
-          originalQuery={topFei.query}
+          query={topFei.query}
           params={topFei.params}
           title={topFei.title}
+          name={'topFei'}
         />
       </section>
     )

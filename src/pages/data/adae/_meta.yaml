@@ -4,22 +4,23 @@ crumbs:
   - openFDA
   - Datasets
   - ADAE
-title: 'About FDA/CVM ADE'
-description: 'The primary purpose for maintaining the CVM ADE database is to provide an early warning or signaling system to CVM for adverse effects not detected during pre-market testing of FDA-approved animal drugs and for monitoring the performance of drugs not approved for use in animals.'
+title: 'Animal & Veterinary Adverse Events (ADAE)'
+description: 'Reported adverse drug and device experiences in animals.'
 source:
   name: 'ADAE'
-  nameLong: 'Animal Drug Adverse Event'
-  link: 'http://www.fda.gov/AnimalVeterinary/SafetyHealth/ProductSafetyInformation/ucm055369.htm'
+  nameLong: 'Animal & Veterinary Adverse Events for Animal Drugs and Devices'
+  link: 'https://www.fda.gov/animal-veterinary/product-safety-information/adverse-event-reports-animal-drugs-and-devices'
+  linkDownload:
 license:
   name: 'Public Domain and CC0'
   link: 'http://creativecommons.org/publicdomain/zero/1.0/'
-time:
-  start: '1987'
+  time:
+  start:
   current:
-  delay: '3 month'
-  frequency: 'Quarterly'
+  delay:
+  frequency:
 provider:
   name: 'FDA'
   link: 'http://www.fda.gov/'
 additionalContent:
-  - "The primary purpose for maintaining the CVM ADE database is to provide an early warning or signaling system to CVM for adverse effects not detected during pre-market testing of FDA-approved animal drugs and for monitoring the performance of drugs not approved for use in animals. Information from these ADE reports is coded and entered into a computerized FDA/CVM ADE database. CVM scientists use the ADE database to make decisions about product safety which may include changes to the label or other regulatory action."
+  - 'The FDA encourages veterinarians and animal owners to report adverse drug experiences and product defects associated with animal drugs or animal devices. Adverse drug experiences can include side effects or other problems, such as the drug not appearing effective. The FDA recommends that an animal drug adverse event reporter include details on the following: names and amounts of all drugs, products marketed as supplements, or vitamins the animal has been given; current type and/or brand of pet food and treats; information about any recent surgeries; and as much medical information as possible. Medical information may include: veterinary examination findings; bloodwork, urinalysis, and fecal exam results; x-ray findings; other relevant information such as blood pressure; and neurologic test results. However, the details and information submitted in any report may vary and in some cases certain information may not be included in a given report.'

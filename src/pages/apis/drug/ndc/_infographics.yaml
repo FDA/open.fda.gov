@@ -1,0 +1,48 @@
+- title: "Top Pharm Class Results"
+  short: "Pharm Class"
+  description:
+    - "Display the top pharm classes among all NDC products."
+  countParam: "pharm_class.exact"
+  filters:
+    - title: "All products"
+      searchParam: ""
+    - title: "Pharm Class CS"
+      searchParam: "_exists_:openfda.pharm_class_cs"
+    - title: "Pharm Class EPC"
+      searchParam: "_exists_:openfda.pharm_class_epc"
+    - title: "Pharm Class MOA"
+      searchParam: "_exists_:openfda.pharm_class_moa"
+    - title: "Pharm Class PE"
+      searchParam: "_exists_:openfda.pharm_class_pe"
+  type: Bar
+  dateConstraint: false
+- title: "Products by DEA Schedule"
+  short: "DEA Schedule"
+  description:
+    - "All products fall into one of several DEA schedules. Values are CI, CII, CIII, CIV, and CV."
+  countParam: "dea_schedule"
+  filters:
+    - title: "All products"
+      searchParam: ""
+    - title: "Over-the-counter drugs"
+      searchParam: "product_type.exact:\"HUMAN OTC DRUG\""
+    - title: "Prescription drugs"
+      searchParam: "product_type.exact:\"HUMAN PRESCRIPTION DRUG\""
+  type: Donut
+  dateConstraint: false
+- title: "Marketing End Dates Over Time"
+  short: "Over Time"
+  description:
+    - "Many products have an end date associated - this is a visualization of those dates over time."
+  countParam: "marketing_end_date"
+  filters:
+    - title: "All products"
+      searchParam: ""
+    - title: "Human OTC drug"
+      searchParam: 'product_type.exact:"HUMAN OTC DRUG"'
+    - title: "Human prescription drug"
+      searchParam: 'product_type.exact:"HUMAN PRESCRIPTION DRUG"'
+    - title: "With Ibuprofen as an active ingredient"
+      searchParam: 'active_ingredients.name.exact:IBUPROFEN'
+  type: Line
+  dateConstraint: false

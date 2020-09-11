@@ -4,7 +4,7 @@ import Link from "gatsby-link"
 import FieldExplorer from '../../../../../components/FieldExplorer'
 
 import meta from '../_meta.yaml'
-import fields from '../_fields.yaml'
+import fields from '../../../../../constants/fields/foodevent.yaml'
 
 class IndexRoute extends React.Component {
   render() {

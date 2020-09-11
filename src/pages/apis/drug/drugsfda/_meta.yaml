@@ -1,0 +1,12 @@
+documentTitle: openFDA › Drugs › Drugs@FDA
+label: Drugs@FDA
+title: Drugs@FDA
+description: "Drugs@FDA includes most of the drug products approved since 1939. The majority of patient information, labels, approval letters, reviews, and other information are available for drug products approved since 1998."
+datasets:
+  - drugsfda
+path: /apis/drug/drugsfda
+api_path: /drug/drugsfda
+start: 19390101
+status: drugsfda
+dateConstraintKey: submission_status_date
+type: endpoint
