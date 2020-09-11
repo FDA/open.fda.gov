@@ -265,7 +265,7 @@ names:
         - label: Product type
           type: checkbox
           query_type: term
-          field: product_type_exact
+          field: product_type.exact
           options:
             - label: Over the counter
               value: OTC ANIMAL DRUG
@@ -315,7 +315,7 @@ names:
             - label: Unapproved
               value: false
         - label: Brand Name
-          field: brand_name_exact
+          field: brand_name.exact
           autocomplete_field: openfda.brand_name
           query_type: term
           type: select_autocomplete
@@ -348,7 +348,7 @@ names:
           limit: 100
         - label: Labeler Name
           type: select_autocomplete
-          field: manufacturer_name_exact
+          field: manufacturer_name.exact
           autocomplete_field: openfda.manufacturer_name
           query_type: term
           placeholder: Search Labeler Name
@@ -373,7 +373,7 @@ names:
         - label: NDC Code
           type: select_autocomplete
           can_query: true
-          field: product_ndc_exact
+          field: product_ndc.exact
           query_type: term
           autocomplete_field: openfda.product_ndc
           placeholder: E.g. 59822-1
