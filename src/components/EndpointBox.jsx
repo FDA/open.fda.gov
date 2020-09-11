@@ -27,9 +27,7 @@ const EndpointBox = (props: tPROPS) => {
   const description = {
     'animalandveterinary': {
       'event': 'Reports of drug side effects, product use errors, product quality problems, and therapeutic failures.',
-      'label': 'Structured product information, including prescribing information, for approved animal & veterinary products.',
-      'petfood_reports': 'Pet food product reports.',
-      'phishpharm': 'A free, searchable, literature database that details drug metabolism, depletion, and pharmacokinetics in fish.'
+      'label': 'Structured product information, including prescribing information, for approved animal & veterinary products.'
     },
     'food': {
       'enforcement': 'Food product recall enforcement reports.',
@@ -58,9 +56,7 @@ const EndpointBox = (props: tPROPS) => {
   const ep_title = {
     'animalandveterinary': {
       'event': 'Adverse event reports',
-      'label': 'Product labeling',
-      'petfood_reports': 'Pet food',
-      'phishpharm': 'Phish Pharm'
+      'label': 'Product labeling'
     },
     'food': {
       'enforcement': 'Recall enforcement reports',
@@ -96,9 +92,7 @@ const EndpointBox = (props: tPROPS) => {
   const icon = {
     'animalandveterinary': {
       'event': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>,
-      'label': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>,
-      'petfood_reports': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>,
-      'phishpharm': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>,
+      'label': <div className="ep-icon" style={bg_color['animalandveterinary']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>
     },
     'food': {
       'enforcement': <div className="ep-icon" style={bg_color['food']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>,
@@ -127,9 +121,7 @@ const EndpointBox = (props: tPROPS) => {
   const ep_path = {
     'animalandveterinary': {
       'event': '/apis/animalandveterinary/event/',
-      'label': '/apis/animalandveterinary/label/',
-      'petfood_reports': '/apis/animalandveterinary/petfood_reports/',
-      'phishpharm': '/apis/animalandveterinary/phishpharm/'
+      'label': '/apis/animalandveterinary/label/'
     },
     'food': {
       'enforcement': '/apis/food/enforcement/',

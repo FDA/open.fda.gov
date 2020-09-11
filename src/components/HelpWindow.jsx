@@ -33,9 +33,7 @@ class HelpWindow extends React.Component {
   render (): ?React.Element {
 
     const ep_path = {
-      "animaldrugs": "/apis/animalandveterinary/label/",
-      "petfoodrecalls": "/apis/animalandveterinary/petfood_reports/",
-      "phishpharm": "/apis/animalandveterinary/phishpharm/"
+      "animaldrugs": "/apis/animalandveterinary/label/"
     }
 
     const help_text = this.props.help_text

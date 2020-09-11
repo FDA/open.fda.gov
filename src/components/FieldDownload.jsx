@@ -3,7 +3,6 @@ import React from 'react'
 const pdfDownloadMap: Object = Object.freeze({
   'animalandveterinaryevent': '/fields/animalandveterinaryevent_reference.pdf',
   'animalandveterinarylabel': '/fields/animalandveterinarylabel_reference.pdf',
-  'animalandveterinarypetfood_reports': '/fields/animalandveterinarypetfood_reference.pdf',
   'foodevent': '/fields/foodevent_reference.pdf',
   'foodenforcement': '/fields/foodenforcement_reference.pdf',
   'drugevent': '/fields/drugevent_reference.pdf',
@@ -22,7 +21,6 @@ const pdfDownloadMap: Object = Object.freeze({
 const xlsxDownloadMap: Object = Object.freeze({
   'animalandveterinaryevent': '/fields/animalandveterinaryevent_reference.xlsx',
   'animalandveterinarylabel': '/fields/animalandveterinarylabel_reference.xlsx',
-  'animalandveterinarypetfood_reports': '/fields/animalandveterinarypetfood_reference.xlsx',
   'foodevent': '/fields/foodevent_reference.xlsx',
   'foodenforcement': '/fields/foodenforcement_reference.xlsx',
   'drugevent': '/fields/drugevent_reference.xlsx',
@@ -41,7 +39,6 @@ const xlsxDownloadMap: Object = Object.freeze({
 const yamlDownloadMap: Object = Object.freeze({
   'animalandveterinaryevent': '/fields/animalandveterinaryevent.yaml',
   'animalandveterinarylabel': '/fields/animalandveterinarylabel.yaml',
-  'animalandveterinarypetfood_reports': '/fields/animalandveterinarypetfood.yaml',
   'foodevent': '/fields/foodevent.yaml',
   'foodenforcement': '/fields/foodenforcement.yaml',
   'drugevent': '/fields/drugevent.yaml',

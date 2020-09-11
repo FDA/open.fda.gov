@@ -17,9 +17,7 @@ const KeyFacts = (props: tPROPS) => {
   const source = {
     'animalandveterinary': {
       'event': 'Animal Drug Adverse Events (ADAE)',
-      'label': 'Animal & Veterinary SPL files',
-      'petfood_reports': 'Pet Food Reports',
-      'phishpharm': 'Animal & Veterinary SPL files'
+      'label': 'Animal & Veterinary SPL files'
     },
     'food': {
       'enforcement': 'FDA Recall Enterprise System (RES)',
@@ -48,9 +46,7 @@ const KeyFacts = (props: tPROPS) => {
   const source_link = {
     'animalandveterinary': {
       'event': '/data/adae/',
-      'label': '/data/spl/',
-      'petfood_reports': '/data/pet_food/',
-      'phishpharm': '/data/phishpharm/'
+      'label': '/data/spl/'
     },
     'food': {
       'enforcement': '/data/res/',
@@ -78,9 +74,7 @@ const KeyFacts = (props: tPROPS) => {
   const time_period = {
     'animalandveterinary': {
       'event': '1987 to present',
-      'label': '2006 to present',
-      'petfood_reports': '2002 to present',
-      'phishpharm': '1961 to 2013'
+      'label': '2006 to present'
     },
     'food': {
       'enforcement': '2004 to present',
@@ -109,9 +103,7 @@ const KeyFacts = (props: tPROPS) => {
   const frequency = {
     'animalandveterinary': {
       'event': 'Quarterly',
-      'label': 'Weekly',
-      'petfood_reports': 'Monthly',
-      'phishpharm': 'N/A'
+      'label': 'Weekly'
     },
     'food': {
       'enforcement': 'Weekly',
