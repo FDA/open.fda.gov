@@ -88,6 +88,12 @@
   link: /drug/
   collapse: true
   items:
+
+- title: Drug API Endpoints
+  id: drug-api-endpoints
+  link: /drug/
+  collapse: true
+  items:
     - title: Adverse Events
       id: drug-adverse-events
       collapse: true
