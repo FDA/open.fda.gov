@@ -2,6 +2,7 @@ import React from 'react'
 import marked from 'marked'
 import Scrollbars from 'react-custom-scrollbars'
 import Select from 'react-select'
+import 'react-select/dist/react-select.css'
 import Values from './RenderContentObject/Values'
 import yamlGet from '../utils/yamlGet'
 import FieldDownload from './FieldDownload'
@@ -34,7 +35,9 @@ const _renderLi = (props: tLiProps) => {
   if (field) {
     desc = field.description
     pattern = field.pattern
-    type = field.type
+    if (typeof field.type === "string") {
+      type = field.type
+    }
     values = field.possible_values
     isExact = field.is_exact && field.is_exact
   }
@@ -46,7 +49,8 @@ const _renderLi = (props: tLiProps) => {
     type2 = field.items.type
   }
 
-  if (field_keys.indexOf("type") === -1) {
+
+  if (field_keys.indexOf("type") === -1 || typeof field.type !== "string") {
     return (
       render_object({
         fields: field,

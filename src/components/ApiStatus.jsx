@@ -11,13 +11,15 @@ type tPROPS = {
 };
 
 const catMap: Object = Object.freeze({
-  'animalandveterinaryevent': 'Animal & Veterinary › Adverse Events',
+  'animalandveterinarydrugevent': 'Animal & Veterinary › Adverse Events',
   'animalandveterinarylabel': 'Animal & Veterinary › Labeling',
   'foodenforcement': 'Foods › Enforcement Reports',
   'foodevent': 'Foods › Adverse Events',
   'drugevent': 'Drugs › Adverse Events',
   'druglabel': 'Drugs › Labeling',
+  'ndc': 'Drugs › NDC Directory',
   'drugenforcement': 'Drugs › Enforcement Reports',
+  'drugsfda': 'Drugs › Drugs@FDA',
   'deviceevent': 'Devices › Adverse Events',
   'devicerecall': 'Devices › Recalls',
   'deviceclass': 'Devices › Classification',
@@ -26,18 +28,22 @@ const catMap: Object = Object.freeze({
   'devicepma': 'Devices › PMA',
   'deviceudi': 'Devices › UDI',
   'deviceenforcement': 'Devices › Enforcement Reports',
-  'othernsde': 'Other › NSDE'
+  'covid19serology': 'Devices › COVID-19 Serological Testing Evaluations',
+  'othernsde': 'Other › NSDE',
+  'othersubstance': 'Other › Substance'
 })
 
 
 const endpointLinkMap: Object = Object.freeze({
-  'animalandveterinaryevent': 'animalandveterinary/event',
+  'animalandveterinarydrugevent': 'animalandveterinary/event',
   'animalandveterinarylabel': 'animalandveterinary/label',
   'foodevent': 'food/event',
   'foodenforcement': 'food/enforcement',
   'drugevent': 'drug/event',
   'druglabel': 'drug/label',
+  'ndc': 'drug/ndc',
   'drugenforcement': 'drug/enforcement',
+  'drugsfda': 'drug/drugsfda',
   'deviceevent': 'device/event',
   'devicerecall': 'device/recall',
   'deviceclass': 'device/classification',
@@ -46,7 +52,9 @@ const endpointLinkMap: Object = Object.freeze({
   'devicepma': 'device/pma',
   'deviceudi': 'device/udi',
   'deviceenforcement': 'device/enforcement',
-  'othernsde': 'other/nsde'
+  'covid19serology': 'device/covid19serology',
+  'othernsde': 'other/nsde',
+  'othersubstance': 'other/substance'
 })
 
 /**

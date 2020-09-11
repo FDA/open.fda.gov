@@ -67,6 +67,7 @@ const BlogPosts = (props: tPROPS) => {
           if (update.path.indexOf("http") !== -1) {
             link_flag = false
           }
+          console.log("link_flag: ", link_flag, update.path)
 
           return (
             <li

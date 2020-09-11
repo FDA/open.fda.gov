@@ -29,7 +29,6 @@ class InteractiveInfographic extends React.Component {
       options: options,
       choosenField: options[0]
     };
-    console.log(this.state.options)
 
     this.handleChange = this.handleChange.bind(this)
   }

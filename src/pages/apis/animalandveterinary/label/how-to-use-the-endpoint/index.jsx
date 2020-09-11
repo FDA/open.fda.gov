@@ -24,7 +24,7 @@ class IndexRoute extends React.Component {
         <ul>
           <li>An openFDA API query always begins with the base endpoint, which in this case is: <code>https://api.fda.gov/animalandveterinary/label.json</code></li>
           <li>Searches have a special syntax: <code>search=field:term</code></li>
-          <li>Unless otherwise specified, the API will return only one matching record for a search. You can specify the number of records to be returned by using the limit parameter. The maximum limit allowed is 99 for any single API call. If no limit is set, the API will return one matching record.</li>
+          <li>Unless otherwise specified, the API will return only one matching record for a search. You can specify the number of records to be returned by using the limit parameter. The maximum limit allowed is 1000 for any single API call. If no limit is set, the API will return one matching record.</li>
         </ul>
         <p>It is possible to construct very complex queries using the openFDA API. Review the <Link to="/apis/query-parameters/">Construct the query</Link> documentation to learn more about all the available query parameters, how to handle quotations, spaces, phrase matches, and groupings, how to search on dates and ranges, and more.</p>
       </section>

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import cx from 'classnames'
-import BreadCrumbs from '../BreadCrumbs'
+import BreadCrumbs from '../Breadcrumbs'
 import dateFormat from 'dateformat'
 
 
@@ -94,11 +94,12 @@ const Hero = (props: tPROPS) => {
           }
           <h2
             tabIndex={label ? -1 : 0}
-            className='clr-white weight-700 header-width'>
+            className='clr-white weight-700 header-width'
+            id='hero-title'>
             {title}
           </h2>
           {
-            type != 'update' &&
+            type !== 'update' &&
             <div className="hero-divider-line"/>
           }
           {
@@ -122,7 +123,7 @@ const Hero = (props: tPROPS) => {
             })
           }
         </div>
-           <img src={bg_image[cat_name]} style={bg_image_style[cat_name]} alt=""/>
+        <img src={bg_image[cat_name]} style={bg_image_style[cat_name]}/>
       </div>
     </section>
   )

@@ -190,9 +190,8 @@ properties:
       type: string
     type: array
   disposal_and_waste_handling:
-    area: "Documentation forthcoming."
     items:
-      description:
+      description: "Documentation forthcoming."
       format:
       is_exact: false
       possible_values:
