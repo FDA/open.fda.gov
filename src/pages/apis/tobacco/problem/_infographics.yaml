@@ -3,7 +3,7 @@
   dataset: tobaccoproblem
   description:
     - "Reports displayed over time."
-  countParam: "submission_date"
+  countParam: "date_submitted"
   filters:
     - title: "All Tobacco Problem Reports"
       searchParam: ''

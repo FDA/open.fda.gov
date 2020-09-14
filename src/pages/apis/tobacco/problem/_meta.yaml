@@ -9,5 +9,5 @@ path: /apis/tobacco/problem
 api_path: /tobacco/problem
 start: 20170101
 status: tobaccoproblem
-dateConstraintKey: effective_time
+dateConstraintKey: date_submitted
 type: endpoint
