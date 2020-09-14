@@ -113,5 +113,5 @@ updates:
     desc: "Drugs@FDA is now available via openFDA."
   - title: "New openFDA Dataset - Tobacco Problem Reports"
     path: /apis/tobacco/problem/
-    date: 2020-09-14
+    date: 2020-09-15
     desc: "Tobacco Problem Reports is now available via openFDA."
