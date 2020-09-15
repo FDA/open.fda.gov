@@ -21,7 +21,7 @@ names:
             show: true
             showDefault: true
           - Header: Marketing Category
-            accessor: openfda.marketing_category
+            accessor: marketing_category
             show: true
             showDefault: true
             getPreNumbersPart: true
@@ -290,7 +290,7 @@ names:
         - label: Marketing Category
           type: checkbox
           query_type: prefix
-          field: openfda.marketing_category
+          field: marketing_category
           options:
             - label: NADA
               value: nada
