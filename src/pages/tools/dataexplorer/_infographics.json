@@ -4,7 +4,7 @@
       "title": "Total Labels",
       "type": "bar",
       "barChart": {
-        "count": "openfda.product_ndc.exact",
+        "count": "product_ndc.exact",
         "countLabel": "Total Labels",
         "title": "Total Labels",
         "yAxisTitle": "Labels",
@@ -15,11 +15,11 @@
           },
           {
             "label": "Active Ingredients",
-            "value": "active_ingredient.exact"
+            "value": "active_ingredient_data.ingredient_name.exact"
           },
           {
             "label": "Substance Name",
-            "value": "substance_name_exact"
+            "value": "substance_name.exact"
           },
           {
             "label": "Brand Name",
@@ -27,7 +27,7 @@
           },
           {
             "label": "Generic Name",
-            "value": "generic_name_exact"
+            "value": "openfda.generic_name.exact"
           },
           {
             "label": "Labeler Name",
@@ -88,9 +88,9 @@
           "OTC TYPE A MEDICATED ARTICLE ANIMAL DRUG": "OTC TYPE A",
           "OTC TYPE C MEDICATED FEED ANIMAL DRUG": "OTC TYPE C"
         },
-        "countBy": "openfda.product_type.exact",
+        "countBy": "product_type.exact",
         "dateField": "effective_time",
-        "barChartCountBy": "substance_name_exact",
+        "barChartCountBy": "substance_name.exact",
         "fill": "#8884d8",
         "colors": [
           "#d62728",
