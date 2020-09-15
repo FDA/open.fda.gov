@@ -5,6 +5,17 @@
  * https://twitter.com/jedwatson https://twitter.com/jossmackison https://twitter.com/keystonejs
  * MIT License: https://github.com/JedWatson/react-select
 */
+select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
+
+/* For IE10 */
+select::-ms-expand {
+  display: none;
+}
 .Select {
   position: relative;
 }
@@ -230,9 +241,7 @@
     display: inline-block;
     height: 0;
     width: 0;
-    position: absolute;
-    top: 15px;
-    right: 9px;
+    top: -2px;
 
 .Select--rtl .Select-arrow-zone {
   padding-right: 0;
