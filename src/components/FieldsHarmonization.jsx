@@ -78,7 +78,6 @@ class FieldsHarmonization extends React.Component {
     }
 
     let field_name = dataTip[0]
-    console.log(field_name, dataTip)
     let field = dictionary[dataTip[1]]['properties']['openfda']['properties'][field_name]
     // array
     let type: string = ''
@@ -202,15 +201,15 @@ class FieldsHarmonization extends React.Component {
     let columns = [{
       Header: 'Field',
       accessor: 'field',
-      Cell: row => <Tooltip
-          arrow={true}
-          html={this.fieldDefinitionTooltip(row.value)}
-          interactive
-          position='right'
-          theme='light'
-          trigger='mouseenter'>
-        <span>{row.value[0]}</span>
-      </Tooltip>,
+      // Cell: row => <Tooltip
+      //     arrow={true}
+      //     html={this.fieldDefinitionTooltip(row.value)}
+      //     interactive
+      //     position='right'
+      //     theme='light'
+      //     trigger='mouseenter'>
+      //   <span>{row.value[0]}</span>
+      // </Tooltip>,
       width: 242
     }]
 
@@ -224,7 +223,7 @@ class FieldsHarmonization extends React.Component {
           if (Object.keys(fields).indexOf(field) === -1) {
             fields[field] = data.length
             data.push({
-              field: [field, noun + endpoint_name],
+              field: field,
               [endpoint_name]: true
             })
           } else {

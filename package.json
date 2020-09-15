@@ -70,7 +70,7 @@
     "react-radio-group": "^3.0.2",
     "react-select": "^1.2.1",
     "react-sticky-state": "^2.1.9",
-    "react-table": "6.9.0",
+    "react-table": "6.8.6",
     "react-timeseries-charts": "0.12.8",
     "react-tippy": "^1.2.3",
     "react-tooltip": "^3.9.2",
