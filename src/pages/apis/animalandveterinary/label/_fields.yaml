@@ -808,9 +808,9 @@ properties:
       possible_values:
       type: string
     type: array
-  route:
+  route_of_administration:
     items:
-      description: "Documentation forthcoming."
+      description: "The route of administation of the drug product."
       format:
       is_exact: false
       possible_values:

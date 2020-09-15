@@ -17,7 +17,7 @@ names:
         show_collapse_rows_button: false
         columns:
           - Header: Product Type
-            accessor: product_type.exact
+            accessor: product_type
             show: true
             showDefault: true
           - Header: Marketing Category
@@ -174,7 +174,7 @@ names:
                 accessor: business_operation
             showDefault: false
           - Header: Route Of Administration
-            accessor: route_of_Administration
+            accessor: route_of_administration
             show: true
             showDefault: false
           - Header: Package
