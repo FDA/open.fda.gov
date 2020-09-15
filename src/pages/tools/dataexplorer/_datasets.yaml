@@ -125,7 +125,6 @@ names:
             accessor: application_number
             show: false
             showDefault: false
-            getPreNumbersPart: false
           - Header: Is original packager
             accessor: openfda.is_original_packager
             show: false
@@ -316,7 +315,7 @@ names:
               value: false
         - label: Brand Name
           field: brand_name.exact
-          autocomplete_field: openfda.brand_name
+          autocomplete_field: brand_name
           query_type: term
           type: select_autocomplete
           can_query: true
@@ -349,14 +348,14 @@ names:
         - label: Labeler Name
           type: select_autocomplete
           field: manufacturer_name.exact
-          autocomplete_field: openfda.manufacturer_name
+          autocomplete_field: manufacturer_name
           query_type: term
           placeholder: Search Labeler Name
           limit: 100
           can_query: true
         - label: Active Ingredients
-          field: openfda.substance_name_exact
-          autocomplete_field: openfda.substance_name
+          field: substance_name.exact
+          autocomplete_field: substance_name
           type: select_autocomplete
           remove_chars: active ingredients
           can_query: true
@@ -375,7 +374,7 @@ names:
           can_query: true
           field: product_ndc.exact
           query_type: term
-          autocomplete_field: openfda.product_ndc
+          autocomplete_field: product_ndc
           placeholder: E.g. 59822-1
           limit: 100
         - label: Application Number
@@ -383,7 +382,7 @@ names:
           can_query: true
           field: application_number
           query_type: term
-          autocomplete_field: openfda.application_number
+          autocomplete_field: application_number
           placeholder: E.g. ANADA200224
           limit: 100
     exportOptions:
