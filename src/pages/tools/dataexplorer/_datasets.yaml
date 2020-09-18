@@ -380,7 +380,7 @@ names:
         - label: Application Number
           type: select_autocomplete
           can_query: true
-          field: application_number
+          field: application_number.exact
           query_type: term
           autocomplete_field: application_number
           placeholder: E.g. ANADA200224
