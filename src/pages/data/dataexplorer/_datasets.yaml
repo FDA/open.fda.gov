@@ -363,9 +363,9 @@ names:
           query_type: term
           limit: 100
         - label: Inactive Ingredients
-          field: inactive_ingredient
+          field: inactive_ingredient_name
           type: free_text
-          query_type: match
+          query_type: term
           remove_chars: inactive ingredients
           placeholder: Type Inactive Ingredient
           limit: 100
