@@ -1,4 +1,3 @@
-type: object
 properties:
   authoritynumb:
     format:
@@ -891,3 +890,4 @@ properties:
     pattern:
     description: "Encoding format of the `transmissiondate` field. Always set to 102 (YYYYMMDD)."
     possible_values:
+type: object

@@ -422,4 +422,4 @@ properties:
             pattern:
             description: "Total number of records matching the search criteria."
             possible_values:
-  type: object
+type: object
