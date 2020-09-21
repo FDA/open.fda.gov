@@ -6,7 +6,7 @@ import marked from 'marked'
 import ChartBar from './ChartBar'
 import ChartDonut from './ChartDonut'
 import {default as ChartLine} from './ChartLine'
-import Filter from './Filter'
+import Filter from './InfoFilter'
 
 import bp from '../constants/breakpoints'
 import BPContainer from '../containers/BreakpointContainer'

@@ -174,7 +174,6 @@ const Nav = (props: tPROPS) => {
                 <div className={path.indexOf('tools') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
                 <div className={activeDropdown==='Tools' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
                   <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/tools/' onClick={closeMobileNav}>Research tools</Link>
                     <Link className={linkCx} to='/tools/downloads/' onClick={closeMobileNav}>Downloads</Link>
                     <Link className={linkCx} to='/tools/dataexplorer/' onClick={closeMobileNav}>Dataset Explorer</Link>
                   </div>
@@ -216,15 +215,6 @@ const Nav = (props: tPROPS) => {
                     <Link className={linkCx} to='/community/' onClick={closeMobileNav}>openFDA Apps</Link>
                   </div>
                 </div>
-              </div>
-              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
-                <Link
-                  title='Downloads'
-                  to='/downloads/'
-                  className={path === '/downloads/' ? 'menu-header header-selected emphasis': activeDropdown==='Downloads' ? 'menu-header emphasis': 'menu-header'}
-                  onTouchStart={toggleDropdownContent}
-                >Downloads</Link>
-                <div className={path === '/downloads/' ? 'menu-header-underbar': 'menu-header-underbar display-none'} style={{width: 'calc(100% - 1em)'}}/>
               </div>
               <div className='dropdown'>
                 <button

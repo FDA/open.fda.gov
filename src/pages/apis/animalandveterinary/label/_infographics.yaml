@@ -30,5 +30,5 @@
       searchParam: "drug_interactions:multivitamins"
     - title: "Labeling noting steroids in the interactions section"
       searchParam: "drug_interactions:steroids"
-  type: Line
+  type: Bar
   dateConstraint: false
