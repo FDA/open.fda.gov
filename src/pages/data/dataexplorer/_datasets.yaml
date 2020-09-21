@@ -172,6 +172,7 @@ names:
                 accessor: name
               - Header: Business Operation
                 accessor: business_operation
+                split: true
             showDefault: false
           - Header: Route Of Administration
             accessor: route_of_administration
