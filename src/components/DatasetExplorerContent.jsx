@@ -443,10 +443,11 @@ class ResultsComponent extends React.Component {
 
                     html = (
                         <NestedDataWindow
-                            help_header={options.column.Header}
-                            help_text={options.value}
+                            header={options.column.Header}
+                            data={options.value}
                             column_def={options.column.nested_properties}
                             data_text={`Expand ( ${options.value.length} ) `}
+                            getFormattedColumns={this.getFormattedColumns}
                         />
                     )
                 } else {

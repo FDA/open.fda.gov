@@ -2,6 +2,7 @@ import React from 'react'
 import ReactModal from 'react-modal'
 import Link from 'gatsby-link'
 import {default as ReactTable} from "react-table";
+import Moment from "moment";
 
 class NestedDataWindow extends React.Component {
 
@@ -17,6 +18,11 @@ class NestedDataWindow extends React.Component {
   }
 
   componentDidMount () {
+    let columnsData = this.props.getFormattedColumns(this.props.column_def)
+
+    this.setState({
+      columns: columnsData.columns
+    })
   }
 
   closeModal () {
@@ -49,11 +55,11 @@ class NestedDataWindow extends React.Component {
               shouldCloseOnOverlayClick={true}
               ariaHideApp={false}
           >
-            <h3>{this.props.help_header}</h3>
+            <h3>{this.props.header}</h3>
             <div style={tableMargin}>
               <ReactTable
-                  data={this.props.help_text}
-                  columns={this.props.column_def}
+                  data={this.props.data}
+                  columns={this.state.columns}
                   className="-striped -highlight"
               />
             </div>
