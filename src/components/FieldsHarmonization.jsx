@@ -78,7 +78,6 @@ class FieldsHarmonization extends React.Component {
     }
 
     let field_name = dataTip[0]
-    console.log(field_name, dataTip)
     let field = dictionary[dataTip[1]]['properties']['openfda']['properties'][field_name]
     // array
     let type: string = ''

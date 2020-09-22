@@ -40,10 +40,12 @@ class DataDictionary extends React.Component {
     }
 
     this.handleChange = this.handleChange.bind(this)
+    this.getData = this.getData.bind(this)
+    this.getObject = this.getObject.bind(this)
   }
 
   componentDidMount () {
-    //this.getData()
+    this.getData()
   }
 
   componentDidUpdate (prevProps, prevState) {
@@ -63,6 +65,58 @@ class DataDictionary extends React.Component {
         selectedNoun: val
       })
     )
+  }
+
+  getObject(data, parent_name, parent_obj, endpoint) {
+    Object.keys(parent_obj).forEach(function (val) {
+      let val_name = parent_name + '.' + val
+      console.log('val_name', val_name)
+      console.log('val: ', val)
+      if(!data.hasOwnProperty(val_name) && parent_obj[val].hasOwnProperty('items')) {
+        data[val_name] = {
+          'dataset': [endpoint],
+          'definition': parent_obj[val]['items']['description'],
+          'type': 'array of ' + parent_obj[val]['items']['type'] + 's'
+        }
+      } else if(!data.hasOwnProperty(val_name) && !parent_obj[val].hasOwnProperty('items')) {
+        data[val_name] = {
+          'dataset': [endpoint],
+          'definition': parent_obj[val]['description'],
+          'type': parent_obj[val]['type']
+        }
+      } else {
+        data[val_name]['dataset'].push(endpoint)
+      }
+    })
+  }
+
+  getData () {
+    let data = {}
+    Object.keys(dictionary['drug']).forEach((endpoint) => {
+      // console.log('endpoints: ', endpoint)
+      Object.keys(dictionary['drug'][endpoint]['properties']).forEach((val) => {
+        console.log('val: ', val)
+        if(dictionary['drug'][endpoint]['properties'][val]['type'] === 'object') {
+          this.getObject(data, val, dictionary['drug'][endpoint]['properties'][val]['properties'], endpoint)
+        }
+        else if(!data.hasOwnProperty(val) && dictionary['drug'][endpoint]['properties'][val].hasOwnProperty('items')) {
+          data[val] = {
+            'dataset': [endpoint],
+            'definition': dictionary['drug'][endpoint]['properties'][val]['items']['description'],
+            'type': 'array of ' + dictionary['drug'][endpoint]['properties'][val]['items']['type'] + 's'
+          }
+        } else if(!data.hasOwnProperty(val) && !dictionary['drug'][endpoint]['properties'][val].hasOwnProperty('items')) {
+          data[val] = {
+            'dataset': [endpoint],
+            'definition': dictionary['drug'][endpoint]['properties'][val]['description'],
+            'type': dictionary['drug'][endpoint]['properties'][val]['type']
+          }
+        } else {
+          data[val]['dataset'].push(endpoint)
+        }
+      })
+    })
+    console.log('data: ', data)
   }
 
   render (): ?React.Element {
@@ -88,7 +142,7 @@ class DataDictionary extends React.Component {
             value={this.state.selectedNoun}
           />
         </div>
-{/*            <ReactTable
+{/*        <ReactTable
           data={this.state.data}
           columns={this.state.columns}
           showPagination={false}
