@@ -218,7 +218,6 @@ const FieldExplorer = (props: tPROPS) => {
     updateSelected
   } = props
 
-  console.log("props: ", props)
   let field_names = get_fields(fields.properties)
 
   return (

@@ -1,5 +1,6 @@
 import React from 'react'
 import marked from 'marked'
+import Select from 'react-select'
 import { default as ReactTable } from "react-table"
 import { Tooltip } from 'react-tippy'
 
@@ -10,11 +11,21 @@ class DataDictionary extends React.Component {
   constructor (props: Object) {
     super(props)
 
+    const nounList = {
+      'animal': 'Animal & Veterinary',
+      'drug': 'Human Drug',
+      'device': 'Device',
+      'food': 'Food',
+      'other': 'Other',
+      'tobacco': 'Tobacco'
+    }
+
+
 
     let nouns = []
     let endpoints = {}
     Object.keys(dictionary).forEach(function (noun) {
-      nouns.push(noun)
+      nouns.push({'label': nounList[noun],'value': noun})
       endpoints[noun] = []
       Object.keys(dictionary[noun]).forEach(function (endpoint) {
         endpoints[noun].push(endpoint)
@@ -26,10 +37,10 @@ class DataDictionary extends React.Component {
       data: {},
       endpoints: endpoints,
       nouns: nouns,
-      selected_noun: nouns[0]
+      selectedNoun: nouns[0]['label']
     }
 
-    //this.onChangeEndpoint = this.onChangeEndpoint.bind(this)
+    this.handleChange = this.handleChange.bind(this)
     }
 
     componentDidMount () {
@@ -42,31 +53,39 @@ class DataDictionary extends React.Component {
       }
     }
 
+    handleChange (val) {
+      console.log("valL :", val)
+      if ( val !== 'fields' ) {
+        this.setState({
+          selectedNoun: val.value,
+        })
+      } else (
+        this.setState({
+          selectedNoun: val
+        })
+      )
+    }
+
     render (): ?React.Element {
 
       // if (Object.keys(this.state.data).length === 0 && this.state.data.constructor === Object) {
       //   return <span/>
       // }
 
-        let nouns_buttons = this.state.nouns.map(noun => {
-          return (
-            <div
-              className={this.state.selected_noun === noun ? 'selected': 'unselected'}
-              id={'noun-button-' + noun}
-              key={noun}
-              onClick={this.onChangeNoun}
-              title={noun}>
-              {noun.charAt(0).toUpperCase() + noun.slice(1)}
-            </div>
-          )
-        })
+      console.log("selected: ", this.state.selectedNoun)
 
         return (
           <section id='data-dictionary'>
             <div className='endpoint-buttons' id='endpoint-buttons'>
-              {
-                nouns_buttons
-              }
+              <Select
+                name='toggle'
+                options={this.state.nouns}
+                onChange={this.handleChange}
+                placeholder='Select Category'
+                resetValue='label'
+                defaultValue={this.state.selectedNoun}
+                value={this.state.selectedNoun}
+              />
             </div>
 {/*            <ReactTable
               data={this.state.data}
