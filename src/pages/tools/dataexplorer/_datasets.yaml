@@ -26,7 +26,7 @@ names:
             showDefault: true
             getPreNumbersPart: true
           - Header: Marketing Status
-            accessor: openfda.marketing_status
+            accessor: marketing_status
             show: false
             showDefault: false
           - Header: Labeler Name
@@ -280,7 +280,7 @@ names:
         - label: Marketing Status
           type: checkbox
           query_type: term
-          field: openfda.marketing_status
+          field: marketing_status
           options:
             - label: Marketed
               value: active
