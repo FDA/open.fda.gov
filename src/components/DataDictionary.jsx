@@ -7,7 +7,6 @@ import { Tooltip } from 'react-tippy'
 import dictionary from '../constants/fields/master_fields.yaml'
 
 class DataDictionary extends React.Component {
-
   constructor (props: Object) {
     super(props)
 
@@ -41,68 +40,70 @@ class DataDictionary extends React.Component {
     }
 
     this.handleChange = this.handleChange.bind(this)
+  }
+
+  componentDidMount () {
+    //this.getData()
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    if (prevState.selected_noun !== this.state.selected_noun) {
+      this.getData()
     }
+  }
 
-    componentDidMount () {
-      //this.getData()
-    }
+  handleChange (val) {
+    console.log("valL :", val)
+    if ( val !== 'fields' ) {
+      this.setState({
+        selectedNoun: val.value,
+      })
+    } else (
+      this.setState({
+        selectedNoun: val
+      })
+    )
+  }
 
-    componentDidUpdate (prevProps, prevState) {
-      if (prevState.selected_noun !== this.state.selected_noun) {
-        this.getData()
-      }
-    }
+  render (): ?React.Element {
 
-    handleChange (val) {
-      console.log("valL :", val)
-      if ( val !== 'fields' ) {
-        this.setState({
-          selectedNoun: val.value,
-        })
-      } else (
-        this.setState({
-          selectedNoun: val
-        })
-      )
-    }
+    // if (Object.keys(this.state.data).length === 0 && this.state.data.constructor === Object) {
+    //   return <span/>
+    // }
 
-    render (): ?React.Element {
+    console.log("selected: ", this.state.selectedNoun)
 
-      // if (Object.keys(this.state.data).length === 0 && this.state.data.constructor === Object) {
-      //   return <span/>
-      // }
-
-      console.log("selected: ", this.state.selectedNoun)
-
-        return (
-          <section id='data-dictionary'>
-            <div className='endpoint-buttons' id='endpoint-buttons'>
-              <Select
-                name='toggle'
-                options={this.state.nouns}
-                onChange={this.handleChange}
-                placeholder='Select Category'
-                resetValue='label'
-                defaultValue={this.state.selectedNoun}
-                value={this.state.selectedNoun}
-              />
-            </div>
+    return (
+      <section id='data-dictionary'>
+        <div className='endpoint-buttons' id='endpoint-buttons'>
+          <Select
+            clearable={false}
+            name='toggle'
+            options={this.state.nouns}
+            onChange={this.handleChange}
+            placeholder='Select Category'
+            aria-label='Select Category'
+            resetValue='label'
+            defaultValue={this.state.selectedNoun}
+            value={this.state.selectedNoun}
+          />
+        </div>
 {/*            <ReactTable
-              data={this.state.data}
-              columns={this.state.columns}
-              showPagination={false}
-              minRows={0}
-              className="-striped -highlight"
-              resizable={false}
-              style={{
-                width: '100%',
-                height: '494px',
-                position: 'relative'
-              }}
-            />*/}
-          </section>
-        )
-    }
+          data={this.state.data}
+          columns={this.state.columns}
+          showPagination={false}
+          minRows={0}
+          className="-striped -highlight"
+          resizable={false}
+          style={{
+            width: '100%',
+            height: '494px',
+            position: 'relative'
+          }}
+        />*/}
+      </section>
+    )
+  }
 }
 
 
