@@ -1,8 +1,6 @@
 import React from 'react'
-import marked from 'marked'
 import Select from 'react-select'
 import { default as ReactTable } from "react-table"
-import { Tooltip } from 'react-tippy'
 
 import dictionary from '../constants/fields/master_fields.yaml'
 
@@ -53,7 +51,7 @@ class DataDictionary extends React.Component {
       data: [],
       endpoints: endpoints,
       nouns: nouns,
-      selectedNoun: nouns[0]['value'],
+      selectedNoun: nouns[0],
       resized: [],
       filtered: []
     }
@@ -77,8 +75,9 @@ class DataDictionary extends React.Component {
     console.log("valL :", val)
     this.setState({
       selectedNoun: val
+    }, () => {
+      this.getData()
     })
-    this.getData()
   }
 
   getObject(data, parent_name, parent_obj, endpoint) {
@@ -106,7 +105,7 @@ class DataDictionary extends React.Component {
 
   getData () {
     let data = {}
-    let noun = this.state.selectedNoun
+    let noun = this.state.selectedNoun['value']
     Object.keys(dictionary[noun]).forEach((endpoint) => {
       // console.log('endpoints: ', endpoint)
       Object.keys(dictionary[noun][endpoint]['properties']).forEach((val) => {
@@ -167,7 +166,6 @@ class DataDictionary extends React.Component {
             placeholder='Select Category'
             aria-label='Select Category'
             resetValue='label'
-            defaultValue={this.state.selectedNoun}
             value={this.state.selectedNoun}
           />
         </div>
