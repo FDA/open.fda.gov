@@ -32,11 +32,30 @@ class DataDictionary extends React.Component {
     })
 
     this.state = {
-      columns: [],
-      data: {},
+      columns: [
+        {
+          'Header': 'Field Name',
+          'accessor': 'field_name'
+        },
+        {
+          'Header': 'Datatype',
+          'accessor': 'datatype'
+        },
+        {
+          'Header': 'Datasets',
+          'accessor': 'dataset_number'
+        },
+        {
+          'Header': 'Definition',
+          'accessor': 'definition'
+        },
+      ],
+      data: [],
       endpoints: endpoints,
       nouns: nouns,
-      selectedNoun: nouns[0]['label']
+      selectedNoun: nouns[0]['label'],
+      resized: [],
+      filtered: []
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -117,6 +136,20 @@ class DataDictionary extends React.Component {
       })
     })
     console.log('data: ', data)
+    let data_array = []
+    Object.keys(data).forEach((field) => {
+      data_array.push({
+        'field_name': field,
+        'datasets': data[field]['dataset'],
+        'datatype': data[field]['type'],
+        'dataset_number': data[field]['dataset'].length,
+        'definition': data[field]['definition']
+      })
+    })
+    console.log("data array: ", data_array)
+    this.setState({
+      'data': data_array
+    })
   }
 
   render (): ?React.Element {
@@ -142,19 +175,22 @@ class DataDictionary extends React.Component {
             value={this.state.selectedNoun}
           />
         </div>
-{/*        <ReactTable
+        <ReactTable
           data={this.state.data}
           columns={this.state.columns}
           showPagination={false}
           minRows={0}
           className="-striped -highlight"
-          resizable={false}
+          filtered={this.state.filtered}
+          resized={this.state.resized}
+          onResizedChange={resized => this.setState({ resized })}
+          onFilteredChange={filtered => this.setState({ filtered })}
           style={{
             width: '100%',
             height: '494px',
             position: 'relative'
           }}
-        />*/}
+        />
       </section>
     )
   }
