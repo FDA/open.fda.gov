@@ -53,7 +53,7 @@ class DataDictionary extends React.Component {
       data: [],
       endpoints: endpoints,
       nouns: nouns,
-      selectedNoun: nouns[0]['label'],
+      selectedNoun: nouns[0]['value'],
       resized: [],
       filtered: []
     }
@@ -64,7 +64,7 @@ class DataDictionary extends React.Component {
   }
 
   componentDidMount () {
-    this.getData()
+    this.handleChange(this.state.selectedNoun)
   }
 
   componentDidUpdate (prevProps, prevState) {
@@ -75,15 +75,10 @@ class DataDictionary extends React.Component {
 
   handleChange (val) {
     console.log("valL :", val)
-    if ( val !== 'fields' ) {
-      this.setState({
-        selectedNoun: val.value,
-      })
-    } else (
-      this.setState({
-        selectedNoun: val
-      })
-    )
+    this.setState({
+      selectedNoun: val
+    })
+    this.getData()
   }
 
   getObject(data, parent_name, parent_obj, endpoint) {
@@ -111,24 +106,25 @@ class DataDictionary extends React.Component {
 
   getData () {
     let data = {}
-    Object.keys(dictionary['drug']).forEach((endpoint) => {
+    let noun = this.state.selectedNoun
+    Object.keys(dictionary[noun]).forEach((endpoint) => {
       // console.log('endpoints: ', endpoint)
-      Object.keys(dictionary['drug'][endpoint]['properties']).forEach((val) => {
+      Object.keys(dictionary[noun][endpoint]['properties']).forEach((val) => {
         console.log('val: ', val)
-        if(dictionary['drug'][endpoint]['properties'][val]['type'] === 'object') {
-          this.getObject(data, val, dictionary['drug'][endpoint]['properties'][val]['properties'], endpoint)
+        if(dictionary[noun][endpoint]['properties'][val]['type'] === 'object') {
+          this.getObject(data, val, dictionary[noun][endpoint]['properties'][val]['properties'], endpoint)
         }
-        else if(!data.hasOwnProperty(val) && dictionary['drug'][endpoint]['properties'][val].hasOwnProperty('items')) {
+        else if(!data.hasOwnProperty(val) && dictionary[noun][endpoint]['properties'][val].hasOwnProperty('items')) {
           data[val] = {
             'dataset': [endpoint],
-            'definition': dictionary['drug'][endpoint]['properties'][val]['items']['description'],
-            'type': 'array of ' + dictionary['drug'][endpoint]['properties'][val]['items']['type'] + 's'
+            'definition': dictionary[noun][endpoint]['properties'][val]['items']['description'],
+            'type': 'array of ' + dictionary[noun][endpoint]['properties'][val]['items']['type'] + 's'
           }
-        } else if(!data.hasOwnProperty(val) && !dictionary['drug'][endpoint]['properties'][val].hasOwnProperty('items')) {
+        } else if(!data.hasOwnProperty(val) && !dictionary[noun][endpoint]['properties'][val].hasOwnProperty('items')) {
           data[val] = {
             'dataset': [endpoint],
-            'definition': dictionary['drug'][endpoint]['properties'][val]['description'],
-            'type': dictionary['drug'][endpoint]['properties'][val]['type']
+            'definition': dictionary[noun][endpoint]['properties'][val]['description'],
+            'type': dictionary[noun][endpoint]['properties'][val]['type']
           }
         } else {
           data[val]['dataset'].push(endpoint)
