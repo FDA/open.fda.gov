@@ -1,8 +1,47 @@
 import React from 'react'
 import Select from 'react-select'
 import { default as ReactTable } from "react-table"
+import FileSaver from "file-saver";
+import XLSX from 'xlsx'
 
 import dictionary from '../constants/fields/master_fields.yaml'
+
+
+/* generate a download */
+function s2ab(s) {
+  var buf = new ArrayBuffer(s.length);
+  var view = new Uint8Array(buf);
+  for (var i=0; i!=s.length; ++i) {
+    view[i] = s.charCodeAt(i) & 0xFF;
+  }
+  return buf;
+}
+
+
+function flattenJSON(data) {
+
+  let flattenedJSON = []
+
+  for (let i =  0; i < data.length; i ++) {
+    let newRow = {}
+    for (let item in data[i]){
+      if (typeof data[i][item] === "object") {
+        if (data[i][item] && data[i][item].constructor === Array) {
+          newRow[item] = data[i][item].join("; ")
+        } else if (data[i][item]) {
+          newRow[item] = flattenJSON(data[i][item])
+        }
+      } else {
+        newRow[item] = data[i][item]
+      }
+    }
+
+    flattenedJSON.push(newRow)
+  }
+
+  return flattenedJSON
+
+}
 
 class DataDictionary extends React.Component {
   constructor (props: Object) {
@@ -51,14 +90,18 @@ class DataDictionary extends React.Component {
       data: [],
       endpoints: endpoints,
       nouns: nouns,
+      pageSize: 25,
       selectedNoun: nouns[0],
       resized: [],
+      sorted: [],
       filtered: []
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.getData = this.getData.bind(this)
     this.getObject = this.getObject.bind(this)
+    this.getNestedValue = this.getNestedValue.bind(this)
+    this.exportToXLS = this.exportToXLS.bind(this)
   }
 
   componentDidMount () {
@@ -72,7 +115,7 @@ class DataDictionary extends React.Component {
   }
 
   handleChange (val) {
-    console.log("valL :", val)
+    //console.log("valL :", val)
     this.setState({
       selectedNoun: val
     }, () => {
@@ -80,11 +123,60 @@ class DataDictionary extends React.Component {
     })
   }
 
+  getNestedValue(rowObj, path) {
+    var props = path.split('.');
+    props.forEach(function(prop){
+      if (rowObj) {
+        rowObj = rowObj[prop];
+      }
+    })
+    return rowObj;
+  }
+
+  exportToXLS() {
+    try {
+
+      /* export only visible columns */
+      var columns = []
+      this.state.columns.forEach(function(column) {
+        columns.push(column.accessor)
+      })
+
+      var exportableRows = []
+      this.state.data.forEach((row) => {
+        var truncatedRow = {}
+        var rowData = ""
+        columns.forEach((column) => {
+          var columnValue = this.getNestedValue(row, column)
+          truncatedRow[column] = columnValue
+          rowData += columnValue ? columnValue : ""
+        })
+        if(rowData) {
+          exportableRows.push(truncatedRow)
+        }
+      })
+
+      /* make the worksheet */
+      var ws = XLSX.utils.json_to_sheet(flattenJSON(exportableRows));
+
+      /* add to workbook */
+      var wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "data");
+
+      /* write workbook (use type 'binary') */
+      var wbout = XLSX.write(wb, {bookType:'xlsx', type:'binary'});
+
+      FileSaver.saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), this.state.selectedNoun.label + ".xlsx");
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   getObject(data, parent_name, parent_obj, endpoint) {
     Object.keys(parent_obj).forEach(function (val) {
       let val_name = parent_name + '.' + val
-      console.log('val_name', val_name)
-      console.log('val: ', val)
+      //console.log('val_name', val_name)
+      //console.log('val: ', val)
       if(!data.hasOwnProperty(val_name) && parent_obj[val].hasOwnProperty('items')) {
         data[val_name] = {
           'dataset': [endpoint],
@@ -109,7 +201,7 @@ class DataDictionary extends React.Component {
     Object.keys(dictionary[noun]).forEach((endpoint) => {
       // console.log('endpoints: ', endpoint)
       Object.keys(dictionary[noun][endpoint]['properties']).forEach((val) => {
-        console.log('val: ', val)
+        //console.log('val: ', val)
         if(dictionary[noun][endpoint]['properties'][val]['type'] === 'object') {
           this.getObject(data, val, dictionary[noun][endpoint]['properties'][val]['properties'], endpoint)
         }
@@ -130,7 +222,7 @@ class DataDictionary extends React.Component {
         }
       })
     })
-    console.log('data: ', data)
+    //console.log('data: ', data)
     let data_array = []
     Object.keys(data).forEach((field) => {
       data_array.push({
@@ -141,7 +233,7 @@ class DataDictionary extends React.Component {
         'definition': data[field]['definition']
       })
     })
-    console.log("data array: ", data_array)
+    //console.log("data array: ", data_array)
     this.setState({
       'data': data_array
     })
@@ -149,11 +241,31 @@ class DataDictionary extends React.Component {
 
   render (): ?React.Element {
 
+    if(this.state.data === undefined){
+      return (<span/>)
+    }
+
     // if (Object.keys(this.state.data).length === 0 && this.state.data.constructor === Object) {
     //   return <span/>
     // }
 
-    console.log("selected: ", this.state.selectedNoun)
+    //console.log("selected: ", this.state.selectedNoun)
+
+    let data = this.state.data
+    let searchText = this.state.search
+
+    if (searchText) {
+      let regex = new RegExp( searchText, "i")
+      data = data.filter(row => {
+        for (let i = 0; i < this.state.columns.length; i++) {
+          if (regex.test(String(this.getNestedValue(row, this.state.columns[i].accessor)))) {
+            //console.log("true: ", this.getNestedValue(row, this.state.columns[i].accessor))
+            return true
+          }
+        }
+        return false
+      })
+    }
 
     return (
       <section id='data-dictionary'>
@@ -169,14 +281,40 @@ class DataDictionary extends React.Component {
             value={this.state.selectedNoun}
           />
         </div>
+        <div className='dataset-table-menubar' style={{paddingBottom: 0, padding: 5}}>
+          <div style={{width: "67%"}}>
+            <span style={{width:"10em", padding: 10}}>{data.length} Fields</span>
+            <input className='search-input' onChange={e => this.setState({search: e.target.value})}
+                   placeholder="Type to Search in Results..." type="search" autoFocus
+            />
+
+            <a href='javascript:void(0)' onClick={this.exportToXLS} style={{ position: "absolute", right:30, lineHeight: 2.5, display: "inline"}} >
+              <img alt='Export to XLS' style={{float: "left", width: 31, padding: 5}}
+                   src='/img/xls-icon.svg'/>Export to XLS
+            </a>
+
+            {/*<a href='javascript:void(0)' onClick={this.exportToCSV} style={{ position: "absolute", right:160, lineHeight: 2.5, display: "inline"}} >
+                    <img alt='Export to CSV' style={{float: "left", width: 31, padding: 5}}
+                         src='/img/csv-icon.svg'/>Export to CSV
+                </a>*/}
+
+          </div>
+        </div>
         <ReactTable
-          data={this.state.data}
+          data={data}
           columns={this.state.columns}
-          showPagination={false}
-          minRows={0}
+          pageSize={this.state.pageSize}
+          pageSizeOptions={[10, 25, 50, 100, 200, 250, 500, 1000]}
+          showPagination={true}
+          showPaginationTop={true}
+          minRows={10}
           className="-striped -highlight"
           filtered={this.state.filtered}
           resized={this.state.resized}
+          onSortedChange={sorted => this.setState({ sorted })}
+          onPageChange={page => this.setState({ page })}
+          onPageSizeChange={(pageSize, page) =>
+            this.setState({ page, pageSize })}
           onResizedChange={resized => this.setState({ resized })}
           onFilteredChange={filtered => this.setState({ filtered })}
           style={{

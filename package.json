@@ -69,7 +69,8 @@
     "recharts": "1.0.0-beta.0",
     "scroll-into-view": "^1.9.1",
     "stylus": "^0.54.5",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "xlsx": "0.16.1"
   },
   "keywords": [
     "gatsby"
