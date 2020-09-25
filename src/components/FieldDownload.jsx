@@ -79,21 +79,21 @@ const FieldDownload = (props: tPROPS) => {
 
   return (
     <section className="marg-t-2" key={k}>
-      <button className="button bg-primary">
-        <a href={pdfDownloadMap[meta.status]} className="clr-white weight-700" download="fields.pdf">
+        <a href={pdfDownloadMap[meta.status]} className="" download="fields.pdf">
+          <button className="button bg-primary clr-white weight-700">
           <fa className="fa fa-file-pdf-o fa-lg marg-r-1" />Download PDF
+          </button>
         </a>
-      </button>
-      <button className="button bg-primary marg-l-2">
-        <a href={xlsxDownloadMap[meta.status]} className="clr-white weight-700" download="fields.xlsx">
+        <a href={xlsxDownloadMap[meta.status]} className="" download="fields.xlsx">
+          <button className="button bg-primary marg-l-2 clr-white weight-700">
           <fa className="fa fa-file-excel-o fa-lg marg-r-1" />Download XLSX
+          </button>
         </a>
-      </button>
-      <button className="button bg-primary marg-l-2">
-        <a href={yamlDownloadMap[meta.status]} className="clr-white weight-700" download="fields.yaml">
-          <fa className="fa fa-file-code-o fa-lg marg-r-1" />Download YAML
+        <a href={yamlDownloadMap[meta.status]} className="" download="fields.yaml">
+            <button className="button bg-primary marg-l-2 clr-white weight-700">
+                <fa className="fa fa-file-code-o fa-lg marg-r-1" />Download YAML
+            </button>
         </a>
-      </button>
     </section>
   )
 }
