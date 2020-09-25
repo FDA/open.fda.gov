@@ -5,6 +5,7 @@ import FileSaver from "file-saver";
 import XLSX from 'xlsx'
 
 import dictionary from '../constants/fields/master_fields.yaml'
+import ReactModal from "react-modal";
 
 
 /* generate a download */
@@ -56,6 +57,23 @@ class DataDictionary extends React.Component {
       'tobacco': 'Tobacco'
     }
 
+    const endpointList = {
+      'event': 'Event',
+      'label': 'Label',
+      'classification': 'Classification',
+      'ndc': 'NDC',
+      'problem': 'Problem',
+      'clearance': 'Clearance',
+      'enforcement': 'Enforcement',
+      'nsde': 'NSDE',
+      'drugsfda': 'Drugs@FDA',
+      'covid19serology': 'COVID-19 Serology',
+      'premarketapproval': 'Pre-Market Approval',
+      'recall': 'Recall',
+      'reglist': 'Registration List',
+      'udi': 'UDI'
+    }
+
 
 
     let nouns = []
@@ -64,9 +82,11 @@ class DataDictionary extends React.Component {
       nouns.push({'label': nounList[noun],'value': noun})
       endpoints[noun] = []
       Object.keys(dictionary[noun]).forEach(function (endpoint) {
-        endpoints[noun].push(endpoint)
+        endpoints[noun].push({'Header': endpointList[endpoint],'accessor': endpoint})
       })
     })
+
+    console.log(endpoints)
 
     this.state = {
       columns: [
@@ -88,9 +108,12 @@ class DataDictionary extends React.Component {
         },
       ],
       data: [],
+      modalRows: [],
+      modalColumns: [],
       endpoints: endpoints,
       nouns: nouns,
       pageSize: 25,
+      selectedRow: {},
       selectedNoun: nouns[0],
       resized: [],
       sorted: [],
@@ -102,6 +125,9 @@ class DataDictionary extends React.Component {
     this.getObject = this.getObject.bind(this)
     this.getNestedValue = this.getNestedValue.bind(this)
     this.exportToXLS = this.exportToXLS.bind(this)
+    this.openModal = this.openModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
+    this.getModalData = this.getModalData.bind(this)
   }
 
   componentDidMount () {
@@ -109,9 +135,63 @@ class DataDictionary extends React.Component {
   }
 
   componentDidUpdate (prevProps, prevState) {
-    if (prevState.selected_noun !== this.state.selected_noun) {
+    if (prevState.selectedNoun !== this.state.selectedNoun) {
       this.getData()
     }
+  }
+
+  getModalData(rowInfo) {
+    let col_list = []
+    let columns = []
+
+    let data = {}
+
+    console.log("endpoints: ", this.state.endpoints)
+
+    this.state.endpoints[this.state.selectedNoun['value']].forEach((endpoint) => {
+      console.log("endpoint: ", endpoint)
+      let endpoint_name = endpoint['Header']
+      let endpoint_value = endpoint['accessor']
+      console.log("datasets: ", rowInfo['datasets'], endpoint_value)
+      if (rowInfo['datasets'].includes(endpoint_value)) {
+        console.log("rowInfo datasets: ", rowInfo['datasets'], "endpoint_name: ", endpoint_name)
+        data[endpoint_value] = true
+      }
+      console.log("data: ", data)
+      if (col_list.indexOf(endpoint_value) === -1) {
+        console.log("made it")
+        columns.push({
+          Header: endpoint_name,
+          accessor: endpoint_value,
+          Cell: row => (
+            <div className='checkbox-cell'>{row.value ? <i className="fa fa-2x fa-check" style={{color: "green"}}/>: <span/>}</div>
+          )
+        })
+        col_list.push(endpoint_value)
+      }
+    })
+
+    console.log("col_list: ", col_list)
+    console.log("data: ", data, "columns: ", columns)
+    this.setState({
+      modalColumns: columns,
+      modalRows: [data]
+    })
+  }
+
+  closeModal () {
+    this.setState({
+      showModal: false
+    })
+  }
+
+  openModal (row) {
+    console.log("modal open: ", row)
+    this.getModalData(row)
+    this.setState({
+      selectedRow: row,
+      showModal: true
+    })
   }
 
   handleChange (val) {
@@ -222,7 +302,7 @@ class DataDictionary extends React.Component {
         }
       })
     })
-    //console.log('data: ', data)
+    console.log('data: ', data)
     let data_array = []
     Object.keys(data).forEach((field) => {
       data_array.push({
@@ -233,7 +313,9 @@ class DataDictionary extends React.Component {
         'definition': data[field]['definition']
       })
     })
-    //console.log("data array: ", data_array)
+    console.log("data array: ", data_array)
+    data_array.sort((a, b) => (a.dataset_number < b.dataset_number) ? 1 : (a.dataset_number === b.dataset_number) ? ((a.field_name > b.field_name) ? 1 : -1) : -1 )
+    console.log("data array: ", data_array)
     this.setState({
       'data': data_array
     })
@@ -269,6 +351,29 @@ class DataDictionary extends React.Component {
 
     return (
       <section id='data-dictionary'>
+        <ReactModal
+          isOpen={this.state.showModal}
+          className='help-window'
+          overlayClassName='modal-overlay'
+          contentLabel="Help Modal"
+          onRequestClose={this.closeModal}
+          shouldCloseOnOverlayClick={true}
+          ariaHideApp={false}
+        >
+          <h3>{this.state.selectedRow['field_name']} <span>({this.state.selectedRow['datatype']})</span></h3>
+          <h4>Definition</h4>
+          <p>{this.state.selectedRow['definition']}</p>
+          <div style={{margin: '20px'}}>
+            <ReactTable
+              data={this.state.modalRows}
+              minRows={0}
+              columns={this.state.modalColumns}
+              className="-striped -highlight"
+              showPagination={false}
+              resizable={false}
+            />
+          </div>
+        </ReactModal>
         <div className='endpoint-buttons' id='endpoint-buttons'>
           <Select
             clearable={false}
@@ -280,6 +385,16 @@ class DataDictionary extends React.Component {
             resetValue='label'
             value={this.state.selectedNoun}
           />
+        </div>
+        <div>
+          <h3>Usage Summary</h3>
+          <div>
+            <h4>{this.state.selectedNoun['label']} API Calls</h4>
+
+          </div>
+          <div>
+            <h4>Top 5 Common Fields in {this.state.selectedNoun['label']}</h4>
+          </div>
         </div>
         <div className='dataset-table-menubar' style={{paddingBottom: 0, padding: 5}}>
           <div style={{width: "67%"}}>
@@ -302,6 +417,11 @@ class DataDictionary extends React.Component {
         </div>
         <ReactTable
           data={data}
+          getTrProps={(state, rowInfo, column, instance) => {
+            return {
+              onClick: () => this.openModal(rowInfo['row']['_original'])
+            }
+          }}
           columns={this.state.columns}
           pageSize={this.state.pageSize}
           pageSizeOptions={[10, 25, 50, 100, 200, 250, 500, 1000]}
