@@ -8,6 +8,7 @@ import XLSX from 'xlsx'
 import update from "immutability-helper/index";
 
 import dictionary from '../constants/fields/master_fields.yaml'
+import { API_LINK } from "../constants/api";
 
 
 /* generate a download */
@@ -51,7 +52,7 @@ class DataDictionary extends React.Component {
     super(props)
 
     const nounList = {
-      'animal': 'Animal & Veterinary',
+      'animalandveterinary': 'Animal & Veterinary',
       'drug': 'Human Drug',
       'device': 'Device',
       'food': 'Food',
@@ -298,58 +299,79 @@ class DataDictionary extends React.Component {
 
   getData () {
     let data = {}
+    let usage_endpoints = {}
+    let hits = 0
     let noun = this.state.selectedNoun['value']
-    this.state.selectedEndpoint.forEach((endpoint) => {
-      // console.log('endpoints: ', endpoint)
-      // console.log('selected endpoint: ', this.state.selectedEndpoint)
-      //if () { continue }
-      Object.keys(dictionary[noun][endpoint['value']]['properties']).forEach((val) => {
-        //console.log('val: ', val)
-        if(dictionary[noun][endpoint['value']]['properties'][val]['type'] === 'object') {
-          this.getObject(data, val, dictionary[noun][endpoint['value']]['properties'][val]['properties'], endpoint['value'])
-        }
-        else if(!data.hasOwnProperty(val) && dictionary[noun][endpoint['value']]['properties'][val].hasOwnProperty('items')) {
-          data[val] = {
-            'dataset': [endpoint['value']],
-            'definition': dictionary[noun][endpoint['value']]['properties'][val]['items']['description'],
-            'type': 'array of ' + dictionary[noun][endpoint['value']]['properties'][val]['items']['type'] + 's'
-          }
-        } else if(!data.hasOwnProperty(val) && !dictionary[noun][endpoint['value']]['properties'][val].hasOwnProperty('items')) {
-          data[val] = {
-            'dataset': [endpoint['value']],
-            'definition': dictionary[noun][endpoint['value']]['properties'][val]['description'],
-            'type': dictionary[noun][endpoint['value']]['properties'][val]['type']
-          }
-        } else {
-          data[val]['dataset'].push(endpoint['value'])
+    fetch(API_LINK + '/usage.json?prefix=' + '2/api.fda.gov/' + noun + '/')
+    .then((response) => {
+      return response.json()
+    }).then((usage_data) => {
+      console.log("usage data: ", usage_data)
+
+      usage_data.table.forEach((dataset) =>{
+        if (dataset.path.includes('/')) {
+          usage_endpoints[dataset.path.split('/')[2].split('.')[0]] = dataset.hits
         }
       })
-    })
-    // console.log('data: ', data)
-    let data_array = []
-    Object.keys(data).forEach((field) => {
-      data_array.push({
-        'field_name': field,
-        'datasets': data[field]['dataset'],
-        'datatype': data[field]['type'],
-        'dataset_number': data[field]['dataset'].length,
-        'definition': data[field]['definition']
+      console.log("usage endpoints: ", usage_endpoints)
+      this.state.selectedEndpoint.forEach((endpoint) => {
+        console.log('endpoint: ', endpoint)
+        // console.log('selected endpoint: ', this.state.selectedEndpoint)
+        if (Object.keys(usage_endpoints).includes(endpoint.value)) {
+          hits += usage_endpoints[endpoint.value]
+        }
+        console.log("hits: ", hits)
+
+        Object.keys(dictionary[noun][endpoint['value']]['properties']).forEach((val) => {
+          // console.log('val: ', val)
+          if(dictionary[noun][endpoint['value']]['properties'][val]['type'] === 'object') {
+            this.getObject(data, val, dictionary[noun][endpoint['value']]['properties'][val]['properties'], endpoint['value'])
+          }
+          else if(!data.hasOwnProperty(val) && dictionary[noun][endpoint['value']]['properties'][val].hasOwnProperty('items')) {
+            data[val] = {
+              'dataset': [endpoint['value']],
+              'definition': dictionary[noun][endpoint['value']]['properties'][val]['items']['description'],
+              'type': 'array of ' + dictionary[noun][endpoint['value']]['properties'][val]['items']['type'] + 's'
+            }
+          } else if(!data.hasOwnProperty(val) && !dictionary[noun][endpoint['value']]['properties'][val].hasOwnProperty('items')) {
+            data[val] = {
+              'dataset': [endpoint['value']],
+              'definition': dictionary[noun][endpoint['value']]['properties'][val]['description'],
+              'type': dictionary[noun][endpoint['value']]['properties'][val]['type']
+            }
+          } else {
+            data[val]['dataset'].push(endpoint['value'])
+          }
+        })
       })
-    })
-    data_array.sort((a, b) => (a.dataset_number < b.dataset_number) ? 1 : (a.dataset_number === b.dataset_number) ? ((a.field_name > b.field_name) ? 1 : -1) : -1 )
-    // console.log("data array: ", data_array)
-    let pieData = []
-    for (let i=0; i<5; i++) {
-      // console.log("i: ", i)
-      pieData.push({
-        'name': data_array[i]['field_name'],
-        'value': data_array[i]['dataset_number']
+      // console.log('data: ', data)
+      let data_array = []
+      Object.keys(data).forEach((field) => {
+        data_array.push({
+          'field_name': field,
+          'datasets': data[field]['dataset'],
+          'datatype': data[field]['type'],
+          'dataset_number': data[field]['dataset'].length,
+          'definition': data[field]['definition']
+        })
       })
-    }
-    // console.log("pie data: ", pieData)
-    this.setState({
-      'data': data_array,
-      'pieData': pieData
+      data_array.sort((a, b) => (a.dataset_number < b.dataset_number) ? 1 : (a.dataset_number === b.dataset_number) ? ((a.field_name > b.field_name) ? 1 : -1) : -1 )
+      // console.log("data array: ", data_array)
+      let pieData = []
+      for (let i=0; i<5; i++) {
+        // console.log("i: ", i)
+        pieData.push({
+          'name': data_array[i]['field_name'],
+          'value': data_array[i]['dataset_number']
+        })
+      }
+
+      console.log("pie data: ", pieData)
+      this.setState({
+        'data': data_array,
+        'hits': hits,
+        'pieData': pieData
+      })
     })
   }
 
@@ -386,7 +408,7 @@ class DataDictionary extends React.Component {
     // console.log("endpoint select: ", this.state.selectedEndpoint)
 
     return (
-      <section id='data-dictionary'>
+      <section className='data-dictionary' id='data-dictionary'>
         <ReactModal
           isOpen={this.state.showModal}
           className='help-window'
@@ -416,17 +438,19 @@ class DataDictionary extends React.Component {
             name='toggle'
             options={this.state.nouns}
             onChange={this.handleNounChange}
+            className='dd-noun-select'
             placeholder='Select Category'
             aria-label='Select Category'
             resetValue='label'
             value={this.state.selectedNoun}
           />
         </div>
-        <div>
+        <div style={{display: "flex"}}>
           <h3>Usage Summary</h3>
           <div>
             <h4>{this.state.selectedNoun['label']} API Calls</h4>
-
+            <h5>{this.state.hits}</h5>
+            <span>past 30 days</span>
           </div>
           <div>
             <PieChart
@@ -472,7 +496,7 @@ class DataDictionary extends React.Component {
             //defaultValue={this.state.endpointOptions[this.state.selectedNoun['value']]}
           />
         </div>
-        <div className='dataset-table-menubar' style={{paddingBottom: 0, padding: 5}}>
+        <div className='table-databar'>
           <div style={{width: "67%"}}>
             <span style={{width:"10em", padding: 10}}>{data.length} Fields</span>
             <input className='search-input' onChange={e => this.setState({search: e.target.value})}
