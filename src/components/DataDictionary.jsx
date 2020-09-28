@@ -65,14 +65,15 @@ class DataDictionary extends React.Component {
       'classification': 'Classification',
       'ndc': 'NDC',
       'problem': 'Problem',
-      'clearance': 'Clearance',
+      '510k': '510k Clearance',
       'enforcement': 'Enforcement',
       'nsde': 'NSDE',
       'drugsfda': 'Drugs@FDA',
       'covid19serology': 'COVID-19 Serology',
-      'premarketapproval': 'Pre-Market Approval',
+      'pma': 'Pre-Market Approval',
       'recall': 'Recall',
-      'reglist': 'Registration List',
+      'registrationlisting': 'Registration List',
+      'substance': 'Substance Data',
       'udi': 'UDI'
     }
 
@@ -236,7 +237,6 @@ class DataDictionary extends React.Component {
 
   exportToXLS() {
     try {
-
       /* export only visible columns */
       var columns = []
       this.state.columns.forEach(function(column) {
