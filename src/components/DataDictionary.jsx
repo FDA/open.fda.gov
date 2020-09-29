@@ -432,37 +432,50 @@ class DataDictionary extends React.Component {
             />
           </div>
         </ReactModal>
-        <div className='nouns' id='nouns'>
+        <div className='dataset-select' id='datasets'>
           <Select
             clearable={false}
             name='toggle'
             options={this.state.nouns}
             onChange={this.handleNounChange}
-            className='dd-noun-select'
+            className='nouns'
             placeholder='Select Category'
             aria-label='Select Category'
             resetValue='label'
             value={this.state.selectedNoun}
           />
+          <Select
+            name='endpoints'
+            //clearable
+            isMulti
+            options={this.state.endpointOptions[this.state.selectedNoun['value']]}
+            onChange={this.handleEndpointChange}
+            // placeholder='Select Endpoints'
+            // aria-label='Select Endpoints'
+            className="basic-multi-select endpoints"
+            classNamePrefix="select"
+            value={this.state.selectedEndpoint}
+            //defaultValue={this.state.endpointOptions[this.state.selectedNoun['value']]}
+          />
         </div>
-        <div style={{display: "flex"}}>
-          <h3>Usage Summary</h3>
-          <div>
+        <h3 className='usage-header'>Usage Summary</h3>
+        <div className='graphics'>
+          <div className='left'>
             <h4>{this.state.selectedNoun['label']} API Calls</h4>
             <h5>{this.state.hits}</h5>
             <span>past 30 days</span>
           </div>
-          <div>
+          <div className='right'>
             <PieChart
-              width={250}
-              height={250}
+              width={150}
+              height={150}
             >
               <Pie
                 ref="interactivePie"
                 dataKey="value"
                 data={this.state.pieData}
-                innerRadius={60}
-                outerRadius={80}
+                innerRadius={40}
+                outerRadius={60}
               >
                 {
                   this.state.pieData.map((entry, index) => <Cell key={index} fill={ this.state.colors[index % this.state.colors.length] } />)
@@ -480,21 +493,6 @@ class DataDictionary extends React.Component {
               </ul>
             </div>
           </div>
-        </div>
-        <div className='endpoints' id='endpoints'>
-          <Select
-            name='endpoints'
-            //clearable
-            isMulti
-            options={this.state.endpointOptions[this.state.selectedNoun['value']]}
-            onChange={this.handleEndpointChange}
-            // placeholder='Select Endpoints'
-            // aria-label='Select Endpoints'
-            className="basic-multi-select"
-            classNamePrefix="select"
-            value={this.state.selectedEndpoint}
-            //defaultValue={this.state.endpointOptions[this.state.selectedNoun['value']]}
-          />
         </div>
         <div className='table-databar'>
           <div style={{width: "67%"}}>
