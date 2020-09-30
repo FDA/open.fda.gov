@@ -118,6 +118,8 @@ class DataDictionary extends React.Component {
       ],
       data: [],
       pieData: [],
+      hits: 0,
+      totalHits: 0,
       modalRows: [],
       modalColumns: [],
       endpoint_columns: endpoint_columns,
@@ -301,6 +303,7 @@ class DataDictionary extends React.Component {
     let data = {}
     let usage_endpoints = {}
     let hits = 0
+    let total_hits  = 0
     let noun = this.state.selectedNoun['value']
     fetch(API_LINK + '/usage.json?prefix=' + '2/api.fda.gov/' + noun + '/')
     .then((response) => {
@@ -311,6 +314,7 @@ class DataDictionary extends React.Component {
       usage_data.table.forEach((dataset) =>{
         if (dataset.path.includes('/')) {
           usage_endpoints[dataset.path.split('/')[2].split('.')[0]] = dataset.hits
+          total_hits += dataset.hits
         }
       })
       console.log("usage endpoints: ", usage_endpoints)
@@ -370,6 +374,7 @@ class DataDictionary extends React.Component {
       this.setState({
         'data': data_array,
         'hits': hits,
+        'totalHits': total_hits,
         'pieData': pieData
       })
     })
@@ -419,9 +424,10 @@ class DataDictionary extends React.Component {
           ariaHideApp={false}
         >
           <h3>{this.state.selectedRow['field_name']} <span>({this.state.selectedRow['datatype']})</span></h3>
-          <h4>Definition</h4>
-          <p>{this.state.selectedRow['definition']}</p>
-          <div style={{margin: '20px'}}>
+          <div>
+            <h4>Definition</h4>
+            <p>{this.state.selectedRow['definition']}</p>
+            <h4>Endpoints</h4>
             <ReactTable
               data={this.state.modalRows}
               minRows={0}
@@ -430,6 +436,14 @@ class DataDictionary extends React.Component {
               showPagination={false}
               resizable={false}
             />
+            <h4>Related Fields (2)</h4>
+            <ul>
+              <li>Example field 1</li>
+              <li>Example field 2</li>
+            </ul>
+          </div>
+          <div className='right'>
+
           </div>
         </ReactModal>
         <div className='dataset-select' id='datasets'>
@@ -461,9 +475,16 @@ class DataDictionary extends React.Component {
         <h3 className='usage-header'>Usage Summary</h3>
         <div className='graphics'>
           <div className='left'>
-            <h4>{this.state.selectedNoun['label']} API Calls</h4>
-            <h5>{this.state.hits}</h5>
-            <span>past 30 days</span>
+            <div>
+              <h4>Total {this.state.selectedNoun['label']} API Calls</h4>
+              <h5>{this.state.totalHits}</h5>
+              <span>past 30 days</span>
+            </div>
+            <div>
+              <h4>Selected Endpoints API Calls</h4>
+              <h5>{this.state.hits}</h5>
+              <span>past 30 days</span>
+            </div>
           </div>
           <div className='right'>
             <PieChart
@@ -495,22 +516,16 @@ class DataDictionary extends React.Component {
           </div>
         </div>
         <div className='table-databar'>
-          <div style={{width: "67%"}}>
-            <span style={{width:"10em", padding: 10}}>{data.length} Fields</span>
+          <span>{data.length} Fields</span>
+          <div>
             <input className='search-input' onChange={e => this.setState({search: e.target.value})}
                    placeholder="Type to Search in Results..." type="search" autoFocus
             />
 
-            <a href='javascript:void(0)' onClick={this.exportToXLS} style={{ position: "absolute", right:30, lineHeight: 2.5, display: "inline"}} >
+            <a href='javascript:void(0)' onClick={this.exportToXLS} style={{ lineHeight: 2.5}} >
               <img alt='Export to XLS' style={{float: "left", width: 31, padding: 5}}
                    src='/img/xls-icon.svg'/>Export to XLS
-            </a>
-
-            {/*<a href='javascript:void(0)' onClick={this.exportToCSV} style={{ position: "absolute", right:160, lineHeight: 2.5, display: "inline"}} >
-                    <img alt='Export to CSV' style={{float: "left", width: 31, padding: 5}}
-                         src='/img/csv-icon.svg'/>Export to CSV
-                </a>*/}
-
+          </a>
           </div>
         </div>
         <ReactTable
@@ -526,7 +541,7 @@ class DataDictionary extends React.Component {
           showPagination={true}
           showPaginationTop={true}
           minRows={10}
-          className="-striped -highlight"
+          className="table -striped -highlight"
           filtered={this.state.filtered}
           resized={this.state.resized}
           onSortedChange={sorted => this.setState({ sorted })}
