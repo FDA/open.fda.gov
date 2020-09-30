@@ -373,8 +373,8 @@ class DataDictionary extends React.Component {
       console.log("pie data: ", pieData)
       this.setState({
         'data': data_array,
-        'hits': hits,
-        'totalHits': total_hits,
+        'hits': hits.toLocaleString(),
+        'totalHits': total_hits.toLocaleString(),
         'pieData': pieData
       })
     })
@@ -413,7 +413,7 @@ class DataDictionary extends React.Component {
     // console.log("endpoint select: ", this.state.selectedEndpoint)
 
     return (
-      <section className='data-dictionary' id='data-dictionary'>
+      <section className='container data-dictionary' id='data-dictionary'>
         <ReactModal
           isOpen={this.state.showModal}
           className='help-window'
@@ -442,35 +442,35 @@ class DataDictionary extends React.Component {
               <li>Example field 2</li>
             </ul>
           </div>
-          <div className='right'>
-
-          </div>
         </ReactModal>
         <div className='dataset-select' id='datasets'>
-          <Select
-            clearable={false}
-            name='toggle'
-            options={this.state.nouns}
-            onChange={this.handleNounChange}
-            className='nouns'
-            placeholder='Select Category'
-            aria-label='Select Category'
-            resetValue='label'
-            value={this.state.selectedNoun}
-          />
-          <Select
-            name='endpoints'
-            //clearable
-            isMulti
-            options={this.state.endpointOptions[this.state.selectedNoun['value']]}
-            onChange={this.handleEndpointChange}
-            // placeholder='Select Endpoints'
-            // aria-label='Select Endpoints'
-            className="basic-multi-select endpoints"
-            classNamePrefix="select"
-            value={this.state.selectedEndpoint}
-            //defaultValue={this.state.endpointOptions[this.state.selectedNoun['value']]}
-          />
+          <div className='nouns'>
+            <h5>Data Category</h5>
+            <Select
+              clearable={false}
+              name='toggle'
+              options={this.state.nouns}
+              onChange={this.handleNounChange}
+              placeholder='Select category'
+              aria-label='Select category'
+              resetValue='label'
+              value={this.state.selectedNoun}
+            />
+          </div>
+          <div className='endpoints'>
+            <h5>Datasets</h5>
+            <Select
+              name='endpoints'
+              isMulti
+              options={this.state.endpointOptions[this.state.selectedNoun['value']]}
+              onChange={this.handleEndpointChange}
+              placeholder='Select datasets'
+              aria-label='Select datasets'
+              className='basic-multi-select'
+              classNamePrefix="select"
+              value={this.state.selectedEndpoint}
+            />
+          </div>
         </div>
         <h3 className='usage-header'>Usage Summary</h3>
         <div className='graphics'>
@@ -505,7 +505,7 @@ class DataDictionary extends React.Component {
               <Tooltip/>
             </PieChart>
             <div>
-              <h4>Top 5 Common Fields in {this.state.selectedNoun['label']}</h4>
+              <h4 style={{marginBottom: "20px"}}>Top 5 Common Fields in {this.state.selectedNoun['label']}</h4>
               <ul style={{position: "relative"}}>
                 {
                   this.state.pieData.map((entry, index) =>
@@ -539,7 +539,6 @@ class DataDictionary extends React.Component {
           pageSize={this.state.pageSize}
           pageSizeOptions={[10, 25, 50, 100, 200, 250, 500, 1000]}
           showPagination={true}
-          showPaginationTop={true}
           minRows={10}
           className="table -striped -highlight"
           filtered={this.state.filtered}
