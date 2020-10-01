@@ -431,7 +431,7 @@ class DataDictionary extends React.Component {
           <div>
             <h4>Definition</h4>
             <p>{this.state.selectedRow['definition']}</p>
-            <h4>{harmonized ? 'Harmonized' : 'Included'} in These {this.state.selectedNoun['label']} Endpoints</h4>
+            <h4>{harmonized ? 'Harmonized' : 'Included'} in these {this.state.selectedNoun['label']} Endpoints</h4>
             <ReactTable
               data={this.state.modalRows}
               minRows={0}
