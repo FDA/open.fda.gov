@@ -394,6 +394,11 @@ class DataDictionary extends React.Component {
 
     let data = this.state.data
     let searchText = this.state.search
+    let harmonized = false
+
+    if (Object.keys(this.state.selectedRow).includes('field_name') && this.state.selectedRow['field_name'].includes('openfda')) {
+      harmonized = true
+    }
 
     if (searchText) {
       let regex = new RegExp( searchText, "i")
@@ -410,7 +415,6 @@ class DataDictionary extends React.Component {
 
     // console.log("endpoints list: ", this.state.endpoint_columns[this.state.selectedNoun['value']])
     // console.log("endpoint options: ", this.state.endpointOptions[this.state.selectedNoun['value']])
-    // console.log("endpoint select: ", this.state.selectedEndpoint)
 
     return (
       <section className='container data-dictionary' id='data-dictionary'>
@@ -427,7 +431,7 @@ class DataDictionary extends React.Component {
           <div>
             <h4>Definition</h4>
             <p>{this.state.selectedRow['definition']}</p>
-            <h4>Endpoints</h4>
+            <h4>{harmonized ? 'Harmonized' : 'Included'} in These {this.state.selectedNoun['label']} Endpoints</h4>
             <ReactTable
               data={this.state.modalRows}
               minRows={0}
@@ -436,11 +440,6 @@ class DataDictionary extends React.Component {
               showPagination={false}
               resizable={false}
             />
-            <h4>Related Fields (2)</h4>
-            <ul>
-              <li>Example field 1</li>
-              <li>Example field 2</li>
-            </ul>
           </div>
         </ReactModal>
         <div className='dataset-select' id='datasets'>
@@ -518,6 +517,7 @@ class DataDictionary extends React.Component {
         <div className='table-databar'>
           <span>{data.length} Fields</span>
           <div>
+            <span>Search: </span>
             <input className='search-input' onChange={e => this.setState({search: e.target.value})}
                    placeholder="Type to Search in Results..." type="search" autoFocus
             />
