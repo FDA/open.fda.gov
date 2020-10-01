@@ -2,10 +2,9 @@ import React from 'react'
 import Select from 'react-select'
 import ReactModal from "react-modal";
 import { default as ReactTable } from "react-table"
-import { PieChart, Pie, Cell, Tooltip , Legend} from "recharts";
+import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import FileSaver from "file-saver";
 import XLSX from 'xlsx'
-import update from "immutability-helper/index";
 
 import dictionary from '../constants/fields/master_fields.yaml'
 import { API_LINK } from "../constants/api";
@@ -93,9 +92,6 @@ class DataDictionary extends React.Component {
       })
     })
 
-    // console.log("nouns: ", nouns)
-    // console.log("columns: ", endpoint_columns, "options: ", endpoint_options)
-
     this.state = {
       colors: ["#0088FE", "#1ECFFF", "#00C49F", "#FFBB28", "#d62728"],
       columns: [
@@ -149,30 +145,18 @@ class DataDictionary extends React.Component {
     this.handleNounChange(this.state.selectedNoun)
   }
 
-/*  componentDidUpdate (prevProps, prevState) {
-    if (prevState.selectedNoun !== this.state.selectedNoun) {
-      this.getData()
-    }
-  }*/
-
   getModalData(rowInfo) {
     let col_list = []
     let columns = []
 
     let data = {}
 
-    // console.log("endpoints: ", this.state.endpoint_columns)
-
     this.state.endpoint_columns[this.state.selectedNoun['value']].forEach((endpoint) => {
-      // console.log("endpoint: ", endpoint)
       let endpoint_name = endpoint['Header']
       let endpoint_value = endpoint['accessor']
-      // console.log("datasets: ", rowInfo['datasets'], endpoint_value)
       if (rowInfo['datasets'].includes(endpoint_value)) {
-        // console.log("rowInfo datasets: ", rowInfo['datasets'], "endpoint_name: ", endpoint_name)
         data[endpoint_value] = true
       }
-      // console.log("data: ", data)
       if (col_list.indexOf(endpoint_value) === -1) {
         columns.push({
           Header: endpoint_name,
@@ -185,8 +169,6 @@ class DataDictionary extends React.Component {
       }
     })
 
-    // console.log("col_list: ", col_list)
-    // console.log("data: ", data, "columns: ", columns)
     this.setState({
       modalColumns: columns,
       modalRows: [data]
@@ -200,7 +182,6 @@ class DataDictionary extends React.Component {
   }
 
   openModal (row) {
-    // console.log("modal open: ", row)
     this.getModalData(row)
     this.setState({
       selectedRow: row,
@@ -209,8 +190,6 @@ class DataDictionary extends React.Component {
   }
 
   handleNounChange (val) {
-    // console.log("noun val :", val)
-    // console.log("endpoint options: ", this.state.endpointOptions[val['value']])
     this.setState({
       selectedNoun: val,
       selectedEndpoint: this.state.endpointOptions[val['value']]
@@ -220,7 +199,6 @@ class DataDictionary extends React.Component {
   }
 
   handleEndpointChange (val) {
-    // console.log("endpoint val :", val)
     this.setState({
       selectedEndpoint: val
     }, () => {
@@ -279,8 +257,6 @@ class DataDictionary extends React.Component {
   getObject(data, parent_name, parent_obj, endpoint) {
     Object.keys(parent_obj).forEach(function (val) {
       let val_name = parent_name + '.' + val
-      //console.log('val_name', val_name)
-      //console.log('val: ', val)
       if(!data.hasOwnProperty(val_name) && parent_obj[val].hasOwnProperty('items')) {
         data[val_name] = {
           'dataset': [endpoint],
@@ -309,25 +285,18 @@ class DataDictionary extends React.Component {
     .then((response) => {
       return response.json()
     }).then((usage_data) => {
-      console.log("usage data: ", usage_data)
-
       usage_data.table.forEach((dataset) =>{
         if (dataset.path.includes('/')) {
           usage_endpoints[dataset.path.split('/')[2].split('.')[0]] = dataset.hits
           total_hits += dataset.hits
         }
       })
-      console.log("usage endpoints: ", usage_endpoints)
       this.state.selectedEndpoint.forEach((endpoint) => {
-        console.log('endpoint: ', endpoint)
-        // console.log('selected endpoint: ', this.state.selectedEndpoint)
         if (Object.keys(usage_endpoints).includes(endpoint.value)) {
           hits += usage_endpoints[endpoint.value]
         }
-        console.log("hits: ", hits)
 
         Object.keys(dictionary[noun][endpoint['value']]['properties']).forEach((val) => {
-          // console.log('val: ', val)
           if(dictionary[noun][endpoint['value']]['properties'][val]['type'] === 'object') {
             this.getObject(data, val, dictionary[noun][endpoint['value']]['properties'][val]['properties'], endpoint['value'])
           }
@@ -348,7 +317,6 @@ class DataDictionary extends React.Component {
           }
         })
       })
-      // console.log('data: ', data)
       let data_array = []
       Object.keys(data).forEach((field) => {
         data_array.push({
@@ -360,17 +328,14 @@ class DataDictionary extends React.Component {
         })
       })
       data_array.sort((a, b) => (a.dataset_number < b.dataset_number) ? 1 : (a.dataset_number === b.dataset_number) ? ((a.field_name > b.field_name) ? 1 : -1) : -1 )
-      // console.log("data array: ", data_array)
       let pieData = []
       for (let i=0; i<5; i++) {
-        // console.log("i: ", i)
         pieData.push({
           'name': data_array[i]['field_name'],
           'value': data_array[i]['dataset_number']
         })
       }
 
-      console.log("pie data: ", pieData)
       this.setState({
         'data': data_array,
         'hits': hits.toLocaleString(),
@@ -390,8 +355,6 @@ class DataDictionary extends React.Component {
     //   return <span/>
     // }
 
-    //console.log("selected: ", this.state.selectedNoun)
-
     let data = this.state.data
     let searchText = this.state.search
     let harmonized = false
@@ -405,16 +368,12 @@ class DataDictionary extends React.Component {
       data = data.filter(row => {
         for (let i = 0; i < this.state.columns.length; i++) {
           if (regex.test(String(this.getNestedValue(row, this.state.columns[i].accessor)))) {
-            //console.log("true: ", this.getNestedValue(row, this.state.columns[i].accessor))
             return true
           }
         }
         return false
       })
     }
-
-    // console.log("endpoints list: ", this.state.endpoint_columns[this.state.selectedNoun['value']])
-    // console.log("endpoint options: ", this.state.endpointOptions[this.state.selectedNoun['value']])
 
     return (
       <section className='container data-dictionary' id='data-dictionary'>
