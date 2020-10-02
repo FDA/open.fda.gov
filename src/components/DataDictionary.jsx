@@ -346,6 +346,14 @@ class DataDictionary extends React.Component {
         'totalHits': total_hits.toLocaleString(),
         'pieData': pieData
       })
+    }).catch((error) =>{
+      console.log("Error fetching response data: ", error)
+      this.setState({
+        'data': [],
+        'hits': hits.toLocaleString(),
+        'totalHits': total_hits.toLocaleString(),
+        'pieData': []
+      })
     })
   }
 
