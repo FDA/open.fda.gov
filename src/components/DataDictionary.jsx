@@ -291,32 +291,34 @@ class DataDictionary extends React.Component {
           total_hits += dataset.hits
         }
       })
-      this.state.selectedEndpoint.forEach((endpoint) => {
-        if (Object.keys(usage_endpoints).includes(endpoint.value)) {
-          hits += usage_endpoints[endpoint.value]
-        }
+      if (this.state.selectedEndpoint && this.state.selectedEndpoint.length) {
+        this.state.selectedEndpoint.forEach((endpoint) => {
+          if (Object.keys(usage_endpoints).includes(endpoint.value)) {
+            hits += usage_endpoints[endpoint.value]
+          }
 
-        Object.keys(dictionary[noun][endpoint['value']]['properties']).forEach((val) => {
-          if(dictionary[noun][endpoint['value']]['properties'][val]['type'] === 'object') {
-            this.getObject(data, val, dictionary[noun][endpoint['value']]['properties'][val]['properties'], endpoint['value'])
-          }
-          else if(!data.hasOwnProperty(val) && dictionary[noun][endpoint['value']]['properties'][val].hasOwnProperty('items')) {
-            data[val] = {
-              'dataset': [endpoint['value']],
-              'definition': dictionary[noun][endpoint['value']]['properties'][val]['items']['description'],
-              'type': 'array of ' + dictionary[noun][endpoint['value']]['properties'][val]['items']['type'] + 's'
+          Object.keys(dictionary[noun][endpoint['value']]['properties']).forEach((val) => {
+            if(dictionary[noun][endpoint['value']]['properties'][val]['type'] === 'object') {
+              this.getObject(data, val, dictionary[noun][endpoint['value']]['properties'][val]['properties'], endpoint['value'])
             }
-          } else if(!data.hasOwnProperty(val) && !dictionary[noun][endpoint['value']]['properties'][val].hasOwnProperty('items')) {
-            data[val] = {
-              'dataset': [endpoint['value']],
-              'definition': dictionary[noun][endpoint['value']]['properties'][val]['description'],
-              'type': dictionary[noun][endpoint['value']]['properties'][val]['type']
+            else if(!data.hasOwnProperty(val) && dictionary[noun][endpoint['value']]['properties'][val].hasOwnProperty('items')) {
+              data[val] = {
+                'dataset': [endpoint['value']],
+                'definition': dictionary[noun][endpoint['value']]['properties'][val]['items']['description'],
+                'type': 'array of ' + dictionary[noun][endpoint['value']]['properties'][val]['items']['type'] + 's'
+              }
+            } else if(!data.hasOwnProperty(val) && !dictionary[noun][endpoint['value']]['properties'][val].hasOwnProperty('items')) {
+              data[val] = {
+                'dataset': [endpoint['value']],
+                'definition': dictionary[noun][endpoint['value']]['properties'][val]['description'],
+                'type': dictionary[noun][endpoint['value']]['properties'][val]['type']
+              }
+            } else {
+              data[val]['dataset'].push(endpoint['value'])
             }
-          } else {
-            data[val]['dataset'].push(endpoint['value'])
-          }
+          })
         })
-      })
+      }
       let data_array = []
       Object.keys(data).forEach((field) => {
         data_array.push({
@@ -329,11 +331,13 @@ class DataDictionary extends React.Component {
       })
       data_array.sort((a, b) => (a.dataset_number < b.dataset_number) ? 1 : (a.dataset_number === b.dataset_number) ? ((a.field_name > b.field_name) ? 1 : -1) : -1 )
       let pieData = []
-      for (let i=0; i<5; i++) {
-        pieData.push({
-          'name': data_array[i]['field_name'],
-          'value': data_array[i]['dataset_number']
-        })
+      if (data_array && data_array.length) {
+        for (let i=0; i<5; i++) {
+          pieData.push({
+            'name': data_array[i]['field_name'],
+            'value': data_array[i]['dataset_number']
+          })
+        }
       }
 
       this.setState({
