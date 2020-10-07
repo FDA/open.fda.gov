@@ -472,7 +472,7 @@ class DataDictionary extends React.Component {
                   this.state.pieData.map((entry, index) => <Cell key={index} fill={ this.state.colors[index % this.state.colors.length] } />)
                 }
               </Pie>
-              <Tooltip/>
+              <Tooltip wrapperStyle={{zIndex: 1000}}/>
             </PieChart>
             <div>
               <h4 style={{marginBottom: "20px"}}>Top 5 Common Fields in {this.state.selectedNoun['label']}</h4>
