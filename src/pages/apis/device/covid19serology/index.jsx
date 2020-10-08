@@ -26,10 +26,16 @@ class IndexRoute extends React.Component {
         <p>The serology tests were tested at the Frederick National Laboratory for Cancer Research (FNLCR), a Federally Funded Research and Development Center (FFRDC) sponsored by the National Cancer Institute (NCI) or by the Hemostasis Laboratory Branch, Division of Blood Disorders, National Center on Birth Defects and Developmental Disabilities, Centers for Disease Control and Prevention (CDC).</p>
 
         <h3>Panel Composition</h3>
-        <p>Each test was evaluated against “Panel 1” or “Panel 2”, each of which include frozen SARS-CoV-2 antibody-positive serum samples (<span className="math inline">\(n=30\)</span>) and frozen antibody-negative serum and Anticoagulant Citrate Dextrose Solution Formula A (ACD-A) plasma samples (<span className="math inline">\(n=80\)</span>). The panel size and composition were chosen to enable a laboratory-based evaluation and to provide reasonable estimates and confidence intervals for test performance in the context of limited sample availability. The sample size is comparable to that of a typical sample size used to support Emergency Use Authorization (EUA) by FDA for tests of this type.</p>
+        <p>Each test was evaluated against "Panel 1", "Panel 2", or "Panel 3", each of
+          which include frozen SARS-CoV-2 antibody-positive serum samples (<span className="math inline">\(n=30\)</span>)
+          and frozen antibody-negative serum and Anticoagulant Citrate Dextrose Solution Formula A (ACD-A) plasma
+          samples (<span className="math inline">\(n=80\)</span>). The panel size and composition were chosen to enable
+          a laboratory-based evaluation and to provide reasonable estimates and confidence intervals for test
+          performance in the context of limited sample availability. The sample size is comparable to that of a typical
+          sample size used to support Emergency Use Authorization (EUA) by FDA for tests of this type.</p>
 
         <h5>Positive samples</h5>
-        <p>Positive samples used were from patients previously confirmed to have SARS-CoV-2 infection with a nucleic acid amplification test (NAAT). Time between symptom onset, NAAT testing, and sample collection is not known for all samples. Both SARS-CoV-2 IgM and IgG antibodies are present in all positive samples used. The Centers for Disease Control and Prevention (CDC) detected the presence of IgG and IgM antibodies at their laboratory using their SARS-CoV-2 spike enzyme-linked immunosorbent assay (ELISA) tests. (See <a href="https://www.cdc.gov/coronavirus/2019-ncov/lab/serology-testing.html">Serology Testing for COVID-19</a>, which notes “CDC’s serologic test is designed and validated for broad-based surveillance and research that will give us information needed to guide the response to the pandemic and protect the public’s health. The test is not currently designed to test individuals who want to know if they have been previously infected with COVID-19.”) The presence of antibodies was confirmed at FNLCR using CDC’s developed ELISAs (Pan-Ig, IgG, and IgM) as well as an IgG Receptor Binding Domain (RBD) ELISA developed by the Krammer Laboratory at the Icahn School of Medicine at Mount Sinai. (An implementation of this test, the COVID-19 ELISA IgG Antibody Test, has been granted an EUA authorization by FDA for use at the Mount Sinai Laboratory (MSL), Center for Clinical Laboratories, a division of the Department of Pathology, Molecular, and Cell-Based Medicine, New York, NY. See this <a href="https://www.fda.gov/media/137029/download">EUA Summary</a>.) The positive samples selected may not reflect the distribution of antibody levels in patient populations that would be evaluated by such a test. Because all samples are positive for both IgM and IgG, this evaluation cannot verify that tests intended to detect IgM and IgG antibodies separately detect these antibodies independently.</p>
+        <p>Positive samples used were from patients previously confirmed to have SARS-CoV-2 infection with a nucleic acid amplification test (NAAT). Time between symptom onset, NAAT testing, and sample collection is not known for all samples. Both SARS-CoV-2 IgM and IgG antibodies are present in all positive samples used. The Centers for Disease Control and Prevention (CDC) detected the presence of IgG and IgM antibodies at their laboratory using their SARS-CoV-2 spike enzyme-linked immunosorbent assay (ELISA) tests. (See <a href="https://www.cdc.gov/coronavirus/2019-ncov/lab/serology-testing.html">Serology Testing for COVID-19</a>, which notes "CDC's serologic test has been designed and validated for surveillance and research purposes. It is designed to estimate the percentage of the U.S. population previously infected with the virus -- information needed to guide the response to the pandemic and protect the public's health. The CDC test is not currently designed to test individuals who want to know if they have been previously infected with SARS-CoV-2. Commercial tests are available to provide test results to individuals.") The presence of antibodies was confirmed at FNLCR using CDC's developed ELISAs (Pan-Ig, IgG, and IgM) as well as an IgG Receptor Binding Domain (RBD) ELISA developed by the Krammer Laboratory at the Icahn School of Medicine at Mount Sinai. (An implementation of this test, the COVID-19 ELISA IgG Antibody Test, has been granted an EUA authorization by FDA for use at the Mount Sinai Laboratory (MSL), Center for Clinical Laboratories, a division of the Department of Pathology, Molecular, and Cell-Based Medicine, New York, NY. See this <a href="https://www.fda.gov/media/137029/download">EUA Summary</a>.) The positive samples selected may not reflect the distribution of antibody levels in patient populations that would be evaluated by such a test. Because all samples are positive for both IgM and IgG, this evaluation cannot verify that tests intended to detect IgM and IgG antibodies separately detect these antibodies independently.</p>
         <p>Positive samples were assessed at dilutions of 1:100, 1:400, 1:1600, and 1:6400 by CDC on their Pan-Ig assay, their IgM assay, and their IgG assay. Some samples were run at additional dilutions. Any samples that were positive at a dilution greater than 1:6400 were assigned a titer of 6400 because 1:6400 was the highest dilution at which all positive samples were assessed. Two of these samples, C0107 and C0176, were positive for IgG antibodies at a dilution of 1:25600.</p>
 
         <h5>Negative Samples</h5>
@@ -67,7 +73,7 @@ class IndexRoute extends React.Component {
         <p>See the individual test reports for more specific information on the evaluation of each test.</p>
 
         <h2>Summary test results</h2>
-        <p>Where the Marketing Status below is shown as “EUA Authorized,” FDA has reviewed data generated by the developer and the independent evaluation and determined, among other things, that based on the totality of the evidence available, that the test may be effective in identifying the presence of antibodies to SARS-CoV-2 as described in the Letters of Authorization for each test, and that the known and potential benefits of the test when so used outweigh the known and potential risks. Such tests are authorized by FDA under Emergency Use Authorizations (EUA) and may be distributed and used as set forth in the EUA. Where the Marketing Status below is shown as “Should not be distributed – Voluntarily withdrawn,” the manufacturers have voluntarily stopped distribution and requested FDA to remove their test from the list of commercial manufacturers distributing serology test kits under the policy outlined in Section IV.D of the <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/policy-coronavirus-disease-2019-tests-during-public-health-emergency-revised">Policy for Coronavirus Disease-2019 Tests</a>. Where the Marketing Status below is shown as “Should not be distributed – Removed,” either an EUA request has not been submitted within a reasonable period of time as outlined in the <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/policy-coronavirus-disease-2019-tests-during-public-health-emergency-revised">Policy for Coronavirus Disease-2019 Tests</a> or FDA has determined not to issue an EUA for the test. Where the Marketing Status below is shown as “Should not be distributed –- No notification or EUA authorization”, the test was evaluated prior to any planned distribution in the United States and is not known to have been marketed here.</p>
+        <p>Where the Marketing Status below is shown as “EUA Authorized,” FDA has reviewed data generated by the developer and the independent evaluation and determined, among other things, that based on the totality of the evidence available, that the test may be effective in identifying the presence of antibodies to SARS-CoV-2 as described in the Letters of Authorization for each test, and that the known and potential benefits of the test when so used outweigh the known and potential risks. Such tests are authorized by FDA under Emergency Use Authorizations (EUA) and may be distributed and used as set forth in the EUA. Where the Marketing Status below is shown as “Should not be distributed -- Voluntarily withdrawn,” the manufacturers have voluntarily stopped distribution and requested FDA to remove their test from the list of commercial manufacturers distributing serology test kits under the policy outlined in Section IV.D of the <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/policy-coronavirus-disease-2019-tests-during-public-health-emergency-revised">Policy for Coronavirus Disease-2019 Tests</a>. Where the Marketing Status below is shown as “Should not be distributed –- Removed,” either an EUA request has not been submitted within a reasonable period of time as outlined in the <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/policy-coronavirus-disease-2019-tests-during-public-health-emergency-revised">Policy for Coronavirus Disease-2019 Tests</a> or FDA has determined not to issue an EUA for the test. Where the Marketing Status below is shown as “Should not be distributed –- No notification or EUA authorization”, the test was evaluated prior to any planned distribution in the United States and is not known to have been marketed here.</p>
 
         <h3>EUA Authorized</h3>
         <h4>Abbott Architect i1000 SARS-CoV-2 IgG</h4>
@@ -1588,6 +1594,438 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3316-a001.pdf">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3316-a001.csv">Data File</a></p>
 
+        <h4>Jiangsu Well Biotech Co, Ltd. COVID-19 IgM/IgG Rapid Test (Colloidal gold)</h4>
+        <p><strong>Manufacturer:</strong> Jiangsu Well Biotech Co, Ltd.</p>
+        <p><strong>Device:</strong> COVID-19 IgM/IgG Rapid Test (Colloidal gold)</p>
+        <p><strong>Date Performed:</strong> 2020-06-23</p>
+        <p><strong>Lot Number:</strong> 2005202</p>
+        <p><strong>Panel:</strong> Panel 2</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              96.7% (29/30)
+            </td>
+            <td style="text-align:left;">
+              (83.3%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              95.0% (76/80)
+            </td>
+            <td style="text-align:left;">
+              (87.8%; 98.0%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              100% (30/30)
+            </td>
+            <td style="text-align:left;">
+              (88.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              98.8% (79/80)
+            </td>
+            <td style="text-align:left;">
+              (93.3%; 99.8%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              100% (30/30)
+            </td>
+            <td style="text-align:left;">
+              (88.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              93.8% (75/80)
+            </td>
+            <td style="text-align:left;">
+              (86.2%; 97.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              45.9%
+            </td>
+            <td style="text-align:left;">
+              (25.3%; 66.1%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (99.3%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3313-a001.pdf">NCI's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3313-a001.csv">Data File</a></p>
+
+        <h4>Jiangsu Well Biotech Co., Ltd. COVID-19 IgM/IgG Rapid Test</h4>
+        <p><strong>Manufacturer:</strong> Jiangsu Well Biotech Co., Ltd.</p>
+        <p><strong>Device:</strong> COVID-19 IgM/IgG Rapid Test</p>
+        <p><strong>Date Performed:</strong> 2020-09-04</p>
+        <p><strong>Lot Number:</strong> 2005202</p>
+        <p><strong>Panel:</strong> Panel 3</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              90.0% (27/30)
+            </td>
+            <td style="text-align:left;">
+              (74.4%; 96.5%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              100% (30/30)
+            </td>
+            <td style="text-align:left;">
+              (88.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              100% (30/30)
+            </td>
+            <td style="text-align:left;">
+              (88.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (50.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (99.4%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3356-a001.pdf">NCI's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3356-a001.csv">Data File</a></p>
+
+        <h4>Jiangsu Well Biotech Co., Ltd. COVID-19 IgM/IgG Rapid Test (combined evaluations)</h4>
+        <p><strong>Manufacturer:</strong> Jiangsu Well Biotech Co., Ltd.</p>
+        <p><strong>Device:</strong> COVID-19 IgM/IgG Rapid Test (combined evaluations)</p>
+        <p><strong>Date Performed:</strong> 2020-06-23, 2020-09-04</p>
+        <p><strong>Lot Number:</strong> 2005202</p>
+        <p><strong>Panel:</strong> Panel 2, Panel 3</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              93.1% (54/58)
+            </td>
+            <td style="text-align:left;">
+              (83.6%; 97.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              95.9% (93/97)
+            </td>
+            <td style="text-align:left;">
+              (89.9%; 98.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              100% (58/58)
+            </td>
+            <td style="text-align:left;">
+              (93.8%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              99.0% (96/97)
+            </td>
+            <td style="text-align:left;">
+              (94.4%; 99.8%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              100% (58/58)
+            </td>
+            <td style="text-align:left;">
+              (93.8%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              94.8% (92/97)
+            </td>
+            <td style="text-align:left;">
+              (88.5%; 97.8%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              50.3%
+            </td>
+            <td style="text-align:left;">
+              (30.0%; 70.5%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (99.6%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3356-a002.pdf">NCI's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3356-a002.csv">Data File</a></p>
+
         <h4>Megna Health Inc. Megna Rapid COVID-19 IgM/IgG Combo Test Kit</h4>
         <p><strong>Manufacturer:</strong> Megna Health Inc.</p>
         <p><strong>Device:</strong> Megna Rapid COVID-19 IgM/IgG Combo Test Kit</p>
@@ -1731,6 +2169,614 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3321-a001.pdf">NCI’s Independent
           Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3321-a001.csv">Data File</a></p>
+
+        <h4>NanoEntek Inc FREND™ COVID-19 IgG/IgM Duo test</h4>
+        <p><strong>Manufacturer:</strong> NanoEntek Inc</p>
+        <p><strong>Device:</strong> FREND™ COVID-19 IgG/IgM Duo test</p>
+        <p><strong>Date Performed:</strong> 2020-08-19</p>
+        <p><strong>Lot Number:</strong> 730023</p>
+        <p><strong>Panel:</strong> Panel 2</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              (IgM / IgG)
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              96.7% (29/30)
+            </td>
+            <td style="text-align:left;">
+              (83.3%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              (IgM / IgG)
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              98.8% (79/80)
+            </td>
+            <td style="text-align:left;">
+              (93.3%; 99.8%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              (IgM / IgG)
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              80.9%
+            </td>
+            <td style="text-align:left;">
+              (39.6%; 96.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              (IgM / IgG)
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.8%
+            </td>
+            <td style="text-align:left;">
+              (99.1%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3351-a001.pdf">NCI's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3351-a001.csv">Data File</a></p>
+
+        <h4>Nirmidas Biotech, Inc COVID-19 (SARS-CoV-2) IgM/IgG Antibody Detection Kit</h4>
+        <p><strong>Manufacturer:</strong> Nirmidas Biotech, Inc</p>
+        <p><strong>Device:</strong> COVID-19 (SARS-CoV-2) IgM/IgG Antibody Detection Kit</p>
+        <p><strong>Date Performed:</strong> 2020-06-24</p>
+        <p><strong>Lot Number:</strong> 15038</p>
+        <p><strong>Panel:</strong> Panel 2</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              93.3% (28/30)
+            </td>
+            <td style="text-align:left;">
+              (78.7%; 98.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (70/70)
+            </td>
+            <td style="text-align:left;">
+              (94.8%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              86.7% (26/30)
+            </td>
+            <td style="text-align:left;">
+              (70.3%; 94.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (70/70)
+            </td>
+            <td style="text-align:left;">
+              (94.8%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              93.3% (28/30)
+            </td>
+            <td style="text-align:left;">
+              (78.7%; 98.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (70/70)
+            </td>
+            <td style="text-align:left;">
+              (94.8%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (44.3%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.6%
+            </td>
+            <td style="text-align:left;">
+              (98.8%; 99.9%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3314-a001.pdf">NCI's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3314-a001.csv">Data File</a></p>
+
+        <h4>Nirmidas Biotech, Inc COVID-19 (SARS-CoV-2) IgM/IgG Antibody Detection Kit</h4>
+        <p><strong>Manufacturer:</strong> Nirmidas Biotech, Inc</p>
+        <p><strong>Device:</strong> COVID-19 (SARS-CoV-2) IgM/IgG Antibody Detection Kit</p>
+        <p><strong>Date Performed:</strong> 2020-09-04</p>
+        <p><strong>Lot Number:</strong> 15038</p>
+        <p><strong>Panel:</strong> Panel 3</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              90.0% (27/30)
+            </td>
+            <td style="text-align:left;">
+              (74.4%; 96.5%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              97.5% (78/80)
+            </td>
+            <td style="text-align:left;">
+              (91.3%; 99.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              86.7% (26/30)
+            </td>
+            <td style="text-align:left;">
+              (70.3%; 94.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              96.7% (29/30)
+            </td>
+            <td style="text-align:left;">
+              (83.3%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              97.5% (78/80)
+            </td>
+            <td style="text-align:left;">
+              (91.3%; 99.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              67.1%
+            </td>
+            <td style="text-align:left;">
+              (33.5%; 88.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.8%
+            </td>
+            <td style="text-align:left;">
+              (99.0%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3354-a001.pdf">NCI's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3354-a001.csv">Data File</a></p>
+
+        <h4>Nirmidas Biotech, Inc COVID-19 (SARS-CoV-2) IgM/IgG Antibody Detection Kit (combined evaluations)</h4>
+        <p><strong>Manufacturer:</strong> Nirmidas Biotech, Inc</p>
+        <p><strong>Device:</strong> COVID-19 (SARS-CoV-2) IgM/IgG Antibody Detection Kit (combined evaluations)</p>
+        <p><strong>Date Performed:</strong> 2020-06-24, 2020-09-04</p>
+        <p><strong>Lot Number:</strong> 15038</p>
+        <p><strong>Panel:</strong> Panel 2, Panel 3</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              93.1% (54/58)
+            </td>
+            <td style="text-align:left;">
+              (83.6%; 97.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              97.9% (95/97)
+            </td>
+            <td style="text-align:left;">
+              (92.8%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              87.9% (51/58)
+            </td>
+            <td style="text-align:left;">
+              (77.1%; 94.0%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (97/97)
+            </td>
+            <td style="text-align:left;">
+              (96.2%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              96.6% (56/58)
+            </td>
+            <td style="text-align:left;">
+              (88.3%; 99.1%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              97.9% (95/97)
+            </td>
+            <td style="text-align:left;">
+              (92.8%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              70.8%
+            </td>
+            <td style="text-align:left;">
+              (39.2%; 89.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.8%
+            </td>
+            <td style="text-align:left;">
+              (99.3%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3354-a002.pdf">NCI's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3354-a002.csv">Data File</a></p>
+
+        <h4>Roche Diagnostic Corporation Elecsys Anti-SARS-CoV-2</h4>
+        <p><strong>Manufacturer:</strong> Roche Diagnostic Corporation</p>
+        <p><strong>Device:</strong> Elecsys Anti-SARS-CoV-2</p>
+        <p><strong>Date Performed:</strong> 2020-08-26</p>
+        <p><strong>Lot Number:</strong> 50726001</p>
+        <p><strong>Panel:</strong> Panel 2</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              96.7% (29/30)
+            </td>
+            <td style="text-align:left;">
+              (83.3%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (48.8%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.8%
+            </td>
+            <td style="text-align:left;">
+              (99.1%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3358-a001.pdf">NIH's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3358-a001.csv">Data File</a></p>
 
         <h4>Salofa Oy Sienna COVID-19 IgG/IgM Rapid Test Cassette (whole blood/serum/plasma)</h4>
         <p><strong>Manufacturer:</strong> Salofa Oy</p>
@@ -2257,7 +3303,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-05-08</p>
         <p><strong>Lot Number:</strong> COV1252003C</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -2399,7 +3445,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-04</p>
         <p><strong>Lot Number:</strong> L20Z4852X</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -2771,7 +3817,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-04-30</p>
         <p><strong>Lot Number:</strong> PD200420A</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -2913,7 +3959,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-17</p>
         <p><strong>Lot Number:</strong> RD20060803</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed"
                style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
@@ -3001,7 +4047,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-04-27</p>
         <p><strong>Lot Number:</strong> 20200305</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -3143,7 +4189,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-05-08</p>
         <p><strong>Lot Number:</strong> COVID20200424</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -3285,7 +4331,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-24</p>
         <p><strong>Lot Number:</strong> 20E22-J01</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed – EUA Revoked</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed – EUA Revoked</p>
         <table className="table table-striped table-hover table-condensed"
                style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
@@ -3429,7 +4475,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-08-06</p>
         <p><strong>Lot Number:</strong> 202004004</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed"
                style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
@@ -3573,7 +4619,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-05-28</p>
         <p><strong>Lot Number:</strong> V5020041352A</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -3715,7 +4761,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-04-21</p>
         <p><strong>Lot Number:</strong> 51-200404</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
             <tr>
@@ -3995,13 +5041,157 @@ class IndexRoute extends React.Component {
           Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3328-a001.csv">Data File</a></p>
 
+        <h4>Boditech Med Incorporated iChroma COVID-19 Ab</h4>
+        <p><strong>Manufacturer:</strong> Boditech Med Incorporated</p>
+        <p><strong>Device:</strong> iChroma COVID-19 Ab</p>
+        <p><strong>Date Performed:</strong> 2020-08-21</p>
+        <p><strong>Lot Number:</strong> WHQEA88</p>
+        <p><strong>Panel:</strong> Panel 2</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed –– No notification or EUA authorization</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              13.3% (4/30)
+            </td>
+            <td style="text-align:left;">
+              (5.3%; 29.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              98.8% (79/80)
+            </td>
+            <td style="text-align:left;">
+              (93.3%; 99.8%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              96.7% (29/30)
+            </td>
+            <td style="text-align:left;">
+              (83.3%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              96.2% (77/80)
+            </td>
+            <td style="text-align:left;">
+              (89.5%; 98.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              96.7% (29/30)
+            </td>
+            <td style="text-align:left;">
+              (83.3%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              95.0% (76/80)
+            </td>
+            <td style="text-align:left;">
+              (87.8%; 98.0%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              50.4%
+            </td>
+            <td style="text-align:left;">
+              (26.4%; 72.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.8%
+            </td>
+            <td style="text-align:left;">
+              (99.0%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3349-a001.pdf">NCI's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3349-a001.csv">Data File</a></p>
+
         <h4>ChemBio DPP COVID-19 IgM/IgG System</h4>
         <p><strong>Manufacturer:</strong> ChemBio</p>
         <p><strong>Device:</strong> DPP COVID-19 IgM/IgG System</p>
         <p><strong>Date Performed:</strong> 2020-04-21</p>
         <p><strong>Lot Number:</strong> 204IG001Z</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed – EUA Revoked</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed – EUA Revoked</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -4143,7 +5333,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-05-08</p>
         <p><strong>Lot Number:</strong> DA05507401</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -4279,13 +5469,101 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3266-a001.pdf">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3266-a001.csv">Data File</a></p>
 
+        <h4>Euroimmun SARS-COV-2 ELISA (IgA)</h4>
+        <p><strong>Manufacturer:</strong> Euroimmun</p>
+        <p><strong>Device:</strong> SARS-COV-2 ELISA (IgA)</p>
+        <p><strong>Date Performed:</strong> 2020-04-21</p>
+        <p><strong>Lot Number:</strong> E200330AS</p>
+        <p><strong>Panel:</strong> Panel 1</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgA
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              93.3% (28/30)
+            </td>
+            <td style="text-align:left;">
+              (78.7%; 98.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgA
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              91.2% (73/80)
+            </td>
+            <td style="text-align:left;">
+              (83.0%; 95.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgA
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              35.8%
+            </td>
+            <td style="text-align:left;">
+              (19.6%; 54.6%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgA
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.6%
+            </td>
+            <td style="text-align:left;">
+              (98.7%; 99.9%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3268-a001.pdf">NCI's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3268-a001.csv">Data File</a></p>
+
         <h4>GenBody Inc. GenBody COVID-19 IgM/IgG</h4>
         <p><strong>Manufacturer:</strong> GenBody Inc.</p>
         <p><strong>Device:</strong> GenBody COVID-19 IgM/IgG</p>
         <p><strong>Date Performed:</strong> 2020-06-11</p>
         <p><strong>Lot Number:</strong> FJFB30201</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -4427,7 +5705,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-07-09</p>
         <p><strong>Lot Number:</strong> VMG200331</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed"
                style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
@@ -4571,7 +5849,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-05-08</p>
         <p><strong>Lot Number:</strong> PGGM20015W</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -4713,7 +5991,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-04</p>
         <p><strong>Lot Number:</strong> 20200508</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -4855,7 +6133,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-09</p>
         <p><strong>Lot Number:</strong> 20200406</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -4991,13 +6269,157 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3292-a001.pdf">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3292-a001.csv">Data File</a></p>
 
+        <h4>Hangzhou Realy Tech Co., LTD COVID-19 IgG/IgM Rapid Device Test</h4>
+        <p><strong>Manufacturer:</strong> Hangzhou Realy Tech Co., LTD</p>
+        <p><strong>Device:</strong> COVID-19 IgG/IgM Rapid Device Test</p>
+        <p><strong>Date Performed:</strong> 2020-06-12</p>
+        <p><strong>Lot Number:</strong> N01G17T</p>
+        <p><strong>Panel:</strong> Panel 2</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              96.7% (29/30)
+            </td>
+            <td style="text-align:left;">
+              (83.3%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              94.9% (75/79)
+            </td>
+            <td style="text-align:left;">
+              (87.7%; 98.0%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              86.7% (26/30)
+            </td>
+            <td style="text-align:left;">
+              (70.3%; 94.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              97.5% (77/79)
+            </td>
+            <td style="text-align:left;">
+              (91.2%; 99.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              96.7% (29/30)
+            </td>
+            <td style="text-align:left;">
+              (83.3%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              93.7% (74/79)
+            </td>
+            <td style="text-align:left;">
+              (86.0%; 97.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              44.7%
+            </td>
+            <td style="text-align:left;">
+              (23.8%; 66.0%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.8%
+            </td>
+            <td style="text-align:left;">
+              (99.0%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3325-a001.pdf">NCI's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3325-a001.csv">Data File</a></p>
+
         <h4>Invenio Medical Inc. COVID-19 IgG/IgM Ab Rapid Test</h4>
         <p><strong>Manufacturer:</strong> Invenio Medical Inc.</p>
         <p><strong>Device:</strong> COVID-19 IgG/IgM Ab Rapid Test</p>
         <p><strong>Date Performed:</strong> 2020-05-06</p>
         <p><strong>Lot Number:</strong> COVID20200424</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed"
                style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
@@ -5141,7 +6563,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-04</p>
         <p><strong>Lot Number:</strong> NA</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed"
                style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
@@ -5286,7 +6708,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-23</p>
         <p><strong>Lot Number:</strong> SYG202027</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed"
                style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
@@ -5430,7 +6852,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-03</p>
         <p><strong>Lot Number:</strong> 20042919</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed"
                style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
@@ -5710,13 +7132,157 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3283-a001.pdf">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3283-a001.csv">Data File</a></p>
 
+        <h4>MOKOBIO Biotechnology R&amp;D Center, INC. SARS-CoV-2 IgM &amp; IgG Quantum Dot Immunoassay</h4>
+        <p><strong>Manufacturer:</strong> MOKOBIO Biotechnology R&amp;D Center, INC.</p>
+        <p><strong>Device:</strong> SARS-CoV-2 IgM &amp; IgG Quantum Dot Immunoassay</p>
+        <p><strong>Date Performed:</strong> 2020-08-03 through 2020-08-07</p>
+        <p><strong>Lot Number:</strong> 20200324</p>
+        <p><strong>Panel:</strong> Panel 2</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              66.7% (20/30)
+            </td>
+            <td style="text-align:left;">
+              (48.8%; 80.8%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              91.2% (73/80)
+            </td>
+            <td style="text-align:left;">
+              (83.0%; 95.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              93.3% (28/30)
+            </td>
+            <td style="text-align:left;">
+              (78.7%; 98.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              73.8% (59/80)
+            </td>
+            <td style="text-align:left;">
+              (63.2%; 82.1%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              100% (30/30)
+            </td>
+            <td style="text-align:left;">
+              (88.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              72.5% (58/80)
+            </td>
+            <td style="text-align:left;">
+              (61.9%; 81.1%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              16.1%
+            </td>
+            <td style="text-align:left;">
+              (10.9%; 21.8%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (99.0%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3339-a001.pdf">NCI's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3339-a001.csv">Data File</a></p>
+
         <h4>Nanjing Vazyme Medical Technology Co. LTD Vazyme 2019-nCoV IgG/IgM Detection Kit (Colloidal Gold-Based)</h4>
         <p><strong>Manufacturer:</strong> Nanjing Vazyme Medical Technology Co. LTD</p>
         <p><strong>Device:</strong> Vazyme 2019-nCoV IgG/IgM Detection Kit (Colloidal Gold-Based)</p>
         <p><strong>Date Performed:</strong> 2020-05-29</p>
         <p><strong>Lot Number:</strong> 5020042252B</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -5858,7 +7424,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-04</p>
         <p><strong>Lot Number:</strong> COV03-200325</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed"
                style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
@@ -6002,7 +7568,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-04-21</p>
         <p><strong>Lot Number:</strong> NCP20030239</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
             <tr>
@@ -6146,7 +7712,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-01</p>
         <p><strong>Lot Number:</strong> 0505202977</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed"
                style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
@@ -6287,10 +7853,10 @@ class IndexRoute extends React.Component {
         <h4>SD BIOSENSOR, Inc. STANDARD Q COVID-19 IgM/IgG Duo</h4>
         <p><strong>Manufacturer:</strong> SD BIOSENSOR, Inc.</p>
         <p><strong>Device:</strong> STANDARD Q COVID-19 IgM/IgG Duo</p>
-        <p><strong>Date Performed:</strong> 2020-05-06</p>
+        <p><strong>Date Performed:</strong> 2020-05-06 through 2020-05-13</p>
         <p><strong>Lot Number:</strong> QC01020007/sub : A-2</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed –- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -6432,7 +7998,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-05-08</p>
         <p><strong>Lot Number:</strong> 20200302</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -6574,7 +8140,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-05-28</p>
         <p><strong>Lot Number:</strong> COVT20906</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed"
                style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
@@ -6718,7 +8284,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-04-21</p>
         <p><strong>Lot Number:</strong> 20200320</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -6860,7 +8426,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-04-21</p>
         <p><strong>Lot Number:</strong> 20200405 (Test Strip)</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -7002,7 +8568,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-10</p>
         <p><strong>Lot Number:</strong> 2005059</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -7144,7 +8710,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-04-27</p>
         <p><strong>Lot Number:</strong> P0406203922</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Removed from Notification List</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Removed from Notification List</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -7286,7 +8852,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-11</p>
         <p><strong>Lot Number:</strong> 20030401</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -7570,7 +9136,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-05-06</p>
         <p><strong>Lot Number:</strong> CK2004240410</p>
         <p><strong>Panel:</strong> Panel 1</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -7712,7 +9278,7 @@ class IndexRoute extends React.Component {
         <p><strong>Date Performed:</strong> 2020-06-03</p>
         <p><strong>Lot Number:</strong> CK2004350410</p>
         <p><strong>Panel:</strong> Panel 2</p>
-        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
         <table className="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
@@ -7847,7 +9413,153 @@ class IndexRoute extends React.Component {
         </table>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3285-a001.pdf">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3285-a001.csv">Data File</a></p>
-        
+
+        <h4>Zhuhai Livzon Diagnostics Inc Livzon IgM/IgG Diagnostic Kit for IgM/IgG Antibody to Coronovirus (SARS-Cov-2)
+          Lateral Flow (combined evaluations)</h4>
+        <p><strong>Manufacturer:</strong> Zhuhai Livzon Diagnostics Inc</p>
+        <p><strong>Device:</strong> Livzon IgM/IgG Diagnostic Kit for IgM/IgG Antibody to Coronovirus (SARS-Cov-2)
+          Lateral Flow (combined evaluations)</p>
+        <p><strong>Date Performed:</strong> 2020-05-06, 2020-06-03</p>
+        <p><strong>Lot Number:</strong> CK2004240410, CK2004350410</p>
+        <p><strong>Panel:</strong> Panel 1, Panel 2</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed -- Voluntarily withdrawn</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              88.0% (44/50)
+            </td>
+            <td style="text-align:left;">
+              (76.2%; 94.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              98.4% (125/127)
+            </td>
+            <td style="text-align:left;">
+              (94.4%; 99.6%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              64.0% (32/50)
+            </td>
+            <td style="text-align:left;">
+              (50.1%; 75.9%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (127/127)
+            </td>
+            <td style="text-align:left;">
+              (97.1%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              88.0% (44/50)
+            </td>
+            <td style="text-align:left;">
+              (76.2%; 94.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              98.4% (125/127)
+            </td>
+            <td style="text-align:left;">
+              (94.4%; 99.6%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              74.3%
+            </td>
+            <td style="text-align:left;">
+              (41.7%; 92.5%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.4%
+            </td>
+            <td style="text-align:left;">
+              (98.7%; 99.7%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3285-a002.pdf">NCI's Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3285-a002.csv">Data File</a></p>
+
         <h2>Learn more</h2>
         <p>General information: <a href="https://www.fda.gov/medical-devices/emergency-situations-medical-devices/eua-authorized-serology-test-performance">Learn more about EUA Authorized Serology Test Performance</a></p>
       </section>
