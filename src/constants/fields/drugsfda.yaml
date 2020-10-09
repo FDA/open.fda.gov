@@ -360,3 +360,4 @@ properties:
         is_exact: false
         possible_values:
         type: string
+type: object

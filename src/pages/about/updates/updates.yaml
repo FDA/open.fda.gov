@@ -115,3 +115,7 @@ updates:
     path: /apis/tobacco/problem/
     date: 2020-09-15
     desc: "Tobacco Problem Reports is now available via openFDA."
+  - title: "New feature - openFDA Data Dictionary"
+    path: /data/datadictionary/
+    date: 2020-10-10
+    desc: "The openFDA data dictionary is now available."

@@ -58,7 +58,7 @@
     "react-modal": "^3.1.0",
     "react-promise": "2.0.0",
     "react-radio-group": "^3.0.2",
-    "react-select": "^1.2.1",
+    "react-select": "2.4.4",
     "react-sticky-state": "^2.1.9",
     "react-table": "6.9.0",
     "react-timeseries-charts": "0.12.8",
@@ -66,10 +66,11 @@
     "react-tooltip": "^3.9.2",
     "react-transition-group": "^2.2.1",
     "reactstrap": "^7.1.0",
-    "recharts": "1.0.0-beta.0",
+    "recharts": "1.8.5",
     "scroll-into-view": "^1.9.1",
     "stylus": "^0.54.5",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "xlsx": "0.16.1"
   },
   "keywords": [
     "gatsby"

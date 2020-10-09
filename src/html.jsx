@@ -92,7 +92,6 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
       <script src="https://unpkg.com/prop-types@15.5.10/prop-types.js" />
       <script src="https://unpkg.com/classnames@2.2.5/index.js" />
       <script src="https://unpkg.com/react-input-autosize@2.0.0/dist/react-input-autosize.js" />
-      <script src="https://unpkg.com/react-select@1.2.1/dist/react-select.js" />
 
       {
         // We participate in the US government's analytics program. See the data at analytics.usa.gov.}

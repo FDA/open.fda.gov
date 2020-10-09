@@ -2,7 +2,7 @@ import React from 'react'
 import marked from 'marked'
 import Scrollbars from 'react-custom-scrollbars'
 import Select from 'react-select'
-import 'react-select/dist/react-select.css'
+//import 'react-select/dist/react-select.css'
 import Values from './RenderContentObject/Values'
 import yamlGet from '../utils/yamlGet'
 import FieldDownload from './FieldDownload'
@@ -218,7 +218,6 @@ const FieldExplorer = (props: tPROPS) => {
     updateSelected
   } = props
 
-  console.log("props: ", props)
   let field_names = get_fields(fields.properties)
 
   return (

@@ -67,8 +67,7 @@ class InteractiveInfographic extends React.Component {
     })
   };
 
-  render (): ?React.Element {
-
+  render () {
     return (
       <div id="infographic-border" className="interactive-infographic-border">
         <div className="interactive-infographic-select">
