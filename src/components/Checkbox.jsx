@@ -16,28 +16,6 @@ class Checkbox extends React.Component {
     }
   }
 
-  onMouseOver = event => {
-    let e = event.toElement || event.relatedTarget;
-    if (e.parentNode === this ||
-      e === this) {
-      return;
-    }
-    event.target.style.backgroundColor = "#ebf5ff"
-  }
-
-  onMouseOut = event => {
-    let e = event.toElement || event.relatedTarget;
-    if (e.parentNode === this ||
-      e === this) {
-      return;
-    }
-    if (this.state.isChecked) {
-      event.target.style.backgroundColor = "#f5faff"
-    } else {
-      event.target.style.backgroundColor = "#fff"
-    }
-  }
-
   toggleCheckboxChange = () => {
     const { handleCheckboxChange, column } = this.props;
 
@@ -55,12 +33,10 @@ class Checkbox extends React.Component {
     let style= this.state.isChecked ? '#f5faff': '#fff'
 
     return (
-      <div className="checkbox"
-           onMouseEnter={this.onMouseOver}
-           onMouseLeave={this.onMouseOut}
-           style={{backgroundColor: style}}
+      <label
+        className="checkbox"
+        style={{backgroundColor: style}}
       >
-        <label>
         <input
           type="checkbox"
           value={column.label}
@@ -77,9 +53,8 @@ class Checkbox extends React.Component {
             paddingTop: 5
           }}
         />
-        {column.label}
-        </label>
-      </div>
+      {column.label}
+      </label>
     );
   }
 }
