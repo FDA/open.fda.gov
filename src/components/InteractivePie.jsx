@@ -129,9 +129,6 @@ class TwoLevelPieChart extends React.Component {
   }
 
   render (): ?React.Element {
-    console.log("pie data: ", this.props.data)
-    console.log("colors: ", this.props.colors)
-    console.log("radius: ", this.props.radius)
     return (
       <PieChart
         width={this.props.width}
