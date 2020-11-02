@@ -1,0 +1,17 @@
+botulism:
+  params:
+    - search for press releases issued in 1919 and 1920 that mention "Botulism" and "Olives"
+    - limit to 10 record.
+  query: 'https://api.fda.gov/other/historicaldocument.json?search=doc_type:pr+AND+(year:1919+OR+year:1920)+AND+text:Botulism+AND+text:Olives&limit=10'
+  description:
+    - This query searches for press releases issued in 1919 and 1920 that mention "Botulism" and "Olives" and returns 10 results
+  title: Press Releases on 1919-1920 Botulism Outbreak
+poison:
+  params:
+    - search for talk papers on poison prevention packaging
+    - limit to 10 record.
+  query: 'https://api.fda.gov/other/historicaldocument.json?search=doc_type:talk+AND+text:"poison prevention packaging"&limit=10'
+  description:
+    - This query searches for talk papers that discuss poison prevention packaging
+  title: Talk Papers on Poison Prevention Packaging
+

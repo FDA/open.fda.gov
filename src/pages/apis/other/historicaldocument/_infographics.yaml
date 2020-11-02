@@ -1,0 +1,14 @@
+- title: "Search Term Frequency"
+  short: "Search Term Frequency"
+  dataset: Historical Documents
+  description:
+    - "Distribution of search term occurrences in the historical documents across years"
+  countParam: "year"
+  filters:
+    - title: "Press releases mentioning botulism"
+      searchParam: 'search=doc_type:pr+AND+text:botulism'
+    - title: "Press releases mentioning HIV/AIDS"
+      searchParam: 'search=doc_type:pr+AND+(text:HIV+OR+text:AIDS)'
+    - title: "Talk papers discussing cyclamate"
+      searchParam: 'search=doc_type:talk+AND+text:cyclamate'
+  type: Line

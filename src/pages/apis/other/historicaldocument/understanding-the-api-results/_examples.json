@@ -1,0 +1,57 @@
+
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "openFDA is a research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "openFDA is a research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2015-10-29",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 1355
+      }
+    }
+  },
+  "results": [
+    {
+      "num_of_pages": 2,
+      "year": "1981",
+      "text": "‘FDA\n; FOOD AND DRUG ADMINISTRATION\nFR U.S. Department of Health and Human Services\nLL. Public Health Service 5600 Fishers Lane Rockville, Maryland 20857\n\nFDA Talk Papers are prepared by the Office of Public Affairs to guide FDA personnel in responding with consistency and accuracy\nto questions from the public on subjects of current interest. Talk Papers are subject to change as more information becomes\navailable. Talk Papers are not intended for general distribution ouside FDA, but all information in them is public, and full texts\nare releasable upon request.\n\n781-14 , Faye Peterson\nMay 20, 1981 ‘- 443-3285\n\n    \n   \n     \n \n \n \n \n \n \n \n    \n    \n  \n \n \n \n \n \n \n  \n \n\nFAKE PEP PILLS OR OTC LOCK-ALIKES\nFDA has received numerous fnquiries about fake “pep pills,” imitation \"speed\"\n| and other look-alike druas. These products usually contain caffeine or mixtures\n| of cough-cold ingredients and are properly labeled and legal in the market. However,\nthey are made to look like controlled substances. The following may be used to\nanswer questions.\n\nThere has been a recent proliferation of non-prescription capsules and tablets\nmanufactured to mimic through their appearance various controlled, prescription\nsubstances. Many of these products are a similar size,Cshepe and color, with similar\n\n1, Markings, as amphetamine-type products such as Biphétanine T20, Ionamin-30, Dexedrine\n\n; “and Fastin. The look-alikes usually contain a combination of legal over-the-counter\n\n| drugs, including caffeine, pheny Ipropanolamine (an appetite suppressant and nasal\n\n, decongestant) and ephedrine (a decongestant), or pseudoephedrine and caffeine, or\n\n| ephedrine and caffeine, or just caffeine. These products are being distributed\n\n| natiomide through ads in campus newspapers and the mails and are labeled ostensibly\nin compliance with FDA's current labeling requirements for use as decongestants\nand bronchodilators in the management of bronchial asthma and for use as stimulants\nto aid mental alertness.\n\nPersons purchasing large quantities may sell individual tablets without labeling,\nas if they were strong, controlled stimulants.\n\nFDA has received four reports of deaths associated with the use of these products.\nTwo females died after intentional overdoses, one after taking 50 tablets of caffeine.\nTwo males died from cerebral hemorrhage after use of these druas in combination with\nother drugs and/or alcohol, but the cause of death has not been directly attributed\n\n(1}to the look-alike drugs. -\n-MORE-\n\n \n \n\n \n\f\nPage 2\n\nThe agency is encouraging and supporting state attempts to deal with this ™)\nproblem.\n\nSix states have passed legislation banning the distribution of these\ndrugs and other states have such legislation under consideration. Excerpts\nfrom two of the legislative proposals indicate the intent of the legislation:\n\n\"Prohibits the unlawful sate, manufacture, dispensing, or distribution\nof counterfeit controlled substances. Also prohibits the possession of such\nsubstances with the intent to set], manufacture, dispense, or distribute.\"\n\n\"It is unlawful for any person knowingly or {intentionally to agree,\nconsent, or in any manner offer to unlawfully sell, furnish, transport,\nadminister or give any controlled substance to any person or to arrange for\nany of the above, and then to substitute a non-controlled substance in lieu of\nthe controlled substance bargained for.\"\n\nThe six states that have passed such legislation are: Delaware, Indiana,\nKansas, Arkansas, Maryland and South Dakota. Other states with Tegislation\nunder consideration are: Colorado, Connecticut, Florida, Louisiana, Minnesota, YY\nNew Hampshire, New Mexico (Resolution), Ohio, Oklahoma, Oregon and Tennessee.\n\nFDA recognizes the importance of the look-alike problem and will\npursue regulatory means to deal with violations of the Federal Food, Drug\nand Cosmetic Act.\n\n##FF\n\f",
+      "doc_type": "talk",
+      "download_url": "https://download.open.fda.gov/historical_documents/FDA TALK PAPERS - 1981.pdf"
+    }
+  ],
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2018-06-22"
+    },
+    "results": [
+      {
+        "term": 1981,
+        "count": 49
+      },
+      {
+        "term": 1945,
+        "count": 2
+      }
+    ]
+  }
+}
