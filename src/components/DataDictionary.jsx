@@ -74,6 +74,7 @@ class DataDictionary extends React.Component {
       'recall': 'Recall',
       'registrationlisting': 'Registration List',
       'substance': 'Substance Data',
+      'historicaldocument': 'Historical Documents',
       'udi': 'UDI'
     }
 
