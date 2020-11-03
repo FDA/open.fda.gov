@@ -6,9 +6,7 @@ import examples from './_examples.json'
 class IndexRoute extends React.Component {
     render() {
         const countExample: string = JSON.stringify(examples["count"], null, '  ') || ''
-        const resultsExample: string = JSON.stringify(examples["results"], null, '  ')
-            .replaceAll('\\n','\n')
-            .replaceAll(/\n+\s*/gi,'\n')|| ''
+        const resultsExample: string = JSON.stringify(examples["results"], null, '  ') || ''
 
         return (
             <section className="doc-content">
