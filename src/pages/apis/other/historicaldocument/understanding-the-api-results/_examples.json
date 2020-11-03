@@ -45,12 +45,400 @@
     },
     "results": [
       {
+        "term": 2010,
+        "count": 262
+      },
+      {
+        "term": 2006,
+        "count": 248
+      },
+      {
+        "term": 2009,
+        "count": 245
+      },
+      {
+        "term": 2011,
+        "count": 231
+      },
+      {
+        "term": 2007,
+        "count": 227
+      },
+      {
+        "term": 2003,
+        "count": 209
+      },
+      {
+        "term": 2008,
+        "count": 183
+      },
+      {
+        "term": 1973,
+        "count": 180
+      },
+      {
+        "term": 1977,
+        "count": 171
+      },
+      {
+        "term": 2012,
+        "count": 162
+      },
+      {
+        "term": 2014,
+        "count": 162
+      },
+      {
+        "term": 1982,
+        "count": 161
+      },
+      {
+        "term": 2004,
+        "count": 161
+      },
+      {
+        "term": 2013,
+        "count": 160
+      },
+      {
+        "term": 1967,
+        "count": 159
+      },
+      {
+        "term": 1998,
+        "count": 154
+      },
+      {
+        "term": 1989,
+        "count": 148
+      },
+      {
+        "term": 1986,
+        "count": 147
+      },
+      {
+        "term": 2005,
+        "count": 146
+      },
+      {
+        "term": 1974,
+        "count": 145
+      },
+      {
+        "term": 1975,
+        "count": 142
+      },
+      {
+        "term": 1976,
+        "count": 141
+      },
+      {
+        "term": 1984,
+        "count": 138
+      },
+      {
+        "term": 1997,
+        "count": 136
+      },
+      {
+        "term": 1988,
+        "count": 134
+      },
+      {
+        "term": 1992,
+        "count": 133
+      },
+      {
+        "term": 1968,
+        "count": 132
+      },
+      {
+        "term": 2002,
+        "count": 131
+      },
+      {
+        "term": 1985,
+        "count": 129
+      },
+      {
+        "term": 1993,
+        "count": 127
+      },
+      {
+        "term": 1990,
+        "count": 123
+      },
+      {
+        "term": 1978,
+        "count": 122
+      },
+      {
+        "term": 1980,
+        "count": 121
+      },
+      {
+        "term": 1991,
+        "count": 121
+      },
+      {
+        "term": 1972,
+        "count": 113
+      },
+      {
+        "term": 1971,
+        "count": 109
+      },
+      {
+        "term": 2000,
+        "count": 105
+      },
+      {
+        "term": 1994,
+        "count": 102
+      },
+      {
+        "term": 1999,
+        "count": 102
+      },
+      {
+        "term": 1983,
+        "count": 100
+      },
+      {
+        "term": 1962,
+        "count": 97
+      },
+      {
+        "term": 1987,
+        "count": 94
+      },
+      {
+        "term": 1979,
+        "count": 93
+      },
+      {
+        "term": 1996,
+        "count": 92
+      },
+      {
+        "term": 1970,
+        "count": 91
+      },
+      {
+        "term": 1961,
+        "count": 90
+      },
+      {
+        "term": 1995,
+        "count": 89
+      },
+      {
+        "term": 1963,
+        "count": 85
+      },
+      {
+        "term": 1959,
+        "count": 83
+      },
+      {
+        "term": 1969,
+        "count": 80
+      },
+      {
+        "term": 1929,
+        "count": 75
+      },
+      {
+        "term": 1964,
+        "count": 74
+      },
+      {
         "term": 1981,
+        "count": 72
+      },
+      {
+        "term": 1913,
+        "count": 70
+      },
+      {
+        "term": 1960,
+        "count": 69
+      },
+      {
+        "term": 1914,
+        "count": 66
+      },
+      {
+        "term": 1930,
+        "count": 64
+      },
+      {
+        "term": 1931,
+        "count": 61
+      },
+      {
+        "term": 1965,
+        "count": 60
+      },
+      {
+        "term": 1924,
+        "count": 55
+      },
+      {
+        "term": 1919,
+        "count": 53
+      },
+      {
+        "term": 1925,
+        "count": 53
+      },
+      {
+        "term": 1916,
         "count": 49
+      },
+      {
+        "term": 1936,
+        "count": 48
+      },
+      {
+        "term": 1957,
+        "count": 47
+      },
+      {
+        "term": 1920,
+        "count": 43
+      },
+      {
+        "term": 1923,
+        "count": 43
+      },
+      {
+        "term": 1915,
+        "count": 42
+      },
+      {
+        "term": 1922,
+        "count": 41
+      },
+      {
+        "term": 1932,
+        "count": 40
+      },
+      {
+        "term": 1958,
+        "count": 40
+      },
+      {
+        "term": 1933,
+        "count": 39
+      },
+      {
+        "term": 1926,
+        "count": 37
+      },
+      {
+        "term": 1935,
+        "count": 36
+      },
+      {
+        "term": 1956,
+        "count": 36
+      },
+      {
+        "term": 2001,
+        "count": 36
+      },
+      {
+        "term": 1918,
+        "count": 35
+      },
+      {
+        "term": 1941,
+        "count": 35
+      },
+      {
+        "term": 1955,
+        "count": 34
+      },
+      {
+        "term": 1939,
+        "count": 32
+      },
+      {
+        "term": 1928,
+        "count": 31
+      },
+      {
+        "term": 1934,
+        "count": 31
+      },
+      {
+        "term": 1954,
+        "count": 31
+      },
+      {
+        "term": 1927,
+        "count": 30
+      },
+      {
+        "term": 1921,
+        "count": 29
+      },
+      {
+        "term": 1940,
+        "count": 27
+      },
+      {
+        "term": 1938,
+        "count": 26
+      },
+      {
+        "term": 1953,
+        "count": 26
+      },
+      {
+        "term": 1917,
+        "count": 24
+      },
+      {
+        "term": 1951,
+        "count": 22
+      },
+      {
+        "term": 1950,
+        "count": 18
+      },
+      {
+        "term": 1942,
+        "count": 16
+      },
+      {
+        "term": 1937,
+        "count": 14
+      },
+      {
+        "term": 1944,
+        "count": 10
+      },
+      {
+        "term": 1948,
+        "count": 10
+      },
+      {
+        "term": 1949,
+        "count": 5
+      },
+      {
+        "term": 1947,
+        "count": 4
       },
       {
         "term": 1945,
         "count": 2
+      },
+      {
+        "term": 1946,
+        "count": 1
       }
     ]
   }
