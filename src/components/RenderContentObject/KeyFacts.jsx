@@ -76,9 +76,10 @@ const KeyFacts = (props: tPROPS) => {
       'drugsfda': '/data/drugsfda/'
     },
     'other': {
-      'nsde': '/apis/other/nsde/',
+      'nsde': '/data/other/nsde/',
+      //TODO: Add Substance Data pages.
       'substance': '/apis/other/substance/',
-      'historicaldocument': '/apis/other/historicaldocument/'
+      'historicaldocument': '/data/other/historicaldocument/'
     },
     'tobacco': {
       'problem': '/data/tobaccoproblem/'
