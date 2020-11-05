@@ -60,7 +60,7 @@ class AeDrillDown extends Component {
 
 		newAEData.forEach((entry, i) => {
 			// console.log('entry: ', entry, "i: ", i)
-			data.push({name: String(newAELabels[i]), amt: entry})
+			data.push({name: String(newAELabels[i]), total: entry})
 		})
 
 		// console.log("data: ", data, "useaeArrData", useaeArrData, "newAEData: ", newAEData)
@@ -98,7 +98,7 @@ class AeDrillDown extends Component {
 						<Tooltip content={<CustomTooltip detail={this.props.detail} yLabel={this.props.xAxis}/>} />
 						<Legend height={36} verticalAlign='top'/>
 						<Bar
-							dataKey="amt"
+							dataKey="total"
 							fill="#8884d8"
 							barCategoryGap={"50%"}
 							barGap={"50%"}
@@ -114,7 +114,7 @@ class AeDrillDown extends Component {
 					<ul className="flex-wrap flex-row overflow-scroll">
 						{this.state.documents.map(s =>
 							<li className="font- marg-b-1 row col grow-none t-3 d-3" key={s}>
-								<a href={text+s} download={text+s}>{s}</a>
+								<a href={'https://download.open.fda.gov/historical_documents/'+s} download={'https://download.open.fda.gov/historical_documents/'+s} target="_blank">{s}</a>
 							</li>
 						)}
 					</ul>

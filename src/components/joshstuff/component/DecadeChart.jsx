@@ -30,10 +30,12 @@ class DecadeChart extends Component {
 
   getData() {
     let data = []
-    this.state.decadeData.forEach((entry, i) => {
+    let i = 0
+    while (i < 10) {
       // console.log('entry: ', entry, "i: ", i)
-      data.push({name: String(this.state.decadeLabel[i]), amt: entry})
-    })
+      data.push({name: String(this.state.decadeLabel[i]), total: this.state.decadeData[i]})
+      i++
+    }
     this.setState({
       data
     })
@@ -144,12 +146,12 @@ class DecadeChart extends Component {
               data={this.state.data}
             >
               <XAxis type="number"/>
-              <YAxis dataKey="name" interval={0} type="category" width={75}/>
+              <YAxis dataKey="name" interval={0} type="category" width={110}/>
               <CartesianGrid strokeDasharray="8 8"/>
               <Tooltip content={<CustomTooltip/>} />
               <Legend height={36} verticalAlign='top'/>
               <Bar
-                dataKey="amt"
+                dataKey="total"
                 fill="#8884d8"
                 barCategoryGap={"50%"}
                 barGap={"50%"}
