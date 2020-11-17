@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {total_appears_cnt, total_ae, decadeArr} from "../data/mockData";
 import {Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -19,8 +18,7 @@ class DecadeChart extends Component {
     super(props);
     this.state = {
       data: [],
-      decadeData: total_appears_cnt,
-      decadeLabel: total_ae
+      decade: 'all_decades'
     };
   }
 
@@ -29,38 +27,49 @@ class DecadeChart extends Component {
   }
 
   getData() {
-    let data = []
-    let i = 0
-    while (i < 10) {
-      // console.log('entry: ', entry, "i: ", i)
-      data.push({name: String(this.state.decadeLabel[i]), total: this.state.decadeData[i]})
-      i++
+    let url = 'https://openfda-api.preprod.fda.gov/other/historicaldocumentanalytics.json?limit=1000'
+    if (this.state.decade !== 'all_decades') {
+      url = 'https://openfda-api.preprod.fda.gov/other/historicaldocumentanalytics.json?search=decade:' + this.state.decade + '&limit=1000'
     }
-    this.setState({
-      data
-    })
+
+    fetch(url)
+      .then(res => res.json())
+      .then((json => {
+        if (json.results){
+          let ae_data = {}
+          json.results.forEach(line => {
+            line['adverse_events_mentioned'].forEach(x => {
+              if (x['meddra_term'] in ae_data){
+                ae_data[x['meddra_term']] += x['count']
+              } else {
+                ae_data[x['meddra_term']] = x['count']
+              }
+            })
+          })
+          const sorted_data = Object.entries(ae_data)
+            .sort(([,a],[,b]) => b-a)
+          let data = []
+          let i = 0
+          while (i < 10) {
+            data.push({name: String(sorted_data[i][0]), total: sorted_data[i][1]})
+            i++
+          }
+          this.setState({
+            data
+          })
+        }
+      }))
   }
 
   handleButtonClickDecade = e => {
-    const {value} = e.target;
-    console.log("value: ", value, "decadeArr: ", decadeArr)
-    const isAnnual = value === "all_decades";
-    const useData = decadeArr[value];
-
-    const newData = isAnnual ? total_appears_cnt : useData['appears_cnt'];
-    const newLabels = isAnnual ? total_ae : useData['ae'];
-
     this.setState({
-      decadeData: newData,
-      decadeLabel: newLabels
+      decade: e.target.value
     }, () => {
       this.getData()
     })
   };
 
   render() {
-    console.log("data: ", this.state.data, "decadeData: ", this.state.decadeData, "decadeLabel: ", this.state.decadeLabel)
-
     return (
       <div>
         <div>
@@ -73,67 +82,67 @@ class DecadeChart extends Component {
               All Decades
             </button>
             <button
-              value="decade1910"
+              value="1910"
               onClick={this.handleButtonClickDecade}
             >
               1910's
             </button>
             <button
-              value="decade1920"
+              value="1920"
               onClick={this.handleButtonClickDecade}
             >
               1920's
             </button>
             <button
-              value="decade1930"
+              value="1930"
               onClick={this.handleButtonClickDecade}
             >
               1930's
             </button>
             <button
-              value="decade1940"
+              value="1940"
               onClick={this.handleButtonClickDecade}
             >
               1940's
             </button>
             <button
-              value="decade1950"
+              value="1950"
               onClick={this.handleButtonClickDecade}
             >
               1950's
             </button>
             <button
-              value="decade1960"
+              value="1960"
               onClick={this.handleButtonClickDecade}
             >
               1960's
             </button>
             <button
-              value="decade1970"
+              value="1970"
               onClick={this.handleButtonClickDecade}
             >
               1970's
             </button>
             <button
-              value="decade1980"
+              value="1980"
               onClick={this.handleButtonClickDecade}
             >
               1980's
             </button>
             <button
-              value="decade1990"
+              value="1990"
               onClick={this.handleButtonClickDecade}
             >
               1990's
             </button>
             <button
-              value="decade2000"
+              value="2000"
               onClick={this.handleButtonClickDecade}
             >
               2000's
             </button>
             <button
-              value="decade2010"
+              value="2010"
               onClick={this.handleButtonClickDecade}
             >
               2010's
@@ -158,11 +167,6 @@ class DecadeChart extends Component {
               />
             </BarChart>
           </ResponsiveContainer>
-
-          {/*<BarGraph
-            data={this.state.decadeData}
-            labels={this.state.decadeLabel}
-          />*/}
         </div>
       </div>
     );
