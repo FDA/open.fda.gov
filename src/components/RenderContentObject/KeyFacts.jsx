@@ -43,7 +43,8 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': 'NDC SPL Data Elements',
-      'substance': 'Substance Data Reports'
+      'substance': 'Substance Data Reports',
+      'historicaldocument': 'Historic FDA Press Releases and Talk Papers'
     },
     'tobacco': {
       'problem': 'Tobacco Problem Reports'
@@ -75,8 +76,10 @@ const KeyFacts = (props: tPROPS) => {
       'drugsfda': '/data/drugsfda/'
     },
     'other': {
-      'nsde': '/apis/other/nsde/',
-      'substance': '/apis/other/substance/'
+      'nsde': '/data/other/nsde/',
+      //TODO: Add Substance Data pages.
+      'substance': '/apis/other/substance/',
+      'historicaldocument': '/data/other/historicaldocument/'
     },
     'tobacco': {
       'problem': '/data/tobaccoproblem/'
@@ -111,7 +114,8 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': '2009 to present',
-      'substance': 'Current'
+      'substance': 'Current',
+      'historicaldocument': '1913 to 2014'
     },
     'tobacco': {
       'problem':'2017 to present'
@@ -146,7 +150,8 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': 'Daily',
-      'substance': 'Daily'
+      'substance': 'Daily',
+      'historicaldocument': 'Infrequently'
     },
     'tobacco': {
       'problem':'Quarterly'

@@ -20,6 +20,7 @@ const pdfDownloadMap: Object = Object.freeze({
   'covid19serology': '/fields/devicecovid19serology_reference.pdf',
   'othernsde': '/fields/othernsde_reference.pdf',
   'othersubstance': '/fields/othersubstance_reference.pdf',
+  'otherhistoricaldocument': '/fields/otherhistoricaldocument_reference.pdf',
   'tobaccoproblem': '/fields/tobaccoproblem_reference.pdf'
 })
 
@@ -43,6 +44,7 @@ const xlsxDownloadMap: Object = Object.freeze({
   'covid19serology': '/fields/devicecovid19serology_reference.xlsx',
   'othernsde': '/fields/othernsde_reference.xlsx',
   'othersubstance': '/fields/othersubstance_reference.xlsx',
+  'otherhistoricaldocument': '/fields/otherhistoricaldocument_reference.xlsx',
   'tobaccoproblem': '/fields/tobaccoproblem_reference.xlsx'
 })
 
@@ -66,6 +68,7 @@ const yamlDownloadMap: Object = Object.freeze({
   'covid19serology': '/fields/devicecovid19serology.yaml',
   'othernsde': '/fields/othernsde.yaml',
   'othersubstance': '/fields/othersubstance.yaml',
+  'otherhistoricaldocument': '/fields/otherhistoricaldocument.yaml',
   'tobaccoproblem': '/fields/tobaccoproblem.yaml'
 })
 

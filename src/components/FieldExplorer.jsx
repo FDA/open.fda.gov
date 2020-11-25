@@ -1,12 +1,10 @@
-import React from 'react'
+import React, {Component} from 'react'
 import marked from 'marked'
 import Scrollbars from 'react-custom-scrollbars'
 import Select from 'react-select'
-//import 'react-select/dist/react-select.css'
 import Values from './RenderContentObject/Values'
 import yamlGet from '../utils/yamlGet'
 import FieldDownload from './FieldDownload'
-import FieldExplorerContainer from '../containers/FieldExplorerContainer'
 
 const _renderLi = (props: tLiProps) => {
   const {
@@ -206,54 +204,83 @@ type tPROPS = {
 // sometimes though we have object in _content, usually
 // for api examples or for rendering out fields for an
 // endpoint. this component handles rendering the objects
-const FieldExplorer = (props: tPROPS) => {
-  const {
-    // key basically. can't pass key as prop
-    k,
-    // big pre blocks (code examples) on some pages
-    fields,
-    meta,
-    selectedField,
-    updateField,
-    updateSelected
-  } = props
+class FieldExplorer extends Component {
+  constructor(props) {
+    super(props);
 
-  let field_names = get_fields(fields.properties)
+    this.state = {
+      selectedField: 'fields'
+    }
 
-  return (
-    <section key={k} className="field-explorer">
-      <Select
-        name="form-field-name"
-        value={selectedField}
-        options={field_names}
-        onChange={updateField}
-        placeholder="Search the fields"
-        resetValue="fields"
-      />
-      <div className='sans weight-600 marg-t-2 marg-b-1'>Navigate the fields:</div>
-      <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={500} className="field-explorer-border">
-        {
-          selectedField === 'fields' ?
-            render_object({
-              fields: fields.properties,
-              updateSelected,
-              selectedField,
-              i: k
-            }):
-            _renderLi({
-              field: yamlGet(selectedField, fields),
-              updateSelected,
-              key: selectedField,
-              i: k,
-              isFDA: false
-            })
-        }
-      </Scrollbars>
-      <h4 className="marg-t-2">Download the Fields Reference Document:</h4>
-      <FieldDownload meta={meta} k={k}/>
-    </section>
-  )
+    this.updateField = this.updateField.bind(this)
+    this.updateSelected = this.updateSelected.bind(this)
+  }
+
+  updateField (val) {
+    console.log("val: ", val)
+    this.setState({
+      selectedField: val,
+    })
+  }
+
+  updateSelected(e) {
+    console.log(e)
+    let title = e.target.getAttribute('title')
+    if (this.state.selectedField !== title) {
+      this.setState({
+        selectedField: title
+      })
+    }
+  }
+
+  render() {
+    const {
+      // key basically. can't pass key as prop
+      k,
+      // big pre blocks (code examples) on some pages
+      fields,
+      meta
+    } = this.props
+
+    let field_names = get_fields(fields.properties)
+
+    console.log("field names: ", field_names, this.state.selectedField)
+
+    return (
+      <section key={k} className="field-explorer">
+        <Select
+          name="form-field-name"
+          value={this.state.selectedField}
+          isClearable
+          options={field_names}
+          onChange={this.updateField}
+          placeholder="Search the fields"
+          resetValue="fields"
+        />
+        <div className='sans weight-600 marg-t-2 marg-b-1'>Navigate the fields:</div>
+        <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={500} className="field-explorer-border">
+          {
+            this.state.selectedField === 'fields' ?
+              render_object({
+                fields: fields.properties,
+                updateSelected: this.updateSelected,
+                selectedField: this.state.selectedField,
+                i: k
+              }) :
+              _renderLi({
+                field: yamlGet(this.state.selectedField.value, fields),
+                updateSelected: this.updateSelected,
+                key: this.state.selectedField.value,
+                i: k,
+                isFDA: false
+              })
+          }
+        </Scrollbars>
+        <h4 className="marg-t-2">Download the Fields Reference Document:</h4>
+        <FieldDownload meta={meta} k={k}/>
+      </section>
+    )
+  }
 }
 
-FieldExplorer.displayName = 'components/FieldExplorer'
-export default FieldExplorerContainer(FieldExplorer)
+export default FieldExplorer

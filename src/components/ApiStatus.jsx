@@ -30,6 +30,7 @@ const catMap: Object = Object.freeze({
   'covid19serology': 'Devices › COVID-19 Serological Testing Evaluations',
   'othernsde': 'Other › NSDE',
   'othersubstance': 'Other › Substance',
+  'otherhistoricaldocument': 'Other › Historical Documents',
   'tobaccoproblem': 'Tobacco › Problem Reports'
 })
 
@@ -54,6 +55,7 @@ const endpointLinkMap: Object = Object.freeze({
   'covid19serology': 'device/covid19serology',
   'othernsde': 'other/nsde',
   'othersubstance': 'other/substance',
+  'otherhistoricaldocument': 'other/historicaldocument',
   'tobaccoproblem': 'tobacco/problem'
 })
 
@@ -135,3 +137,4 @@ const ApiStatus = (props: tPROPS) => (
 
 ApiStatus.displayName = 'component/ApiStatus'
 export default ApiStatusContainer(ApiStatus)
+
