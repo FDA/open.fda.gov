@@ -86,7 +86,7 @@ class AeDrillDown extends Component {
 
 		return(
 			<div>
-				<h1 className='drill-down-header'>Adverse Events By Decade</h1>
+				<h1 className='drill-down-header'>Reactions By Decade</h1>
 				<Select
 					name='adverse events'
 					onChange={this.handleChange}

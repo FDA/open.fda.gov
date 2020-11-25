@@ -20,7 +20,7 @@ class PositionsPanel extends React.Component {
           'accessor': 'file_name'
         },
         {
-          'Header': 'Adverse Events Mentioned',
+          'Header': 'Reactions Mentioned',
           'accessor': 'ae',
           Cell: row => (
             <ol style={{
@@ -62,7 +62,8 @@ class PositionsPanel extends React.Component {
             return {
               decade: line['decade'],
               pub_year: line['year'],
-              file_name: <a href={'https://download.open.fda.gov/historical_documents/' + line['doc_file_name']} target='_blank'>{line['doc_file_name']}</a>,
+              // file_name: <a href={'https://download.open.fda.gov/historical_documents/' + line['doc_file_name']} target='_blank'>{line['doc_file_name']}</a>,
+              file_name: line['doc_file_name'],
               ae: line['adverse_events_mentioned'].map(ae => {
                 return ae['meddra_term']
               })
