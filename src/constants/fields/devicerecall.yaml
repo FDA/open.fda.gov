@@ -12,7 +12,7 @@ properties:
     possible_values:
     type: string
   event_date_posted:
-    description: "Date on which the recall record was created in the FDA database."
+    description: "Indicates the date FDA classified the recall, but it does not necessarily mean that the recall is new."
     format: date
     is_exact: false
     possible_values:
