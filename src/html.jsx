@@ -2,6 +2,8 @@
 
 import React from 'react'
 import faviconPNG from './favicon.png'
+import appCSS from '!!raw-loader!./css/build/app.css'
+import reactTableCSS from '!!raw-loader!../node_modules/react-table/react-table.css'
 
 const webFontLoader: string = `
   WebFontConfig = {
@@ -64,13 +66,13 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
       <style
         dangerouslySetInnerHTML={{
           // $FlowIgnore
-          __html: require('raw-loader!./css/build/app.css')
+          __html: appCSS,
         }}
       />
       <style
         dangerouslySetInnerHTML={{
           // $FlowIgnore
-          __html: require('raw-loader!../node_modules/react-table/react-table.css')
+          __html: reactTableCSS,
         }}
       />
       {

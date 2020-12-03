@@ -1,12 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const InfographicLegend = React.createClass({
   propTypes: {
-    ranges:React.PropTypes.array.isRequired,
-    styles: React.PropTypes.object.isRequired,
-    title: React.PropTypes.string.isRequired
+    ranges: PropTypes.array.isRequired,
+    styles: PropTypes.object.isRequired,
+    title: PropTypes.string.isRequired
   },
-  getStyle(color){  
+  getStyle(color){
     return { backgroundColor: color}
   },
 
@@ -16,7 +17,7 @@ const InfographicLegend = React.createClass({
           <p className="infographic-legend-title"> {this.props.title}</p>
           <table className="infographic-legend-table">
             <tbody>
-              { this.props.ranges.map( (obj, index) => 
+              { this.props.ranges.map( (obj, index) =>
                   <tr key={index}><td>
                       <span className="infographic-legend-tr" style={this.getStyle(obj.color)}>{' '}</span>{'  '}{obj.name}
                   </td></tr>
