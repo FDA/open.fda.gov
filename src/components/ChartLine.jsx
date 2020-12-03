@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react'
-import Charts from 'react-chartjs'
+import Charts from 'react-chartjs-2'
 import get from 'lodash/get'
 import { default as ChartBar } from './ChartBar'
 
@@ -172,7 +172,7 @@ class ChartLine extends React.Component {
         />
       )
     }
-    
+
     return (
       <span>
 

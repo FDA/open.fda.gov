@@ -2,7 +2,7 @@
 
 import React from 'react'
 import cx from 'classnames'
-import Charts from 'react-chartjs'
+import Charts from 'react-chartjs-2'
 import getFieldValues from '../utils/getFieldValues'
 
 const Doughnut: ReactClass = Charts.Doughnut

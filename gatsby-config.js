@@ -30,6 +30,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-stylus`,
-    `gatsby-plugin-react-helmet`
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-flow`
   ],
 }

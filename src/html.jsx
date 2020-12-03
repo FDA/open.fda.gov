@@ -64,13 +64,13 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
       <style
         dangerouslySetInnerHTML={{
           // $FlowIgnore
-          __html: require('!raw!./css/build/app.css')
+          __html: require('raw-loader!./css/build/app.css')
         }}
       />
       <style
         dangerouslySetInnerHTML={{
           // $FlowIgnore
-          __html: require('!raw!../node_modules/react-table/react-table.css')
+          __html: require('raw-loader!../node_modules/react-table/react-table.css')
         }}
       />
       {
