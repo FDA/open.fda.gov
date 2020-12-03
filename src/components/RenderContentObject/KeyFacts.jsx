@@ -132,7 +132,7 @@ const KeyFacts = (props: tPROPS) => {
       '510k': 'Monthly',
       'pma': 'Monthly',
       'registrationlisting': 'Monthly',
-      'recall': 'Monthly',
+      'recall': 'Weekly',
       'enforcement': 'Weekly',
       'udi': 'Weekly',
       'covid19serology': 'Intermittently'
