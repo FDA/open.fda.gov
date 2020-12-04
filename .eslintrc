@@ -4,8 +4,8 @@
     "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true,
-    },
+      "jsx": true
+    }
   },
   "env": {
     "node": true,
@@ -93,7 +93,7 @@
     "no-implicit-coercion": [2, {
         "boolean": false,
         "number": true,
-        "string": true,
+        "string": true
     }],
     // disallow use of eval()-like methods
     "no-implied-eval": 1,
