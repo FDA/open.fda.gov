@@ -71,7 +71,7 @@ const QueryExplorer = (props: tPROPS) => {
           )
         })
       }
-      {params &&
+      {params && params.toString() &&
         <ol className='b-t-1 marg-t-3 marg-b-2'
             id={'params' + (name ? ('-' + name) : '')}>
           {
