@@ -53,7 +53,7 @@ class InfographicContainer extends React.Component {
     type: 'Line',
   };
 
-  defaultProps: Object = {
+  static defaultProps: Object = {
     infographics: [{}],
   };
 

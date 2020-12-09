@@ -28,7 +28,7 @@ type tSTATE = {
 
 const QueryExplorerContainer = function (ComposedQueryExplorer: ReactClass): ReactClass {
   class HOC extends React.Component {
-    defaultProps: tPROPS = {
+    static defaultProps: tPROPS = {
       desc: '',
       k: 0,
       level: 5,

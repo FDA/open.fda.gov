@@ -172,7 +172,7 @@ class ChartLine extends React.Component {
         />
       )
     }
-    
+
     return (
       <span>
 
