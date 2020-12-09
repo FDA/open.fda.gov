@@ -135,7 +135,7 @@ const KeyFacts = (props: tPROPS) => {
       'recall': 'Weekly',
       'enforcement': 'Weekly',
       'udi': 'Weekly',
-      'covid19serology': 'Intermittently'
+      'covid19serology': 'Monthly'
     },
     'drug': {
       'event': 'Quarterly. However, please be advised that the data in this API may lag by 3 months or more at any given time, depending on when the quarterly FAERS data is released.',
@@ -146,7 +146,7 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': 'Daily',
-      'substance': 'Daily'
+      'substance': 'Every few months'
     },
     'tobacco': {
       'problem':'Quarterly'
