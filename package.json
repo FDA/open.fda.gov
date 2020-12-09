@@ -47,7 +47,7 @@
     "immutability-helper": "^2.6.6",
     "jquery": "^3.2.1",
     "localforage": "^1.5.2",
-    "marked": "^0.6.2",
+    "marked": "^0.7.0",
     "matchmedia": "^0.1.2",
     "nib": "^1.1.2",
     "prismjs": "^1.22.0",
