@@ -26,11 +26,11 @@
     - title: "All Tobacco Problem Reports"
       searchParam: ''
     - title: "2017"
-      searchParam: 'submission_date:[20170101+TO+20171231]'
+      searchParam: 'date_submitted:[20170101+TO+20171231]'
     - title: "2018"
-      searchParam: 'submission_date:[20180101+TO+20181231]'
+      searchParam: 'date_submitted:[20180101+TO+20181231]'
     - title: "2019"
-      searchParam: 'submission_date:[20190101+TO+20191231]'
+      searchParam: 'date_submitted:[20190101+TO+20191231]'
     - title: "2020"
-      searchParam: 'submission_date:[20200101+TO+20201231]'
+      searchParam: 'date_submitted:[20200101+TO+20201231]'
   type: Bar

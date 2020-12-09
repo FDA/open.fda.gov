@@ -6,7 +6,7 @@ properties:
     is_exact: false
     possible_values:
     type: number
-  submission_date:
+  date_submitted:
     description: "Date of Original Receipt to FDA."
     format: date
     is_exact: false
