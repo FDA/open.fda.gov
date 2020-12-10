@@ -6,7 +6,6 @@ import { TimeSeries, TimeRange, sum } from "pondjs";
 import { Charts, ChartContainer, ChartRow, YAxis, LineChart, styler, EventMarker } from "react-timeseries-charts"
 import _ from 'lodash';
 import 'whatwg-fetch'
-import createClass from 'create-react-class';
 import PropTypes from 'prop-types';
 import Parser from 'html-react-parser';
 import {default as $} from "jquery";

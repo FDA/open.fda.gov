@@ -2,10 +2,8 @@
 
 import React from 'react'
 import cx from 'classnames'
-import Charts from 'react-chartjs'
+import {Doughnut} from 'react-chartjs-2'
 import getFieldValues from '../utils/getFieldValues'
-
-const Doughnut: ReactClass = Charts.Doughnut
 
 const _getChartColor = function (i: number): string {
   const colors: Array<string> = [
@@ -30,23 +28,15 @@ const _getChartData = function (
   hasLegend: boolean) {
 
   // $FlowIgnore because of the filter
-  return data.map((d: Object, i) => {
-    const color: string = !colors ? _getChartColor(i) : colors[i]
-    const label: void|string = fieldValues[d.term] || d.term
-
-    // hasLegend === main donut chart, not sidebar record chart
-    // the sidebar record chart won't have labels, so we
-    // check for those things so the chart doesn't err
-    // we also want to limit the things we are rendering
-    // to be things that are actually in fieldValues
-    if (hasLegend && typeof label === 'undefined') return
-
-    return {
-      value: d.count,
-      color,
-      label,
-    }
-  }).filter(d => d)
+  return {
+    labels: data.map((d: Object) => fieldValues[d.term] || d.term),
+    datasets: [
+      {
+        data: data.map((d: Object) => d.count),
+        backgroundColor: data.map((d: Object, i) => !colors ? _getChartColor(i) : colors[i])
+      }
+    ]
+  }
 }
 
 type tPROPS = {
@@ -82,7 +72,7 @@ const ChartDonut = (props: tPROPS) => {
 
   const fieldValues: Object = getFieldValues(countParam, fields)
   // map over data, return as arr of obj formatted for chart js
-  const chartData: Array<Object> = _getChartData(data, fieldValues, colors, hasLegend)
+  const chartData: Object = _getChartData(data, fieldValues, colors, hasLegend)
   // always map over all data, sometimes chartData can be a subset
   const total: number = data.map(d => d.count).reduce((a, b) => a + b)
 
@@ -102,23 +92,27 @@ const ChartDonut = (props: tPROPS) => {
         <Doughnut
           data={chartData}
           height={size}
-          options={{
-            percentageInnerCutout: 60,
-            animationEasing: 'easeInOutQuint',
-            // 20 frames at 60fps == 350ms
-            animationSteps: 20,
-            segmentShowStroke: false,
-          }}
           width={size}
+          options={{
+            cutoutPercentage: 60,
+            animation: {
+              animationEasing: 'easeInOutQuint',
+              duration: 350
+            },
+            segmentShowStroke: false,
+            maintainAspectRatio: false,
+            responsive: false,
+            legend: {display: false}
+          }}
         />
       </div>
       {
         hasLegend &&
         <ul className={legendCx}>
           {
-            chartData.slice(0,7).map((d: Object, i) => {
+            chartData.datasets[0].data.slice(0,7).map((d: number, i) => {
               // get % of records that the current field matches
-              const porCiento: number = (d.value / total) * 100 | 0
+              const porCiento: number = (d / total) * 100 | 0
 
               return (
                 <li
@@ -128,14 +122,14 @@ const ChartDonut = (props: tPROPS) => {
                     <span
                       className='float-l inline-block clr-white'
                       style={{
-                        backgroundColor: d.color,
+                        backgroundColor: chartData.datasets[0].backgroundColor[i],
                         height: '10px',
                         marginRight: '5px',
                         width: '10px',
                       }}
                     />
-                    <strong>{d.label}</strong><br />
-                    <span className='clr-gray'>{porCiento}% - {d.value} records</span>
+                    <strong>{chartData.labels[i]}</strong><br />
+                    <span className='clr-gray'>{porCiento}% - {d} records</span>
                   </p>
                 </li>
               )
