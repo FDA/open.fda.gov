@@ -1,11 +1,9 @@
 /* @flow */
 
 import React from 'react'
-import Charts from 'react-chartjs'
+import {Line} from 'react-chartjs-2'
 import get from 'lodash/get'
-import { default as ChartBar } from './ChartBar'
-
-const Line: ReactClass = Charts.Line
+import {default as ChartBar} from './ChartBar'
 
 /**
  * @description [loops over the data, pulls out each year]
@@ -83,14 +81,14 @@ const _getChartData = (years: Array<string>, totalsByYear: Array<number>) => {
     datasets: [{
       data: totalsByYear,
       // area fill color and transparency
-      fillColor: 'rgba(107, 218, 255, .3)',
+      backgroundColor: 'rgba(107, 218, 255, .3)',
       // line color
-      strokeColor: '#1ECFFF',
+      borderColor: '#1ECFFF',
       // point color
-      pointColor: '#1ECFFF',
-      pointStrokeColor: '#112e51',
-      pointHighlightFill: '#fff',
-      pointHighlightStroke: '#112e51',
+      pointBackgroundColor: '#1ECFFF',
+      pointBorderColor: '#112e51',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: '#112e51',
       // fillColor: 'rgba(17, 46, 81, .3)', B22222
       // strokeColor: '#112e51',
       // pointColor: '#112e51',
@@ -181,6 +179,16 @@ class ChartLine extends React.Component {
           height={height}
           width={width}
           redraw={dataChanged}
+          options={{
+            maintainAspectRatio: false, responsive: false, legend: {display: false},
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }}
         />
         <a
           className='visually-hidden'
