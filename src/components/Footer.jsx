@@ -5,39 +5,39 @@ import React from 'react'
 const links: Array<Object> = [
   {
     txt: 'FDA Home',
-    url: 'http://www.fda.gov',
+    url: 'https://www.fda.gov/',
   },
   {
     txt: 'Accessibility',
-    url: 'http://www.fda.gov/AboutFDA/AboutThisWebsite/Accessibility/default.htm',
+    url: 'https://www.fda.gov/about-fda/about-website/internet-accessibility',
   },
   {
     txt: 'Careers',
-    url: 'http://www.fda.gov/AboutFDA/WorkingatFDA/default.htm',
+    url: 'https://www.fda.gov/about-fda/jobs-and-training-fda',
   },
   {
     txt: 'FDA Basics',
-    url: 'http://www.fda.gov/AboutFDA/Transparency/Basics/default.htm',
+    url: 'https://www.fda.gov/about-fda/transparency/fda-basics',
   },
   {
     txt: 'FOIA',
-    url: 'http://www.fda.gov/RegulatoryInformation/FOI/default.htm',
+    url: 'https://www.fda.gov/regulatory-information/freedom-information',
   },
   {
     txt: 'No Fear Act',
-    url: 'http://www.fda.gov/AboutFDA/WorkingatFDA/NoFearAct/default.htm',
-  },
-  {
-    txt: 'Site Map',
-    url: 'http://www.fda.gov/SiteMap/default.htm',
+    url: 'https://www.fda.gov/about-fda/jobs-and-training-fda/no-fear-act',
   },
   {
     txt: 'Transparency',
-    url: 'http://www.fda.gov/AboutFDA/Transparency/default.htm',
+    url: 'https://www.fda.gov/about-fda/transparency',
   },
   {
-    txt: 'Website',
-    url: 'http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/default.htm'
+    txt: 'Website Policies',
+    url: 'https://www.fda.gov/about-fda/about-website/website-policies'
+  },
+  {
+    txt: 'Privacy Policy',
+    url: 'https://www.fda.gov/about-fda/about-website/website-policies#privacy'
   },
   {
     txt: 'openFDA Terms of Service',
