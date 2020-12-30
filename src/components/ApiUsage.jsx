@@ -5,6 +5,7 @@ import bp from '../constants/breakpoints'
 import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
+import '../css/components/APIUsage.scss'
 
 // Update total usage numbers with: https://api.fda.gov/usage.json?end_at=2020-06-25 - last 2020-06-25
 // Update in pages/about/statistics/_content.yaml
