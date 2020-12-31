@@ -56,7 +56,18 @@ const graphData = {
           }
         ],
         table: null
-      }
+      };
+const toolTipLabel = "API Calls";
+const fontStyle = {fill: "#000000", 'font-size': 11, font: '"Merriweather,Georgia,serif"'};
+const yLegendCoordinate= -200;
+const trackerTimeFormat= "%D";
+const customColorsList = [
+          "#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c",
+          "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5",
+          "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+          "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+        ];
+
 
 const ApiUsage = (props: tPROPS) => {
 
@@ -90,30 +101,14 @@ const ApiUsage = (props: tPROPS) => {
           "width": 50,
           "type": "linear"
         },
-        customColorsList: [
-          "#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c",
-          "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5",
-          "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
-          "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
-        ],
         selection:  null,
         tracker:   null,
         trackerInfoValues: [],
-        trackerTimeFormat: "%D",
-        fontSize: "11px",
-        font: "Merriweather,Georgia,serif",
-        color:"#000000",
-        yLegendCoordinate: -200,
-        toolTipLabel: "API Calls",
         columns: ["value"]
       }
-
-      this.onHighlightChange = this.onHighlightChange.bind(this)
-      this.onSelectionChange = this.onSelectionChange.bind(this)
-      this.onTrackerChanged = this.onTrackerChanged.bind(this)
     }
 
-    componentDidMount = () => {
+    componentDidMount() {
       this.fetchStats()
     }
 
@@ -126,10 +121,8 @@ const ApiUsage = (props: tPROPS) => {
         var dataz = [],
           minTime = null,
           maxTime = null,
-          values = [],
           max = null,
-          min = null,
-          that = this;
+          min = null;
 
         data.stats.forEach(function (stat) {
           graphData.labels.push(stat.day)
@@ -140,15 +133,15 @@ const ApiUsage = (props: tPROPS) => {
           minTime = dataz[0][0]
           maxTime = dataz[dataz.length-1][0]
           maxTime.setDate(maxTime.getDate() + 1)
-          max = Math.max(...dataz.map((v, i) => v[1]))
-          min = Math.min(...dataz.map((v, i) => v[1]))
+          max = Math.max(...dataz.map((v) => v[1]))
+          min = Math.min(...dataz.map((v) => v[1]))
         }
 
         // set style according to categories
         var legendStyle = styler(this.state.columns.map((column,idx)=> {
           return {
             key: column,
-            color: that.state.customColorsList[0],
+            color: customColorsList[0],
             width: 3
           }
         }))
@@ -248,7 +241,7 @@ const ApiUsage = (props: tPROPS) => {
       const value = this.formatNumber(trackerEvent.toJSON().data["value"])
 
       this.setState({
-        trackerInfoValues: [{label: this.state.toolTipLabel, value: value}],
+        trackerInfoValues: [{label: toolTipLabel, value: value}],
         tracker: tracker
       })
     }
@@ -269,15 +262,11 @@ const ApiUsage = (props: tPROPS) => {
           return p
         }
 
-      $("text").css("font-family",this.state.fontFamily)
-      $('text').css('fill', this.state.color)
-      $('text').css('font-size', this.state.fontSize)
-
       var vals = $("text").filter(function () {
         return $(this).attr("transform") == "rotate(-90)"
       })
       if(vals.length){
-        $(vals[0]).attr("x",this.state.yLegendCoordinate)
+        $(vals[0]).attr("x",yLegendCoordinate)
       }
 
         return (
@@ -411,21 +400,24 @@ const ApiUsage = (props: tPROPS) => {
                     width={this.state.width}
                     onTrackerChanged={this.onTrackerChanged}
                     onChartResize={this.handleChartResize}
+                    timeAxisStyle={{values: fontStyle}}
                   >
                       <ChartRow
                         trackerInfoValues={this.state.trackerInfoValues}
                         trackerTime={this.state.tracker}
-                        trackerTimeFormat={this.state.trackerTimeFormat}
-                        timeFormat={this.state.trackerTimeFormat}
+                        trackerTimeFormat={trackerTimeFormat}
+                        timeFormat={trackerTimeFormat}
                         {...this.state.chartRow}
                       >
                           <YAxis
                             id="axis1"
                             max={this.state.max}
                             min={this.state.min}
+                            style={{ label: fontStyle, values: fontStyle }}
                             {...this.state.yAxis}
                           />
                           <Charts>
+
                               <LineChart
                                 axis="axis1"
                                 style={this.state.style}
