@@ -14,6 +14,7 @@ import TwoLevelPieChart from './InteractivePie';
 import Checkbox from "./Checkbox";
 import states from '../pages/apis/states.json'
 import { API_LINK } from '../constants/api'
+import '../css/components/Charts.scss'
 
 
 const stringOrNode = PropTypes.oneOfType([

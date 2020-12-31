@@ -3,6 +3,7 @@
 import React from 'react'
 import BreadcrumbsContainer from '../containers/BreadcrumbsContainer'
 import Link from 'gatsby-link'
+import '../css/components/BreadCrumbs.scss'
 
 const cat_map = {
   'food': {
