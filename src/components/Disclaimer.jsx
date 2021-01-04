@@ -4,6 +4,7 @@ import React from 'react'
 import ReactModal from 'react-modal'
 import Link from 'gatsby-link'
 import ComposedDisclaimer from '../containers/DisclaimerContainer'
+import '../css/components/Disclaimer.scss'
 
 type tPROPS = {
   showModal: boolean,

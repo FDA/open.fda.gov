@@ -7,6 +7,7 @@ import Values from './RenderContentObject/Values'
 import yamlGet from '../utils/yamlGet'
 import FieldDownload from './FieldDownload'
 import FieldExplorerContainer from '../containers/FieldExplorerContainer'
+import '../css/components/FieldExplorer.scss'
 
 const _renderLi = (props: tLiProps) => {
   const {

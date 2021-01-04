@@ -9,6 +9,7 @@ import XLSX from 'xlsx'
 import dictionary from '../constants/fields/master_fields.yaml'
 import { API_LINK } from "../constants/api";
 
+import '../css/components/DataDictionary.scss'
 
 /* generate a download */
 function s2ab(s) {

@@ -1,4 +1,5 @@
 import React from 'react'
+import '../css/components/FieldDownload.scss'
 
 const pdfDownloadMap: Object = Object.freeze({
   'animalandveterinarydrugevent': '/fields/animalandveterinaryevent_reference.pdf',

@@ -1,0 +1,187 @@
+.data-dictionary-header {
+	border-bottom: 1px solid #ccc;
+	padding: 20px 0;
+}
+
+.data-dictionary {
+	position: relative;
+}
+
+.data-dictionary .dataset-select {
+	margin: 20px 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.data-dictionary .dataset-select > div {
+	display: flex;
+	flex-direction: column;
+}
+
+.data-dictionary .dataset-select > div > h5 {
+	margin-bottom: 12px;
+}
+
+.data-dictionary .dataset-select .nouns {
+	width: 17%;
+	line-height: 20px;
+}
+
+.data-dictionary .dataset-select .endpoints {
+	width: 82%;
+}
+
+.data-dictionary .color-box {
+	width: 10px;
+	height: 10px;
+	margin-right: 5px;
+	display: inline-block;
+}
+
+.data-dictionary .table-databar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 20px;
+	padding: 0 20px;
+	border: 1px solid #ccc;
+	border-radius: 4px 4px 0 0;
+	border-bottom: none;
+}
+
+.data-dictionary .table-databar > div {
+	width: 32%;
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.data-dictionary .table-databar > div > a {
+	display: inline-flex;
+	align-items: center;
+}
+
+.data-dictionary .table-databar > div > img {
+	width: 31px;
+	padding: 5px;
+}
+
+.data-dictionary .table-databar > div > input {
+	width: 240px;
+	height: 30px;
+	text-align: center;
+}
+
+.data-dictionary .usage-header {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px 4px 0 0;
+	border-bottom: none;
+	padding: 10px 20px;
+}
+
+.data-dictionary .graphics {
+	display: flex;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 0 0 4px 4px;
+}
+
+.data-dictionary .graphics .left {
+	display: flex;
+	width: 50%;
+	background-color: #fff;
+	border-right: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.data-dictionary .graphics .left > div {
+	display: flex;
+	width: 50%;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+}
+
+.data-dictionary .graphics .left > div > h4 {
+	font-size: 16px;
+}
+
+.data-dictionary .graphics .left > div > h5 {
+	font-size: 45px;
+}
+
+.data-dictionary .graphics .left > div > span {
+	font-size: 15px;
+	margin-bottom: 20px;
+}
+
+.data-dictionary .graphics .right {
+	width: 50%;
+	display: flex;
+	align-items: center;
+	padding: 15px 0;
+}
+
+.data-dictionary .table {
+	width: 100%;
+	height: 494px;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.data-dictionary .table .rt-resizable-header-content {
+	text-align: left;
+}
+
+.help-window {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	height: 80%;
+	width: 90%;
+	min-width: 320px;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	background: #fff;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+	border: 1px solid rgba(0,0,0,0.2);
+	border-radius: 6px;
+	overflow: auto;
+	outline: none;
+}
+
+.help-window > h3 {
+	padding: 15px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.help-window > h3 > span {
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.help-window > div {
+	margin: 0 15px 0;
+}
+
+.help-window > div > h4 {
+	padding-top: 10px;
+}
+
+.help-window > div > p {
+	padding-top: 10px;
+}
+
+.help-window .ReactTable .-pagination input,
+.help-window .ReactTable .-pagination select {
+	padding: 5px 17px;
+}
+
+.help-window .ReactTable .rt-th,
+.help-window .ReactTable .rt-td {
+	text-align: center;
+}

@@ -13,6 +13,8 @@ import SideBarContainer from '../containers/SideBarContainer'
 import mapFields from '../utils/mapFields'
 import flattenFields from '../utils/flattenFields'
 
+import '../css/components/ContentWrapper.scss'
+
 type tPROPS = {
   content: Array<Object|string>;
   explorers: Object;

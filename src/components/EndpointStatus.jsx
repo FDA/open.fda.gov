@@ -2,6 +2,7 @@
 
 import React from 'react'
 import EndpointStatusContainer from '../containers/EndpointStatusContainer'
+import '../css/components/EndpointStatus.scss'
 
 type tPROPS = {
   data: Object;

@@ -123,14 +123,14 @@ $gridWidth: 85%;
 $mobGridWidth: calc(100% - 40px);
 
 // 'all and' for IE
-$bpMob: '640px'; // '(max-width: $bpMob)'
-$bpMobSmall: '425px'; // '(max-width: $bpMobSmall)';
-$bpTab: '641px'; // '(min-width: $bpTab)';
-// $bpTabRange: '(min-width: $bpTabRange1) and (max-width: $bpTabRange2)';
+$bpMob: '640px'; // (max-width: $bpMob)
+$bpMobSmall: '425px'; // (max-width: $bpMobSmall)
+$bpTab: '641px'; // (min-width: $bpTab)
+// $bpTabRange: (min-width: $bpTabRange1) and (max-width: $bpTabRange2)
 $bpTabRange1: '641px';
 $bpTabRange2: '1023px';
-$bpDesk: '1024px'; // '(min-width: $bpDesk)';
-$bpWide: '1400px'; //'(min-width: $bpWide)';
+$bpDesk: '1024px'; // (min-width: $bpDesk)
+$bpWide: '1400px'; // (min-width: $bpWide)
 
 // Mobile & tablet
 $tablet: '1023px'; // (max-width: $tablet)

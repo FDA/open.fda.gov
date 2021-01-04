@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import NounBox from '../components/NounBox'
 import BlogRoll from '../components/BlogRoll'
+import '../css/app.scss'
 
 // homepage
 const INDEX = () => (
