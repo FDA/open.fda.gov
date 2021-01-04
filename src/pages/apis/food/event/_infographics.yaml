@@ -10,8 +10,8 @@
       searchParam: "products.industry_code:23"
     - title: "Reported directly by public"
       searchParam: "_missing_:companynumb"
-    - title: "Resulting in a serious injury or illness"
-      searchParam: 'outcomes:"serious+injuries"'
+    - title: "Resulting in hospitalization"
+      searchParam: 'outcomes.exact:"Hospitalization"'
   filterByDate: true
   type: Line
 - title: "What types of products are reported?"
@@ -22,8 +22,8 @@
   filters:
     - title: "All adverse event reports"
       searchParam: ""
-    - title: "Resulting in a serious injury or illness"
-      searchParam: 'outcomes:"serious+injuries"'
+    - title: "Resulting in hospitalization"
+      searchParam: 'outcomes.exact:"Hospitalization"'
     - title: "Resulting in hair loss"
       searchParam: "reactions:alopecia"
   filterByDate: false
