@@ -5,6 +5,7 @@ import React from 'react'
 import Infographic from '../components/Infographic'
 import { API_LINK } from '../constants/api'
 import { default as $ } from "jquery"
+import '../css/components/InfographicContainer.scss'
 
 
 type tSTATE = {

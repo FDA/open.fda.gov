@@ -1,0 +1,7 @@
+@import '../vars';
+
+@media (min-width: $bpTab) {
+	.post-hdr {
+		min-height: 300px;
+	}
+}

@@ -7,6 +7,8 @@ import cx from 'classnames'
 
 import QueryExplorerContainer from '../containers/QueryExplorerContainer'
 
+import '../css/components/QueryExplorer.scss'
+
 type tPROPS = {
   desc: Array<string>;
   fetchQuery: Function;

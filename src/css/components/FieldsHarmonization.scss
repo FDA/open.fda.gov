@@ -1,0 +1,76 @@
+.noun-buttons {
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	cursor: pointer;
+}
+
+.noun-buttons > div {
+	flex: 1;
+	padding: 15px;
+	text-align: center;
+}
+
+.noun-buttons > div:first-child {
+	border-radius: 5px 0 0 0;
+}
+
+.noun-buttons > div:last-child {
+	border-radius: 0 5px 0 0;
+}
+
+.noun-buttons > .selected {
+	background-color: #017bba;
+	border: 1px solid #017bba;
+	color: #fff;
+}
+
+.noun-buttons > .unselected {
+	border: 1px solid #ccc;
+}
+
+.noun-buttons > .unselected i {
+	color: #0af;
+}
+
+.noun-buttons span {
+	padding-left: 7px;
+	font-weight: 600;
+}
+
+.checkbox-cell {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.tippy-popper {
+	max-width: 800px;
+}
+
+.fields-tooltip {
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	padding: 10px 20px;
+	white-space: normal;
+	width: 800px;
+}
+
+.fields-tooltip .tooltip-header {
+	color: #000;
+	margin-bottom: 10px;
+}
+
+.fields-tooltip.before {
+	border-right: 8px solid #222;
+}
+
+.__react_component_tooltip.show {
+	opacity: 1;
+	margin-top: 0px;
+	margin-left: 0px;
+	visibility: visible;
+}

@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react'
-
+import '../css/components/ResearchBox.scss'
 
 type tPROPS = {
   url: string,
