@@ -41,8 +41,35 @@ if (!bp.mob && hasWindow) {
   }
 }
 
+//Graph data
+const graphData = {
+        labels: [],
+        datasets: [
+          {
+            fillColor: "rgba(172,194,132,0.4)",
+            strokeColor: "#ACC26D",
+            pointColor: "#ACC26D",
+            pointStrokeColor: "#9DB86D",
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: '#112e51',
+            data: []
+          }
+        ],
+        table: null
+      };
+const toolTipLabel = "API Calls";
+const fontStyle = {fill: "#000000", 'font-size': 11, font: '"Merriweather,Georgia,serif"'};
+const yLegendCoordinate= -200;
+const trackerTimeFormat= "%D";
+const customColorsList = [
+          "#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c",
+          "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5",
+          "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
+          "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+        ];
 
-const ApiUsage = (props:tPROPS) => {
+
+const ApiUsage = (props: tPROPS) => {
 
   class Usage extends React.Component {
 
@@ -74,50 +101,18 @@ const ApiUsage = (props:tPROPS) => {
           "width": 50,
           "type": "linear"
         },
-        customColorsList: [
-          "#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c",
-          "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5",
-          "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
-          "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
-        ],
         selection:  null,
         tracker:   null,
         trackerInfoValues: [],
-        trackerTimeFormat: "%D",
-        fontSize: "11px",
-        font: "Merriweather,Georgia,serif",
-        color:"#000000",
-        yLegendCoordinate: -200,
-        toolTipLabel: "API Calls",
         columns: ["value"]
       }
-
-      this.onHighlightChange = this.onHighlightChange.bind(this)
-      this.onSelectionChange = this.onSelectionChange.bind(this)
-      this.onTrackerChanged = this.onTrackerChanged.bind(this)
     }
 
-    componentDidMount () {
+    componentDidMount() {
       this.fetchStats()
     }
 
-    handleUsageResponse (data) {
-
-      const graphData = {
-        labels: [],
-        datasets: [
-          {
-            fillColor: "rgba(172,194,132,0.4)",
-            strokeColor: "#ACC26D",
-            pointColor: "#ACC26D",
-            pointStrokeColor: "#9DB86D",
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: '#112e51',
-            data: []
-          }
-        ],
-        table: null
-      }
+    handleUsageResponse = (data) => {
 
       if (data) {
 
@@ -126,10 +121,8 @@ const ApiUsage = (props:tPROPS) => {
         var dataz = [],
           minTime = null,
           maxTime = null,
-          values = [],
           max = null,
-          min = null,
-          that = this;
+          min = null;
 
         data.stats.forEach(function (stat) {
           graphData.labels.push(stat.day)
@@ -140,15 +133,15 @@ const ApiUsage = (props:tPROPS) => {
           minTime = dataz[0][0]
           maxTime = dataz[dataz.length-1][0]
           maxTime.setDate(maxTime.getDate() + 1)
-          max = Math.max(...dataz.map(v => v[1]))
-          min = Math.min(...dataz.map(v => v[1]))
+          max = Math.max(...dataz.map((v) => v[1]))
+          min = Math.min(...dataz.map((v) => v[1]))
         }
 
         // set style according to categories
         var legendStyle = styler(this.state.columns.map((column,idx)=> {
           return {
             key: column,
-            color: that.state.customColorsList[0],
+            color: customColorsList[0],
             width: 3
           }
         }))
@@ -160,38 +153,38 @@ const ApiUsage = (props:tPROPS) => {
         })
       }
 
-      this.state.series = series
-      this.state.style = legendStyle
-      this.state.max = max
-      this.state.min = min
-      this.state.minTime = minTime
-      this.state.maxTime = maxTime
-      this.state.timerange = new TimeRange(minTime, maxTime)
-      this.state.indexInfo = data.indexInfo
-      this.state.downloadStats = data.downloadStats || {}
-      this.state.lastThirtyDayUsage = data.lastThirtyDayUsage
-
-      this.state.data = graphData
-      this.setState(this.state)
+      this.setState({
+          series: series,
+          style: legendStyle,
+          max: max,
+          min: min,
+          minTime: minTime,
+          maxTime: maxTime,
+          timeRange: new TimeRange(minTime, maxTime),
+          indexInfo: data.indexInfo,
+          downloadStats: data.downloadStats || {},
+          lastThirtyDayUsage: data.lastThirtyDayUsage,
+          data: graphData
+      })
     }
-    refreshPrefix (evt) {
-      this.state.prefix = evt.target.getAttribute('data-prefix')
+
+    refreshPrefix = (evt) => {
+      this.setState({prefix: evt.target.getAttribute('data-prefix')})
       this.refreshBreadcrumbs()
       this.fetchStats()
     }
 
-    refreshBreadcrumbs () {
-
+    refreshBreadcrumbs = () => {
       const i = this.state.breadcrumbs.indexOf(this.state.prefix)
       if (i < 0) {
-        this.state.breadcrumbs.push(this.state.prefix)
+          this.setState({ breadcrumbs: [...this.state.breadcrumbs, this.state.prefix] })
       }
       else if (i < (this.state.breadcrumbs.length - 1)) {
-        this.state.breadcrumbs = this.state.breadcrumbs.slice(0, i + 1)
+        this.setState({breadcrumbs: this.state.breadcrumbs.slice(0, i + 1)})
       }
     }
 
-    fetchStats () {
+    fetchStats = () => {
       var that = this
       fetch(API_LINK + '/usage.json?prefix=' + this.state.prefix)
         .then(function (response) {
@@ -201,7 +194,7 @@ const ApiUsage = (props:tPROPS) => {
         })
     }
 
-    docCount (typeName:string):string {
+    docCount = (typeName:string): string => {
       if (typeName in this.state.indexInfo) {
         return this.formatNumber(this.state.indexInfo[typeName])
       } else {
@@ -209,7 +202,7 @@ const ApiUsage = (props:tPROPS) => {
       }
     }
 
-    downloadCount (typeName:string):string {
+    downloadCount = (typeName:string): string => {
       if (typeName in this.state.downloadStats) {
         return this.formatNumber(this.state.downloadStats[typeName])
       } else {
@@ -217,23 +210,24 @@ const ApiUsage = (props:tPROPS) => {
       }
     }
 
-    formatNumber (n:number):string {
-      return n ? this.nf.format(n) : "0"
+
+    formatNumber = (n:number): string  => {
+        return n ? this.nf.format(n) : "0"
     }
 
-    totalCount (typeName:string):string {
+    totalCount = (typeName:string):string =>  {
       return this.formatNumber(this.state[typeName])
     }
 
-    onHighlightChange () {}
-    onChartResize () {}
-    onSelectionChange(selection) {
+    onHighlightChange = () => {}
+    onChartResize = () => {}
+    onSelectionChange = (selection) => {
       this.setState({
         selection
       })
     }
 
-    onTrackerChanged(tracker, selection) {
+    onTrackerChanged = (tracker, selection)  => {
       if( !this.state.series){
         return;
       }
@@ -244,15 +238,15 @@ const ApiUsage = (props:tPROPS) => {
         return;
       }
       const trackerEvent = this.state.series.at(index);
-      const value = trackerEvent.toJSON().data["value"]
+      const value = this.formatNumber(trackerEvent.toJSON().data["value"])
 
       this.setState({
-        trackerInfoValues: [{label: this.state.toolTipLabel, value: value}],
-        tracker
+        trackerInfoValues: [{label: toolTipLabel, value: value}],
+        tracker: tracker
       })
     }
 
-    linkClickHandler() {
+    linkClickHandler = () => {
 
     }
 
@@ -268,15 +262,11 @@ const ApiUsage = (props:tPROPS) => {
           return p
         }
 
-      $("text").css("font-family",this.state.fontFamily)
-      $('text').css('fill', this.state.color)
-      $('text').css('font-size', this.state.fontSize)
-
       var vals = $("text").filter(function () {
         return $(this).attr("transform") == "rotate(-90)"
       })
       if(vals.length){
-        $(vals[0]).attr("x",this.state.yLegendCoordinate)
+        $(vals[0]).attr("x",yLegendCoordinate)
       }
 
         return (
@@ -400,9 +390,9 @@ const ApiUsage = (props:tPROPS) => {
 
                 { !this.state.series ? null :
                   <ChartContainer
-                    timeRange={this.state.timerange}
+                    timeRange={this.state.timeRange}
                     enablePanZoom={this.state.enablePanZoom}
-                    onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
+                    onTimeRangeChanged={timeRange => { this.setState({ timeRange }) }}
                     trackerPosition={this.state.tracker}
                     minTime={this.state.minTime}
                     maxTime={this.state.maxTime}
@@ -410,21 +400,24 @@ const ApiUsage = (props:tPROPS) => {
                     width={this.state.width}
                     onTrackerChanged={this.onTrackerChanged}
                     onChartResize={this.handleChartResize}
+                    timeAxisStyle={{values: fontStyle}}
                   >
                       <ChartRow
                         trackerInfoValues={this.state.trackerInfoValues}
                         trackerTime={this.state.tracker}
-                        trackerTimeFormat={this.state.trackerTimeFormat}
-                        timeFormat={this.state.trackerTimeFormat}
+                        trackerTimeFormat={trackerTimeFormat}
+                        timeFormat={trackerTimeFormat}
                         {...this.state.chartRow}
                       >
                           <YAxis
                             id="axis1"
                             max={this.state.max}
                             min={this.state.min}
+                            style={{ label: fontStyle, values: fontStyle }}
                             {...this.state.yAxis}
                           />
                           <Charts>
+
                               <LineChart
                                 axis="axis1"
                                 style={this.state.style}
