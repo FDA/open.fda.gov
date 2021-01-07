@@ -87,6 +87,8 @@
   "license": "MIT",
   "main": "n/a",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
     "prettier": "^1.7.4"
   }
 }
