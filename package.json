@@ -16,8 +16,6 @@
   "dependencies": {
     "babel-eslint": "^10.1.0",
     "babel-polyfill": "^6.26.0",
-    "babel-core": "6.26.3",
-    "babel-loader": "8.2.2",
     "bluebird": "^3.7.2",
     "chart.js": "^2.9.4",
     "classnames": "2.2.5",
@@ -89,8 +87,6 @@
   "license": "MIT",
   "main": "n/a",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.2.2",
     "prettier": "^1.7.4"
   }
 }

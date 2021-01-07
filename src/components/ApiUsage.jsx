@@ -41,24 +41,8 @@ if (!bp.mob && hasWindow) {
   }
 }
 
-//Graph data
-const graphData = {
-        labels: [],
-        datasets: [
-          {
-            fillColor: "rgba(172,194,132,0.4)",
-            strokeColor: "#ACC26D",
-            pointColor: "#ACC26D",
-            pointStrokeColor: "#9DB86D",
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: '#112e51',
-            data: []
-          }
-        ],
-        table: null
-      }
 
-const ApiUsage = (props: tPROPS) => {
+const ApiUsage = (props:tPROPS) => {
 
   class Usage extends React.Component {
 
@@ -113,11 +97,27 @@ const ApiUsage = (props: tPROPS) => {
       this.onTrackerChanged = this.onTrackerChanged.bind(this)
     }
 
-    componentDidMount = () => {
+    componentDidMount () {
       this.fetchStats()
     }
 
-    handleUsageResponse = (data) => {
+    handleUsageResponse (data) {
+
+      const graphData = {
+        labels: [],
+        datasets: [
+          {
+            fillColor: "rgba(172,194,132,0.4)",
+            strokeColor: "#ACC26D",
+            pointColor: "#ACC26D",
+            pointStrokeColor: "#9DB86D",
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: '#112e51',
+            data: []
+          }
+        ],
+        table: null
+      }
 
       if (data) {
 
@@ -140,8 +140,8 @@ const ApiUsage = (props: tPROPS) => {
           minTime = dataz[0][0]
           maxTime = dataz[dataz.length-1][0]
           maxTime.setDate(maxTime.getDate() + 1)
-          max = Math.max(...dataz.map((v, i) => v[1]))
-          min = Math.min(...dataz.map((v, i) => v[1]))
+          max = Math.max(...dataz.map(v => v[1]))
+          min = Math.min(...dataz.map(v => v[1]))
         }
 
         // set style according to categories
@@ -160,38 +160,38 @@ const ApiUsage = (props: tPROPS) => {
         })
       }
 
-      this.setState({
-          series: series,
-          style: legendStyle,
-          max: max,
-          min: min,
-          minTime: minTime,
-          maxTime: maxTime,
-          timeRange: new TimeRange(minTime, maxTime),
-          indexInfo: data.indexInfo,
-          downloadStats: data.downloadStats || {},
-          lastThirtyDayUsage: data.lastThirtyDayUsage,
-          data: graphData
-      })
-    }
+      this.state.series = series
+      this.state.style = legendStyle
+      this.state.max = max
+      this.state.min = min
+      this.state.minTime = minTime
+      this.state.maxTime = maxTime
+      this.state.timerange = new TimeRange(minTime, maxTime)
+      this.state.indexInfo = data.indexInfo
+      this.state.downloadStats = data.downloadStats || {}
+      this.state.lastThirtyDayUsage = data.lastThirtyDayUsage
 
-    refreshPrefix = (evt) => {
-      this.setState({prefix: evt.target.getAttribute('data-prefix')})
+      this.state.data = graphData
+      this.setState(this.state)
+    }
+    refreshPrefix (evt) {
+      this.state.prefix = evt.target.getAttribute('data-prefix')
       this.refreshBreadcrumbs()
       this.fetchStats()
     }
 
-    refreshBreadcrumbs = () => {
+    refreshBreadcrumbs () {
+
       const i = this.state.breadcrumbs.indexOf(this.state.prefix)
       if (i < 0) {
-          this.setState({ breadcrumbs: [...this.state.breadcrumbs, this.state.prefix] })
+        this.state.breadcrumbs.push(this.state.prefix)
       }
       else if (i < (this.state.breadcrumbs.length - 1)) {
-        this.setState({breadcrumbs: this.state.breadcrumbs.slice(0, i + 1)})
+        this.state.breadcrumbs = this.state.breadcrumbs.slice(0, i + 1)
       }
     }
 
-    fetchStats = () => {
+    fetchStats () {
       var that = this
       fetch(API_LINK + '/usage.json?prefix=' + this.state.prefix)
         .then(function (response) {
@@ -201,7 +201,7 @@ const ApiUsage = (props: tPROPS) => {
         })
     }
 
-    docCount = (typeName:string): string => {
+    docCount (typeName:string):string {
       if (typeName in this.state.indexInfo) {
         return this.formatNumber(this.state.indexInfo[typeName])
       } else {
@@ -209,7 +209,7 @@ const ApiUsage = (props: tPROPS) => {
       }
     }
 
-    downloadCount = (typeName:string): string => {
+    downloadCount (typeName:string):string {
       if (typeName in this.state.downloadStats) {
         return this.formatNumber(this.state.downloadStats[typeName])
       } else {
@@ -217,24 +217,23 @@ const ApiUsage = (props: tPROPS) => {
       }
     }
 
-
-    formatNumber = (n:number): string  => {
-        return n ? this.nf.format(n) : "0"
+    formatNumber (n:number):string {
+      return n ? this.nf.format(n) : "0"
     }
 
-    totalCount = (typeName:string):string =>  {
+    totalCount (typeName:string):string {
       return this.formatNumber(this.state[typeName])
     }
 
-    onHighlightChange = () => {}
-    onChartResize = () => {}
-    onSelectionChange = (selection) => {
+    onHighlightChange () {}
+    onChartResize () {}
+    onSelectionChange(selection) {
       this.setState({
         selection
       })
     }
 
-    onTrackerChanged = (tracker, selection)  => {
+    onTrackerChanged(tracker, selection) {
       if( !this.state.series){
         return;
       }
@@ -245,15 +244,15 @@ const ApiUsage = (props: tPROPS) => {
         return;
       }
       const trackerEvent = this.state.series.at(index);
-      const value = this.formatNumber(trackerEvent.toJSON().data["value"])
+      const value = trackerEvent.toJSON().data["value"]
 
       this.setState({
         trackerInfoValues: [{label: this.state.toolTipLabel, value: value}],
-        tracker: tracker
+        tracker
       })
     }
 
-    linkClickHandler = () => {
+    linkClickHandler() {
 
     }
 
@@ -401,9 +400,9 @@ const ApiUsage = (props: tPROPS) => {
 
                 { !this.state.series ? null :
                   <ChartContainer
-                    timeRange={this.state.timeRange}
+                    timeRange={this.state.timerange}
                     enablePanZoom={this.state.enablePanZoom}
-                    onTimeRangeChanged={timeRange => { this.setState({ timeRange }) }}
+                    onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
                     trackerPosition={this.state.tracker}
                     minTime={this.state.minTime}
                     maxTime={this.state.maxTime}
