@@ -7,7 +7,9 @@ pipeline {
     environment {
             CI='true'
     }
-
+	tools {
+        nodejs 'Node 14'
+    }
     stages {
         stage('Install dependencies') {
             steps {
