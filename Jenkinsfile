@@ -1,12 +1,5 @@
 pipeline {
-    agent {
-      node {
-          label 'master'
-      }
-    }
-    environment {
-            CI='true'
-    }
+    agent any
 	tools {
         nodejs 'Node 14'
     }
