@@ -8,7 +8,7 @@ pipeline {
             steps {
                 sh "npm install -g npm@latest; npm install"
             }
-        }
+        }/**
         stage('Generate CSS from Stylus') {
             steps {
                 sh 'npm run dev:css'
@@ -18,6 +18,13 @@ pipeline {
             steps {
                   sh 'npm run build'
             }
-        }
+        }**/
+    }
+    post {
+    	always {
+			emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
+							recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+							subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+    	}
     }
 }
