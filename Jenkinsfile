@@ -19,6 +19,11 @@ pipeline {
                   sh 'npm run build'
             }
         }
+        stage('Run Cypress tests') {
+            steps {
+                  sh 'npm run test:e2e:ci'
+            }
+        }
     }
     post {
     	failure {
