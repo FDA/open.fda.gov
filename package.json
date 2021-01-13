@@ -7,7 +7,12 @@
     "dev:css": "./node_modules/.bin/stylus -o ./src/css/build/app.css -I ./node-modules/nib ./src/css/app.styl",
     "dev:site": "./node_modules/.bin/gatsby develop -H 0.0.0.0 -p 3000",
     "build": "./node_modules/.bin/gatsby build --verbose",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'"
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "develop": "gatsby develop",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   },
   "repository": {
     "type": "git",
@@ -87,6 +92,8 @@
   "license": "MIT",
   "main": "n/a",
   "devDependencies": {
-    "prettier": "^1.7.4"
+    "cypress": "^6.2.1",
+    "prettier": "^1.7.4",
+    "start-server-and-test": "^1.11.7"
   }
 }
