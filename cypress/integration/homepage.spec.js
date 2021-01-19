@@ -2,7 +2,11 @@
 
 context('Homepage', () => {
     beforeEach(() => {
-        cy.visit('/')
+        cy.visit('/', {
+            onBeforeLoad: (win) => {
+                win.sessionStorage.clear()
+            }
+        });
     })
 
     it('Page title should be openFDA', () => {
