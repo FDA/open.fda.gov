@@ -1,13 +1,9 @@
 /// <reference types="cypress" />
+import {loadAndAcceptDisclaimer} from "../../support/index"
 
 context('Try the API', () => {
     beforeEach(() => {
-        cy.visit('/apis/try-the-api/', {
-            onBeforeLoad: (win) => {
-                win.sessionStorage.clear()
-            }
-        });
-        cy.get('.modal-container').find('button.bg-primary').click();
+        loadAndAcceptDisclaimer('/apis/try-the-api/');
     })
 
     it('Example query should execute and return results', () => {

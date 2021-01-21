@@ -1,13 +1,9 @@
 /// <reference types="cypress" />
+import {loadAndAcceptDisclaimer} from "../support/index"
 
 context('Top menu bar', () => {
     beforeEach(() => {
-        cy.visit('/', {
-            onBeforeLoad: (win) => {
-                win.sessionStorage.clear()
-            }
-        });
-        cy.get('.modal-container').find('button.bg-primary').click();
+        loadAndAcceptDisclaimer('/')
     })
 
     it('Menu bar should be present and visible', () => {

@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 import EndpointPagesTestHelper from "../../../../support/endpoint_test_helper";
+import {loadAndAcceptDisclaimer} from "../../../../support/index";
 
 const URL = '/apis/animalandveterinary/event/';
 
@@ -7,12 +8,7 @@ context('ADAE dataset pages', () => {
     const helper = new EndpointPagesTestHelper(URL);
 
     beforeEach(() => {
-        cy.visit(URL, {
-            onBeforeLoad: (win) => {
-                win.sessionStorage.clear()
-            }
-        });
-        cy.get('.modal-container').find('button.bg-primary').click();
+        loadAndAcceptDisclaimer(URL);
     })
 
     it('Overview page should display a dataset description and key facts', () => {

@@ -1,15 +1,10 @@
 /// <reference types="cypress" />
-
+import {loadAndAcceptDisclaimer} from "../../support/index"
 const PREFIX = ['2/api.fda.gov/drug/', '2/api.fda.gov/device/', '2/api.fda.gov/food/', '2/api.fda.gov/other/', '2/api.fda.gov/animalandveterinary/']
 
 context('API Usage Stats', () => {
     beforeEach(() => {
-        cy.visit('/about/statistics/', {
-            onBeforeLoad: (win) => {
-                win.sessionStorage.clear()
-            }
-        });
-        cy.get('.modal-container').find('button.bg-primary').click();
+        loadAndAcceptDisclaimer('/about/statistics/')
     })
 
     it('Graph should display', () => {

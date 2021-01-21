@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import {loadAndAcceptDisclaimer} from "../../support/index"
 
 const DEVICE_FIELDS = ['device_class', 'device_name', 'fei_number', 'k_number',
     'medical_specialty_description', 'pma_number', 'registration_number', 'regulation_number']
@@ -27,12 +28,7 @@ const DRUG_FIELDS = ['application_number',
 
 context('Harmonization Table', () => {
     beforeEach(() => {
-        cy.visit('/apis/openfda-fields/', {
-            onBeforeLoad: (win) => {
-                win.sessionStorage.clear()
-            }
-        });
-        cy.get('.modal-container').find('button.bg-primary').click();
+        loadAndAcceptDisclaimer('/apis/openfda-fields/');
     })
 
     it('Harmonization chart should be visible', () => {

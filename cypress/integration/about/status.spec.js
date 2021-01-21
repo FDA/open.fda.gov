@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import {loadAndAcceptDisclaimer} from "../../support/index"
 
 const ENDPOINTS = ['Animal & Veterinary › Adverse Events', 'Devices › Classification',
     'Devices › 510k', 'Devices › Enforcement Reports', 'Devices › Adverse Events', 'Devices › PMA', 'Devices › Recalls', 'Devices › Registration',
@@ -8,12 +9,7 @@ const ENDPOINTS = ['Animal & Veterinary › Adverse Events', 'Devices › Classi
 
 context('API Status', () => {
     beforeEach(() => {
-        cy.visit('/about/status/', {
-            onBeforeLoad: (win) => {
-                win.sessionStorage.clear()
-            }
-        });
-        cy.get('.modal-container').find('button.bg-primary').click();
+        loadAndAcceptDisclaimer('/about/status/')
     })
 
     it('Status boxes should appear and show OK', () => {
