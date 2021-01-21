@@ -19,6 +19,9 @@ context('ADAE dataset pages', () => {
         helper.howToUse();
     })
 
+    it('Example queries page should provide one or more working API queries', () => {
+        helper.exampleQueries();
+    })
 
 })
 
