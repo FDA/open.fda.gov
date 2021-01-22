@@ -732,7 +732,7 @@ properties:
     possible_values:
     type: string
   mdr_report_key:
-    description: "A unique identifier for a report. This key is part of the download files and is used to join the four files together."
+    description: "A unique identifier for a report."
     format:
     is_exact: true
     possible_values:
