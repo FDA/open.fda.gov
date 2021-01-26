@@ -5,10 +5,11 @@ import {loadAndAcceptDisclaimer} from "../../../../support/index";
 const URL = '/apis/animalandveterinary/event/';
 
 context('ADAE dataset pages', () => {
-    const helper = new EndpointPagesTestHelper(URL);
+    var helper;
 
     beforeEach(() => {
         loadAndAcceptDisclaimer(URL);
+        helper = new EndpointPagesTestHelper(URL, '/animalandveterinary/event.json');
     })
 
     it('Overview page should display a dataset description and key facts', () => {
@@ -22,6 +23,11 @@ context('ADAE dataset pages', () => {
     it('Example queries page should provide one or more working API queries', () => {
         helper.exampleQueries();
     })
+   
+    it('Interactive charts should display', () => {
+        helper.infographics();
+    })
+
 
 })
 

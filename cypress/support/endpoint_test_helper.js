@@ -1,7 +1,10 @@
 class EndpointPagesTestHelper {
 
-    constructor(baseURL) {
+    constructor(baseURL, apiPath) {
         this.baseURL = baseURL;
+        this.apiPath = apiPath;
+        cy.intercept(`https://api.fda.gov/download.json`).as('download-api-call');
+        cy.intercept(`https://api.fda.gov${this.apiPath}`).as('search-api-call');
     }
 
     overview() {
@@ -55,6 +58,50 @@ class EndpointPagesTestHelper {
 
             })
         });
+    }
+
+    infographics() {
+        cy.get(`a[href="${this.baseURL}explore-the-api-with-an-interactive-chart/"]`).click();
+        this._waitUntilIdle();
+
+        cy.get('p.infographic-subheader+div+p').invoke('text').should('match', /\d+ records match these search parameters/i);
+        cy.get('div#infographic-tabs>button').each((section) => {
+            this._infographicsTab(section);
+        })
+    }
+
+    _infographicsTab(tab) {
+        cy.wrap(tab).click();
+        this._waitUntilIdle();
+
+        // Look at all the chart options available by default
+        cy.get('fieldset#params-filter>label>input').each(($el, i) => {
+            cy.get('p.infographic-subheader+div+p').then(($p) => {
+                if (i > 0) {
+                    const text = $p.text();
+                    // Radio buttons become detached from DOM; need to re-query.
+                    cy.get(`fieldset#params-filter>label:nth-of-type(${i + 1})>input`).click();
+                    this._waitUntilIdle();
+                    // Record count should have changed.
+                    cy.get('p.infographic-subheader+div+p').should('not.have.text', text);
+                }
+                // Ensure no error message
+                cy.get('div#chartWrapper>span.txt-c').should('not.exist');
+
+                // Expect either a line graph, or a donut chart or a bar chart.
+                cy.get('div#chartWrapper').find('span>canvas,ul[aria-label="Bar Chart"],div.donut-wrap canvas').should('exist');
+            });
+
+        });
+    }
+
+    _waitUntilIdle() {
+        cy.wait('@download-api-call');
+        cy.wait('@search-api-call');
+        cy.wait('@search-api-call');
+        cy.window().then({
+            timeout: 20000
+        }, win => new Cypress.Promise((resolve, reject) => win.requestIdleCallback(resolve)));
     }
 }
 
