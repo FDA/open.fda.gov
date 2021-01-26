@@ -1,3 +1,11 @@
+@import './vars';
+@import './base';
+@import './blocks';
+@import './grid';
+@import './helpers';
+@import './syntax';
+@import './table';
+@import './update';
+
 @import '../css/components/DocMarkdown';
-@import '../css/components/HomePage';
 @import '../css/components/SideBar';

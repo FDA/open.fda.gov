@@ -78,7 +78,7 @@ $clrGreenLight: #4aa564;
 
 // hash for iteration, ie, auto creating classes
 $uswds-colors: (
-  base: $clrBase,
+  'base': $clrBase,
   'gray-cool-light': $clrGrayCoolLight,
   'gray-dark': $clrGrayDark,
   'gray-light': $clrGrayLight,
@@ -87,7 +87,7 @@ $uswds-colors: (
   'gray-lightest': $clrGrayLightest,
   'gray-warm-dark': $clrGrayWarmDark,
   'gray-warm-light': $clrGrayWarmLight,
-  gray: $clrGray,
+  'gray': $clrGray,
   'primary-alt-dark': $clrPrimaryAltDark,
   'primary-alt-darkest': $clrPrimaryAltDarkest,
   'primary-alt-light': $clrPrimaryAltLight,
@@ -95,23 +95,23 @@ $uswds-colors: (
   'primary-alt': $clrPrimaryAlt,
   'primary-darker': $clrPrimaryDarker,
   'primary-darkest': $clrPrimaryDarkest,
-  primary: $clrPrimary,
+  'primary': $clrPrimary,
   'secondary-dark': $clrSecondaryDark,
   'secondary-darkest': $clrSecondaryDarkest,
   'secondary-light': $clrSecondaryLight,
   'secondary-lightest': $clrSecondaryLightest,
-  secondary: $clrSecondary,
+  'secondary': $clrSecondary,
   'cool-blue': $clrCoolBlue,
   'cool-blue-light': $clrCoolBlueLight,
   'cool-blue-lighter': $clrCoolBlueLighter,
   'cool-blue-lightest': $clrCoolBlueLightest,
   'light-blue': $clrLightBlue,
-  white: $clrWhite,
+  'white': $clrWhite,
   'muted-white': $clrMutedWhite,
-  black: $clrBlack,
-  green: $clrGreen,
+  'black': $clrBlack,
+  'green': $clrGreen,
   'green-light': $clrGreenLight,
-  inherit: inherit,
+  'inherit': inherit,
 );
 
 // grid variables
