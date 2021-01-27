@@ -80,7 +80,6 @@ const Hero = (props: tPROPS) => {
       <div
         className={heroCx}
         style={bg_image_color[cat_name]}>
-        <BreadCrumbs />
         <div className='hero-text-box container flex-row dir-column pad-t-2 pad-b-2'>
           {
             type === 'update' &&

@@ -4764,6 +4764,7 @@ drug:
           drug:
             type: array
             items:
+              type: object
               properties:
                 actiondrug:
                   format: int64
