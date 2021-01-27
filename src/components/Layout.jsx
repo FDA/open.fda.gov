@@ -7,6 +7,7 @@ import DocSidebar from "./DocSidebar"
 import docsSidebar from "../pages/apis/doc-links.yaml"
 import Sticky from 'react-sticky-state'
 import StickySidebar from './StickySidebar'
+import { Location } from '@reach/router';
 
 import '../css/app.scss'
 import '../css/components/Nav.scss'
@@ -30,8 +31,9 @@ const Layout = (props) => {
     up: 'sticky-scroll-up'
   }
 
-  // const hasSidebar = props.location.pathname.slice(0, 6) === `/apis/`
-  const hasSidebar = true
+  console.log(props)
+
+  const hasSidebar = props.location.pathname.slice(0, 6) === `/apis/`
   return (
     <DocumentTitle title='openFDA' key='openFDA'>
       <div>
@@ -115,4 +117,9 @@ const Layout = (props) => {
 }
 
 Layout.displayName = 'Layout'
-export default Layout 
+
+export default props => (
+  <Location>
+    {locationProps => <Layout {...locationProps} {...props} />}
+  </Location>
+);

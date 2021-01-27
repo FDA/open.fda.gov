@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import cx from 'classnames'
 
 import EndpointStatus from './EndpointStatus'
@@ -13,10 +13,12 @@ import SideBarContainer from '../containers/SideBarContainer'
 import mapFields from '../utils/mapFields'
 import flattenFields from '../utils/flattenFields'
 
+import Layout from '../components/Layout'
+
 import '../css/components/ContentWrapper.scss'
 
 type tPROPS = {
-  content: Array<Object|string>;
+  content: Array<Object | string>;
   explorers: Object;
   infographics: Array<Object>;
   infographicDefinitions: Object;
@@ -46,6 +48,10 @@ const ContentWrapper = (props: tPROPS) => {
     meta
   } = props
 
+  useEffect(() => {
+    console.log('render ContentWrapper')
+  }, []);
+
   let fieldsMapped: Object = {}
   let fieldsFlattened: Object = {}
   if (explorers && fields) {
@@ -59,36 +65,39 @@ const ContentWrapper = (props: tPROPS) => {
   })
 
   return (
-    <section>
-      <Hero
-        {...meta}
-      />
-      {
-        <EndpointStatus
+    <Layout>
+      <section>
+
+        <Hero
           {...meta}
         />
-      }
-      <section className={wrapperCx}>
         {
-          meta.type !== 'update' &&
-          <ComposedSidebar
-            className='m-hide'
-            reference={content}
+          <EndpointStatus
+            {...meta}
           />
         }
-        <div
-          className={contentCx}
-          style={{
-            maxWidth: '100%',
-          }}>
-          <Content
-            { ...props }
-            fieldsMapped={fieldsMapped}
-            fieldsFlattened={fieldsFlattened}
-          />
-        </div>
+        <section className={wrapperCx}>
+          {
+            meta.type !== 'update' &&
+            <ComposedSidebar
+              className='m-hide'
+              reference={content}
+            />
+          }
+          <div
+            className={contentCx}
+            style={{
+              maxWidth: '100%',
+            }}>
+            <Content
+              {...props}
+              fieldsMapped={fieldsMapped}
+              fieldsFlattened={fieldsFlattened}
+            />
+          </div>
+        </section>
       </section>
-    </section>
+    </Layout>
   )
 }
 

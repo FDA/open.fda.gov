@@ -7,7 +7,7 @@ import Layout from '../components/Layout'
 import '../css/components/HomePage.scss'
 
 // homepage
-const INDEX = () => (
+const Home = () => (
   <Layout>
     <section className='body-bg-offwhite'>
       <section className='container-homepage align-start'>
@@ -55,5 +55,5 @@ const INDEX = () => (
   </Layout>
 )
 
-INDEX.displayName = 'Homepage'
-export default INDEX
+Home.displayName = 'Homepage'
+export default Home
