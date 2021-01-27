@@ -804,6 +804,14 @@ properties:
           is_exact: true
           possible_values:
           type: string
+        patient_problems:
+          items:
+            description: "Describes actual adverse effects on the patient that may be related to the device problem observed during the reported event."
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          type: array
         sequence_number_outcome:
           description: "Outcome associated with the adverse event for this patient. Expect wide variability in this field; each string in the list of strings may contain multiple outcomes, separated by commas, and with numbers, which may or may not be related to the `patient_sequence_number`."
           format:
