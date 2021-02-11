@@ -4,6 +4,8 @@ import React from 'react'
 import xhrGET from '../utils/xhr'
 
 type tPROPS = {
+  // close the website tour function
+  closeTour: Function;
   // description of query
   desc: string;
   // key, passed in from parent
@@ -26,7 +28,7 @@ type tSTATE = {
 
 const QueryExplorerContainer = function (ComposedQueryExplorer: ReactClass): ReactClass {
   class HOC extends React.Component {
-    defaultProps: tPROPS = {
+    static defaultProps: tPROPS = {
       desc: '',
       k: 0,
       level: 5,
@@ -60,6 +62,7 @@ const QueryExplorerContainer = function (ComposedQueryExplorer: ReactClass): Rea
     }
 
     _toggleVisibility () {
+      this.props.closeTour()
       this.setState({
         showResult: false,
       })

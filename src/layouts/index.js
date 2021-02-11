@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import DocumentTitle from 'react-document-title'
 
 import Nav from '../components/Nav'
@@ -119,14 +119,14 @@ class Layout extends React.Component {
                   />
                 </StickySidebar>
                 <div className={'doc-container ' + (this.state.sidebarFixed ? 'fixed-padding' : '')} id='doc-container'>
-                  {this.props.children()}
+                  {this.props.children}
                 </div>
               </div>
           }
           {
             !hasSidebar &&
             <div className='body-container'>
-              {this.props.children()}
+              {this.props.children}
             </div>
           }
           {

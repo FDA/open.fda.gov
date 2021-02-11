@@ -2,8 +2,9 @@ import React from "react"
 import Link from "gatsby-link"
 
 import KeyFacts from '../../../../components/RenderContentObject/KeyFacts'
-import InteractiveInfographic from '../../../../components/InteractiveInfographic'
-import infographic_definitions from './_infographic_definitions.json'
+import FieldsHarmonization from '../../../../components/FieldsHarmonization'
+
+import master_harmonization from '../../../../constants/fields/master_harmonization.yaml'
 import meta from './_meta.yaml'
 
 class IndexRoute extends React.Component {
@@ -20,6 +21,16 @@ class IndexRoute extends React.Component {
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
           endpoint_name={meta.api_path.split("/")[2]}
+          harmonized={true}
+        />
+
+        <h3>Fields Harmonization</h3>
+        <p>Different datasets use different unique identifiers, which can make it difficult to find the same drug in each dataset.</p>
+        <p>openFDA features harmonization on specific identifiers to make it easier to both search for and understand the drug products returned by API queries. These additional fields are attached to records in all categories, if applicable.</p>
+        <p>Review the chart below to better understand which fields are harmonized.</p>
+        <FieldsHarmonization
+          master_harmonization={master_harmonization}
+          selected_noun='drug'
         />
 
         <h3>Additional Information About Drug NDC Directory</h3>
@@ -29,7 +40,7 @@ class IndexRoute extends React.Component {
         </ul>
 
         <h3>Responsible use of the data</h3>
-        <p>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products. We may limit or otherwise restrict your access to the Application Programming Interface in line with our <Link to="/terms/">Terms of Service</Link></p>
+        <p>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products. We may limit or otherwise restrict your access to the API in line with our <Link to="/terms/">Terms of Service</Link></p>
 
         <h3>Disclaimer</h3>
         <p>Please be aware of the following when using information from this endpoint:</p>

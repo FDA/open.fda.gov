@@ -2,19 +2,18 @@
 
 import React from 'react'
 
-import { TimeSeries, TimeRange, sum } from "pondjs";
-import { Charts, ChartContainer, ChartRow, YAxis, LineChart,Resizable, styler, Legend, TimeMarker, EventMarker } from "react-timeseries-charts"
-import { API_LINK } from '../constants/api'
-import states from '../pages/apis/states.json'
+import {sum, TimeRange, TimeSeries} from "pondjs";
+import {ChartContainer, ChartRow, Charts, EventMarker, LineChart, styler, YAxis} from "react-timeseries-charts"
 import _ from 'lodash';
+import 'whatwg-fetch'
+import PropTypes from 'prop-types';
 import Parser from 'html-react-parser';
 import {default as $} from "jquery";
+
 import TwoLevelPieChart from './InteractivePie';
-import { PieChart, Pie, Sector } from "recharts";
-import Select from 'react-select'
-import 'whatwg-fetch'
-import createClass from 'create-react-class';
-import PropTypes from 'prop-types';
+import Checkbox from "./Checkbox";
+import states from '../pages/apis/states.json'
+import {API_LINK} from '../constants/api'
 
 
 const stringOrNode = PropTypes.oneOfType([
@@ -22,7 +21,7 @@ const stringOrNode = PropTypes.oneOfType([
   PropTypes.node,
 ]);
 
-const GravatarOption = createClass({
+/*const GravatarOption = createClass({
   propTypes: {
     children: PropTypes.node,
     className: PropTypes.string,
@@ -99,12 +98,12 @@ const GravatarValue = createClass({
       </div>
     );
   }
-});
+});*/
 
 
 class PieChartInfographic extends React.Component {
 
-   constructor (props: Object) {
+  constructor (props: Object) {
     super(props)
 
     if(
@@ -141,7 +140,6 @@ class PieChartInfographic extends React.Component {
     // functions
     this.onClick = this.onClick.bind(this)
     this.onClose = this.onClose.bind(this)
-    // this.removeSelected = this.removeSelected.bind(this)
     this.handleChartResize = this.handleChartResize.bind(this)
     this.handleTrackerChanged = this.handleTrackerChanged.bind(this)
     this.renderOption = this.renderOption.bind(this)
@@ -162,9 +160,9 @@ class PieChartInfographic extends React.Component {
         return download_res.json()
       }).then(function(download_res) {
 
-        // const apiParts = that.props.globalDefs.api.split('/'),
-        //       latestDataDate = new Date(download_res.results[apiParts[1]][apiParts[2]].export_date),
-        //       latestYear = latestDataDate.getFullYear()
+        const apiParts = that.props.globalDefs.api.split('/'),
+              latestDataDate = new Date(download_res.results[apiParts[1]][apiParts[2]].export_date),
+              latestYear = latestDataDate.getFullYear()
 
         const currentDate = new Date()
 
@@ -193,6 +191,11 @@ class PieChartInfographic extends React.Component {
         .done((json) => resolve(json, url))
         .fail((xhr, status, err) => reject(status + err.message));
     });
+  }
+
+  setPieChartText(){
+    $("#textLabel1").text(this.props.infographicDefinitions.pieChartConfig.textLabel[0])
+    $("#textLabel2").text(this.props.infographicDefinitions.pieChartConfig.textLabel[1])
   }
 
   _getAllDataByFields () {
@@ -318,28 +321,27 @@ class PieChartInfographic extends React.Component {
     const subfields_url = `${that.state.API_LINK}${that.props.api}.json?${searchField}&count=${that.props.infographicDefinitions.subfield}`
 
     fetch(subfields_url)
-      .then(function(res) {
-        return res.json()
-      }).then(function(res) {
+      .then((result) => {
+        return result.json()
+      }).then((res) => {
         // clean to original
-        var terms = {};
+        let terms = {};
 
-        var localSearchField = searchField;
+        let localSearchField = searchField;
 
-
-        var columns = res.results.filter( (value) => {
-            var hasInvalidChar = value.term.indexOf("^") === -1 &&
+        let columns = res.results.filter( (value) => {
+            let hasInvalidChar = value.term.indexOf("^") === -1 &&
                                  value.term.indexOf(",") === -1 &&
                                  value.term.indexOf("/") === -1 &&
                                  value.term.indexOf("'") === -1 &&
                                  value.term.indexOf("&") === -1 &&
                                  value.term.indexOf("®") === -1
 
-            var isAnAcceptedTerm = that.props.infographicDefinitions.acceptedTerms !== undefined ?
+            let isAnAcceptedTerm = that.props.infographicDefinitions.acceptedTerms !== undefined ?
                                    that.props.infographicDefinitions.acceptedTerms[value.term.toUpperCase()] !== undefined :
                                    true;
 
-            var excludedField = false
+            let excludedField = false
             if(that.props.infographicDefinitions.excludedTerms !== undefined){
               if (that.props.infographicDefinitions.excludedTerms.includes(value.term.toUpperCase())){
                 excludedField = true
@@ -420,7 +422,7 @@ class PieChartInfographic extends React.Component {
           columns = columns.slice(0,that.props.infographicDefinitions.lineLimiter).map( column => {
             let cleanedColumnName = ""
             if(useProductCodes){
-              var fullProductCode = that.props.globalDefs.productCodes[column.toUpperCase()]
+              let fullProductCode = that.props.globalDefs.productCodes[column.toUpperCase()]
               cleanedColumnName = fullProductCode === undefined ? column : fullProductCode
             } else if (useStatesNames){
               cleanedColumnName = states.states[column.toUpperCase()]
@@ -431,15 +433,16 @@ class PieChartInfographic extends React.Component {
 
           const listOfSeries = []
 
-          for (var i = 0, len = results.length; i < len; i++) {
-            var series = new TimeSeries({
+          for (let i = 0, len = results.length; i < len; i++) {
+            let series = new TimeSeries({
               name: "timeseries",
               columns: ["time","value"],
               points: results[i].results.filter(v => {
                 return parseInt(v.time.slice(0,4)) >= that.props.globalDefs.startYear
               }).map(function(i){
-                  let x = i.time.slice(0,4) + '-' + i.time.slice(4,6) + '-' + i.time.slice(6,8)
-                  return [new Date(x), i.count]
+                let x = i.time.slice(0,4) + '-' + i.time.slice(4,6) + '-' + i.time.slice(6,8)
+                let xDate = new Date(x)
+                return [new Date(xDate.getTime() - xDate.getTimezoneOffset() * -60000), i.count]
               })
             }).monthlyRollup({
               aggregation: {
@@ -455,7 +458,7 @@ class PieChartInfographic extends React.Component {
 
           // get all timestamps
           // use obj to avoid duplicates
-          var timestamps = {};
+          let timestamps = {};
           // for each column of aggregated points
           listOfSeries.forEach( arr => {
             arr.forEach( val => {
@@ -463,8 +466,8 @@ class PieChartInfographic extends React.Component {
               timestamps[val[0]] = 0
             })
           })
-          var timestamps = Object.keys(timestamps).sort();
-          var timestampsPosition = {};
+          timestamps = Object.keys(timestamps).sort();
+          let timestampsPosition = {};
           timestamps.forEach( (key, i) => timestampsPosition[key] = i );
           ///
 
@@ -474,7 +477,7 @@ class PieChartInfographic extends React.Component {
             const normalizedSerie = new Array(timestamps.length).fill(null);
 
             arr.forEach( val => {
-              var timestamp = val[0],
+              let timestamp = val[0],
                   value = val[1],
                   i = timestampsPosition[timestamp];
 
@@ -485,27 +488,27 @@ class PieChartInfographic extends React.Component {
           })
 
           // transpose..... from list of points per series, to a list of points per timestamp
-          var res = that.transpose(timestamps, normalizedSeries)
+          let res = this.transpose(timestamps, normalizedSeries)
 
-          var final = res.final,
+          let final = res.final,
               findMax = res.findMax,
               rows = res.rows;
 
-          var series = new TimeSeries({
+          let series = new TimeSeries({
             name: "timeseries",
             columns: ["time"].concat(columns),
             points: final.sort( (a,b) => a[0] - b[0])
           })
 
           // set style according to categories
-          var legendStyle = styler(columns.map((column,idx)=> {
+          let legendStyle = styler(columns.map((column,idx)=> {
             return {
               key: column,
               color: that.props.globalDefs.lineChartConfig.colors[idx],
               width: 2
             }
           }))
-          var legendStyle1 = legendStyle.lineChartStyle()
+          let legendStyle1 = legendStyle.lineChartStyle()
           Object.keys(legendStyle1).forEach(value => {
             legendStyle1[value].selected.opacity = 0
             legendStyle1[value].normal.opacity = 0
@@ -513,7 +516,7 @@ class PieChartInfographic extends React.Component {
             legendStyle1[value].muted.opacity = 0
           })
 
-          var columnStyles = Object.keys(legendStyle1).map(column => {
+          let columnStyles = Object.keys(legendStyle1).map(column => {
             let formattedColumn = ""
             if(column.length){
               formattedColumn = column[0].toUpperCase() + column.slice(1,column.length)
@@ -527,12 +530,12 @@ class PieChartInfographic extends React.Component {
             }
           })
 
-          var allMaxes = {}
+          let allMaxes = {}
           _.zip(columnStyles.map(s => s.label), normalizedSeries).forEach(value => {
-            allMaxes[value[0]] = Math.max(...value[1])
+            allMaxes[value[0]] = !!value[1] ? Math.max(...value[1]) : 0
           })
 
-          that.setState({
+          this.setState({
             allMaxes,
             columnStyles,
             legendStyle: legendStyle1,
@@ -543,11 +546,11 @@ class PieChartInfographic extends React.Component {
             lineChartColumns: ["time"].concat(columns),
             lineChartLoaded: that.state.lineChartLoaded += 1
           },function(){
-            that.DOMNode.setState({isOpen: true})
+            this.setState({isOpen: true})
           })
 
           columnStyles.slice(0,3).forEach( styl =>{
-            that.onSelectionChange(styl)
+            this.onSelectionChange(styl)
           })
 
           // if(that.refs){
@@ -568,20 +571,20 @@ class PieChartInfographic extends React.Component {
 
   transpose (timestamps, normalizedSeries){
     // transpose..... from list of points per series, to a list of points per timestamp
-    var findMax = [],
+    let findMax = [],
         final = [],
         rows = [];
-    for (var i = 0, len_i = normalizedSeries[0].length; i < len_i; i++) {
-      var row = []
-      for (var j = 0, len_j = normalizedSeries.length; j < len_j; j++) {
-        var val = normalizedSeries[j][i] || 0
+    for (let i = 0, len_i = normalizedSeries[0].length; i < len_i; i++) {
+      let row = []
+      for (let j = 0, len_j = normalizedSeries.length; j < len_j; j++) {
+        let val = normalizedSeries[j][i] || 0
         row.push(val)
         findMax.push(val)
       }
       rows.push(row)
     }
     timestamps.forEach( (key, i) => {
-      var int = parseInt(key)
+      let int = parseInt(key)
       if(int > 0){
         final.push([int].concat(rows[i]))
       }
@@ -654,7 +657,7 @@ class PieChartInfographic extends React.Component {
     if (t) {
       const e = this.state.sparklineData.atTime(t);
       const eventTime = new Date(
-          e.begin().getTime() + (e.end().getTime() - e.begin().getTime()) / 2
+          e.begin().getTime()
       )
 
       const eventData = e.toJSON().data;
@@ -715,8 +718,19 @@ class PieChartInfographic extends React.Component {
   }
 
   onClose (){
-    this.DOMNode.setState({isOpen: true})
+    this.setState({isOpen: true})
   }
+
+  createCheckbox = column => {
+    return (
+      <Checkbox
+        column={column}
+        handleCheckboxChange={this.onSelectionChange}
+        key={column.label}
+      />
+    )
+  }
+
 
   render (): ?React.Element {
     if (!this.state.data) return <span />
@@ -794,6 +808,7 @@ class PieChartInfographic extends React.Component {
                               series={this.state.sparklineData}
                               columns={this.state.lineChartColumns}
                               onSelectionChange={this.onSelectionChange}
+                              smooth={true}
                               {...this.props.globalDefs.lineChartConfig.lineChart}
                             />
                               <EventMarker

@@ -11,6 +11,10 @@ export default () => (
           noun_name='other'
           endpoint_name='nsde'
         />
+        <EndpointBox
+          noun_name='other'
+          endpoint_name='substance'
+        />
       </div>
     </div>
   </section>

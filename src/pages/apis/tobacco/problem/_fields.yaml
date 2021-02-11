@@ -1,0 +1,55 @@
+type: object
+properties:
+  report_id:
+    description: "7-digit ICSR number (no spaces)."
+    format: integer
+    is_exact: false
+    possible_values:
+    type: number
+  date_submitted:
+    description: "Date of Original Receipt to FDA."
+    format: date
+    is_exact: false
+    possible_values:
+    type: string
+  number_tobacco_products:
+    description: "System-calculated number of Tobacco Product Problems reported, displayed as a whole number, ≥ 0."
+    format: integer
+    is_exact: false
+    type: number
+  number_health_problems:
+    description: "System-calculated number of Health  Problems (i.e., MedDRA terms selected from a standardized list of symptoms, signs, diagnoses and outcomes) reported, displayed as a whole number, ≥0."
+    format: integer
+    is_exact: false
+    type: number
+    possible_values:
+  number_product_problems:
+    description: "System-calculated number of categorical Product Problems  reported, displayed as a whole number, ≥0."
+    format: integer
+    is_exact: false
+    type: number
+    possible_values:
+  nonuser_affected:
+    description: "Displays text reflecting the response to this optional question as “No information provided” if not answered, or Yes/No."
+    format:
+    is_exact: false
+    possible_values:
+    type: boolean
+  product_type:
+    description: "Text reflecting the SRP tobacco Product Type selected by the reporter."
+    format:
+    is_exact: true
+    possible_values:
+    type: array of strings
+  reported_health_problems:
+    description: "Text reflecting the MedDRA terms selected by the reporter."
+    format:
+    is_exact: true
+    possible_values:
+    type: array of strings
+  reported_product_problems:
+    description: "Text reflecting the SRP categorical list of values."
+    format:
+    is_exact: true
+    possible_values:
+    type: array of strings

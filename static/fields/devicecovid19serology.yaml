@@ -1,0 +1,229 @@
+properties:
+  manufacturer:
+    description: "Name of manufacturer or company that makes this product."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  device:
+    description: "This is the proprietary name, or trade name, of the cleared device."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  date_performed:
+    description: "This is the date the test was performed."
+    format: date
+    is_exact: false
+    possible_values:
+    type: date
+  evaluation_id:
+    description: "The unique identifier for each evaluation."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  lot_number:
+    description: "The manufacturer's unique identification of the lot(s) from which the tested devices were drawn."
+    format:
+    is_exact: false
+    type: string
+  panel:
+    description: "The testing program's unique identification of the panel of clinical samples against which the devices were tested."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  sample_no:
+    description: "The sequence in which the sample was tested."
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  sample_id:
+    description: "The unique ID of the sample in the panel."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  type:
+    description: "The sample material."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  group:
+    description: 'Describes the portion of the panel the sample was from. E.g. "Positives," "Negatives," "HIV+", "Respiratory panel," etc.'
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  days_from_symptom:
+    description: "Days from symptom onset to blood collection."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igm_result:
+    description: "The test result for qualitative detection of IgM antibodies."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igg_result:
+    description: "The test result for qualitative detection of IgG antibodies."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  iga_result:
+    description: "The test result for qualitative detection of IgA antibodies."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  pan_result:
+    description: "The test result for qualitative detection of Pan-Ig antibodies."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igm_igg_result:
+    description: "The test result for qualitative detection of (IgM / IgG) combined antibodies."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igm_iga_result:
+    description: "The test result for qualitative detection of (IgM / IgA) combined antibodies."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  control:
+    description: "The result of the control line on the test."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igm_titer:
+    description: "The CDC spike titer for IgM in the sample."
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  igg_titer:
+    description: "The CDC spike titer for IgG in the sample."
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  pan_titer:
+    description: "The CDC spike titer for Pan-Ig in the sample."
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  igm_truth:
+    description: "The true qualitative IgM result."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igg_truth:
+    description: "The true qualitative IgG result."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  antibody_truth:
+    description: "The true qualitative antibody presence result."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  igm_agree:
+    description: "Agreement between igm_result and igm_truth."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'TN': "True Negative"
+        'TP': "True Positive"
+        'FN': "False Negative"
+        'FP': "False Positive"
+    type: string
+  igg_agree:
+    description: "Agreement between igg_result and igg_truth."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'TN': "True Negative"
+        'TP': "True Positive"
+        'FN': "False Negative"
+        'FP': "False Positive"
+    type: string
+  iga_agree:
+    description: "Agreement between iga_result and antibody_truth."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'TN': "True Negative"
+        'TP': "True Positive"
+        'FN': "False Negative"
+        'FP': "False Positive"
+    type: string
+  pan_agree:
+    description: "Agreement between pan_result and antibody_truth."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'TN': "True Negative"
+        'TP': "True Positive"
+        'FN': "False Negative"
+        'FP': "False Positive"
+    type: string
+  igm_igg_agree:
+    description: "Agreement between igm_igg_result and antibody_truth."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'TN': "True Negative"
+        'TP': "True Positive"
+        'FN': "False Negative"
+        'FP': "False Positive"
+    type: string
+  igm_iga_agree:
+    description: "Agreement between igm_iga_result and antibody_truth."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'TN': "True Negative"
+        'TP': "True Positive"
+        'FN': "False Negative"
+        'FP': "False Positive"
+    type: string
+  antibody_agree:
+    description: "Agreement between all antibody results and antibody_truth. Any positive makes the result positive. All results must be negative for the overall result to be considered negative."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'TN': "True Negative"
+        'TP': "True Positive"
+        'FN': "False Negative"
+        'FP': "False Positive"
+    type: string
+type: object

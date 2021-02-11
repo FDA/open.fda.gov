@@ -1,6 +1,6 @@
 import React from "react"
 
-import QueryExplorer from '../../../../../components/QueryExplorer'
+import QueryTour from '../../../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
@@ -14,23 +14,26 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>Example Device Pre-Market Approval API queries</h2>
         <p>To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
-        <QueryExplorer
+        <QueryTour
           desc={oneAPPR.description}
-          originalQuery={oneAPPR.query}
+          query={oneAPPR.query}
           params={oneAPPR.params}
           title={oneAPPR.title}
+          name={'oneAPPR'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={oneLWP.description}
-          originalQuery={oneLWP.query}
+          query={oneLWP.query}
           params={oneLWP.params}
           title={oneLWP.title}
+          name={'oneLWP'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={topAdvisory.description}
-          originalQuery={topAdvisory.query}
+          query={topAdvisory.query}
           params={topAdvisory.params}
           title={topAdvisory.title}
+          name={'topAdvisory'}
         />
       </section>
     )

@@ -80,7 +80,6 @@ const Hero = (props: tPROPS) => {
       <div
         className={heroCx}
         style={bg_image_color[cat_name]}>
-        <BreadCrumbs />
         <div className='hero-text-box container flex-row dir-column pad-t-2 pad-b-2'>
           {
             type === 'update' &&
@@ -92,11 +91,12 @@ const Hero = (props: tPROPS) => {
           }
           <h2
             tabIndex={label ? -1 : 0}
-            className='clr-white weight-700 header-width'>
+            className='clr-white weight-700 header-width'
+            id='hero-title'>
             {title}
           </h2>
           {
-            type != 'update' &&
+            type !== 'update' &&
             <div className="hero-divider-line"/>
           }
           {

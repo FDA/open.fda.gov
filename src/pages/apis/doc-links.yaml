@@ -29,8 +29,10 @@
     link: /apis/missing-values/
   - title: Timeseries
     link: /apis/timeseries/
+  - title: Paging
+    link: /apis/paging/
 
-- title: Download the API
+- title: Download the Data
   id: download-the-api
   collapse: true
   items:
@@ -38,6 +40,30 @@
     link: /apis/downloads/
   - title: Download API fields
     link: /apis/download-api-fields/
+
+- title: Animal & Veterinary API Endpoints
+  id: animalandveterinary-api-endpoints
+  link: /animalandveterinary/
+  collapse: true
+  items:
+    - title: Adverse Events
+      id: animalandveterinary-adverse-events
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/animalandveterinary/event/
+        - title: How to use the API
+          link: /apis/animalandveterinary/event/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/animalandveterinary/event/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/animalandveterinary/event/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/animalandveterinary/event/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/animalandveterinary/event/download/
+        - title: Searchable fields
+          link: /apis/animalandveterinary/event/searchable-fields
 
 - title: Drug API Endpoints
   id: drug-api-endpoints
@@ -86,7 +112,7 @@
       items:
         - title: Overview
           link: /apis/drug/ndc/
-        - title: How to use the Application Programming Interface
+        - title: How to use the API
           link: /apis/drug/ndc/how-to-use-the-endpoint/
         - title: Example queries
           link: /apis/drug/ndc/example-api-queries/
@@ -134,6 +160,24 @@
           link: /apis/drug/enforcement/download/
         - title: Searchable fields
           link: /apis/drug/enforcement/searchable-fields/
+    - title: Drugs@FDA
+      id: drug-drugs-fda
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/drug/drugsfda/
+        - title: How to use the API
+          link: /apis/drug/drugsfda/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/drug/drugsfda/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/drug/drugsfda/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/drug/drugsfda/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/drug/drugsfda/download/
+        - title: Searchable fields
+          link: /apis/drug/drugsfda/searchable-fields/
 
 - title: Device API Endpoints
   id: device-api-endpoints
@@ -266,6 +310,24 @@
           link: /apis/device/registrationlisting/download/
         - title: Searchable fields
           link: /apis/device/registrationlisting/searchable-fields/
+    - title: COVID-19 Serological Testing Evaluations
+      id: device-serological-testing-validation
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/device/covid19serology/
+        - title: How to use the API
+          link: /apis/device/covid19serology/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/device/covid19serology/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/device/covid19serology/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/device/covid19serology/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/device/covid19serology/download/
+        - title: Searchable fields
+          link: /apis/device/covid19serology/searchable-fields/
     - title: Unique Device Identifier
       id: device-unique-device-identifier
       collapse: true
@@ -350,3 +412,45 @@
           link: /apis/other/nsde/download/
         - title: Searchable fields
           link: /apis/other/nsde/searchable-fields/
+    - title: Substance Data Reports
+      id: other-substance
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/other/substance/
+        - title: How to use the API
+          link: /apis/other/substance/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/other/substance/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/other/substance/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/other/substance/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/other/substance/download/
+        - title: Searchable fields
+          link: /apis/other/substance/searchable-fields/
+
+- title: Tobacco API Endpoints
+  id: tobacco-api-endpoints
+  link: /tobacco/
+  collapse: true
+  items:
+    - title: Problem Reports
+      id: tobacco-problem
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/tobacco/problem/
+        - title: How to use the API
+          link: /apis/tobacco/problem/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/tobacco/problem/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/tobacco/problem/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/tobacco/problem/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/tobacco/problem/download/
+        - title: Searchable fields
+          link: /apis/tobacco/problem/searchable-fields

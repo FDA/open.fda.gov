@@ -1,0 +1,8 @@
+oneReport:
+  title: One adverse event report
+  description:
+    - This query searches for all records in a certain date range, and asks for a single one.
+    - See the [header fields reference](/apis/animalandveterinary/event/searchable-fields/) for more about original_receive_date. Brackets `[ ]` are used to specify a range for date, number, or string fields.
+  params:
+    - search for all records with original_receive_date between Jan 01, 2004 and Nov 07, 2016. limit to 1 record.
+  query: 'https://api.fda.gov/animalandveterinary/event.json?search=original_receive_date:[20040101+TO+20161107]&limit=1'

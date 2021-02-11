@@ -1,0 +1,123 @@
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2019-09-26",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 23282
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2019-09-26",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 23282
+      }
+    }
+  },
+  "result": {
+    "submissions": [
+      {
+        "application_docs_title": [
+          {
+            "type": "Review",
+            "id": "22662",
+            "url": "http://www.accessdata.fda.gov/drugsatfda_docs/anda/pre96/084321_probenecid-colchicine_toc.cfm",
+            "title": "0"
+          }
+        ],
+        "submission_type": "ORIG",
+        "submission_property_type": [
+          {
+            "code": "Null",
+            "id": "0"
+          }
+        ],
+        "submission_status_date": "19760311",
+        "application_docs_date": "20030730",
+        "submission_status": "AP",
+        "submission_number": "1"
+      }
+    ],
+    "application_number": "ANDA084321",
+    "sponsor_name": "BEECHAM",
+    "products": [
+      {
+        "marketing_status": "Discontinued",
+        "route": "ORAL",
+        "reference_standard": "0",
+        "brand_name": "PROBENECID AND COLCHICINE",
+        "active_ingredients": [
+          {
+            "strength": "0.5MG",
+            "name": "COLCHICINE"
+          },
+          {
+            "strength": "500MG",
+            "name": "PROBENECID"
+          }
+        ],
+        "reference_drug": "0",
+        "product_number": "001",
+        "dosage_form": "TABLET"
+      }
+    ]
+  },
+  "count": {
+    "results": [
+      {
+        "term": "ORAL",
+        "count": 14191
+      },
+      {
+        "term": "INJECTION",
+        "count": 4270
+      },
+      {
+        "term": "TOPICAL",
+        "count": 1438
+      },
+      {
+        "term": "OPHTHALMIC",
+        "count": 609
+      },
+      {
+        "term": "INTRAVENOUS",
+        "count": 580
+      },
+      {
+        "term": "INHALATION",
+        "count": 366
+      },
+      {
+        "term": "ORAL-28",
+        "count": 219
+      },
+      {
+        "term": "SUBCUTANEOUS",
+        "count": 119
+      },
+      {
+        "term": "Injection",
+        "count": 113
+      },
+      {
+        "term": "NASAL",
+        "count": 113
+      }
+    ]
+  }
+}

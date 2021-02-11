@@ -90,6 +90,31 @@ properties:
     is_exact: false
     possible_values:
     type: string
+  pharm_class:
+    description: "These are the reported pharmacological class categories corresponding to the SubstanceNames listed above."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  dea_schedule:
+    description: "This is the assigned DEA Schedule number as reported by the labeler. Values are CI, CII, CIII, CIV, and CV."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        '1': "CI"
+        '2': "CII"
+        '3': "CIII"
+        '4': "CIV"
+        '5': "CV"
+    type: string
+  listing_expiration_date:
+    description: "This is the date when the listing record will expire if not updated or certified by the firm."
+    format: date
+    is_exact: false
+    possible_values:
+    type: string
   active_ingredients:
     type: object
     properties:
@@ -105,31 +130,6 @@ properties:
         is_exact: false
         possible_values:
         type: string
-  pharm_class:
-    description: "These are the reported pharmacological class categories corresponding to the SubstanceNames listed above."
-    format:
-    is_exact: true
-    possible_values:
-    type: string
-  dea_schedule:
-    description: "This is the assigned DEA Schedule number as reported by the labeler. Values are CI, CII, CIII, CIV, and CV."
-    format:
-    is_exact: false
-    possible_values:
-      type: one_of
-      value:
-        '1': "ci"
-        '2': "cii"
-        '3': "cii"
-        '4': "civ"
-        '5': "cv"
-    type: string
-  listing_expiration_date:
-    description: "This is the date when the listing record will expire if not updated or certified by the firm."
-    format: date
-    is_exact: false
-    possible_values:
-    type: string
   packaging:
     type: object
     properties:

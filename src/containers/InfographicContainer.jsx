@@ -53,7 +53,7 @@ class InfographicContainer extends React.Component {
     type: 'Line',
   };
 
-  defaultProps: Object = {
+  static defaultProps: Object = {
     infographics: [{}],
   };
 
@@ -139,7 +139,7 @@ class InfographicContainer extends React.Component {
 
     // sometimes we want to filter by year, and sometimes we don't
     return curr.dateConstraint ?
-      (curr.dateConstraint + ':' + "[" + startDate + '+TO+' + endDate + "]") :
+      (curr.dateConstraint + ':' + '[' + startDate + '+TO+' + endDate + ']') :
       ''
   }
 
@@ -341,6 +341,7 @@ class InfographicContainer extends React.Component {
           <Infographic
             { ...this.props }
             { ...this.state }
+
             onSearchChangeUpdate={this._update.bind(this)}
             onSearchChange={this._onSearchChange.bind(this)}
             records={this.state.matchingRecords}

@@ -18,13 +18,13 @@ class IndexRoute extends React.Component {
         <h3>Making a simple API Call</h3>
         <p>You can call the API from a web browser. Simply type a valid API query in your browser’s address bar and press the Enter key.</p>
         <p>In the example below, we are searching the records in the Device Recall endpoint for matches with <code>Device Design</code> in the <code>root_case_description</code> field. We are requesting to see the first 5 records that match."</p>
-        <APIQueryBreakdown endpoint_path='/device/recall.json' query='root_cause_decision:"Device Design"'/>
+        <APIQueryBreakdown endpoint_path='/device/recall.json' query='root_cause_description.exact:"Device Design"'/>
 
         <h3>Some key pointers</h3>
         <ul>
           <li>An openFDA API query always begins with the base endpoint, which in this case is: <code>https://api.fda.gov/device/recall.json</code></li>
           <li>Searches have a special syntax: <code>search=field:term</code></li>
-          <li>Unless otherwise specified, the API will return only one matching record for a search. You can specify the number of records to be returned by using the limit parameter. The maximum limit allowed is 99 for any single API call. If no limit is set, the API will return one matching record.</li>
+          <li>Unless otherwise specified, the API will return only one matching record for a search. You can specify the number of records to be returned by using the limit parameter. The maximum limit allowed is 1000 for any single API call. If no limit is set, the API will return one matching record.</li>
         </ul>
         <p>It is possible to construct very complex queries using the openFDA API. Review the <Link to="/apis/query-parameters/">Construct the query</Link> documentation to learn more about all the available query parameters, how to handle quotations, spaces, phrase matches, and groupings, how to search on dates and ranges, and more.</p>
       </section>

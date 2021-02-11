@@ -2,6 +2,8 @@
 
 import React from 'react'
 import faviconPNG from './favicon.png'
+import appCSS from '!!raw-loader!./css/build/app.css'
+import reactTableCSS from '!!raw-loader!../node_modules/react-table/react-table.css'
 
 const webFontLoader: string = `
   WebFontConfig = {
@@ -41,8 +43,7 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
         name='description'
         content='openFDA'
       />
-      <meta
-        http-equiv='Content-Type'
+      <meta httpEquiv='Content-Type'
         content='text/html; charset=UTF-8' />
       <link
         rel='preconnect'
@@ -64,29 +65,19 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
       <style
         dangerouslySetInnerHTML={{
           // $FlowIgnore
-          __html: require('!raw!./css/build/app.css')
+          __html: appCSS,
+        }}
+      />
+      <style
+        dangerouslySetInnerHTML={{
+          // $FlowIgnore
+          __html: reactTableCSS,
         }}
       />
       {
-        // in the future, we should only include the following
-        // inside of an IE conditional comment, but that is a
-        // huge pain inside React and especially with gatsby sooo
-        // better for IE to work and the client side mount be
-        // a little slower, than for IE to not work at all
-        //
-        // although it would be good to combine into 1 file or something
+        // We participate in the US government's analytics program. See the data at analytics.usa.gov.}
       }
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.3.0/es5-shim.min.js' />
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.3.0/es5-sham.min.js' />
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js' />
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js' />
-
-      <script src="https://unpkg.com/react@15.6.1/dist/react.js" />
-      <script src="https://unpkg.com/react-dom@15.6.1/dist/react-dom.js" />
-      <script src="https://unpkg.com/prop-types@15.5.10/prop-types.js" />
-      <script src="https://unpkg.com/classnames@2.2.5/index.js" />
-      <script src="https://unpkg.com/react-input-autosize@2.0.0/dist/react-input-autosize.js" />
-      <script src="https://unpkg.com/react-select@1.2.1/dist/react-select.js" />
+      <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS" id="_fed_an_ua_tag" />
 
       <link rel='stylesheet' href='https://unpkg.com/react-select@1.2.1/dist/react-select.css' />
     </head>

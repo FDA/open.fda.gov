@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 type tPROPS = {
-    cols : React.PropTypes.array,
-    rows: React.PropTypes.array
+    cols : PropTypes.array,
+    rows: PropTypes.array
 };
 
 const Table = (props:tPROPS) => {
 
     class HtmlTable extends React.Component {
-        
+
         constructor(props:tPROPS) {
             super(props);
             this.rows = props.rows;

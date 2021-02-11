@@ -67,7 +67,17 @@ const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClas
 
     componentWillUpdate (nextProps) {
       if (this.state.path !== window.location.pathname) {
+        let activeHeaders = this.state.activeHeader
+        const yaml = this.props.yaml
+        let returnedHeaders = []
+        for (let i = 0; i < yaml.length; i++) {
+          returnedHeaders.push(checkObject(yaml[i], window.location.pathname))
+        }
+        for (let i = 0; i < returnedHeaders.length; i++ ) {
+          returnedHeaders[i].length > 0 && (activeHeaders = activeHeaders.concat(returnedHeaders[i]))
+        }
         this.setState({
+          activeHeader: activeHeaders,
           path: window.location.pathname
         })
       }

@@ -81,6 +81,7 @@ html
   font-size: $pSize
   font-weight: 300
   overflow-x: hidden // 2
+  scroll-behavior:smooth
   text-rendering: optimizeSpeed // 3
   touch-action: manipulation // 4
   overflow-y:scroll
@@ -222,6 +223,18 @@ select,
   font-size: $h4Size
   padding: 7px
   width: 100%
+
+select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
+
+/* For IE10 */
+select::-ms-expand {
+  display: none;
+}
 
 // basic responsive img rules
 // 1 no extra space after img
