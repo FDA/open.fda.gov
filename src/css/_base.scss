@@ -1,3 +1,5 @@
+@import './vars';
+
 /**
  * Global styles, the starting point. No classes or ids.
  * contains our resets, link styling, default font sizes, etc
@@ -325,7 +327,7 @@
    display: flex;
  }
 
- .font-size-1 {
+h1, .font-size-1 {
   font-size: $h2Size;
   line-height: $h2LH;
   @media (min-width: $bpTab) {
@@ -334,7 +336,7 @@
   }
 }
 
-.font-size-2 {
+h2, .font-size-2 {
   font-size: $h3Size;
   line-height: $h3LH;
   @media (min-width: $bpTab) {
@@ -343,7 +345,7 @@
   }
 }
 
-.font-size-3 {
+h3, .font-size-3 {
   font-size: $h4Size;
   line-height: $h4LH;
   @media (min-width: $bpTab) {
@@ -352,12 +354,12 @@
   }
 }
 
-.font-size-4 {
+h4, .font-size-4 {
   font-size: $ledeSize;
   line-height: $ledeLH;
 }
 
-.font-size-5 {
+h5, .font-size-5 {
   font-size: $pSize;
   line-height: $pLH;
 }

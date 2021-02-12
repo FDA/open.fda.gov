@@ -65,39 +65,37 @@ const ContentWrapper = (props: tPROPS) => {
   })
 
   return (
-    <Layout>
-      <section>
+    <section>
 
-        <Hero
+      <Hero
+        {...meta}
+      />
+      {
+        <EndpointStatus
           {...meta}
         />
+      }
+      <section className={wrapperCx}>
         {
-          <EndpointStatus
-            {...meta}
+          meta.type !== 'update' &&
+          <ComposedSidebar
+            className='m-hide'
+            reference={content}
           />
         }
-        <section className={wrapperCx}>
-          {
-            meta.type !== 'update' &&
-            <ComposedSidebar
-              className='m-hide'
-              reference={content}
-            />
-          }
-          <div
-            className={contentCx}
-            style={{
-              maxWidth: '100%',
-            }}>
-            <Content
-              {...props}
-              fieldsMapped={fieldsMapped}
-              fieldsFlattened={fieldsFlattened}
-            />
-          </div>
-        </section>
+        <div
+          className={contentCx}
+          style={{
+            maxWidth: '100%',
+          }}>
+          <Content
+            {...props}
+            fieldsMapped={fieldsMapped}
+            fieldsFlattened={fieldsFlattened}
+          />
+        </div>
       </section>
-    </Layout>
+    </section>
   )
 }
 
