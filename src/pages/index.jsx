@@ -3,7 +3,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import BlogRoll from '../components/BlogRoll'
-import Layout from '../components/Layout'
 import '../css/components/HomePage.scss'
 
 // homepage

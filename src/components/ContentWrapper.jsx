@@ -12,9 +12,6 @@ import SideBarContainer from '../containers/SideBarContainer'
 
 import mapFields from '../utils/mapFields'
 import flattenFields from '../utils/flattenFields'
-
-import Layout from '../components/Layout'
-
 import '../css/components/ContentWrapper.scss'
 
 type tPROPS = {
