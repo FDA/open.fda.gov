@@ -308,6 +308,150 @@ class IndexRoute extends React.Component {
           Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3299-a001.csv">Data File</a></p>
 
+        <h4>Acon Biotech (Hangzhou) Co., LTD Acon SARS-CoV2 IgG/IgM Rapid Test</h4>
+        <p><strong>Manufacturer:</strong> Acon Biotech (Hangzhou) Co., LTD</p>
+        <p><strong>Device:</strong> Acon SARS-CoV2 IgG/IgM Rapid Test</p>
+        <p><strong>Date Performed:</strong> 2020-11-02</p>
+        <p><strong>Lot Number:</strong> COV0109007</p>
+        <p><strong>Panel:</strong> Panel 2</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style={{marginLeft:'auto', marginRight:'auto'}}>
+          <thead>
+          <tr>
+            <th style={{textAlign:'left'}}>
+              Antibody
+            </th>
+            <th style={{textAlign:'left'}}>
+              Performance Measure
+            </th>
+            <th style={{textAlign:'left'}}>
+              Estimate of Performance
+            </th>
+            <th style={{textAlign:'left'}}>
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgM
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              96.7% (29/30)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (83.3%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgM
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              98.8% (79/80)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (93.3%; 99.8%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              100% (30/30)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (88.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              97.5% (78/80)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (91.3%; 99.3%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Combined
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              100% (30/30)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (88.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Combined
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              96.2% (77/80)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (89.5%; 98.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Combined
+            </td>
+            <td style={{textAlign:'left'}}>
+              PPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              58.4%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (30.9%; 80.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Combined
+            </td>
+            <td style={{textAlign:'left'}}>
+              NPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              100%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (99.3%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3396-a001.pdf">NCI’s Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3396-a001.csv">Data File</a></p>
+
         <h4>Assure Tech. (Hangzhou) Co., Ltd. FaStep Rapid Diagnostic Test Coronavirus Disease 2019/ (COVID-2019) IgG/IgM Rapid Test</h4>
         <p><strong>Manufacturer:</strong> Assure Tech. (Hangzhou) Co., Ltd.</p>
         <p><strong>Device:</strong> FaStep Rapid Diagnostic Test Coronavirus Disease 2019/ (COVID-2019) IgG/IgM Rapid Test</p>
@@ -10968,6 +11112,150 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3275-a001.pdf">NCI’s Independent
           Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3275-a001.csv">Data File</a></p>
+
+        <h4>SurExam Bio-Tech Co. Ltd. Surplex COVID-19 IgM/IgG Rapid Test</h4>
+        <p><strong>Manufacturer:</strong> SurExam Bio-Tech Co. Ltd.</p>
+        <p><strong>Device:</strong> Surplex COVID-19 IgM/IgG Rapid Test</p>
+        <p><strong>Date Performed:</strong> 2020-10-21</p>
+        <p><strong>Lot Number:</strong> 20052901</p>
+        <p><strong>Panel:</strong> Panel 3</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed –– No notification or EUA authorization</p>
+        <table className="table table-striped table-hover table-condensed"
+               style={{marginLeft:'auto', marginRight:'auto'}}>
+          <thead>
+          <tr>
+            <th style={{textAlign:'left'}}>
+              Antibody
+            </th>
+            <th style={{textAlign:'left'}}>
+              Performance Measure
+            </th>
+            <th style={{textAlign:'left'}}>
+              Estimate of Performance
+            </th>
+            <th style={{textAlign:'left'}}>
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgM
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              76.7% (23/30)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (59.1%; 88.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgM
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              100% (80/80)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              76.7% (23/30)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (59.1%; 88.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              100% (80/80)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Combined
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              76.7% (23/30)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (59.1%; 88.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Combined
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              100% (80/80)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Combined
+            </td>
+            <td style={{textAlign:'left'}}>
+              PPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              100%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (40.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Combined
+            </td>
+            <td style={{textAlign:'left'}}>
+              NPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              98.8%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (97.8%; 99.4%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3391-a001.pdf">NCI’s Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3391-a001.csv">Data File</a></p>
 
         <h4>TESTSEALABS SARS-COV-2-IgG/IgM Test Cassette</h4>
         <p><strong>Manufacturer:</strong> TESTSEALABS</p>

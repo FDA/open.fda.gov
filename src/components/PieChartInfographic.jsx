@@ -2,8 +2,8 @@
 
 import React from 'react'
 
-import { TimeSeries, TimeRange, sum } from "pondjs";
-import { Charts, ChartContainer, ChartRow, YAxis, LineChart, styler, EventMarker } from "react-timeseries-charts"
+import {sum, TimeRange, TimeSeries} from "pondjs";
+import {ChartContainer, ChartRow, Charts, EventMarker, LineChart, styler, YAxis} from "react-timeseries-charts"
 import _ from 'lodash';
 import 'whatwg-fetch'
 import PropTypes from 'prop-types';
@@ -13,8 +13,7 @@ import {default as $} from "jquery";
 import TwoLevelPieChart from './InteractivePie';
 import Checkbox from "./Checkbox";
 import states from '../pages/apis/states.json'
-import { API_LINK } from '../constants/api'
-import '../css/components/Charts.scss'
+import {API_LINK} from '../constants/api'
 
 
 const stringOrNode = PropTypes.oneOfType([
@@ -521,7 +520,7 @@ class PieChartInfographic extends React.Component {
 
           let allMaxes = {}
           _.zip(columnStyles.map(s => s.label), normalizedSeries).forEach(value => {
-            allMaxes[value[0]] = Math.max(...value[1])
+            allMaxes[value[0]] = !!value[1] ? Math.max(...value[1]) : 0
           })
 
           this.setState({
