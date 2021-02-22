@@ -48,7 +48,7 @@ const EndpointBox = (props: tPROPS) => {
       'label': 'Structured product information, including prescribing information, for approved drug products.',
       'ndc': 'NDC directory containing information on the National Drug Code (NDC)',
       'enforcement': 'Drug product recall enforcement reports.',
-      'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.'
+      'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.',
       'orangebook': 'Approved Drug Products with Therapeutic Equivalence Evaluations (Orange Book).'
     },
     'other': {
