@@ -1,0 +1,38 @@
+effectiveTime:
+  params:
+    - search for all records with effective_time between Jun 01, 2016 and Dec 31, 2016.
+    - limit to 1 record.
+  query: 'http://47f78539.ngrok.io/drug/remsspl.json?search=effective_time:[20160601+TO+20161231]&limit=1'
+  description:
+    - This query searches for all records in a certain date range, and asks for a single one.
+    - See the [reference](/drug/label/reference/) for more about effective_time. Brackets [ ] are used to specify a range for date, number, or string fields.
+  title: One REMS SPL record
+medicationGuide:
+  params:
+    - search for all records with medication_guide field.
+    - The _exists_ search modifier lets you search for records that contain a specific field, no matter what its contents are. See the API basics page for more details.
+  query: 'http://47f78539.ngrok.io/drug/remsspl.json?search=_exists_:rems_elements.medication_guide'
+  description:
+    - This query searches for REMS SPL with a medication guide, and returns one result.
+  title: REMS SPL record with a medication guide
+setID:
+  params:
+    - search for records with given set_id.
+  query: 'http://47f78539.ngrok.io/drug/remsspl.json?search=set_id:3b158d87-d733-4ee3-8c31-5ba8b51545a8'
+  description:
+    - This query searches the REMS SPL dataset for records that include a specific set_id
+  title: Search REMS SPL records by Set ID
+sponsorName:
+  params:
+    - search for all records with given sponsor_name.
+  query: 'http://47f78539.ngrok.io/drug/remsspl.json?search=sponsor_name:INDIVIOR%20Inc.'
+  description:
+    - This query searches the REMS SPL dataset for records that match the given sponsor_name.
+  title: Search REMS SPL records by Sponsor
+brandName:
+  params:
+    - search for all records with given brand_name.
+  query: 'http://47f78539.ngrok.io/drug/remsspl.json?search=openfda.brand_name:Suboxone'
+  description:
+    - This query searches the REMS SPL dataset for records that match a specific brand_name.
+  title: Search REMS SPL records by Brand Name

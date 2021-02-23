@@ -1,0 +1,26 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › REMS SPL'
+crumbs:
+  - openFDA
+  - Datasets
+  - REMS SPL
+title: 'REMS SPL'
+description: 'REMS are programs designed to ensure that the benefits of certain drugs outweigh their risks.'
+source:
+  name: 'REMS SPL'
+  nameLong: 'REMS SPL'
+  link: ''
+  linkDownload: ''
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+  time:
+  start:
+  current:
+  delay:
+  frequency: 'Daily'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - ''

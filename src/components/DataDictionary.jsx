@@ -69,6 +69,7 @@ class DataDictionary extends React.Component {
       'enforcement': 'Enforcement',
       'nsde': 'NSDE',
       'drugsfda': 'Drugs@FDA',
+      'remsspl': 'REMS SPL',
       'covid19serology': 'COVID-19 Serology',
       'pma': 'Pre-Market Approval',
       'recall': 'Recall',

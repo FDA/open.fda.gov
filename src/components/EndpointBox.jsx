@@ -48,7 +48,8 @@ const EndpointBox = (props: tPROPS) => {
       'label': 'Structured product information, including prescribing information, for approved drug products.',
       'ndc': 'NDC directory containing information on the National Drug Code (NDC)',
       'enforcement': 'Drug product recall enforcement reports.',
-      'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.'
+      'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.',
+      'remsspl': 'REMS are programs designed to ensure that the benefits of certain drugs outweigh their risks.'
     },
     'other': {
       'nsde': 'Comprehensive NDC SPL Data Elements File',
@@ -83,7 +84,8 @@ const EndpointBox = (props: tPROPS) => {
       'label': 'Product labeling',
       'ndc': 'NDC Directory',
       'enforcement': 'Recall enforcement reports',
-      'drugsfda': 'Drugs@FDA'
+      'drugsfda': 'Drugs@FDA',
+      'remsspl': 'REMS SPL'
     },
     'other': {
       'nsde': 'NDC SPL Data Elements',
@@ -126,7 +128,8 @@ const EndpointBox = (props: tPROPS) => {
       'label': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>,
       'ndc': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
       'enforcement': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>,
-      'drugsfda': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-at" style={{color: "white"}}/></div>
+      'drugsfda': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-at" style={{color: "white"}}/></div>,
+      'remsspl': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-bar-chart" style={{color: "white"}}/></div>
     },
     'other': {
       'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
@@ -161,7 +164,8 @@ const EndpointBox = (props: tPROPS) => {
       'label': '/apis/drug/label/',
       'ndc': '/apis/drug/ndc/',
       'enforcement': '/apis/drug/enforcement/',
-      'drugsfda': '/apis/drug/drugsfda/'
+      'drugsfda': '/apis/drug/drugsfda/',
+      'remsspl': '/apis/drug/remsspl/'
     },
     'other': {
       'nsde': '/apis/other/nsde/',
