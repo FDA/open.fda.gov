@@ -16,14 +16,14 @@ class IndexRoute extends React.Component {
           //TODO: Figure out sections from backend.
         }
         <ul>
-          <li><strong>Product data:</strong> General information about the product.</li>
-          <li><strong>Packaging information:</strong> The specific details of the product packaging.</li>
-          <li><strong>An openfda section:</strong> An annotation with additional product identifiers, such as UNII and UPC, of the drug product, if available.</li>
+          <li><strong>Product data:</strong>General information about the product.</li>
+          <li><strong>REMS Elements:</strong>An expansive but optional section with fine details about the REMS documentation.</li>
+          <li><strong>An openFDA section:</strong>An annotation with additional product identifiers, such as UNII and UPC, of the drug product, if available.</li>
         </ul>
         {
           //TODO: Develop _examples.json
         }
-        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/drug/ndc.json?count=dea_schedule">https://api.fda.gov/drug/ndc.json?count=dea_schedule</a>), the results section will look something like the following:</p>
+        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/drug/remsspl.json?count=products.manufactured_product.package_type">https://api.fda.gov/drug/remsspl.json?count=products.manufactured_product.package_type</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}

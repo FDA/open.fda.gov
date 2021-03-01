@@ -7,7 +7,7 @@ label: Risk Evaluation and Mitigation Strategy
 title: Risk Evaluation and Mitigation Strategy
 path: /apis/drug/remsspl
 api_path: /drug/remsspl
-start: 20160901
+start: 20160101
 status: remsspl
 dateConstraintKey: rems_goals.effective_time
 type: endpoint

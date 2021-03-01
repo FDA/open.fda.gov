@@ -121,7 +121,6 @@ const KeyFacts = (props: tPROPS) => {
     }
   }
 
-  //TODO: Check REMS release frequency.
   const frequency = {
     'animalandveterinary': {
       'event': 'Quarterly'
@@ -147,7 +146,7 @@ const KeyFacts = (props: tPROPS) => {
       'ndc': 'Daily',
       'enforcement': 'Weekly',
       'drugsfda': 'Weekly',
-      'remsspl': 'Weekly?'
+      'remsspl': 'Intermittently'
     },
     'other': {
       'nsde': 'Daily',
