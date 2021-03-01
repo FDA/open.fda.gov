@@ -15,12 +15,13 @@ license:
   name: 'Public Domain and CC0'
   link: 'http://creativecommons.org/publicdomain/zero/1.0/'
   time:
-  start:
+  start: 'September 2016'
   current:
   delay:
-  frequency: 'Daily'
+  frequency: 'Intermittently'
 provider:
   name: 'FDA'
   link: 'http://www.fda.gov/'
 additionalContent:
-  - ''
+  - 'The Food and Drug Administration Amendments Act of 2007 gave FDA the authority to require a Risk Evaluation and Mitigation Strategy (REMS) from manufacturers to ensure that the benefits of a drug or biological product outweigh its risks.'
+  - 'In late December 2020, the FDA issued the Final Guidance on REMS (Risk Evaluation and Mitigation Strategy) submissions in Structured Product Labeling (SPL) format. While participation is currently voluntary, and has been since September 2016, compliance with this guidance will be required as of December 28, 2022.'

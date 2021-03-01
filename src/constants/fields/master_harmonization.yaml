@@ -142,6 +142,26 @@ drug:
     - pharm_class_cs
     - nui
     - pharm_class_pe
+  remsspl:
+    - application_number
+    - brand_name
+    - generic_name
+    - manufacturer_name
+    - nui
+    - package_ndc
+    - pharm_class_cs
+    - pharm_class_epc
+    - pharm_class_pe
+    - pharm_class_moa
+    - product_ndc
+    - product_type
+    - route
+    - rxcui
+    - spl_id
+    - spl_set_id
+    - substance_name
+    - unii
+    - upc
 food:
   enforcement: []
   event: []

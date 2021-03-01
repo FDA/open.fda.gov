@@ -30,15 +30,14 @@ class IndexRoute extends React.Component {
           harmonized={true}
         />
 
-        {//TODO: Are we harmonizing?
-{/*        <h3>Fields Harmonization</h3>
+        <h3>Fields Harmonization</h3>
         <p>Different datasets use different unique identifiers, which can make it difficult to find the same drug in each dataset.</p>
         <p>openFDA features harmonization on specific identifiers to make it easier to both search for and understand the drug products returned by API queries. These additional fields are attached to records in all categories, if applicable.</p>
         <p>Review the chart below to better understand which fields are harmonized.</p>
         <FieldsHarmonization
           master_harmonization={master_harmonization}
           selected_noun='drug'
-        />*/}}
+        />
 
         <h3>Additional Information About REMS SPL</h3>
         <p>To read more about REMS SPL, please visit:</p>
