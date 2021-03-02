@@ -111,28 +111,16 @@
       "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
       "terms": "https://open.fda.gov/terms/",
       "license": "https://open.fda.gov/license/",
-      "last_updated": "2018-07-30"
+      "last_updated": "2021-03-01"
     },
     "results": [
       {
-        "term": "CII",
-        "count": 2315
+        "term": "FILM, SOLUBLE",
+        "count": 1
       },
       {
-        "term": "CIV",
-        "count": 2188
-      },
-      {
-        "term": "CIII",
-        "count": 756
-      },
-      {
-        "term": "CV",
-        "count": 212
-      },
-      {
-        "term": "CI",
-        "count": 6
+        "term": "SOLUTION",
+        "count": 1
       }
     ]
   }

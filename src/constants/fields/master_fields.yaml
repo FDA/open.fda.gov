@@ -7492,23 +7492,22 @@ drug:
                 type: string
                 pattern: ^[BLA|ANDA|NDA]{3,4}[0-9]{6}$
                 possible_values:
-                approval_holder_org:
-                  description: "The organization that holds the drug approval."
-                  format:
-                  is_exact: false
-                  possible_values:
-                  type: string
+              approval_holder_org:
+                description: "The organization that holds the drug approval."
+                format:
+                is_exact: false
+                possible_values:
+                type: string
         type: array
-      related_documents:
+      related_spl_document_set_id:
+        type: array
         items:
-          related_spl_document_set_id:
-            description: "REMS append the related document(s) with more detail on how to evaluate and manage risks regarding the product described in the related
-                            document(s). The related document(s) SPL document is referred to by its setId"
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-        type: object
+          description: "REMS append the related document(s) with more detail on how to evaluate and manage risks regarding the product described in the related
+                          document(s). The related document(s) SPL document is referred to by its setId"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
       rems_elements:
         type: object
         properties:
@@ -7573,12 +7572,10 @@ drug:
                 safe_use_monitoring:
                   type: array
                   items:
-                    type: object
                     properties:
                       monitoring:
                         type: array
                         items:
-                          type: object
                           properties:
                             monitoring_list:
                               type: array
@@ -7597,7 +7594,6 @@ drug:
                       appended_materials:
                         type: array
                         items:
-                          type: object
                           properties:
                             item:
                               type: array
@@ -7616,7 +7612,6 @@ drug:
           rems_implementation_system:
             type: array
             items:
-              type: object
               properties:
                 effective_time:
                   description: "Date reference to the particular version of the labeling document."
@@ -7627,7 +7622,6 @@ drug:
                 implementation:
                   type: array
                   items:
-                    type: object
                     properties:
                       item:
                         type: array
@@ -7641,7 +7635,6 @@ drug:
             description: "Description of the timetable for submissions assessments to FDA by the sponsor."
             type: array
             items:
-              type: object
               properties:
                 effective_time:
                   description: "Date reference to the particular version of the labeling document."
@@ -7664,7 +7657,6 @@ drug:
           rems_summary:
             type: array
             items:
-              type: object
               properties:
                 effective_time:
                   description: "Date reference to the particular version of the labeling document."
@@ -7675,12 +7667,10 @@ drug:
                 substance_administration:
                   type: array
                   items:
-                    type: object
                     properties:
                       protocol:
                         type: array
                         items:
-                          type: object
                           properties:
                             requirement:
                               description: "The requirement of the drug being a component of a REMS protocol described in the REMS Summary."
@@ -7731,7 +7721,6 @@ drug:
           rems_material:
             type: array
             items:
-              type: object
               properties:
                 effective_time:
                   description: "Date reference to the particular version of the labeling document."
@@ -7742,7 +7731,6 @@ drug:
                 document:
                   type: array
                   items:
-                    type: object
                     properties:
                       name:
                         description: "The name of the REMS material document that are part of the program."
@@ -7766,13 +7754,13 @@ drug:
             pattern: "YYYYmmdd"
             type: string
           goal:
+            type: array
             items:
               description: "Lists the goals of the REMS for SUBOXONE sublingual film, SUBOXONE sublingual tablets and SUBUTEX sublingual tablets."
               format:
               is_exact: false
               possible_values:
               type: string
-            type: array
       set_id:
         description: "The Set ID, A globally unique identifier (GUID) for the labeling, stable across all versions or revisions."
         format:
