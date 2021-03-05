@@ -1,9 +1,9 @@
-- title: "Prescription and over-the-counter (OTC) drug labeling"
+- title: "REMS SPL Submissions over time"
   short: "Submissions over time"
   dataset: REMSSPL
   description:
-    - "The openFDA drug product labeling API provides data for prescription and over-the-counter (OTC) drug labeling. Since mid-2009, labeling has been posted publicly in the [Structured Product Labeling (SPL) format](/data/spl/)."
-    - "This chart shows labeling submissions over time, by looking at their 'effective dates.' The search is limited to dates since June 2009, which excludes a small number of older submissions."
+    - "The openFDA REMS SPL API provides data for the drug safety program Risk Evaluation Mitigation Strategies. Since mid-2016, REMS data has been submitted in the [Structured Product Labeling (SPL) format](/data/spl/)."
+    - "This chart shows labeling submissions over time, by looking at their 'effective dates.'"
   countParam: "effective_time"
   filters:
     - title: "All REMS SPL submissions"
