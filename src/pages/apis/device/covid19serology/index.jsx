@@ -2809,94 +2809,6 @@ class IndexRoute extends React.Component {
           Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3356-a002.csv">Data File</a></p>
 
-        <h4>MedMira Inc. REVEALCOVID-19 Total Antibody Test</h4>
-        <p><strong>Manufacturer:</strong> MedMira Inc.</p>
-        <p><strong>Device:</strong> REVEALCOVID-19 Total Antibody Test</p>
-        <p><strong>Date Performed:</strong> 2020-11-17</p>
-        <p><strong>Lot Number:</strong> RVE0004-2108</p>
-        <p><strong>Panel:</strong> Panel 3</p>
-        <p><strong>Marketing Status:</strong> EUA Authorized</p>
-        <table className="table table-striped table-hover table-condensed"
-               style={{marginLeft:'auto', marginRight:'auto'}}>
-          <thead>
-          <tr>
-            <th style={{textAlign:'left'}}>
-              Antibody
-            </th>
-            <th style={{textAlign:'left'}}>
-              Performance Measure
-            </th>
-            <th style={{textAlign:'left'}}>
-              Estimate of Performance
-            </th>
-            <th style={{textAlign:'left'}}>
-              95% Confidence Interval
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td style={{textAlign:'left'}}>
-              Pan Ig
-            </td>
-            <td style={{textAlign:'left'}}>
-              Sensitivity
-            </td>
-            <td style={{textAlign:'left'}}>
-              53.3% (16/30)
-            </td>
-            <td style={{textAlign:'left'}}>
-              (36.1%; 69.8%)
-            </td>
-          </tr>
-          <tr>
-            <td style={{textAlign:'left'}}>
-              Pan Ig
-            </td>
-            <td style={{textAlign:'left'}}>
-              Specificity
-            </td>
-            <td style={{textAlign:'left'}}>
-              100% (80/80)
-            </td>
-            <td style={{textAlign:'left'}}>
-              (95.4%; 100%)
-            </td>
-          </tr>
-          <tr>
-            <td style={{textAlign:'left'}}>
-              Pan Ig
-            </td>
-            <td style={{textAlign:'left'}}>
-              PPV at prevalence = 5%
-            </td>
-            <td style={{textAlign:'left'}}>
-              100%
-            </td>
-            <td style={{textAlign:'left'}}>
-              (29.3%; 100%)
-            </td>
-          </tr>
-          <tr>
-            <td style={{textAlign:'left'}}>
-              Pan Ig
-            </td>
-            <td style={{textAlign:'left'}}>
-              NPV at prevalence = 5%
-            </td>
-            <td style={{textAlign:'left'}}>
-              97.6%
-            </td>
-            <td style={{textAlign:'left'}}>
-              (96.6%; 98.4%)
-            </td>
-          </tr>
-          </tbody>
-        </table>
-        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3401-a001.pdf">NCI’s Independent
-          Evaluation Report</a></p>
-        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3401-a001.csv">Data File</a></p>
-
         <h4>Megna Health Inc. Megna Rapid COVID-19 IgM/IgG Combo Test Kit</h4>
         <p><strong>Manufacturer:</strong> Megna Health Inc.</p>
         <p><strong>Device:</strong> Megna Rapid COVID-19 IgM/IgG Combo Test Kit</p>
@@ -10059,6 +9971,94 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3320-a001.pdf">NCI’s Independent
           Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3320-a001.csv">Data File</a></p>
+
+        <h4>MedMira Inc. REVEALCOVID-19 Total Antibody Test</h4>
+        <p><strong>Manufacturer:</strong> MedMira Inc.</p>
+        <p><strong>Device:</strong> REVEALCOVID-19 Total Antibody Test</p>
+        <p><strong>Date Performed:</strong> 2020-11-17</p>
+        <p><strong>Lot Number:</strong> RVE0004-2108</p>
+        <p><strong>Panel:</strong> Panel 3</p>
+        <p><strong>Marketing Status:</strong> Should not be distributed – Voluntarily withdrawn</p>
+        <table className="table table-striped table-hover table-condensed"
+               style={{marginLeft:'auto', marginRight:'auto'}}>
+          <thead>
+          <tr>
+            <th style={{textAlign:'left'}}>
+              Antibody
+            </th>
+            <th style={{textAlign:'left'}}>
+              Performance Measure
+            </th>
+            <th style={{textAlign:'left'}}>
+              Estimate of Performance
+            </th>
+            <th style={{textAlign:'left'}}>
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Pan Ig
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              53.3% (16/30)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (36.1%; 69.8%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Pan Ig
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              100% (80/80)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Pan Ig
+            </td>
+            <td style={{textAlign:'left'}}>
+              PPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              100%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (29.3%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              Pan Ig
+            </td>
+            <td style={{textAlign:'left'}}>
+              NPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              97.6%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (96.6%; 98.4%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3401-a001.pdf">NCI’s Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3401-a001.csv">Data File</a></p>
 
         <h4>MEDsan GmbH MEDsan biological health solutions, MEDsan COVID-19 IgM/IgG Rapid Test</h4>
         <p><strong>Manufacturer:</strong> MEDsan GmbH</p>
