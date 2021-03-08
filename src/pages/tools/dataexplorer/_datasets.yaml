@@ -60,7 +60,7 @@ names:
     filters:
       options:
         - label: SPL ID
-          field: spl_id
+          field: spl_id.exact
           autocomplete_field: spl_id
           query_type: term
           type: select_autocomplete
@@ -68,7 +68,7 @@ names:
           placeholder: Select SPL ID
           limit: 100
         - label: Product NDC
-          field: product_ndc
+          field: product_ndc.exact
           autocomplete_field: product_ndc
           query_type: term
           type: select_autocomplete
@@ -116,7 +116,7 @@ names:
           placeholder: Select Product Type
           limit: 100
         - label: Marketing Category
-          field: marketing_category
+          field: marketing_category.exact
           autocomplete_field: marketing_category
           query_type: term
           type: select_autocomplete
@@ -124,7 +124,7 @@ names:
           placeholder: Select Brand
           limit: 100
         - label: Application Number
-          field: application_number
+          field: application_number.exact
           autocomplete_field: application_number
           query_type: term
           type: select_autocomplete
