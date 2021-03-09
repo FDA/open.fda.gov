@@ -16,7 +16,7 @@
   "dependencies": {
     "babel-eslint": "^10.1.0",
     "babel-polyfill": "^6.26.0",
-    "bluebird": "^3.7.2",
+    "bluebird": "3.5.1",
     "chart.js": "^2.9.4",
     "classnames": "2.2.5",
     "copy-webpack-plugin": "4.2.0",

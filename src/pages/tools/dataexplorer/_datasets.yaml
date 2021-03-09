@@ -106,7 +106,7 @@ names:
           query_type: term
           type: select_autocomplete
           can_query: true
-          placeholder: Select Manufacturer Name
+          placeholder: Select Labeler Name
           limit: 100
         - label: Product Type
           field: product_type.exact
