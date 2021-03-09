@@ -35,8 +35,8 @@ names:
             accessor: substance_name
             show: true
             showDefault: true
-          - Header: Manufacturer Name
-            accessor: manufacturer_name
+          - Header: Labeler Name
+            accessor: labeler_name
             show: true
             showDefault: true
           - Header: Product Type
@@ -55,6 +55,7 @@ names:
             accessor: link
             show: false
             showDefault: true
+            link: true
     endpoint: animalandveterinary/adndc.json
     url: https://openfda-api.preprod.fda.gov
     filters:
@@ -99,9 +100,9 @@ names:
           can_query: true
           placeholder: Select Substance Name
           limit: 100
-        - label: Manufacturer Name
-          field: manufacturer_name.exact
-          autocomplete_field: manufacturer_name
+        - label: Labeler Name
+          field: labeler_name.exact
+          autocomplete_field: labeler_name
           query_type: term
           type: select_autocomplete
           can_query: true

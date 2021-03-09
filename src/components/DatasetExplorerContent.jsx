@@ -493,6 +493,12 @@ class ResultsComponent extends React.Component {
                     value = Moment(value).format('MM/DD/YYYY')
                 }
 
+                if (options.column.link && value) {
+                    html = (
+                      <a href={value} target="_blank">{value}</a>
+                    )
+                }
+
                 if (html === null) {
                     html = (
                         <span
