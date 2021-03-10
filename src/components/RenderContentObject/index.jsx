@@ -3,7 +3,7 @@
 import React from 'react'
 import cx from 'classnames'
 import marked from 'marked'
-import Highlight from 'react-highlight'
+import Highlight from 'react-highlight.js'
 
 import Fields from './Fields'
 import QueryExplorer from '../QueryExplorer'

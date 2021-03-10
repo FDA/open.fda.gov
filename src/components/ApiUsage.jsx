@@ -6,7 +6,7 @@ import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
 
-// Update total usage numbers with: https://api.fda.gov/usage.json?end_at=2020-06-25 - last 2020-06-25
+// Update total usage numbers with: https://api.fda.gov/usage.json?end_at=2021-03-08 - last 2021-03-08
 // Update in pages/about/statistics/_content.yaml
 type tPROPS = {
     accessSinceLaunch: string,
@@ -329,6 +329,9 @@ const ApiUsage = (props:tPROPS) => {
                   <tr><td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td></tr>
                   <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.docCount('covid19serology')}</td></tr>
 
+                  <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"> <td colSpan="2"><strong>Tobacco</strong></td></tr>
+                  <tr> <td>Problem Reports</td><td>{this.docCount('tobaccoproblem')}</td> </tr>
+
                   <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"> <td colSpan="2"><strong>Other</strong></td></tr>
                   <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
                   <tr> <td>Substance</td><td>{this.docCount('othersubstance')}</td> </tr>
@@ -359,6 +362,7 @@ const ApiUsage = (props:tPROPS) => {
                     <tr><td>Labeling</td><td>{this.downloadCount('druglabel')}</td></tr>
                     <tr><td>NDC Directory</td><td>{this.downloadCount('ndc')}</td></tr>
                     <tr><td>Enforcement Reports</td><td>{this.downloadCount('drugenforcement')}</td></tr>
+                    <tr><td>Drugs@FDA</td><td>{this.downloadCount('drugsfda')}</td></tr>
 
                     <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Foods</strong></td></tr>
                     <tr><td>Adverse Event Reports</td><td>{this.downloadCount('foodevent')}</td></tr>
@@ -374,6 +378,9 @@ const ApiUsage = (props:tPROPS) => {
                     <tr><td>UDIs</td><td>{this.downloadCount('deviceudi')}</td></tr>
                     <tr><td>Enforcement Reports</td><td>{this.downloadCount('deviceenforcement')}</td></tr>
                     <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.downloadCount('covid19serology')}</td></tr>
+
+                    <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Tobacco</strong></td></tr>
+                    <tr><td>Problem Reports</td><td>{this.downloadCount('tobaccoproblem')}</td></tr>
 
                     <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Other</strong></td></tr>
                     <tr> <td>NSDE</td><td>{this.downloadCount('othernsde')}</td> </tr>

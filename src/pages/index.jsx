@@ -27,7 +27,7 @@ const INDEX = () => (
           </div>
           <i className='fa fa-angle-right fa-2x marg-l-1'/>
         </Link>
-        <Link className='link-card btn btn-icon-right weight-700' to='/downloads/'>
+        <Link className='link-card btn btn-icon-right weight-700' to='/data/downloads/'>
           <img className='' src='/img/download.svg'/>
           <div className='flex-box dir-column marg-l-1 marg-r-1'>
             <h3 className='marg-b-1 clr-primary-darker'>Download openFDA Data</h3>

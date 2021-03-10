@@ -11,7 +11,8 @@ type tPROPS = {
 const KeyFacts = (props: tPROPS) => {
   const {
     noun_name,
-    endpoint_name
+    endpoint_name,
+    harmonized
   } = props
 
   const source = {
@@ -44,6 +45,9 @@ const KeyFacts = (props: tPROPS) => {
     'other': {
       'nsde': 'NDC SPL Data Elements',
       'substance': 'Substance Data Reports'
+    },
+    'tobacco': {
+      'problem': 'Tobacco Problem Reports'
     }
   }
 
@@ -74,6 +78,9 @@ const KeyFacts = (props: tPROPS) => {
     'other': {
       'nsde': '/apis/other/nsde/',
       'substance': '/apis/other/substance/'
+    },
+    'tobacco': {
+      'problem': '/data/tobaccoproblem/'
     }
   }
 
@@ -107,6 +114,9 @@ const KeyFacts = (props: tPROPS) => {
     'other': {
       'nsde': '2009 to present',
       'substance': 'Current'
+    },
+    'tobacco': {
+      'problem':'2017 to present'
     }
   }
 
@@ -125,10 +135,10 @@ const KeyFacts = (props: tPROPS) => {
       '510k': 'Monthly',
       'pma': 'Monthly',
       'registrationlisting': 'Monthly',
-      'recall': 'Monthly',
+      'recall': 'Weekly',
       'enforcement': 'Weekly',
       'udi': 'Weekly',
-      'covid19serology': 'Intermittently'
+      'covid19serology': 'Monthly'
     },
     'drug': {
       'event': 'Quarterly. However, please be advised that the data in this API may lag by 3 months or more at any given time, depending on when the quarterly FAERS data is released.',
@@ -139,7 +149,10 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': 'Daily',
-      'substance': 'Daily'
+      'substance': 'Every few months'
+    },
+    'tobacco': {
+      'problem':'Quarterly'
     }
   }
 
@@ -166,8 +179,14 @@ const KeyFacts = (props: tPROPS) => {
         <li>
           <i className="fa fa-edit"/>
           <div className="label">Changes to the source data:</div>
-          <div className="value">openFDA annotates the original records with <Link to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>special fields </Link>
-            and converts the data into JSON, which is a widely used machine readable format.</div>
+          {harmonized ?
+            <div className="value">openFDA annotates the original records with <Link
+                to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>special fields </Link>
+              and converts the data into JSON, which is a widely used machine readable format.</div> :
+            <div className="value">openFDA may change some <Link
+                to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>field names </Link>
+              and converts the data into JSON, which is a widely used machine readable format.</div>
+          }
         </li>
         <li>
           <i className="fa fa-calendar"/>

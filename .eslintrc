@@ -4,8 +4,8 @@
     "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true,
-    },
+      "jsx": true
+    }
   },
   "env": {
     "node": true,
@@ -17,11 +17,8 @@
   },
   "globals": {
     "assert": true,
-    "goog": 1,
-    "__DEV__" : 1,
-    "object": 1,
-    "React.Element": {},
-    "ReactClass": {},
+    "__DEV__" : true,
+    "object": true,
     "app": true,
     "iod": true,
     "React": true,
@@ -93,7 +90,7 @@
     "no-implicit-coercion": [2, {
         "boolean": false,
         "number": true,
-        "string": true,
+        "string": true
     }],
     // disallow use of eval()-like methods
     "no-implied-eval": 1,
@@ -225,11 +222,11 @@
     // Prevent usage of unknown DOM property
     "react/no-unknown-property": 1,
     // Restrict file extensions that may be required
-    "react/require-extension": 1,
+    "react/jsx-filename-extension": 1,
     // Prevent extra closing tags for components without children
     "react/self-closing-comp": 1,
     // Prevent missing parentheses around multilines JSX
-    "react/wrap-multilines": 1,
+    "react/jsx-wrap-multilines": 1,
 
     // style-centric rules below
     // enforce spacing inside array brackets

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class StickySidebar extends React.Component {
   constructor(props){
@@ -77,10 +78,10 @@ export class StickySidebar extends React.Component {
 }
 
 StickySidebar.propTypes = {
-  className: React.PropTypes.string,
-  enter: React.PropTypes.string,
-  exit: React.PropTypes.string,
-  children: React.PropTypes.node,
+  className: PropTypes.string,
+  enter: PropTypes.string,
+  exit: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default StickySidebar

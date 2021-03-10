@@ -2,7 +2,7 @@
 
 import React from 'react'
 import marked from 'marked'
-import Highlight from 'react-highlight'
+import Highlight from 'react-highlight.js'
 import cx from 'classnames'
 
 import QueryExplorerContainer from '../containers/QueryExplorerContainer'
@@ -71,7 +71,7 @@ const QueryExplorer = (props: tPROPS) => {
           )
         })
       }
-      {params &&
+      {params && params.toString() &&
         <ol className='b-t-1 marg-t-3 marg-b-2'
             id={'params' + (name ? ('-' + name) : '')}>
           {
@@ -124,7 +124,7 @@ const QueryExplorer = (props: tPROPS) => {
           style={{
             maxHeight: '500px',
           }}>
-          <Highlight
+          <Highlight language='javascript bg-white'
             aria-label='Query result.'
             className='javascript bg-white'>
             {result}

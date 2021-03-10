@@ -1,0 +1,26 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › Tobacco Problem Reports'
+crumbs:
+  - openFDA
+  - Datasets
+  - Tobacco Problem Reports
+title: 'Tobacco Problem Reports'
+description: 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.'
+source:
+  name: 'Tobacco Problem Reports'
+  nameLong: 'Tobacco Problem Reports'
+  link: 'https://www.fda.gov/tobacco-products/tobacco-science-research/tobacco-product-problem-reports'
+  linkDownload:
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+  time:
+  start:
+  current:
+  delay:
+  frequency:
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - 'FDA is making reports about tobacco product problems available so the public can more easily access this information. The reports allow interested parties to learn more about commonly reported tobacco product problems or potential problems. Previously, tobacco-associated health and product problems reported to FDA were available to the public upon request under the Freedom of Information Act (FOIA) or after FDA posted frequently requested reports in the FDA <a href="https://www.fda.gov/tobacco-products/about-center-tobacco-products-ctp/ctp-foia-electronic-reading-room" target="_blank">Center for Tobacco Products (CTP) FOIA Electronic Reading Room</a> or the <a href="https://www.fda.gov/tobacco-products/tobacco-science-research/tobacco-product-problem-reports#ends-reports" target="_blank">Tobacco Product Problem Reports</a> page.</p>'

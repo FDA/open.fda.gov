@@ -3,12 +3,11 @@
 import React from 'react'
 
 import Downloads from '../../../components/Downloads'
-import Hero from '../../../components/Hero/index'
-import SideBar from '../../../components/SideBar/index'
+import Hero from '../../../components/Hero'
+import SideBar from '../../../components/SideBar'
 import SideBarContainer from '../../../containers/SideBarContainer'
 
 import animalandveterinary_event_meta from '../../apis/animalandveterinary/event/_meta.yaml'
-import animalandveterinary_label_meta from '../../apis/animalandveterinary/label/_meta.yaml'
 import food_enforcement_meta from '../../apis/food/enforcement/_meta.yaml'
 import food_event_meta from '../../apis/food/event/_meta.yaml'
 import drug_enforcement_meta from '../../apis/drug/enforcement/_meta.yaml'
@@ -17,13 +16,14 @@ import drug_label_meta from '../../apis/drug/label/_meta.yaml'
 import drug_ndc_meta from '../../apis/drug/ndc/_meta.yaml'
 import device_510k_meta from '../../apis/device/510k/_meta.yaml'
 import device_classification_meta from '../../apis/device/classification/_meta.yaml'
-import device_enforcement_meta from '../../apis/device/classification/_meta.yaml'
+import device_enforcement_meta from '../../apis/device/enforcement/_meta.yaml'
 import device_event_meta from '../../apis/device/event/_meta.yaml'
 import device_pma_meta from '../../apis/device/pma/_meta.yaml'
 import device_recall_meta from '../../apis/device/recall/_meta.yaml'
 import device_registration_listing_meta from '../../apis/device/registrationlisting/_meta.yaml'
 import device_udi_meta from '../../apis/device/udi/_meta.yaml'
 import device_covid19serology_meta from '../../apis/device/covid19serology/_meta.yaml'
+import tobacco_problem_meta from '../../apis/tobacco/problem/_meta.yaml'
 import other_nsde_meta from '../../apis/other/nsde/_meta.yaml'
 import other_substance_meta from '../../apis/other/substance/_meta.yaml'
 
@@ -32,7 +32,6 @@ const ComposedSidebar: ReactClass = SideBarContainer(SideBar)
 var endpoint_list = {
   'Animal and Veterinary': 'animalandveterinary_header',
   'Animal And Veterinary Event': animalandveterinary_event_meta,
-  'Animal And Veterinary Drug Labeling': animalandveterinary_label_meta,
   'Food': 'food_header',
   'Food Enforcement': food_enforcement_meta,
   'Food Event': food_event_meta,
@@ -51,6 +50,8 @@ var endpoint_list = {
   'Medical Device Registration Listing': device_registration_listing_meta,
   'Medical Device UDI': device_udi_meta,
   'COVID-19 Serological Testing Evaluations': device_covid19serology_meta,
+  'Tobacco': 'tobacco_header',
+  'Tobacco Problem Reports': tobacco_problem_meta,
   'Other': 'other_header',
   'NSDE': other_nsde_meta,
   'Substance': other_substance_meta

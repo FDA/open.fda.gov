@@ -1,5 +1,5 @@
 import React from "react"
-import Highlight from 'react-highlight'
+import Highlight from 'react-highlight.js'
 
 import Fields from '../../../components/RenderContentObject/Fields'
 import fields from '../openfda-fields/_fields.yaml'

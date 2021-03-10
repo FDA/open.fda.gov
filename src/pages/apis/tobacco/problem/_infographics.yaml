@@ -1,0 +1,36 @@
+- title: "Reports Over Time"
+  short: "Over Time"
+  dataset: tobaccoproblem
+  description:
+    - "Reports displayed over time."
+  countParam: "date_submitted"
+  filters:
+    - title: "All Tobacco Problem Reports"
+      searchParam: ''
+    - title: "Seizure Reported"
+      searchParam: 'reported_health_problems:Seizure'
+    - title: "Shortness of Breath Reported"
+      searchParam: 'reported_health_problems:"Shortness of breath"'
+    - title: "Nausea Reported"
+      searchParam: 'reported_health_problems:Nausea'
+    - title: "Cough Reported"
+      searchParam: 'reported_health_problems:Cough'
+  type: Line
+- title: "Reported Product Problems"
+  short: "Product Problems"
+  dataset: tobaccoproblem
+  description:
+    - "Reported product problems filtered by year."
+  countParam: "reported_product_problems.exact"
+  filters:
+    - title: "All Tobacco Problem Reports"
+      searchParam: ''
+    - title: "2017"
+      searchParam: 'date_submitted:[20170101+TO+20171231]'
+    - title: "2018"
+      searchParam: 'date_submitted:[20180101+TO+20181231]'
+    - title: "2019"
+      searchParam: 'date_submitted:[20190101+TO+20191231]'
+    - title: "2020"
+      searchParam: 'date_submitted:[20200101+TO+20201231]'
+  type: Bar

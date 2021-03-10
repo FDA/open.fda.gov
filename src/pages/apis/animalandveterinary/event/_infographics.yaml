@@ -100,9 +100,9 @@
     - title: "Reported by Veterinarian"
       searchParam: 'primary_reporter.exact:"Veterinarian"'
     - title: "Treated for AE"
-      searchParam: 'treated_for_ae:"Yes"'
+      searchParam: 'treated_for_ae:true'
     - title: "Previous Exposure to Drug"
-      searchParam: 'drug.previous_exposure_to_drug:"Yes"'
+      searchParam: 'drug.previous_exposure_to_drug:true'
     - title: "Previous Adverse Event to Drug"
-      searchParam: 'drug.previous_ae_to_drug:"Yes"'
+      searchParam: 'drug.previous_ae_to_drug:true'
   type: Bar

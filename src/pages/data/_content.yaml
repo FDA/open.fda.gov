@@ -28,3 +28,9 @@
   description:
     - Comprehensive NDC SPL Data Elements.
     - See the [NDC web page](https://www.fda.gov/forindustry/datastandards/structuredproductlabeling/ucm240580.htm) for download information.
+-
+  url: /data/tobaccoproductproblem/
+  title: Tobacco Product Problem
+  description:
+    - Tobacco Product Problem Reports.
+    - See the [Tobacco Product Problem Reports](https://www.fda.gov/tobacco-products/tobacco-science-research/tobacco-product-problem-reports) for download information.

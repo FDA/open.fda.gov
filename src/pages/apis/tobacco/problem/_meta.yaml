@@ -1,0 +1,13 @@
+documentTitle: openFDA › Tobacco › Problem Reports API
+name: Tobacco Problem Reports
+description: "Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects."
+datasets:
+  - tobaccoproblem
+label: Tobacco Problem Reports
+title: Tobacco Problem Reports
+path: /apis/tobacco/problem
+api_path: /tobacco/problem
+start: 20170101
+status: tobaccoproblem
+dateConstraintKey: date_submitted
+type: endpoint
