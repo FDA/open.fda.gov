@@ -96,6 +96,36 @@ class EndpointPagesTestHelper {
         });
     }
 
+    understandingResults() {
+        cy.get(`a[href="${this.baseURL}understanding-the-api-results/"]`).click();
+        cy.get('section.doc-content h2').should('be.visible').should('have.text', 'Understanding the API Results');
+        cy.get('section.doc-content pre.javascript').should('be.visible');
+    }
+
+    downloads() {
+        cy.get(`a[href="${this.baseURL}download/"]`).click();
+        cy.get('section.doc-content h2').should('be.visible').should('have.text', 'Download the dataset');
+        cy.get('section.doc-content section.clearfix').then(($sec) => {
+            if ($sec.find('button').length) {
+                $sec.find('button').click();
+                cy.wrap($sec).find('button + ul').should('not.be.empty');
+            } else {
+                throw new Error("no download button")
+            }
+        });
+    }
+
+    searchableFields() {
+        cy.get(`a[href="${this.baseURL}searchable-fields/"]`).click();
+        cy.get('section.doc-content h2').should('be.visible').should('have.text', 'Searchable Fields');
+        cy.get('section.field-explorer').should('be.visible').within(($fe) => {
+            // Verify at least the field list dropdown opens.
+            cy.get('#react-select-2-option-0').should('not.exist');
+            cy.contains('Search the fields').should('be.visible').trigger('mousedown');
+            cy.get('#react-select-2-option-0').should('be.visible');
+        });
+    }
+
     _waitUntilIdle() {
         cy.wait('@download-api-call');
         cy.wait('@search-api-call');

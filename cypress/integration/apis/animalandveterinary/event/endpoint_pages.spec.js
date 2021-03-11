@@ -12,6 +12,15 @@ context('ADAE dataset pages', () => {
         helper = new EndpointPagesTestHelper(URL, '/animalandveterinary/event.json');
     })
 
+    it('Searchable Fields page should display and work', () => {
+        helper.searchableFields();
+    })
+
+    it('Download the Dataset page should display and offer download links', () => {
+        helper.downloads();
+    })
+
+
     it('Overview page should display a dataset description and key facts', () => {
         helper.overview();
     })
@@ -23,7 +32,12 @@ context('ADAE dataset pages', () => {
     it('Example queries page should provide one or more working API queries', () => {
         helper.exampleQueries();
     })
-   
+
+    it('Understanding the API Results page should display', () => {
+        helper.understandingResults();
+    })
+
+
     it('Interactive charts should display', () => {
         helper.infographics();
     })
