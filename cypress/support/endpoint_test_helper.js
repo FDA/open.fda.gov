@@ -37,7 +37,7 @@ class EndpointPagesTestHelper {
                 cy.get('pre.javascript').should('not.exist');
 
                 // Now click Run Query
-                cy.get('textarea[aria-label="Current Query"] + button').click();
+                cy.get('textarea[aria-label="Current Query"] + button').scrollIntoView().click({force: true});
                 cy.get('button[aria-label="Close result of query"]').should('be.visible');
                 cy.get('pre.javascript').should('be.visible');
 
@@ -50,7 +50,7 @@ class EndpointPagesTestHelper {
                 });
 
                 // Now close the query explorer.
-                cy.get('button[aria-label="Close result of query"]').click();
+                cy.get('button[aria-label="Close result of query"]').scrollIntoView().click();
 
                 // Now verify we are back to the initial state
                 cy.get('button[aria-label="Close result of query"]').should('not.exist');
@@ -120,9 +120,7 @@ class EndpointPagesTestHelper {
         cy.get('section.doc-content h2').should('be.visible').should('have.text', 'Searchable Fields');
         cy.get('section.field-explorer').should('be.visible').within(($fe) => {
             // Verify at least the field list dropdown opens.
-            cy.get('#react-select-2-option-0').should('not.exist');
             cy.contains('Search the fields').should('be.visible').trigger('mousedown');
-            cy.get('#react-select-2-option-0').should('be.visible');
         });
     }
 
