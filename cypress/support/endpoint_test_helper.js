@@ -73,6 +73,7 @@ class EndpointPagesTestHelper {
     _infographicsTab(tab) {
         cy.wrap(tab).click();
         this._waitUntilIdle();
+        cy.wait(3000)
 
         // Look at all the chart options available by default
         cy.get('fieldset#params-filter>label>input').each(($el, i) => {
