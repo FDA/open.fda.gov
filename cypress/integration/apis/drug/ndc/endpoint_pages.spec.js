@@ -4,7 +4,7 @@ import {loadAndAcceptDisclaimer, waitForIdle} from "../../../../support/index";
 
 const URL = '/apis/drug/ndc/';
 
-context('Drug Event dataset pages', () => {
+context('Drug NDC dataset pages', () => {
     var helper;
 
     beforeEach(() => {

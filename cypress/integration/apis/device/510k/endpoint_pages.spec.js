@@ -2,14 +2,14 @@
 import EndpointPagesTestHelper from "../../../../support/endpoint_test_helper";
 import {loadAndAcceptDisclaimer, waitForIdle} from "../../../../support/index";
 
-const URL = '/apis/drug/drugsfda/';
+const URL = '/apis/device/510k/';
 
-context('Drugs@FDA dataset pages', () => {
+context('Device 510K dataset pages', () => {
     var helper;
 
     beforeEach(() => {
         loadAndAcceptDisclaimer(URL);
-        helper = new EndpointPagesTestHelper(URL, '/drug/drugsfda.json');
+        helper = new EndpointPagesTestHelper(URL, '/device/510k.json');
     })
 
 

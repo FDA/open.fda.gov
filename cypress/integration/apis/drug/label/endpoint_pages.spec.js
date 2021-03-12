@@ -4,7 +4,7 @@ import {loadAndAcceptDisclaimer, waitForIdle} from "../../../../support/index";
 
 const URL = '/apis/drug/label/';
 
-context('Drug Event dataset pages', () => {
+context('Drug Label dataset pages', () => {
     var helper;
 
     beforeEach(() => {
