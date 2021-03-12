@@ -50,7 +50,7 @@ class EndpointPagesTestHelper {
                 });
 
                 // Now close the query explorer.
-                cy.get('button[aria-label="Close result of query"]').scrollIntoView().click();
+                cy.get('button[aria-label="Close result of query"]').scrollIntoView().click({force: true});
 
                 // Now verify we are back to the initial state
                 cy.get('button[aria-label="Close result of query"]').should('not.exist');

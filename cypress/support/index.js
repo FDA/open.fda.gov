@@ -26,6 +26,16 @@ const loadAndAcceptDisclaimer = function (url) {
         }
     });
     cy.get('.modal-container').find('button.bg-primary').click();
+
+    cy.get('div.body-container').then($doc => {
+        if ($doc.find('div#infographic-border').length) {
+            cy.get('div#infographic-border').within(($div) => {
+                cy.get('div.piechart-container > svg', {timeout: 10000}).scrollIntoView();
+            });
+        }
+    });
+
+
 }
 
 export {loadAndAcceptDisclaimer};
