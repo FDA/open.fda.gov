@@ -110,7 +110,11 @@ class EndpointPagesTestHelper {
                 $sec.find('button').click();
                 cy.wrap($sec).find('button + ul').should('not.be.empty');
             } else {
-                throw new Error("no download button")
+                cy.get('section.doc-content section.clearfix>ul>li').each(($el, i) => {
+                    cy.wrap($el).find("a").invoke('attr', 'href')
+                        .should("contain", "https://download.open.fda.gov/");
+
+                });
             }
         });
     }
