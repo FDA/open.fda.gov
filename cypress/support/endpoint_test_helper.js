@@ -120,7 +120,7 @@ class EndpointPagesTestHelper {
     }
 
     searchableFields() {
-        cy.get(`a[href="${this.baseURL}searchable-fields/"]`).scrollIntoView().click({force: true});
+        cy.get(`a.sidebar-item[href="${this.baseURL}searchable-fields/"]`).scrollIntoView().click({force: true});
         cy.get('section.doc-content h2').should('be.visible').should('have.text', 'Searchable Fields');
         cy.get('section.field-explorer').should('be.visible').within(($fe) => {
             // Verify at least the field list dropdown opens.
