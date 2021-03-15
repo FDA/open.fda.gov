@@ -26,6 +26,9 @@ pipeline {
         }
     }
     post {
+		always {
+			junit 'results/cypress-report.xml'
+		}
     	failure {
     		script {
     			if (env.BRANCH_NAME == 'master') {

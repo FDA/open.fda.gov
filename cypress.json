@@ -3,5 +3,10 @@
   "ignoreTestFiles": "**/examples/*",
   "video": false,
   "viewportWidth": 1600,
-  "viewportHeight": 1200
+  "viewportHeight": 1200,
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "results/cypress-report.xml",
+    "toConsole": true
+  }
 }
