@@ -1,6 +1,6 @@
 import React from "react"
 
-import QueryExplorer from '../../../../../components/QueryExplorer'
+import QueryTour from '../../../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
@@ -15,23 +15,26 @@ class IndexRoute extends React.Component {
         <h2>Example tobacco problem reports API queries</h2>
         <p>To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
 
-        <QueryExplorer
+        <QueryTour
           desc={oneRecord.description}
-          originalQuery={oneRecord.query}
+          query={oneRecord.query}
           params={oneRecord.params}
           title={oneRecord.title}
+          name={'oneRecord'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={dateRange.description}
-          originalQuery={dateRange.query}
+          query={dateRange.query}
           params={dateRange.params}
           title={dateRange.title}
+          name={'dateRange'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={tobaccoProducts.description}
-          originalQuery={tobaccoProducts.query}
+          query={tobaccoProducts.query}
           params={tobaccoProducts.params}
           title={tobaccoProducts.title}
+          name={'tobaccoProducts'}
         />
       </section>
     )

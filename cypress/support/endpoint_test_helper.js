@@ -8,7 +8,7 @@ class EndpointPagesTestHelper {
     }
 
     overview() {
-        cy.get(`a[href="${this.baseURL}"]`).click();
+        cy.get(`a.sidebar-item[href="${this.baseURL}"]`).click();
         cy.get('section.key-facts').should('be.visible');
         cy.get('section.key-facts h3').should('be.visible').should('have.text', 'Key Facts');
         cy.get('section.key-facts').within(() => {
