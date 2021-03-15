@@ -304,7 +304,7 @@ const ApiUsage = (props:tPROPS) => {
                     <td colSpan="2"><strong>Animal & Veterinary</strong></td>
                   </tr>
                   <tr><td>Adverse Event Reports</td><td>{this.docCount('animalandveterinarydrugevent')}</td></tr>
-                  <tr><td>Labeling</td><td>{this.docCount('animalandveterinarylabel')}</td></tr>
+                  <tr><td>Animal Drug Listing</td><td>{this.docCount('animalandveterinaryadndc')}</td></tr>
                   <tr className="bg-primary-darkest clr-white">
                     <td colSpan="2"><strong>Drugs</strong></td>
                   </tr>
@@ -329,12 +329,12 @@ const ApiUsage = (props:tPROPS) => {
                   <tr><td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td></tr>
                   <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.docCount('covid19serology')}</td></tr>
 
-                  <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"> <td colSpan="2"><strong>Tobacco</strong></td></tr>
-                  <tr> <td>Problem Reports</td><td>{this.docCount('tobaccoproblem')}</td> </tr>
+                  <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"><td colSpan="2"><strong>Tobacco</strong></td></tr>
+                  <tr><td>Problem Reports</td><td>{this.docCount('tobaccoproblem')}</td></tr>
 
-                  <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"> <td colSpan="2"><strong>Other</strong></td></tr>
-                  <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
-                  <tr> <td>Substance</td><td>{this.docCount('othersubstance')}</td> </tr>
+                  <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"><td colSpan="2"><strong>Other</strong></td></tr>
+                  <tr><td>NSDE</td><td>{this.docCount('othernsde')}</td></tr>
+                  <tr><td>Substance</td><td>{this.docCount('othersubstance')}</td></tr>
                   </tbody>
 
                 </table>
@@ -354,7 +354,7 @@ const ApiUsage = (props:tPROPS) => {
                       <td colSpan="2"><strong>Animal & Veterinary</strong></td>
                     </tr>
                     <tr><td>Adverse Event Reports</td><td>{this.downloadCount('animalandveterinarydrugevent')}</td></tr>
-                    <tr><td>Labeling</td><td>{this.downloadCount('animalandveterinarylabel')}</td></tr>
+                    <tr><td>Animal Drug Listing</td><td>{this.downloadCount('animalandveterinaryadndc')}</td></tr>
                     <tr className="bg-primary-darkest clr-white">
                       <td colSpan="2"><strong>Drugs</strong></td>
                     </tr>
@@ -382,9 +382,9 @@ const ApiUsage = (props:tPROPS) => {
                     <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Tobacco</strong></td></tr>
                     <tr><td>Problem Reports</td><td>{this.downloadCount('tobaccoproblem')}</td></tr>
 
-                    <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Other</strong></td></tr>
-                    <tr> <td>NSDE</td><td>{this.downloadCount('othernsde')}</td> </tr>
-                    <tr> <td>Substance</td><td>{this.downloadCount('othersubstance')}</td> </tr>
+                    <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Other</strong></td></tr>
+                    <tr><td>NSDE</td><td>{this.downloadCount('othernsde')}</td></tr>
+                    <tr><td>Substance</td><td>{this.downloadCount('othersubstance')}</td></tr>
                     </tbody>
 
                   </table>

@@ -44,7 +44,7 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
         content='openFDA'
       />
       <meta
-        http-equiv='Content-Type'
+        httpEquiv='Content-Type'
         content='text/html; charset=UTF-8' />
       <link
         rel='preconnect'

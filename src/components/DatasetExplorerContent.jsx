@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import Moment from 'moment'
 import {default as $} from 'jquery'
 import TwoLevelPieChart from './InteractivePie'
-import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, Legend as LegendR} from 'Recharts'
+import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, Legend as LegendR} from 'recharts'
 import { createContainer, VictoryAxis, VictoryBrushContainer, VictoryChart, VictoryGroup, VictoryLegend, VictoryLine, VictoryScatter, VictoryTooltip, VictoryVoronoiContainer } from "victory"
 import { TimeSeries, TimeRange, sum } from "pondjs"
 import _ from 'lodash'
