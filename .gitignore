@@ -15,3 +15,4 @@ npm-debug.log.931881047
 /cypress/fixtures/
 /cypress/plugins/
 /cypress/videos/
+/cypress/results/
