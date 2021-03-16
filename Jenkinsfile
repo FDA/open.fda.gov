@@ -27,7 +27,7 @@ pipeline {
     }
     post {
 		always {
-			junit 'results/cypress-report.xml'
+			junit 'cypress/results/results*.xml'
 		}
     	failure {
     		script {
