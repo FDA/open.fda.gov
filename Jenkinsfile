@@ -6,8 +6,8 @@ pipeline {
        }
     }
     environment {
-    	HOME = '.'
-    	CYPRESS_CACHE_FOLDER = "$HOME/cache/Cypress"
+    	HOME = '$WORKSPACE'
+    	CYPRESS_CACHE_FOLDER = "$WORKSPACE/cache/Cypress"
     }
     stages {
         stage('Install dependencies') {
@@ -34,6 +34,8 @@ pipeline {
     post {
 		always {
 			junit 'cypress/results/results*.xml'
+		}
+		always {
 			cleanWs(cleanWhenNotBuilt: false,
                                 deleteDirs: true,
                                 disableDeferredWipeout: true,
