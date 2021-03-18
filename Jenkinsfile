@@ -9,20 +9,7 @@ pipeline {
     	HOME = '.'
     	CYPRESS_CACHE_FOLDER = "$HOME/cache/Cypress"
     }
-	options {
-        // This is required if you want to clean before build
-        skipDefaultCheckout(true)
-    }
     stages {
- 		stage('Checkout code') {
-            steps {
-                // Clean before build
-                cleanWs()
-                // We need to explicitly checkout from SCM here
-                checkout scm
-                echo "Building ${env.JOB_NAME}..."
-            }
-        }
         stage('Install dependencies') {
             steps {
                 sh "npm install"
@@ -47,6 +34,10 @@ pipeline {
     post {
 		always {
 			junit 'cypress/results/results*.xml'
+			cleanWs(cleanWhenNotBuilt: false,
+                                deleteDirs: true,
+                                disableDeferredWipeout: true,
+                                notFailBuild: true)
 		}
     	failure {
     		script {
