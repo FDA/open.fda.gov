@@ -7175,12 +7175,6 @@ drug:
                 is_exact: false
                 possible_values:
                 type: string
-              id:
-                description: "The id of the submission property type."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
           application_docs:
             type: array
             items:
