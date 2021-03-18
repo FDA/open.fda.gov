@@ -42,8 +42,7 @@
         "submission_type": "ORIG",
         "submission_property_type": [
           {
-            "code": "Null",
-            "id": "0"
+            "code": "Orphan"
           }
         ],
         "submission_status_date": "19760311",
