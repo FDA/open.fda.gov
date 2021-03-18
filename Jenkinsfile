@@ -1,12 +1,14 @@
 pipeline {
-    agent any
-	tools {
-        nodejs 'Node 14'
+   agent {
+       // this image provides everything needed to run Cypress
+       docker {
+         image 'cypress/base:14'
+       }
     }
     stages {
         stage('Install dependencies') {
             steps {
-                sh "npm install -g npm@latest; npm install"
+                sh "npm install"
             }
         }
         stage('Generate CSS from Stylus') {
