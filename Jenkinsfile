@@ -33,9 +33,7 @@ pipeline {
     }
     post {
 		always {
-			junit 'cypress/results/results*.xml'
-		}
-		always {
+			junit allowEmptyResults: true, testResults: 'cypress/results/results*.xml'
 			cleanWs(cleanWhenNotBuilt: false,
                                 deleteDirs: true,
                                 disableDeferredWipeout: true,
