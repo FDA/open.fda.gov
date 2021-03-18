@@ -5,6 +5,9 @@ pipeline {
          image 'cypress/base:14.15.4'
        }
     }
+    environment {
+    	HOME = '.'
+    }
     stages {
         stage('Install dependencies') {
             steps {
