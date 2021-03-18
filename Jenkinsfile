@@ -2,7 +2,7 @@ pipeline {
    agent {
        // this image provides everything needed to run Cypress
        docker {
-         image 'cypress/base:ubuntu18-node12.14.1'
+         image 'cypress/included:3.3.2'
        }
     }
     environment {
