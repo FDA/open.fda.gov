@@ -2,11 +2,11 @@ pipeline {
    agent {
        // this image provides everything needed to run Cypress
        docker {
-         image 'cypress/base:14'
+         image 'cypress/base:manjaro-node14.12.0'
        }
     }
     environment {
-    	//HOME = '$WORKSPACE'
+    	HOME = '$WORKSPACE'
     	npm_config_cache = '$WORKSPACE/.npm'
     	CYPRESS_CACHE_FOLDER = "$WORKSPACE/cache/Cypress"
     }
