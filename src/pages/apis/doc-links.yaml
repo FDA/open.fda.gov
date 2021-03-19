@@ -63,7 +63,7 @@
         - title: Download the dataset
           link: /apis/animalandveterinary/event/download/
         - title: Searchable fields
-          link: /apis/animalandveterinary/event/searchable-fields
+          link: /apis/animalandveterinary/event/searchable-fields/
 
 - title: Drug API Endpoints
   id: drug-api-endpoints
@@ -87,7 +87,7 @@
         - title: Download the dataset
           link: /apis/drug/event/download/
         - title: Searchable fields
-          link: /apis/drug/event/searchable-fields
+          link: /apis/drug/event/searchable-fields/
     - title: Product Labeling
       id: drug-product-labeling
       collapse: true
@@ -105,7 +105,7 @@
         - title: Download the dataset
           link: /apis/drug/label/download/
         - title: Searchable fields
-          link: /apis/drug/label/searchable-fields
+          link: /apis/drug/label/searchable-fields/
     - title: NDC Directory
       id: drug-ndc
       collapse: true
@@ -123,7 +123,7 @@
         - title: Download the dataset
           link: /apis/drug/ndc/download/
         - title: Searchable fields
-          link: /apis/drug/ndc/searchable-fields
+          link: /apis/drug/ndc/searchable-fields/
     - title: Recall Enforcement Reports
       id: drug-recall-enforcement-reports
       collapse: true
@@ -435,4 +435,4 @@
         - title: Download the dataset
           link: /apis/tobacco/problem/download/
         - title: Searchable fields
-          link: /apis/tobacco/problem/searchable-fields
+          link: /apis/tobacco/problem/searchable-fields/

@@ -288,6 +288,7 @@ class FieldsHarmonization extends React.Component {
           columns={this.state.columns}
           showPagination={false}
           minRows={0}
+          defaultPageSize={25}
           className="-striped -highlight"
           resizable={false}
           style={{

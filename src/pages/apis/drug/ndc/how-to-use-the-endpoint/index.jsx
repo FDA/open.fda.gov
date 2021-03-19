@@ -10,7 +10,7 @@ class IndexRoute extends React.Component {
 
     return (
       <section className='doc-content'>
-        <h2>How to use the Endpoint</h2>
+        <h2>How to use the API</h2>
         <p>Getting started with and learning how to use the API is relatively straightforward. Here are some recommended steps:</p>
         <APIUseSteps endpoint_name='Drug NDC' endpoint_path='/apis/drug/ndc/'/>
         <p>Then, when you are ready, obtain an API Key. While you don’t need an Application Programming Interface Key to try or use the Application Programming Interface, we recommend you get one if you are planning to use the Application Programming Interface on a regular basis. For more information on Application Programming Interface Keys, see the <Link to="/apis/authentication/">Authentication</Link> documentation.</p>
