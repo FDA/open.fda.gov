@@ -3,6 +3,7 @@ pipeline {
        // this image provides everything needed to run Cypress
        docker {
          image 'cypress/base:14.15.4'
+         args  '--ipc=host'
        }
     }
     environment {
