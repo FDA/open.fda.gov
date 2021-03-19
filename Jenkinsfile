@@ -2,7 +2,7 @@ pipeline {
    agent {
        // this image provides everything needed to run Cypress
        docker {
-         image 'cypress/browsers:node14.16.0-chrome89-ff86'
+         image 'cypress/base:14.15.4'
        }
     }
     environment {
@@ -21,11 +21,11 @@ pipeline {
                 sh 'npm run dev:css'
             }
         }
-        /*stage('Build website') {
+        stage('Build website') {
             steps {
                   sh 'npm run build'
             }
-        }*/
+        }
         stage('Run Cypress tests') {
             steps {
                   sh 'npm run test:e2e:ci'
@@ -35,10 +35,10 @@ pipeline {
     post {
 		always {
 			junit allowEmptyResults: true, testResults: 'cypress/results/results*.xml'
-			/*cleanWs(cleanWhenNotBuilt: false,
+			cleanWs(cleanWhenNotBuilt: false,
                                 deleteDirs: true,
                                 disableDeferredWipeout: true,
-                                notFailBuild: true) */
+                                notFailBuild: true)
 		}
     	failure {
     		script {
