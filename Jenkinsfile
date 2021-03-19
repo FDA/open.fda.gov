@@ -6,9 +6,9 @@ pipeline {
        }
     }
     environment {
-    	HOME = '$WORKSPACE'
-    	npm_config_cache = '$WORKSPACE/.npm'
-    	CYPRESS_CACHE_FOLDER = "$WORKSPACE/cache/Cypress"
+    	HOME = pwd()
+    	npm_config_cache = '$HOME/.npm'
+    	CYPRESS_CACHE_FOLDER = "$HOME/cache/Cypress"
     }
     stages {
         stage('Install dependencies') {
