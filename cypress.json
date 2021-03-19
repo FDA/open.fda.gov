@@ -1,6 +1,10 @@
 {
   "baseUrl": "http://localhost:3000/",
   "defaultCommandTimeout": 10000,
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  },
   "ignoreTestFiles": "**/examples/*",
   "video": false,
   "viewportWidth": 1600,
