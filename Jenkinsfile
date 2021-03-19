@@ -2,7 +2,7 @@ pipeline {
    agent {
        // this image provides everything needed to run Cypress
        docker {
-         image 'cypress/base:manjaro-node14.12.0'
+         image 'cypress/browsers:node14.16.0-chrome89-ff86'
        }
     }
     environment {
