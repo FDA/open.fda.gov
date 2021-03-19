@@ -2,7 +2,7 @@ pipeline {
    agent {
        // this image provides everything needed to run Cypress
        docker {
-         image 'cypress/base:12.0.0-libgbm'
+         image 'cypress/base:centos7-12.4.0'
        }
     }
     environment {
