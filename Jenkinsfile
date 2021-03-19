@@ -2,7 +2,7 @@ pipeline {
    agent {
        // this image provides everything needed to run Cypress
        docker {
-         image 'cypress/base:11.13.0'
+         image 'cypress/base:12.0.0'
        }
     }
     environment {
@@ -20,11 +20,11 @@ pipeline {
                 sh 'npm run dev:css'
             }
         }
-        stage('Build website') {
+        /*stage('Build website') {
             steps {
                   sh 'npm run build'
             }
-        }
+        }*/
         stage('Run Cypress tests') {
             steps {
                   sh 'npm run test:e2e:ci'
