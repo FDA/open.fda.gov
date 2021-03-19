@@ -35,10 +35,10 @@ pipeline {
     post {
 		always {
 			junit allowEmptyResults: true, testResults: 'cypress/results/results*.xml'
-			cleanWs(cleanWhenNotBuilt: false,
+			/*cleanWs(cleanWhenNotBuilt: false,
                                 deleteDirs: true,
                                 disableDeferredWipeout: true,
-                                notFailBuild: true)
+                                notFailBuild: true) */
 		}
     	failure {
     		script {
