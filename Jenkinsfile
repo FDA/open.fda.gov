@@ -35,6 +35,7 @@ pipeline {
     post {
 		always {
 			junit allowEmptyResults: true, testResults: 'cypress/results/results*.xml'
+			archiveArtifacts artifacts: 'cypress/screenshots/**/*.png', allowEmptyArchive: true, caseSensitive: false, onlyIfSuccessful: false
 			cleanWs(cleanWhenNotBuilt: false,
                                 deleteDirs: true,
                                 disableDeferredWipeout: true,
