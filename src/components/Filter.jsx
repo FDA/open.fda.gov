@@ -6,6 +6,7 @@ import { default as ReactTable } from "react-table"
 
 import Checkbox from 'rc-checkbox'
 import Select from 'react-select'
+import {Async as AsyncSelect} from 'react-select'
 import Moment from 'moment'
 import withQuery from 'with-query'
 import ReactModal from 'react-modal'
@@ -35,6 +36,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     this.onInputKeyDown = this.onInputKeyDown.bind(this)
     this.getOptions = this.getOptions.bind(this)
     this.formatValues = this.formatValues.bind(this)
+    this.loadOptions = this.loadOptions.bind(this)
   }
 
   componentDidMount () {
@@ -86,6 +88,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   }
 
   getOptions(value, callback) {
+    console.log("early options: ", this.state.options, "value: ", value)
     if(value){
       return fetch(
         withQuery(`${this.props.dataset.url}/${this.props.dataset.endpoint}`,{
@@ -117,7 +120,17 @@ class SelectAutoCompleteFilterComponent extends React.Component {
         complete: true,
       })
     }
+    console.log("options: ", this.state.options)
   }
+
+  loadOptions = (inputValue, callback) => {
+    setTimeout(() => {
+      callback([  { value: 'AL', label: 'Alabama' },
+        { value: 'AK', label: 'Alaska' },
+        { value: 'AS', label: 'American Samoa' },
+        { value: 'AZ', label: 'Arizona' }]);
+    }, 1000);
+  };
 
   escapeRegexCharacters(str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -184,14 +197,11 @@ class SelectAutoCompleteFilterComponent extends React.Component {
           }
           </h3>
         </div>
-        <Select.Async
-          value={this.state.value}
+        <AsyncSelect
           className='filter-select'
           placeholder={this.props.option.placeholder}
-          onChange={this.onChange}
-          loadOptions={this.getOptions}
+          loadOptions={this.loadOptions}
           clearable={false}
-          aria-label={this.props.option.label}
         />
         {elements}
       </div>

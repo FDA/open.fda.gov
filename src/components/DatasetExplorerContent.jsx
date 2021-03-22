@@ -584,7 +584,7 @@ class ResultsComponent extends React.Component {
                         <input className='search-input' value={this.state.search} onChange={e => this.setState({search: e.target.value})}
                                placeholder="Type to Search in Results..." type="search" autoFocus/>
 
-                        <a href='javascript:void(0)' onClick={this.exportToXLS} style={{ position: "absolute", right:30, lineHeight: 2.5, display: "inline"}} >
+                        <a href='#' onClick={this.exportToXLS} style={{ position: "absolute", right:30, lineHeight: 2.5, display: "inline"}} >
                             <img alt='Export to XLS' style={{float: "left", width: 31, padding: 5}}
                                  src='/img/xls-icon.svg'/>Export to XLS
                         </a>
