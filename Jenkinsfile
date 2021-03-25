@@ -7,6 +7,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 sh "npm install -g npm@latest; npm install"
+                sh "npm rebuild node-sass"
             }
         }
         stage('Build website') {
