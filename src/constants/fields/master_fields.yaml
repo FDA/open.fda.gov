@@ -697,6 +697,16 @@ device:
             '3': "Contact ODE"
             '4': "510(K) Exempt"
         type: string
+      summary_malfunction_reporting:
+        description: "The Voluntary Malfunction Summary Reporting Program allows participating companies to submit certain medical device malfunction reports in summary form on a quarterly basis.  The program applies to eligible devices regulated by the Center for Devices and Radiological Health (CDRH) and Center for Biologics Evaluation and Research (CBER), including device-led combination products."
+        format:
+        is_exact: false
+        possible_values:
+          type: one_of
+          value:
+            'Eligible': "Device is eligible for The Voluntary Malfunction Summary Reporting Program"
+            'Ineligible': "Device is not eligible for The Voluntary Malfunction Summary Reporting Program"
+        type: string
       third_party_flag:
         description: "Eligibility for a manufacturer to utilize a contracted Accredited Person in lieu of direct submission to FDA. By law, FDA must in turn issue a final determination within 30 days after receiving the recommendation of an Accredited Person (yielding a streamlined review process)."
         format:
@@ -7161,12 +7171,6 @@ drug:
             items:
               code:
                 description: "The code indicating the submission property type."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              id:
-                description: "The id of the submission property type."
                 format:
                 is_exact: false
                 possible_values:

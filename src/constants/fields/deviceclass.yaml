@@ -150,6 +150,16 @@ properties:
     is_exact: false
     possible_values:
     type: string
+  summary_malfunction_reporting:
+    description: "The Voluntary Malfunction Summary Reporting Program allows participating companies to submit certain medical device malfunction reports in summary form on a quarterly basis.  The program applies to eligible devices regulated by the Center for Devices and Radiological Health (CDRH) and Center for Biologics Evaluation and Research (CBER), including device-led combination products."
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'Eligible': "Device is eligible for The Voluntary Malfunction Summary Reporting Program"
+        'Ineligible': "Device is not eligible for The Voluntary Malfunction Summary Reporting Program"
+    type: string
   submission_type_id:
     description: "The submission type (510(k), PMA, 510(k) Exempt) to which a product code is limited, or “Contact ODE” if its limitations (if any) are undetermined."
     format:
