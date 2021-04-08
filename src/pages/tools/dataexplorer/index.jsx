@@ -316,6 +316,7 @@ class DataExplorer extends React.Component {
                     onChange={this.handleViewChange}
                     placeholder='Select View'
                     resetValue='label'
+                    styles={customStyles}
                     value={this.state.view}
                     aria-label='Select View'
                   />
