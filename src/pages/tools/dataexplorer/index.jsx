@@ -269,6 +269,15 @@ class DataExplorer extends React.Component {
 
   render (): ?React.Element {
     const renderDataViewToggle = this.state.dataset.showChartView
+
+    const customStyles = {
+      container: (provided) => ({
+        ...provided,
+        height: 36,
+        width: 300
+      })
+    }
+
     return (
       <section>
         <Hero
@@ -290,6 +299,7 @@ class DataExplorer extends React.Component {
                   onChange={this.handleChange}
                   placeholder='Select Dataset'
                   resetValue='label'
+                  styles={customStyles}
                   value={this.state.dataset}
                   aria-label='Select Dataset'
                 />

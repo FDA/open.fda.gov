@@ -636,7 +636,7 @@ class ResultsComponent extends Component {
     const customStyles = {
       container: (provided) => ({
         ...provided,
-        width: 700
+        width: 300
       })
     }
 
