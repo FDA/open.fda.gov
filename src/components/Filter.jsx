@@ -6,7 +6,7 @@ import { default as ReactTable } from "react-table"
 
 import Checkbox from 'rc-checkbox'
 import Select from 'react-select'
-import {Async as AsyncSelect} from 'react-select'
+import AsyncSelect from 'react-select/async'
 import Moment from 'moment'
 import withQuery from 'with-query'
 import ReactModal from 'react-modal'

@@ -18,7 +18,7 @@ names:
           - Header: SPL ID
             accessor: spl_id
             show: true
-            showDefault: false
+            showDefault: true
           - Header: Product NDC
             accessor: product_ndc
             show: true
@@ -54,7 +54,7 @@ names:
           - Header: Link
             accessor: link
             show: false
-            showDefault: true
+            showDefault: false
             link: true
     endpoint: animalandveterinary/adndc.json
     url: https://openfda-api.preprod.fda.gov
