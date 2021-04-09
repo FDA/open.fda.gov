@@ -98,7 +98,7 @@ const Hero = (props: tPROPS) => {
             {title}
           </h2>
           {
-            type !== 'update' &&
+            type !== 'update' && type!== 'dataset_explorer' &&
             <div className="hero-divider-line"/>
           }
           {

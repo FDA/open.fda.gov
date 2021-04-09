@@ -2,5 +2,5 @@ documentTitle: openFDA › Tools › Dataset Explorer
 label: Tools
 title: Dataset Explorer
 description: ""
-path: /tools/dataexplorer/
-type: noun
+path: /data/dataexplorer/
+type: dataset_explorer

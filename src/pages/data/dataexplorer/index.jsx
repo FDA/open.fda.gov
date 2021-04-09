@@ -5,7 +5,7 @@ import Select from 'react-select'
 import _ from 'lodash'
 import update from 'immutability-helper'
 
-import Hero from '../../../components/Hero/index'
+import Hero from '../../../components/Hero'
 import FilterComponent from '../../../components/Filter'
 import DatasetExplorerContentComponent from '../../../components/DatasetExplorerContent'
 import DataRetrievalService from '../../../components/DataRetrieval'
