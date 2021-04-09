@@ -5,7 +5,6 @@ import React from 'react'
 import { default as ReactTable } from "react-table"
 
 import Checkbox from 'rc-checkbox'
-import Select from 'react-select'
 import AsyncSelect from 'react-select/async'
 import Moment from 'moment'
 import withQuery from 'with-query'
@@ -21,22 +20,24 @@ import 'rc-checkbox/assets/index.css'
 
 class SelectAutoCompleteFilterComponent extends React.Component {
 
- constructor (props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {
-      values: [],
-      elements:  null,
       autocomplete_field: null,
-      field: null
+      elements:  null,
+      field: null,
+      input_value: '',
+      selected_options: [],
+      values: []
     }
+
     this.onChange = this.onChange.bind(this)
     this.removeValue = this.removeValue.bind(this)
     this.escapeRegexCharacters = this.escapeRegexCharacters.bind(this)
     this.onInputKeyDown = this.onInputKeyDown.bind(this)
     this.getOptions = this.getOptions.bind(this)
     this.formatValues = this.formatValues.bind(this)
-    this.loadOptions = this.loadOptions.bind(this)
   }
 
   componentDidMount () {
@@ -74,7 +75,6 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     }
   }
 
-
   removeValue(idx){
     const value = this.props.filters[this.props.option.idx].value[idx]
 
@@ -87,50 +87,35 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     })
   }
 
-  getOptions(value, callback) {
-    console.log("early options: ", this.state.options, "value: ", value)
-    if(value){
+  getOptions(inputValue) {
+    if(inputValue){
       return fetch(
         withQuery(`${this.props.dataset.url}/${this.props.dataset.endpoint}`,{
           searchField: this.props.option.autocomplete_field,
-          searchText: value,
+          searchText: inputValue,
           searchType: 'autocomplete',
           limit: this.props.option.limit
         })
-      ).then(res => res.json())
-        .then((json) => {
-          var r = json.results.map(value => {
-            return {
-              value: value,
-              label: value
-            }
-          })
+      ).then(res => res.json()).then((json) => {
+        return json.results.map(value => {
           return {
-            'options': r
+            value: value,
+            label: value
           }
         })
-        .catch((err) => {
-          return {
-            options: []
-          }
-        })
+      })
+      .catch((err) => {
+        return []
+      })
     } else {
-      callback(null, {
-        options: this.state.options,
-        complete: true,
+      //console.log("options: ", this.state.options)
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(this.state.options);
+        }, 1000);
       })
     }
-    console.log("options: ", this.state.options)
   }
-
-  loadOptions = (inputValue, callback) => {
-    setTimeout(() => {
-      callback([  { value: 'AL', label: 'Alabama' },
-        { value: 'AK', label: 'Alaska' },
-        { value: 'AS', label: 'American Samoa' },
-        { value: 'AZ', label: 'Arizona' }]);
-    }, 1000);
-  };
 
   escapeRegexCharacters(str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -168,13 +153,13 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     })
   }
 
-  onChange(selectionObj){
+  onChange(selectionObj, event){
     this.setState({
-      value: this.props.option.placeholder
+      selected_options: selectionObj
     })
 
     if (this.props.onChange){
-      this.props.onChange(selectionObj, {
+      this.props.onChange(event.option, {
         field: this.props.option.field,
         idx: this.props.option.idx
       })
@@ -182,9 +167,18 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
+    const customStyles = {
+      container: (provided) => ({
+        ...provided,
+        paddingRight: 30,
+        width: '100%'
+      })
+    }
+
     if(!this.props.filters.length){
       return (<span/>)
     }
+
     const elements = this.formatValues(this.props.filters[this.props.option.idx].value)
 
     return (
@@ -198,10 +192,17 @@ class SelectAutoCompleteFilterComponent extends React.Component {
           </h3>
         </div>
         <AsyncSelect
-          className='filter-select'
+          cacheOptions
+          closeMenuOnSelect={false}
+          controlShouldRenderValue={false}
+          defaultOptions
+          isClearable={false}
+          isMulti
+          loadOptions={this.getOptions}
+          onChange={this.onChange}
           placeholder={this.props.option.placeholder}
-          loadOptions={this.loadOptions}
-          clearable={false}
+          styles={customStyles}
+          value={this.state.selected_options}
         />
         {elements}
       </div>
@@ -638,7 +639,7 @@ class YearPickerFilterComponent extends React.Component {
     return (
       <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
         <p>Start Year:</p>
-        <Select
+        <AsyncSelect
           value={this.state.startYear}
           className='filter-select'
           placeholder='Select start date'
@@ -648,7 +649,7 @@ class YearPickerFilterComponent extends React.Component {
           clearable={false}
         />
         <p>End Year:</p>
-        <Select
+        <AsyncSelect
           value={this.state.endYear}
           className='filter-select'
           placeholder='Select end date'
@@ -754,7 +755,7 @@ class RangeQueryFilterComponent extends React.Component {
         return (
             <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
                 <p>Start Year:</p>
-                <Select
+                <AsyncSelect
                     value={this.state.startValue}
                     className='filter-select'
                     placeholder='Select Start Year'
@@ -764,7 +765,7 @@ class RangeQueryFilterComponent extends React.Component {
                     clearable={false}
                 />
                 <p>End Year:</p>
-                <Select
+                <AsyncSelect
                     value={this.state.endValue}
                     className='filter-select'
                     placeholder='Select End Year'
@@ -839,6 +840,7 @@ class FilterComponent extends React.Component {
   onChangeSelect(selectionObj, meta) {
     const value = selectionObj.value
 
+    console.log("selectd filt: ", this.state.selected_filters[meta.idx])
     // contains value already
     if ( this.state.selected_filters[meta.idx].value.indexOf(value) > -1 ) {
       this.setState({
@@ -906,6 +908,7 @@ class FilterComponent extends React.Component {
             help_config={this.props.help_config}
             key={`filter${idx}`}
             onChange={this.onChangeSelect}
+            clearAllFilter={this.props.clearAllFilters}
             option={option}
             options={option.options}
             parent={this.props.parent}

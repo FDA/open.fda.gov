@@ -668,24 +668,6 @@ class ResultsComponent extends Component {
               styles={customStyles}
               value={this.state.optionSelected}
             />
-              /*<Select
-                  name="toggle"
-                  components={{ 'option': CheckedOption }}
-                  //isMulti={true}
-                  maxMenuHeight={130}
-                  styles={customStyles}
-                  options={options}
-                  getOptionLabel={option => option['Header']}
-                  getOptionValue={option => option['accessor']}
-                  onChange={this.onColumnToggle}
-                  resetValue="Header"
-                  removeSelected={false}
-                  searchable={false}
-                  //clearable={false}
-                  closeOnSelect={false}
-                  //value={this.state.placeholder}
-                  placeholder={this.state.placeholder}
-              />*/
             }
           </div>
           {showCollapseRows &&
@@ -1923,6 +1905,16 @@ class InfographicComponent extends React.Component {
           />
       }
     }
+
+    const customStyles = {
+      container: (provided) => ({
+        ...provided,
+        height: 36,
+        paddingRight: 30,
+        width: 300
+      })
+    }
+
     return (
       <div>
         {
@@ -1931,11 +1923,11 @@ class InfographicComponent extends React.Component {
             <em>Select Data Element to Visualize:</em>
             <Select
               clearable={false}
-              name='toggle'
               options={this.props.chartConfig.barChart.xOptions}
               onChange={this.changeXAxis}
               placeholder='Select x-Axis'
-              resetValue='label'
+              searchable={false}
+              styles={customStyles}
               value={this.state.xAxis}
             />
           </div>
@@ -1996,16 +1988,24 @@ class InfographicMenubar extends React.Component {
   }
 
   render(): ?React.Element {
+    const customStyles = {
+      container: (provided) => ({
+        ...provided,
+        height: 36,
+        width: 300
+      })
+    }
+
     return (
       <div className='dataset-explorer-infographic-menubar'>
         <em>Select Chart Type:</em>
         <Select
           clearable={false}
-          name='toggle'
           options={this.state.options}
           onChange={this.selectChart}
           placeholder='Select chart type'
-          resetValue='label'
+          searchable={false}
+          styles={customStyles}
           value={this.state.chartType}
         />
       </div>

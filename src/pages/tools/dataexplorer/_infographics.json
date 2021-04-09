@@ -71,16 +71,16 @@
             "value": "generic_name.exact"
           },
           {
-            "label": "Manufacturer Name",
-            "value": "manufacturer_name.exact"
+            "label": "Labeler Name",
+            "value": "labeler_name.exact"
           },
           {
             "label": "Product Type",
             "value": "product_type.exact"
           },
           {
-            "label": "Inactive Ingredients",
-            "value": "marketing_category"
+            "label": "Marketing Category",
+            "value": "marketing_category.exact"
           }
         ],
         "margin": {
