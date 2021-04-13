@@ -10,7 +10,7 @@ This repository contains the main open.fda.gov website.
 
 ## Running the site
 
-`npm run dev:site`
+`npm run dev`
 
 ## Running the site in Docker
 
