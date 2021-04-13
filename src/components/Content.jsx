@@ -47,7 +47,6 @@ const Content = (props: tPROPS) => {
       }}>
       {
         content.map((words: string|Object, i) => {
-          //console.log("words mapped: ", words, typeof words, Object.keys(words))
           // lies, IT IS NOT WORDS
           // basically, stuff like disclaimer
           // or examples, or fields we want to render

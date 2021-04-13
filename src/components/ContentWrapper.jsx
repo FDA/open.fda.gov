@@ -46,7 +46,6 @@ const ContentWrapper = (props: tPROPS) => {
   } = props
 
   useEffect(() => {
-    console.log('render ContentWrapper')
   }, []);
 
   let fieldsMapped: Object = {}

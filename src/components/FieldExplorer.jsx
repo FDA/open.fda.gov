@@ -34,7 +34,6 @@ const _renderLi = (props: tLiProps) => {
   let field_keys: Array = Object.keys(field)
 
   if (field) {
-    console.log("fields: ", field)
     desc = field.description
     pattern = field.pattern
     if (typeof field.type === "string") {
