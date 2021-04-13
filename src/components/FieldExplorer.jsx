@@ -7,6 +7,7 @@ import Values from './RenderContentObject/Values'
 import yamlGet from '../utils/yamlGet'
 import FieldDownload from './FieldDownload'
 import FieldExplorerContainer from '../containers/FieldExplorerContainer'
+import '../css/components/FieldExplorer.scss'
 
 const _renderLi = (props: tLiProps) => {
   const {
@@ -33,7 +34,6 @@ const _renderLi = (props: tLiProps) => {
   let field_keys: Array = Object.keys(field)
 
   if (field) {
-    console.log("fields: ", field)
     desc = field.description
     pattern = field.pattern
     if (typeof field.type === "string") {

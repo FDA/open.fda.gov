@@ -6,6 +6,8 @@ import PieChartInfographic from '../components/PieChartInfographic'
 
 import Select from 'react-select'
 
+import '../css/components/InteractiveInfographic.scss'
+
 type tPROPS = {
   meta: Array<Object|string>;
   infographicDefinitions: Object;

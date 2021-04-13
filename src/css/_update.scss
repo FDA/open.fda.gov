@@ -1,0 +1,23 @@
+.update-post p,
+.update-post ul,
+.update-post ol {
+	margin-bottom: 20px;
+}
+
+.update-post li {
+	font-size: $pSize;
+	line-height: $pLH;
+	margin-bottom: 10px;
+}
+
+.update-post p + h2,
+.update-post ol + h2,
+.update-post ul + h2 {
+	margin-top: 60px;
+}
+
+.update-post p + h3,
+.update-post ol + h3,
+.update-post ul + h3 {
+	margin-top: 40px;
+}

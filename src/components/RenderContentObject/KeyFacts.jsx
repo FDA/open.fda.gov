@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'gatsby-link'
+import '../../css/components/KeyFacts.scss'
 
 type tPROPS = {
   noun_name: string,

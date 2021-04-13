@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react'
+import '../css/components/Footer.scss'
 
 const links: Array<Object> = [
   {

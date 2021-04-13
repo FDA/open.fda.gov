@@ -2,6 +2,7 @@ import React from "react"
 import Link from "gatsby-link"
 import cx from 'classnames'
 import ComposedDocSidebar from "../containers/DocSidebarContainer";
+import '../css/components/DocSidebar.scss'
 
 
 const Section = props => {

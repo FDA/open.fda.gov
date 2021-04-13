@@ -2,6 +2,7 @@ import React from 'react'
 
 import Hero from '../../components/Hero'
 import tools from './_apps.yaml'
+import '../../css/components/CommunityApps.scss'
 
 const aCx: string = 'clr-gray font-size-4 weight-400 t-pad-t-2 t-pad-b-2 block reading-width t-marg-b-2'
 const disclaimer: string = 'http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm'

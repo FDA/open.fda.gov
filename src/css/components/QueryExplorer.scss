@@ -1,0 +1,15 @@
+.qe-li:before {
+	content: '\25BA';
+	font-size: 75%;
+	margin-left: -20px;
+	position: absolute;
+	top: 17px;
+	width: 20px;
+}
+
+.tourStart {
+	top: 10px;
+	right: 10px;
+	position: absolute;
+	cursor: pointer;
+}

@@ -2,7 +2,6 @@
 
 import React from 'react'
 import faviconPNG from './favicon.png'
-import appCSS from '!!raw-loader!./css/build/app.css'
 import reactTableCSS from '!!raw-loader!../node_modules/react-table/react-table.css'
 
 const webFontLoader: string = `
@@ -60,12 +59,6 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
         async
         dangerouslySetInnerHTML={{
           __html: webFontLoader,
-        }}
-      />
-      <style
-        dangerouslySetInnerHTML={{
-          // $FlowIgnore
-          __html: appCSS,
         }}
       />
       <style

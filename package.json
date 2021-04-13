@@ -4,8 +4,7 @@
   "version": "2.0.0",
   "author": "Jack Finch <jack.finch@semanticbits.com>",
   "scripts": {
-    "dev:css": "./node_modules/.bin/stylus -o ./src/css/build/app.css -I ./node-modules/nib ./src/css/app.styl",
-    "dev:site": "./node_modules/.bin/gatsby develop -H 0.0.0.0 -p 3000",
+    "dev": "./node_modules/.bin/gatsby develop -H 0.0.0.0 -p 3000",
     "build": "./node_modules/.bin/gatsby build --verbose",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'"
   },
@@ -35,6 +34,7 @@
     "gatsby-plugin-flow": "^1.6.0",
     "gatsby-plugin-layout": "^1.6.0",
     "gatsby-plugin-react-helmet": "^3.6.0",
+    "gatsby-plugin-sass": "^2.8.0",
     "gatsby-plugin-stylus": "^2.6.0",
     "gatsby-remark-autolink-headers": "^2.7.0",
     "gatsby-remark-copy-linked-files": "^2.6.0",
@@ -50,6 +50,7 @@
     "marked": "^1.1.1",
     "matchmedia": "^0.1.2",
     "nib": "^1.1.2",
+    "node-sass": "^4.14.1",
     "pondjs": "0.8.7",
     "prismjs": "^1.22.0",
     "raw-loader": "^4.0.2",
@@ -76,7 +77,6 @@
     "reactstrap": "^7.1.0",
     "recharts": "1.8.5",
     "scroll-into-view": "^1.9.1",
-    "stylus": "^0.54.5",
     "typescript": "^4.1.2",
     "whatwg-fetch": "^3.5.0",
     "xlsx": "0.16.1"
