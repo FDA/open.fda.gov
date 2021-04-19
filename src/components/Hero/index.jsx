@@ -90,7 +90,7 @@ const Hero = (props: tPROPS) => {
             </span>
           }
           <h2
-            tabIndex={label ? -1 : 0}
+            tabIndex={0}
             className='clr-white weight-700 header-width font-size-2'
             id='hero-title'>
             {title}

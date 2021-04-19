@@ -224,6 +224,7 @@ const FieldExplorer = (props: tPROPS) => {
     <section key={k} className="field-explorer">
       <Select
         name="form-field-name"
+        aria-label="form-field-name"
         value={selectedField}
         options={field_names}
         onChange={updateField}

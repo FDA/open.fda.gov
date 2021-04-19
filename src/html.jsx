@@ -28,7 +28,6 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
     lang='en'>
     <head>
       {headComponents}
-      <title>{title}</title>
       <meta charSet='utf-8' />
       <meta
         httpEquiv='X-UA-Compatible'
