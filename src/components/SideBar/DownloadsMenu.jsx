@@ -40,7 +40,6 @@ const DownloadsMenu = (props: Object) => {
 
   return (
     <menu
-      {...ARIA.hide}
       id='menu'
       className={menuCx}
       style={{

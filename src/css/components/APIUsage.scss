@@ -1,0 +1,11 @@
+@import '../vars';
+
+.usage-hash-link {
+  color: $clrPrimary;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+aside {
+  min-width: 275px !important;
+}

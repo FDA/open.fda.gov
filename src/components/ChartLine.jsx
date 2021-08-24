@@ -175,6 +175,7 @@ class ChartLine extends React.Component {
       <span>
 
         <Line
+          title='Line Chart.'
           data={nextChartData}
           height={height}
           width={width}

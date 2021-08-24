@@ -8,6 +8,8 @@ import Disclaimer from '../components/Disclaimer'
 
 import Link from 'gatsby-link'
 
+import '../css/components/Nav.scss'
+
 const linkCx: string = 'sub-menu-item no-underline'
 
 

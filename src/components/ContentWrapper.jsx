@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import cx from 'classnames'
 
 import EndpointStatus from './EndpointStatus'
@@ -12,9 +12,10 @@ import SideBarContainer from '../containers/SideBarContainer'
 
 import mapFields from '../utils/mapFields'
 import flattenFields from '../utils/flattenFields'
+import '../css/components/ContentWrapper.scss'
 
 type tPROPS = {
-  content: Array<Object|string>;
+  content: Array<Object | string>;
   explorers: Object;
   infographics: Array<Object>;
   infographicDefinitions: Object;
@@ -44,6 +45,9 @@ const ContentWrapper = (props: tPROPS) => {
     meta
   } = props
 
+  useEffect(() => {
+  }, []);
+
   let fieldsMapped: Object = {}
   let fieldsFlattened: Object = {}
   if (explorers && fields) {
@@ -58,6 +62,7 @@ const ContentWrapper = (props: tPROPS) => {
 
   return (
     <section>
+
       <Hero
         {...meta}
       />
@@ -80,7 +85,7 @@ const ContentWrapper = (props: tPROPS) => {
             maxWidth: '100%',
           }}>
           <Content
-            { ...props }
+            {...props}
             fieldsMapped={fieldsMapped}
             fieldsFlattened={fieldsFlattened}
           />

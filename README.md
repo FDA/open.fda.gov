@@ -10,11 +10,7 @@ This repository contains the main open.fda.gov website.
 
 ## Running the site
 
-`mkdir -p './src/css/build'`
-
-`npm run dev:css`
-
-`npm run dev:site`
+`npm run dev`
 
 ## Running the site in Docker
 
@@ -39,7 +35,7 @@ Stateless, functional react components go here. A function component should not 
 Container components go here. These react components are reduxified. They communicate with the store and dispatch actions, passing down props to their child components. This way we minify how many components have state, as well as having a tightly controlled, reliable way of describing application state
 
 #### /css
-Global css for the entire site goes here. Because we css modules, most of our css is defined in the same folder as the component it is tied to, but we still need a place to put the US web design standards. Colors, type styles, basic grid structure, etc, go here
+CSS is written with SCSS and is processed by `gatsby-plugin-sass` when the project is built and run locally. Overarching styling files are in the `/css` folder while component specific styling is in the `/css/componenets/` folder. Individual SCSS files will be referenced at the component level.
 
 #### /data
 Any hard coded data that is used globally goes here. Some routes have their own data folder that serves the same purpose, but is local to that route

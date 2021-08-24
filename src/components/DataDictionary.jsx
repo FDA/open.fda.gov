@@ -9,6 +9,7 @@ import XLSX from 'xlsx'
 import dictionary from '../constants/fields/master_fields.yaml'
 import { API_LINK } from "../constants/api";
 
+import '../css/components/DataDictionary.scss'
 
 /* generate a download */
 function s2ab(s) {
@@ -299,13 +300,11 @@ class DataDictionary extends React.Component {
 
           Object.keys(dictionary[noun][endpoint['value']]['properties']).forEach((val) => {
             if(dictionary[noun][endpoint['value']]['properties'][val]['type'] === 'object') {
-              console.log("val: ", val, "parent: ", dictionary[noun][endpoint['value']]['properties'][val]['properties'])
               this.getObject(data, val, dictionary[noun][endpoint['value']]['properties'][val]['properties'], endpoint['value'])
             }
             else if(dictionary[noun][endpoint['value']]['properties'][val]['type'] === 'array' &&
               dictionary[noun][endpoint['value']]['properties'][val]['items']['type'] === 'object')
             {
-              console.log("val: ", val, "parent: ", dictionary[noun][endpoint['value']]['properties'][val]['items']['properties'])
               this.getObject(data, val, dictionary[noun][endpoint['value']]['properties'][val]['items']['properties'], endpoint['value'])
             }
             else if(!data.hasOwnProperty(val) && dictionary[noun][endpoint['value']]['properties'][val].hasOwnProperty('items')) {

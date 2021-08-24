@@ -13,6 +13,7 @@ import drugndc from '../constants/fields/drugndc.yaml'
 import drugsfda from '../constants/fields/drugsfda.yaml'
 import Values from './RenderContentObject/Values'
 
+import '../css/components/FieldsHarmonization.scss'
 
 class FieldsHarmonization extends React.Component {
 

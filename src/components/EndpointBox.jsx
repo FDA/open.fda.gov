@@ -4,6 +4,8 @@ import React from 'react'
 
 import Link from 'gatsby-link'
 
+import '../css/components/EndpointBox.scss'
+
 type tPROPS = {
   noun_name: string,
   endpoint_name: string

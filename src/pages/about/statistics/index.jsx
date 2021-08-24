@@ -12,8 +12,6 @@ export default () => (
             <div className="float-r" style={{  maxWidth: '100%',}}>
                 <ApiUsage accessSinceLaunch={content.accessSinceLaunch} dynamicDisclaimer={content.dynamicDisclaimer} clickEndpointDisclaimer={content.clickEndpointDisclaimer} />
             </div>
-
-
         </section>
     </section>
 )

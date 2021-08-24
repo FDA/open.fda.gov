@@ -6,6 +6,7 @@ import get from 'lodash/get'
 import Link from 'gatsby-link'
 import updates from '../pages/about/updates/updates.yaml'
 import Async from 'react-promise'
+import '../css/components/BlogRoll.scss'
 
 const _sortUpdates = updates => {
   const filtered = updates.filter(u => u.date)
@@ -67,7 +68,6 @@ const BlogPosts = (props: tPROPS) => {
           if (update.path.indexOf("http") !== -1) {
             link_flag = false
           }
-          console.log("link_flag: ", link_flag, update.path)
 
           return (
             <li
@@ -131,7 +131,7 @@ const BlogRoll = (props: tPROPS) => {
   return (
     <section className={'body-bg-offwhite ' + (small === true ? 'blog-list' : 'blog-cards')}>
       <div className='blog-header-container'>
-        <h2 className={small === true ? 'clr-primary blog-header' : 'center-heading'}><span>Latest News & Updates</span></h2>
+        <h2 className={small === true ? 'clr-primary blog-header' : 'center-heading'}><span>Latest News &amp; Updates</span></h2>
         {
           small === true &&
             <Link

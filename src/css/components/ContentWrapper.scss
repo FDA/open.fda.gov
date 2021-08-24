@@ -1,0 +1,22 @@
+@import '../vars';
+
+@media (min-width: $bpTab) {
+	.content {
+		float: right;
+		width: 75%;
+	}
+
+	.content-wrapper {
+		display: flex;
+	}
+
+	.ref-content {
+		width: calc(100% - 250px);
+	}
+}
+
+@media (min-width: $bpDesk) {
+	.ref-content {
+		width: 75%;
+	}
+}
