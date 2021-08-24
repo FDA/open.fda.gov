@@ -14,7 +14,7 @@ context('API Usage Stats', () => {
 
     it('Endpoint drill-down works', () => {
         for (let i = 0; i < PREFIX.length; i++) {
-            cy.get(`a[data-prefix="${PREFIX[i]}"]`).should('be.visible').click();
+            cy.get(`a[data-prefix="${PREFIX[i]}"]`).should('be.visible').click({force: true});
             cy.get(`a[data-prefix="1/api.fda.gov/"]`).click({force: true});
         }
     })
