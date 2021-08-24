@@ -16,3 +16,8 @@ npm-debug.log.931881047
 /cypress/plugins/
 /cypress/videos/
 /cypress/results/
+/cypress/screenshots/
+/.config/
+/.npm/
+/cache/Cypress/
+
