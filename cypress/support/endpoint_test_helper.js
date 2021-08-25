@@ -32,7 +32,7 @@ class EndpointPagesTestHelper {
         cy.get('div#doc-container>section>section').each((section) => {
             cy.wrap(section).within(() => {
                 // Check the initial state
-                cy.get('textarea[aria-label="Current Query"]').should('be.visible');
+                cy.get('textarea[aria-label="Current Query"]').scrollIntoView().should('be.visible');
                 cy.get('button[aria-label="Close result of query"]').should('not.exist');
                 cy.get('pre.javascript').should('not.exist');
 
