@@ -10,8 +10,8 @@
     "develop": "gatsby develop",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test:e2e": "start-server-and-test dev:site http://localhost:3000 cy:open",
-    "test:e2e:ci": "start-server-and-test dev:site http://localhost:3000 cy:run"
+    "test:e2e": "start-server-and-test dev http://localhost:3000 cy:open",
+    "test:e2e:ci": "start-server-and-test dev http://localhost:3000 cy:run"
   },
   "repository": {
     "type": "git",

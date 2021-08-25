@@ -2,7 +2,7 @@ pipeline {
    agent {
        // this image provides everything needed to run Cypress
        docker {
-         image 'cypress/base:14.15.4'
+         image 'cypress/base:14.17.0'
          args  '--ipc=host'
        }
     }
@@ -15,11 +15,6 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 sh "npm install"
-            }
-        }
-        stage('Generate CSS from Stylus') {
-            steps {
-                sh 'npm run dev:css'
             }
         }
         stage('Build website') {
