@@ -85,7 +85,7 @@
     "scroll-into-view": "^1.9.1",
     "typescript": "^4.1.2",
     "whatwg-fetch": "^3.5.0",
-    "xlsx": "0.16.1"
+    "xlsx": "0.17.0"
   },
   "keywords": [
     "gatsby"
