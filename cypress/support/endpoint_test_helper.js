@@ -4,7 +4,7 @@ class EndpointPagesTestHelper {
         this.baseURL = baseURL;
         this.apiPath = apiPath;
         cy.intercept(`https://api.fda.gov/download.json`).as('download-api-call');
-        cy.intercept(`https://api.fda.gov${this.apiPath}`).as('search-api-call');
+        cy.intercept(`https://api.fda.gov${this.apiPath}*`).as('search-api-call');
     }
 
     overview() {
