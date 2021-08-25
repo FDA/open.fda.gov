@@ -10,12 +10,12 @@ class IndexRoute extends React.Component {
 
     return (
       <section className='doc-content'>
-        <h2>How to use the Endpoint</h2>
+        <h2>How to use the API</h2>
         <p>Getting started with and learning how to use the Application Programming Interface is relatively straightforward. Here are some recommended steps:</p>
         <APIUseSteps endpoint_name='Drugs@FDA' endpoint_path='/apis/drug/drugsfda/'/>
         <p>Then, when you are ready, obtain an Application Programming Interface Key. While you don’t need an Application Programming Interface Key to use the Application Programming Interface, we recommend you get one if you are planning to use the Application Programming Interface on a regular basis. For more information on Application Programming Interface Keys, see the <Link to="/apis/authentication/">Authentication</Link> documentation.</p>
 
-        <h3>Making a simple Application Programming Interface Call</h3>
+        <h3>Making a simple API Call</h3>
         <p>You can call the Application Programming Interface from a web browser. Simply type a valid query in your browser’s address bar and press the Enter key.</p>
         <p>In the example below, we are searching the records in the Drugs@FDA endpoint for matches with <code>Discontinued</code> in the <code>products.marketing_status</code> field. We are requesting to see the first 5 records that match.</p>
         <APIQueryBreakdown endpoint_path='/drug/drugsfda.json' query='products.marketing_status:"Discontinued"'/>

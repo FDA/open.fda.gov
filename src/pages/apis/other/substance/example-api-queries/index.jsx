@@ -1,6 +1,6 @@
 import React from "react"
 
-import QueryExplorer from '../../../../../components/QueryExplorer'
+import QueryTour from '../../../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
@@ -16,35 +16,40 @@ class IndexRoute extends React.Component {
       <section className="doc-content">
         <h2>Example Substance Data API queries</h2>
         <p>To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
-        <QueryExplorer
+        <QueryTour
           desc={oneRecord.description}
-          originalQuery={oneRecord.query}
+          query={oneRecord.query}
           params={oneRecord.params}
           title={oneRecord.title}
+          name={'oneRecord'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={byName.description}
-          originalQuery={byName.query}
+          query={byName.query}
           params={byName.params}
           title={byName.title}
+          name={'byName'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={byCASRegistryNumber.description}
-          originalQuery={byCASRegistryNumber.query}
+          query={byCASRegistryNumber.query}
           params={byCASRegistryNumber.params}
           title={byCASRegistryNumber.title}
+          name={'byCASRegistryNumber'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={byUNII.description}
-          originalQuery={byUNII.query}
+          query={byUNII.query}
           params={byUNII.params}
           title={byUNII.title}
+          name={'byUNII'}
         />
-        <QueryExplorer
+        <QueryTour
           desc={byFormula.description}
-          originalQuery={byFormula.query}
+          query={byFormula.query}
           params={byFormula.params}
           title={byFormula.title}
+          name={'byFormula'}
         />
       </section>
     )

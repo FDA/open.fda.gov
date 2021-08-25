@@ -1,12 +1,21 @@
 pipeline {
-    agent any
-	tools {
-        nodejs 'Node 14'
+   agent {
+       // this image provides everything needed to run Cypress
+       docker {
+         image 'cypress/base:14.17.0'
+         args  '--ipc=host'
+       }
+    }
+    environment {
+    	HOME = pwd()
+    	npm_config_cache = '$HOME/.npm'
+    	CYPRESS_CACHE_FOLDER = "$HOME/cache/Cypress"
+    	NO_COLOR=1
     }
     stages {
         stage('Install dependencies') {
             steps {
-                sh "npm install npm@6.14.11 -g; npm install"
+                sh "npm install"
             }
         }
         stage('Build website') {
@@ -14,8 +23,21 @@ pipeline {
                   sh 'npm run build'
             }
         }
+        stage('Run Cypress tests') {
+            steps {
+                  sh 'npm run test:e2e:ci'
+            }
+        }
     }
     post {
+		always {
+			junit allowEmptyResults: true, testResults: 'cypress/results/results*.xml'
+			archiveArtifacts artifacts: 'cypress/screenshots/**/*.png', allowEmptyArchive: true, caseSensitive: false, onlyIfSuccessful: false
+			cleanWs(cleanWhenNotBuilt: false,
+                                deleteDirs: true,
+                                disableDeferredWipeout: true,
+                                notFailBuild: true)
+		}
     	failure {
     		script {
     			if (env.BRANCH_NAME == 'master') {

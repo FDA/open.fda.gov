@@ -9,7 +9,7 @@ class IndexRoute extends React.Component {
 
     return (
       <section className="doc-content">
-        <h2>Understanding the Query Results</h2>
+        <h2>Understanding the API Results</h2>
         <p>For <code>search</code> queries (such as: <a href="https://api.fda.gov/drug/ndc.json?limit=1">https://api.fda.gov/drug/ndc.json?limit=1</a>), the <code>results</code> section includes matching ndc results returned by the API.</p>
         <p>Each NDC Directory entry consists of two major sections:</p>
         <ul>

@@ -11,3 +11,13 @@ npm-debug.log.931881047
 .DS_Store
 .cache
 #package-lock.json
+/cypress/integration/examples/
+/cypress/fixtures/
+/cypress/plugins/
+/cypress/videos/
+/cypress/results/
+/cypress/screenshots/
+/.config/
+/.npm/
+/cache/Cypress/
+
