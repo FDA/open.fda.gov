@@ -26,13 +26,18 @@ class IndexRoute extends React.Component {
         <p>The serology tests were tested at the Frederick National Laboratory for Cancer Research (FNLCR), a Federally Funded Research and Development Center (FFRDC) sponsored by the National Cancer Institute (NCI) or by the Hemostasis Laboratory Branch, Division of Blood Disorders, National Center on Birth Defects and Developmental Disabilities, Centers for Disease Control and Prevention (CDC).</p>
 
         <h3>Panel Composition</h3>
-        <p>Each test was evaluated against "Panel 1", "Panel 2", or "Panel 3", each of
-          which include frozen SARS-CoV-2 antibody-positive serum samples (<span className="math inline">\(n=30\)</span>)
-          and frozen antibody-negative serum and Anticoagulant Citrate Dextrose Solution Formula A (ACD-A) plasma
-          samples (<span className="math inline">\(n=80\)</span>). While ACD-A plasma may not be commonly used in clinical practice for serological testing, ACD-A plasma samples were used here because these pre-pandemic samples were most easily acquired from blood banks. The panel size and composition were chosen to enable a laboratory-based evaluation and to provide reasonable estimates and confidence intervals for test performance in the context of limited sample availability. The sample size is comparable to that of a typical sample size used to support Emergency Use Authorization (EUA) by FDA for tests of this type.</p>
+        <p>Each test was evaluated against “Panel 1”, “Panel 2”, or “Panel 3”, each of which include frozen SARS-CoV-2
+          antibody-positive serum samples (<span className="math inline">\(n=30\)</span>) and frozen antibody-negative serum
+          and Anticoagulant Citrate Dextrose Solution Formula A (ACD-A) plasma samples
+          (<span className="math inline">\(n=80\)</span>). While ACD-A plasma may not be commonly used in clinical
+          practice for serological testing, ACD-A plasma samples were used here because these pre-pandemic samples were
+          most easily acquired from blood banks. The panel size and composition were chosen to enable a laboratory-based
+          evaluation and to provide reasonable estimates and confidence intervals for test performance in the context of
+          limited sample availability. The sample size is comparable to that of a typical sample size used to support
+          Emergency Use Authorization (EUA) by FDA for tests of this type.</p>
 
         <h5>Positive samples</h5>
-        <p>Positive samples used were from patients previously confirmed to have SARS-CoV-2 infection with a nucleic acid amplification test (NAAT). Time between symptom onset, NAAT testing, and sample collection is not known for all samples. Both SARS-CoV-2 IgM and IgG antibodies are present in all positive samples used. The Centers for Disease Control and Prevention (CDC) detected the presence of IgG and IgM antibodies at their laboratory using their SARS-CoV-2 spike enzyme-linked immunosorbent assay (ELISA) tests. (See <a href="https://www.cdc.gov/coronavirus/2019-ncov/lab/serology-testing.html">Serology Testing for COVID-19</a>, which notes "CDC's serologic test has been designed and validated for surveillance and research purposes. It is designed to estimate the percentage of the U.S. population previously infected with the virus -- information needed to guide the response to the pandemic and protect the public's health. The CDC test is not currently designed to test individuals who want to know if they have been previously infected with SARS-CoV-2. Commercial tests are available to provide test results to individuals.") The presence of antibodies was confirmed at FNLCR using CDC's developed ELISAs (Pan-Ig, IgG, and IgM) as well as an IgG Receptor Binding Domain (RBD) ELISA developed by the Krammer Laboratory at the Icahn School of Medicine at Mount Sinai. (An implementation of this test, the COVID-19 ELISA IgG Antibody Test, has been granted an EUA authorization by FDA for use at the Mount Sinai Laboratory (MSL), Center for Clinical Laboratories, a division of the Department of Pathology, Molecular, and Cell-Based Medicine, New York, NY. See this <a href="https://www.fda.gov/media/137029/download">EUA Summary</a>.) The positive samples selected may not reflect the distribution of antibody levels in patient populations that would be evaluated by such a test. Because all samples are positive for both IgM and IgG, this evaluation cannot verify that tests intended to detect IgM and IgG antibodies separately detect these antibodies independently.</p>
+        <p>Positive samples used were from patients previously confirmed to have SARS-CoV-2 infection with a nucleic acid amplification test (NAAT). Time between symptom onset, NAAT testing, and sample collection is not known for all samples. Both SARS-CoV-2 IgM and IgG antibodies are present in all positive samples used. The Centers for Disease Control and Prevention (CDC) detected the presence of IgG and IgM antibodies at their laboratory using their SARS-CoV-2 spike enzyme-linked immunosorbent assay (ELISA) tests. (See <a href="https://www.cdc.gov/coronavirus/2019-ncov/lab/serology-testing.html">Serology Testing for COVID-19</a>, which notes “CDC’s serologic test has been designed and validated for surveillance and research purposes. It is designed to estimate the percentage of the U.S. population previously infected with the virus – information needed to guide the response to the pandemic and protect the public’s health. The CDC test is not currently designed to test individuals who want to know if they have been previously infected with SARS-CoV-2. Commercial tests are available to provide test results to individuals.”) The presence of antibodies was confirmed at FNLCR using CDC’s developed ELISAs (Pan-Ig, IgG, and IgM) as well as an IgG Receptor Binding Domain (RBD) ELISA developed by the Krammer Laboratory at the Icahn School of Medicine at Mount Sinai. (An implementation of this test, the COVID-19 ELISA IgG Antibody Test, has been granted an EUA authorization by FDA for use at the Mount Sinai Laboratory (MSL), Center for Clinical Laboratories, a division of the Department of Pathology, Molecular, and Cell-Based Medicine, New York, NY. See this <a href="https://www.fda.gov/media/137029/download">EUA Summary</a>.) The positive samples selected may not reflect the distribution of antibody levels in patient populations that would be evaluated by such a test. Because all samples are positive for both IgM and IgG, this evaluation cannot verify that tests intended to detect IgM and IgG antibodies separately detect these antibodies independently.</p>
         <p>Positive samples were assessed at dilutions of 1:100, 1:400, 1:1600, and 1:6400 by CDC on their Pan-Ig assay, their IgM assay, and their IgG assay. Some samples were run at additional dilutions. Any samples that were positive at a dilution greater than 1:6400 were assigned a titer of 6400 because 1:6400 was the highest dilution at which all positive samples were assessed. Two of these samples, C0107 and C0176, were positive for IgG antibodies at a dilution of 1:25600.</p>
 
         <h5>Negative Samples</h5>
@@ -304,6 +309,150 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3299-a001.pdf">NCI’s Independent
           Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3299-a001.csv">Data File</a></p>
+
+        <h4>Access Bio, Inc. CareStart EZ COVID-19 IgM/IgG</h4>
+        <p><strong>Manufacturer:</strong> Access Bio, Inc.</p>
+        <p><strong>Device:</strong> CareStart EZ COVID-19 IgM/IgG</p>
+        <p><strong>Date Performed:</strong> 2021-05-04</p>
+        <p><strong>Lot Number:</strong> 20G05</p>
+        <p><strong>Panel:</strong> Panel 3</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              86.7% (26/30)
+            </td>
+            <td style="text-align:left;">
+              (70.3%; 94.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgM
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              96.7% (29/30)
+            </td>
+            <td style="text-align:left;">
+              (83.3%; 99.4%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              100% (30/30)
+            </td>
+            <td style="text-align:left;">
+              (88.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (50.5%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Combined
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (99.4%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3462-a001.pdf">NCI’s Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3462-a001.csv">Data File</a></p>
 
         <h4>Acon Biotech (Hangzhou) Co., LTD Acon SARS-CoV2 IgG/IgM Rapid Test</h4>
         <p><strong>Manufacturer:</strong> Acon Biotech (Hangzhou) Co., LTD</p>
@@ -1028,6 +1177,270 @@ class IndexRoute extends React.Component {
         </table>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3308-a001.pdf">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3308-a001.csv">Data File</a></p>
+
+        <h4>Bio-Rad Platelia SARS-CoV-2 Total Ab</h4>
+        <p><strong>Manufacturer:</strong> Bio-Rad</p>
+        <p><strong>Device:</strong> Platelia SARS-CoV-2 Total Ab</p>
+        <p><strong>Date Performed:</strong> 2021-05-04</p>
+        <p><strong>Lot Number:</strong> 0F0015</p>
+        <p><strong>Panel:</strong> Panel 3</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              86.7% (26/30)
+            </td>
+            <td style="text-align:left;">
+              (70.3%; 94.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (44.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.3%
+            </td>
+            <td style="text-align:left;">
+              (98.4%; 99.7%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3463-a001.pdf">NCI’s Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3463-a001.csv">Data File</a></p>
+
+        <h4>Bio-Rad Platelia SARS-CoV-2 Total Ab</h4>
+        <p><strong>Manufacturer:</strong> Bio-Rad</p>
+        <p><strong>Device:</strong> Platelia SARS-CoV-2 Total Ab</p>
+        <p><strong>Date Performed:</strong> 2021-06-07</p>
+        <p><strong>Lot Number:</strong> 0F0015</p>
+        <p><strong>Panel:</strong> Panel 2</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              93.3% (28/30)
+            </td>
+            <td style="text-align:left;">
+              (78.7%; 98.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (47.5%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.7%
+            </td>
+            <td style="text-align:left;">
+              (98.8%; 99.9%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3483-a001.pdf">NCI’s Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3483-a001.csv">Data File</a></p>
+
+        <h4>Bio-Rad Platelia SARS-CoV-2 Total Ab (combined evaluations)</h4>
+        <p><strong>Manufacturer:</strong> Bio-Rad</p>
+        <p><strong>Device:</strong> Platelia SARS-CoV-2 Total Ab (combined evaluations)</p>
+        <p><strong>Date Performed:</strong> 2021-05-04, 2021-06-07</p>
+        <p><strong>Lot Number:</strong> 0F0015</p>
+        <p><strong>Panel:</strong> Panel 3, Panel 2</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              89.7% (52/58)
+            </td>
+            <td style="text-align:left;">
+              (79.2%; 95.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (97/97)
+            </td>
+            <td style="text-align:left;">
+              (96.2%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (52.3%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              99.5%
+            </td>
+            <td style="text-align:left;">
+              (98.9%; 99.7%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3483-a002.pdf">NCI’s Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3483-a002.csv">Data File</a></p>
 
         <h4>Biocan Diagnostics Inc biocan Tell Me Fast Novel Coronavirus (COVID-19) IgG/IgM Antibody Test</h4>
         <p><strong>Manufacturer:</strong> Biocan Diagnostics Inc</p>
@@ -2087,6 +2500,94 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3316-a001.pdf">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3316-a001.csv">Data File</a></p>
 
+        <h4>InBios International, Inc. InBios SCoV-2 Detect™ IgG Rapid Test</h4>
+        <p><strong>Manufacturer:</strong> InBios International, Inc.</p>
+        <p><strong>Device:</strong> InBios SCoV-2 Detect™ IgG Rapid Test</p>
+        <p><strong>Date Performed:</strong> 2020-10-09 through 2020-10-29</p>
+        <p><strong>Lot Number:</strong> ZH5314</p>
+        <p><strong>Panel:</strong> Panel 3</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              100% (30/30)
+            </td>
+            <td style="text-align:left;">
+              (88.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (50.5%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              IgG
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (99.4%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3393-a002.pdf">NCI’s Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3393-a002.csv">Data File</a></p>
+
         <h4>Innovita (Tangshan) Biological Technology Co., Ltd. One Step Rapid Test 2019-nCoV Ab Test (Colloidal Gold) IgM/IgG Whole Blood/Serum/Plasma Combo</h4>
         <p><strong>Manufacturer:</strong> Innovita (Tangshan) Biological Technology Co., Ltd.</p>
         <p><strong>Device:</strong> One Step Rapid Test 2019-nCoV Ab Test (Colloidal Gold) IgM/IgG Whole Blood/Serum/Plasma Combo</p>
@@ -2808,6 +3309,94 @@ class IndexRoute extends React.Component {
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3356-a002.pdf">NCI's Independent
           Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3356-a002.csv">Data File</a></p>
+
+        <h4>LumiraDx UK Ltd LumiraDx SARS-CoV-2 Ab Test</h4>
+        <p><strong>Manufacturer:</strong> LumiraDx UK Ltd</p>
+        <p><strong>Device:</strong> LumiraDx SARS-CoV-2 Ab Test</p>
+        <p><strong>Date Performed:</strong> 2021-06-17</p>
+        <p><strong>Lot Number:</strong> 5000420</p>
+        <p><strong>Panel:</strong> Panel 4</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style="margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th style="text-align:left;">
+              Antibody
+            </th>
+            <th style="text-align:left;">
+              Performance Measure
+            </th>
+            <th style="text-align:left;">
+              Estimate of Performance
+            </th>
+            <th style="text-align:left;">
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              Sensitivity
+            </td>
+            <td style="text-align:left;">
+              100% (30/30)
+            </td>
+            <td style="text-align:left;">
+              (88.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              Specificity
+            </td>
+            <td style="text-align:left;">
+              100% (80/80)
+            </td>
+            <td style="text-align:left;">
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              PPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (50.5%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;">
+              Pan Ig
+            </td>
+            <td style="text-align:left;">
+              NPV at prevalence = 5%
+            </td>
+            <td style="text-align:left;">
+              100%
+            </td>
+            <td style="text-align:left;">
+              (99.4%; 100%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3484-a001.pdf">NCI’s Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3484-a001.csv">Data File</a></p>
 
         <h4>Megna Health Inc. Megna Rapid COVID-19 IgM/IgG Combo Test Kit</h4>
         <p><strong>Manufacturer:</strong> Megna Health Inc.</p>
