@@ -318,133 +318,133 @@ class IndexRoute extends React.Component {
         <p><strong>Panel:</strong> Panel 3</p>
         <p><strong>Marketing Status:</strong> EUA Authorized</p>
         <table className="table table-striped table-hover table-condensed"
-               style="margin-left: auto; margin-right: auto;">
+               style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Antibody
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Performance Measure
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Estimate of Performance
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               95% Confidence Interval
             </th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               IgM
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Sensitivity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               86.7% (26/30)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (70.3%; 94.7%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               IgM
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Specificity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100% (80/80)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (95.4%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               IgG
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Sensitivity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               96.7% (29/30)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (83.3%; 99.4%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               IgG
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Specificity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100% (80/80)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (95.4%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Combined
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Sensitivity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100% (30/30)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (88.7%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Combined
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Specificity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100% (80/80)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (95.4%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Combined
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               PPV at prevalence = 5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (50.5%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Combined
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               NPV at prevalence = 5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (99.4%; 100%)
             </td>
           </tr>
@@ -1186,77 +1186,77 @@ class IndexRoute extends React.Component {
         <p><strong>Panel:</strong> Panel 3</p>
         <p><strong>Marketing Status:</strong> EUA Authorized</p>
         <table className="table table-striped table-hover table-condensed"
-               style="margin-left: auto; margin-right: auto;">
+               style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Antibody
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Performance Measure
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Estimate of Performance
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               95% Confidence Interval
             </th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Sensitivity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               86.7% (26/30)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (70.3%; 94.7%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Specificity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100% (80/80)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (95.4%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               PPV at prevalence = 5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (44.7%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               NPV at prevalence = 5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               99.3%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (98.4%; 99.7%)
             </td>
           </tr>
@@ -1274,77 +1274,77 @@ class IndexRoute extends React.Component {
         <p><strong>Panel:</strong> Panel 2</p>
         <p><strong>Marketing Status:</strong> EUA Authorized</p>
         <table className="table table-striped table-hover table-condensed"
-               style="margin-left: auto; margin-right: auto;">
+               style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Antibody
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Performance Measure
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Estimate of Performance
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               95% Confidence Interval
             </th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Sensitivity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               93.3% (28/30)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (78.7%; 98.2%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Specificity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100% (80/80)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (95.4%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               PPV at prevalence = 5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (47.5%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               NPV at prevalence = 5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               99.7%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (98.8%; 99.9%)
             </td>
           </tr>
@@ -1362,77 +1362,77 @@ class IndexRoute extends React.Component {
         <p><strong>Panel:</strong> Panel 3, Panel 2</p>
         <p><strong>Marketing Status:</strong> EUA Authorized</p>
         <table className="table table-striped table-hover table-condensed"
-               style="margin-left: auto; margin-right: auto;">
+               style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Antibody
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Performance Measure
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Estimate of Performance
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               95% Confidence Interval
             </th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Sensitivity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               89.7% (52/58)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (79.2%; 95.2%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Specificity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100% (97/97)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (96.2%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               PPV at prevalence = 5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (52.3%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               NPV at prevalence = 5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               99.5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (98.9%; 99.7%)
             </td>
           </tr>
@@ -2508,77 +2508,77 @@ class IndexRoute extends React.Component {
         <p><strong>Panel:</strong> Panel 3</p>
         <p><strong>Marketing Status:</strong> EUA Authorized</p>
         <table className="table table-striped table-hover table-condensed"
-               style="margin-left: auto; margin-right: auto;">
+               style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Antibody
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Performance Measure
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Estimate of Performance
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               95% Confidence Interval
             </th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               IgG
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Sensitivity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100% (30/30)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (88.7%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               IgG
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Specificity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100% (80/80)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (95.4%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               IgG
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               PPV at prevalence = 5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (50.5%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               IgG
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               NPV at prevalence = 5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (99.4%; 100%)
             </td>
           </tr>
@@ -3318,77 +3318,77 @@ class IndexRoute extends React.Component {
         <p><strong>Panel:</strong> Panel 4</p>
         <p><strong>Marketing Status:</strong> EUA Authorized</p>
         <table className="table table-striped table-hover table-condensed"
-               style="margin-left: auto; margin-right: auto;">
+               style={{marginLeft:'auto', marginRight:'auto'}}>
           <thead>
           <tr>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Antibody
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Performance Measure
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               Estimate of Performance
             </th>
-            <th style="text-align:left;">
+            <th style={{textAlign:'left'}}>
               95% Confidence Interval
             </th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Sensitivity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100% (30/30)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (88.7%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Specificity
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100% (80/80)
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (95.4%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               PPV at prevalence = 5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (50.5%; 100%)
             </td>
           </tr>
           <tr>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               Pan Ig
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               NPV at prevalence = 5%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               100%
             </td>
-            <td style="text-align:left;">
+            <td style={{textAlign:'left'}}>
               (99.4%; 100%)
             </td>
           </tr>
