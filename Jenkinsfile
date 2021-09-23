@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                sh "npm install npm -g; npm ci; node -v; npm -v;"
+                sh "node -v; npm -v; npm ci"
             }
         }
         stage('Build website') {
