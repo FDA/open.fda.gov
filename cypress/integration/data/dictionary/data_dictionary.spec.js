@@ -13,6 +13,22 @@ context('Data Dictionary', () => {
         cy.get('section div.data-dictionary-header h2').should('be.visible').should('have.text', 'Data Dictionary');
     })
 
+    function changeDataCategory(optionIndex, category, datasets, topFieldPrefix) {
+        cy.intercept(/^https:\/\/api\.fda\.gov\/usage.json.*/).as('usage-api-call');
+        cy.get('section#data-dictionary div.nouns').within(() => {
+            cy.get('input[aria-label="Select category"]').click({force: true});
+            cy.get(`div#react-select-2-option-${optionIndex}`).click({force: true});
+        });
+        cy.get('section#data-dictionary div.endpoints').within(() => {
+            for (let i = 1; i <= datasets.length; i++) {
+                cy.get(`div.basic-multi-select>div.select__control>div.select__value-container>div:nth-of-type(${i})>div.select__multi-value__label`)
+                    .should('have.text', datasets[i - 1]);
+            }
+        });
+        cy.wait('@usage-api-call');
+        verifyUsageSummary(category, topFieldPrefix);
+    }
+
     function verifyUsageSummary(category, topFieldPrefix) {
         cy.get('section#data-dictionary h3.usage-header').should('be.visible').should('have.text', 'Usage Summary');
         cy.get('section#data-dictionary div.graphics').within(() => {
@@ -42,7 +58,7 @@ context('Data Dictionary', () => {
             cy.get('div.right>div:nth-of-type(2)>ul').should('be.visible').within(() => {
                 // Check the Top 5 bullets.
                 for (let i = 1; i <= 5; i++) {
-                    cy.get(`li:nth-of-type(${i})`).should('be.visible').should('contain.text', `${topFieldPrefix}.`);
+                    cy.get(`li:nth-of-type(${i})`).should('be.visible').should('contain.text', `${topFieldPrefix}`);
                 }
             });
 
@@ -78,9 +94,35 @@ context('Data Dictionary', () => {
             .should('have.text', 'Animal & Veterinary');
         cy.get('div.dataset-select > div.endpoints div.select__multi-value__label').should('be.visible')
             .should('have.text', 'Event');
-        verifyUsageSummary('Animal & Veterinary', 'animal');
+        verifyUsageSummary('Animal & Veterinary', 'animal.');
         verifyDataTableNavigation(58);
 
+    })
+
+    it('Changing Data Category should work as designed', () => {
+        changeDataCategory(1, 'Device', ['Classification', '510k Clearance',
+            'COVID-19 Serology', 'Enforcement', 'Event', 'Pre-Market Approval',
+            'Recall', 'Registration List', 'UDI'], '');
+        changeDataCategory(2, 'Human Drug', ['Enforcement', 'Event',
+            'Label', 'NDC', 'Drugs@FDA'], 'openfda.');
+        changeDataCategory(3, 'Food', ['Enforcement', 'Event'], 'meta.');
+        changeDataCategory(4, 'Other', ['NSDE', 'Substance Data'], '');
+        changeDataCategory(5, 'Tobacco', ['Problem'], '');
+    })
+
+    it('Inline table search should work', () => {
+        changeDataCategory(2, 'Human Drug', [], '');
+        cy.get('div.table-databar input.search-input').type('manufacturer_name');
+        verifyDataTableNavigation(1)
+        cy.get('div.ReactTable div.rt-tbody > div:nth-of-type(1) > div').click();
+        cy.get('div.ReactModal__Content--after-open').within(() => {
+            cy.get('h3').should('have.text', 'openfda.manufacturer_name (array of strings)');
+            cy.get('div>p').should('have.text', 'Name of manufacturer or company that makes this drug product, corresponding to the labeler code segment of the NDC.');
+        })
+        cy.get('div.ReactModal__Content--after-open').trigger('keydown', { keyCode: 27});
+        cy.wait(200);
+        cy.get('body').trigger('keyup', { keyCode: 27});
+        cy.get('div.ReactModal__Content--after-open').should('not.exist');
     })
 
 

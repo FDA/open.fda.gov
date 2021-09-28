@@ -93,7 +93,7 @@
   "license": "MIT",
   "main": "n/a",
   "devDependencies": {
-    "cypress": "^8.4.1",
+    "cypress": "^8.5.0",
     "cypress-multi-reporters": "^1.5.0",
     "mocha-junit-reporter": "^2.0.0",
     "prettier": "^1.7.4",
