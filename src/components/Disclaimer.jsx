@@ -41,6 +41,7 @@ const Disclaimer = (props: tPROPS) => {
       <h4 className="modal-header">Disclaimer</h4>
       <div className='modal-body'>
         <span>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products.  We may limit or otherwise restrict your access to the API in line with our <Link className='underline' to='/terms/'> Terms of Service</Link></span>
+        <span>This warning banner provides privacy and security notices consistent with applicable federal laws, directives, and other federal guidance for accessing this Government system, which includes all devices/storage media attached to this system. This system is provided for Government-authorized use only. Unauthorized or improper use of this system is prohibited and may result in disciplinary action and/or civil and criminal penalties. At any time, and for any lawful Government purpose, the government may monitor, record, and audit your system usage and/or intercept, search and seize any communication or data transiting or stored on this system. Therefore, you have no reasonable expectation of privacy. Any communication or data transiting or stored on this system may be disclosed or used for any lawful Government purpose.</span>
       </div>
       <button className='button bg-primary clr-white' onClick={() => handleCloseModal(hideModal)}>ACCEPT</button>
     </ReactModal>
