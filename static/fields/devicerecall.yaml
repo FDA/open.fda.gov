@@ -1,4 +1,10 @@
 properties:
+  cfres_id:
+    description: "cfRes internal recall identifier"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
   event_date_initiated:
     description: "Date that the firm first began notifying the public or their consignees of the recall."
     format: date
