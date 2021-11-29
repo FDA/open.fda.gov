@@ -26,12 +26,12 @@ class IndexRoute extends React.Component {
         <p>The serology tests were tested at the Frederick National Laboratory for Cancer Research (FNLCR), a Federally Funded Research and Development Center (FFRDC) sponsored by the National Cancer Institute (NCI) or by the Hemostasis Laboratory Branch, Division of Blood Disorders, National Center on Birth Defects and Developmental Disabilities, Centers for Disease Control and Prevention (CDC).</p>
 
         <h3>Panel Composition</h3>
-        <p>Each test was evaluated against “Panel 1”, “Panel 2”, or “Panel 3”, each of which include frozen SARS-CoV-2
-          antibody-positive serum samples (<span className="math inline">\(n=30\)</span>) and frozen antibody-negative serum
-          and Anticoagulant Citrate Dextrose Solution Formula A (ACD-A) plasma samples
-          (<span className="math inline">\(n=80\)</span>). While ACD-A plasma may not be commonly used in clinical
-          practice for serological testing, ACD-A plasma samples were used here because these pre-pandemic samples were
-          most easily acquired from blood banks. The panel size and composition were chosen to enable a laboratory-based
+        <p>Each test was evaluated against “Panel 1”, “Panel 2”, “Panel 3”, or “Panel 4”, each of which include frozen
+          SARS-CoV-2 antibody-positive serum samples (<span className="math inline">\(n=30\)</span>) and frozen
+          antibody-negative serum and Anticoagulant Citrate Dextrose Solution Formula A (ACD-A) plasma samples (<span
+            className="math inline">\(n=80\)</span>). While ACD-A plasma may not be commonly used in clinical practice
+          for serological testing, ACD-A plasma samples were used here because these pre-pandemic samples were most
+          easily acquired from blood banks. The panel size and composition were chosen to enable a laboratory-based
           evaluation and to provide reasonable estimates and confidence intervals for test performance in the context of
           limited sample availability. The sample size is comparable to that of a typical sample size used to support
           Emergency Use Authorization (EUA) by FDA for tests of this type.</p>
@@ -1727,6 +1727,268 @@ class IndexRoute extends React.Component {
         </table>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3260-a001.pdf">NCI’s Independent Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3260-a001.csv">Data File</a></p>
+
+        <h4>Euroimmun Medizinische Labordiagnostika AG EUROIMMUN Anti-SARS-CoV-2 S1 Curve ELISA (IgG)</h4>
+        <p><strong>Manufacturer:</strong> Euroimmun Medizinische Labordiagnostika AG</p>
+        <p><strong>Device:</strong> EUROIMMUN Anti-SARS-CoV-2 S1 Curve ELISA (IgG)</p>
+        <p><strong>Date Performed:</strong> 2021-07-09</p>
+        <p><strong>Lot Number:</strong> E210316AK</p>
+        <p><strong>Panel:</strong> Panel 4</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style={{marginLeft:'auto', marginRight:'auto'}}>
+          <thead>
+          <tr>
+            <th style={{textAlign:'left'}}>
+              Antibody
+            </th>
+            <th style={{textAlign:'left'}}>
+              Performance Measure
+            </th>
+            <th style={{textAlign:'left'}}>
+              Estimate of Performance
+            </th>
+            <th style={{textAlign:'left'}}>
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              86.7% (26/30)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (70.3%; 94.7%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              100% (80/80)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              PPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              100%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (44.7%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              NPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              99.3%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (98.4%; 99.7%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3489-a001.pdf">NCI’s Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3489-a001.csv">Data File</a></p>
+
+        <h4>Euroimmun Medizinische Labordiagnostika AG EUROIMMUN Anti-SARS-CoV-2 S1 Curve ELISA (IgG)</h4>
+        <p><strong>Manufacturer:</strong> Euroimmun Medizinische Labordiagnostika AG</p>
+        <p><strong>Device:</strong> EUROIMMUN Anti-SARS-CoV-2 S1 Curve ELISA (IgG)</p>
+        <p><strong>Date Performed:</strong> 2021-08-13</p>
+        <p><strong>Lot Number:</strong> E210316AK</p>
+        <p><strong>Panel:</strong> Panel 2</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table className="table table-striped table-hover table-condensed"
+               style={{marginLeft:'auto', marginRight:'auto'}}>
+          <thead>
+          <tr>
+            <th style={{textAlign:'left'}}>
+              Antibody
+            </th>
+            <th style={{textAlign:'left'}}>
+              Performance Measure
+            </th>
+            <th style={{textAlign:'left'}}>
+              Estimate of Performance
+            </th>
+            <th style={{textAlign:'left'}}>
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              93.3% (28/30)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (78.7%; 98.2%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              100% (80/80)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (95.4%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              PPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              100%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (47.5%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              NPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              99.7%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (98.8%; 99.9%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3500-a001.pdf">NCI’s Independent
+          Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3500-a001.csv">Data File</a></p>
+
+        <h4>Euroimmun Medizinische Labordiagnostika AG EUROIMMUN Anti-SARS-CoV-2 S1 Curve ELISA (IgG) (combined evaluations)</h4>
+        <p><strong>Manufacturer:</strong> Euroimmun Medizinische Labordiagnostika AG</p>
+        <p><strong>Device:</strong> EUROIMMUN Anti-SARS-CoV-2 S1 Curve ELISA (IgG) (combined evaluations)</p>
+        <p><strong>Date Performed:</strong> 2021-07-09, 2021-08-13</p>
+        <p><strong>Lot Number:</strong> E210316AK</p>
+        <p><strong>Panel:</strong> Panel 4, Panel 2</p>
+        <p><strong>Marketing Status:</strong> EUA Authorized</p>
+        <table class="table table-striped table-hover table-condensed" style={{marginLeft:'auto', marginRight:'auto'}}>
+          <thead>
+          <tr>
+            <th style={{textAlign:'left'}}>
+              Antibody
+            </th>
+            <th style={{textAlign:'left'}}>
+              Performance Measure
+            </th>
+            <th style={{textAlign:'left'}}>
+              Estimate of Performance
+            </th>
+            <th style={{textAlign:'left'}}>
+              95% Confidence Interval
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              Sensitivity
+            </td>
+            <td style={{textAlign:'left'}}>
+              91.1% (51/56)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (80.7%; 96.1%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              Specificity
+            </td>
+            <td style={{textAlign:'left'}}>
+              100% (107/107)
+            </td>
+            <td style={{textAlign:'left'}}>
+              (96.5%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              PPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              100%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (55.1%; 100%)
+            </td>
+          </tr>
+          <tr>
+            <td style={{textAlign:'left'}}>
+              IgG
+            </td>
+            <td style={{textAlign:'left'}}>
+              NPV at prevalence = 5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              99.5%
+            </td>
+            <td style={{textAlign:'left'}}>
+              (99.0%; 99.8%)
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3500-a002.pdf">NCI’s Independent Evaluation Report</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3500-a002.csv">Data File</a></p>
 
         <h4>Euroimmun SARS-COV-2 ELISA (IgG)</h4>
         <p><strong>Manufacturer:</strong> Euroimmun</p>
