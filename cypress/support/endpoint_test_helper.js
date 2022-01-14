@@ -28,6 +28,8 @@ class EndpointPagesTestHelper {
 
     exampleQueries() {
         cy.get(`a[href="${this.baseURL}example-api-queries/"]`).click();
+        this._requestIdleCallback();
+        cy.get('div#body-doc-container textarea').should('be.visible');
         cy.get('div#doc-container>section>h2').should('be.visible');
         cy.get('div#doc-container>section>section').each((section) => {
             cy.wrap(section).within(() => {
@@ -132,6 +134,10 @@ class EndpointPagesTestHelper {
         cy.wait('@download-api-call');
         cy.wait('@search-api-call');
         cy.wait('@search-api-call');
+        this._requestIdleCallback();
+    }
+
+    _requestIdleCallback() {
         cy.window().then({
             timeout: 20000
         }, win => new Cypress.Promise((resolve, reject) => win.requestIdleCallback(resolve)));
