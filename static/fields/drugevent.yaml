@@ -1,4 +1,3 @@
-type: object
 properties:
   authoritynumb:
     format:
@@ -285,6 +284,13 @@ properties:
                   '3': "Unknown"
             drugrecurrence:
               properties:
+                drugrecuractionmeddraversion:
+                  format:
+                  is_exact: true
+                  type: string
+                  pattern:
+                  description: "The version of MedDRA from which the term in `drugrecuraction` is drawn."
+                  possible_values:
                 drugrecuraction:
                   format:
                   is_exact: true
@@ -891,3 +897,4 @@ properties:
     pattern:
     description: "Encoding format of the `transmissiondate` field. Always set to 102 (YYYYMMDD)."
     possible_values:
+type: object
