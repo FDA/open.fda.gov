@@ -76,7 +76,7 @@
     "react-select": "2.4.4",
     "react-sticky-state": "^2.1.9",
     "react-table": "6.9.0",
-    "react-timeseries-charts": "^0.16.1",
+    "react-timeseries-charts": "^0.14.0",
     "react-tippy": "^1.2.3",
     "react-transition-group": "^2.2.1",
     "reactstrap": "^7.1.0",
