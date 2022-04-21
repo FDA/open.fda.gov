@@ -14,91 +14,13 @@ import TwoLevelPieChart from './InteractivePie';
 import Checkbox from "./Checkbox";
 import states from '../pages/apis/states.json'
 import {API_LINK} from '../constants/api'
+import {VictoryChart, VictoryLine, VictoryTooltip, VictoryVoronoiContainer} from "victory";
 
 
 const stringOrNode = PropTypes.oneOfType([
   PropTypes.string,
   PropTypes.node,
 ]);
-
-/*const GravatarOption = createClass({
-  propTypes: {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    isDisabled: PropTypes.bool,
-    isFocused: PropTypes.bool,
-    isSelected: PropTypes.bool,
-    onFocus: PropTypes.func,
-    onSelect: PropTypes.func,
-    option: PropTypes.object.isRequired,
-  },
-  handleMouseDown (event) {
-    event.preventDefault();
-    event.stopPropagation();
-    this.props.onSelect(this.props.option, event);
-  },
-  handleMouseEnter (event) {
-    this.props.onFocus(this.props.option, event);
-  },
-  handleMouseMove (event) {
-    if (this.props.isFocused) return;
-    this.props.onFocus(this.props.option, event);
-  },
-  render () {
-    let gravatarStyle = {
-      borderRadius: 3,
-      display: 'inline-block',
-      marginRight: 10,
-      position: 'relative',
-      top: -2,
-      verticalAlign: 'middle',
-    };
-    return (
-      <div className={this.props.className}
-        onMouseDown={this.handleMouseDown}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseMove={this.handleMouseMove}
-        title={this.props.option.title}>
-        <input type="checkbox" checked={this.props.option.isSelected}/>
-          <div style={{
-              width: 20,
-              height: 20,
-              backgroundColor: this.props.option.color,
-              display: 'inline-block',
-              paddingTop: 5
-            }}>
-          </div>
-          {"  "}{ this.props.option.label }
-      </div>
-    );
-  }
-});
-
-const GravatarValue = createClass({
-  propTypes: {
-    children: PropTypes.node,
-    placeholder: stringOrNode,
-    value: PropTypes.object,
-    ref: PropTypes.any
-  },
-  render () {
-    var gravatarStyle = {
-      borderRadius: 3,
-      display: 'inline-block',
-      marginRight: 10,
-      position: 'relative',
-      top: -2,
-      verticalAlign: 'middle',
-    };
-    return (
-      <div className="Select-value" title={this.props.value.title}>
-        <span className="Select-value-label select-label">
-            Select <i className="select-placeholder">{this.props.placeholder}</i> to Compare
-        </span>
-      </div>
-    );
-  }
-});*/
 
 
 class PieChartInfographic extends React.Component {
@@ -128,6 +50,7 @@ class PieChartInfographic extends React.Component {
       trackerEvent: null,
       sparklineData:  null,
       lineChartColumns: [],
+      mappedSeries: {},
       trackerInfoValues: "",
       infoHeight: 0,
       activeIndex: null,
@@ -145,12 +68,13 @@ class PieChartInfographic extends React.Component {
     this.renderOption = this.renderOption.bind(this)
     this.onSelectionChange = this.onSelectionChange.bind(this)
     this.setTextStyle = this.setTextStyle.bind(this)
-
   }
+
   componentWillReceiveProps(){
 
     this.setState({lineChartLoaded: 0}, this.componentDidMount())
   }
+
   componentDidMount () {
     const that = this
 
@@ -323,6 +247,8 @@ class PieChartInfographic extends React.Component {
         // clean to original
         let terms = {};
 
+        //console.log("res: ", res)
+
         let localSearchField = searchField;
 
         let columns = res.results.filter( (value) => {
@@ -392,6 +318,8 @@ class PieChartInfographic extends React.Component {
 
           results = results.filter((r,index) => errors.indexOf(index) === -1)
 
+          //console.log("results: ", results)
+
           columns = columns.filter((column, index) => errors.indexOf(index) === -1)
 
           // columns =
@@ -406,6 +334,7 @@ class PieChartInfographic extends React.Component {
               return that.props.infographicDefinitions.acceptedTerms[val.toUpperCase()]
             })
           }
+
           //////
           const useProductCodes = (that.props.globalDefs.productCodes !== undefined && that.props.infographicDefinitions.useProductCodes)
           const useStatesNames = (that.props.infographicDefinitions.subfield === "state.exact")
@@ -421,9 +350,19 @@ class PieChartInfographic extends React.Component {
             return cleanedColumnName.slice(0,55)
           })
 
-          const listOfSeries = []
+          //console.log("columns: ", columns)
+
+          const listOfSeries = {}
+          let mappedSeries = {}
 
           for (let i = 0, len = results.length; i < len; i++) {
+            /*let new_results = results[i].results.filter(v => {
+              return parseInt(v.time.slice(0,4)) >= that.props.globalDefs.startYear
+            }).map(function(i){
+              let xDate = new Date(i.time.slice(0,4) + '-' + i.time.slice(4,6) + '-' + i.time.slice(6,8))
+              return {x: new Date(xDate.getTime() - xDate.getTimezoneOffset() * -60000), y: i.count}
+            })
+            console.log("new: ", new_results)*/
             let series = new TimeSeries({
               name: "timeseries",
               columns: ["time","value"],
@@ -442,20 +381,30 @@ class PieChartInfographic extends React.Component {
             }).toJSON()
 
             if(series !== undefined){
-              listOfSeries.push(series.points)
+              mappedSeries[columns[i]] = {
+                color: this.props.globalDefs.lineChartConfig.colors[i],
+                data: series.points.map(v => {
+                  return {x: v[0], y: v[1]}
+                })
+              }
+              listOfSeries[columns[i]] = series.points
             }
           }
+
+          console.log("list of series: ", listOfSeries)
+
+          console.log("mapped: ", mappedSeries)
 
           // get all timestamps
           // use obj to avoid duplicates
           let timestamps = {};
           // for each column of aggregated points
-          listOfSeries.forEach( arr => {
-            arr.forEach( val => {
+          for (let i = 0, len = listOfSeries.length; i < len; i++) {
+            listOfSeries[i].forEach( val => {
               // add timestamp for each series to timestamps with default 0
               timestamps[val[0]] = 0
             })
-          })
+          }
           timestamps = Object.keys(timestamps).sort();
           let timestampsPosition = {};
           timestamps.forEach( (key, i) => timestampsPosition[key] = i );
@@ -463,10 +412,10 @@ class PieChartInfographic extends React.Component {
 
           // normalize
           const normalizedSeries = []
-          listOfSeries.forEach( arr => {
+          for (let i = 0, len = listOfSeries.length; i < len; i++) {
             const normalizedSerie = new Array(timestamps.length).fill(null);
 
-            arr.forEach( val => {
+            listOfSeries[i].forEach( val => {
               let timestamp = val[0],
                   value = val[1],
                   index = timestampsPosition[timestamp];
@@ -475,20 +424,20 @@ class PieChartInfographic extends React.Component {
               normalizedSerie[index] = value
             })
             normalizedSeries.push(normalizedSerie)
-          })
+          }
 
           // transpose..... from list of points per series, to a list of points per timestamp
-          let res = this.transpose(timestamps, normalizedSeries)
+          //let res = this.transpose(timestamps, normalizedSeries)
 
-          let final = res.final,
+          /*let final = res.final,
               findMax = res.findMax,
-              rows = res.rows;
+              rows = res.rows;*/
 
-          let series = new TimeSeries({
+          /*let series = new TimeSeries({
             name: "timeseries",
             columns: ["time"].concat(columns),
             points: final.sort( (a,b) => a[0] - b[0])
-          })
+          })*/
 
           // set style according to categories
           let legendStyle = styler(columns.map((column,idx)=> {
@@ -527,10 +476,11 @@ class PieChartInfographic extends React.Component {
             allMaxes,
             columnStyles,
             legendStyle: legendStyle1,
-            timerange: new TimeRange(new Date(series.toJSON().points[0][0]), that.state.maxTime),
+            mappedSeries,
+            //timerange: new TimeRange(new Date(series.toJSON().points[0][0]), that.state.maxTime),
             selectedClassName: that.props.infographicDefinitions.defs[data.id],
-            sparklineData: series,
-            sparklineDataMax: Math.max(...findMax),
+            //sparklineData: series,
+            //sparklineDataMax: Math.max(...findMax),
             lineChartColumns: ["time"].concat(columns),
             lineChartLoaded: that.state.lineChartLoaded += 1
           },function(){
@@ -728,8 +678,26 @@ class PieChartInfographic extends React.Component {
       $('.recharts-wrapper').width(this.props.infographicDefinitions.pieChartConfig.widthReset)
       this.setPieChartText()
 
+    //console.log("line chart columns: ", this.state.lineChartColumns, "line data: ", this.state.sparklineData)
+
+    let victoryGroups = Object.entries(this.state.mappedSeries).map(data => {
+      //console.log("data: ", data)
+      return <VictoryLine
+        data={data[1]['data']}
+        key={data[0]}
+        name={data[0]}
+        style={{
+          data: {
+            stroke: data[1]['color'],
+            strokeWidth: (d, active) => {return active ? 3 : 2;}
+          },
+          labels: { fill: data[1]['color'] }
+        }}
+      />
+    })
+
     return (
-        <section className='infographic-container'>
+      <section className='infographic-container'>
         <div>
           <p className='datamap-infographic-header'>
             {Parser(this.props.infographicDefinitions.title)}
@@ -760,73 +728,55 @@ class PieChartInfographic extends React.Component {
         </div>
 
         <div className="flex-box piechart-container">
-          <TwoLevelPieChart
-            onClick={this.onClick}
-            data={this.state.data}
-            ref="child"
-            parent={this}
-            {...this.props.globalDefs.pieChartConfig}
-            {...this.props.infographicDefinitions.pieChartConfig}
-          />
-          { !this.state.sparklineData ?
-                <div className="infographic-loading-div">
-                  <img src="/img/loading.gif" className="infographic-loading-img"/>
+          <div className="infographic-container-left">
+            <TwoLevelPieChart
+              onClick={this.onClick}
+              data={this.state.data}
+              ref="child"
+              parent={this}
+              {...this.props.globalDefs.pieChartConfig}
+              {...this.props.infographicDefinitions.pieChartConfig}
+            />
+            { !this.state.mappedSeries ? null :
+              <div className="infographic-bottom">
+                <div className="piechart-legend-div">
+                  <div className="piechart-header">Select <i className="select-placeholder">{this.props.parent.state.choice.subfieldLabel}</i> to Compare</div>
+                  <div className="piechart-legend">
+                    {this.state.columnStyles && this.state.columnStyles.map(this.createCheckbox)}
+                  </div>
                 </div>
-                :
-                <ChartContainer
-                  timeRange={this.state.timerange}
-                  enablePanZoom={this.state.enablePanZoom}
-                  onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
-                  trackerPosition={this.state.tracker}
-                  onTrackerChanged={this.handleTrackerChanged}
-                  minTime={this.state.minTime}
-                  maxTime={this.state.maxTime}
-                  onChartResize={this.handleChartResize}
-                  {...this.props.globalDefs.lineChartConfig.chartContainer}
-                >
-                    <ChartRow
-                      {...this.props.globalDefs.lineChartConfig.chartRow}
-                    >
-                        <YAxis
-                          id="axis1"
-                          max={this.state.sparklineDataMax}
-                          {...this.props.globalDefs.lineChartConfig.yAxis}
-                        />
-                        <Charts>
-                            <LineChart
-                              style={this.state.legendStyle}
-                              axis="axis1"
-                              series={this.state.sparklineData}
-                              columns={this.state.lineChartColumns}
-                              onSelectionChange={this.onSelectionChange}
-                              smooth={true}
-                              {...this.props.globalDefs.lineChartConfig.lineChart}
-                            />
-                              <EventMarker
-                                type="flag"
-                                axis="axis1"
-                                event={this.state.trackerEvent}
-                                column={this.state.selection}
-                                infoHeight={this.state.infoHeight}
-                                info={this.state.trackerInfoValues}
-                                {...this.props.globalDefs.lineChartConfig.eventMarker}
-                              />
-                        </Charts>
-                    </ChartRow>
-                </ChartContainer>
+              </div>
+            }
+          </div>
+          { !this.state.mappedSeries ?
+          <div className="infographic-loading-div">
+            <img src="/img/loading.gif" className="infographic-loading-img"/>
+          </div>
+          :
+            <VictoryChart
+              containerComponent={
+                <VictoryVoronoiContainer
+                  mouseFollowTooltips
+                  voronoiDimension='x'
+                  labels={({ datum }) => `${datum.childName}: ${datum.y}`}
+                  labelComponent={
+                    <VictoryTooltip
+                      cornerRadius={0}
+                      flyoutStyle={{ fill: "white" }}
+                    />
+                  }
+                />
+              }
+              height={535}
+              width={1600}
+              padding={{ top: 0, left: 0, right: 0, bottom: 40 }}
+              scale={{ x: "time" }}
+            >
+              {victoryGroups}
+            </VictoryChart>
           }
         </div>
-        { !this.state.sparklineData ? null :
-          <div className="infographic-bottom">
-            <div className="piechart-legend-div">
-              <div className="piechart-header">Select <i className="select-placeholder">{this.props.parent.state.choice.subfieldLabel}</i> to Compare</div>
-              <div className="piechart-legend">
-              {this.state.columnStyles && this.state.columnStyles.map(this.createCheckbox)}
-              </div>
-            </div>
-          </div>
-        }
-        </section>
+      </section>
     )
   }
 }
