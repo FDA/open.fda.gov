@@ -9,7 +9,7 @@ description: 'The Center for Food Safety and Applied Nutrition Adverse Event Rep
 source:
   name: 'CAERS'
   nameLong: 'Center for Food Safety and Applied Nutrition Adverse Event Reporting System'
-  link: 'http://www.fda.gov/AboutFDA/CentersOffices/OfficeofFoods/CFSAN/ContactCFSAN/'
+  link: 'https://www.fda.gov/food/compliance-enforcement-food/cfsan-adverse-event-reporting-system-caers'
 license:
   name: 'Public Domain and CC0'
   link: 'http://creativecommons.org/publicdomain/zero/1.0/'

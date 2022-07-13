@@ -5,9 +5,9 @@ crumbs:
   - Datasets
   - MAUDE
 title: 'Manufacturer and User Facility Device Experience'
-description: 'Structured Product Labeling (SPL) is a document markup standard approved by Health Level Seven (HL7) and adopted by FDA as a mechanism for exchanging product and facility information.'
+description: 'The MAUDE database houses medical device reports (MDRs) submitted to the FDA by mandatory reporters (manufacturers, importers and device user facilities) and voluntary reporters such as health care professionals, patients and consumers.'
 source:
-  name: 'RES'
+  name: 'MAUDE'
   nameLong: 'Manufacturer and User Facility Device Experience'
   link: 'http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfmaude/search.cfm'
   linkDownload: 'http://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfmaude/search.cfm'
