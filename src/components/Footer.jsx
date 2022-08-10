@@ -37,6 +37,10 @@ const links: Array<Object> = [
     url: 'https://www.fda.gov/about-fda/about-website/website-policies'
   },
   {
+    txt: 'Vulnerability Disclosure Policy',
+    url: 'https://www.hhs.gov/vulnerability-disclosure-policy/index.html'
+  },
+  {
     txt: 'Privacy Policy',
     url: 'https://www.fda.gov/about-fda/about-website/website-policies#privacy'
   },
@@ -51,12 +55,10 @@ const links: Array<Object> = [
   {
     txt: 'Email the openFDA team',
     url: 'mailto:open@fda.hhs.gov',
-  },
+  }
 ]
 
 const aCx: string = 'clr-white inline-block small'
-const hhsCx = 'col pad-r-1 flex-box align-end dir-column m-marg-t-2 m-marg-l-2 hhs'
-const hhsACx = 'clr-white relative hhs'
 
 // PreFooter should remain stateless
 // although, it technically isn't pure
