@@ -3572,12 +3572,12 @@ class IndexRoute extends React.Component {
           Evaluation Report</a></p>
         <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3356-a002.csv">Data File</a></p>
 
-        <h4>LumiraDx UK Ltd LumiraDx SARS-CoV-2 Ab Test</h4>
-        <p><strong>Manufacturer:</strong> LumiraDx UK Ltd</p>
+        <h4>LumiraDX UK Ltd LumiraDx SARS-CoV-2 Ab Test</h4>
+        <p><strong>Manufacturer:</strong> LumiraDX UK Ltd</p>
         <p><strong>Device:</strong> LumiraDx SARS-CoV-2 Ab Test</p>
-        <p><strong>Date Performed:</strong> 2021-06-17</p>
-        <p><strong>Lot Number:</strong> 5000420</p>
-        <p><strong>Panel:</strong> Panel 4</p>
+        <p><strong>Date Performed:</strong> 2022-07-27 through 2022-07-28</p>
+        <p><strong>Lot Number:</strong> 5000672</p>
+        <p><strong>Panel:</strong> Panel 3</p>
         <p><strong>Marketing Status:</strong> EUA Authorized</p>
         <table className="table table-striped table-hover table-condensed"
                style={{marginLeft:'auto', marginRight:'auto'}}>
@@ -3620,10 +3620,10 @@ class IndexRoute extends React.Component {
               Specificity
             </td>
             <td style={{textAlign:'left'}}>
-              100% (80/80)
+              98.8% (79/80)
             </td>
             <td style={{textAlign:'left'}}>
-              (95.4%; 100%)
+              (93.3%; 99.8%)
             </td>
           </tr>
           <tr>
@@ -3634,10 +3634,10 @@ class IndexRoute extends React.Component {
               PPV at prevalence = 5%
             </td>
             <td style={{textAlign:'left'}}>
-              100%
+              80.8%
             </td>
             <td style={{textAlign:'left'}}>
-              (50.5%; 100%)
+              (40.9%; 96.0%)
             </td>
           </tr>
           <tr>
@@ -3656,9 +3656,9 @@ class IndexRoute extends React.Component {
           </tr>
           </tbody>
         </table>
-        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3484-a001.pdf">NCI’s Independent
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3598-a001.pdf">NCI’s Independent
           Evaluation Report</a></p>
-        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3484-a001.csv">Data File</a></p>
+        <p><a href="https://www.accessdata.fda.gov/cdrh_docs/presentations/maf/maf3598-a001.csv">Data File</a></p>
 
         <h4>Megna Health Inc. Megna Rapid COVID-19 IgM/IgG Combo Test Kit</h4>
         <p><strong>Manufacturer:</strong> Megna Health Inc.</p>
