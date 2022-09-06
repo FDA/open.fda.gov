@@ -16,6 +16,7 @@ import meta from './_meta.yaml'
 import datasets from './_datasets.yaml'
 import help_config from './help_config.yaml'
 import infographicsConfig from './_infographics.json'
+import '../../../css/components/DatasetExplorer.scss'
 
 class DataExplorer extends React.Component {
 

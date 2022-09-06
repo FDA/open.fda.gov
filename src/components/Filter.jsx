@@ -5,11 +5,12 @@ import React from 'react'
 import { default as ReactTable } from "react-table"
 
 import Checkbox from 'rc-checkbox'
-import Select from 'react-select'
+import AsyncSelect from 'react-select/async'
 import Moment from 'moment'
 import withQuery from 'with-query'
 import ReactModal from 'react-modal'
 import update from 'immutability-helper'
+import '../css/components/Filter.scss'
 
 require('react-datetime');
 
@@ -20,15 +21,18 @@ import 'rc-checkbox/assets/index.css'
 
 class SelectAutoCompleteFilterComponent extends React.Component {
 
- constructor (props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {
-      values: [],
-      elements:  null,
       autocomplete_field: null,
-      field: null
+      elements:  null,
+      field: null,
+      input_value: '',
+      selected_options: [],
+      values: []
     }
+
     this.onChange = this.onChange.bind(this)
     this.removeValue = this.removeValue.bind(this)
     this.escapeRegexCharacters = this.escapeRegexCharacters.bind(this)
@@ -72,7 +76,6 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     }
   }
 
-
   removeValue(idx){
     const value = this.props.filters[this.props.option.idx].value[idx]
 
@@ -85,36 +88,32 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     })
   }
 
-  getOptions(value, callback) {
-    if(value){
+  getOptions(inputValue) {
+    if(inputValue){
       return fetch(
         withQuery(`${this.props.dataset.url}/${this.props.dataset.endpoint}`,{
           searchField: this.props.option.autocomplete_field,
-          searchText: value,
+          searchText: inputValue,
           searchType: 'autocomplete',
           limit: this.props.option.limit
         })
-      ).then(res => res.json())
-        .then((json) => {
-          var r = json.results.map(value => {
-            return {
-              value: value,
-              label: value
-            }
-          })
+      ).then(res => res.json()).then((json) => {
+        return json.results.map(value => {
           return {
-            'options': r
+            value: value,
+            label: value
           }
         })
-        .catch((err) => {
-          return {
-            options: []
-          }
-        })
+      })
+      .catch((err) => {
+        return []
+      })
     } else {
-      callback(null, {
-        options: this.state.options,
-        complete: true,
+      //console.log("options: ", this.state.options)
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(this.state.options);
+        }, 1000);
       })
     }
   }
@@ -155,13 +154,13 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     })
   }
 
-  onChange(selectionObj){
+  onChange(selectionObj, event){
     this.setState({
-      value: this.props.option.placeholder
+      selected_options: selectionObj
     })
 
     if (this.props.onChange){
-      this.props.onChange(selectionObj, {
+      this.props.onChange(event.option, {
         field: this.props.option.field,
         idx: this.props.option.idx
       })
@@ -169,9 +168,18 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
+    const customStyles = {
+      container: (provided) => ({
+        ...provided,
+        paddingRight: 30,
+        width: '100%'
+      })
+    }
+
     if(!this.props.filters.length){
       return (<span/>)
     }
+
     const elements = this.formatValues(this.props.filters[this.props.option.idx].value)
 
     return (
@@ -184,14 +192,18 @@ class SelectAutoCompleteFilterComponent extends React.Component {
           }
           </h3>
         </div>
-        <Select.Async
-          value={this.state.value}
-          className='filter-select'
-          placeholder={this.props.option.placeholder}
-          onChange={this.onChange}
+        <AsyncSelect
+          cacheOptions
+          closeMenuOnSelect={false}
+          controlShouldRenderValue={false}
+          defaultOptions
+          isClearable={false}
+          isMulti
           loadOptions={this.getOptions}
-          clearable={false}
-          aria-label={this.props.option.label}
+          onChange={this.onChange}
+          placeholder={this.props.option.placeholder}
+          styles={customStyles}
+          value={this.state.selected_options}
         />
         {elements}
       </div>
@@ -628,7 +640,7 @@ class YearPickerFilterComponent extends React.Component {
     return (
       <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
         <p>Start Year:</p>
-        <Select
+        <AsyncSelect
           value={this.state.startYear}
           className='filter-select'
           placeholder='Select start date'
@@ -638,7 +650,7 @@ class YearPickerFilterComponent extends React.Component {
           clearable={false}
         />
         <p>End Year:</p>
-        <Select
+        <AsyncSelect
           value={this.state.endYear}
           className='filter-select'
           placeholder='Select end date'
@@ -744,7 +756,7 @@ class RangeQueryFilterComponent extends React.Component {
         return (
             <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
                 <p>Start Year:</p>
-                <Select
+                <AsyncSelect
                     value={this.state.startValue}
                     className='filter-select'
                     placeholder='Select Start Year'
@@ -754,7 +766,7 @@ class RangeQueryFilterComponent extends React.Component {
                     clearable={false}
                 />
                 <p>End Year:</p>
-                <Select
+                <AsyncSelect
                     value={this.state.endValue}
                     className='filter-select'
                     placeholder='Select End Year'
@@ -775,7 +787,6 @@ class FilterComponent extends React.Component {
     super(props)
 
     this.state = {
-      displayFilters: true,
       selected_filters: this.props.filters
     }
 
@@ -830,6 +841,7 @@ class FilterComponent extends React.Component {
   onChangeSelect(selectionObj, meta) {
     const value = selectionObj.value
 
+    console.log("selectd filt: ", this.state.selected_filters[meta.idx])
     // contains value already
     if ( this.state.selected_filters[meta.idx].value.indexOf(value) > -1 ) {
       this.setState({
@@ -873,17 +885,12 @@ class FilterComponent extends React.Component {
     if (this.state.displayFilters === false) {
       document.getElementById("filter-sidebar").style.width = "23%"
       document.getElementById("dataset-explorer-content").style.width = "75%"
-      document.getElementById("chart-background").style.width = "90%"
       document.getElementById("fa-angle-double-left").style.transform = "scale(1, 1)"
     } else {
-      document.getElementById("filter-sidebar").style.display = "none"
-      document.getElementById("dataset-explorer-content").style.width = "100%"
-      document.getElementById("chart-background").style.width = "67.5%"
+      document.getElementById("filter-sidebar").style.width = "0%"
+      document.getElementById("dataset-explorer-content").style.width = "97%"
       document.getElementById("fa-angle-double-left").style.transform = "scale(-1, 1)"
     }
-    this.setState({
-      displayFilters: !this.state.displayFilters
-    })
   }
 
 
@@ -902,6 +909,7 @@ class FilterComponent extends React.Component {
             help_config={this.props.help_config}
             key={`filter${idx}`}
             onChange={this.onChangeSelect}
+            clearAllFilter={this.props.clearAllFilters}
             option={option}
             options={option.options}
             parent={this.props.parent}
@@ -971,8 +979,6 @@ class FilterComponent extends React.Component {
 
     })
 
-    console.log("hide: ", this.props.hideContent)
-
     return (
       <div className={'filter-sidebar ' + (this.props.displayFilters ? ' ': 'display-none')} id='filter-sidebar'>
         <div className='filter-components'>
@@ -980,7 +986,7 @@ class FilterComponent extends React.Component {
           components
         }
         </div>
-        <div className={'sidebar-buttons ' + (this.state.displayFilters ? '' : 'display-none')}>
+        <div className={'sidebar-buttons ' + (this.props.hideContent ? ' ': 'display-none')}>
           <button className={this.props.hideContent ? 'filter-bg-darker-blue': 'filter-bg-light-blue'} onClick={() => this.props.updateSelectedFilters(this.state.selected_filters)}>
             APPLY FILTERS
           </button>

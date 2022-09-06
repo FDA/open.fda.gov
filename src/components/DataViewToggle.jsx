@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react'
+import '../css/components/DataViewToggle.scss'
 
 type tPROPS = {
   visualization: boolean,
@@ -29,11 +30,11 @@ const DataViewToggle = (props: tPROPS) => {
 
   return (
     <div className='data-view-toggle'>
-      <div className={visualization ? 'unselected': 'selected'} onClick={toggleTable}>
+      <div className={visualization ? 'unselected' : 'selected'} onClick={toggleTable}>
         <i className='fa fa-lg fa-table' />
         <span>Table View</span>
       </div>
-      <div className={visualization ? 'selected': 'unselected'} onClick={toggleChart}>
+      <div className={visualization ? 'selected' : 'unselected'} onClick={toggleChart}>
         <i className='fa fa-lg fa-bar-chart' />
         <span>Chart View</span>
       </div>
