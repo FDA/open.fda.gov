@@ -179,21 +179,7 @@ const Nav = (props: tPROPS) => {
                   <div className='sub-menu-container' role='navigation'>
                     <Link className={linkCx} to='/data/datadictionary' onClick={closeMobileNav}>Data Dictionary</Link>
                     <Link className={linkCx} to='/data/downloads/' onClick={closeMobileNav}>Downloads</Link>
-                    <Link className={linkCx} to='/tools/dataexplorer/' onClick={closeMobileNav}>Dataset Explorer</Link>
-                  </div>
-                </div>
-              </div>
-              <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
-                <span
-                  title='Tools'
-                  className={path.indexOf('tools') >= 0 ? 'menu-header header-selected emphasis': activeDropdown==='Tools' ? 'menu-header emphasis': 'menu-header'}
-                  onTouchStart={toggleDropdownContent}
-                >Tools <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
-                <div className={path.indexOf('tools') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
-                <div className={activeDropdown==='Tools' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
-                  <div className='sub-menu-container' role='navigation'>
-                    <Link className={linkCx} to='/tools/downloads/' onClick={closeMobileNav}>Downloads</Link>
-                    <Link className={linkCx} to='/tools/dataexplorer/' onClick={closeMobileNav}>Dataset Explorer</Link>
+                    <Link className={linkCx} to='/data/dataexplorer/' onClick={closeMobileNav}>Dataset Explorer</Link>
                   </div>
                 </div>
               </div>
