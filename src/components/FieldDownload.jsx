@@ -2,7 +2,7 @@ import React from 'react'
 import '../css/components/FieldDownload.scss'
 
 const pdfDownloadMap: Object = Object.freeze({
-  'animalandveterinaryevent': '/fields/animalandveterinaryevent_reference.pdf',
+  'animalandveterinarydrugevent': '/fields/animalandveterinaryevent_reference.pdf',
   'animalandveterinarylabel': '/fields/animalandveterinarylabel_reference.pdf',
   'foodevent': '/fields/foodevent_reference.pdf',
   'foodenforcement': '/fields/foodenforcement_reference.pdf',
@@ -26,7 +26,7 @@ const pdfDownloadMap: Object = Object.freeze({
 })
 
 const xlsxDownloadMap: Object = Object.freeze({
-  'animalandveterinaryevent': '/fields/animalandveterinaryevent_reference.xlsx',
+  'animalandveterinarydrugevent': '/fields/animalandveterinaryevent_reference.xlsx',
   'animalandveterinarylabel': '/fields/animalandveterinarylabel_reference.xlsx',
   'foodevent': '/fields/foodevent_reference.xlsx',
   'foodenforcement': '/fields/foodenforcement_reference.xlsx',
@@ -50,7 +50,7 @@ const xlsxDownloadMap: Object = Object.freeze({
 })
 
 const yamlDownloadMap: Object = Object.freeze({
-  'animalandveterinaryevent': '/fields/animalandveterinaryevent.yaml',
+  'animalandveterinarydrugevent': '/fields/animalandveterinaryevent.yaml',
   'animalandveterinarylabel': '/fields/animalandveterinarylabel.yaml',
   'foodevent': '/fields/foodevent.yaml',
   'foodenforcement': '/fields/foodenforcement.yaml',

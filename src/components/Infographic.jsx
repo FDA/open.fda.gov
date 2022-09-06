@@ -6,7 +6,7 @@ import marked from 'marked'
 import ChartBar from './ChartBar'
 import ChartDonut from './ChartDonut'
 import {default as ChartLine} from './ChartLine'
-import Filters from './Filters'
+import Filter from './InfoFilter'
 
 import bp from '../constants/breakpoints'
 import BPContainer from '../containers/BreakpointContainer'
@@ -101,7 +101,7 @@ const Infographic = (props: tPROPS) => {
     ''
 
   // add breakpoint logic to filter
-  const FilterWithState: ReactClass = BPContainer(Filters, {
+  const FilterWithState: ReactClass = BPContainer(Filter, {
     filters: filters,
     onChange: onSearchChangeUpdate,
     selected: searchParam,
