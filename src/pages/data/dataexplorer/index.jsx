@@ -17,6 +17,7 @@ import datasets from './_datasets.yaml'
 import help_config from './help_config.yaml'
 import infographicsConfig from './_infographics.json'
 import '../../../css/components/DatasetExplorer.scss'
+import '../../../css/components/ReactSelect.scss'
 
 class DataExplorer extends React.Component {
 
@@ -260,6 +261,14 @@ class DataExplorer extends React.Component {
 
   render (): ?React.Element {
     const renderDataViewToggle = this.state.dataset.showChartView
+
+    const customStyles = {
+      container: (provided) => ({
+        ...provided,
+        height: 36,
+        width: 300
+      })
+    }
     return (
       <section>
         <Hero
@@ -283,6 +292,7 @@ class DataExplorer extends React.Component {
                   resetValue='label'
                   value={this.state.dataset}
                   aria-label='Select Dataset'
+                  styles={customStyles}
                 />
                 {
                   this.state.dataset.views.length > 1 &&
