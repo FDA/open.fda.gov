@@ -254,7 +254,7 @@ names:
             show: false
             showDefault: false
     endpoint: animalandveterinary/label.json
-    url: http://ec2-18-233-57-46.compute-1.amazonaws.com:8000
+    url: http://ec2-54-235-185-244.compute-1.amazonaws.com:8000
     filters:
       options:
         - label: Time Period
@@ -340,7 +340,7 @@ names:
           placeholder: Search Business Operation
           limit: 100
         - label: Generic Name
-          field: openfda.generic_name_exact
+          field: openfda.generic_name.exact
           autocomplete_field: openfda.generic_name
           query_type: term
           type: select_autocomplete

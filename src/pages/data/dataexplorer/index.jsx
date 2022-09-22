@@ -4,6 +4,7 @@ import React from 'react'
 import Select from 'react-select'
 import _ from 'lodash'
 import update from 'immutability-helper'
+import {default as $} from 'jquery'
 
 import Hero from '../../../components/Hero/index'
 import FilterComponent from '../../../components/Filter'
@@ -252,7 +253,6 @@ class DataExplorer extends React.Component {
   }
 
   toggleFilters() {
-
     this.setState({
       displayFilters: !this.state.displayFilters
     })
@@ -279,7 +279,7 @@ class DataExplorer extends React.Component {
             <div className='dataset-explorer'>
               <div className='dataset-explorer-menubar'>
                 <div className='filter-toggle-button' onClick={this.toggleFilters}>
-                  <i className='fa fa-lg fa-angle-double-left' id='fa-angle-double-left'/>
+                  <i className={'fa fa-lg fa-angle-double-left' + (this.state.displayFilters ? '': ' right')} id='fa-angle-double-left'/>
                   <i className='fa fa-lg fa-filter'/>
                 </div>
                 <em>I'm interested in:</em>

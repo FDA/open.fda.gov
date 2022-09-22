@@ -52,21 +52,16 @@
   > .Select {
     height: 36px;
     width: 300px;
-
-    //> div > *:last-child {
-    //  padding-top: 2px
-    //}
-
-    .filter-toggle-button {
-      background: #F2F5F7;
-      color: #5990AC;
-      padding: 15px 8px;
-      border-radius: 3px;
-      border-width: 1px;
-      border-style: solid;
-      border-color: #BFD4DF;
-      cursor: pointer;
-    }
+  }
+  .filter-toggle-button {
+    background: #F2F5F7;
+    color: #5990AC;
+    padding: 15px 8px;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #BFD4DF;
+    cursor: pointer;
 
     i:first-child {
       margin-right: 5px;
@@ -77,11 +72,16 @@
       transition: .5s;
     }
 
+    .right{
+      -moz-transform:rotate(180deg);
+      -webkit-transform:rotate(180deg);
+      transform:rotate(180deg);
+    }
+
     > i {
       color: #94b2ce;
       cursor: pointer;
       transition: .2s linear;
-      margin-left: 20px;
     }
 
     &:hover {
