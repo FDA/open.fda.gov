@@ -25,6 +25,10 @@
   }
 }
 
+.display-none {
+  display: none !important;
+}
+
 .filter-sidebar::-webkit-scrollbar {
   width: 6px;
   height: 6px;

@@ -26,7 +26,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
 
     this.state = {
       autocomplete_field: null,
-      elements:  null,
+      elements: null,
       field: null,
       input_value: '',
       selected_options: [],
@@ -45,16 +45,16 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     this.setState({
       options: []
     })
-    if(!this.props.filters.length){
+    if (!this.props.filters.length){
       return
     }
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps (nextProps){
     const field = nextProps.option.field
     const autocomplete_field = nextProps.option.autocomplete_field
 
-    if(
+    if (
       field === this.state.field
       && autocomplete_field === this.state.autocomplete_field
         && nextProps.endpoint === this.state.endpoint
@@ -62,7 +62,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
       return
     }
 
-    if(nextProps.option.can_query){
+    if (nextProps.option.can_query){
       this.setState({
         autocomplete_field,
         field
@@ -76,7 +76,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     }
   }
 
-  removeValue(idx){
+  removeValue (idx){
     const value = this.props.filters[this.props.option.idx].value[idx]
 
     this.props.onChange({
@@ -89,7 +89,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
   }
 
   getOptions(inputValue) {
-    if(inputValue){
+    if (inputValue){
       return fetch(
         withQuery(`${this.props.dataset.url}/${this.props.dataset.endpoint}`,{
           searchField: this.props.option.autocomplete_field,
@@ -104,12 +104,11 @@ class SelectAutoCompleteFilterComponent extends React.Component {
             label: value
           }
         })
-      })
-      .catch((err) => {
+      }).catch((err) => {
         return []
       })
     } else {
-      //console.log("options: ", this.state.options)
+      // console.log("options: ", this.state.options)
       return new Promise(resolve => {
         setTimeout(() => {
           resolve(this.state.options);
@@ -118,11 +117,11 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     }
   }
 
-  escapeRegexCharacters(str) {
+  escapeRegexCharacters (str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
-  onInputKeyDown(value){
+  onInputKeyDown (value){
     const escapedValue = this.escapeRegexCharacters(value.trim())
     this.getSuggestions(escapedValue).then(results => {
       if (!results){
@@ -141,7 +140,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
 
   }
 
-  formatValues(values){
+  formatValues (values){
     return values.map((value,idx) => {
       return (
         <div key={`value-${idx}`} className='selected-filter'>
@@ -154,7 +153,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     })
   }
 
-  onChange(selectionObj, event){
+  onChange (selectionObj, event){
     this.setState({
       selected_options: selectionObj
     })
@@ -176,7 +175,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
       })
     }
 
-    if(!this.props.filters.length){
+    if (!this.props.filters.length){
       return (<span/>)
     }
 
@@ -186,10 +185,10 @@ class SelectAutoCompleteFilterComponent extends React.Component {
       <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
         <div className='flex-row'>
           <h3 className='filter-header'>{this.props.option.label}
-          {
-            this.props.option.help_id &&
-              <HelpWindow help_obj={this.props.help_config[this.props.option.help_id]} />
-          }
+            {
+              this.props.option.help_id &&
+                <HelpWindow help_obj={this.props.help_config[this.props.option.help_id]} />
+            }
           </h3>
         </div>
         <AsyncSelect
@@ -360,13 +359,13 @@ class CheckboxFilterComponent extends React.Component {
     });
     const cols = []
     output.forEach(function(item, idx){
-        cols.push(<div className="column" key={`column${idx}`}>{item}</div>)
+      cols.push(<div className="column" key={`column${idx}`}>{item}</div>)
     })
 
     return (
-        <div className="row">
-            {cols}
-        </div>
+      <div className="row">
+        {cols}
+      </div>
     )
   }
 }
@@ -443,13 +442,13 @@ class BooleanFilterComponent extends React.Component {
 
     const cols = []
     output.forEach(function(item, idx){
-        cols.push(<div className="column" key={`column${idx}`}>{item}</div>)
+      cols.push(<div className="column" key={`column${idx}`}>{item}</div>)
     })
 
     return (
-        <div className="row">
-            {cols}
-        </div>
+      <div className="row">
+        {cols}
+      </div>
     )
   }
 }
@@ -667,117 +666,115 @@ class YearPickerFilterComponent extends React.Component {
 
 class RangeQueryFilterComponent extends React.Component {
 
-    constructor(props: Object) {
-        super(props)
+  constructor(props: Object) {
+    super(props)
 
-        const startValue = this.props.option.start_value
-        const endValue = this.props.option.end_value
-        let options = this.getOptions()
+    let options = this.getOptions()
 
-        this.state = {
-            options: options
-        }
-
-        this.onChangeStart = this.onChangeStart.bind(this)
-        this.onChangeEnd = this.onChangeEnd.bind(this)
-        this.getOptions = this.getOptions.bind(this)
+    this.state = {
+      options: options
     }
 
-    componentWillReceiveProps (nextProps) {
-        if (!nextProps.filters[nextProps.option.idx].value.length) {
-            this.setState({
-                startValue: 'Select start Year',
-                endValue: 'Select end Year'
-            })
-        }
+    this.onChangeStart = this.onChangeStart.bind(this)
+    this.onChangeEnd = this.onChangeEnd.bind(this)
+    this.getOptions = this.getOptions.bind(this)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (!nextProps.filters[nextProps.option.idx].value.length) {
+      this.setState({
+        startValue: 'Select start Year',
+        endValue: 'Select end Year'
+      })
     }
+  }
 
-    getOptions () {
-        let list = [];
-        for (let i = this.props.option.start_value; i <= this.props.option.end_value; i++) {
-            list.push({label: i, value: i});
-        }
-        return list
+  getOptions () {
+    let list = [];
+    for (let i = this.props.option.start_value; i <= this.props.option.end_value; i++) {
+      list.push({label: i, value: i});
     }
+    return list
+  }
 
-    handleKeyPress(e) {
-        if(e.key === "Enter"){
-            const value = e.target.value
+  handleKeyPress(e) {
+    if (e.key === "Enter"){
+      const value = e.target.value
 
-            if(this.props.onChange){
-                this.props.onChange(value, {
-                    field: this.props.option.field,
-                    idx: this.props.option.idx
-                })
-            }
-        }
-    }
-
-    onChangeStart (startValue) {
-        this.setState({
-            startValue: startValue.value
+      if (this.props.onChange){
+        this.props.onChange(value, {
+          field: this.props.option.field,
+          idx: this.props.option.idx
         })
+      }
+    }
+  }
 
-        let endValue = this.state.endValue
+  onChangeStart (startValue) {
+    this.setState({
+      startValue: startValue.value
+    })
 
-        if (!Moment(endValue).isValid()) {
-            endValue = Moment().format('YYYY')
-        }
+    let endValue = this.state.endValue
 
-        if (this.props.onChangeYear) {
-            this.props.onChangeYear(startValue.value, endValue, {
-                field: this.props.option.field,
-                idx: this.props.option.idx
-            })
-        }
+    if (!Moment(endValue).isValid()) {
+      endValue = Moment().format('YYYY')
     }
 
-    onChangeEnd (endValue) {
-        this.setState({
-            endValue: endValue.value
-        })
+    if (this.props.onChangeYear) {
+      this.props.onChangeYear(startValue.value, endValue, {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
+    }
+  }
 
-        let startValue = this.state.startValue
+  onChangeEnd (endValue) {
+    this.setState({
+      endValue: endValue.value
+    })
 
-        if (!Moment(startValue).isValid()) {
-            startValue = this.props.option.start_value
-        }
+    let startValue = this.state.startValue
 
-        if (this.props.onChangeYear) {
-            this.props.onChangeYear(startValue, endValue.value, {
-                field: this.props.option.field,
-                idx: this.props.option.idx
-            })
-        }
+    if (!Moment(startValue).isValid()) {
+      startValue = this.props.option.start_value
     }
 
-
-    render (): ?React.Element {
-        return (
-            <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
-                <p>Start Year:</p>
-                <AsyncSelect
-                    value={this.state.startValue}
-                    className='filter-select'
-                    placeholder='Select Start Year'
-                    onChange={this.onChangeStart}
-                    options={this.state.options}
-                    id={this.props.option.idx.toString()}
-                    clearable={false}
-                />
-                <p>End Year:</p>
-                <AsyncSelect
-                    value={this.state.endValue}
-                    className='filter-select'
-                    placeholder='Select End Year'
-                    onChange={this.onChangeEnd}
-                    options={this.state.options}
-                    id={this.props.option.idx.toString()}
-                    clearable={false}
-                />
-            </div>
-        )
+    if (this.props.onChangeYear) {
+      this.props.onChangeYear(startValue, endValue.value, {
+        field: this.props.option.field,
+        idx: this.props.option.idx
+      })
     }
+  }
+
+
+  render (): ?React.Element {
+    return (
+      <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
+        <p>Start Year:</p>
+        <AsyncSelect
+          value={this.state.startValue}
+          className='filter-select'
+          placeholder='Select Start Year'
+          onChange={this.onChangeStart}
+          options={this.state.options}
+          id={this.props.option.idx.toString()}
+          clearable={false}
+        />
+        <p>End Year:</p>
+        <AsyncSelect
+          value={this.state.endValue}
+          className='filter-select'
+          placeholder='Select End Year'
+          onChange={this.onChangeEnd}
+          options={this.state.options}
+          id={this.props.option.idx.toString()}
+          clearable={false}
+        />
+      </div>
+    )
+  }
 }
 
 
@@ -980,14 +977,14 @@ class FilterComponent extends React.Component {
     })
 
     return (
-      <div className={'filter-sidebar ' + (this.props.displayFilters ? ' ': 'display-none')} id='filter-sidebar'>
+      <div className={'filter-sidebar ' + (this.props.displayFilters ? ' ' : 'display-none')} id='filter-sidebar'>
         <div className='filter-components'>
-        {
-          components
-        }
+          {
+            components
+          }
         </div>
-        <div className={'sidebar-buttons ' + (this.props.hideContent ? ' ': 'display-none')}>
-          <button className={this.props.hideContent ? 'filter-bg-darker-blue': 'filter-bg-light-blue'} onClick={() => this.props.updateSelectedFilters(this.state.selected_filters)}>
+        <div className={'sidebar-buttons ' + (this.props.hideContent ? ' ' : 'display-none')}>
+          <button className={this.props.hideContent ? 'filter-bg-darker-blue' : 'filter-bg-light-blue'} onClick={() => this.props.updateSelectedFilters(this.state.selected_filters)}>
             APPLY FILTERS
           </button>
           <span onClick={this.props.clearAllFilters}>Clear All</span>

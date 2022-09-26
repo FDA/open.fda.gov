@@ -4,7 +4,6 @@ import React from 'react'
 import Select from 'react-select'
 import _ from 'lodash'
 import update from 'immutability-helper'
-import {default as $} from 'jquery'
 
 import Hero from '../../../components/Hero/index'
 import FilterComponent from '../../../components/Filter'
@@ -15,7 +14,7 @@ import DataViewToggle from '../../../components/DataViewToggle'
 
 import meta from './_meta.yaml'
 import datasets from './_datasets.yaml'
-import help_config from './help_config.yaml'
+import helpConfig from './_help_config.yaml'
 import infographicsConfig from './_infographics.json'
 import '../../../css/components/DatasetExplorer.scss'
 import '../../../css/components/ReactSelect.scss'
@@ -74,35 +73,31 @@ class DataExplorer extends React.Component {
     this.handleViewChange(this.state.view)
   }
 
-/*  componentDidUpdate (prevProps, prevState) {
-    console.log("explorer state updated: ", this.state)
-  }*/
-
-  getFilters(dataset){
+  getFilters (dataset){
     return dataset.filters.options.map(option => {
       option.value = []
       return option
     })
   }
 
-  massageLLTData(actualdata) {
+  massageLLTData (actualdata) {
     let massagedData = []
-    if( !actualdata ||!actualdata.length){
+    if (!actualdata || !actualdata.length) {
       return massagedData
     }
     actualdata.forEach(function (product) {
       product.flavors = !product.flavors ? [] : product.flavors
-      product.flavors.forEach(function(flavor){
+      product.flavors.forEach(function (flavor) {
         flavor.formulations = !flavor.formulations ? [] : flavor.formulations
-        flavor.formulations.forEach(function(formulation){
+        flavor.formulations.forEach(function (formulation) {
           formulation = !formulation ? [] : formulation
-          formulation.reactions.forEach(function(reaction){
-            let productData = {}
+          formulation.reactions.forEach(function (reaction) {
+            const productData = {}
             productData.product = product.name
             productData.flavor = flavor.flavor_name
             productData.formulation = formulation.formulation_name
             productData.reaction = reaction.LLT
-            productData.frequency  = reaction['LLT Freq']
+            productData.frequency = reaction['LLT Freq']
             massagedData.push(productData)
           })
         })
@@ -112,7 +107,7 @@ class DataExplorer extends React.Component {
     return massagedData
   }
 
-  updateSelectedFilters(updated_filters) {
+  updateSelectedFilters (updated_filters) {
     this.setState({
       applied_filters: updated_filters,
       hideContent: false
@@ -121,8 +116,8 @@ class DataExplorer extends React.Component {
     })
   }
 
-  getData(){
-    if(!this.state.applied_filters.length){
+  getData () {
+    if (!this.state.applied_filters.length) {
       return
     }
 
@@ -131,10 +126,10 @@ class DataExplorer extends React.Component {
       searchType: this.state.view.searchType
     }).then(results => {
       let _rows = []
-      if(results && !results.error){
+      if (results && !results.error) {
         _rows = results.results
 
-        if(this.state.view.searchType === "LLT") {
+        if (this.state.view.searchType === "LLT") {
           _rows = this.massageLLTData(_rows)
         }
 
@@ -146,7 +141,7 @@ class DataExplorer extends React.Component {
     })
   }
 
-  getDatasetState(dataset, viewIdx){
+  getDatasetState (dataset, viewIdx) {
     viewIdx = (viewIdx === undefined) ? 0 : viewIdx
     return {
       dataset: dataset,
@@ -167,7 +162,7 @@ class DataExplorer extends React.Component {
       }
     })
 
-    if(dataset.name === this.state.dataset.name){
+    if (dataset.name === this.state.dataset.name) {
       this.getData()
     } else {
       this.setState(this.getDatasetState(dataset), () => {
@@ -178,7 +173,7 @@ class DataExplorer extends React.Component {
 
   handleViewChange (value) {
     let view = null
-    this.state.dataset.views.forEach( (obj, idx) => {
+    this.state.dataset.views.forEach((obj, idx) => {
       if (obj.label === value.label) {
         view = obj
         view.idx = idx
@@ -186,9 +181,10 @@ class DataExplorer extends React.Component {
     })
 
     // already choosen label, update data
-    if(view.label === this.state.view.label){
+    if (view.label === this.state.view.label) {
       this.getData()
-    } else {
+    }
+    else {
     //  update to view, use current dataset and toggle view
       this.setState(this.getDatasetState(this.state.dataset, view.idx), () => {
         this.getData()
@@ -204,7 +200,7 @@ class DataExplorer extends React.Component {
     }
   }
 
-  removeFilter(idx, valueIdx){
+  removeFilter (idx, valueIdx) {
     let filter_length = this.state.applied_filters[idx].value.length
 
     if (valueIdx.length) {
@@ -213,13 +209,15 @@ class DataExplorer extends React.Component {
       }, () => {
         this.getData()
       })
-    } else if(filter_length){
+    }
+    else if (filter_length) {
       this.setState({
         applied_filters: update(this.state.applied_filters, {[idx]: {value: {$splice: [[valueIdx, 1]]}}})
       }, () => {
         this.getData()
       })
-    }  else {
+    }
+    else {
       this.setState({
         applied_filters: update(this.state.applied_filters, {[idx]: {value: {$splice: [[0, filter_length]]}}})
       }, () => {
@@ -228,7 +226,7 @@ class DataExplorer extends React.Component {
     }
   }
 
-  clearAllFilters(){
+  clearAllFilters () {
     this.setState(update(this.state, {applied_filters: {$set: this.getFilters(this.state.dataset)}, hideContent: {$set: false}}), () => {
       this.getData()
     })
@@ -252,7 +250,7 @@ class DataExplorer extends React.Component {
     }
   }
 
-  toggleFilters() {
+  toggleFilters () {
     this.setState({
       displayFilters: !this.state.displayFilters
     })
@@ -260,7 +258,6 @@ class DataExplorer extends React.Component {
 
 
   render (): ?React.Element {
-    const renderDataViewToggle = this.state.dataset.showChartView
 
     const customStyles = {
       container: (provided) => ({
@@ -313,7 +310,7 @@ class DataExplorer extends React.Component {
                 }
 
                 <DataViewToggle
-                  renderDataViewToggle={renderDataViewToggle}
+                  renderDataViewToggle={this.state.dataset.showChartView}
                   toggleTable={this.toggleTable}
                   toggleChart={this.toggleChart}
                   visualization={this.state.visualization}
@@ -336,7 +333,7 @@ class DataExplorer extends React.Component {
                 drs={this.state.drs}
                 filters={this.state.applied_filters}
                 handleFilterChange={this.handleFilterChange}
-                help_config={help_config}
+                help_config={helpConfig}
                 hideContent={this.state.hideContent}
                 parent={this}
                 ref={instance => { this.child = instance }}

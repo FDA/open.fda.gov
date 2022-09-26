@@ -1,10 +1,11 @@
+/* eslint-disable indent */
 /* @flow */
 
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import {default as ReactTable} from "react-table"
 import Select, {components} from 'react-select'
-import makeAnimated from "react-select/animated";
+import makeAnimated from "react-select/animated"
 import FileSaver from 'file-saver'
 import PropTypes from 'prop-types'
 import Moment from 'moment'
@@ -26,78 +27,63 @@ import {
   VictoryBrushContainer,
   VictoryChart,
   VictoryGroup,
-  VictoryLegend,
   VictoryLine,
   VictoryScatter,
   VictoryTooltip,
   VictoryVoronoiContainer
 } from "victory"
-import {TimeSeries, TimeRange, sum} from "pondjs"
+import {TimeRange} from "pondjs"
 import _ from 'lodash'
-import update from "immutability-helper/index";
+import update from "immutability-helper/index"
 import XLSX from 'xlsx'
 import NestedDataWindow from '../components/NestedDataWindow'
 import '../css/components/DatasetExplorerContent.scss'
 
-var createReactClass = require('create-react-class');
+var createReactClass = require('create-react-class')
 
-const re = new RegExp('\\s+');
-const numberRe = new RegExp(/[0-9]/i);
-
-
-function ssortFrequenciesOfReportedSign(a, b, desc) {
-  a = a.toString();
-  b = b.toString();
-  var a1 = parseInt(a.split(",")[0]);
-  var b1 = parseInt(b.split(",")[0]);
-
-  if (a1 - b1 === 0 && (a.split(",")[1] || b.split(","))[1]) {
-    if (a.split(",")[1] && !b.split(",")[1]) {
-      return 1
-    } else if (!a.split(",")[1] && b.split(",")[1]) {
-      return -1
-    }
-    return sortFrequenciesOfReportedSign(a.slice(a.indexOf(",") + 1), b.slice(a.indexOf(",") + 1), desc)
-  } else return (a1 - b1)
-}
+const re = new RegExp('\\s+')
+const numberRe = new RegExp(/[0-9]/i)
 
 
-function getNestedValue(rowObj, path) {
-  var props = path.split('.');
+function getNestedValue (rowObj, path) {
+  const props = path.split('.')
+  let returnObj = {}
   props.forEach(function (prop) {
     if (rowObj) {
-      rowObj = rowObj[prop];
+      returnObj = rowObj[prop]
     }
   })
-  return rowObj;
+  return returnObj
 }
 
 
 /* generate a download */
-function s2ab(s) {
-  var buf = new ArrayBuffer(s.length);
-  var view = new Uint8Array(buf);
-  for (var i = 0; i != s.length; ++i) {
-    view[i] = s.charCodeAt(i) & 0xFF;
+function s2ab (s) {
+  const buf = new ArrayBuffer(s.length)
+  const view = new Uint8Array(buf)
+  for (let i = 0; i !== s.length; ++i) {
+    view[i] = s.charCodeAt(i) & 0xFF
   }
-  return buf;
+  return buf
 }
 
 
-function flattenJSON(data) {
+function flattenJSON (data) {
 
-  var flattenedJSON = []
+  const flattenedJSON = []
 
-  for (var i = 0; i < data.length; i++) {
-    var newRow = {}
-    for (var item in data[i]) {
+  for (let i = 0; i < data.length; i++) {
+    const newRow = {}
+    for (const item in data[i]) {
       if (typeof data[i][item] === "object") {
         if (data[i][item] && data[i][item].constructor === Array) {
           newRow[item] = data[i][item].join("; ")
-        } else if (data[i][item]) {
+        }
+        else if (data[i][item]) {
           newRow[item] = flattenJSON(data[i][item])
         }
-      } else {
+      }
+      else {
         newRow[item] = data[i][item]
       }
     }
@@ -108,10 +94,6 @@ function flattenJSON(data) {
   return flattenedJSON
 
 }
-
-
-let checkAllColumnsOption = {Header: "Select All Columns", className: PropTypes.string, show: false}
-let resetColumnsOption = {Header: "Reset Column Selection", style: {fontSize: 16, fontWeight: 20}, show: false}
 
 
 const GravatarOption = createReactClass({
@@ -125,21 +107,21 @@ const GravatarOption = createReactClass({
     onSelect: PropTypes.func,
     option: PropTypes.object.isRequired,
   },
-  handleMouseDown(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    this.props.onSelect(this.props.option, event);
+  handleMouseDown (event) {
+    event.preventDefault()
+    event.stopPropagation()
+    this.props.onSelect(this.props.option, event)
   },
-  handleMouseEnter(event) {
-    this.props.onFocus(this.props.option, event);
+  handleMouseEnter (event) {
+    this.props.onFocus(this.props.option, event)
   },
-  handleMouseMove(event) {
-    if (this.props.isFocused) return;
-    this.props.onFocus(this.props.option, event);
+  handleMouseMove (event) {
+    if (this.props.isFocused) return
+    this.props.onFocus(this.props.option, event)
   },
-  handleCheckChange() {
+  handleCheckChange () {
   },
-  render() {
+  render () {
     return (
       <div className={this.props.className}
            onMouseDown={this.handleMouseDown}
@@ -147,11 +129,11 @@ const GravatarOption = createReactClass({
            onMouseMove={this.handleMouseMove}
            title={this.props.option.title}>
         <input type='checkbox' checked={this.props.option.show} onChange={this.handleCheckChange}/>
-        {"  "}{this.props.option['Header']}
+        {"  "}{this.props.option.Header}
       </div>
-    );
+    )
   }
-});
+})
 
 
 const Option = props => {
@@ -161,21 +143,21 @@ const Option = props => {
     <div>
       <components.Option {...props}>
         <input
-          type="checkbox"
+          type='checkbox'
           checked={props.isSelected}
           onChange={() => null}
         />{" "}
         <label>{props.label}</label>
       </components.Option>
     </div>
-  );
-};
+  )
+}
 
 
 const allOption = {
   Header: "Select all",
   accessor: "*"
-};
+}
 
 
 const ValueContainer = ({children, ...props}) => {
@@ -188,29 +170,29 @@ const ValueContainer = ({children, ...props}) => {
         child && child.type !== components.Placeholder ? child : null
       )}
     </components.ValueContainer>
-  );
-};
+  )
+}
 
 
 const MultiValue = props => {
-  let labelToBeDisplayed = `${props.data.label}, `;
+  let labelToBeDisplayed = `${props.data.label}, `
   if (props.data.value === allOption.value) {
-    labelToBeDisplayed = "All is selected";
+    labelToBeDisplayed = "All is selected"
   }
   return (
     <components.MultiValue {...props}>
       <span>{labelToBeDisplayed}</span>
     </components.MultiValue>
-  );
-};
+  )
+}
 
 
-const animatedComponents = makeAnimated();
+const animatedComponents = makeAnimated()
 
 
 class ResultsComponent extends Component {
 
-  constructor(props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {
@@ -239,27 +221,28 @@ class ResultsComponent extends Component {
     this.generateCheckAllColumns = this.generateCheckAllColumns.bind(this)
   }
 
-  componentDidMount(): void {
-    let thead = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-thead")[0];
-    let tbody = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-tbody")[0];
+  componentDidMount (): void {
+    const thead = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-thead")[0]
+    const tbody = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-tbody")[0]
 
     tbody.addEventListener("scroll", () => {
-      thead.scrollLeft = tbody.scrollLeft;
-    });
+      thead.scrollLeft = tbody.scrollLeft
+    })
   }
 
-  componentDidUpdate(): void {
-    let thead = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-thead")[0];
-    let tbody = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-tbody")[0];
+  componentDidUpdate (): void {
+    const thead = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-thead")[0]
+    const tbody = ReactDOM.findDOMNode(this.dataTableElement).getElementsByClassName("rt-tbody")[0]
 
     if (tbody.scrollHeight > tbody.clientHeight) {
-      thead.classList.add("vertical-scrollbar-present");
-    } else {
-      thead.classList.remove("vertical-scrollbar-present");
+      thead.classList.add("vertical-scrollbar-present")
+    }
+    else {
+      thead.classList.remove("vertical-scrollbar-present")
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (nextProps.view) {
       const columnsData = this.getFormattedColumns(this.props.view.label === nextProps.view.label && this.state.columns.length > 0 ?
         this.state.columns : nextProps.view.columns)
@@ -269,12 +252,12 @@ class ResultsComponent extends Component {
         columnsData.columns.map(value => {
           if (value.unique_count) {
             value.aggregate = (vals => {
-              let unique_list = Array.from(new Set(vals)).filter(vals => [null, undefined, 'null'].indexOf(vals) === -1)
+              const unique_list = Array.from(new Set(vals)).filter(vals => [null, undefined, 'null'].indexOf(vals) === -1)
               return (unique_list.join(';;'))
             }),
               value.Aggregated = (row => {
-                let row_array = row.value.split(';;')
-                let unique_list = Array.from(new Set(row_array)).filter(row_array => [null, undefined, 'null'].indexOf(row_array) === -1)
+                const row_array = row.value.split(';;')
+                const unique_list = Array.from(new Set(row_array)).filter(row_array => [null, undefined, 'null'].indexOf(row_array) === -1)
                 let count_name = value.count_name
                 if (unique_list.length > 1) {
                   count_name = value.count_name + 's'
@@ -282,20 +265,22 @@ class ResultsComponent extends Component {
 
                 return (<span>{unique_list.length + ' ' + count_name}</span>)
               })
-          } else if (value.sum) {
+          }
+          else if (value.sum) {
             value.aggregate = (vals => {
               return (_.sum(vals))
             }),
-              value.Aggregated = (row => {
-                return (<span>{row.value + ' ' + value.count_name}</span>)
-              })
-          } else if (pivotBy.indexOf(value.accessor) > -1) {
+            value.Aggregated = (row => {
+              return (<span>{row.value + ' ' + value.count_name}</span>)
+            })
+          }
+          else if (pivotBy.indexOf(value.accessor) > -1) {
             value.aggregate = (vals => {
               return [...new Set(vals)]
             }),
-              value.Aggregated = (row => {
-                return (<span>{row.value}</span>)
-              })
+            value.Aggregated = (row => {
+              return (<span>{row.value}</span>)
+            })
           }
         })
       }
@@ -309,79 +294,84 @@ class ResultsComponent extends Component {
     }
   }
 
-  collapseAll() {
+  collapseAll () {
     this.setState({
       expanded: {}
     })
   }
 
-  toTitleCase(str) {
+  toTitleCase (str) {
+    let returnStr = str
     if (!str) {
       return str
-    } else if (typeof (str) === "object" && str.constructor === Array) {
-      str = str.join()
-    } else if (typeof (str) === "object") {
-      str = str[0]
-    } else if (typeof (str) === "number") {
-      str += String("")
+    }
+    else if (typeof (str) === "object" && str.constructor === Array) {
+      returnStr = str.join()
+    }
+    else if (typeof (str) === "object") {
+      returnStr = str[0]
+    }
+    else if (typeof (str) === "number") {
+      returnStr = str.toString()
     }
 
-    return str
+    return returnStr
   }
 
-  convertToStartCase(str) {
+  convertToStartCase (str) {
     return str.toLowerCase().split(re).map(function (x) {
       if (x && x.length > 0) {
         return (x[0].toUpperCase() + x.slice(1))
-      } else return x
+      }
+      return x
     }).join(' ')
   }
 
-  findChildColumnId(columns, selectionObj) {
-    for (var i = 0; i < columns.length; i++)
+  findChildColumnId (columns, selectionObj) {
+    for (let i = 0; i < columns.length; i++)
       if (columns[i].Header === selectionObj.childColumn) {
         return i
       }
   }
 
-  generateCheckAllColumns(columns) {
+  generateCheckAllColumns (columns) {
     const new_columns = columns.map(column => {
       return {...column, show: true}
-    });
+    })
     return new_columns
   }
 
-  generateResetColumns(columns) {
+  generateResetColumns (columns) {
     const new_columns = columns.map(column => {
       return {...column, show: column.showDefault}
-    });
+    })
     return new_columns
   }
 
-  generateClearedColumns(columns) {
+  generateClearedColumns (columns) {
     const new_columns = columns.map(column => {
       return {...column, show: false}
-    });
+    })
     return new_columns
   }
 
-  generateSelectedColumns(stateColumns, columns) {
+  generateSelectedColumns (stateColumns, columns) {
     let selected_columns = []
-    if (columns.length === stateColumns.length && !columns.some(c => c.accessor === "*")){
+    if (columns.length === stateColumns.length && !columns.some(c => c.accessor === "*")) {
       selected_columns = [...columns, allOption]
-    } else {
+    }
+    else {
       selected_columns = columns.filter(c => c.accessor !== "*")
     }
     return selected_columns
   }
 
-  getOptions() {
-    var options = this.state.columns.filter(column => !column.hideInManageColumns)
-    return options
+  getOptions () {
+    return this.state.columns.filter(column => !column.hideInManageColumns)
   }
 
 
-  onColumnToggle(selectionObj, event) {
+  onColumnToggle (selectionObj, event) {
 
     if (event.action === "clear") {
       this.setState({
@@ -395,24 +385,26 @@ class ResultsComponent extends Component {
 
     if (event.option.Header === "Select all") {
       if (event.action === "select-option") {
-        let all_columns = this.generateCheckAllColumns(this.state.columns)
+        const all_columns = this.generateCheckAllColumns(this.state.columns)
         this.setState({
           columns: all_columns,
           optionSelected: [...all_columns, event.option],
           placeholder: `Displaying ${all_columns.length} of ${this.state.columns.length} Columns`
         })
-      } else {
-        let reset_columns = this.generateResetColumns(this.state.columns)
-        let selected_columns = reset_columns.filter(c => c.show)
+      }
+      else {
+        const reset_columns = this.generateResetColumns(this.state.columns)
+        const selected_columns = reset_columns.filter(c => c.show)
         this.setState({
           columns: reset_columns,
           optionSelected: selected_columns,
           placeholder: `Displaying ${selected_columns.length} of ${this.state.columns.length} Columns`
         })
       }
-    } else {
-      let selected_columns = this.generateSelectedColumns(this.state.columns, selectionObj)
-      let col_length = selected_columns.length > this.state.columns.length ? this.state.columns.length : selected_columns.length;
+    }
+    else {
+      const selected_columns = this.generateSelectedColumns(this.state.columns, selectionObj)
+      const col_length = selected_columns.length > this.state.columns.length ? this.state.columns.length : selected_columns.length;
       this.setState(prevState => ({
         columns: update(this.state.columns, {[objIndex]: {show: {$set: !prevState.columns[objIndex].show}}}),
         optionSelected: selected_columns,
@@ -421,23 +413,23 @@ class ResultsComponent extends Component {
     }
   }
 
-  exportToXLS() {
+  exportToXLS () {
     try {
 
       /* export only visible columns */
-      var visibleColumns = []
+      const visibleColumns = []
       this.state.columns.forEach(function (column) {
         if (column.show) {
           visibleColumns.push(column.accessor)
         }
       })
 
-      var exportableRows = []
+      const exportableRows = []
       this.props.rows.forEach(function (row) {
-        var truncatedRow = {}
-        var rowData = ""
+        const truncatedRow = {}
+        let rowData = ""
         visibleColumns.forEach(function (visibleColumn) {
-          var columnValue = getNestedValue(row, visibleColumn)
+          const columnValue = getNestedValue(row, visibleColumn)
           truncatedRow[visibleColumn] = columnValue
           rowData += columnValue ? columnValue : ""
         })
@@ -447,23 +439,24 @@ class ResultsComponent extends Component {
       })
 
       /* make the worksheet */
-      var ws = XLSX.utils.json_to_sheet(flattenJSON(exportableRows));
+      const ws = XLSX.utils.json_to_sheet(flattenJSON(exportableRows))
 
       /* add to workbook */
-      var wb = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(wb, ws, "data");
+      const wb = XLSX.utils.book_new()
+      XLSX.utils.book_append_sheet(wb, ws, "data")
 
       /* write workbook (use type 'binary') */
-      var wbout = XLSX.write(wb, {bookType: 'xlsx', type: 'binary'});
+      const wbout = XLSX.write(wb, {bookType: 'xlsx', type: 'binary'})
 
       FileSaver.saveAs(new Blob([s2ab(wbout)], {type: "application/octet-stream"}), this.props.dataset.label + ".xlsx");
-    } catch (err) {
-      console.error(err);
+    }
+    catch (err) {
+      console.error(err)
     }
   }
 
-  exportToCSV() {
-    /*try {
+  exportToCSV () {
+    /* try {
         let csv = ''
         jsonexport(this.props.rows, function(err, export_csv){
             if(err) return console.log(err);
@@ -476,24 +469,27 @@ class ResultsComponent extends Component {
     }*/
   }
 
-  updateNestedData(options) {
+  updateNestedData (options) {
     options.value.forEach(eachValue => {
       options.column.nested_properties.forEach(eachColumn => {
         if (eachColumn.buildData) {
-          let updatedData = "";
+          let updatedData = ""
           eachColumn.sub_properties.forEach(eachProperty => {
             if (eachProperty.indexOf('numerator') > 0) {
-              if (eachValue[eachProperty]["unit"] == "1") {
-                updatedData += eachValue[eachProperty]["value"] + " in "
-              } else {
-                updatedData += eachValue[eachProperty]["value"] + " " + eachValue[eachProperty]["unit"] + " in "
+              if (eachValue[eachProperty].unit === "1") {
+                updatedData += eachValue[eachProperty].value + " in "
               }
-            } else if (eachProperty.indexOf('denominator') > 0) {
-              updatedData += eachValue[eachProperty]["value"]
-              if (eachValue[eachProperty]["unit"] && eachValue[eachProperty]["unit"] !== "1") {
-                updatedData += " " + eachValue[eachProperty]["unit"]
+              else {
+                updatedData += eachValue[eachProperty].value + " " + eachValue[eachProperty].unit + " in "
               }
-            } else {
+            }
+            else if (eachProperty.indexOf('denominator') > 0) {
+              updatedData += eachValue[eachProperty].value
+              if (eachValue[eachProperty].unit && eachValue[eachProperty].unit !== "1") {
+                updatedData += " " + eachValue[eachProperty].unit
+              }
+            }
+            else {
               if (eachValue[eachColumn.accessor]) {
                 updatedData += (updatedData ? " " : "") +
                   eachValue[eachColumn.accessor][eachProperty]
@@ -506,14 +502,14 @@ class ResultsComponent extends Component {
     })
   }
 
-  getFormattedColumns(columns) {
+  getFormattedColumns (columns) {
     columns.forEach(function (column) {
       if (column.sortType === "commaSeparatedNumbers") {
         column.sortMethod = (a, b, desc) => {
           return sortFrequenciesOfReportedSign(a, b, desc)
-        };
+        }
       }
-    });
+    })
     const shownColumnsCount = columns.filter(c => c.show).length
     columns = columns.map((d) => {
       d.Cell = (options) => {
@@ -521,7 +517,7 @@ class ResultsComponent extends Component {
         let html = null
         if (options.column.array && value) {
           //update data to match table definitions
-          let updateData = options.column.nested_properties.find(column => column.buildData)
+          const updateData = options.column.nested_properties.find(column => column.buildData)
           if (updateData) {
             this.updateNestedData(options)
           }
@@ -535,7 +531,8 @@ class ResultsComponent extends Component {
               getFormattedColumns={this.getFormattedColumns}
             />
           )
-        } else {
+        }
+        else {
           value = this.toTitleCase(options.value)
         }
         if (options.column.filter_values && value) {
@@ -550,7 +547,7 @@ class ResultsComponent extends Component {
         }
 
         if (options.column.split && value) {
-          var split = value.split(',').length > 1 ? value.split(',') : value.split('•')
+          const split = value.split(',').length > 1 ? value.split(',') : value.split('•')
           if (split.length > 1) {
             html = (
               <ol style={{
@@ -558,7 +555,7 @@ class ResultsComponent extends Component {
                 overflowY: "scroll"
               }}>
                 {
-                  split.filter(v => (v !== null && v.length !== 0 && v !== " ")).map((v, idx) =>
+                  split.filter(v => (v !== null && v.length !== 0 && v !== " ")).map((v, idx) => (
                     <li
                       key={`key-${idx}`}
                       style={{
@@ -567,7 +564,7 @@ class ResultsComponent extends Component {
                     >
                       • {v && options.column.startCase ? this.convertToStartCase(v.trim()) : v.trim()}
                     </li>
-                  )
+                  ))
                 }
               </ol>
             )
@@ -580,7 +577,7 @@ class ResultsComponent extends Component {
 
         if (options.column.link && value) {
           html = (
-            <a href={value} target="_blank">{value}</a>
+            <a href={value} target='_blank'>{value}</a>
           )
         }
 
@@ -608,7 +605,7 @@ class ResultsComponent extends Component {
     }
   }
 
-  render(): ?React.Element {
+  render (): ?React.Element {
     const showCollapseRows = this.props.view.show_collapse_rows_button
     const hideManageColumns = this.props.view.hide_manage_columns
 
@@ -617,13 +614,13 @@ class ResultsComponent extends Component {
     }
 
     let data = this.props.rows
-    let searchColumns = this.state.columns.filter(column => {
+    const searchColumns = this.state.columns.filter(column => {
       return column.show
     })
-    let searchText = this.state.search
+    const searchText = this.state.search
 
     if (searchText) {
-      var regex = new RegExp(searchText, "i")
+      const regex = new RegExp(searchText, "i")
       data = data.filter(row => {
         for (let i = 0; i < searchColumns.length; i++) {
           if (regex.test(String(getNestedValue(row, searchColumns[i].accessor)))) {
@@ -680,7 +677,7 @@ class ResultsComponent extends Component {
           <div style={{width: "67%"}}>
             <input className='search-input' value={this.state.search}
                    onChange={e => this.setState({search: e.target.value})}
-                   placeholder="Type to Search in Results..." type="search" autoFocus/>
+                   placeholder='Type to Search in Results...' type='search' autoFocus/>
 
             <a href='#' onClick={this.exportToXLS}
                style={{position: "absolute", right: 30, lineHeight: 2.5, display: "inline"}}>
@@ -688,7 +685,7 @@ class ResultsComponent extends Component {
                    src='/img/xls-icon.svg'/>Export to XLS
             </a>
 
-            {/*<a href='javascript:void(0)' onClick={this.exportToCSV} style={{ position: "absolute", right:160, lineHeight: 2.5, display: "inline"}} >
+            {/* <a href='javascript:void(0)' onClick={this.exportToCSV} style={{ position: "absolute", right:160, lineHeight: 2.5, display: "inline"}} >
                     <img alt='Export to CSV' style={{float: "left", width: 31, padding: 5}}
                          src='/img/csv-icon.svg'/>Export to CSV
                 </a>*/}
@@ -722,9 +719,9 @@ class ResultsComponent extends Component {
             height: 800,
             width: "100%"
           }}
-          className="-striped -highlight"
+          className='-striped -highlight'
           ref={(element) => {
-            this.dataTableElement = element;
+            this.dataTableElement = element
           }}
           SubComponent={this.props.dataset.showFormView && (row => {
             // a SubComponent for the "form view."
@@ -734,7 +731,7 @@ class ResultsComponent extends Component {
                 accessor: "property",
                 width: 200,
                 Cell: ci => {
-                  return `${ci.value}:`;
+                  return `${ci.value}:`
                 },
                 style: {
                   backgroundColor: "#DDD",
@@ -743,13 +740,13 @@ class ResultsComponent extends Component {
                 }
               },
               {Header: "Value", accessor: "value"}
-            ];
+            ]
             const rowData = Object.keys(row.original).map(key => {
               return {
                 property: key,
-                value: row.original[key] != null ? row.original[key].toString() : ''
-              };
-            });
+                value: row.original[key] !== null ? row.original[key].toString() : ''
+              }
+            })
             return (
               <div style={{padding: "10px"}}>
                 <ReactTable
@@ -759,7 +756,7 @@ class ResultsComponent extends Component {
                   showPagination={false}
                 />
               </div>
-            );
+            )
           })}
         />
       </div>
@@ -768,51 +765,51 @@ class ResultsComponent extends Component {
 }
 
 const CustomizedAxisTick = createReactClass({
-  render() {
-    const {x, y, stroke, payload} = this.props;
+  render () {
+    const {x, y, payload} = this.props;
 
     return (
       <g transform={`translate(${x},${y})`}>
-        <text x={0} y={0} dy={16} fontSize={10} textAnchor="end" fill="#666"
-              transform="rotate(-35)">{payload.value}</text>
+        <text x={0} y={0} dy={16} fontSize={10} textAnchor='end' fill="#666"
+              transform='rotate(-35)'>{payload.value}</text>
       </g>
-    );
+    )
   }
-});
+})
 
 const CustomTooltip = createReactClass({
 
-  render() {
+  render () {
 
     if (this.props.active && this.props.payload) {
       return (
-        <div className="custom-tooltip">
-          <h5 className="label">{this.props.label}</h5>
-          <p className="intro">{`${this.props.yLabel} : ${this.props.payload[0].value}`}</p>
+        <div className='custom-tooltip'>
+          <h5 className='label'>{this.props.label}</h5>
+          <p className='intro'>{`${this.props.yLabel} : ${this.props.payload[0].value}`}</p>
           {
             this.props.detail &&
-            <p className="intro">{`${this.props.detail} : ${this.props.payload[1].value}`}</p>
+            <p className='intro'>{`${this.props.detail} : ${this.props.payload[1].value}`}</p>
           }
         </div>
-      );
+      )
     }
 
-    return null;
+    return null
   }
-});
+})
 
 class BarChartComponent extends React.Component {
 
-  constructor(props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {}
   }
 
-  componentDidMount() {
+  componentDidMount () {
   }
 
-  render(): ?React.Element {
+  render (): ?React.Element {
     // if(this.refs.bar && this.refs.bar.container.childNodes.length){
     //   const viewBox = this.props.parent.state.infographicsConfig.barChart.viewBox
     //   this.refs.bar.container.childNodes[0].viewBox.baseVal.x = viewBox.x
@@ -837,20 +834,20 @@ class BarChartComponent extends React.Component {
         <ResponsiveContainer className='chart-background bar-chart-background' width={this.props.barWidth}
                              height={this.props.barHeight}>
           <BarChart
-            ref="bar"
+            ref='bar'
             data={this.props.data}
             {...this.props.chartConfig.barChart}
           >
             <XAxis dataKey={alpha ? "alpha" : "name"} interval={0} tick={<CustomizedAxisTick/>}/>
             <YAxisR label={{value: this.props.yLabel, angle: -90, position: 'insideLeft'}}/>
-            <CartesianGrid strokeDasharray="8 8"/>
+            <CartesianGrid strokeDasharray='8 8'/>
             <Tooltip content={<CustomTooltip detail={this.props.detail} yLabel={this.props.xAxis}/>}/>
             <LegendR height={36} verticalAlign='top'/>
             {
               this.props.xAxis &&
               <Bar
                 dataKey={this.props.xAxis}
-                fill="#8884d8"
+                fill='#8884d8'
                 barCategoryGap={"50%"}
                 barGap={"50%"}
               />
@@ -859,7 +856,7 @@ class BarChartComponent extends React.Component {
               this.props.detail &&
               <Bar
                 dataKey={this.props.detail}
-                fill="#82ca9d"
+                fill='#82ca9d'
                 barCategoryGap={"50%"}
                 barGap={"50%"}
               />
@@ -883,7 +880,7 @@ class BarChartComponent extends React.Component {
             ]}
             showPagination={false}
             defaultPageSize={-1}
-            className="-striped -highlight"
+            className='-striped -highlight'
             style={{
               width: '90%',
               height: '600px',
@@ -903,14 +900,16 @@ class LineLegend extends React.Component {
     this.state = {}
   }
 
-  render(): ?React.Element {
+  render (): ?React.Element {
 
-    let legend_items = this.props.legendCategories.map(item => {
-      return <div className='legend-item' key={`legend-item-${item.column}`}
-                  style={{width: Math.ceil(item.column.length / 20) * 180}}>
-        <span style={{backgroundColor: item.color}}/>
-        <text>{item.column}</text>
-      </div>
+    const legend_items = this.props.legendCategories.map(item => {
+      return (
+        <div className='legend-item' key={`legend-item-${item.column}`}
+             style={{width: Math.ceil(item.column.length / 20) * 180}}>
+          <span style={{backgroundColor: item.color}}/>
+          <text>{item.column}</text>
+        </div>
+      )
     })
 
     return (
@@ -1040,46 +1039,46 @@ class LineChartComponent extends React.Component {
     this.handleZoom = this.handleZoom.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.getLineChartData(this.props, this.props.chartConfig.lineChart.xOptions[0])
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (this.props.applied_filters !== nextProps.applied_filters) {
       this.getLineChartData(nextProps, nextProps.chartConfig.lineChart.xOptions[0])
     }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     if (!Object.keys(this.props.chartConfig).length) {
       return
     }
   }
 
-  onOpen() {
+  onOpen () {
 
   }
 
-  transpose(timestamps, normalizedSeries) {
+  transpose (timestamps, normalizedSeries) {
     // transpose..... from list of points per series, to a list of points per timestamp
-    var findMax = [],
-      final = [],
-      rows = [];
-    for (var i = 0, len_i = normalizedSeries[0].length; i < len_i; i++) {
-      var row = []
-      for (var j = 0, len_j = normalizedSeries.length; j < len_j; j++) {
-        var val = normalizedSeries[j][i] || 0
+    const findMax = []
+    const final = []
+    const rows = []
+    for (let i = 0, lenI = normalizedSeries[0].length; i < lenI; i++) {
+      const row = []
+      for (let j = 0, lenJ = normalizedSeries.length; j < lenJ; j++) {
+        const val = normalizedSeries[j][i] || 0
         row.push(val)
         findMax.push(val)
       }
       rows.push(row)
     }
     timestamps.forEach((key, i) => {
-      var int = parseInt(key)
+      const int = parseInt(key)
       if (int > 0) {
         final.push([int].concat(rows[i]))
       }
-    });
+    })
     return {
       findMax: findMax,
       final: final,
@@ -1087,9 +1086,9 @@ class LineChartComponent extends React.Component {
     }
   }
 
-  formatDefaultOptions(options) {
-    let option_list = []
-    for (let i in options) {
+  formatDefaultOptions (options) {
+    const option_list = []
+    for (const i in options) {
       option_list.push({
         Header: options[i],
         idx: i,
@@ -1099,8 +1098,8 @@ class LineChartComponent extends React.Component {
     return option_list
   }
 
-  getShownOptions(options) {
-    let option_list = []
+  getShownOptions (options) {
+    const option_list = []
     for (let i in options) {
       if (options[i].show) {
         option_list.push(options[i].Header)
@@ -1109,7 +1108,7 @@ class LineChartComponent extends React.Component {
     return option_list
   }
 
-  getLineChartData(props, xAxis, dataOptions) {
+  getLineChartData (props, xAxis, dataOptions) {
     const data = props.drs.convertFiltersToJson(props.applied_filters, {
       searchType: "aggregation",
       groupingField: xAxis.value
@@ -1125,7 +1124,7 @@ class LineChartComponent extends React.Component {
       .then(res => res.json())
       .then((json) => {
         if (json.results) {
-          let all_options = json.results.filter(value => value.term.indexOf("'") === -1).map(term => {
+          const all_options = json.results.filter(value => value.term.indexOf("'") === -1).map(term => {
             return term.term
           })
 
@@ -1142,21 +1141,22 @@ class LineChartComponent extends React.Component {
               dataOptions[0].show = true
             }
             options_list = dataOptions
-          } else {
+          }
+          else {
             options_list = this.formatDefaultOptions(all_options)
           }
 
-          let options = this.getShownOptions(options_list)
-          let placeholder = `Manage Options ${options.length} / ${all_options.length}`
+          const options = this.getShownOptions(options_list)
+          const placeholder = `Manage Options ${options.length} / ${all_options.length}`
 
           let data = []
 
-          let filter_list = options.map(option => {
+          const filter_list = options.map(option => {
             return props.drs.addValue(props.applied_filters, xAxis.value, [option])
           })
 
           Promise.all(filter_list.map(filters => {
-            let converted_filters = props.drs.convertFiltersToJson(filters, {
+            const converted_filters = props.drs.convertFiltersToJson(filters, {
               searchType: "aggregation",
               groupingField: props.chartConfig.lineChart.dateField
             })
@@ -1183,15 +1183,14 @@ class LineChartComponent extends React.Component {
                     count: value.count,
                     detail: value[this.props.chartConfig.lineChart.detail]
                   }
-                } else {
-                  return {
-                    term: parseInt(value.term),
-                    count: value.count
-                  }
+                }
+                return {
+                  term: parseInt(value.term),
+                  count: value.count
                 }
               }).sort((a, b) => a.term - b.term)
 
-              let series = orderedResults.map(j => {
+              const series = orderedResults.map(j => {
                 return {
                   x: new Date(j.term, 0, 1), y: j.count,
                   label: this.props.chartConfig.lineChart.detailText ?
@@ -1212,10 +1211,10 @@ class LineChartComponent extends React.Component {
               startTime = new Date(listOfSeries[0][listOfSeries[0].length - 11].x)
               panZoom = true
             }
-            let endTime = new Date(listOfSeries[0][listOfSeries[0].length - 1].x)
+            const endTime = new Date(listOfSeries[0][listOfSeries[0].length - 1].x)
             startTime.setDate(startTime.getDate() - 5)
             endTime.setMonth(endTime.getMonth() + 1)
-            let legendCategories = options.map((column, idx) => ({
+            const legendCategories = options.map((column, idx) => ({
               column: column,
               color: this.state.config.colors[idx]
             }))
@@ -1233,14 +1232,15 @@ class LineChartComponent extends React.Component {
               dataOptions: options_list
             })
 
-            let vals = $("text").filter(function () {
+            const vals = $("text").filter(function () {
               return $(this).attr("transform") == "rotate(-90)"
             })
             if (vals.length) {
               $(vals[0]).attr("x", this.state.config.xLegendCoordinate)
             }
           })
-        } else {
+        }
+        else {
           console.log('????')
         }
       })
@@ -1249,21 +1249,22 @@ class LineChartComponent extends React.Component {
       })
   }
 
-  changeXAxis(selectionObj) {
+  changeXAxis (selectionObj) {
     this.getLineChartData(this.props, selectionObj)
   }
 
-  onOptionChange(selectionObj) {
-    const objIndex = this.state.dataOptions.findIndex(obj => obj.accessor === selectionObj.accessor);
+  onOptionChange (selectionObj) {
+    const objIndex = this.state.dataOptions.findIndex(obj => obj.accessor === selectionObj.accessor)
 
     if (selectionObj.show === true) {
       this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {[objIndex]: {show: {$set: false}}}))
-    } else {
+    }
+    else {
       this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {[objIndex]: {show: {$set: true}}}))
     }
   }
 
-  showTopFive() {
+  showTopFive () {
     if (this.state.showTopTen === false) {
       if (this.state.showTopFive === true) {
         this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {
@@ -1276,7 +1277,8 @@ class LineChartComponent extends React.Component {
         this.setState({
           showTopFive: false
         })
-      } else {
+      }
+      else {
         this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {
           [0]: {show: {$set: true}},
           [1]: {show: {$set: true}},
@@ -1289,14 +1291,15 @@ class LineChartComponent extends React.Component {
           showTopTen: false
         })
       }
-    } else {
+    }
+    else {
       this.setState({
         showTopFive: true
       })
     }
   }
 
-  showTopTen() {
+  showTopTen () {
     if (this.state.showTopTen === true && this.state.showTopFive === false) {
       this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {
         [0]: {show: {$set: false}},
@@ -1313,7 +1316,8 @@ class LineChartComponent extends React.Component {
       this.setState({
         showTopTen: false
       })
-    } else if (this.state.showTopTen === true && this.state.showTopFive === true) {
+    }
+    else if (this.state.showTopTen === true && this.state.showTopFive === true) {
       this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {
         [0]: {show: {$set: true}},
         [1]: {show: {$set: true}},
@@ -1329,7 +1333,8 @@ class LineChartComponent extends React.Component {
       this.setState({
         showTopTen: false
       })
-    } else {
+    }
+    else {
       this.getLineChartData(this.props, this.state.xAxis, update(this.state.dataOptions, {
         [0]: {show: {$set: true}},
         [1]: {show: {$set: true}},
@@ -1348,11 +1353,11 @@ class LineChartComponent extends React.Component {
     }
   }
 
-  handleZoom(domain) {
-    this.setState({zoomDomain: domain});
+  handleZoom (domain) {
+    this.setState({zoomDomain: domain})
   }
 
-  render(): ?React.Element {
+  render (): ?React.Element {
     if (!Object.keys(this.props.chartConfig).length) {
       return (<span/>)
     }
@@ -1362,63 +1367,50 @@ class LineChartComponent extends React.Component {
 
     if (this.state.panZoom) {
       const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi")
-      containerComponent = <VictoryZoomVoronoiContainer
-        zoomDimension="x"
-        zoomDomain={this.state.zoomDomain}
-        onZoomDomainChange={this.handleZoom}
-      />
-      victoryBrushGroup = this.state.series.map(data => {
-        let index = this.state.series.indexOf(data)
-        return <VictoryGroup
+      containerComponent = (
+        <VictoryZoomVoronoiContainer
+          zoomDimension='x'
+          zoomDomain={this.state.zoomDomain}
+          onZoomDomainChange={this.handleZoom}
+        />
+      )
+    }
+
+    const victoryGroups = this.state.series.map(data => {
+      const index = this.state.series.indexOf(data)
+      return (
+        <VictoryGroup
           color={this.state.config.colors[index]}
           data={data}
           key={this.state.options[index]}
+          labelComponent={
+            <VictoryTooltip
+              flyoutStyle={{fill: "white"}}
+            />
+          }
+          name={`victory-group-${index}`}
+          style={{
+            labels: {fill: this.state.config.colors[index]}
+          }}
         >
           <VictoryLine
+            name={`victory-line-${index}`}
             style={{
               data: {
-                strokeWidth: 2
+                strokeWidth: (d, active) => {
+                  return active ? 3 : 2
+                }
               }
             }}
           />
-        </VictoryGroup>
-      })
-    }
-
-    let victoryGroups = this.state.series.map(data => {
-      let index = this.state.series.indexOf(data)
-      return <VictoryGroup
-        color={this.state.config.colors[index]}
-        data={data}
-        key={this.state.options[index]}
-        labelComponent={
-          <VictoryTooltip
-            flyoutStyle={{fill: "white"}}
-            //orientation={(d) => d.eventKey === 0 ? 'right' : 'left'}
+          <VictoryScatter
+            name={`victory-scatter-${index}`}
+            size={(d, a) => {
+              return a ? 6 : 1
+            }}
           />
-        }
-        name={`victory-group-${index}`}
-        style={{
-          labels: {fill: this.state.config.colors[index]}
-        }}
-      >
-        <VictoryLine
-          name={`victory-line-${index}`}
-          style={{
-            data: {
-              strokeWidth: (d, active) => {
-                return active ? 3 : 2;
-              }
-            }
-          }}
-        />
-        <VictoryScatter
-          name={`victory-scatter-${index}`}
-          size={(d, a) => {
-            return a ? 6 : 1;
-          }}
-        />
-      </VictoryGroup>
+        </VictoryGroup>
+      )
     })
 
     return (
@@ -1437,7 +1429,7 @@ class LineChartComponent extends React.Component {
           <em>Select Options to Visualize:</em>
 
           <Select
-            name="toggle"
+            name='toggle'
             optionComponent={GravatarOption}
             menuStyle={{
               maxHeight: 130
@@ -1446,35 +1438,34 @@ class LineChartComponent extends React.Component {
               width: 300
             }}
             options={Array.prototype.slice.call(this.state.dataOptions).sort(function (a, b) {
-              let nameA = a.Header.toUpperCase(); // ignore upper and lowercase
-              let nameB = b.Header.toUpperCase(); // ignore upper and lowercase
+              const nameA = a.Header.toUpperCase()
+              const nameB = b.Header.toUpperCase()
               if (nameA < nameB) {
-                return -1;
+                return -1
               }
               if (nameA > nameB) {
-                return 1;
+                return 1
               }
-
               // names must be equal
-              return 0;
+              return 0
             })}
             onChange={this.onOptionChange}
-            resetValue="Header"
+            resetValue='Header'
             removeSelected={false}
             searchable={false}
             clearable={false}
             closeOnSelect={false}
             placeholder={this.state.placeholder}
           />
-          <div className="show-top-results">
+          <div className='show-top-results'>
             <div><input type='checkbox' checked={this.state.showTopFive} onChange={this.showTopFive}/>Show Top Five
             </div>
             <div><input type='checkbox' checked={this.state.showTopTen} onChange={this.showTopTen}/>Show Top Ten</div>
           </div>
         </div>
         {this.state.series.length === 0 ?
-          <div className="infographic-loading-div">
-            <img src="/img/loading.gif" className="infographic-loading-img"/>
+          <div className='infographic-loading-div'>
+            <img src='/img/loading.gif' className='infographic-loading-img'/>
           </div>
           :
           <div style={{display: "flex"}}>
@@ -1495,7 +1486,7 @@ class LineChartComponent extends React.Component {
                   width={600} height={100} scale={{x: "time"}}
                   containerComponent={
                     <VictoryBrushContainer
-                      brushDimension="x"
+                      brushDimension='x'
                       brushDomain={this.state.zoomDomain}
                       onBrushDomainChange={this.handleZoom.bind(this)}
                     />
@@ -1516,11 +1507,11 @@ class LineChartComponent extends React.Component {
   }
 }
 
-/// piechart width 300 height 300, contentInner display flex, legend bottom -200
 
+// piechart width 300 height 300, contentInner display flex, legend bottom -200
 class PieChartComponent extends React.Component {
 
-  constructor(props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {
@@ -1530,17 +1521,17 @@ class PieChartComponent extends React.Component {
     this.setIndex = this.setIndex.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.onClick(this.props.chartConfig.pieChart.default, this.props.chartConfig.pieChart.default.index)
   }
 
-  setIndex(activeIndex) {
+  setIndex (activeIndex) {
     this.setState({
       activeIndex: activeIndex
     })
   }
 
-  onClick(obj, index) {
+  onClick (obj, index) {
     if (this.refs && this.props.categories.length) {
       this.refs.child.setState({
         activeIndex: index
@@ -1553,10 +1544,8 @@ class PieChartComponent extends React.Component {
     }
   }
 
-  // that.onClick(that.props.infographicDefinitions.pieChartConfig.default, that.props.infographicDefinitions.pieChartConfig.default.index)
 
-
-  render(): ?React.Element {
+  render (): ?React.Element {
     if (this.refs.child && this.refs.child.refs.pieChart.container.children.length) {
       const viewBox = this.props.chartConfig.pieChart.viewBox
       this.refs.child.refs.pieChart.container.children[0].viewBox.baseVal.x = viewBox.x
@@ -1566,18 +1555,17 @@ class PieChartComponent extends React.Component {
     }
 
     return (
-      <div className="collapsible-container">
+      <div className='collapsible-container'>
         {
           this.props.categories.length ?
             <TwoLevelPieChart
               onClick={this.onClick}
               data={this.props.categories}
-              ref="child"
+              ref='child'
               setIndex={this.setIndex}
               {...this.props.chartConfig.pieChart}
             /> :
-            <div style={{height: 300, width: 700}}>
-            </div>
+            <div style={{height: 300, width: 700}}/>
         }
       </div>
     )
@@ -1586,7 +1574,7 @@ class PieChartComponent extends React.Component {
 
 class ResultsInfographicPieBarComponent extends React.Component {
 
-  constructor(props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {
@@ -1598,41 +1586,36 @@ class ResultsInfographicPieBarComponent extends React.Component {
     this.getBarChartData = this.getBarChartData.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.onYearToggle(this.props.chartConfig.select.default)
+    this.setYears()
+  }
 
+  setYears () {
     const all = [{
       value: "All",
       label: "All"
     }]
     const now = new Date()
-    const that = this
     let yearsRange = _.range(this.props.chartConfig.select.startYear, now.getFullYear() + 1)
     yearsRange = yearsRange.filter(v => {
       return this.props.chartConfig.select.yearsWithNoData.indexOf(v) === -1
     })
     const years = all.concat(
-      _.reverse(yearsRange.map(value => {
-          return {
-            value: value,
-            label: value
-          }
-        })
-      )
+        _.reverse(yearsRange.map(value => {
+              return {
+                value: value,
+                label: value
+              }
+            })
+        )
     )
     this.setState({
       years
     })
-
   }
 
-  componentDidUpdate() {
-    if (!Object.keys(this.props.chartConfig).length) {
-      return
-    }
-  }
-
-  getBarChartData(obj, index) {
+  getBarChartData (obj, index) {
     if (!obj.full_name) {
       if (this.state.categories.length) {
         const defaultCategory = this.state.categories[index]
@@ -1660,7 +1643,8 @@ class ResultsInfographicPieBarComponent extends React.Component {
               [this.props.chartConfig.barChart.detailLabel]: value[this.props.chartConfig.barChart.detail]
             }
           }).slice(0, this.props.chartConfig.barChart.limiter)
-        } else {
+        }
+        else {
           console.log('????')
         }
         this.setState({data})
@@ -1671,7 +1655,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
 
   }
 
-  onOpen() {
+  onOpen () {
     // const pieChartConfig = this.props.parent.state.infographicsConfig.pieChart
     // $('.recharts-surface').each(function () {
     //   $(this).removeAttr('viewBox');
@@ -1684,7 +1668,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
     // })
   }
 
-  onYearToggle(selection) {
+  onYearToggle (selection) {
     if (this.state.value && selection.value === this.state.value.value) {
       return
     }
@@ -1733,7 +1717,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
       })
   }
 
-  render(): ?React.Element {
+  render (): ?React.Element {
     if (!Object.keys(this.props.chartConfig).length) {
       return (<span/>)
     }
@@ -1741,12 +1725,12 @@ class ResultsInfographicPieBarComponent extends React.Component {
     this.onOpen()
     return (
       <div>
-        <div className="infographic-title-div">
+        <div className='infographic-title-div'>
           <h3>{this.props.chartConfig.select.title}</h3>
           <h3>{this.props.chartConfig.barChart.title}</h3>
         </div>
         <Select
-          name="toggle"
+          name='toggle'
           menuStyle={{
             width: 125
           }}
@@ -1797,7 +1781,7 @@ class ResultsInfographicPieBarComponent extends React.Component {
 
 class InfographicComponent extends React.Component {
 
-  constructor(props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {
@@ -1810,13 +1794,13 @@ class InfographicComponent extends React.Component {
     this.toLetters = this.toLetters.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (this.props.chartConfig.type === 'bar') {
       this.getBarData(this.props, this.props.chartConfig.barChart.xOptions[0])
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if ((this.props.applied_filters !== nextProps.applied_filters) || (this.props.chartType !== nextProps.chartType)) {
       if (nextProps.chartConfig.type === 'bar') {
         this.getBarData(nextProps, nextProps.chartConfig.barChart.xOptions[0])
@@ -1824,15 +1808,15 @@ class InfographicComponent extends React.Component {
     }
   }
 
-  toLetters(num) {
-    "use strict";
-    var mod = num % 26,
-      pow = num / 26 | 0,
-      out = mod ? String.fromCharCode(64 + mod) : (--pow, 'Z');
-    return pow ? this.toLetters(pow) + out : out;
+  toLetters (num) {
+    "use strict"
+    const mod = num % 26
+    let pow = num / 26 | 0
+    const out = mod ? String.fromCharCode(64 + mod) : (--pow, 'Z')
+    return pow ? this.toLetters(pow) + out : out
   }
 
-  getBarData(props, xAxis) {
+  getBarData (props, xAxis) {
     let data = []
 
     props.drs.getData(props.applied_filters, {
@@ -1861,16 +1845,16 @@ class InfographicComponent extends React.Component {
     })
   }
 
-  changeXAxis(selectionObj) {
+  changeXAxis (selectionObj) {
     this.getBarData(this.props, selectionObj)
   }
 
 
-  render(): ?React.Element {
+  render (): ?React.Element {
     let infographic = null
     if (Object.keys(this.props.chartConfig).length) {
       if (this.props.chartConfig.type === "pieBar") {
-        infographic =
+        infographic = (
           <ResultsInfographicPieBarComponent
             applied_filters={this.props.applied_filters}
             detail={this.props.chartConfig.barChart.detailLabel}
@@ -1880,16 +1864,20 @@ class InfographicComponent extends React.Component {
             yLabel={this.props.chartConfig.barChart.yAxisTitle}
             xAxis={this.props.chartConfig.barChart.countLabel}
           />
-      } else if (this.props.chartConfig.type === "line") {
-        infographic =
+        )
+      }
+      else if (this.props.chartConfig.type === "line") {
+        infographic = (
           <LineChartComponent
             applied_filters={this.props.applied_filters}
             dataset={this.props.dataset}
             drs={this.props.drs}
             chartConfig={this.props.chartConfig}
           />
-      } else if (this.props.chartConfig.type === "bar") {
-        infographic =
+        )
+      }
+      else if (this.props.chartConfig.type === "bar") {
+        infographic = (
           <BarChartComponent
             applied_filters={this.props.applied_filters}
             barHeight={600}
@@ -1904,6 +1892,7 @@ class InfographicComponent extends React.Component {
             xAxis={this.props.chartConfig.barChart.countLabel}
             xLabel={this.state.alpha ? "alpha" : "name"}
           />
+        )
       }
     }
 
@@ -1944,10 +1933,10 @@ class InfographicComponent extends React.Component {
 
 class InfographicMenubar extends React.Component {
 
-  constructor(props: Object) {
+  constructor (props: Object) {
     super(props)
 
-    let options = this.getOptions(this.props.infographicsConfig)
+    const options = this.getOptions(this.props.infographicsConfig)
 
     this.state = {
       chartType: options[0],
@@ -1957,9 +1946,9 @@ class InfographicMenubar extends React.Component {
     this.selectChart = this.selectChart.bind(this)
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (this.props.infographicsConfig !== nextProps.infographicsConfig) {
-      let options = this.getOptions(nextProps.infographicsConfig)
+      const options = this.getOptions(nextProps.infographicsConfig)
       this.setState({
         chartType: options[0],
         options: options
@@ -1967,7 +1956,7 @@ class InfographicMenubar extends React.Component {
     }
   }
 
-  selectChart(chart) {
+  selectChart (chart) {
     this.setState({
       chartType: chart
     })
@@ -1975,11 +1964,11 @@ class InfographicMenubar extends React.Component {
     this.props.selectChart(chart.value)
   }
 
-  componentDidMount() {
+  componentDidMount () {
   }
 
-  getOptions(infographicsConfig) {
-    let options = Object.keys(infographicsConfig).map(value => {
+  getOptions (infographicsConfig) {
+    const options = Object.keys(infographicsConfig).map(value => {
       return {
         value: value,
         label: infographicsConfig[value].title
@@ -1988,7 +1977,7 @@ class InfographicMenubar extends React.Component {
     return (options)
   }
 
-  render(): ?React.Element {
+  render (): ?React.Element {
     const customStyles = {
       container: (provided) => ({
         ...provided,
@@ -2017,23 +2006,23 @@ class InfographicMenubar extends React.Component {
 
 class SelectedFiltersComponent extends React.Component {
 
-  constructor(props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {}
     this.formatValues = this.formatValues.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
   }
 
-  formatValues() {
+  formatValues () {
     const filter_list = []
     this.props.applied_filters.forEach((filter, idx) => {
       if ((filter.query_type === "term" || filter.query_type === "prefix" || filter.query_type === "exists") &&
         (filter.type === "checkbox" || filter.type === "boolean")) {
         filter.value.forEach((f, valueIdx) => {
-          var valueObj = filter.options.filter(o => o.value === f)
+          const valueObj = filter.options.filter(o => o.value === f)
           if (valueObj.length) {
             filter_list.push({
               value: valueObj[0].label,
@@ -2044,7 +2033,8 @@ class SelectedFiltersComponent extends React.Component {
             })
           }
         })
-      } else if (
+      }
+      else if (
         filter.query_type === "range" &&
         (filter.type === "yearpicker" || filter.type === "numeric_range") &&
         filter.value.length
@@ -2056,7 +2046,8 @@ class SelectedFiltersComponent extends React.Component {
           idx: idx,
           valueIdx: [0, 1]
         })
-      } else if (
+      }
+      else if (
         filter.query_type === "range" &&
         filter.value.length
       ) {
@@ -2068,7 +2059,8 @@ class SelectedFiltersComponent extends React.Component {
           query_type: filter.query_type,
           idx: idx
         })
-      } else if (
+      }
+      else if (
         (filter.query_type === "term" || filter.query_type === "match") &&
         filter.value.length &&
         filter.type !== "checkbox"
@@ -2101,9 +2093,9 @@ class SelectedFiltersComponent extends React.Component {
     })
   }
 
-  render(): ?React.Element {
+  render (): ?React.Element {
     const filter_list = this.formatValues()
-    if (filter_list === undefined || filter_list.length == 0) {
+    if (filter_list === undefined || filter_list.length === 0) {
       return (
         <div/>
       )
@@ -2121,7 +2113,7 @@ class SelectedFiltersComponent extends React.Component {
 
 class DatasetExplorerContentComponent extends React.Component {
 
-  constructor(props: Object) {
+  constructor (props: Object) {
     super(props)
 
     this.state = {
@@ -2130,11 +2122,11 @@ class DatasetExplorerContentComponent extends React.Component {
     this.selectChart = this.selectChart.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
 
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (this.props.infographicsConfig !== nextProps.infographicsConfig) {
       this.setState({
         chartType: Object.keys(nextProps.infographicsConfig)[0]
@@ -2142,13 +2134,13 @@ class DatasetExplorerContentComponent extends React.Component {
     }
   }
 
-  selectChart(chart) {
+  selectChart (chart) {
     this.setState({
       chartType: chart
     })
   }
 
-  render(): ?React.Element {
+  render (): ?React.Element {
 
     if (this.props.visualization === true) {
       return (
@@ -2180,37 +2172,33 @@ class DatasetExplorerContentComponent extends React.Component {
           </div>
         </div>
       )
-    } else {
-      return (
-        <div
-          className={'dataset-explorer-content dataset-explorer-results ' + (this.props.displayFilters ? 'width-77' : 'width-100')}
-          id='dataset-explorer-content'>
-          {
-            this.props.hideContent &&
-            <div className='dataset-overlay'/>
-          }
-          <div>
-            <SelectedFiltersComponent
-              applied_filters={this.props.applied_filters}
-              clearAllFilters={this.props.clearAllFilters}
-              infographicsConfig={this.props.infographicsConfig}
-              removeFilter={this.props.removeFilter}
-            />
-          </div>
-          <ResultsComponent
-            dataset={this.props.dataset}
-            hideContent={this.props.hideContent}
+    }
+    return (
+      <div
+        className={'dataset-explorer-content dataset-explorer-results ' + (this.props.displayFilters ? 'width-77' : 'width-100')}
+        id='dataset-explorer-content'>
+        {
+          this.props.hideContent &&
+          <div className='dataset-overlay'/>
+        }
+        <div>
+          <SelectedFiltersComponent
+            applied_filters={this.props.applied_filters}
+            clearAllFilters={this.props.clearAllFilters}
             infographicsConfig={this.props.infographicsConfig}
-            rows={this.props.rows}
-            view={this.props.view}
+            removeFilter={this.props.removeFilter}
           />
         </div>
-      )
-    }
+        <ResultsComponent
+          dataset={this.props.dataset}
+          hideContent={this.props.hideContent}
+          infographicsConfig={this.props.infographicsConfig}
+          rows={this.props.rows}
+          view={this.props.view}
+        />
+      </div>
+    )
   }
 }
 
 export default DatasetExplorerContentComponent
-
-
-

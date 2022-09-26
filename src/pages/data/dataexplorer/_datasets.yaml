@@ -292,7 +292,7 @@ names:
         - label: Marketing Category
           type: checkbox
           query_type: prefix
-          field: marketing_category
+          field: marketing_category.exact
           options:
             - label: NADA
               value: NADA
