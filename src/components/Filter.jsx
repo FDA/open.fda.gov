@@ -6,6 +6,7 @@ import { default as ReactTable } from "react-table"
 
 import Checkbox from 'rc-checkbox'
 import AsyncSelect from 'react-select/async'
+import Select from 'react-select'
 import Moment from 'moment'
 import withQuery from 'with-query'
 import ReactModal from 'react-modal'
@@ -50,7 +51,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     }
   }
 
-  componentWillReceiveProps (nextProps){
+  componentWillReceiveProps (nextProps) {
     const field = nextProps.option.field
     const autocomplete_field = nextProps.option.autocomplete_field
 
@@ -62,7 +63,7 @@ class SelectAutoCompleteFilterComponent extends React.Component {
       return
     }
 
-    if (nextProps.option.can_query){
+    if (nextProps.option.can_query) {
       this.setState({
         autocomplete_field,
         field
@@ -88,8 +89,9 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     })
   }
 
-  getOptions(inputValue) {
-    if (inputValue){
+  getOptions (inputValue) {
+    if (inputValue) {
+      console.log("inputValue: ", inputValue)
       return fetch(
         withQuery(`${this.props.dataset.url}/${this.props.dataset.endpoint}`,{
           searchField: this.props.option.autocomplete_field,
@@ -104,27 +106,26 @@ class SelectAutoCompleteFilterComponent extends React.Component {
             label: value
           }
         })
-      }).catch((err) => {
+      }).catch(() => {
         return []
       })
-    } else {
-      // console.log("options: ", this.state.options)
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve(this.state.options);
-        }, 1000);
-      })
     }
+    // console.log("select filter options: ", this.state.options)
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.state.options)
+      }, 1000)
+    })
   }
 
   escapeRegexCharacters (str) {
-    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   }
 
-  onInputKeyDown (value){
+  onInputKeyDown (value) {
     const escapedValue = this.escapeRegexCharacters(value.trim())
     this.getSuggestions(escapedValue).then(results => {
-      if (!results){
+      if (!results) {
         return
       }
       this.setState({
@@ -140,8 +141,8 @@ class SelectAutoCompleteFilterComponent extends React.Component {
 
   }
 
-  formatValues (values){
-    return values.map((value,idx) => {
+  formatValues (values) {
+    return values.map((value, idx) => {
       return (
         <div key={`value-${idx}`} className='selected-filter'>
           <button onClick={() => this.removeValue(idx)}>
@@ -153,12 +154,12 @@ class SelectAutoCompleteFilterComponent extends React.Component {
     })
   }
 
-  onChange (selectionObj, event){
+  onChange (selectionObj, event) {
     this.setState({
       selected_options: selectionObj
     })
 
-    if (this.props.onChange){
+    if (this.props.onChange) {
       this.props.onChange(event.option, {
         field: this.props.option.field,
         idx: this.props.option.idx
@@ -175,14 +176,14 @@ class SelectAutoCompleteFilterComponent extends React.Component {
       })
     }
 
-    if (!this.props.filters.length){
+    if (!this.props.filters.length) {
       return (<span/>)
     }
 
     const elements = this.formatValues(this.props.filters[this.props.option.idx].value)
 
     return (
-      <div className='filter-item-container' key={"div" + parseInt(Math.random()*100)}>
+      <div className='filter-item-container' key={"div" + parseInt(Math.random() * 100)}>
         <div className='flex-row'>
           <h3 className='filter-header'>{this.props.option.label}
             {
@@ -252,7 +253,7 @@ class HelpWindow extends React.Component {
           isOpen={this.state.showModal}
           className='help-window'
           overlayClassName='modal-overlay'
-          contentLabel="Help Modal"
+          contentLabel='Help Modal'
           onRequestClose={this.closeModal}
           shouldCloseOnOverlayClick={true}
           ariaHideApp={false}
@@ -280,7 +281,7 @@ class HelpWindow extends React.Component {
             style={{
               width: "100%"
             }}
-            className="-striped -highlight"
+            className='-striped -highlight'
           />
         </ReactModal>
       </i>
@@ -309,7 +310,7 @@ class CheckboxFilterComponent extends React.Component {
     // })
   }
 
-  onChange(e){
+  onChange (e) {
     // const value = e.target.value
     // this.state.states[value] = (!this.state.states[value] ? 1 : 0)
 
@@ -331,7 +332,7 @@ class CheckboxFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
-    if(!this.props.filters.length){
+    if (!this.props.filters.length) {
       return (<span/>)
     }
     const field = this.props.option.field
@@ -356,14 +357,14 @@ class CheckboxFilterComponent extends React.Component {
           </p>
         </div>
       )
-    });
+    })
     const cols = []
-    output.forEach(function(item, idx){
-      cols.push(<div className="column" key={`column${idx}`}>{item}</div>)
+    output.forEach(function (item, idx) {
+      cols.push(<div className='column' key={`column${idx}`}>{item}</div>)
     })
 
     return (
-      <div className="row">
+      <div className='row'>
         {cols}
       </div>
     )
@@ -391,7 +392,7 @@ class BooleanFilterComponent extends React.Component {
     // })
   }
 
-  onChange(e){
+  onChange (e) {
     // const value = e.target.value
     // this.state.states[value] = (!this.state.states[value] ? 1 : 0)
 
@@ -413,7 +414,7 @@ class BooleanFilterComponent extends React.Component {
   }
 
   render (): ?React.Element {
-    if(!this.props.filters.length) {
+    if (!this.props.filters.length) {
       return (<span/>)
     }
     const field = this.props.option.field
@@ -438,15 +439,15 @@ class BooleanFilterComponent extends React.Component {
           </p>
         </div>
       )
-    });
+    })
 
     const cols = []
-    output.forEach(function(item, idx){
-      cols.push(<div className="column" key={`column${idx}`}>{item}</div>)
+    output.forEach(function (item, idx) {
+      cols.push(<div className='column' key={`column${idx}`}>{item}</div>)
     })
 
     return (
-      <div className="row">
+      <div className='row'>
         {cols}
       </div>
     )
@@ -470,7 +471,7 @@ class FreeTextFilterComponent extends React.Component {
   componentDidMount () {
   }
 
-  removeValue(idx) {
+  removeValue (idx) {
     const value = this.props.filters[this.props.option.idx].value[idx]
 
     this.props.onChange(value, {
@@ -479,14 +480,14 @@ class FreeTextFilterComponent extends React.Component {
     })
   }
 
-  onChange(event) {
+  onChange (event) {
     this.setState({
       currentValue: event.target.value
     })
   }
 
-  formatValues(values){
-    return values.map((value,idx) => {
+  formatValues (values) {
+    return values.map((value, idx) => {
       return (
         <div key={`value-${idx}`} className='selected-filter'>
           <button onClick={() => this.removeValue(idx)}>
@@ -498,7 +499,7 @@ class FreeTextFilterComponent extends React.Component {
     })
   }
 
-  handleKeyPress(e) {
+  handleKeyPress (e) {
     if (e.key === "Enter") {
       const value = e.target.value
 
@@ -515,8 +516,8 @@ class FreeTextFilterComponent extends React.Component {
     }
   }
 
-  render(): ?React.Element {
-    if(!this.props.filters.length){
+  render (): ?React.Element {
+    if (!this.props.filters.length) {
       return (<span/>)
     }
     const elements = this.formatValues(this.props.filters[this.props.option.idx].value)
@@ -541,30 +542,22 @@ class FreeTextFilterComponent extends React.Component {
 
 class YearPickerFilterComponent extends React.Component {
 
-  constructor(props: Object) {
+  constructor (props: Object) {
     super(props)
-
-    const startYear = this.props.option.start_year
-    const endYear = Moment().format('YYYY')
-    let years = this.getOptions()
+    const years = []
+    for (let i = this.props.option.start_year; i <= Moment().format('YYYY'); i++) {
+      years.push({label: i.toString(), value: i.toString()})
+    }
 
     this.state = {
-      years: years
+      startYear: '',
+      endYear: '',
+      years
     }
 
     this.onChangeStart = this.onChangeStart.bind(this)
     this.onChangeEnd = this.onChangeEnd.bind(this)
-    this.getOptions = this.getOptions.bind(this)
   }
-
-  /*componentDidMount () {
-    if (this.props.onChangeYear) {
-      this.props.onChangeYear(Moment(this.state.startYear + '0101').format('YYYYMMDD'), Moment(this.state.endYear + '1231').format('YYYYMMDD'), {
-        field: this.props.option.field,
-        idx: this.props.option.idx,
-      })
-    }
-  }*/
 
   componentWillReceiveProps (nextProps) {
     if (!nextProps.filters[nextProps.option.idx].value.length) {
@@ -575,88 +568,77 @@ class YearPickerFilterComponent extends React.Component {
     }
   }
 
-  getOptions () {
-    let list = [];
-    for (let i = this.props.option.start_year; i <= Moment().format('YYYY'); i++) {
-      list.push({label: i, value: i});
-    }
-    return list
-  }
-
-  handleKeyPress(e) {
-    if(e.key === "Enter"){
-      const value = e.target.value
-
-      if(this.props.onChange){
-        this.props.onChange(value, {
-          field: this.props.option.field,
-          idx: this.props.option.idx
-        })
-      }
-    }
-  }
-
   onChangeStart (startYear) {
-    this.setState({
-      startYear: startYear.value
-    })
-
-    let endYear = this.state.endYear + '1231'
+    let endYear = String(this.state.endYear.value)
 
     if (!Moment(endYear).isValid()) {
-      endYear = Moment().format('YYYYMMDD')
+      endYear = Moment().format('YYYY')
     }
 
     if (this.props.onChangeYear) {
-      this.props.onChangeYear(Moment(startYear.value + '0101').format('YYYYMMDD'), Moment(endYear).format('YYYYMMDD'), {
+      this.props.onChangeYear(Moment(startYear.value + '0101').format('YYYYMMDD'), Moment(endYear + '1231').format('YYYYMMDD'), {
         field: this.props.option.field,
         idx: this.props.option.idx
       })
     }
+
+    this.setState({
+      startYear,
+      endYear: {label: endYear, value: endYear}
+    })
   }
 
   onChangeEnd (endYear) {
-    this.setState({
-      endYear: endYear.value
-    })
-
-    let startYear = this.state.startYear + '0101'
+    let startYear = String(this.state.startYear.value)
 
     if (!Moment(startYear).isValid()) {
-      startYear = this.props.option.start_year + '0101'
+      startYear = this.props.option.start_year
     }
 
     if (this.props.onChangeYear) {
-      this.props.onChangeYear(Moment(startYear).format('YYYYMMDD'), Moment(endYear.value + '1231').format('YYYYMMDD'), {
+      this.props.onChangeYear(Moment(startYear + '0101').format('YYYYMMDD'), Moment(endYear.value + '1231').format('YYYYMMDD'), {
         field: this.props.option.field,
         idx: this.props.option.idx
       })
     }
+
+    this.setState({
+      startYear: {label: startYear, value: startYear},
+      endYear
+    })
   }
 
 
   render (): ?React.Element {
+    const customStyles = {
+      container: (provided) => ({
+        ...provided,
+        paddingRight: 30,
+        width: '100%'
+      })
+    }
+    const years = this.state.years
     return (
-      <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
+      <div className='year-picker' key={"div" + parseInt(Math.random() * 100)}>
         <p>Start Year:</p>
-        <AsyncSelect
-          value={this.state.startYear}
-          className='filter-select'
-          placeholder='Select start date'
+        <Select
+          isClearable={false}
           onChange={this.onChangeStart}
-          options={this.state.years}
+          options={years}
+          placeholder='Select Start Year'
+          styles={customStyles}
           id={this.props.option.idx.toString()}
-          clearable={false}
+          value={this.state.startYear}
         />
         <p>End Year:</p>
-        <AsyncSelect
-          value={this.state.endYear}
-          className='filter-select'
-          placeholder='Select end date'
+        <Select
+          isClearable={false}
           onChange={this.onChangeEnd}
-          options={this.state.years}
+          options={years}
+          placeholder='Select End Year'
+          styles={customStyles}
           id={this.props.option.idx.toString()}
-          clearable={false}
+          value={this.state.endYear}
         />
       </div>
     )
@@ -666,10 +648,10 @@ class YearPickerFilterComponent extends React.Component {
 
 class RangeQueryFilterComponent extends React.Component {
 
-  constructor(props: Object) {
+  constructor (props: Object) {
     super(props)
 
-    let options = this.getOptions()
+    const options = this.getOptions()
 
     this.state = {
       options: options
@@ -690,18 +672,18 @@ class RangeQueryFilterComponent extends React.Component {
   }
 
   getOptions () {
-    let list = [];
+    const list = []
     for (let i = this.props.option.start_value; i <= this.props.option.end_value; i++) {
-      list.push({label: i, value: i});
+      list.push({label: i, value: i})
     }
     return list
   }
 
-  handleKeyPress(e) {
-    if (e.key === "Enter"){
+  handleKeyPress (e) {
+    if (e.key === "Enter") {
       const value = e.target.value
 
-      if (this.props.onChange){
+      if (this.props.onChange) {
         this.props.onChange(value, {
           field: this.props.option.field,
           idx: this.props.option.idx
@@ -751,7 +733,7 @@ class RangeQueryFilterComponent extends React.Component {
 
   render (): ?React.Element {
     return (
-      <div className='year-picker' key={"div" + parseInt(Math.random()*100)}>
+      <div className='year-picker' key={"div" + parseInt(Math.random() * 100)}>
         <p>Start Year:</p>
         <AsyncSelect
           value={this.state.startValue}
@@ -802,15 +784,16 @@ class FilterComponent extends React.Component {
     }
   }
 
-  onChangeCheckbox(e, options) {
+  onChangeCheckbox (e, options) {
     const value = options.options.filter(v => e.target.value === v.label)[0].value
 
     // contains value already
-    if ( this.state.selected_filters[e.target.filterIdx].value.indexOf(value) > -1 ) {
+    if (this.state.selected_filters[e.target.filterIdx].value.indexOf(value) > -1) {
       this.setState({
         selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$splice: [[0, 1]]}}})
       })
-    } else {
+    }
+    else {
       this.setState({
         selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$push: [value]}}})
       })
@@ -819,14 +802,15 @@ class FilterComponent extends React.Component {
     this.props.handleFilterChange()
   }
 
-  onChangeBoolean(e, options) {
+  onChangeBoolean (e, options) {
     const value = options.options.filter(v => e.target.value === v.label)[0].value
 
     if (value !== this.state.selected_filters[e.target.filterIdx].value[0]) {
       this.setState({
         selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$set: [value]}}})
       })
-    } else {
+    }
+    else {
       this.setState({
         selected_filters: update(this.state.selected_filters, {[e.target.filterIdx]: {value: {$set: []}}})
       })
@@ -835,16 +819,17 @@ class FilterComponent extends React.Component {
     this.props.handleFilterChange()
   }
 
-  onChangeSelect(selectionObj, meta) {
+  onChangeSelect (selectionObj, meta) {
     const value = selectionObj.value
 
     console.log("selectd filt: ", this.state.selected_filters[meta.idx])
     // contains value already
-    if ( this.state.selected_filters[meta.idx].value.indexOf(value) > -1 ) {
+    if (this.state.selected_filters[meta.idx].value.indexOf(value) > -1 ) {
       this.setState({
         selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$splice: [[0, 1]]}}})
       })
-    } else {
+    }
+    else {
       this.setState({
         selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$push: [value]}}})
       })
@@ -861,15 +846,16 @@ class FilterComponent extends React.Component {
     this.props.handleFilterChange()
   }
 
-  onChangeText(value, meta) {
+  onChangeText (value, meta) {
     value = value.toLowerCase()
 
     // contains value already
-    if ( this.state.selected_filters[meta.idx].value.indexOf(value) > -1 ) {
+    if (this.state.selected_filters[meta.idx].value.indexOf(value) > -1) {
       this.setState({
         selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$splice: [[0, 1]]}}})
       })
-    } else {
+    }
+    else {
       this.setState({
         selected_filters: update(this.state.selected_filters, {[meta.idx]: {value: {$push: [value]}}})
       })
@@ -883,7 +869,8 @@ class FilterComponent extends React.Component {
       document.getElementById("filter-sidebar").style.width = "23%"
       document.getElementById("dataset-explorer-content").style.width = "75%"
       document.getElementById("fa-angle-double-left").style.transform = "scale(1, 1)"
-    } else {
+    }
+    else {
       document.getElementById("filter-sidebar").style.width = "0%"
       document.getElementById("dataset-explorer-content").style.width = "97%"
       document.getElementById("fa-angle-double-left").style.transform = "scale(-1, 1)"
@@ -893,10 +880,10 @@ class FilterComponent extends React.Component {
 
   render (): ?React.Element {
 
-    if(!this.props.dataset.filters.options || !this.props.dataset.filters.options.length) {
+    if (!this.props.dataset.filters.options || !this.props.dataset.filters.options.length) {
       return <span/>
     }
-    const components = this.props.dataset.filters.options.map((option,idx) => {
+    const components = this.props.dataset.filters.options.map((option, idx) => {
       option.idx = idx
       if (option.type === "select_autocomplete") {
         return (
@@ -912,7 +899,8 @@ class FilterComponent extends React.Component {
             parent={this.props.parent}
           />
         )
-      } else if (option.type === "checkbox") {
+      }
+      else if (option.type === "checkbox") {
         return (
           <div className='filter-item-container' key={`div${idx}`}>
             <h3 className='filter-header'>{option.label}</h3>
@@ -924,7 +912,8 @@ class FilterComponent extends React.Component {
             />
           </div>
         )
-      } else if (option.type === "boolean") {
+      }
+      else if (option.type === "boolean") {
         return (
           <div className='filter-item-container' key={`div${idx}`}>
             <h3 className='filter-header'>{option.label}</h3>
@@ -936,7 +925,8 @@ class FilterComponent extends React.Component {
             />
           </div>
         )
-      } else if (option.type === "yearpicker") {
+      }
+      else if (option.type === "yearpicker") {
         return (
           <div className='filter-item-container' key={`div${idx}`}>
             <h3 className='filter-header'>{option.label}</h3>
@@ -948,7 +938,8 @@ class FilterComponent extends React.Component {
             />
           </div>
         )
-      } else if (option.type === "free_text") {
+      }
+      else if (option.type === "free_text") {
         return (
           <div className='filter-item-container' key={`div${idx}`}>
             <h3 className='filter-header'>{option.label}</h3>
@@ -960,7 +951,8 @@ class FilterComponent extends React.Component {
             />
           </div>
         )
-      } else if (option.type === "numeric_range") {
+      }
+      else if (option.type === "numeric_range") {
         return (
           <div className='filter-item-container' key={`div${idx}`}>
             <h3 className='filter-header'>{option.label}</h3>
