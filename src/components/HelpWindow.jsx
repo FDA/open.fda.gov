@@ -41,21 +41,21 @@ class HelpWindow extends React.Component {
     if (typeof help_text === 'string') {
       help_body = <p>{help_text}</p>
     } else {
-      help_body = help_text.map(function(line, i) {
+      help_body = help_text.map(function (line, i) {
         return <p key={i}>{line}</p>
       })
     }
 
     return (
-      <i style={{textDecoration: "underline", fontWeight: "bold", color: "#00517d"}} onClick={this.openModal}>
-        Help
-        <ReactModal 
+      <div>
+        <i style={{textDecoration: "underline", fontWeight: "bold", color: "#00517d"}} onClick={this.openModal}>Help</i>
+        <ReactModal
           isOpen={this.state.showModal}
           className='help-window'
           overlayClassName='modal-overlay'
-          contentLabel="Help Modal"
+          contentLabel='Help Modal'
           onRequestClose={this.closeModal}
-          shouldCloseOnOverlayClick={true}
+          shouldCloseOnOverlayClick
           ariaHideApp={false}
         >
           <h3>{this.props.help_header}</h3>
@@ -65,8 +65,9 @@ class HelpWindow extends React.Component {
                 to={ep_path[this.props.dataset_name]}>{ep_path[this.props.dataset_name]}</Link>.</p>
           }
           {help_body}
+          <button onClick={this.closeModal}>Close Modal</button>
         </ReactModal>
-      </i>
+      </div>
     )
   }
 }

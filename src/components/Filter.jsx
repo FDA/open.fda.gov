@@ -255,7 +255,7 @@ class HelpWindow extends React.Component {
           overlayClassName='modal-overlay'
           contentLabel='Help Modal'
           onRequestClose={this.closeModal}
-          shouldCloseOnOverlayClick={true}
+          shouldCloseOnOverlayClick
           ariaHideApp={false}
         >
           <h3 className='filter-header'>{this.props.help_obj.label}</h3>
@@ -265,9 +265,9 @@ class HelpWindow extends React.Component {
             pageSize={this.state.pageSize}
             columns={this.props.help_obj.columns}
             defaultPageSize={this.props.help_obj.options.length}
-            showPageSizeOptions={true}
+            showPageSizeOptions
             pageSizeOptions={[25, 50, 100, 200, 250, 500, 1000]}
-            showPagination={true}
+            showPagination
             resized={this.state.resized}
             onSortedChange={sorted => this.setState({ sorted })}
             onPageChange={page => this.setState({ page })}
@@ -277,12 +277,13 @@ class HelpWindow extends React.Component {
             onResizedChange={resized => this.setState({ resized })}
             onFilteredChange={filtered => this.setState({ filtered })}
             minRows={10}
-            filterable={true}
+            filterable
             style={{
               width: "100%"
             }}
             className='-striped -highlight'
           />
+          <button onClick={this.closeModal}>Close Modal</button>
         </ReactModal>
       </i>
     )

@@ -19,7 +19,7 @@ type tPROPS = {
  */
 const DataViewToggle = (props: tPROPS) => {
   if (!props.renderDataViewToggle) {
-    return null;
+    return null
   }
   const {
     visualization,
@@ -42,5 +42,5 @@ const DataViewToggle = (props: tPROPS) => {
   )
 }
 
-DataViewToggle.displayName = 'components/Disclaimer'
+DataViewToggle.displayName = 'components/DataViewToggle'
 export default DataViewToggle
