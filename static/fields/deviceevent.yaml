@@ -210,6 +210,12 @@ properties:
           is_exact: true
           possible_values:
           type: string
+        gudid_deviceid:
+          description: "A unique numeric or alphanumeric code specific to a device version or model."
+          format:
+          is_exact: true
+          possible_values:
+          type: string
         implant_flag:
           description: "Whether a device was implanted or not. May be either marked N or left empty if this was not applicable."
           format:
@@ -339,6 +345,12 @@ properties:
           type: object
         other_id_number:
           description: "Any other identifier that might be used to identify the device. Expect wide variability in the use of this field. It is commonly empty, or marked `NA`, `N/A`, `*`, or `UNK`, if unknown or not applicable."
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        redacted_udi:
+          description: "Includes both the UDI-DI and the parts of the Production identifier (PI) that would not identify an individual patient. The Production Identifier is  a conditional, variable portion of a UDI that identifies one or more of the following when included on the label of a device and may include: 1) lot or batch number within which a device was manufactured, 2) serial number of a specific device, 3) expiration date of a specific device, 4) date a specific device was manufactured, and 5) distinct identification code required by §1271.290(c) for a human cell, tissue, or cellular and tissue-based product (HCT/P) regulated as a device."
           format:
           is_exact: true
           possible_values:

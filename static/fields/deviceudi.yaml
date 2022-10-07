@@ -225,7 +225,7 @@ properties:
     items:
       properties:
         id:
-          description: "An identifier that is the main (primary) lookup for a medical device and meets the requirements to uniquely identify a device through its distribution and use. The primary DI number will be located on the base package, which is the lowest package level of a medical device containing a full UDI. For medical devices without packaging, the primary DI number and full UDI may be on the device itself."
+          description: "A unique numeric or alphanumeric code specific to a device version or model."
           format:
           is_exact: false
           possible_values:
