@@ -12,8 +12,8 @@ class ApiKey extends React.Component {
   constructor (props: Object) {
     super(props)
     this.state = {
-      apiKey: '',
       email: '',
+      emailSent: false,
       loading: false,
       showForm: false
     }
@@ -51,7 +51,7 @@ class ApiKey extends React.Component {
       options: {
         'contact_url': 'mailto:open@fda.hhs.gov',
         'send_welcome_email': true,
-        'verify_email': false,
+        'verify_email': true,
         'email_from_name': 'OpenFDA',
         'site_name': 'OpenFDA',
       }
@@ -70,7 +70,7 @@ class ApiKey extends React.Component {
       .then(res => {
         console.log("res: ", res)
         this.setState({
-          apiKey: res.user.api_key,
+          emailSent: true,
           email,
           loading: false
         })
@@ -79,7 +79,7 @@ class ApiKey extends React.Component {
   }
 
   render () {
-    const { apiKey, loading, showForm } = this.state
+    const { emailSent, loading, showForm } = this.state
     return (
       <section className='marg-t-2 clearfix'>
         <div className='flex-box'>
@@ -95,7 +95,7 @@ class ApiKey extends React.Component {
                 </button>
             }
             {
-              !apiKey && showForm &&
+              !emailSent && showForm &&
                 <form>
                   <label>
                     <span className='visually-hidden'>Api key form</span>
@@ -122,7 +122,7 @@ class ApiKey extends React.Component {
                 </form>
             }
             {
-              apiKey &&
+              emailSent &&
                 <div>
                   <strong>Your API key for {this.state.email} has been e-mailed to you.
                      You can use your API key to begin making web service requests immediately.</strong>
