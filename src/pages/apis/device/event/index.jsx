@@ -16,6 +16,10 @@ class IndexRoute extends React.Component {
         <p>The U.S. Food and Drug Administration (FDA) regulates medical devices in the United States. Medical devices range from simple tongue depressors and bedpans to complex programmable pacemakers and laser surgical devices. In addition, medical devices include in vitro diagnostic products, such as general purpose lab equipment, reagents, and test kits, which may include monoclonal antibody technology. Certain electronic radiation emitting products with medical application and claims meet the definition of medical device. Examples include diagnostic ultrasound products, x-ray machines, and medical lasers.</p>
         <p>An adverse event report is submitted to the FDA to report serious events or undesirable experiences associated with the use of a medical device.</p>
 
+        <h3>Important Update as of 10/20/22</h3>
+        <p>Two data elements have been added to the UDI endpoint in openFDA: UDI-DI and UDI-Public.</p>
+        <p>UDI-Public is a redacted version of an identifier provided in MDR reports. Not all MDRs provide UDI data, and the current data is not validated.</p>
+
         <InteractiveInfographic
           infographicDefinitions={infographic_definitions}
           meta={meta}
