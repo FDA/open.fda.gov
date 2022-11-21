@@ -4,7 +4,6 @@ import React from 'react'
 
 /**
  * @description [api key widget for signing up api users]
- * @param  {Object} props [from ApiKeyContainer. apiKey if requested, onSubmit cb]
  */
 
 
@@ -39,6 +38,7 @@ class ApiKey extends React.Component {
 
     const email: string = document.getElementById('api-key').value
 
+    // If we need to make changes to this format, verify with our Umbrella API contact nick.muerdter@nrel.gov
     const postBody: Object = {
       user: {
         'first_name': 'openFDA',
