@@ -1,0 +1,51 @@
+{
+  "animaldrugs": {
+    "totalLabels": {
+      "title": "Total Labels",
+      "type": "bar",
+      "barChart": {
+        "count": "product_ndc.exact",
+        "countLabel": "Total Labels",
+        "title": "Total Labels",
+        "yAxisTitle": "Labels",
+        "xOptions": [
+          {
+            "label": "Inactive Ingredients",
+            "value": "inactive_ingredient.exact"
+          },
+          {
+            "label": "Active Ingredients",
+            "value": "active_ingredient_data.ingredient_name.exact"
+          },
+          {
+            "label": "Substance Name",
+            "value": "substance_name.exact"
+          },
+          {
+            "label": "Brand Name",
+            "value": "brand_name.exact"
+          },
+          {
+            "label": "Generic Name",
+            "value": "openfda.generic_name_exact"
+          },
+          {
+            "label": "Labeler Name",
+            "value": "manufacturer_name.exact"
+          },
+          {
+            "label": "Product Type",
+            "value": "product_type.exact"
+          }
+        ],
+        "margin": {
+          "top": 5,
+          "right": 30,
+          "left": 20,
+          "bottom": 180
+        },
+        "limiter": 10
+      }
+    }
+  }
+}

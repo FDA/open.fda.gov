@@ -18,7 +18,8 @@ const KeyFacts = (props: tPROPS) => {
 
   const source = {
     'animalandveterinary': {
-      'event': 'Animal Drug Adverse Events (ADAE)'
+      'event': 'Animal Drug Adverse Events (ADAE)',
+      'label': 'Animal & Veterinary SPL files'
     },
     'food': {
       'enforcement': 'FDA Recall Enterprise System (RES)',
@@ -53,7 +54,8 @@ const KeyFacts = (props: tPROPS) => {
 
   const source_link = {
     'animalandveterinary': {
-      'event': '/data/adae/'
+      'event': '/data/adae/',
+      'label': '/data/spl/'
     },
     'food': {
       'enforcement': '/data/res/',
@@ -86,7 +88,8 @@ const KeyFacts = (props: tPROPS) => {
 
   const time_period = {
     'animalandveterinary': {
-      'event': '1987 to present'
+      'event': '1987 to present',
+      'label': '2006 to present'
     },
     'food': {
       'enforcement': '2004 to present',
@@ -121,7 +124,8 @@ const KeyFacts = (props: tPROPS) => {
 
   const frequency = {
     'animalandveterinary': {
-      'event': 'Quarterly'
+      'event': 'Quarterly',
+      'label': 'Weekly'
     },
     'food': {
       'enforcement': 'Weekly',

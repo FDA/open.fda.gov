@@ -49,6 +49,7 @@ const Hero = (props: tPROPS) => {
     device: {background: 'linear-gradient(to right bottom, rgb(232, 92, 44), rgb(236, 169, 6))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
     drug: {background: 'linear-gradient(to bottom right, rgba(153, 88, 163, 1), rgba(220, 141, 188, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
     animal_and_veterinary: {background: 'linear-gradient(to bottom right, rgba(249, 157, 28, 1), rgba(252, 215, 112, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
+    dataexplorer: {background: 'linear-gradient(135deg, #005990 0%,#009fe1 100%)'},
     other: {backgroundColor: '#5b616b'}
   }
   const bg_image = {
@@ -63,6 +64,7 @@ const Hero = (props: tPROPS) => {
     device: {height: '300px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '100%', top: '-30px'},
     drug: {height: '350px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '120%', top: '-65px'}
   }
+
 
   if ('path' in props) {
     let cat_path = path.split( '/' )
@@ -120,7 +122,7 @@ const Hero = (props: tPROPS) => {
             })
           }
         </div>
-        <img src={bg_image[cat_name]} style={bg_image_style[cat_name]}/>
+           <img src={bg_image[cat_name]} style={bg_image_style[cat_name]} alt=""/>
       </div>
     </section>
   )

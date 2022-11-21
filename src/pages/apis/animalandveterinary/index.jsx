@@ -11,6 +11,10 @@ export default () => (
           noun_name='animalandveterinary'
           endpoint_name='event'
         />
+        <EndpointBox
+          noun_name='animalandveterinary'
+          endpoint_name='label'
+        />
       </div>
     </div>
   </section>

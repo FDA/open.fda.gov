@@ -12,6 +12,7 @@ type tPROPS = {
 
 const catMap: Object = Object.freeze({
   'animalandveterinarydrugevent': 'Animal & Veterinary › Adverse Events',
+  'animalandveterinarylabel': 'Animal & Veterinary › Labeling',
   'foodenforcement': 'Foods › Enforcement Reports',
   'foodevent': 'Foods › Adverse Events',
   'drugevent': 'Drugs › Adverse Events',
@@ -36,6 +37,7 @@ const catMap: Object = Object.freeze({
 
 const endpointLinkMap: Object = Object.freeze({
   'animalandveterinarydrugevent': 'animalandveterinary/event',
+  'animalandveterinarylabel': 'animalandveterinary/label',
   'foodevent': 'food/event',
   'foodenforcement': 'food/enforcement',
   'drugevent': 'drug/event',
