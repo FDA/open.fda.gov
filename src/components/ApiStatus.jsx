@@ -68,9 +68,6 @@ const ApiStatus = (props: tPROPS) => (
       title='API status'
       description='This is the current status of the openFDA API endpoints, including when they were last updated.'
     />
-    <p style={{background: '#e31c3d', color: 'white', fontSize: '25px', lineHeight: '40px', textAlign: 'center'}}>
-      You may experience a temporary disruption in API service. We apologize for the inconvenience.
-    </p>
     <section className='container clearfix marg-t-3 marg-b-3 relative'>
       <ul className='flex-box dir-row flex-wrap'>
         {
