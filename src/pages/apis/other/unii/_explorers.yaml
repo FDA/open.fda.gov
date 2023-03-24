@@ -1,0 +1,16 @@
+oneRecord:
+  params:
+    - search for all records and display one.
+    - limit to 1 record.
+  query: 'https://api.fda.gov/other/unii.json?limit=1'
+  description:
+    - This query searches for all records and asks for a single one.
+  title: One UNII record
+byUNII:
+  params:
+  - search for a specific UNII.
+  - limit to 1 record.
+  query: 'https://api.fda.gov/other/unii.json?search=unii:"L7V4I673D2"'
+  description:
+    - This query searches for records with the specific unii "L7V4I673D2", and returns one result.
+  title: UNII Record by UNII

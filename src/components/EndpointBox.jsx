@@ -54,7 +54,8 @@ const EndpointBox = (props: tPROPS) => {
     },
     'other': {
       'nsde': 'Comprehensive NDC SPL Data Elements File',
-      'substance': 'Substance information that is precise to the molecular level for use internally and externally (where appropriate).'
+      'substance': 'Substance information that is precise to the molecular level for use internally and externally (where appropriate).',
+      'unii': 'Unique Ingredient Identifier list.'
     },
     'tobacco': {
       'problem': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.'
@@ -89,7 +90,8 @@ const EndpointBox = (props: tPROPS) => {
     },
     'other': {
       'nsde': 'NDC SPL Data Elements',
-      'substance': 'Substance Data'
+      'substance': 'Substance Data',
+      'unii': 'UNII'
     },
     'tobacco': {
       'problem': 'Tobacco Problem Reports'
@@ -132,7 +134,8 @@ const EndpointBox = (props: tPROPS) => {
     },
     'other': {
       'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
-      'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{color: "white"}}/></div>
+      'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{color: "white"}}/></div>,
+      'unii': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>
     },
     'tobacco': {
       'problem': <div className="ep-icon" style={bg_color['tobacco']}><i className="fa fa-3x fa-leaf" style={{color: "white"}}/></div>
@@ -167,7 +170,8 @@ const EndpointBox = (props: tPROPS) => {
     },
     'other': {
       'nsde': '/apis/other/nsde/',
-      'substance': '/apis/other/substance/'
+      'substance': '/apis/other/substance/',
+      'unii': '/apis/other/unii/'
     },
     'tobacco': {
       'problem': '/apis/tobacco/problem/'

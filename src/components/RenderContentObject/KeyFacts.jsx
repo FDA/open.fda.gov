@@ -44,7 +44,8 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': 'NDC SPL Data Elements',
-      'substance': 'Substance Data Reports'
+      'substance': 'Substance Data Reports',
+      'unii': 'Unique Ingredient Identifier List'
     },
     'tobacco': {
       'problem': 'Tobacco Problem Reports'
@@ -77,7 +78,8 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': '/apis/other/nsde/',
-      'substance': '/apis/other/substance/'
+      'substance': '/apis/other/substance/',
+      'unii': '/apis/other/unii/'
     },
     'tobacco': {
       'problem': '/data/tobaccoproblem/'
@@ -112,10 +114,11 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': '2009 to present',
-      'substance': 'Current'
+      'substance': 'Current',
+      'unii': '2006 to present'
     },
     'tobacco': {
-      'problem':'2017 to present'
+      'problem': '2017 to present'
     }
   }
 
@@ -147,21 +150,22 @@ const KeyFacts = (props: tPROPS) => {
     },
     'other': {
       'nsde': 'Daily',
-      'substance': 'Every few months'
+      'substance': 'Every few months',
+      'unii': 'Daily'
     },
     'tobacco': {
-      'problem':'Quarterly'
+      'problem': 'Quarterly'
     }
   }
 
   return (
-    <section className="key-facts">
+    <section className='key-facts'>
       <h3>Key Facts</h3>
       <ul>
         <li>
-          <i className="fa fa-database"/>
-          <div className="label">Source of the data:</div>
-          <div className="value">
+          <i className='fa fa-database'/>
+          <div className='label'>Source of the data:</div>
+          <div className='value'>
             {
               source_link[noun_name].hasOwnProperty(endpoint_name) &&
               <Link to={source_link[noun_name][endpoint_name]}>
@@ -175,26 +179,26 @@ const KeyFacts = (props: tPROPS) => {
           </div>
         </li>
         <li>
-          <i className="fa fa-edit"/>
-          <div className="label">Changes to the source data:</div>
+          <i className='fa fa-edit'/>
+          <div className='label'>Changes to the source data:</div>
           {harmonized ?
-            <div className="value">openFDA annotates the original records with <Link
-                to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>special fields </Link>
+            <div className='value'>openFDA annotates the original records with <Link
+              to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>special fields </Link>
               and converts the data into JSON, which is a widely used machine readable format.</div> :
-            <div className="value">openFDA may change some <Link
-                to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>field names </Link>
+            <div className='value'>openFDA may change some <Link
+              to={`/apis/${noun_name}/${endpoint_name}/searchable-fields/`}>field names </Link>
               and converts the data into JSON, which is a widely used machine readable format.</div>
           }
         </li>
         <li>
-          <i className="fa fa-calendar"/>
-          <div className="label">Time period covered in this API:</div>
-          <div className="value">{time_period[noun_name][endpoint_name]}</div>
+          <i className='fa fa-calendar'/>
+          <div className='label'>Time period covered in this API:</div>
+          <div className='value'>{time_period[noun_name][endpoint_name]}</div>
         </li>
         <li>
-          <i className="fa fa-refresh"/>
-          <div className="label">Frequency of API updates:</div>
-          <div className="value">{frequency[noun_name][endpoint_name]}</div>
+          <i className='fa fa-refresh'/>
+          <div className='label'>Frequency of API updates:</div>
+          <div className='value'>{frequency[noun_name][endpoint_name]}</div>
         </li>
       </ul>
     </section>

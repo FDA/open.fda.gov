@@ -1,0 +1,24 @@
+properties:
+  subtstance_name:
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern:
+      description: "The specific substance identified by the unii."
+      possible_values:
+  unii:
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern: ^[A-Z0-9]{10}$
+      description: "Unique Ingredient Identifier, which is a non-proprietary, free, unique, unambiguous, non-semantic, alphanumeric identifier based on a substance’s molecular structure and/or descriptive information."
+      possible_values:
+        type: reference
+        value:
+          name: "Unique Ingredient Identifiers"
+          link: "http://fdasis.nlm.nih.gov/srs/srs.jsp"
+type: object

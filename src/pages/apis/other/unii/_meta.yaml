@@ -1,0 +1,11 @@
+type: endpoint
+documentTitle: openFDA › Other › UNII API
+label: UNII
+title: UNII
+description: ""
+datasets:
+  - UNII
+path: /apis/other/unii
+api_path: /other/unii
+start: 20090601
+status: otherunii

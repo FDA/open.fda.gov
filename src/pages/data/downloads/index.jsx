@@ -26,6 +26,7 @@ import device_covid19serology_meta from '../../apis/device/covid19serology/_meta
 import tobacco_problem_meta from '../../apis/tobacco/problem/_meta.yaml'
 import other_nsde_meta from '../../apis/other/nsde/_meta.yaml'
 import other_substance_meta from '../../apis/other/substance/_meta.yaml'
+import other_unii_meta from '../../apis/other/unii/_meta.yaml'
 
 const ComposedSidebar: ReactClass = SideBarContainer(SideBar)
 
@@ -54,7 +55,8 @@ var endpoint_list = {
   'Tobacco Problem Reports': tobacco_problem_meta,
   'Other': 'other_header',
   'NSDE': other_nsde_meta,
-  'Substance': other_substance_meta
+  'Substance': other_substance_meta,
+  'UNII': other_unii_meta
 }
 
 let downloads_list = Object.keys(endpoint_list).map((key: string, i: number) => {
