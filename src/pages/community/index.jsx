@@ -17,7 +17,7 @@ export default () => (
     />
 
     <section className='apps-section'>
-      <div className='apps-container'>
+      <div className='apps-container container'>
         {
           tools.map((tool, i) => (
             <a
