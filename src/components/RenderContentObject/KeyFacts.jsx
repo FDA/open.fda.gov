@@ -79,7 +79,7 @@ const KeyFacts = (props: tPROPS) => {
     'other': {
       'nsde': '/apis/other/nsde/',
       'substance': '/apis/other/substance/',
-      'unii': '/apis/other/unii/'
+      'unii': '/data/unii/'
     },
     'tobacco': {
       'problem': '/data/tobaccoproblem/'
