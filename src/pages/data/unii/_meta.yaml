@@ -1,0 +1,25 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › UNII'
+crumbs:
+  - openFDA
+  - Datasets
+  - UNII
+title: 'Unified Ingredient List (UNII)'
+description: 'FDA’s GSRS generates Unique Ingredient Identifiers (UNIIs) used in electronic listing and other regulatory activities throughout product life cycles.'
+source:
+  name: 'UNII'
+  nameLong: 'Unified Ingredient List'
+  link: 'https://www.fda.gov/industry/fda-data-standards-advisory-board/fdas-global-substance-registration-system'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+  time:
+  start:
+  current:
+  delay:
+  frequency: 'Daily'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - 'Beginning in 2006, FDA created a Substance Registration System and unique ingredient identifiers because no other code system met the agency’s regulatory needs. UNIIs can be generated at any time in the regulatory life cycle for any substance, from an atom to an organism.'

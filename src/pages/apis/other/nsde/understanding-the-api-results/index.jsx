@@ -10,7 +10,7 @@ class IndexRoute extends React.Component {
     return (
       <section className="doc-content">
         <h2>Understanding the API Results</h2>
-        <p>For <code>search</code> queries (such as: <a href='https://api.fda.gov/other/nsde.json?search=package_ndc:"55700-019-60"'>https://api.fda.gov/other/nsde.json?search=package_ndc:"55700-019-60"</a>), the <code>results</code> section includes matching adverse event reports returned by the API.</p>
+        <p>For <code>search</code> queries (such as: <a href='https://api.fda.gov/other/nsde.json?search=package_ndc:"55700-019-60"'>https://api.fda.gov/other/nsde.json?search=package_ndc:"55700-019-60"</a>), the <code>results</code> section includes matching nsde records returned by the API.</p>
         <p>Each nsde result consists of these major sections:</p>
         <ul>
           <li><code>Product Information:</code>These fields relate to the product itself.</li>

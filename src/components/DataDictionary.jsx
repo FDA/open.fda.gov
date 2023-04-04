@@ -75,7 +75,8 @@ class DataDictionary extends React.Component {
       'recall': 'Recall',
       'registrationlisting': 'Registration List',
       'substance': 'Substance Data',
-      'udi': 'UDI'
+      'udi': 'UDI',
+      'unii': 'UNII'
     }
 
 
@@ -517,7 +518,7 @@ class DataDictionary extends React.Component {
           pageSizeOptions={[10, 25, 50, 100, 200, 250, 500, 1000]}
           showPagination={true}
           minRows={10}
-          className="table -striped -highlight"
+          className='table -striped -highlight'
           filtered={this.state.filtered}
           resized={this.state.resized}
           onSortedChange={sorted => this.setState({ sorted })}
