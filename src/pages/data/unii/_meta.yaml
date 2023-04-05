@@ -4,11 +4,11 @@ crumbs:
   - openFDA
   - Datasets
   - UNII
-title: 'Unified Ingredient List (UNII)'
+title: 'Unique Ingredient List (UNII)'
 description: 'FDA’s GSRS generates Unique Ingredient Identifiers (UNIIs) used in electronic listing and other regulatory activities throughout product life cycles.'
 source:
   name: 'UNII'
-  nameLong: 'Unified Ingredient List'
+  nameLong: 'Unique Ingredient List'
   link: 'https://www.fda.gov/industry/fda-data-standards-advisory-board/fdas-global-substance-registration-system'
 license:
   name: 'Public Domain and CC0'
