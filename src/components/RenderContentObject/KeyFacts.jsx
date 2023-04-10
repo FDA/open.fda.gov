@@ -45,7 +45,7 @@ const KeyFacts = (props: tPROPS) => {
     'other': {
       'nsde': 'NDC SPL Data Elements',
       'substance': 'Substance Data Reports',
-      'unii': 'Unique Ingredient Identifier List'
+      'unii': 'Unique Ingredient Identifiers'
     },
     'tobacco': {
       'problem': 'Tobacco Problem Reports'
