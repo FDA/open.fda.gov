@@ -123,3 +123,7 @@ updates:
     path: /about/updates/2020_10_13_system_architecture_upgrade/
     date: 2020-10-13
     desc: "The openFDA system architecture has received a significant upgrade."
+  - title: "New openFDA Dataset - Tobacco Problem Reports"
+    path: /apis/other/unii/
+    date: 2023-04-13
+    desc: "The dataset UNII is now available."
