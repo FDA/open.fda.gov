@@ -43,6 +43,7 @@ const KeyFacts = (props: tPROPS) => {
       'drugsfda': 'Drugs@FDA'
     },
     'other': {
+      'historicaldocument': 'Historic FDA Press Releases and Talk Papers',
       'nsde': 'NDC SPL Data Elements',
       'substance': 'Substance Data Reports',
       'unii': 'Unique Ingredient Identifiers'
@@ -77,6 +78,7 @@ const KeyFacts = (props: tPROPS) => {
       'drugsfda': '/data/drugsfda/'
     },
     'other': {
+      'historicaldocument': '/data/other/historicaldocument/',
       'nsde': '/apis/other/nsde/',
       'substance': '/apis/other/substance/',
       'unii': '/data/unii/'
@@ -113,6 +115,7 @@ const KeyFacts = (props: tPROPS) => {
       'drugsfda': '1939 to present'
     },
     'other': {
+      'historicaldocument': '1913 to 2014',
       'nsde': '2009 to present',
       'substance': 'Current',
       'unii': '2006 to present'
@@ -149,6 +152,7 @@ const KeyFacts = (props: tPROPS) => {
       'drugsfda': 'Weekly',
     },
     'other': {
+      'historicaldocument': 'Infrequently',
       'nsde': 'Daily',
       'substance': 'Every few months',
       'unii': 'Daily'

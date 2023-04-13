@@ -1,0 +1,27 @@
+
+type: dataset
+documentTitle: 'openFDA › Datasets › Historical Documents'
+crumbs:
+  - openFDA
+  - Datasets
+  - Historical Documents
+title: 'Historical Documents'
+description: 'Historical Documents includes FDA Press Releases (1913-2014) and Talk Papers (1973-2003)'
+source:
+  name: 'FDA'
+  nameLong: 'FDA'
+  link: 'https://www.fda.gov'
+  linkDownload: 'https://www.fda.gov'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+  time:
+  start:
+  current:
+  delay:
+  frequency: 'Infrequently'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - 'Historical Documents endpoint allows you to search FDA past press releases and talk papers on topics of your interest'

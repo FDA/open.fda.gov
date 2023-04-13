@@ -53,6 +53,7 @@ const EndpointBox = (props: tPROPS) => {
       'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.'
     },
     'other': {
+      'historicaldocument': 'FDA Press Releases, 1913-2020, and FDA Talk Papers, 1973-2003, in searchable format',
       'nsde': 'Comprehensive NDC SPL Data Elements File',
       'substance': 'Substance information that is precise to the molecular level for use internally and externally (where appropriate).',
       'unii': 'Unique Ingredient Identifier list.'
@@ -89,6 +90,7 @@ const EndpointBox = (props: tPROPS) => {
       'drugsfda': 'Drugs@FDA'
     },
     'other': {
+      'historicaldocument': 'Historical Documents',
       'nsde': 'NDC SPL Data Elements',
       'substance': 'Substance Data',
       'unii': 'UNII'
@@ -133,6 +135,7 @@ const EndpointBox = (props: tPROPS) => {
       'drugsfda': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-at" style={{color: "white"}}/></div>
     },
     'other': {
+      'historicaldocument': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-history" style={{color: "white"}}/></div>,
       'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
       'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{color: "white"}}/></div>,
       'unii': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>
@@ -169,6 +172,7 @@ const EndpointBox = (props: tPROPS) => {
       'drugsfda': '/apis/drug/drugsfda/'
     },
     'other': {
+      'historicaldocument': '/apis/other/historicaldocument/',
       'nsde': '/apis/other/nsde/',
       'substance': '/apis/other/substance/',
       'unii': '/apis/other/unii/'

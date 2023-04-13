@@ -333,6 +333,7 @@ const ApiUsage = (props:tPROPS) => {
                   <tr> <td>Problem Reports</td><td>{this.docCount('tobaccoproblem')}</td> </tr>
 
                   <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"> <td colSpan="2"><strong>Other</strong></td></tr>
+                  <tr> <td>Historical Documents</td><td>{this.docCount('otherhistoricaldocument')}</td> </tr>
                   <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
                   <tr> <td>Substance</td><td>{this.docCount('othersubstance')}</td> </tr>
                   <tr> <td>UNII</td><td>{this.docCount('otherunii')}</td> </tr>
@@ -383,6 +384,7 @@ const ApiUsage = (props:tPROPS) => {
                     <tr><td>Problem Reports</td><td>{this.downloadCount('tobaccoproblem')}</td></tr>
 
                     <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Other</strong></td></tr>
+                    <tr> <td>Historical Documents</td><td>{this.downloadCount('otherhistoricaldocument')}</td> </tr>
                     <tr> <td>NSDE</td><td>{this.downloadCount('othernsde')}</td> </tr>
                     <tr> <td>Substance</td><td>{this.downloadCount('othersubstance')}</td> </tr>
                     <tr> <td>UNII</td><td>{this.downloadCount('otherunii')}</td> </tr>
