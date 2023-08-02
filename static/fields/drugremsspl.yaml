@@ -242,6 +242,12 @@ properties:
             is_exact: false
             possible_values:
             type: string
+          marketing_category:
+            description: "Product types are broken down into several potential Marketing Categories, such as NDA/ANDA/BLA, OTC Monograph, or Unapproved Drug."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
     type: array
   related_spl_document_set_id:
     type: array
@@ -413,9 +419,26 @@ properties:
               items:
                 properties:
                   protocol:
-                    type: array
-                    items:
+                    type: object
                       properties:
+                        code:
+                          description: "The code for this protocol in substance administration."
+                          format:
+                          is_exact: false
+                          possible_values:
+                          type: string
+                        code_system:
+                          description: "The code system used for this protocol in substance administration."
+                          format:
+                          is_exact: false
+                          possible_values:
+                          type: string
+                        name:
+                          description: "The name of this protocol in substance administration."
+                          format:
+                          is_exact: false
+                          possible_values:
+                          type: string
                         requirement:
                           description: "The requirement of the drug being a component of a REMS protocol described in the REMS Summary."
                           type: object
@@ -462,12 +485,39 @@ properties:
                               is_exact: false
                               possible_values:
                               type: string
+                  approval:
+                    type: object
+                      properties:
+                        code:
+                          description: "The code for this approval in substance administration."
+                          format:
+                          is_exact: false
+                          possible_values:
+                          type: string
+                        code_system:
+                          description: "The code system used for this approval in substance administration."
+                          format:
+                          is_exact: false
+                          possible_values:
+                          type: string
+                        effective_time:
+                          description: "Date reference to the particular version of the document."
+                          format: date
+                          is_exact: false
+                          pattern: "YYYYmmdd"
+                          type: string
+                        name:
+                          description: "The name of this approval in substance administration."
+                          format:
+                          is_exact: false
+                          possible_values:
+                          type: string
       rems_material:
         type: array
         items:
           properties:
             effective_time:
-              description: "Date reference to the particular version of the labeling document."
+              description: "Date reference to the particular version of the document."
               format: date
               is_exact: false
               pattern: "YYYYmmdd"
@@ -534,7 +584,13 @@ properties:
     is_exact: false
     possible_values:
     type: string
-  title:
+  document_id:
+    description: "Unique identifier for the entire document."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  document_title:
     description: "There is a title with the 'Risk Evaluation and Mitigation Strategy (REMS)' followed by [Drug/Class Name] REMS Program."
     format:
     is_exact: false
