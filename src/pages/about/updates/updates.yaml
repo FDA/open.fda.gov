@@ -127,3 +127,7 @@ updates:
     path: /apis/other/unii/
     date: 2023-04-13
     desc: "The dataset UNII is now available."
+  - title: "Updates to the UDI Dataset"
+    path: /apis/device/udi/
+    date: 2023-08-14
+    desc: "The openFDA UDI API has been updated to include the Global Medical Device Nomenclature (GMDN) Code."
