@@ -411,7 +411,8 @@ properties:
                 items:
                   properties:
                     protocol:
-                      type: object
+                      type: array
+                      items:
                         properties:
                           code:
                             description: "The code for this protocol in substance administration."
@@ -478,7 +479,8 @@ properties:
                                 possible_values:
                                 type: string
                     approval:
-                      type: object
+                      type: array
+                      items:
                         properties:
                           code:
                             description: "The code for this approval in substance administration."
@@ -533,11 +535,12 @@ properties:
   rems_goals:
     type: object
     properties:
-      description: "Includes all the raw text content for this section.."
-      format:
-      is_exact: false
-      possible_values:
-      type: string
+      content:
+        description: "Includes all the raw text content for this section.."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
       effective_time:
         description: "Date reference to the particular version of the labeling document."
         format: date
@@ -647,7 +650,8 @@ properties:
                             possible_values:
                             type: string
                 approval:
-                  type: object
+                  type: array
+                  items:
                     properties:
                       code:
                         description: "The code for this approval in substance administration."
@@ -755,7 +759,8 @@ properties:
                             possible_values:
                             type: string
                 approval:
-                  type: object
+                  type: array
+                  items:
                     properties:
                       code:
                         description: "The code for this approval in substance administration."
