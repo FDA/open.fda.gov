@@ -4,7 +4,7 @@ import QueryTour from '../../../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
-  render() {
+  render () {
 
     const effectiveTime = explorers['effectiveTime']
     const medicationGuide = explorers['medicationGuide']
@@ -13,7 +13,7 @@ class IndexRoute extends React.Component {
     const brandName = explorers['brandName']
 
     return (
-      <section className="doc-content">
+      <section className='doc-content'>
         <h2>Example REMS SPL queries</h2>
         <p>To help get you started, we have provided some query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
         <QueryTour

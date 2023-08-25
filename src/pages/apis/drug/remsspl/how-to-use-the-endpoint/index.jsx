@@ -6,7 +6,7 @@ import APIQueryBreakdown from "../../../../../components/APIQueryBreakdown"
 
 
 class IndexRoute extends React.Component {
-  render() {
+  render () {
 
     return (
       <section className='doc-content'>

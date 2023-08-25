@@ -3,11 +3,11 @@
     "meta": {
       "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
       "license": "http://open.fda.gov/license",
-      "last_updated": "2018-07-30",
+      "last_updated": "2023-08-25",
       "results": {
         "skip": 0,
         "limit": 1,
-        "total": 142572
+        "total": 14
       }
     },
     "results": [
@@ -18,108 +18,310 @@
     "meta": {
       "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
       "license": "http://open.fda.gov/license",
-      "last_updated": "2018-07-30",
+      "last_updated": "2023-08-25",
       "results": {
         "skip": 0,
         "limit": 1,
-        "total": 142572
+        "total": 14
       }
     }
   },
   "result": {
-    "product_ndc": "68682-065",
-    "generic_name": "Methoxsalen",
-    "labeler_name": "Oceanside Pharmaceuticals",
-    "packaging": [
+    "document_title": "Risk Evaluation and Mitigation Strategy (REMS) Document SUBOXONE and SUBUTEX (buprenorphine and naloxone/buprenorphine) REMS Program",
+    "effective_time": "20160707",
+    "related_spl_document_set_id": [
+      "8a5edcf9-828c-4f97-b671-268ab13a8ecd",
+      "4b9b43c4-293e-4323-a1a1-9a2f6a16ac39",
+      "27677612-2c5a-4bbe-893f-6bb9e1205239"
+    ],
+    "rems_goals": [
       {
-        "marketing_start_date": "20140715",
-        "package_ndc": "68682-065-10",
-        "description": "50 CAPSULE, LIQUID FILLED in 1 BOTTLE, PLASTIC (68682-065-10) ",
-        "sample": false
+        "effective_time": "20170601",
+        "content": "I. GOALS \n                   The goals  of  the  REMS  for  SUBOXONE  sublingual  film,  SUBOXONE  sublingual  tablets  and   SUBUTEX  sublingual  tablets  are  to: Mitigate the risks  of  accidental  overdose,  misuse  and  abuse Inform prescribers, pharmacists, and patients  of  the  serious  risks  associated  with  SUBOXONE  sublingual  film,  SUBOXONE  sublingual  tablets  and  SUBUTEX  sublingual  tablets "
       }
     ],
-    "brand_name": "Methoxsalen",
-    "active_ingredients": [
-      {
-        "strength": "10 mg/1",
-        "name": "METHOXSALEN"
-      }
-    ],
-    "finished": true,
+    "document_id": "39878815-10aa-405c-a9d4-c9d6feb241b9",
     "openfda": {
-      "nui": [
-        "N0000175879",
-        "N0000175984",
-        "N0000007909",
-        "N0000010217",
-        "N0000009801"
+      "product_ndc": [
+        "12496-1202",
+        "12496-1204",
+        "12496-1208",
+        "12496-1212"
       ],
       "is_original_packager": [
         true
       ],
-      "pharm_class_moa": [
-        "Photoabsorption [MoA]"
+      "package_ndc": [
+        "12496-1202-1",
+        "12496-1202-3",
+        "12496-1204-1",
+        "12496-1204-3",
+        "12496-1208-1",
+        "12496-1208-3",
+        "12496-1212-1",
+        "12496-1212-3"
+      ],
+      "generic_name": [
+        "BUPRENORPHINE HYDROCHLORIDE, NALOXONE HYDROCHLORIDE"
       ],
       "spl_set_id": [
-        "28cdcef9-0623-4c5a-bd18-aa3d2a3d40f8"
-      ],
-      "pharm_class_cs": [
-        "Psoralens [Chemical/Ingredient]"
+        "8a5edcf9-828c-4f97-b671-268ab13a8ecd"
       ],
       "upc": [
-        "0368682065107"
+        "0312496120231",
+        "0312496121238",
+        "0312496120835",
+        "0312496120439"
+      ],
+      "brand_name": [
+        "Suboxone"
       ],
       "manufacturer_name": [
-        "Oceanside Pharmaceuticals"
-      ],
-      "pharm_class_pe": [
-        "Photosensitizing Activity [PE]"
-      ],
-      "pharm_class_epc": [
-        "Psoralen [EPC]",
-        "Photoactivated Radical Generator [EPC]"
-      ],
-      "unii": [
-        "U4VJ29L7BQ"
+        "INDIVIOR INC."
       ],
       "rxcui": [
-        "1812434"
+        "1010600",
+        "1010603",
+        "1010604",
+        "1010606",
+        "1307056",
+        "1307058",
+        "1307061",
+        "1307063"
+      ],
+      "unii": [
+        "F850569PQR",
+        "56W8MW3EN1"
+      ],
+      "spl_id": [
+        "3ca6165f-09fb-4192-8b5d-c07cf60a5326"
+      ],
+      "substance_name": [
+        "BUPRENORPHINE HYDROCHLORIDE",
+        "NALOXONE HYDROCHLORIDE"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "BUCCAL",
+        "SUBLINGUAL"
+      ],
+      "application_number": [
+        "NDA022410"
       ]
     },
-    "listing_expiration_date": "20181231",
-    "marketing_category": "NDA AUTHORIZED GENERIC",
-    "dosage_form": "CAPSULE, LIQUID FILLED",
-    "spl_id": "12b39571-f883-4a2a-a909-aef528d77d0a",
-    "route": [
-      "ORAL"
+    "rems_elements": [
+      {
+        "medication_guide": [
+          {
+            "effective_time": "20170601",
+            "content": "A. Medication Guide \n                         A  Medication  Guide  will  be  dispensed  with  each  SUBOXONE  sublingual  film,  SUBOXONE  sublingual  tablets  and  SUBUTEX  sublingual  tablets  prescription  in  accordance  with  21  CFR  208.24. The  Medication  Guides  for  buprenorphine-containing  products  are  part  of  the SUBOXONE  sublingual  film,  SUBOXONE  sublingual  tablets  and  SUBUTEX  sublingual  tablets  REMS  and  will  be  provided  with  the  product  and   is also  available  by  going  online  to  www.suboxoneREMS.com  or  calling  1-866-463-4846 "
+          }
+        ]
+      },
+      {
+        "elements_to_assure_safe_use": [
+          {
+            "effective_time": "20170601",
+            "content": "B. Elements to Assure Safe Use \n                         \n                               Safe  use  conditions SUBOXONE  sublingual  film,  SUBOXONE  sublingual  tablets  and  SUBUTEX  sublingual  tablets  will  only  be  dispensed  by  the  prescriber  or  prescribed  to  patients  with  documentation  of  the  following  safe  use  conditions:\n                                                                                         Verification  that  the  patient  meets  the  diagnostic  criteria  for  opioid  dependence. Risks  described  in  the  professional  labeling  and  the  Medication  Guide  have  been  discussed  with  the  patient. Safe  storage  of  the  medication  has  been  explained  and  reviewed  with  the  patient. After  appropriate  induction,  the  patient   is prescribed   a limited  amount  of  medication  at  the  first  visit. Prescribers  will  document  safe  use  conditions  for  each  patient  by  using  the  'Appropriate  Use  Checklist,'  or  by  using  another  method  (e.g.  electronic  health  record)  specific  to  the  prescriber's  office  practice. Indivior  Inc.  will  ensure  that  within  30  days  of  FDA  approval  of  the  SUBOXONE  sublingual  film,  SUBOXONE  sublingual  tablets  and  SUBUTEX  sublingual  tablets  REMS,   a Dear  Prescriber  Letter  will  be  mailed  to  all  physicians  certified  to  treat  opioid  dependence  under  the  Drug  Addiction  Treatment  Act  of  2000  (DATA  2000).  This  letter   is designed  to  convey  and  reinforce  the  risks  of  accidental  overdose,  misuse,  and  abuse  of  SUBOXONE  sublingual  film,  SUBOXONE  sublingual  tablets  and  SUBUTEX  sublingual  tablets,  as  well  as  the  need  to  appropriately  monitor  patients  and  document  safe  use  conditions.  The  prescriber  brochure,  Office-Based  Buprenorphine  Therapy  for  Opioid  Dependence:  Important  Information  for  Prescribers,  and  the  Appropriate  Use  Checklist  will  be  appended  to  the  Dear  Prescriber  Letter.  The  letter  will  provide  instructions  on  where  to  obtain  copies  of  the  Full  Prescribing  Information  and  Medication  Guide.   Mailings  will  occur  annually  thereafter. Indivior  Inc.  will,  on   a monthly  basis,  identify  any  newly  DATA 2000-certified  physicians  and  mail  the  applicable  documents  to  them.  The  prescriber  brochure,  Office-Based  Buprenorphine  Therapy  for  Opioid  Dependence:  Important  Information  for  Prescribers  will  be  appended  to  the  Dear Prescriber  Letter  as  well  as  the  Medication  Guide,  Full  Prescribing Information,  and  the  Appropriate  Use  Checklist. To  further  reinforce  safe  use  conditions,  Indivior  Inc.  will  ensure  that  within  30  days  of  FDA  approval  of  the  SUBOXONE  sublingual  film,  SUBOXONE  sublingual  tablets  and  SUBUTEX  sublingual  tablets  REMS,   a Dear  Pharmacist  Letter  will  be  mailed  to  all  pharmacists  on   a national  mailing  list  of  all  retail  pharmacies  authorized  by  DEA  to  handle  schedule   3 controlled  substances  on  a  national  mailing  list  from  the  National  Technical  Information  Service.  The  pharmacist  brochure,  Office-Based  Buprenorphine  Therapy  for  Opioid  Dependence:  Important  Information  for  Pharmacists  will  be  appended  to  the Dear  Pharmacist  Letter  as  well  as  the  Medication  Guide,  and  Full  Prescribing   Information.   Mailings  will  occur  annually  thereafter. Indivior  Inc.  will  make  the  letters  and  all  materials  that  are  appended  to  the  letters  available  through  its  toll-free  information  line,  through  its  field  personnel,  and  on  the  SUBOXONE  and  SUBUTEX  REMS  website. \n                               Monitoring Each  patient  using  SUBOXONE  sublingual  film,  SUBOXONE  sublingual  tablets  and  SUBUTEX  sublingual  tablets  will  be  subject  to  the  following  monitoring:\n                                                                                            Return  visits  are  scheduled  at  intervals  commensurate  with  patient  stability.   Weekly,  or  more  frequent,  visits  are  recommended  for  the  first  month. Assessment  and  reinforcement  of  patient's  compliance  with  the  prescribed  medication. Assessment  of  appropriateness  of  dosage  prescribed. Assessment  of  whether  patient   is receiving  the  necessary  psychosocial  support. Assessment  of  whether  patient   is making  adequate  progress  towards  treatment  goals. Prescribers  will  document  that  each  patient  has  received  the  required  clinical  monitoring  using  the  'Appropriate  Use  Checklist,'  or  by  using  another  method/system  (e.g.  electronic  health  record)  specific  to  the  prescriber's  office  practice. The  following  materials  are  part  of  the  REMS  and  are  appended  to  the  REMS  document: Dear  Prescriber  Letter Dear  Pharmacist  Letter Appropriate  Use  Checklist Prescriber  Brochure,  \"Office-Based  Buprenorphine  Therapy  for  Opioid Dependence:  Important  Information  for  Prescribers\" Pharmacist  Brochure,  \"Office-Based  Buprenorphine  Therapy  for  Opioid Dependence:  Important  Information  for  Pharmacists\" SUBOXONE  and  SUBUTEX  REMS  website  (www.suboxoneREMS.com) "
+          }
+        ]
+      },
+      {
+        "rems_implementation_system": [
+          {
+            "effective_time": "20170601",
+            "content": ""
+          }
+        ]
+      },
+      {
+        "rems_submission_assessments_timetable": [
+          {
+            "effective_time": "20170601",
+            "content": ""
+          }
+        ]
+      },
+      {
+        "rems_summary": [
+          {
+            "effective_time": "20170601",
+            "substance_administration": [
+              {
+                "protocol": [
+                  {
+                    "code": "C128530",
+                    "code_system": "2.16.840.1.113883.3.26.1.1",
+                    "name": "Pharmacotherapy Initiation",
+                    "requirement": [
+                      {
+                        "stakeholder_name": "Medication Prescriber",
+                        "reference_id": "#R001",
+                        "stakeholder_code": "C128538",
+                        "name": "Assess Patient Condition or Health Status",
+                        "title": "1.\tAssess the patient's condition to verify the patient meets the diagnostic criteria for opioid dependence.",
+                        "document_reference_root": "00000000-0000-0000-0000-000000000001"
+                      },
+                      {
+                        "stakeholder_name": "Medication Prescriber",
+                        "reference_id": "#R002",
+                        "stakeholder_code": "C128538",
+                        "name": "Counsel Patient",
+                        "title": "2.\tCounsel the patient on the risks described in the professional information and Medication Guide and safe storage of the medication.",
+                        "document_reference_root": "00000000-0000-0000-0000-000000000001"
+                      },
+                      {
+                        "stakeholder_name": "Medication Prescriber",
+                        "reference_id": "#R003",
+                        "stakeholder_code": "C128538",
+                        "name": "Complete Patient Form",
+                        "title": "3.\tComplete the Appropriate Use Checklist. Retain a completed copy in the patient's record or by using another method (e.g. electronic health record) specific to the prescriber's office practice.",
+                        "document_reference_root": "00000000-0000-0000-0000-000000000006"
+                      },
+                      {
+                        "stakeholder_name": "Medication Prescriber",
+                        "reference_id": "#R004",
+                        "stakeholder_code": "C128538",
+                        "name": "Prescribe Limited Quantity",
+                        "title": "4.\tPrescribe a limited amount of medication",
+                        "document_reference_root": "00000000-0000-0000-0000-000000000001"
+                      },
+                      {
+                        "stakeholder_name": "Medication Prescriber",
+                        "reference_id": "#R005",
+                        "stakeholder_code": "C128538",
+                        "name": "Assess Patient Condition or Health Status ",
+                        "title": "5.\tAssess the patient's compliance with the prescribed medication, appropriateness of the dosage prescribed, whether patient is receiving the necessary psychosocial support, and whether patient is making adequate progress towards treatment goals.",
+                        "document_reference_root": "00000000-0000-0000-0000-000000000001"
+                      },
+                      {
+                        "stakeholder_name": "Medication Prescriber",
+                        "reference_id": "#R006",
+                        "stakeholder_code": "C128538",
+                        "name": "Complete Patient Form",
+                        "title": "6.\tComplete the Appropriate Use Checklist. Retain a completed copy in the patient's record or by using another method (e.g. electronic health record) specific to the prescriber's office practice.",
+                        "document_reference_root": "00000000-0000-0000-0000-000000000006"
+                      }
+                    ]
+                  }
+                ],
+                "approval": [
+                  {
+                    "effective_time": "20100830",
+                    "code": "C128899",
+                    "code_system": "2.16.840.1.113883.3.26.1.1",
+                    "name": "REMS Approval"
+                  }
+                ]
+              },
+              {
+                "protocol": [
+                  {
+                    "code": "C128530",
+                    "code_system": "2.16.840.1.113883.3.26.1.1",
+                    "name": "Pharmacotherapy Initiation",
+                    "requirement": [
+                      {
+                        "stakeholder_name": "Medication-Taking Patient",
+                        "reference_id": "#R007",
+                        "stakeholder_code": "C128541",
+                        "name": "Receive Counseling",
+                        "title": "1.\tReceive counseling from the prescriber on the risks and safe storage of the medication.",
+                        "document_reference_root": "00000000-0000-0000-0000-000000000001"
+                      },
+                      {
+                        "stakeholder_name": "Medication-Taking Patient",
+                        "reference_id": "#R008",
+                        "stakeholder_code": "C128541",
+                        "name": "Get Lab Test or Monitoring",
+                        "title": "2.\tBe monitored for compliance with the prescribed medication, appropriateness of the dosage prescribed, assessment of whether receiving the necessary psychosocial support, and whether making adequate progress towards treatment goals.",
+                        "document_reference_root": "00000000-0000-0000-0000-000000000006"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "title": "REMS Summary"
+          }
+        ]
+      },
+      {
+        "rems_material": [
+          {
+            "effective_time": "20170601",
+            "document": [
+              {
+                "reference": "https://www.accessdata.fda.gov/drugsatfda_docs/rems/suboxone_subutex_2016-07-07_dear_prescriber_letter.pdf",
+                "name": "Prescriber Instruction Letter"
+              }
+            ]
+          }
+        ]
+      }
     ],
-    "marketing_start_date": "20140715",
-    "product_type": "HUMAN PRESCRIPTION DRUG",
-    "product_id": "68682-065_12b39571-f883-4a2a-a909-aef528d77d0a",
-    "application_number": "NDA019600",
-    "brand_name_base": "Methoxsalen",
-    "pharm_class": [
-      "Photoabsorption [MoA]",
-      "Photoactivated Radical Generator [EPC]",
-      "Photosensitizing Activity [PE]",
-      "Psoralen [EPC]",
-      "Psoralens [Chemical/Ingredient]"
-    ]
+    "products": [
+      {
+        "manufactured_product": {
+          "generic_name": "buprenorphine hydrochloride",
+          "brand_name": "Subutex"
+        },
+        "marketing_info": {
+          "approval_holder_org": "INDIVIOR Inc.",
+          "application_number": "NDA020732",
+          "marketing_category": "NDA"
+        }
+      }
+    ],
+    "spl_unclassified_section": [
+      {
+        "effective_time": "20170601",
+        "record_details": [
+          "Initial REMS Approval: 08/2010",
+          "Most Recent Modification: 07/2016",
+          "NDA 022410, NDA 020733, NDA020732",
+          "SUBOXONE",
+          "SUBOXONE",
+          "SUBUTEX",
+          "Risk Evaluation and Mitigation Strategy (REMS)"
+        ]
+      }
+    ],
+    "set_id": "3b158d87-d733-4ee3-8c31-5ba8b51545a8",
+    "sponsor_name": "INDIVIOR Inc."
   },
   "count": {
     "meta": {
       "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
       "terms": "https://open.fda.gov/terms/",
       "license": "https://open.fda.gov/license/",
-      "last_updated": "2021-03-01"
+      "last_updated": "2031-08-25"
     },
     "results": [
       {
-        "term": "FILM, SOLUBLE",
-        "count": 1
+        "term": "ORAL",
+        "count": 8
       },
       {
-        "term": "SOLUTION",
+        "term": "INTRAVENOUS",
+        "count": 3
+      },
+      {
+        "term": "BUCCAL",
+        "count": 2
+      },
+      {
+        "term": "SUBCUTANEOUS",
+        "count": 2
+      },
+      {
+        "term": "SUBLINGUAL",
+        "count": 2
+      },
+      {
+        "term": "TRANSMUCOSAL",
         "count": 1
       }
     ]

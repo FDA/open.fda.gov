@@ -20,12 +20,14 @@
   short: "Routes of administration"
   dataset: REMSSPL
   description:
-    - "Most drug product labeling describes a drug with a single route of administration—oral, intravenous, topical, and so forth. Click the buttons below to see the top routes of administration noted in various kinds of drug product labeling."
+    - "Most drug products include a single route of administration - oral, intravenous, topical, and so forth. Click the buttons below to see the top routes of administration noted in various product types."
   countParam: "openfda.route.exact"
   filters:
     - title: "All REMS SPL submissions"
       searchParam: ""
     - title: "Prescription drug labeling"
       searchParam: "openfda.product_type:'HUMAN PRESCRIPTION DRUG'"
+    - title: "Cellular therapy"
+      searchParam: "openfda.product_type:'CELLULAR THERAPY'"
   type: Line
   dateConstraint: false
