@@ -1,0 +1,33 @@
+- title: "REMS SPL Submissions over time"
+  short: "Submissions over time"
+  dataset: REMSSPL
+  description:
+    - "The openFDA REMS SPL API provides data for the drug safety program Risk Evaluation Mitigation Strategies. Since mid-2016, REMS data has been submitted in the [Structured Product Labeling (SPL) format](/data/spl/)."
+    - "This chart shows labeling submissions over time, by looking at their 'effective dates.'"
+  countParam: "effective_time"
+  filters:
+    - title: "All REMS SPL submissions"
+      searchParam: ""
+    - title: "Sublingual Route of Administration"
+      searchParam: "openfda.route:SUBLINGUAL"
+    - title: "Buccal Route of Administration"
+      searchParam: "openfda.route:BUCCAL"
+    - title: "Oral Route of Administration"
+      searchParam: "openfda.route:ORAL"
+  type: Line
+  dateConstraint: effective_time
+- title: "Routes of administration"
+  short: "Routes of administration"
+  dataset: REMSSPL
+  description:
+    - "Most drug products include a single route of administration - oral, intravenous, topical, and so forth. Click the buttons below to see the top routes of administration noted in various product types."
+  countParam: "openfda.route.exact"
+  filters:
+    - title: "All REMS SPL submissions"
+      searchParam: ""
+    - title: "Prescription drug labeling"
+      searchParam: "openfda.product_type:'HUMAN PRESCRIPTION DRUG'"
+    - title: "Cellular therapy"
+      searchParam: "openfda.product_type:'CELLULAR THERAPY'"
+  type: Line
+  dateConstraint: false

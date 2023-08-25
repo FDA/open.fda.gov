@@ -40,7 +40,8 @@ const KeyFacts = (props: tPROPS) => {
       'label': 'FDA SPL files',
       'ndc': 'NDC Directory',
       'enforcement': 'FDA Recall Enterprise System (RES)',
-      'drugsfda': 'Drugs@FDA'
+      'drugsfda': 'Drugs@FDA',
+      'remsspl': 'REMS SPL'
     },
     'other': {
       'nsde': 'NDC SPL Data Elements',
@@ -74,7 +75,8 @@ const KeyFacts = (props: tPROPS) => {
       'label': '/data/spl/',
       'ndc': '/data/ndc/',
       'enforcement': '/data/res/',
-      'drugsfda': '/data/drugsfda/'
+      'drugsfda': '/data/drugsfda/',
+      'remsspl': '/data/remsspl/'
     },
     'other': {
       'nsde': '/apis/other/nsde/',
@@ -110,7 +112,8 @@ const KeyFacts = (props: tPROPS) => {
       'label': 'The bulk of the data is from June 2009 (when labeling was first posted publicly in the SPL format) to the present. However, there are a small number of records from earlier than mid-2009.',
       'ndc': 'Present',
       'enforcement': '2004 to present',
-      'drugsfda': '1939 to present'
+      'drugsfda': '1939 to present',
+      'remsspl': '2007 to present'
     },
     'other': {
       'nsde': '2009 to present',
@@ -147,6 +150,7 @@ const KeyFacts = (props: tPROPS) => {
       'ndc': 'Daily',
       'enforcement': 'Weekly',
       'drugsfda': 'Weekly',
+      'remsspl': 'Intermittently'
     },
     'other': {
       'nsde': 'Daily',

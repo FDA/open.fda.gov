@@ -11,6 +11,7 @@ import drugenforcement from '../constants/fields/drugenforcement.yaml'
 import druglabel from '../constants/fields/druglabel.yaml'
 import drugndc from '../constants/fields/drugndc.yaml'
 import drugsfda from '../constants/fields/drugsfda.yaml'
+import drugremsspl from '../constants/fields/drugremsspl.yaml'
 import Values from './RenderContentObject/Values'
 
 import '../css/components/FieldsHarmonization.scss'
@@ -75,7 +76,8 @@ class FieldsHarmonization extends React.Component {
       drugdrugsfda: drugsfda,
       drugenforcement: drugenforcement,
       druglabel: druglabel,
-      drugndc: drugndc
+      drugndc: drugndc,
+      drugremsspl: drugremsspl
     }
 
     let field_name = dataTip[0]
@@ -195,6 +197,7 @@ class FieldsHarmonization extends React.Component {
       'drugsfda': 'Drugs@FDA',
       'label': 'Label',
       'ndc': 'NDC',
+      'remsspl': 'REMS SPL',
       'nsde': 'NSDE'
     }
 

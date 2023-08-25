@@ -313,6 +313,7 @@ const ApiUsage = (props:tPROPS) => {
                   <tr><td>NDC Directory</td><td>{this.docCount('ndc')}</td></tr>
                   <tr><td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td></tr>
                   <tr><td>Drugs@FDA</td><td>{this.docCount('drugsfda')}</td></tr>
+                  <tr><td>REMS SPL</td><td>{this.docCount('drugremsspl')}</td></tr>
 
                   <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Foods</strong></td></tr>
                   <tr><td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td></tr>
@@ -363,6 +364,7 @@ const ApiUsage = (props:tPROPS) => {
                     <tr><td>NDC Directory</td><td>{this.downloadCount('ndc')}</td></tr>
                     <tr><td>Enforcement Reports</td><td>{this.downloadCount('drugenforcement')}</td></tr>
                     <tr><td>Drugs@FDA</td><td>{this.downloadCount('drugsfda')}</td></tr>
+                    <tr><td>REMS SPL</td><td>{this.downloadCount('drugremsspl')}</td></tr>
 
                     <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Foods</strong></td></tr>
                     <tr><td>Adverse Event Reports</td><td>{this.downloadCount('foodevent')}</td></tr>
