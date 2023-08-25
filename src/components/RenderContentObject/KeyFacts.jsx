@@ -150,7 +150,7 @@ const KeyFacts = (props: tPROPS) => {
       'ndc': 'Daily',
       'enforcement': 'Weekly',
       'drugsfda': 'Weekly',
-      'remsspl': 'Intermittently'
+      'remsspl': 'Weekly'
     },
     'other': {
       'nsde': 'Daily',
