@@ -814,6 +814,36 @@ properties:
           is_exact: true
           possible_values:
           type: string
+        patient_age:
+          description: "Patient's age."
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        patient_sex:
+          description: "Patient's gender."
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        patient_weight:
+          description: "Patient's weight."
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        patient_ethnicity:
+          description: "Patient's ethnicity."
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        patient_race:
+          description: "Patient's race."
+          format:
+          is_exact: true
+          possible_values:
+          type: string
         patient_problems:
           items:
             description: "Describes actual adverse effects on the patient that may be related to the device problem observed during the reported event."
