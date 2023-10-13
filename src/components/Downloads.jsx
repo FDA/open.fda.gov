@@ -30,7 +30,7 @@ const _renderByLimit = (results, limit) => {
 }
 
 const _renderByYear = (results, years) => {
-  return years.map((y, i) => {
+  return years.toSorted().map((y, i) => {
     const data: Object = results[y]
 
     return (
