@@ -23,6 +23,8 @@
     link: /apis/query-syntax/
   - title: Advanced syntax
     link: /apis/advanced-syntax/
+  - title: Wildcard search
+    link: /apis/wildcard-search/
   - title: Dates and ranges
     link: /apis/dates-and-ranges/
   - title: Missing values
