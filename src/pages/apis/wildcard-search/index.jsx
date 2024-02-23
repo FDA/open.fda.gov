@@ -18,7 +18,7 @@ class IndexRoute extends React.Component {
         <p>Wildcard queries return data that contain terms matching a wildcard pattern.</p>
         <p>A wildcard operator is a placeholder that matches one or more characters. At this point, openFDA supports the <code>*</code> ("star") wildcard operator, which
             matches zero or more characters. You can combine wildcard operators with other characters to create a wildcard pattern.</p>
-        <p><b>This feature is available on all API Endpoints.</b></p>
+        <p><strong>This feature is available on all API Endpoints.</strong></p>
         <p>Here are some example queries that demonstrate how wildcard searches work.</p>
 
         <QueryTour
