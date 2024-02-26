@@ -131,3 +131,7 @@ updates:
     path: /apis/device/udi/
     date: 2023-08-15
     desc: "The openFDA UDI API has been updated to include the Global Medical Device Nomenclature (GMDN) Code."
+  - title: "New feature - Wildcard Search"
+    path: /apis/wildcard-search/
+    date: 2024-02-23
+    desc: 'All openFDA API endpoints may be queried using a "wildcard search". Click this link for more details.'
