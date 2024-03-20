@@ -2468,6 +2468,36 @@ device:
               is_exact: true
               possible_values:
               type: string
+            patient_age:
+              description: "Patient's age."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+            patient_sex:
+              description: "Patient's gender."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+            patient_weight:
+              description: "Patient's weight."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+            patient_ethnicity:
+              description: "Patient's ethnicity."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+            patient_race:
+              description: "Patient's race."
+              format:
+              is_exact: true
+              possible_values:
+              type: string
             patient_problems:
               items:
                 description: "Describes actual adverse effects on the patient that may be related to the device problem observed during the reported event."
@@ -3802,6 +3832,12 @@ device:
       gmdn_terms:
         items:
           properties:
+            code:
+              description: "GMDN Preferred Term Code of the common device type associated with the FDA PT Code."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
             definition:
               description: "Definition of the common device type associated with the GMDN Preferred Term Code/FDA PT Code."
               format:
@@ -3814,6 +3850,26 @@ device:
               is_exact: true
               possible_values:
               type: string
+            implantable:
+              description: "GMDN Implantable flag."
+              format:
+              is_exact: false
+              possible_values:
+                type: one_of
+                value:
+                  'true': "true"
+                  'false': "false"
+              type: boolean
+            code_status:
+              description: "GMDN Term Status, Active or Obsolete."
+              format:
+              is_exact: false
+              possible_values:
+                type: one_of
+                value:
+                  'Active': "Active"
+                  'Obsolete': "Obsolete"
+              type: boolean
           type: object
         type: array
       has_donation_id_number:

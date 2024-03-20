@@ -64,3 +64,31 @@ timeseries:
     - 'Search for all records'
     - 'Count the number of records per day, according to the field `receiptdate`'
   query: 'https://api.fda.gov/drug/event.json?count=receiptdate'
+wildcardSearchExactField:
+  title: Wildcard search against an exact field, case sensitive
+  description:
+    - 'This example query looks in the `drug/ndc` endpoint for drugs where `brand_name` matches the following pattern, case sensitive: `*Night*Cough*Max*`. This will produce results including "Tussin DM Nighttime Cough Maximum Strength", "Day and Night Severe Sinus Congestion and Cough Maximum Strength" among others. Since an `exact` field is being used, the entire field value must match the pattern in a case-sensitive fashion.'
+  params:
+    - 'Search for records where the entire field `brand_name.exact` (case-sensitive brand name) matches `*Night*Cough*Max*`'
+  query: 'https://api.fda.gov/drug/ndc.json?search=brand_name.exact:*Night*Cough*Max*&limit=10'
+wildcardSearchRegularField:
+  title: Wildcard search against a regular field, case insensitive
+  description:
+    - 'This example query looks in the `drug/ndc` endpoint for drugs where `brand_name` contains words that begin with `child`, case insensitive. This will include drugs with brand names that contain "Child", "Children", "Childrens" among others.'
+  params:
+    - 'Search for records where the field `brand_name` contains `child*`, case-insensitive'
+  query: 'https://api.fda.gov/drug/ndc.json?search=brand_name:child*&limit=10'
+wildcardSearchFoodRecallInsensitive:
+  title: Wildcard search against a regular field, case insensitive
+  description:
+    - 'This example query looks in the `food/enforcement` endpoint for recalls where `recalling_firm` contains words that contain `natur`, case insensitive. This will include organization names that contain "Natural", "Nature", "Natures" among others.'
+  params:
+    - 'Search for records where the field `recalling_firm` contains `*natur*`, case-insensitive'
+  query: 'https://api.fda.gov/food/enforcement.json?search=recalling_firm:*natur*&limit=10'
+wildcardSearchFoodRecallSensitive:
+  title: Wildcard search against an exact field, case sensitive
+  description:
+    - 'This example query looks in the `food/enforcement` endpoint for recalls where `recall_number` matches the `F-*-2023` pattern, case sensitive.'
+  params:
+    - 'Search for records where `recall_number`  matches `F-*-2023` exactly'
+  query: 'https://api.fda.gov/food/enforcement.json?search=recall_number.exact:F-*-2023&limit=10'
