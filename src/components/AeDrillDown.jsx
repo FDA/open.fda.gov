@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Select from 'react-select'
-import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, Legend} from 'Recharts'
+import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, Legend} from 'recharts'
 import { API_LINK } from '../constants/api'
 
 const CustomTooltip = ({ active, payload, label }) => {
