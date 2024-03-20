@@ -64,6 +64,7 @@ class DataDictionary extends React.Component {
       'event': 'Event',
       'label': 'Label',
       'classification': 'Classification',
+      'historicaldocument': 'Historical Documents',
       'ndc': 'NDC',
       'problem': 'Problem',
       '510k': '510k Clearance',

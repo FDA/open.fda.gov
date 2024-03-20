@@ -1,0 +1,35 @@
+properties:
+  doc_type:
+    description: "Indicates the type of the historical document"
+    format:
+    is_exact: false
+    possible_values:
+      type: one_of
+      value:
+        'pr': "Press Release"
+    type: string
+  year:
+    description: "Year of the publication of the document"
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  num_of_pages:
+    description: "Number of pages in the document"
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  text:
+    description: "Text of the document"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  download_url:
+    description: "URL to download the original PDF document"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+type: object

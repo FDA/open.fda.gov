@@ -135,3 +135,7 @@ updates:
     path: /apis/wildcard-search/
     date: 2024-02-23
     desc: 'All openFDA API endpoints may be queried using a "wildcard search". Click this link for more details.'
+  - title: "New openFDA Dataset - Historical Documents"
+    path: /apis/other/historicaldocument/
+    date: 2024-03-20
+    desc: "The dataset Historical Documents is now available."

@@ -1,0 +1,12 @@
+documentTitle: openFDA › Other › Historical Documents
+name: Historical Documents
+description: ""
+datasets:
+  - Historical Documents
+label: Historical Documents
+title: Historical Documents
+path: /apis/other/historicaldocument
+api_path: /other/historicaldocument
+start: 19130101
+status: otherhistoricaldocument
+type: endpoint
