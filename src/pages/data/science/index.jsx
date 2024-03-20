@@ -1,7 +1,7 @@
 import React from "react"
 
-import PerformancePanel from "../../../components/panels/PerformancePanel"
-import PositionsPanel from "../../../components/panels/PositionsPanel"
+import PerformancePanel from "../../../components/Panels/PerformancePanel"
+import PositionsPanel from "../../../components/Panels/PositionsPanel"
 import DecadeChart from "../../../components/DecadeChart"
 
 export default () => {
