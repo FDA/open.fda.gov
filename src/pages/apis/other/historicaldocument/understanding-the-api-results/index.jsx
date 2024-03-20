@@ -2,7 +2,6 @@ import React from "react"
 import Highlight from 'react-highlight.js'
 
 import examples from './_examples.json'
-import API_LINK from '../../../../../constants/api'
 
 class IndexRoute extends React.Component {
   render () {
@@ -13,15 +12,15 @@ class IndexRoute extends React.Component {
       <section className='doc-content'>
         <h2>Understanding the API Results</h2>
         <p>For <code>search</code> queries (such as:
-          <a href= {API_LINK + '/other/historicaldocument.json?search=doc_type:talk+AND+text:"poison prevention packaging"'}>
-            {API_LINK + '/other/historicaldocument.json?search=doc_type:talk+AND+text:"poison prevention packaging"'}</a>
-            ), the <code>results</code> section includes matching FDA talk papers returned by the API.</p>
+          <a href= {'https://api.fda.gov/other/historicaldocument.json?search=doc_type:pr+AND+text:"poison prevention packaging"'}>
+            {'https://api.fda.gov/other/historicaldocument.json?search=doc_type:pr+AND+text:"poison prevention packaging"'}</a>
+            ), the <code>results</code> section includes matching FDA press releases returned by the API.</p>
         <Highlight
           className='javascript'>
           {resultsExample}
         </Highlight>
         <p>For count queries (such as: <a
-          href={API_LINK + '/other/historicaldocument.json?count=year'}>{API_LINK + '/other/historicaldocument.json?count=year'}</a>),
+          href={'https://api.fda.gov/other/historicaldocument.json?count=year'}>{'https://api.fda.gov/other/historicaldocument.json?count=year'}</a>),
                     the results section will look something like the following:</p>
         <Highlight
           className='javascript'>

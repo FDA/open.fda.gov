@@ -8,10 +8,10 @@ botulism:
   title: Press Releases on 1919-1920 Botulism Outbreak
 poison:
   params:
-    - search for talk papers on poison prevention packaging
+    - search for press releases on poison prevention packaging
     - limit to 5 record.
-  query: 'https://openfda-api.preprod.fda.gov/other/historicaldocument.json?search=doc_type:talk+AND+text:"poison prevention packaging"&limit=5'
+  query: 'https://openfda-api.preprod.fda.gov/other/historicaldocument.json?search=doc_type:pr+AND+text:"poison prevention packaging"&limit=5'
   description:
-    - This query searches for talk papers that discuss poison prevention packaging
-  title: Talk Papers on Poison Prevention Packaging
+    - This query searches press releases that discuss poison prevention packaging
+  title: Press Releases on Poison Prevention Packaging
 

@@ -127,3 +127,15 @@ updates:
     path: /apis/other/unii/
     date: 2023-04-13
     desc: "The dataset UNII is now available."
+  - title: "Updates to the UDI Dataset"
+    path: /apis/device/udi/
+    date: 2023-08-15
+    desc: "The openFDA UDI API has been updated to include the Global Medical Device Nomenclature (GMDN) Code."
+  - title: "New feature - Wildcard Search"
+    path: /apis/wildcard-search/
+    date: 2024-02-23
+    desc: 'All openFDA API endpoints may be queried using a "wildcard search". Click this link for more details.'
+  - title: "New openFDA Dataset - Historical Documents"
+    path: /apis/other/historicaldocument/
+    date: 2024-03-20
+    desc: "The dataset Historical Documents is now available."

@@ -1,13 +1,12 @@
 properties:
   doc_type:
-    description: "Indicates the type of the historical document: Press Release or Talk Paper"
+    description: "Indicates the type of the historical document"
     format:
     is_exact: false
     possible_values:
       type: one_of
       value:
         'pr': "Press Release"
-        'talk': "Talk Paper"
     type: string
   year:
     description: "Year of the publication of the document"

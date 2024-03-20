@@ -6,7 +6,7 @@ crumbs:
   - Datasets
   - Historical Documents
 title: 'Historical Documents'
-description: 'Historical Documents includes FDA Press Releases (1913-2014) and Talk Papers (1973-2003)'
+description: 'Historical Documents includes FDA Press Releases (1913-2014)'
 source:
   name: 'FDA'
   nameLong: 'FDA'
@@ -24,4 +24,4 @@ provider:
   name: 'FDA'
   link: 'http://www.fda.gov/'
 additionalContent:
-  - 'Historical Documents endpoint allows you to search FDA past press releases and talk papers on topics of your interest'
+  - 'Historical Documents endpoint allows you to search FDA past press releases on topics of your interest'

@@ -53,7 +53,7 @@ const EndpointBox = (props: tPROPS) => {
       'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.'
     },
     'other': {
-      'historicaldocument': 'FDA Press Releases, 1913-2020, and FDA Talk Papers, 1973-2003, in searchable format',
+      'historicaldocument': 'FDA Press Releases, 1913-2020, in searchable format',
       'nsde': 'Comprehensive NDC SPL Data Elements File',
       'substance': 'Substance information that is precise to the molecular level for use internally and externally (where appropriate).',
       'unii': 'Unique Ingredient Identifier list.'

@@ -43,7 +43,7 @@ const KeyFacts = (props: tPROPS) => {
       'drugsfda': 'Drugs@FDA'
     },
     'other': {
-      'historicaldocument': 'Historic FDA Press Releases and Talk Papers',
+      'historicaldocument': 'Historic FDA Press Releases',
       'nsde': 'NDC SPL Data Elements',
       'substance': 'Substance Data Reports',
       'unii': 'Unique Ingredient Identifiers'
@@ -78,7 +78,7 @@ const KeyFacts = (props: tPROPS) => {
       'drugsfda': '/data/drugsfda/'
     },
     'other': {
-      'historicaldocument': '/data/other/historicaldocument/',
+      'historicaldocument': '/data/historicaldocument/',
       'nsde': '/apis/other/nsde/',
       'substance': '/apis/other/substance/',
       'unii': '/data/unii/'
