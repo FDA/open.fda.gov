@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts"
+import { API_LINK } from '../constants/api'
 
 const CustomTooltip = ({ active, payload, label }) => {
-  if (active) {
+  if (active && payload && payload.length) {
     return (
       <div className='custom-tooltip'>
         <h5 className='label'>{label}</h5>
@@ -27,32 +28,32 @@ class DecadeChart extends Component {
   }
 
   getData () {
-    let url = 'https://openfda-api.preprod.fda.gov/other/historicaldocumentanalytics.json?limit=1000'
+    let url = API_LINK + '/other/historicaldocumentanalytics.json?limit=1000'
     if (this.state.decade !== 'all_decades') {
-      url = 'https://openfda-api.preprod.fda.gov/other/historicaldocumentanalytics.json?search=decade:' + this.state.decade + '&limit=1000'
+      url = API_LINK + '/other/historicaldocumentanalytics.json?search=decade:' + this.state.decade + '&limit=1000'
     }
 
     fetch(url)
       .then(res => res.json())
       .then((json => {
         if (json.results) {
-          const ae_data = {}
+          const aeData = {}
           json.results.forEach(line => {
             line.adverse_events_mentioned.forEach(x => {
-              if (x.meddra_term in ae_data) {
-                ae_data[x.meddra_term] += x.count
+              if (x.meddra_term in aeData) {
+                aeData[x.meddra_term] += x.count
               }
               else {
-                ae_data[x.meddra_term] = x.count
+                aeData[x.meddra_term] = x.count
               }
             })
           })
-          const sorted_data = Object.entries(ae_data)
+          const sortedData = Object.entries(aeData)
             .sort(([, a], [, b]) => b - a)
           const data = []
           let i = 0
           while (i < 10) {
-            data.push({name: String(sorted_data[i][0]), total: sorted_data[i][1]})
+            data.push({name: String(sortedData[i][0]), total: sortedData[i][1]})
             i++
           }
           this.setState({
@@ -149,6 +150,7 @@ class DecadeChart extends Component {
                 2010's
             </button>
           </div>
+
 
           <ResponsiveContainer className='chart-background bar-chart-background' height={500} width='90%'>
             <BarChart

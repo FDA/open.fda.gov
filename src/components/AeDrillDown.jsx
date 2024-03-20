@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Select from 'react-select'
 import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, Legend} from 'Recharts'
+import { API_LINK } from '../constants/api'
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active) {
@@ -18,11 +19,10 @@ class AeDrillDown extends Component {
   constructor (props) {
     super(props)
 
-    console.log("props: ", props)
     this.state = {
       data: [],
       dropDown: [],
-      number_of_docs: [],
+      numberOfDocs: [],
       decade: [],
       documents: [],
       selectedEvent: props.dropDown[0]
@@ -46,28 +46,28 @@ class AeDrillDown extends Component {
 
   getData () {
     const selectedEvent = this.state.selectedEvent.value
-    const url = 'https://openfda-api.preprod.fda.gov/other/historicaldocumentanalytics.json?search=adverse_events_mentioned.meddra_term:'
+    const url = API_LINK + '/other/historicaldocumentanalytics.json?search=adverse_events_mentioned.meddra_term:'
         + selectedEvent + '&limit=1000'
 
     fetch(url)
       .then(res => res.json())
       .then((json => {
         if (json.results) {
-          const ae_data = {}
+          const aeData = {}
           json.results.forEach(line => {
             line.adverse_events_mentioned.forEach(x => {
               if (x.meddra_term === selectedEvent) {
-                if (line.decade in ae_data) {
-                  ae_data[line.decade] += x.count
+                if (line.decade in aeData) {
+                  aeData[line.decade] += x.count
                 }
                 else {
-                  ae_data[line.decade] = x.count
+                  aeData[line.decade] = x.count
                 }
               }
             })
           })
           const data = []
-          Object.entries(ae_data).forEach(entry => {
+          Object.entries(aeData).forEach(entry => {
             data.push({
               name: entry[0],
               total: entry[1]

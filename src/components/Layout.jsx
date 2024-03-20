@@ -7,7 +7,7 @@ import DocSidebar from "./DocSidebar"
 import docsSidebar from "../pages/apis/doc-links.yaml"
 import Sticky from 'react-sticky-state'
 import StickySidebar from './StickySidebar'
-import { Location } from '@reach/router';
+import { Location } from '@reach/router'
 
 import '../css/app.scss'
 import '../css/components/Nav.scss'
@@ -68,7 +68,7 @@ const Layout = (props) => {
                   src='/img/l_HHS_white.png'
                 />
                   U.S. Department of Health and Human Services
-                </a>
+              </a>
               <strong>Food and Drug Administration</strong>
             </div>
             <div
@@ -78,8 +78,7 @@ const Layout = (props) => {
                 fontSize: '13px',
                 // ie needs more width than others
                 maxWidth: '345px',
-              }}>
-            </div>
+              }}/>
           </div>
         </div>
         <Sticky scrollClass={scrollClass}>
