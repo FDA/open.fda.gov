@@ -54,6 +54,9 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
       const resultsByYear: Object = {}
 
       for (const result of results) {
+        if (result.size_mb < 0.01) {
+          result.size_mb = 0.01
+        }
         const match: string = result.display_name.match(yearRe)[0]
 
         if (!resultsByYear.hasOwnProperty(match)) {
