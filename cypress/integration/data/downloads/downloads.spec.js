@@ -38,7 +38,9 @@ context('Data Downloads', () => {
     }
 
     it('All downloads sections should work as designed', () => {
-        verifyDownloads('Animal\\ And\\ Veterinary\\ Event', 139, 1000);
+        // Commented out ADAE downloads testing because we customized that page
+        // See https://github.com/FDA/open.fda.gov/commit/3d3c4607cbf48f070940718f4ad0563c296524b1
+        //verifyDownloads('Animal\\ And\\ Veterinary\\ Event', 139, 1000);
         verifyDownloads('Food\\ Enforcement', 1, 2);
         verifyDownloads('Food\\ Event', 1, 1);
         verifyDownloads('Human\\ Drug\\ Event', 1100, 3000);
