@@ -102,9 +102,20 @@ const Downloads = (props: tPROPS) => {
       className='marg-t-3 marg-b-3 clearfix'
       key={k}>
       <h3>{title} [{api_path}]</h3>
-      <p>This endpoint's data may be downloaded in zipped JSON files. Records are represented in the same format as API calls to this endpoint. Each update to the data in this endpoint could change old records. You need to download all the files to ensure you have a complete and up-to-date dataset, not just the newest files. For more information about openFDA downloads, see the <Link to='/apis/'>API basics</Link>.
+      <p>
+        This endpoint's data may be downloaded in zipped JSON files. Records are represented in the same format as API
+        calls to this endpoint. Each update to the data in this endpoint could change old records. You need to download
+        all the files to ensure you have a complete and up-to-date dataset, not just the newest files. For more
+        information about openFDA downloads, see the <Link to='/apis/'>API basics</Link>.
       </p>
-      <p>There are <strong>{allPartitions.length}</strong> files, last updated on <strong>{updated}</strong>.</p>
+      {
+        api_path === "/animalandveterinary/event" &&
+          <p>
+            Animal & Veterinary Adverse Event Reports are not posted in real time. Updates to openFDA are made
+            quarterly, but there may be a 3-6 month delay from the time FDA receives reports until they are posted.
+          </p>
+      }
+      <p>There are <strong>{allPartitions.length}</strong> files, last updated on <strong>{api_path === "/animalandveterinary/event" ? '2024-04-04' : updated}</strong>.</p>
       {
         allPartitions.length > 10 &&
         <button
@@ -113,7 +124,7 @@ const Downloads = (props: tPROPS) => {
           {
             showAllResults ?
               `Hide all ${allPartitions.length} download files`
-            :
+              :
               `Show all ${allPartitions.length} download files`
           }
         </button>
