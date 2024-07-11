@@ -4836,7 +4836,6 @@ drug:
           drug:
             type: array
             items:
-              type: object
               properties:
                 actiondrug:
                   format: int64
@@ -5073,6 +5072,13 @@ drug:
                       '3': "Unknown"
                 drugrecurrence:
                   properties:
+                    drugrecuractionmeddraversion:
+                      format:
+                      is_exact: true
+                      type: string
+                      pattern:
+                      description: "The version of MedDRA from which the term in `drugrecuraction` is drawn."
+                      possible_values:
                     drugrecuraction:
                       format:
                       is_exact: true
@@ -5510,7 +5516,7 @@ drug:
         is_exact: false
         type: string
         pattern:
-        description: "Encoding format of the `transmissiondate` field. Always set to 102 (YYYYMMDD)."
+        description: "Encoding format of the `receiptdate` field. Always set to 102 (YYYYMMDD)."
         possible_values:
       receivedate:
         format: date
@@ -5524,7 +5530,7 @@ drug:
         is_exact: false
         type: string
         pattern:
-        description: "Encoding format of the `transmissiondate` field. Always set to 102 (YYYYMMDD)."
+        description: "Encoding format of the `receivedate` field. Always set to 102 (YYYYMMDD)."
         possible_values:
       receiver:
         type: object
