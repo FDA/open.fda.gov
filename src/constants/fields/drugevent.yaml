@@ -728,7 +728,7 @@ properties:
     is_exact: false
     type: string
     pattern:
-    description: "Encoding format of the `transmissiondate` field. Always set to 102 (YYYYMMDD)."
+    description: "Encoding format of the `receiptdate` field. Always set to 102 (YYYYMMDD)."
     possible_values:
   receivedate:
     format: date
@@ -742,7 +742,7 @@ properties:
     is_exact: false
     type: string
     pattern:
-    description: "Encoding format of the `transmissiondate` field. Always set to 102 (YYYYMMDD)."
+    description: "Encoding format of the `receivedate` field. Always set to 102 (YYYYMMDD)."
     possible_values:
   receiver:
     type: object
