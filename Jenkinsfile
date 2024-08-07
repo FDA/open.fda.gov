@@ -1,3 +1,4 @@
+def gitShortCommit
 pipeline {
    agent {
        // this image provides everything needed to run Cypress
@@ -38,6 +39,20 @@ pipeline {
                                 disableDeferredWipeout: true,
                                 notFailBuild: true)
 		}
+
+        success {
+            gitShortCommit = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
+            script {
+                slackMessage = "ope.fda.gov UI production (<https://github.com/FDA/open.fda.gov/commits/${gitShortCommit}|${gitShortCommit}>) deployed to production.)"
+    		    slackSend(
+                    message: slackMessage,
+                    color: 'good',
+                    tokenCredentialId: '#slack token',//replace with slack SB token
+                    teamDomain: 'sb',
+                    channel: '#openFDA-deploy-notifications' //new slack channel for deployment notification
+                )
+            }
+        }
     	failure {
     		script {
     			if (env.BRANCH_NAME == 'master') {
@@ -46,7 +61,15 @@ pipeline {
                 							subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
                 							attachLog: true)
     			}
-    		}
-		}
+
+                slackSend(
+                    message: "open.fda.gov deploy to production <${env.BUILD_URL}|failed>.",
+                    color: 'danger',
+                    tokenCredentialId: '#slack token',//replace with slack SB token
+                    teamDomain: 'sb',
+                    channel: '#openFDA-deploy-notifications' //new slack channel for deployment notification
+                )
+            }
+        }
     }
 }
