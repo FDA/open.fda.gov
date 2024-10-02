@@ -26,17 +26,19 @@ class UpdateStatus extends React.Component {
         return response.json()
       })
       .then((endpointData) => {
-        if (endpointData.meta.last_updated === moment().format("YYYY-MM-DD")) {
+        if (endpointData.meta.last_updated === moment().format("YYYY-MM-DD")
+            || endpointData.meta.last_updated === moment().subtract(1, 'days').format("YYYY-MM-DD")) {
           status = "updated"
         } else {
           status = "delayed"
         }
+        this.setState({
+          status
+        })
       }).catch((error) => {
         console.log("Error fetching response data: ", error)
       })
-    this.setState({
-      status
-    })
+
   }
 
   render () {
