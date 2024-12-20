@@ -17,6 +17,7 @@ class IndexRoute extends React.Component {
           noun_name={meta.api_path.split("/")[1]}
           endpoint_name={meta.api_path.split("/")[2]}
           harmonized={true}
+          status={meta.status}
         />
 
         <h3>Responsible use of the data</h3>

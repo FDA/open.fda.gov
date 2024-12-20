@@ -297,6 +297,7 @@ const ApiUsage = (props:tPROPS) => {
 
               <div className='marg-t-2 b-t-2 pad-t-2'>
                 <h5 className='font-size-3 txt-c'>Size of Dataset</h5>
+                <p className='font-size-3 txt-c'>(number of records)</p>
 
             <div>
               <table className="table-sm table-bordered">
@@ -348,6 +349,7 @@ const ApiUsage = (props:tPROPS) => {
 
               <div className='marg-t-2 b-t-2 pad-t-2'>
                 <h5 className='font-size-3 txt-c'>Dataset Downloads</h5>
+                <p className='font-size-3 txt-c'>(number of times each dataset has been downloaded)</p>
 
                 <div>
                   <table className="table-sm table-bordered">
