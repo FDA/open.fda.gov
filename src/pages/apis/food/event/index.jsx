@@ -25,6 +25,7 @@ class IndexRoute extends React.Component {
           noun_name={meta.api_path.split("/")[1]}
           endpoint_name={meta.api_path.split("/")[2]}
           harmonized={false}
+          status={meta.status}
         />
 
         <h3>Additional Information About Food, Dietary Supplement, and Cosmetic Adverse Events</h3>
