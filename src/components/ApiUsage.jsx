@@ -7,7 +7,7 @@ import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
 import '../css/components/APIUsage.scss'
 
-// Update total usage numbers with: https://api.fda.gov/usage.json?start_at=2024-12-02 - last 2024-12-02
+// Update total usage numbers with: https://api.fda.gov/usage.json?start_at=2025-01-06 - last 2025-01-06
 // Update in pages/about/statistics/_content.yaml
 type tPROPS = {
     accessSinceLaunch: string,
