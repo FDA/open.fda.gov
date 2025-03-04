@@ -86,7 +86,7 @@ const Hero = (props: tPROPS) => {
             <span
               tabIndex={0}
               className='clr-white serif weight-700 small'>
-              {dateFormat(date, 'mmmm d, yyyy')}
+              {date != 'None' ? dateFormat(date, 'mmmm d, yyyy') : ''}
             </span>
           }
           <h2
