@@ -30,7 +30,8 @@ const source = {
     'label': 'FDA SPL files',
     'ndc': 'NDC Directory',
     'enforcement': 'FDA Recall Enterprise System (RES)',
-    'drugsfda': 'Drugs@FDA'
+    'drugsfda': 'Drugs@FDA',
+    'drugshortages': 'Drug Shortages'
   },
   'other': {
     'historicaldocument': 'Historic FDA Press Releases',
@@ -65,7 +66,8 @@ const sourceLink = {
     'label': '/data/spl/',
     'ndc': '/data/ndc/',
     'enforcement': '/data/res/',
-    'drugsfda': '/data/drugsfda/'
+    'drugsfda': '/data/drugsfda/',
+    'drugshortages': '/data/drugshortages'
   },
   'other': {
     'historicaldocument': '/data/historicaldocument/',
@@ -102,7 +104,8 @@ const timePeriod = {
     'label': 'The bulk of the data is from June 2009 (when labeling was first posted publicly in the SPL format) to the present. However, there are a small number of records from earlier than mid-2009. The last update was on',
     'ndc': 'Last updated on',
     'enforcement': '2004 to',
-    'drugsfda': '1939 to'
+    'drugsfda': '1939 to',
+    'drugshortages': ''
   },
   'other': {
     'historicaldocument': '1913 to',
@@ -140,6 +143,7 @@ const frequency = {
     'ndc': 'Daily',
     'enforcement': 'Weekly',
     'drugsfda': 'Weekly',
+    'drugshortages': 'Daily'
   },
   'other': {
     'historicaldocument': 'Infrequently',

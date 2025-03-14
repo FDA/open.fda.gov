@@ -50,7 +50,8 @@ const EndpointBox = (props: tPROPS) => {
       'label': 'Structured product information, including prescribing information, for approved drug products.',
       'ndc': 'NDC directory containing information on the National Drug Code (NDC)',
       'enforcement': 'Drug product recall enforcement reports.',
-      'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.'
+      'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.',
+      'drugshortages': 'Drug Shortages can occur for many reasons,including manufacturing and quality problems, delays, and discontinuations'
     },
     'other': {
       'historicaldocument': 'FDA Press Releases, 1913-2014, in searchable format',
@@ -87,7 +88,8 @@ const EndpointBox = (props: tPROPS) => {
       'label': 'Product labeling',
       'ndc': 'NDC Directory',
       'enforcement': 'Recall enforcement reports',
-      'drugsfda': 'Drugs@FDA'
+      'drugsfda': 'Drugs@FDA',
+      'drugshortages': 'Drug shortages'
     },
     'other': {
       'historicaldocument': 'Historical Documents',
@@ -132,7 +134,8 @@ const EndpointBox = (props: tPROPS) => {
       'label': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>,
       'ndc': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
       'enforcement': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-rotate-left" style={{color: "white"}}/></div>,
-      'drugsfda': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-at" style={{color: "white"}}/></div>
+      'drugsfda': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-at" style={{color: "white"}}/></div>,
+      'drugshortages': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-at" style={{color: "white"}}/></div>
     },
     'other': {
       'historicaldocument': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-history" style={{color: "white"}}/></div>,
@@ -169,7 +172,8 @@ const EndpointBox = (props: tPROPS) => {
       'label': '/apis/drug/label/',
       'ndc': '/apis/drug/ndc/',
       'enforcement': '/apis/drug/enforcement/',
-      'drugsfda': '/apis/drug/drugsfda/'
+      'drugsfda': '/apis/drug/drugsfda/',
+      'drugshortages': '/apis/drug/drugshortages'
     },
     'other': {
       'historicaldocument': '/apis/other/historicaldocument/',

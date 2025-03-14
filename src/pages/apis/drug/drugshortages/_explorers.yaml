@@ -1,0 +1,24 @@
+oneRecord:
+  title: "One record"
+  description:
+    - "This query searches for all records, and asks for a single one."
+  params:
+    - "Search for all records which have `finished` set to true."
+    - "Limit to 1 record."
+  query: 'https://api.fda.gov/drug/shortages.json?limit=1'
+capsule:
+  title: "One capsule product"
+  description:
+    - "This query searches all capsule products, and returns a single record."
+    - 'Double quotation marks `" "` surround phrases that must match exactly.'
+  params:
+  - "Search for all products which have `dosage_form` equal to 'LOTION'."
+  - "Limit to 1 record."
+  query: 'https://api.fda.gov/drug/shortages.json?search=dosage_form:"Capsule"&limit=1'
+updateTypeCount:
+  title: "Count of update types"
+  description:
+    - "This query searches the endpoint for all records, and tells the API to count how many included each `update_type`."
+  params:
+  - "Count the field `update_type`."
+  query: 'https://api.fda.gov/drug/shortages.json?count=update_type'

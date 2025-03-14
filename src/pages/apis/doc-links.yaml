@@ -162,6 +162,24 @@
           link: /apis/drug/drugsfda/download/
         - title: Searchable fields
           link: /apis/drug/drugsfda/searchable-fields/
+    - title: Drug Shortages
+      id: drug-drug-shortages
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/drug/drugshortages/
+        - title: How to use the API
+          link: /apis/drug/drugshortages/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/drug/drugshortages/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/drug/drugshortages/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/drug/drugshortages/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/drug/drugshortages/download/
+        - title: Searchable fields
+          link: /apis/drug/drugshortages/searchable-fields/
 
 - title: Device API Endpoints
   id: device-api-endpoints
