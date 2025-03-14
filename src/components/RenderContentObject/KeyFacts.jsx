@@ -105,7 +105,7 @@ const timePeriod = {
     'ndc': 'Last updated on',
     'enforcement': '2004 to',
     'drugsfda': '1939 to',
-    'drugshortages': ''
+    'drugshortages': '2012 to'
   },
   'other': {
     'historicaldocument': '1913 to',
