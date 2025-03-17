@@ -91,7 +91,7 @@ properties:
     possible_values:
     type: string
   status:
-    description: "Presntation shortage status"
+    description: "Presentation shortage status"
     format:
     is_exact: false
     possible_values:

@@ -26,7 +26,7 @@
       searchParam: ""
     - title: "Unavailable"
       searchParam: 'availability:"Unavailable"'
-    - title: "Prescription drugs"
+    - title: "Limited Availability"
       searchParam: 'availability:"Limited Availability"'
     - title: "Available"
       searchParam: 'availability:"Available"'

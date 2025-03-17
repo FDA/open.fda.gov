@@ -3,7 +3,7 @@ import React from "react"
 import FieldExplorer from '../../../../../components/FieldExplorer'
 
 import meta from '../_meta.yaml'
-import fields from '../../../../../constants/fields/drugndc.yaml'
+import fields from '../../../../../constants/fields/drugshortages.yaml'
 
 class IndexRoute extends React.Component {
   render () {

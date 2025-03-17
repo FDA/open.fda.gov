@@ -12,7 +12,7 @@ capsule:
     - "This query searches all capsule products, and returns a single record."
     - 'Double quotation marks `" "` surround phrases that must match exactly.'
   params:
-  - "Search for all products which have `dosage_form` equal to 'LOTION'."
+  - "Search for all products which have `dosage_form` equal to 'Capsule'."
   - "Limit to 1 record."
   query: 'https://api.fda.gov/drug/shortages.json?search=dosage_form:"Capsule"&limit=1'
 updateTypeCount:
