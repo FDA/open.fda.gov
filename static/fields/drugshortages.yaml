@@ -103,7 +103,7 @@ properties:
     pattern: "YYYYmmdd"
     type: string
   change_date:
-    description: "Date of update for the presentation"
+    description: "Date of change for the presentation"
     format: date
     is_exact: false
     pattern: "YYYYmmdd"

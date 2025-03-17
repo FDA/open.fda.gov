@@ -3,7 +3,7 @@ oneRecord:
   description:
     - "This query searches for all records, and asks for a single one."
   params:
-    - "Search for all records which have `finished` set to true."
+    - "Search for all records."
     - "Limit to 1 record."
   query: 'https://api.fda.gov/drug/shortages.json?limit=1'
 capsule:

@@ -31,7 +31,7 @@ const source = {
     'ndc': 'NDC Directory',
     'enforcement': 'FDA Recall Enterprise System (RES)',
     'drugsfda': 'Drugs@FDA',
-    'drugshortages': 'Drug Shortages'
+    'shortages': 'Drug Shortages'
   },
   'other': {
     'historicaldocument': 'Historic FDA Press Releases',
@@ -67,7 +67,7 @@ const sourceLink = {
     'ndc': '/data/ndc/',
     'enforcement': '/data/res/',
     'drugsfda': '/data/drugsfda/',
-    'drugshortages': '/data/drugshortages'
+    'shortages': '/data/drugshortages'
   },
   'other': {
     'historicaldocument': '/data/historicaldocument/',
@@ -105,7 +105,7 @@ const timePeriod = {
     'ndc': 'Last updated on',
     'enforcement': '2004 to',
     'drugsfda': '1939 to',
-    'drugshortages': '2012 to'
+    'shortages': '2012 to'
   },
   'other': {
     'historicaldocument': '1913 to',
@@ -143,7 +143,7 @@ const frequency = {
     'ndc': 'Daily',
     'enforcement': 'Weekly',
     'drugsfda': 'Weekly',
-    'drugshortages': 'Daily'
+    'shortages': 'Daily'
   },
   'other': {
     'historicaldocument': 'Infrequently',
@@ -158,6 +158,7 @@ const frequency = {
 class KeyFacts extends React.Component {
   constructor (props: Object) {
     super(props)
+    console.log(props)
     this.state = {
       lastUpdated: null
     }

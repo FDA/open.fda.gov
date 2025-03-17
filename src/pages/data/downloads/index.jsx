@@ -14,6 +14,8 @@ import drug_enforcement_meta from '../../apis/drug/enforcement/_meta.yaml'
 import drug_event_meta from '../../apis/drug/event/_meta.yaml'
 import drug_label_meta from '../../apis/drug/label/_meta.yaml'
 import drug_ndc_meta from '../../apis/drug/ndc/_meta.yaml'
+import drug_drugsfda_meta from '../../apis/drug/drugsfda/_meta.yaml'
+import drug_drugshortages_meta from '../../apis/drug/drugshortages/_meta.yaml'
 import device_510k_meta from '../../apis/device/510k/_meta.yaml'
 import device_classification_meta from '../../apis/device/classification/_meta.yaml'
 import device_enforcement_meta from '../../apis/device/enforcement/_meta.yaml'
@@ -41,6 +43,8 @@ var endpoint_list = {
   'Human Drug Event': drug_event_meta,
   'Human Drug Label': drug_label_meta,
   'Human NDC Directory': drug_ndc_meta,
+  'Human Drugs@FDA': drug_drugsfda_meta,
+  'Human Drug Shortages': drug_drugshortages_meta,
   'Human Drug Enforcement': drug_enforcement_meta,
   'Medical Device': 'device_header',
   'Medical Device 510k': device_510k_meta,
