@@ -10,6 +10,7 @@ const pdfDownloadMap: Object = Object.freeze({
   'drugndc': '/fields/drugndc_reference.pdf',
   'drugenforcement': '/fields/drugenforcement_reference.pdf',
   'drugsfda': '/fields/drugsfda_reference.pdf',
+  'drugshortages': '/fields/drugshortages_reference.pdf',
   'deviceevent': '/fields/deviceevent_reference.pdf',
   'devicerecall': '/fields/devicerecall_reference.pdf',
   'deviceclass': '/fields/deviceclass_reference.pdf',
@@ -34,6 +35,7 @@ const xlsxDownloadMap: Object = Object.freeze({
   'drugndc': '/fields/drugndc_reference.xlsx',
   'drugenforcement': '/fields/drugenforcement_reference.xlsx',
   'drugsfda': '/fields/drugsfda_reference.xlsx',
+  'drugshortages': '/fields/drugshortages_reference.xlsx',
   'deviceevent': '/fields/deviceevent_reference.xlsx',
   'devicerecall': '/fields/devicerecall_reference.xlsx',
   'deviceclass': '/fields/deviceclass_reference.xlsx',
@@ -58,6 +60,7 @@ const yamlDownloadMap: Object = Object.freeze({
   'drugndc': '/fields/drugndc.yaml',
   'drugenforcement': '/fields/drugenforcement.yaml',
   'drugsfda': '/fields/drugsfda.yaml',
+  'drugshortages': '/fields/drugshortages.yaml',
   'deviceevent': '/fields/deviceevent.yaml',
   'devicerecall': '/fields/devicerecall.yaml',
   'deviceclass': '/fields/deviceclass.yaml',
@@ -82,22 +85,22 @@ const FieldDownload = (props: tPROPS) => {
   } = props
 
   return (
-    <section className="marg-t-2" key={k}>
-        <a href={pdfDownloadMap[meta.status]} className="" download="fields.pdf">
-          <button className="button bg-primary clr-white weight-700">
-          <fa className="fa fa-file-pdf-o fa-lg marg-r-1" />Download PDF
-          </button>
-        </a>
-        <a href={xlsxDownloadMap[meta.status]} className="" download="fields.xlsx">
-          <button className="button bg-primary marg-l-2 clr-white weight-700">
-          <fa className="fa fa-file-excel-o fa-lg marg-r-1" />Download XLSX
-          </button>
-        </a>
-        <a href={yamlDownloadMap[meta.status]} className="" download="fields.yaml">
-            <button className="button bg-primary marg-l-2 clr-white weight-700">
-                <fa className="fa fa-file-code-o fa-lg marg-r-1" />Download YAML
-            </button>
-        </a>
+    <section className='marg-t-2' key={k}>
+      <a href={pdfDownloadMap[meta.status]} className='' download='fields.pdf'>
+        <button className='button bg-primary clr-white weight-700'>
+          <fa className='fa fa-file-pdf-o fa-lg marg-r-1' />Download PDF
+        </button>
+      </a>
+      <a href={xlsxDownloadMap[meta.status]} className='' download='fields.xlsx'>
+        <button className='button bg-primary marg-l-2 clr-white weight-700'>
+          <fa className='fa fa-file-excel-o fa-lg marg-r-1' />Download XLSX
+        </button>
+      </a>
+      <a href={yamlDownloadMap[meta.status]} className='' download='fields.yaml'>
+        <button className='button bg-primary marg-l-2 clr-white weight-700'>
+          <fa className='fa fa-file-code-o fa-lg marg-r-1' />Download YAML
+        </button>
+      </a>
     </section>
   )
 }

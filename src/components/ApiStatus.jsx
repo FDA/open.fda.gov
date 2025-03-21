@@ -19,6 +19,7 @@ const catMap: Object = Object.freeze({
   'ndc': 'Drugs › NDC Directory',
   'drugenforcement': 'Drugs › Enforcement Reports',
   'drugsfda': 'Drugs › Drugs@FDA',
+  'drugshortages': 'Drugs > Drug Shortages',
   'deviceevent': 'Devices › Adverse Events',
   'devicerecall': 'Devices › Recalls',
   'deviceclass': 'Devices › Classification',
@@ -45,6 +46,7 @@ const endpointLinkMap: Object = Object.freeze({
   'ndc': 'drug/ndc',
   'drugenforcement': 'drug/enforcement',
   'drugsfda': 'drug/drugsfda',
+  'drugshortages': 'drug/shortages',
   'deviceevent': 'device/event',
   'devicerecall': 'device/recall',
   'deviceclass': 'device/classification',
@@ -109,9 +111,9 @@ const ApiStatus = (props: tPROPS) => (
                       className='clr-white marg-t-2 pad-1 txt-c weight-600'>
                       {
                         status === 'GREEN' ?
-                        'OK'
-                        :
-                        'OFFLINE'
+                          'OK'
+                          :
+                          'OFFLINE'
                       }
                     </p>
                   </li>

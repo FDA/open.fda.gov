@@ -1,0 +1,13 @@
+documentTitle: openFDA › Drugs › Drug Shortages
+name: Drug Shortages
+description: "Drug Shortages can occur for many reasons,including manufacturing and quality problems, delays, and discontinuations"
+datasets:
+  - Drug Shortages
+label: Drug Shortages
+title: Drug Shortages
+path: /apis/drug/drugshortages
+api_path: /drug/shortages
+start:
+status: drugshortages
+dateConstraintKey:
+type: endpoint
