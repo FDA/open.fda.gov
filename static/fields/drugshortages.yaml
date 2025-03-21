@@ -18,8 +18,8 @@ properties:
     is_exact: true
     possible_values:
     type: string
-  company_name: "Company name that makes this drug product."
-    description:
+  company_name:
+    description: "Company name that makes this drug product."
     format:
     is_exact: true
     possible_values:
