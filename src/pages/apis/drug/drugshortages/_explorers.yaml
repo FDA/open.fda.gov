@@ -5,7 +5,7 @@ oneRecord:
   params:
     - "Search for all records."
     - "Limit to 1 record."
-  query: 'https://openfda-api.preprod.fda.gov/drug/shortages.json?limit=1'
+  query: 'https://api.fda.gov/drug/shortages.json?limit=1'
 capsule:
   title: "One capsule product"
   description:
@@ -14,11 +14,11 @@ capsule:
   params:
   - "Search for all products which have `dosage_form` equal to 'Capsule'."
   - "Limit to 1 record."
-  query: 'https://openfda-api.preprod.fda.gov/drug/shortages.json?search=dosage_form:"Capsule"&limit=1'
+  query: 'https://api.fda.gov/drug/shortages.json?search=dosage_form:"Capsule"&limit=1'
 updateTypeCount:
   title: "Count of update types"
   description:
     - "This query searches the endpoint for all records, and tells the API to count how many included each `update_type`."
   params:
   - "Count the field `update_type`."
-  query: 'https://openfda-api.preprod.fda.gov/drug/shortages.json?count=update_type'
+  query: 'https://api.fda.gov/drug/shortages.json?count=update_type'

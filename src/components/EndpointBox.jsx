@@ -51,7 +51,7 @@ const EndpointBox = (props: tPROPS) => {
       'ndc': 'NDC directory containing information on the National Drug Code (NDC)',
       'enforcement': 'Drug product recall enforcement reports.',
       'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.',
-      'drugshortages': 'Drug Shortages can occur for many reasons,including manufacturing and quality problems, delays, and discontinuations'
+      'drugshortages': 'Drug Shortages can occur for many reasons, including manufacturing and quality problems, delays, and discontinuations.'
     },
     'other': {
       'historicaldocument': 'FDA Press Releases, 1913-2014, in searchable format',

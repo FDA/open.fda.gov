@@ -10,8 +10,8 @@ class IndexRoute extends React.Component {
     return (
       <section className='doc-content'>
         <h2>Understanding the API Results</h2>
-        <p>For <code>search</code> queries (such as: <a href='https://openfda-api.preprod.fda.gov/drug/shortages.json?limit=1'>https://openfda-api.preprod.fda.gov/drug/shortages.json?limit=1</a>), the <code>results</code> section includes matching drug shortages results returned by the API.</p>
-        <p>For <code>count</code> queries (such as: <a href='https://openfda-api.preprod.fda.gov/drug/shortages.json?count=update_type'>https://openfda-api.preprod.fda.gov/drug/shortages.json?count=update_type</a>), the results section will look something like the following:</p>
+        <p>For <code>search</code> queries (such as: <a href='https://api.fda.gov/drug/shortages.json?limit=1'>https://api.fda.gov/drug/shortages.json?limit=1</a>), the <code>results</code> section includes matching drug shortages results returned by the API.</p>
+        <p>For <code>count</code> queries (such as: <a href='https://api.fda.gov/drug/shortages.json?count=update_type'>https://api.fda.gov/drug/shortages.json?count=update_type</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}

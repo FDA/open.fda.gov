@@ -158,7 +158,6 @@ const frequency = {
 class KeyFacts extends React.Component {
   constructor (props: Object) {
     super(props)
-    console.log(props)
     this.state = {
       lastUpdated: null
     }
