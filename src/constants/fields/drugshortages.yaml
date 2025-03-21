@@ -73,11 +73,14 @@ properties:
     possible_values:
     type: string
   therapeutic_category:
-    description: "Therapeutic category"
-    format:
-    is_exact: false
-    possible_values:
-    type: string
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern:
+      description: "Therapeutic category"
+      possible_values:
   dosage_form:
     description: "The drug’s dosage form. There is no standard, but values may include terms like `tablet` or `solution for injection`."
     format:
@@ -85,11 +88,14 @@ properties:
     possible_values:
     type: string
   strength:
-    description: "Drug strength"
-    format:
-    is_exact: false
-    possible_values:
-    type: string
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern:
+      description: "Drug strength"
+      possible_values:
   status:
     description: "Presentation shortage status"
     format:
