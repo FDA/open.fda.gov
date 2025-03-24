@@ -19,7 +19,7 @@ const catMap: Object = Object.freeze({
   'ndc': 'Drugs › NDC Directory',
   'drugenforcement': 'Drugs › Enforcement Reports',
   'drugsfda': 'Drugs › Drugs@FDA',
-  'drugshortages': 'Drugs > Drug Shortages',
+  'drugshortages': 'Drugs › Drug Shortages',
   'deviceevent': 'Devices › Adverse Events',
   'devicerecall': 'Devices › Recalls',
   'deviceclass': 'Devices › Classification',
