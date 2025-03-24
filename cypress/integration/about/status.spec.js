@@ -3,7 +3,7 @@ import {loadAndAcceptDisclaimer} from "../../support/index"
 
 const ENDPOINTS = ['Animal & Veterinary › Adverse Events', 'Devices › Classification',
     'Devices › 510k', 'Devices › Enforcement Reports', 'Devices › Adverse Events', 'Devices › PMA', 'Devices › Recalls', 'Devices › Registration',
-    'Devices › UDI', 'Devices › COVID-19 Serological Testing Evaluations', 'Drugs › Enforcement Reports',
+    'Devices › UDI', 'Devices › COVID-19 Serological Testing Evaluations', 'Drugs › Enforcement Reports', 'Drugs › Drug Shortages',
     'Drugs › Drugs@FDA', 'Drugs › Adverse Events', 'Drugs › Labeling', 'Drugs › NDC Directory', 'Foods › Enforcement Reports',
     'Foods › Adverse Events', 'Tobacco › Problem Reports', 'Other › NSDE', 'Other › Substance']
 
