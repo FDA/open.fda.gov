@@ -80,15 +80,15 @@ const ApiUsage = (props:tPROPS) => {
           "#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c",
           "#98df8a", "#d62728", "#ff9896", "#9467bd", "#c5b0d5",
           "#8c564b", "#c49c94", "#e377c2", "#f7b6d2", "#7f7f7f",
-          "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5","#00008B"
+          "#c7c7c7", "#bcbd22", "#dbdb8d", "#17becf", "#9edae5", "#00008B"
         ],
-        selection:  null,
-        tracker:   null,
+        selection: null,
+        tracker: null,
         trackerInfoValues: [],
         trackerTimeFormat: "%D",
         fontSize: "11px",
         font: "Merriweather,Georgia,serif",
-        color:"#000000",
+        color: "#000000",
         yLegendCoordinate: -200,
         toolTipLabel: "API Calls",
         columns: ["value"]
@@ -125,29 +125,29 @@ const ApiUsage = (props:tPROPS) => {
 
         graphData.table = data.table
 
-        var dataz = [],
-          minTime = null,
-          maxTime = null,
-          values = [],
-          max = null,
-          min = null,
-          that = this;
+        const dataz = []
+        var minTime = null
+        var maxTime = null
+        const values = []
+        var max = null
+        var min = null
+        const that = this
 
         data.stats.forEach(function (stat) {
           graphData.labels.push(stat.day)
-          dataz.push( [ new Date(stat.day), stat.totalCount])
+          dataz.push([new Date(stat.day), stat.totalCount])
           graphData.datasets[0].data.push(stat.totalCount)
         })
-        if (dataz.length){
+        if (dataz.length) {
           minTime = dataz[0][0]
-          maxTime = dataz[dataz.length-1][0]
+          maxTime = dataz[dataz.length - 1][0]
           maxTime.setDate(maxTime.getDate() + 1)
           max = Math.max(...dataz.map(v => v[1]))
           min = Math.min(...dataz.map(v => v[1]))
         }
 
         // set style according to categories
-        var legendStyle = styler(this.state.columns.map((column,idx)=> {
+        var legendStyle = styler(this.state.columns.map((column, idx) => {
           return {
             key: column,
             color: that.state.customColorsList[0],
@@ -194,7 +194,7 @@ const ApiUsage = (props:tPROPS) => {
     }
 
     fetchStats () {
-      var that = this
+      const that = this
       fetch(API_LINK + '/usage.json?prefix=' + this.state.prefix)
         .then(function (response) {
           return response.json()
@@ -206,17 +206,17 @@ const ApiUsage = (props:tPROPS) => {
     docCount (typeName:string):string {
       if (typeName in this.state.indexInfo) {
         return this.formatNumber(this.state.indexInfo[typeName])
-      } else {
-        return 0
       }
+      return 0
+
     }
 
     downloadCount (typeName:string):string {
       if (typeName in this.state.downloadStats) {
         return this.formatNumber(this.state.downloadStats[typeName])
-      } else {
-        return 0
       }
+      return 0
+
     }
 
     formatNumber (n:number):string {
@@ -229,24 +229,25 @@ const ApiUsage = (props:tPROPS) => {
 
     onHighlightChange () {}
     onChartResize () {}
-    onSelectionChange(selection) {
+    onSelectionChange (selection) {
       this.setState({
         selection
       })
     }
 
-    onTrackerChanged(tracker, selection) {
-      if( !this.state.series){
-        return;
+    onTrackerChanged (tracker, selection) {
+      if (!this.state.series) {
+        return
       }
-      let index;
-      try{
-        index = this.state.series.bisect(tracker);
-      } catch (e) {
-        return;
+      let index
+      try {
+        index = this.state.series.bisect(tracker)
       }
-      const trackerEvent = this.state.series.at(index);
-      const value = trackerEvent.toJSON().data["value"]
+      catch (e) {
+        return
+      }
+      const trackerEvent = this.state.series.at(index)
+      const value = trackerEvent.toJSON().data.value
 
       this.setState({
         trackerInfoValues: [{label: this.state.toolTipLabel, value: value}],
@@ -254,7 +255,7 @@ const ApiUsage = (props:tPROPS) => {
       })
     }
 
-    linkClickHandler() {
+    linkClickHandler () {
 
     }
 
@@ -270,23 +271,23 @@ const ApiUsage = (props:tPROPS) => {
           return p
         }
 
-      $("text").css("font-family",this.state.fontFamily)
-      $('text').css('fill', this.state.color)
-      $('text').css('font-size', this.state.fontSize)
+        $("text").css("font-family", this.state.fontFamily)
+        $('text').css('fill', this.state.color)
+        $('text').css('font-size', this.state.fontSize)
 
-      var vals = $("text").filter(function () {
-        return $(this).attr("transform") == "rotate(-90)"
-      })
-      if(vals.length){
-        $(vals[0]).attr("x",this.state.yLegendCoordinate)
-      }
+        const vals = $("text").filter(function () {
+          return $(this).attr("transform") == "rotate(-90)"
+        })
+        if (vals.length) {
+          $(vals[0]).attr("x", this.state.yLegendCoordinate)
+        }
 
         return (
           <div className='flex-box'>
             <aside className='relative col'>
               <div className='marg-t-2'>
                 <h6 className='font-size-3 txt-c'>Total API Calls since Launch</h6>
-                <h5 className='txt-c clr-green'>{this.state['sinceLaunchUsage']}</h5>
+                <h5 className='txt-c clr-green'>{this.state.sinceLaunchUsage}</h5>
               </div>
 
               <div className='marg-t-2 b-t-2 pad-t-2'>
@@ -300,48 +301,49 @@ const ApiUsage = (props:tPROPS) => {
                 <h5 className='font-size-3 txt-c'>Size of Dataset</h5>
                 <p className='font-size-3 txt-c'>(number of records)</p>
 
-            <div>
-              <table className="table-sm table-bordered">
-                <tbody>
-                  <tr className="bg-primary-darkest clr-white">
-                    <td colSpan="2"><strong>Animal & Veterinary</strong></td>
-                  </tr>
-                  <tr><td>Adverse Event Reports</td><td>{this.docCount('animalandveterinarydrugevent')}</td></tr>
-                  <tr className="bg-primary-darkest clr-white">
-                    <td colSpan="2"><strong>Drugs</strong></td>
-                  </tr>
-                  <tr><td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td></tr>
-                  <tr><td>Labeling</td><td>{this.docCount('druglabel')}</td></tr>
-                  <tr><td>NDC Directory</td><td>{this.docCount('ndc')}</td></tr>
-                  <tr><td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td></tr>
-                  <tr><td>Drugs@FDA</td><td>{this.docCount('drugsfda')}</td></tr>
+                <div>
+                  <table className='table-sm table-bordered'>
+                    <tbody>
+                      <tr className='bg-primary-darkest clr-white'>
+                        <td colSpan='2'><strong>Animal & Veterinary</strong></td>
+                      </tr>
+                      <tr><td>Adverse Event Reports</td><td>{this.docCount('animalandveterinarydrugevent')}</td></tr>
+                      <tr className='bg-primary-darkest clr-white'>
+                        <td colSpan='2'><strong>Drugs</strong></td>
+                      </tr>
+                      <tr><td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td></tr>
+                      <tr><td>Labeling</td><td>{this.docCount('druglabel')}</td></tr>
+                      <tr><td>NDC Directory</td><td>{this.docCount('ndc')}</td></tr>
+                      <tr><td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td></tr>
+                      <tr><td>Drugs@FDA</td><td>{this.docCount('drugsfda')}</td></tr>
+                      <tr><td>Drug Shortages</td><td>{this.docCount('drugshortages')}</td></tr>
 
-                  <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Foods</strong></td></tr>
-                  <tr><td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td></tr>
-                  <tr><td>Enforcement Reports</td><td>{this.docCount('foodenforcement')}</td></tr>
+                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Foods</strong></td></tr>
+                      <tr><td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td></tr>
+                      <tr><td>Enforcement Reports</td><td>{this.docCount('foodenforcement')}</td></tr>
 
-                  <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Devices</strong></td></tr>
-                  <tr><td>Classifications</td><td>{this.docCount('deviceclass')}</td></tr>
-                  <tr><td>Registration and listing</td><td>{this.docCount('devicereglist')}</td></tr>
-                  <tr><td>Premarket Approvals (PMAs)</td><td>{this.docCount('devicepma')}</td></tr>
-                  <tr><td>510Ks</td><td>{this.docCount('deviceclearance')}</td></tr>
-                  <tr><td>Recalls</td><td>{this.docCount('devicerecall')}</td></tr>
-                  <tr><td>Adverse Event Reports</td><td>{this.docCount('deviceevent')}</td></tr>
-                  <tr><td>UDIs</td><td>{this.docCount('deviceudi')}</td></tr>
-                  <tr><td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td></tr>
-                  <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.docCount('covid19serology')}</td></tr>
+                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Devices</strong></td></tr>
+                      <tr><td>Classifications</td><td>{this.docCount('deviceclass')}</td></tr>
+                      <tr><td>Registration and listing</td><td>{this.docCount('devicereglist')}</td></tr>
+                      <tr><td>Premarket Approvals (PMAs)</td><td>{this.docCount('devicepma')}</td></tr>
+                      <tr><td>510Ks</td><td>{this.docCount('deviceclearance')}</td></tr>
+                      <tr><td>Recalls</td><td>{this.docCount('devicerecall')}</td></tr>
+                      <tr><td>Adverse Event Reports</td><td>{this.docCount('deviceevent')}</td></tr>
+                      <tr><td>UDIs</td><td>{this.docCount('deviceudi')}</td></tr>
+                      <tr><td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td></tr>
+                      <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.docCount('covid19serology')}</td></tr>
 
-                  <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"> <td colSpan="2"><strong>Tobacco</strong></td></tr>
-                  <tr> <td>Problem Reports</td><td>{this.docCount('tobaccoproblem')}</td> </tr>
+                      <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan='2'><strong>Tobacco</strong></td></tr>
+                      <tr> <td>Problem Reports</td><td>{this.docCount('tobaccoproblem')}</td> </tr>
 
-                  <tr className="bg-primary-darkest clr-white" id="dataset-downloads-scroll-anchor"> <td colSpan="2"><strong>Other</strong></td></tr>
-                  <tr> <td>Historical Documents</td><td>{this.docCount('otherhistoricaldocument')}</td> </tr>
-                  <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
-                  <tr> <td>Substance</td><td>{this.docCount('othersubstance')}</td> </tr>
-                  <tr> <td>UNII</td><td>{this.docCount('otherunii')}</td> </tr>
-                  </tbody>
+                      <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan='2'><strong>Other</strong></td></tr>
+                      <tr> <td>Historical Documents</td><td>{this.docCount('otherhistoricaldocument')}</td> </tr>
+                      <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
+                      <tr> <td>Substance</td><td>{this.docCount('othersubstance')}</td> </tr>
+                      <tr> <td>UNII</td><td>{this.docCount('otherunii')}</td> </tr>
+                    </tbody>
 
-                </table>
+                  </table>
 
                 </div>
 
@@ -353,44 +355,45 @@ const ApiUsage = (props:tPROPS) => {
                 <p className='font-size-3 txt-c'>(number of times each dataset has been downloaded)</p>
 
                 <div>
-                  <table className="table-sm table-bordered">
+                  <table className='table-sm table-bordered'>
                     <tbody>
-                    <tr className="bg-primary-darkest clr-white">
-                      <td colSpan="2"><strong>Animal & Veterinary</strong></td>
-                    </tr>
-                    <tr><td>Adverse Event Reports</td><td>{this.downloadCount('animalandveterinarydrugevent')}</td></tr>
-                    <tr className="bg-primary-darkest clr-white">
-                      <td colSpan="2"><strong>Drugs</strong></td>
-                    </tr>
-                    <tr><td>Adverse Event Reports</td><td>{this.downloadCount('drugevent')}</td></tr>
-                    <tr><td>Labeling</td><td>{this.downloadCount('druglabel')}</td></tr>
-                    <tr><td>NDC Directory</td><td>{this.downloadCount('ndc')}</td></tr>
-                    <tr><td>Enforcement Reports</td><td>{this.downloadCount('drugenforcement')}</td></tr>
-                    <tr><td>Drugs@FDA</td><td>{this.downloadCount('drugsfda')}</td></tr>
+                      <tr className='bg-primary-darkest clr-white'>
+                        <td colSpan='2'><strong>Animal & Veterinary</strong></td>
+                      </tr>
+                      <tr><td>Adverse Event Reports</td><td>{this.downloadCount('animalandveterinarydrugevent')}</td></tr>
+                      <tr className='bg-primary-darkest clr-white'>
+                        <td colSpan='2'><strong>Drugs</strong></td>
+                      </tr>
+                      <tr><td>Adverse Event Reports</td><td>{this.downloadCount('drugevent')}</td></tr>
+                      <tr><td>Labeling</td><td>{this.downloadCount('druglabel')}</td></tr>
+                      <tr><td>NDC Directory</td><td>{this.downloadCount('ndc')}</td></tr>
+                      <tr><td>Enforcement Reports</td><td>{this.downloadCount('drugenforcement')}</td></tr>
+                      <tr><td>Drugs@FDA</td><td>{this.downloadCount('drugsfda')}</td></tr>
+                      <tr><td>Drug Shortages</td><td>{this.downloadCount('drugshortages')}</td></tr>
 
-                    <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Foods</strong></td></tr>
-                    <tr><td>Adverse Event Reports</td><td>{this.downloadCount('foodevent')}</td></tr>
-                    <tr><td>Enforcement Reports</td><td>{this.downloadCount('foodenforcement')}</td></tr>
+                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Foods</strong></td></tr>
+                      <tr><td>Adverse Event Reports</td><td>{this.downloadCount('foodevent')}</td></tr>
+                      <tr><td>Enforcement Reports</td><td>{this.downloadCount('foodenforcement')}</td></tr>
 
-                    <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Devices</strong></td></tr>
-                    <tr><td>Classifications</td><td>{this.downloadCount('deviceclass')}</td></tr>
-                    <tr><td>Registration and listing</td><td>{this.downloadCount('devicereglist')}</td></tr>
-                    <tr><td>Premarket Approvals (PMAs)</td><td>{this.downloadCount('devicepma')}</td></tr>
-                    <tr><td>510Ks</td><td>{this.downloadCount('deviceclearance')}</td></tr>
-                    <tr><td>Recalls</td><td>{this.downloadCount('devicerecall')}</td></tr>
-                    <tr><td>Adverse Event Reports</td><td>{this.downloadCount('deviceevent')}</td></tr>
-                    <tr><td>UDIs</td><td>{this.downloadCount('deviceudi')}</td></tr>
-                    <tr><td>Enforcement Reports</td><td>{this.downloadCount('deviceenforcement')}</td></tr>
-                    <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.downloadCount('covid19serology')}</td></tr>
+                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Devices</strong></td></tr>
+                      <tr><td>Classifications</td><td>{this.downloadCount('deviceclass')}</td></tr>
+                      <tr><td>Registration and listing</td><td>{this.downloadCount('devicereglist')}</td></tr>
+                      <tr><td>Premarket Approvals (PMAs)</td><td>{this.downloadCount('devicepma')}</td></tr>
+                      <tr><td>510Ks</td><td>{this.downloadCount('deviceclearance')}</td></tr>
+                      <tr><td>Recalls</td><td>{this.downloadCount('devicerecall')}</td></tr>
+                      <tr><td>Adverse Event Reports</td><td>{this.downloadCount('deviceevent')}</td></tr>
+                      <tr><td>UDIs</td><td>{this.downloadCount('deviceudi')}</td></tr>
+                      <tr><td>Enforcement Reports</td><td>{this.downloadCount('deviceenforcement')}</td></tr>
+                      <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.downloadCount('covid19serology')}</td></tr>
 
-                    <tr className="bg-primary-darkest clr-white"><td colSpan="2"><strong>Tobacco</strong></td></tr>
-                    <tr><td>Problem Reports</td><td>{this.downloadCount('tobaccoproblem')}</td></tr>
+                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Tobacco</strong></td></tr>
+                      <tr><td>Problem Reports</td><td>{this.downloadCount('tobaccoproblem')}</td></tr>
 
-                    <tr className="bg-primary-darkest clr-white"> <td colSpan="2"><strong>Other</strong></td></tr>
-                    <tr> <td>Historical Documents</td><td>{this.downloadCount('otherhistoricaldocument')}</td> </tr>
-                    <tr> <td>NSDE</td><td>{this.downloadCount('othernsde')}</td> </tr>
-                    <tr> <td>Substance</td><td>{this.downloadCount('othersubstance')}</td> </tr>
-                    <tr> <td>UNII</td><td>{this.downloadCount('otherunii')}</td> </tr>
+                      <tr className='bg-primary-darkest clr-white'> <td colSpan='2'><strong>Other</strong></td></tr>
+                      <tr> <td>Historical Documents</td><td>{this.downloadCount('otherhistoricaldocument')}</td> </tr>
+                      <tr> <td>NSDE</td><td>{this.downloadCount('othernsde')}</td> </tr>
+                      <tr> <td>Substance</td><td>{this.downloadCount('othersubstance')}</td> </tr>
+                      <tr> <td>UNII</td><td>{this.downloadCount('otherunii')}</td> </tr>
                     </tbody>
 
                   </table>
@@ -419,33 +422,33 @@ const ApiUsage = (props:tPROPS) => {
                     onTrackerChanged={this.onTrackerChanged}
                     onChartResize={this.handleChartResize}
                   >
-                      <ChartRow
-                        trackerInfoValues={this.state.trackerInfoValues}
-                        trackerTime={this.state.tracker}
-                        trackerTimeFormat={this.state.trackerTimeFormat}
-                        timeFormat={this.state.trackerTimeFormat}
-                        {...this.state.chartRow}
-                      >
-                          <YAxis
-                            id="axis1"
-                            max={this.state.max}
-                            min={this.state.min}
-                            {...this.state.yAxis}
-                          />
-                          <Charts>
-                              <LineChart
-                                axis="axis1"
-                                style={this.state.style}
-                                series={this.state.series}
-                                columns={this.state.columns}
-                                highlight={this.state.highlight}
-                                selection={this.state.selection}
-                                interpolation={this.state.interpolation}
-                                onHighlightChange={this.onHighlightChange}
-                                onSelectionChange={this.onSelectionChange}
-                              />
-                          </Charts>
-                      </ChartRow>
+                    <ChartRow
+                      trackerInfoValues={this.state.trackerInfoValues}
+                      trackerTime={this.state.tracker}
+                      trackerTimeFormat={this.state.trackerTimeFormat}
+                      timeFormat={this.state.trackerTimeFormat}
+                      {...this.state.chartRow}
+                    >
+                      <YAxis
+                        id='axis1'
+                        max={this.state.max}
+                        min={this.state.min}
+                        {...this.state.yAxis}
+                      />
+                      <Charts>
+                        <LineChart
+                          axis='axis1'
+                          style={this.state.style}
+                          series={this.state.series}
+                          columns={this.state.columns}
+                          highlight={this.state.highlight}
+                          selection={this.state.selection}
+                          interpolation={this.state.interpolation}
+                          onHighlightChange={this.onHighlightChange}
+                          onSelectionChange={this.onSelectionChange}
+                        />
+                      </Charts>
+                    </ChartRow>
                   </ChartContainer>
                 }
 
@@ -471,19 +474,19 @@ const ApiUsage = (props:tPROPS) => {
                           </span>
                         )
                       }
-                      else {
-                        // render without link
-                        return (<span key={i}>{ (i > 0 ? ' > ' : '') + b.substring(0, b.length - 1).split('/').pop()}</span>)
-                      }
+
+                      // render without link
+                      return (<span key={i}>{ (i > 0 ? ' > ' : '') + b.substring(0, b.length - 1).split('/').pop()}</span>)
+
                     })
                   }
                 </div>
                 <div className='marg-1'>
 
                   <Table labels={['API', 'Hits']}
-                         rows={this.state.data.table}
-                         cols={['path', 'hits']}
-                         formatters={{path: pathFormat}}/>
+                    rows={this.state.data.table}
+                    cols={['path', 'hits']}
+                    formatters={{path: pathFormat}}/>
 
                 </div>
               </div>

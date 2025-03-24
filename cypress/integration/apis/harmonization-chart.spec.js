@@ -5,6 +5,7 @@ const DEVICE_FIELDS = ['device_class', 'device_name', 'fei_number', 'k_number',
     'medical_specialty_description', 'pma_number', 'registration_number', 'regulation_number']
 const DRUG_FIELDS = ['application_number',
     'brand_name',
+    'dosage_form',
     'generic_name',
     'is_original_packager',
     'manufacturer_name',

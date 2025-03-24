@@ -1,0 +1,328 @@
+properties:
+  package_ndc:
+    format:
+    is_exact: false
+    type: string
+    pattern: ^[0-9]{5,4}-[0-9]{4,3}-[0-9]{1,2}$
+    description: "This number, known as the NDC, identifies the labeler, product, and trade package size. The first segment, the labeler code, is assigned by the FDA. A labeler is any firm that manufactures (including repackers or relabelers), or distributes (under its own name) the drug."
+    possible_values:
+  generic_name:
+    description: "Generic name(s) of the drug product."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  proprietary_name:
+    description: "Brand or trade name of the drug product."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  company_name:
+    description: "Company name that makes this drug product."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  contact_info:
+    description: "Contact information"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  presentation:
+    description: "Drug name, form, strength, and NDC number"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  update_type:
+    description: "Type of update"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  availability:
+    description: "Availability Information"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  related_info:
+    description: "Specific availability information for the presentation"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  related_info_link:
+    description: "FDA resources and links"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  resolved_note:
+    description: "Information related to the resolved status of the presentation"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  shortage_reason:
+    description: "Reason for shortage of the presentation"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  therapeutic_category:
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern:
+      description: "Therapeutic category"
+      possible_values:
+  dosage_form:
+    description: "The drug’s dosage form. There is no standard, but values may include terms like `tablet` or `solution for injection`."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  strength:
+    type: array
+    items:
+      format:
+      is_exact: true
+      type: string
+      pattern:
+      description: "Drug strength"
+      possible_values:
+  status:
+    description: "Presentation shortage status"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  update_date:
+    description: "Date of update for the presentation"
+    format: date
+    is_exact: false
+    pattern: "YYYYmmdd"
+    type: string
+  change_date:
+    description: "Date of change for the presentation"
+    format: date
+    is_exact: false
+    pattern: "YYYYmmdd"
+    type: string
+  discontinued_date:
+    description: "Date the presentation was discontinued"
+    format: date
+    is_exact: false
+    pattern: "YYYYmmdd"
+    type: string
+  initial_posting_date:
+    description: "Date the presentation was added to the public website"
+    format: date
+    is_exact: false
+    pattern: "YYYYmmdd"
+    type: string
+  openfda:
+    type: object
+    properties:
+      brand_name:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Brand or trade name of the drug product."
+          possible_values:
+      dosage_form:
+        type: array
+        items:
+          description: "The drug’s dosage form. There is no standard, but values may include terms like `tablet` or `solution for injection`."
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+          generic_name:
+      is_original_packager:
+        type: array
+        items:
+          description: "Whether or not the drug has been repackaged for distribution."
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+      manufacturer_name:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Name of manufacturer or company that makes this drug product, corresponding to the labeler code segment of the NDC."
+          possible_values:
+      nui:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[N][0-9]{10}$
+          description: "Unique identifier applied to a drug concept within the National Drug File Reference Terminology (NDF-RT)."
+          possible_values:
+            type: reference
+            value:
+              name: "NDF-RT"
+              link: "https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/NDFRT/"
+      original_packager_product_ndc:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[0-9]{5,4}-[0-9]{4,3}-[0-9]{1,2}$
+          description: "This ndc identifies the original packager."
+          possible_values:
+      package_ndc:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[0-9]{5,4}-[0-9]{4,3}-[0-9]{1,2}$
+          description: "This number, known as the NDC, identifies the labeler, product, and trade package size. The first segment, the labeler code, is assigned by the FDA. A labeler is any firm that manufactures (including repackers or relabelers), or distributes (under its own name) the drug."
+          possible_values:
+      pharm_class_cs:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Chemical structure classification of the drug product’s pharmacologic class. Takes the form of the classification, followed by `[Chemical/Ingredient]` (such as `Thiazides [Chemical/Ingredient]` or `Antibodies, Monoclonal [Chemical/Ingredient]."
+          possible_values:
+      pharm_class_epc:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Established pharmacologic class associated with an approved indication of an active moiety (generic drug) that the FDA has determined to be scientifically valid and clinically meaningful. Takes the form of the pharmacologic class, followed by `[EPC]` (such as `Thiazide Diuretic [EPC]` or `Tumor Necrosis Factor Blocker [EPC]`."
+          possible_values:
+      pharm_class_moa:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Mechanism of action of the drug—molecular, subcellular, or cellular functional activity—of the drug’s established pharmacologic class. Takes the form of the mechanism of action, followed by `[MoA]` (such as `Calcium Channel Antagonists [MoA]` or `Tumor Necrosis Factor Receptor Blocking Activity [MoA]`."
+          possible_values:
+      pharm_class_pe:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Physiologic effect or pharmacodynamic effect—tissue, organ, or organ system level functional activity—of the drug’s established pharmacologic class. Takes the form of the effect, followed by `[PE]` (such as `Increased Diuresis [PE]` or `Decreased Cytokine Activity [PE]`."
+          possible_values:
+      product_ndc:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[0-9]{5,4}-[0-9]{4,3}$
+          description: "The labeler manufacturer code and product code segments of the NDC number, separated by a hyphen."
+          possible_values:
+      product_type:
+        type: array
+        items:
+          description: "Type of drug product"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+      route:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "The route of administation of the drug product."
+          possible_values:
+            type: reference
+            value:
+              name: "Route of administration"
+              link: http://www.fda.gov/ForIndustry/DataStandards/StructuredProductLabeling/ucm162034.htm
+      rxcui:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[0-9]{6}$
+          description: "The RxNorm Concept Unique Identifier. RxCUI is a unique number that describes a semantic concept about the drug product, including its ingredients, strength, and dose forms."
+          possible_values:
+            type: reference
+            value:
+              name: "RxNorm and RxCUI documentation"
+              link: "https://www.nlm.nih.gov/research/umls/rxnorm/docs/2012/rxnorm_doco_full_2012-3.html"
+      spl_id:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          description: "Unique identifier for a particular version of a Structured Product Label for a product. Also referred to as the document ID."
+          possible_values:
+      spl_set_id:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
+          description: "Unique identifier for the Structured Product Label for a product, which is stable across versions of the label. Also referred to as the set ID."
+          possible_values:
+      substance_name:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "The list of active ingredients of a drug product."
+          possible_values:
+      unii:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern: ^[A-Z0-9]{10}$
+          description: "Unique Ingredient Identifier, which is a non-proprietary, free, unique, unambiguous, non-semantic, alphanumeric identifier based on a substance’s molecular structure and/or descriptive information."
+          possible_values:
+            type: reference
+            value:
+              name: "Unique Ingredient Identifiers"
+              link: "http://fdasis.nlm.nih.gov/srs/srs.jsp"
+      upc:
+        type: array
+        items:
+          type: string
+          description: "Universal Product Code"
+          format:
+          is_exact: true
+          possible_values:
+            type: reference
+            value:
+              name: "Universal Product Code"
+              link: "https://en.wikipedia.org/wiki/Universal_Product_Code"
