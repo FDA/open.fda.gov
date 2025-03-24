@@ -139,3 +139,7 @@ updates:
     path: /apis/other/historicaldocument/
     date: 2024-03-20
     desc: "The dataset Historical Documents is now available."
+  - title: "New openFDA Dataset - Drug Shortages"
+    path: /apis/drug/drugshortages/
+    date: 2025-03-25
+    desc: "The dataset Drug Shortages is now available."
