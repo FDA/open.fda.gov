@@ -173,7 +173,7 @@ const EndpointBox = (props: tPROPS) => {
       'ndc': '/apis/drug/ndc/',
       'enforcement': '/apis/drug/enforcement/',
       'drugsfda': '/apis/drug/drugsfda/',
-      'drugshortages': '/apis/drug/drugshortages'
+      'drugshortages': '/apis/drug/drugshortages/'
     },
     'other': {
       'historicaldocument': '/apis/other/historicaldocument/',
