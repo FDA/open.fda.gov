@@ -21,3 +21,4 @@ npm-debug.log.931881047
 /.npm/
 /cache/Cypress/
 
+/.run/dev.run.xml
