@@ -11,14 +11,15 @@ type tSTATE = {
   validated: boolean;
 };
 
-const NavContainer = function (ComposedNav: ReactClass): ReactClass {
-  class HOC extends React.Component {
+const NavContainer = function (ComposedNav: React.ComponentType<any>): React.ComponentType {
+  class HOC extends React.Component<any> {
     state: tSTATE = {
       showMobileNav: false,
       showModal: false,
       activeDropdown: ' ',
       path: ' ',
-      validated: false
+      validated: false,
+      toggleDropdownContent: false
     };
 
     componentDidMount () {
@@ -51,8 +52,8 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
       })
     }
 
-    _toggleDropdownContent (e) {
-      const title = e.target.getAttribute('title')
+    _toggleDropdownContent (e: any) {
+      const title = (e.target as HTMLElement).getAttribute('title')
       if (this.state.activeDropdown != title) {
         this.setState({
           activeDropdown: title
@@ -72,9 +73,9 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
       }
     }
 
-    _showDropdownContent (e) {
+    _showDropdownContent (e: React.MouseEvent<HTMLDivElement>) {
       if (this.state.showMobileNav === false) {
-        const title = e.target.getAttribute('title')
+        const title = (e.target as HTMLElement).getAttribute('title')
         this.setState({
           activeDropdown: title
         })
@@ -96,7 +97,7 @@ const NavContainer = function (ComposedNav: ReactClass): ReactClass {
       sessionStorage.setItem('nav.disclaimer.accepted', 'true')
     }
 
-    render (): React.Element {
+    render (): React.ReactElement {
       return (
         <ComposedNav
           {...this.props}

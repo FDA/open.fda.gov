@@ -6,8 +6,13 @@ type tSTATE = {
   showModal: boolean;
 };
 
-const DisclaimerContainer = function (ComposedDisclaimer: ReactClass): ReactClass {
-  class HOC extends React.Component {
+type HOCProps = {
+  validated: boolean;
+};
+
+const DisclaimerContainer = function (ComposedDisclaimer: React.ComponentType<{ showModal: boolean; setIsModal: (val: boolean) => void; validated: boolean }>): React.ComponentType<HOCProps> {
+
+  class HOC extends React.Component<HOCProps> {
     state: tSTATE = {
       showModal: false
     };
@@ -20,12 +25,13 @@ const DisclaimerContainer = function (ComposedDisclaimer: ReactClass): ReactClas
       }
     }
 
-    componentWillReceiveProps (nextProps) {
+    componentWillReceiveProps (nextProps: HOCProps) {
       if (this.props.validated == true && nextProps.validated == false) {
         this.setState({
           showModal: true
         })
-      } else if (this.props.validated == false && nextProps.validated == true) {
+      }
+      else if (this.props.validated == false && nextProps.validated == true) {
         this.setState({
           showModal: false
         })
@@ -38,12 +44,18 @@ const DisclaimerContainer = function (ComposedDisclaimer: ReactClass): ReactClas
       })
     }
 
-    render (): React.Element {
+    setIsModal (val: boolean) {
+      this.setState({
+        showModal: val
+      })
+    }
+
+    render (): React.ReactElement {
       return (
         <ComposedDisclaimer
           {...this.props}
           {...this.state}
-          hideModal={this._hideModal.bind(this)}
+          setIsModal={(val: boolean) => this.setIsModal(val)}
         />
       )
     }

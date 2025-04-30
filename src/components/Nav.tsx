@@ -1,17 +1,16 @@
 /* @flow */
 
 import React from 'react'
-import cx from 'classnames'
 
 import NavContainer from '../containers/NavContainer'
-import Disclaimer from '../components/Disclaimer'
 
 import Link from 'gatsby-link'
 
 import '../css/components/Nav.scss'
+import Disclaimer from './Disclaimer'
+import DisclaimerContainer from '../containers/DisclaimerContainer'
 
 const linkCx: string = 'sub-menu-item no-underline'
-
 
 const hamStyl: Object = Object.freeze({
   borderRadius: '5px',
@@ -23,44 +22,55 @@ const hamStyl: Object = Object.freeze({
 
 type tPROPS = {
   showMobileNav: boolean;
-  showModal: boolean;
-  toggleMobileNav: Function;
-  closeMobileNav: Function;
-  toggleDropdownContent: Function;
-  hideDropdownContent: Function;
-  showDropdownContent: Function;
-  handleOpenModal: Function;
-  handleCloseModal: Function;
+  toggleMobileNav: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  closeMobileNav: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  toggleDropdownContent: (event: React.TouchEvent<HTMLSpanElement>) => void;
+  hideDropdownContent: React.MouseEventHandler<HTMLDivElement>;
+  showDropdownContent: React.MouseEventHandler<HTMLDivElement>;
+  handleOpenModal: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   activeDropdown: string;
   path: string;
   validated: boolean;
 };
 
+// type tPROPS = {
+//   showMobileNav: boolean;
+//   toggleMobileNav: () => void;
+//   closeMobileNav: () => void;
+//   toggleDropdownContent: (e: React.MouseEvent<HTMLDivElement>) => void;
+//   hideDropdownContent: () => void;
+//   showDropdownContent: (e: React.MouseEvent<HTMLDivElement>) => void;
+//   handleOpenModal: () => void;
+//   handleCloseModal: () => void;
+//   activeDropdown: string;
+//   path: string;
+//   validated: boolean;
+// };
 
 const Nav = (props: tPROPS) => {
   const {
     showMobileNav,
-    showModal,
     toggleMobileNav,
     closeMobileNav,
     toggleDropdownContent,
     hideDropdownContent,
     showDropdownContent,
     handleOpenModal,
-    handleCloseModal,
     activeDropdown,
     path,
     validated
   } = props
 
-  const navCx = cx({
-    'bg-white col d-5 flex-row': true,
-    'tab-hide': !showMobileNav,
-  })
+  const navCx = `
+  bg-white col d-5 flex-row 
+  ${!showMobileNav ? 'tab-hide' : ''}
+`
+
+  const WrappedDisclaimer = DisclaimerContainer(Disclaimer)
 
   return (
     <nav className='bg-white clr-gray flex-box dir-column main-nav-bar'>
-      <Disclaimer validated={validated} handleCloseModal={handleCloseModal} showModal={showModal} />
+      <WrappedDisclaimer validated={validated}/>
       <a
         href='#hero'
         className='visually-hidden'>
@@ -68,12 +78,12 @@ const Nav = (props: tPROPS) => {
       </a>
       <div>
         <div className='container dir-column tab-pad-b-1 tab-pad-t-1 nav-bar'>
-          <div className={showMobileNav ? 'dir-column relative': 'flex-row relative'}>
+          <div className={showMobileNav ? 'dir-column relative' : 'flex-row relative'}>
             <div className='container d-40 align-center logo-wrapper relative'>
               <Link
-                className="nav-logos"
+                className='nav-logos'
                 to='/'>
-                {/*<img
+                {/* <img
                   alt='Go to FDA website'
                   src='/img/FDA_logo_blue.png'
                   className='fda-logo'
@@ -128,19 +138,19 @@ const Nav = (props: tPROPS) => {
                   <Link
                     title='Home'
                     to='/'
-                    className={path === '/' ? 'menu-header header-selected emphasis': activeDropdown==='Home' ? 'menu-header emphasis': 'menu-header'}
+                    className={path === '/' ? 'menu-header header-selected emphasis' : activeDropdown === 'Home' ? 'menu-header emphasis' : 'menu-header'}
                     onClick={closeMobileNav}
                   >Home</Link>
-                  <div className={path === '/' ? 'menu-header-underbar': 'menu-header-underbar display-none'} style={{width: 'calc(100% - 1em)'}}/>
+                  <div className={path === '/' ? 'menu-header-underbar' : 'menu-header-underbar display-none'} style={{width: 'calc(100% - 1em)'}}/>
                 </div>
                 <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                   <span
                     title='About'
-                    className={path.indexOf('about') >= 0 ? 'menu-header header-selected emphasis': activeDropdown==='About' ? 'menu-header emphasis': 'menu-header'}
+                    className={path.indexOf('about') >= 0 ? 'menu-header header-selected emphasis' : activeDropdown === 'About' ? 'menu-header emphasis' : 'menu-header'}
                     onTouchStart={toggleDropdownContent}
                   >About <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
-                  <div className={path.indexOf('about') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
-                  <div className={activeDropdown==='About' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                  <div className={path.indexOf('about') >= 0 ? 'menu-header-underbar' : 'menu-header-underbar display-none'}/>
+                  <div className={activeDropdown === 'About' ? 'dropdown-content display-block' : 'dropdown-content display-none'}>
                     <div className='sub-menu-container' role='navigation'>
                       <Link className={linkCx} to='/about/' onClick={closeMobileNav}>What is openFDA?</Link>
                       <Link className={linkCx} to='/about/updates/' onClick={closeMobileNav}>Updates</Link>
@@ -152,11 +162,11 @@ const Nav = (props: tPROPS) => {
                 <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                   <span
                     title='APIs'
-                    className={path.indexOf('apis') >= 0 ? 'menu-header header-selected emphasis': activeDropdown==='APIs' ? 'menu-header emphasis': 'menu-header'}
+                    className={path.indexOf('apis') >= 0 ? 'menu-header header-selected emphasis' : activeDropdown === 'APIs' ? 'menu-header emphasis' : 'menu-header'}
                     onTouchStart={toggleDropdownContent}
                   >APIs<i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
-                  <div className={path.indexOf('apis') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
-                  <div className={activeDropdown==='APIs' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                  <div className={path.indexOf('apis') >= 0 ? 'menu-header-underbar' : 'menu-header-underbar display-none'}/>
+                  <div className={activeDropdown === 'APIs' ? 'dropdown-content display-block' : 'dropdown-content display-none'}>
                     <div className='sub-menu-container' role='navigation'>
                       <Link className={linkCx} to='/apis/' onClick={closeMobileNav}>API basics</Link>
                       <Link className={linkCx} to='/apis/animalandveterinary/' onClick={closeMobileNav}>Animal and Veterinary Endpoints</Link>
@@ -171,11 +181,11 @@ const Nav = (props: tPROPS) => {
                 <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                   <span
                     title='Data'
-                    className={path.indexOf('data') >= 0 ? 'menu-header header-selected emphasis': activeDropdown==='Data' ? 'menu-header emphasis': 'menu-header'}
+                    className={path.indexOf('data') >= 0 ? 'menu-header header-selected emphasis' : activeDropdown === 'Data' ? 'menu-header emphasis' : 'menu-header'}
                     onTouchStart={toggleDropdownContent}
                   >Data <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
-                  <div className={path.indexOf('data') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
-                  <div className={activeDropdown==='Data' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                  <div className={path.indexOf('data') >= 0 ? 'menu-header-underbar' : 'menu-header-underbar display-none'}/>
+                  <div className={activeDropdown === 'Data' ? 'dropdown-content display-block' : 'dropdown-content display-none'}>
                     <div className='sub-menu-container' role='navigation'>
                       <Link className={linkCx} to='/data/datadictionary' onClick={closeMobileNav}>Data Dictionary</Link>
                       <Link className={linkCx} to='/data/downloads/' onClick={closeMobileNav}>Downloads</Link>
@@ -186,11 +196,11 @@ const Nav = (props: tPROPS) => {
                 <div className='dropdown' onMouseLeave={hideDropdownContent} onMouseEnter={showDropdownContent}>
                   <span
                     title='Community'
-                    className={path.indexOf('community') >= 0 ? 'menu-header header-selected emphasis': activeDropdown==='Community' ? 'menu-header emphasis': 'menu-header'}
+                    className={path.indexOf('community') >= 0 ? 'menu-header header-selected emphasis' : activeDropdown === 'Community' ? 'menu-header emphasis' : 'menu-header'}
                     onTouchStart={toggleDropdownContent}
-                  >Community <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none': '')}/></span>
-                  <div className={path.indexOf('community') >= 0 ? 'menu-header-underbar': 'menu-header-underbar display-none'}/>
-                  <div className={activeDropdown==='Community' ? 'dropdown-content display-block': 'dropdown-content display-none'}>
+                  >Community <i className={"fa fa-angle-down " + (showMobileNav ? 'display-none' : '')}/></span>
+                  <div className={path.indexOf('community') >= 0 ? 'menu-header-underbar' : 'menu-header-underbar display-none'}/>
+                  <div className={activeDropdown === 'Community' ? 'dropdown-content display-block' : 'dropdown-content display-none'}>
                     <div className='sub-menu-container' role='navigation'>
                       <a
                         className={`${linkCx}`}
@@ -224,7 +234,7 @@ const Nav = (props: tPROPS) => {
                   <button
                     title='Disclaimer'
                     onClick={handleOpenModal}
-                    className={activeDropdown==='Home' ? 'menu-header emphasis': 'menu-header'}
+                    className={activeDropdown === 'Home' ? 'menu-header emphasis' : 'menu-header'}
                   >Disclaimer</button>
                 </div>
               </div>

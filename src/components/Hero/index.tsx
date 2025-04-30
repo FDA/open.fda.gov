@@ -2,8 +2,7 @@
 
 import React from 'react'
 import cx from 'classnames'
-import BreadCrumbs from '../Breadcrumbs'
-import dateFormat from 'dateformat'
+import dateFormat from 'dateformat';
 
 
 type tPROPS = {
@@ -13,8 +12,8 @@ type tPROPS = {
   htmlDescription: boolean;
   label: string;
   path: string;
-  title: React.Element|string;
-  type: 'homepage'|'endpoint'|'update';
+  title: React.ReactElement|string;
+  type: 'homepage'|'endpoint'|'update'|'dataset';
 };
 
 /**
@@ -55,20 +54,23 @@ const Hero = (props: tPROPS) => {
     food: '/img/apple.png',
     device: '/img/stethoscope.png',
     drug: '/img/pill-bottle.png',
-    animal_and_veterinary: '/img/dog.png'
+    animal_and_veterinary: '/img/dog.png',
+    other: '' // Default value for 'other'
   }
 
   const bg_image_style = {
-    food: {height: '300px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '100%', top: '-20px'},
-    device: {height: '300px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '100%', top: '-30px'},
-    drug: {height: '350px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '120%', top: '-65px'}
+    food: {height: '300px', mixBlendMode: 'multiply' as React.CSSProperties['mixBlendMode'], position: 'absolute' as React.CSSProperties['position'], right: 0, zoom: '100%', top: '-20px'},
+    device: {height: '300px', mixBlendMode: 'multiply' as React.CSSProperties['mixBlendMode'], position: 'absolute' as React.CSSProperties['position'], right: 0, zoom: '100%', top: '-30px'},
+    drug: {height: '350px', mixBlendMode: 'multiply' as React.CSSProperties['mixBlendMode'], position: 'absolute' as React.CSSProperties['position'], right: 0, zoom: '120%', top: '-65px'},
+    animal_and_veterinary: {height: '300px', mixBlendMode: 'normal' as React.CSSProperties['mixBlendMode'], position: 'absolute' as React.CSSProperties['position'], right: 0, zoom: '100%', top: '0'},
+    other: {height: '300px', mixBlendMode: 'normal' as React.CSSProperties['mixBlendMode'], position: 'absolute' as React.CSSProperties['position'], right: 0, zoom: '100%', top: '0'}
   }
 
   if ('path' in props) {
     let cat_path = path.split( '/' )
-    var cat_name = cat_path[2]
+    var cat_name = cat_path[2] as keyof typeof bg_image_color
   } else {
-    var cat_name = 'other'
+    var cat_name: keyof typeof bg_image_color = 'other'
   }
 
 

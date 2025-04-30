@@ -9,15 +9,23 @@ import FilterSelect from './FilterSelect'
  * @param  {Object} props [breakpoint + all needed props for filtering]
  * @return {React.Element}
  */
-const Filter = (props: Object) => (
-  props.bp.mob ?
+interface FilterProps {
+  bp?: {
+    mob?: boolean;
+  };
+  filters?: any[];
+  selected?: string;
+  onChange?: () => void;
+  [key: string]: any; // Allow additional props
+}
+
+const Filter = (props: FilterProps) => (
+  props?.bp?.mob ?
     <FilterSelect
-      {...props}
-    />
-  :
+      filters={[]} selected={''} onChange={() => {}} {...props} />
+    :
     <FilterRadio
-      {...props}
-    />
+      filters={[]} onChange={() => {}} selected={''} {...props} />
 )
 
 Filter.displayName = 'components/Filter'
