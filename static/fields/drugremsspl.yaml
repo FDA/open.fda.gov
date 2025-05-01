@@ -5,6 +5,12 @@ properties:
     is_exact: false
     possible_values:
     type: string
+  document_link:
+    description: "Link to the document."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
   document_title:
     description: "There is a title with the 'Risk Evaluation and Mitigation Strategy (REMS)' followed by [Drug/Class Name] REMS Program."
     format:
@@ -186,6 +192,14 @@ properties:
             value:
               name: "RxNorm and RxCUI documentation"
               link: "https://www.nlm.nih.gov/research/umls/rxnorm/docs/2012/rxnorm_doco_full_2012-3.html"
+      rxstring:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          description:
+          possible_values:
       rxtty:
         type: array
         items:
@@ -306,16 +320,21 @@ properties:
     type: object
     properties:
       content:
-        description: "Includes all the raw text content for this section.."
+        description: "Includes all the raw text content for this section."
         format:
         is_exact: false
         possible_values:
-        type: string
       effective_time:
         description: "Date reference to the particular version of the labeling document."
         format: date
         is_exact: false
         pattern: "YYYYmmdd"
+        type: string
+      title:
+        description: "Title of this section."
+        format:
+        is_exact: false
+        possible_values:
         type: string
   rems_elements:
     type: array
@@ -324,7 +343,7 @@ properties:
         medication_guide:
           properties:
             content:
-              description: "Includes all the raw text content for this section.."
+              description: "Includes all the raw text content for this section."
               format:
               is_exact: false
               possible_values:
@@ -340,7 +359,7 @@ properties:
           items:
             properties:
               content:
-                description: "Includes all the raw text content for this section.."
+                description: "Includes all the raw text content for this section."
                 format:
                 is_exact: false
                 possible_values:
@@ -356,7 +375,7 @@ properties:
           items:
             properties:
               content:
-                description: "Includes all the raw text content for this section.."
+                description: "Includes all the raw text content for this section."
                 format:
                 is_exact: false
                 possible_values:
@@ -373,7 +392,7 @@ properties:
           items:
             properties:
               content:
-                description: "Includes all the raw text content for this section.."
+                description: "Includes all the raw text content for this section."
                 format:
                 is_exact: false
                 possible_values:
@@ -536,7 +555,7 @@ properties:
     type: object
     properties:
       content:
-        description: "Includes all the raw text content for this section.."
+        description: "Includes all the raw text content for this section."
         format:
         is_exact: false
         possible_values:
@@ -547,6 +566,40 @@ properties:
         is_exact: false
         pattern: "YYYYmmdd"
         type: string
+  rems_material:
+    type: object
+    properties:
+      content:
+        description: "Includes all the raw text content for this section."
+        format:
+        is_exact: false
+        possible_values:
+      effective_time:
+        description: "Date reference to the particular version of the labeling document."
+        format: date
+        is_exact: false
+        pattern: "YYYYmmdd"
+        type: string
+      title:
+        description: "Title of this section."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      document:
+        properties:
+          name:
+            description: "The name of this document."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          reference:
+            description: "The reference to this document."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
   rems_requirements:
     type: object
     properties:
@@ -572,7 +625,7 @@ properties:
         type: object
         properties:
           content:
-            description: "Includes all the raw text content for this section.."
+            description: "Includes all the raw text content for this section."
             format:
             is_exact: false
             possible_values:
@@ -582,6 +635,12 @@ properties:
             format: date
             is_exact: false
             pattern: "YYYYmmdd"
+            type: string
+          title:
+            description: "Title of this section."
+            format:
+            is_exact: false
+            possible_values:
             type: string
           substance_administration:
             type: array
@@ -681,7 +740,7 @@ properties:
         type: object
         properties:
           content:
-            description: "Includes all the raw text content for this section.."
+            description: "Includes all the raw text content for this section."
             format:
             is_exact: false
             possible_values:
@@ -692,6 +751,21 @@ properties:
             is_exact: false
             pattern: "YYYYmmdd"
             type: string
+          rems_communication:
+            type: object
+            properties:
+              text:
+              description: "Includes all the raw text content for this section."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+            effective_time:
+              description: "Date reference to the particular version of the labeling document."
+              format: date
+              is_exact: false
+              pattern: "YYYYmmdd"
+              type: string
           substance_administration:
             type: array
             items:
@@ -786,21 +860,54 @@ properties:
                         is_exact: false
                         possible_values:
                         type: string
-  spl_unclassified_section:
-    type: object
-    properties:
-      record_details:
-        items:
-          description: "Key points of what is covered in the REMS SPL record"
+      rems_communication:
+        type: object
+        properties:
+          text:
+          description: "Includes all the raw text content for this section."
           format:
           is_exact: false
           possible_values:
           type: string
-        type: array
+        effective_time:
+          description: "Date reference to the particular version of the labeling document."
+          format: date
+          is_exact: false
+          pattern: "YYYYmmdd"
+          type: string
+  rems_submission_assessments_timetable:
+    type: object
+    properties:
+      content:
+        description: "Includes all the raw text content for this section."
+        format:
+        is_exact: false
+        possible_values:
       effective_time:
         description: "Date reference to the particular version of the labeling document."
         format: date
         is_exact: false
         pattern: "YYYYmmdd"
+        type: string
+  spl_unclassified_section:
+    type: object
+    properties:
+      text:
+        description: "Includes all the raw text content for this section."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      effective_time:
+        description: "Date reference to the particular version of the labeling document."
+        format: date
+        is_exact: false
+        pattern: "YYYYmmdd"
+        type: string
+      title:
+        description: "Title of this section."
+        format:
+        is_exact: false
+        possible_values:
         type: string
 type: object
