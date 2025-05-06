@@ -69,7 +69,7 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
       {
         // We participate in the US government's analytics program. See the data at analytics.usa.gov.}
       }
-      <script async type="text/javascript" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS" id="_fed_an_ua_tag" />
+      <script async type='text/javascript' src='https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS' id='_fed_an_ua_tag' />
 
       <link rel='stylesheet' href='https://unpkg.com/react-select@1.2.1/dist/react-select.css' />
     </head>

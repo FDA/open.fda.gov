@@ -6,7 +6,7 @@ import fields from './_fields.yaml'
 import master_harmonization from '../../../constants/fields/master_harmonization.yaml'
 
 class IndexRoute extends React.Component {
-  render() {
+  render () {
 
     const field_list = {
       'NDC': [
@@ -38,7 +38,7 @@ class IndexRoute extends React.Component {
     }
 
     return (
-      <section className="doc-content">
+      <section className='doc-content'>
         <h2>openFDA fields</h2>
         <p>Different datasets use different drug identifiers—brand name, generic name, NDA, NDC, etc. It can be difficult to find the same drug in different datasets. And some identifiers, like pharmacologic class, are useful search filters but not available in all datasets.</p>
         <p>openFDA features harmonization on drug identifiers, to make it easier to both search for and understand the drug products returned by API queries. These additional fields are attached to records in all categories, if applicable.</p>
@@ -55,11 +55,11 @@ class IndexRoute extends React.Component {
           master_harmonization={master_harmonization}
         />
 
-        <div className="bg-secondary-lightest marg-t-2 marg-b-2 pad-2 pad-b-1">
+        <div className='bg-secondary-lightest marg-t-2 marg-b-2 pad-2 pad-b-1'>
           <h2>Limits of openFDA harmonization</h2>
           <p>Not all records have harmonized fields. Because the harmonization process requires an exact match, some drug products cannot be harmonized in this fashion—for instance, if the drug name is misspelled. Some drug products will have <strong>openfda</strong> sections, while others will never, if there was no match during the harmonization process.  Conversely, searching in these fields will only return a subset of records from a given endpoint.</p>
         </div>
-{/*
+        {/*
         <p>The documentation below describes fields that you may find in an <code>openfda</code> section of an API result. They are organized by the dataset from which they originate.</p>
         <div>
           <h2>NDC</h2>

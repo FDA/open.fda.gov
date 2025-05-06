@@ -6,12 +6,12 @@ import Downloads from '../../../../../components/Downloads'
 import meta from '../_meta.yaml'
 
 class IndexRoute extends React.Component {
-  render() {
+  render () {
 
     return (
-      <section className="doc-content">
+      <section className='doc-content'>
         <h2>Download the dataset</h2>
-        <p>Use the links below to download the dataset manually, or review the <Link to="/apis/downloads/">Downloads</Link> documentation for more information about other download methods.</p>
+        <p>Use the links below to download the dataset manually, or review the <Link to='/apis/downloads/'>Downloads</Link> documentation for more information about other download methods.</p>
         <Downloads
           meta={meta}
         />

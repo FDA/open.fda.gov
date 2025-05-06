@@ -6,10 +6,10 @@ import meta from '../_meta.yaml'
 import fields from '../../../../../constants/fields/deviceenforcement.yaml'
 
 class IndexRoute extends React.Component {
-  render() {
+  render () {
 
     return (
-      <section className="doc-content">
+      <section className='doc-content'>
         <h2>Searchable Fields</h2>
         <p>Use the fields explorer below to find detailed explanations of every field in the dataset.</p>
         <FieldExplorer

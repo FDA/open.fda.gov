@@ -2,7 +2,11 @@ import React from "react"
 import AeDrillDown from '../AeDrillDown'
 import { API_LINK } from '../../constants/api'
 
-class PerformancePanel extends React.Component {
+interface PerformancePanelState {
+  dropDown?: { label: string; value: string }[];
+}
+
+class PerformancePanel extends React.Component<{}, PerformancePanelState> {
   constructor (props: Object) {
     super(props)
 
@@ -19,7 +23,7 @@ class PerformancePanel extends React.Component {
       .then(res => res.json())
       .then((json => {
         if (json.results) {
-          const dropdownData = json.results.map(line => {
+          const dropdownData = json.results.map((line: any) => {
             return {label: line.term + ' (' + line.count + ')', value: line.term}
           })
           this.setState({

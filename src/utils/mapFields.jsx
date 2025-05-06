@@ -53,7 +53,7 @@ const getFieldNamesAndChartTypes = function (fields: Object): Object {
       exactKey = `${key}.exact`
     }
 
-     // Determine what kind of chart we will want to draw based on the field content/data
+    // Determine what kind of chart we will want to draw based on the field content/data
     if (val.format === 'date') {
       fieldMap[key] = 'Line'
 

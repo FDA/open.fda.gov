@@ -33,7 +33,7 @@ import other_unii_meta from '../../apis/other/unii/_meta.yaml'
 
 const ComposedSidebar: ReactClass = SideBarContainer(SideBar)
 
-var endpoint_list = {
+const endpoint_list = {
   'Animal and Veterinary': 'animalandveterinary_header',
   'Animal And Veterinary Event': animalandveterinary_event_meta,
   'Food': 'food_header',
@@ -65,16 +65,16 @@ var endpoint_list = {
   'UNII': other_unii_meta
 }
 
-let downloads_list = Object.keys(endpoint_list).map((key: string, i: number) => {
+const downloads_list = Object.keys(endpoint_list).map((key: string, i: number) => {
   if (typeof endpoint_list[key] === "string") {
     return <li id={key} key={i}><h2>{key}</h2></li>
   }
-  else {
-    return <li id={key} key={i}><Downloads
-      k={i}
-      meta={endpoint_list[key]}
-    /></li>
-  }
+
+  return (<li id={key} key={i}><Downloads
+    k={i}
+    meta={endpoint_list[key]}
+  /></li>)
+
 })
 
 export default () => (
@@ -82,8 +82,8 @@ export default () => (
     <Hero
       label='Endpoint Downloads'
       title='Downloads'
-      htmlDescription="true"
-      description="This page provides all available endpoint downloads."
+      htmlDescription='true'
+      description='This page provides all available endpoint downloads.'
     />
     <section className='container t-marg-t-3 marg-b-3 relative row content-wrapper'>
 
@@ -91,7 +91,7 @@ export default () => (
         downloads={Object.keys(endpoint_list)}
       />
 
-      <div className="float-r ref-content" style={{  maxWidth: '100%'}}>
+      <div className='float-r ref-content' style={{ maxWidth: '100%'}}>
         <ul id='downloads'>
           {downloads_list}
         </ul>

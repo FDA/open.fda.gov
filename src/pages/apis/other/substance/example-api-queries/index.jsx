@@ -4,16 +4,16 @@ import QueryTour from '../../../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
-  render() {
+  render () {
 
-    const oneRecord = explorers['oneRecord']
-    const byName = explorers['byName']
-    const byCASRegistryNumber = explorers['byCASRegistryNumber']
-    const byUNII = explorers['byUNII']
-    const byFormula = explorers['byFormula']
+    const oneRecord = explorers.oneRecord
+    const byName = explorers.byName
+    const byCASRegistryNumber = explorers.byCASRegistryNumber
+    const byUNII = explorers.byUNII
+    const byFormula = explorers.byFormula
 
     return (
-      <section className="doc-content">
+      <section className='doc-content'>
         <h2>Example Substance Data API queries</h2>
         <p>To help get you started, we have provided some API query examples below. Use the Run query button to call the API and get back results. You can experiment by editing the example queries in the black text box.</p>
         <QueryTour

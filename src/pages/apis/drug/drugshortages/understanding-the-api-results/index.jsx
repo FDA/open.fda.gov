@@ -5,7 +5,7 @@ import examples from './_examples.json'
 
 class IndexRoute extends React.Component {
   render () {
-    const example: string = JSON.stringify(examples["count"], null, '  ') || ''
+    const example: string = JSON.stringify(examples.count, null, '  ') || ''
 
     return (
       <section className='doc-content'>

@@ -11,8 +11,8 @@ import flattenFields from "../../../../../utils/flattenFields"
 class IndexRoute extends React.Component {
   render () {
 
-    let fieldsMapped = mapFields(fields.properties)
-    let fieldsFlattened = flattenFields(fieldsMapped)
+    const fieldsMapped = mapFields(fields.properties)
+    const fieldsFlattened = flattenFields(fieldsMapped)
 
     return (
       <section className='doc-content'>

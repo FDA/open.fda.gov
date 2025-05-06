@@ -26,4 +26,3 @@ class IndexRoute extends React.Component {
 export default IndexRoute
 
 
-

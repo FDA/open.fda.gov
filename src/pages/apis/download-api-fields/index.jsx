@@ -6,8 +6,8 @@ import fields from '../openfda-fields/_fields.yaml'
 import examples from './_examples.json'
 
 class IndexRoute extends React.Component {
-  render() {
-    const example: string = JSON.stringify(examples["downloadQuery"], null, '  ') || ''
+  render () {
+    const example: string = JSON.stringify(examples.downloadQuery, null, '  ') || ''
 
     const meta_fields = [
       "meta",
@@ -27,7 +27,7 @@ class IndexRoute extends React.Component {
     ]
 
     return (
-      <section className="doc-content">
+      <section className='doc-content'>
         <h2>Download API fields</h2>
         <Highlight
           className='javascript'>

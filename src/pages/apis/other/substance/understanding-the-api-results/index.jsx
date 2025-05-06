@@ -4,11 +4,11 @@ import Highlight from 'react-highlight.js'
 import examples from './_examples.json'
 
 class IndexRoute extends React.Component {
-  render() {
-    const example: string = JSON.stringify(examples["count"], null, '  ') || ''
+  render () {
+    const example: string = JSON.stringify(examples.count, null, '  ') || ''
 
     return (
-      <section className="doc-content">
+      <section className='doc-content'>
         <h2>Understanding the API Results</h2>
         <p>For <code>search</code> queries (such as: <a href='https://oapi.fda.gov/other/substance.json?search=definition_type:"PRIMARY"'>https://api.fda.gov/other/substance.json?search=definition_type:"PRIMARY"</a>), the <code>results</code> section includes matching adverse event reports returned by the API.</p>
         <p>Each substance result consists of these major sections:</p>
@@ -27,8 +27,8 @@ class IndexRoute extends React.Component {
           <li><code>Relationships:</code>A list of related records which share some known relationship with this record (e.g. salt forms, metabolites, impurities, etc).</li>
           <li><code>Structurally Diverse:</code>The definitional information of a structurally diverse substance. This includes information about the source of the material (e.g. taxonomy for organisms) as well as the state, form and part of the source material used.</li>
           <li><code>Structure:</code>Chemical structure of a chemical substance.</li>
-          </ul>
-        <p>For count queries (such as: <a href="https://api.fda.gov/other/substance.json?count=substance_class">https://api.fda.gov/other/substance.json?count=substance_class</a>), the results section will look something like the following:</p>
+        </ul>
+        <p>For count queries (such as: <a href='https://api.fda.gov/other/substance.json?count=substance_class'>https://api.fda.gov/other/substance.json?count=substance_class</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}

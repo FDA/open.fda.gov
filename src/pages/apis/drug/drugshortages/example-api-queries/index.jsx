@@ -6,9 +6,9 @@ import explorers from '../_explorers.yaml'
 class IndexRoute extends React.Component {
   render () {
 
-    const oneRecord = explorers['oneRecord']
-    const capsule = explorers['capsule']
-    const updateTypeCount = explorers['updateTypeCount']
+    const oneRecord = explorers.oneRecord
+    const capsule = explorers.capsule
+    const updateTypeCount = explorers.updateTypeCount
 
     return (
       <section className='doc-content'>

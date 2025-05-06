@@ -4,13 +4,13 @@ import Highlight from 'react-highlight.js'
 import examples from './_examples.json'
 
 class IndexRoute extends React.Component {
-  render() {
-    const example: string = JSON.stringify(examples["count"], null, '  ') || ''
+  render () {
+    const example: string = JSON.stringify(examples.count, null, '  ') || ''
 
     return (
-      <section className="doc-content">
+      <section className='doc-content'>
         <h2>Understanding the API Results</h2>
-        <p>For <code>search</code> queries (such as: <a href="https://api.fda.gov/drug/enforcement.json?limit=1">https://api.fda.gov/drug/enforcement.json?limit=1</a>), the <code>results</code> section includes matching enforcement reports returned by the API.</p>
+        <p>For <code>search</code> queries (such as: <a href='https://api.fda.gov/drug/enforcement.json?limit=1'>https://api.fda.gov/drug/enforcement.json?limit=1</a>), the <code>results</code> section includes matching enforcement reports returned by the API.</p>
         <p>Each enforcement report consists of two major sections:</p>
         <ul>
           <li><strong>Enforcement report data:</strong> General information about the enforcement report.</li>
@@ -27,7 +27,7 @@ class IndexRoute extends React.Component {
           <li><code>initial_firm_notification</code></li>
           <li><code>recall_initiation_date</code></li>
         </ul>
-        <p>For <code>count</code> queries (such as: <a href="https://api.fda.gov/drug/enforcement.json?count=voluntary_mandated.exact">https://api.fda.gov/drug/enforcement.json?count=voluntary_mandated.exact</a>), the results section will look something like the following:</p>
+        <p>For <code>count</code> queries (such as: <a href='https://api.fda.gov/drug/enforcement.json?count=voluntary_mandated.exact'>https://api.fda.gov/drug/enforcement.json?count=voluntary_mandated.exact</a>), the results section will look something like the following:</p>
         <Highlight
           className='javascript'>
           {example}

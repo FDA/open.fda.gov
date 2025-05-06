@@ -4,13 +4,13 @@ import QueryTour from '../../../components/QueryTour'
 import explorers from '../_explorers.yaml'
 
 class IndexRoute extends React.Component {
-  render() {
+  render () {
 
-    const missing: Object = explorers['missing']
-    const exists: Object = explorers['exists']
+    const missing: Object = explorers.missing
+    const exists: Object = explorers.exists
 
     return (
-      <section className="doc-content">
+      <section className='doc-content'>
         <h2>Missing (or not missing) values</h2>
         <ul>
           <li><p><code>_missing_</code>: <code>search</code> modifier that matches when a field has no value (is empty).</p></li>

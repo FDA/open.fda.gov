@@ -1,8 +1,14 @@
-import React from "react"
-import { default as ReactTable } from "react-table"
+import React, { JSX } from "react"
+import { useTable } from "react-table"
 import { API_LINK } from '../../constants/api'
 
-class PositionsPanel extends React.Component {
+type PositionsPanelState = {
+  columns: Array<{ Header: string; accessor: string; Cell?: (row: any) => JSX.Element }>;
+  data: Array<any>;
+  pageSize: number;
+};
+
+class PositionsPanel extends React.Component<{}, PositionsPanelState> {
   constructor (props: Object) {
     super(props)
 
@@ -23,13 +29,13 @@ class PositionsPanel extends React.Component {
         {
           'Header': 'Reactions Mentioned',
           'accessor': 'ae',
-          Cell: row => (
+          Cell: (row: any) => (
             <ol style={{
               height: 100,
               overflowY: "scroll"
             }}>
               {/* <li>{row.value}</li>*/}
-              {row.value.map((v, idx) =>
+              {row.value.map((v: any, idx: any) =>
                 <li key={`key-${idx}`} style={{whiteSpace: "initial"}}>• {v}</li>
               )}
             </ol>
@@ -52,7 +58,7 @@ class PositionsPanel extends React.Component {
       .then(res => res.json())
       .then((json => {
         if (json.results) {
-          const data = json.results.map(line => {
+          const data = json.results.map((line: { decade: string; year: string; doc_file_name: string; adverse_events_mentioned: { meddra_term: string }[] }) => {
             return {
               decade: line.decade,
               pub_year: line.year,
@@ -73,29 +79,45 @@ class PositionsPanel extends React.Component {
 
   render () {
     return (
-      <ReactTable
-        data={this.state.data}
-        columns={this.state.columns}
-        pageSize={this.state.pageSize}
-        pageSizeOptions={[10, 25, 50, 100, 200, 250, 500, 1000]}
-        showPagination
-        minRows={10}
-        className='table -striped -highlight'
-        filtered={this.state.filtered}
-        resized={this.state.resized}
-        onSortedChange={sorted => this.setState({ sorted })}
-        onPageChange={page => this.setState({ page })}
-        onPageSizeChange={(pageSize, page) => this.setState({ page, pageSize })}
-        onResizedChange={resized => this.setState({ resized })}
-        onFilteredChange={filtered => this.setState({ filtered })}
-        style={{
-          width: '100%',
-          height: '494px',
-          position: 'relative'
-        }}
-      />
+      <Table columns={this.state.columns} data={this.state.data} />
     )
   }
+}
+
+const Table = ({ columns, data }: { columns: any; data: any }) => {
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = useTable({ columns, data })
+
+  return (
+    <table {...getTableProps()} className="table -striped -highlight">
+      <thead>
+        {headerGroups.map(headerGroup => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map(column => (
+              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+            ))}
+          </tr>
+        ))}
+      </thead>
+      <tbody {...getTableBodyProps()}>
+        {rows.map(row => {
+          prepareRow(row)
+          return (
+            <tr {...row.getRowProps()}>
+              {row.cells.map(cell => (
+                <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+              ))}
+            </tr>
+          )
+        })}
+      </tbody>
+    </table>
+  )
 }
 
 export default PositionsPanel

@@ -46,7 +46,7 @@ const Home = () => (
         </Link>
       </section>
       <BlogRoll
-        small={true}
+        small
       />
     </section>
   </section>

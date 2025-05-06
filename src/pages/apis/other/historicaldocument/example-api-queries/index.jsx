@@ -6,8 +6,8 @@ import explorers from '../_explorers.yaml'
 class IndexRoute extends React.Component {
   render () {
 
-    const botulism = explorers['botulism']
-    const poison = explorers['poison']
+    const botulism = explorers.botulism
+    const poison = explorers.poison
 
     return (
       <section className='doc-content'>

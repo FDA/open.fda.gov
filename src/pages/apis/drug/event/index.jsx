@@ -9,12 +9,12 @@ import infographic_definitions from './_infographic_definitions.json'
 import meta from './_meta.yaml'
 
 class IndexRoute extends React.Component {
-  render() {
+  render () {
 
     return (
-      <section className="doc-content">
+      <section className='doc-content'>
         <h2>Drug Adverse Event Overview</h2>
-        <p>The openFDA drug adverse event API returns data that has been collected from the <Link to="/data/faers/">FDA Adverse Event Reporting System (FAERS)</Link>, a database that contains information on adverse event and medication error reports submitted to FDA.</p>
+        <p>The openFDA drug adverse event API returns data that has been collected from the <Link to='/data/faers/'>FDA Adverse Event Reporting System (FAERS)</Link>, a database that contains information on adverse event and medication error reports submitted to FDA.</p>
 
         <InteractiveInfographic
           infographicDefinitions={infographic_definitions}
@@ -24,7 +24,7 @@ class IndexRoute extends React.Component {
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
           endpoint_name={meta.api_path.split("/")[2]}
-          harmonized={true}
+          harmonized
           status={meta.status}
         />
 
@@ -33,15 +33,15 @@ class IndexRoute extends React.Component {
         <p>Reporting of adverse events by healthcare professionals and consumers is voluntary in the United States. FDA receives some adverse event reports directly from healthcare professionals (such as physicians, pharmacists, nurses and others) and consumers (such as patients, family members, lawyers and others). Healthcare professionals and consumers may also report adverse events to the products’ manufacturers. If a manufacturer receives an adverse event report, it is normally required to send the report to FDA.</p>
         <p>Learn more about FAERS here:</p>
         <ul>
-          <li><a href="https://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/">Questions and Answers on FDA's Adverse Event Reporting System (FAERS)</a></li>
-          <li><a href="https://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/ucm070093.htm">FDA Adverse Events Reporting System (FAERS) Public Dashboard</a></li>
+          <li><a href='https://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/'>Questions and Answers on FDA's Adverse Event Reporting System (FAERS)</a></li>
+          <li><a href='https://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Surveillance/AdverseDrugEffects/ucm070093.htm'>FDA Adverse Events Reporting System (FAERS) Public Dashboard</a></li>
         </ul>
 
         <h3>How adverse events are collected</h3>
         <p>Adverse events are collected through a series of <strong>safety reports</strong>. Each is identified by a 8-digit string (for instance, <code>6176304-1</code>). The first 7 digits (before the hyphen) identify the individual report, and the last digit (after the hyphen) is a checksum. Rather than updating individual records in FAERS, subsequent updates are submitted in seperate reports.</p>
 
         <h3>How adverse events are formatted and organized</h3>
-        <p>Adverse event reports use the <a href="http://estri.ich.org/e2br22/ICH_ICSR_Specification_V2-3.pdf">ICH E2b/M2 version 2.1 standard.</a></p>
+        <p>Adverse event reports use the <a href='http://estri.ich.org/e2br22/ICH_ICSR_Specification_V2-3.pdf'>ICH E2b/M2 version 2.1 standard.</a></p>
         <p>This highly simplified schematic illustrates the general nature of an adverse event report. A report may list several drug products, as well as several patient reactions. No individual drug is connected to any individual reaction. <strong>When a report lists multiple drugs and multiple reactions, there is no way to conclude from the data therein that a given drug is responsible for a given reaction.</strong></p>
         <MultipleProductTable/>
         <p>Any number of the drugs may be marked as <em>suspect</em> if thought to be responsible for one or more of the reactions, but that information is not validated. <em>Concomitant</em> drugs are those which are not suspected of causing one or more of the reactions. Many drug products appear frequently in adverse event reports simply because they are commonly taken by many people in the population, not because they are responsible for more adverse events.</p>

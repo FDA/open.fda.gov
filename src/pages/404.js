@@ -1,7 +1,7 @@
 import React from "react"
 
 class FourOhFour extends React.Component {
-  render() {
+  render () {
     return (
       <section>
         <h1>Page not found</h1>

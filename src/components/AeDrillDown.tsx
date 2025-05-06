@@ -1,22 +1,39 @@
 import React, { Component } from 'react'
-import Select from 'react-select'
 import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, Legend} from 'recharts'
 import { API_LINK } from '../constants/api'
+import Select from 'react-select'
 
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip: React.FC<{ active?: boolean; payload: any[]; label?: string; detail?: any; yLabel?: any }> = ({ active, payload, label, detail, yLabel }) => {
   if (active) {
     return (
       <div className='custom-tooltip'>
         <h5 className='label'>{label}</h5>
         <p className='intro'>{`${payload[0].value}`}</p>
+        {detail && <p className='detail'>{`Detail: ${detail}`}</p>}
+        {yLabel && <p className='yLabel'>{`Y-Axis Label: ${yLabel}`}</p>}
       </div>
     )
   }
   return null
 }
 
-class AeDrillDown extends Component {
-  constructor (props) {
+interface AeDrillDownState {
+  data: Array<{ name: string; total: number }>;
+  dropDown: any[];
+  numberOfDocs: any[];
+  decade: any[];
+  documents: any[];
+  selectedEvent: any;
+}
+
+interface AeDrillDownProps {
+  dropDown: any[];
+  detail?: any;
+  xAxis?: any;
+}
+
+class AeDrillDown extends Component<AeDrillDownProps, AeDrillDownState> {
+  constructor (props: any) {
     super(props)
 
     this.state = {
@@ -36,7 +53,7 @@ class AeDrillDown extends Component {
     this.getData()
   }
 
-  handleChange (val) {
+  handleChange (val: any) {
     this.setState({
       selectedEvent: val
     }, () => {
@@ -53,9 +70,9 @@ class AeDrillDown extends Component {
       .then(res => res.json())
       .then((json => {
         if (json.results) {
-          const aeData = {}
-          json.results.forEach(line => {
-            line.adverse_events_mentioned.forEach(x => {
+          const aeData: any = {}
+          json.results.forEach((line: any) => {
+            line.adverse_events_mentioned.forEach((x: any) => {
               if (x.meddra_term === selectedEvent) {
                 if (line.decade in aeData) {
                   aeData[line.decade] += x.count
@@ -66,7 +83,7 @@ class AeDrillDown extends Component {
               }
             })
           })
-          const data = []
+          const data: any = []
           Object.entries(aeData).forEach(entry => {
             data.push({
               name: entry[0],
@@ -97,24 +114,24 @@ class AeDrillDown extends Component {
           defaultValue={this.props.dropDown[0]}
         />
 
-        <ResponsiveContainer className='chart-background bar-chart-background' height={500}>
-          <BarChart
-            ref='bar'
-            data={this.state.data}
-          >
-            <XAxis dataKey='name' interval={0}/>
-            <YAxisR />
-            <CartesianGrid strokeDasharray='8 8'/>
-            <Tooltip content={<CustomTooltip detail={this.props.detail} yLabel={this.props.xAxis}/>} />
-            <Legend height={36} verticalAlign='top'/>
-            <Bar
-              dataKey='total'
-              fill='#8884d8'
-              barCategoryGap={"50%"}
-              barGap={"50%"}
-            />
-          </BarChart>
-        </ResponsiveContainer>
+      <ResponsiveContainer className='chart-background bar-chart-background' height={500}>
+        <BarChart
+          ref={React.createRef()}
+          data={this.state.data}
+          barCategoryGap="50%" // Move here
+          barGap="50%" // Move here
+        >
+          <XAxis dataKey='name' interval={0} />
+          <YAxisR />
+          <CartesianGrid strokeDasharray='8 8' />
+          <Tooltip content={<CustomTooltip detail={this.props.detail} yLabel={this.props.xAxis} payload={[]} />} />
+          <Legend height={36} verticalAlign='top' />
+          <Bar
+            dataKey='total'
+            fill='#8884d8'
+          />
+        </BarChart>
+      </ResponsiveContainer>
       </div>
     )
   }

@@ -5,17 +5,17 @@ import InteractiveInfographicTour from '../../../../../components/InteractiveInf
 import infographics from '../_infographics.yaml'
 import fields from '../../../../../constants/fields/deviceclearance.yaml'
 import meta from '../_meta.yaml'
-import mapFields from "../../../../../utils/mapFields";
-import flattenFields from "../../../../../utils/flattenFields";
+import mapFields from "../../../../../utils/mapFields"
+import flattenFields from "../../../../../utils/flattenFields"
 
 class IndexRoute extends React.Component {
-  render() {
+  render () {
 
-    let fieldsMapped = mapFields(fields.properties)
-    let fieldsFlattened = flattenFields(fieldsMapped)
+    const fieldsMapped = mapFields(fields.properties)
+    const fieldsFlattened = flattenFields(fieldsMapped)
 
     return (
-      <section className="doc-content">
+      <section className='doc-content'>
         <InteractiveInfographicTour
           fieldsMapped={fieldsMapped}
           fieldsFlattened={fieldsFlattened}

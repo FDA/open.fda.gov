@@ -33,20 +33,6 @@ type tPROPS = {
   validated: boolean;
 };
 
-// type tPROPS = {
-//   showMobileNav: boolean;
-//   toggleMobileNav: () => void;
-//   closeMobileNav: () => void;
-//   toggleDropdownContent: (e: React.MouseEvent<HTMLDivElement>) => void;
-//   hideDropdownContent: () => void;
-//   showDropdownContent: (e: React.MouseEvent<HTMLDivElement>) => void;
-//   handleOpenModal: () => void;
-//   handleCloseModal: () => void;
-//   activeDropdown: string;
-//   path: string;
-//   validated: boolean;
-// };
-
 const Nav = (props: tPROPS) => {
   const {
     showMobileNav,

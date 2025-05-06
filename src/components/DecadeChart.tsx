@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts"
 import { API_LINK } from '../constants/api'
 
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip: React.FC<{ active?: boolean; payload?: any[]; label?: string }> = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
       <div className='custom-tooltip'>
@@ -14,8 +14,13 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null
 }
 
-class DecadeChart extends Component {
-  constructor (props) {
+interface DecadeChartState {
+  data: { name: string; total: number }[];
+  decade: string;
+}
+
+class DecadeChart extends Component<{}, DecadeChartState> {
+  constructor (props: any) {
     super(props)
     this.state = {
       data: [],
@@ -37,9 +42,9 @@ class DecadeChart extends Component {
       .then(res => res.json())
       .then((json => {
         if (json.results) {
-          const aeData = {}
-          json.results.forEach(line => {
-            line.adverse_events_mentioned.forEach(x => {
+          const aeData: Record<string, number> = {}
+          json.results.forEach((line: any) => {
+            line.adverse_events_mentioned.forEach((x: any) => {
               if (x.meddra_term in aeData) {
                 aeData[x.meddra_term] += x.count
               }
@@ -63,9 +68,9 @@ class DecadeChart extends Component {
       }))
   }
 
-  handleButtonClickDecade = e => {
+  handleButtonClickDecade = (e: React.MouseEvent<HTMLButtonElement>) => {
     this.setState({
-      decade: e.target.value
+      decade: e.currentTarget.value
     }, () => {
       this.getData()
     })
@@ -150,23 +155,21 @@ class DecadeChart extends Component {
                 2010's
             </button>
           </div>
-
-
           <ResponsiveContainer className='chart-background bar-chart-background' height={500} width='90%'>
             <BarChart
               layout='vertical'
               data={this.state.data}
+              barCategoryGap="50%" // Moved here
+              barGap="50%" // Moved here
             >
-              <XAxis type='number'/>
-              <YAxis dataKey='name' interval={0} type='category' width={110}/>
-              <CartesianGrid strokeDasharray='8 8'/>
-              <Tooltip content={<CustomTooltip/>} />
-              <Legend height={36} verticalAlign='top'/>
+              <XAxis type='number' />
+              <YAxis dataKey='name' interval={0} type='category' width={110} />
+              <CartesianGrid strokeDasharray='8 8' />
+              <Tooltip content={<CustomTooltip />} />
+              <Legend height={36} verticalAlign='top' />
               <Bar
                 dataKey='total'
                 fill='#8884d8'
-                barCategoryGap={"50%"}
-                barGap={"50%"}
               />
             </BarChart>
           </ResponsiveContainer>
