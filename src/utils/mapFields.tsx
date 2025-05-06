@@ -17,14 +17,14 @@ import each from 'lodash/each'
 //     }
 //   }
 // }
-const getFieldNamesAndChartTypes = function (fields: Object): Object {
-  const fieldMap: Object = {}
+const getFieldNamesAndChartTypes = function (fields: Record<string, any>): Record<string, any> {
+  const fieldMap: Record<string, any> = {}
 
-  each(fields, function (val, key) {
+  each(fields, function (val: { type?: string; items?: any; hide?: boolean; is_exact?: boolean; format?: string; possible_values?: { type?: string; value?: Record<string, any> }; properties?: any }, key: string) {
     // If this field is one that wants to be counted with .exact
     // (e.g. a product name field), it needs to be represented with
     // .exact appended to the ordinary key name
-    let exactKey: ?string = null
+    let exactKey: string | null | undefined = null
 
     // recursion if we meet an field with type object
     if (val.type === 'object' && (key !== 'meta')) {
@@ -58,18 +58,20 @@ const getFieldNamesAndChartTypes = function (fields: Object): Object {
       fieldMap[key] = 'Line'
 
       if (isExact) {
-        fieldMap[exactKey] = 'Line'
+        if (exactKey) {
+          fieldMap[exactKey] = 'Line'
+        }
       }
 
       return
     }
 
     if (val.possible_values) {
-      const vals: Object = val.possible_values
+      const vals: { type?: string; value?: Record<string, any> } = val.possible_values
 
       if (vals.type !== 'one_of') return
 
-      const isShort: boolean = Object.keys(vals.value).length < 10
+      const isShort: boolean = vals.value ? Object.keys(vals.value).length < 10 : false
 
       // we only want to use donut charts
       // when we can easily fit the data
@@ -77,7 +79,9 @@ const getFieldNamesAndChartTypes = function (fields: Object): Object {
 
       fieldMap[key] = 'Donut'
       if (isExact) {
-        fieldMap[exactKey] = 'Donut'
+        if (exactKey) {
+          fieldMap[exactKey] = 'Donut'
+        }
       }
 
       return
@@ -87,7 +91,9 @@ const getFieldNamesAndChartTypes = function (fields: Object): Object {
     // e.g. in /drug/event patient.drug.openfda.brand_name is an array of strings
     fieldMap[key] = 'Bar'
     if (isExact) {
-      fieldMap[exactKey] = 'Bar'
+      if (exactKey) {
+        fieldMap[exactKey] = 'Bar'
+      }
     }
   })
 

@@ -11,8 +11,17 @@ import ContentAccordion from '../ContentAccordion'
 
 const linkCx: string = 'b-b-1 clr-primary-alt-dark block font-size-5 pad-1 pad-l-2 txt-l row'
 
+type FieldsProps = {
+  k: number;
+  id: string; // Ensure the id property is required in the FieldsProps type
+  data: any;
+  fields: Object;
+};
+
+interface FieldsComponentProps extends FieldsProps {}
+
 type tPROPS = {
-  obj?: Object;
+  obj?: { [key: string]: any };
   k?: number;
   examples?: Object;
   explorers?: Object;
@@ -22,11 +31,13 @@ type tPROPS = {
   fieldsFlattened?: Object;
   fields?: Object;
   isMenu?: boolean;
-  onClick?: Function;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   meta?: Object;
   toggleSection?: Function;
   activeHeader?: Array<string>;
   i?: number;
+  id?: string; // Ensures 'id' is part of the tPROPS type
+  data?: any; // Ensures 'data' is also part of the tPROPS type
 };
 
 // called by Content
@@ -69,11 +80,11 @@ const RenderContentObject = (props: tPROPS) => {
   // or like
   // ul:
   //  - list stuff
-  const key: string = Object.keys(obj)[0]
+  const key: string = obj ? Object.keys(obj)[0] : ''
   // normalize the key
   const lowerKey: string = key.toLowerCase()
   // if not just a straight string, but an array of strings
-  const isList: boolean = obj[key] instanceof Array && key !== 'fields'
+  const isList: boolean = !!obj && Array.isArray(obj[key as keyof typeof obj]) && key !== 'fields'
 
   // if generating nav for reference fields
   // if isMenu, we're being called from ReferenceMenu in SideBar
@@ -113,12 +124,12 @@ const RenderContentObject = (props: tPROPS) => {
               }}
               key={`header-${k}`}
               // called by ReferenceMenu
-              onClick={onClick}>
+              onClick={onClick as React.MouseEventHandler<HTMLButtonElement>}>
               {key_text}
             </button>
           }
           {
-            obj[key].map((content: string, i) => {
+            (obj && obj[key as keyof typeof obj] instanceof Array ? obj[key as keyof typeof obj] : []).map((content: string, i) => {
               if (typeof content === 'object') {
                 return (
                   <RenderContentObject
@@ -159,14 +170,17 @@ const RenderContentObject = (props: tPROPS) => {
   // examples are the big, hardcoded code blocks
   // we use for demonstrating the api returns
   if (key === 'example') {
-    const value: string = obj[key]
-    const example: string = JSON.stringify(examples[value], null, '  ') || ''
+    if (!obj || typeof obj[key as string] !== 'string') {
+      return null;
+    }
+    const value: string = obj[key] as string;
+    const example: string = JSON.stringify(examples?.[value as keyof typeof examples] ?? {}, null, '  ') || ''
 
     return (
       <Highlight
         key={k}
-        id={lowerKey}
-        className='javascript'>
+        className='javascript'
+        language='javascript'>
         {example}
       </Highlight>
     )
@@ -176,10 +190,10 @@ const RenderContentObject = (props: tPROPS) => {
   if (key === 'fields') {
     return (
       <Fields
-        k={k}
+        k={k ?? 0}
         id={lowerKey}
-        data={obj[key]}
-        fields={fields}
+        data={obj?.[key]}
+        fields={fields ?? []}
       />
     )
   }
@@ -192,12 +206,20 @@ const RenderContentObject = (props: tPROPS) => {
     //   whatever: {},
     // }
     // explorerData = explorers.oneReport or whatever
-    const data: Object = explorers[obj[key]]
+    interface ExplorerData {
+      description?: string;
+      query?: string;
+      params?: any;
+      title?: string;
+    }
+
+    const explorerValue = obj ? explorers?.[obj[key] as keyof typeof explorers] : {};
+    const data: ExplorerData = typeof explorerValue === 'object' && !Array.isArray(explorerValue) ? explorerValue : {};
 
     return (
       <QueryExplorer
         desc={data.description}
-        k={k}
+        k={k ?? 0}
         originalQuery={data.query}
         params={data.params}
         title={data.title}
@@ -216,9 +238,9 @@ const RenderContentObject = (props: tPROPS) => {
       return (
         <ul key={k}>
           {
-            obj[key].map((content: string, j) => {
+            obj?.[key]?.map(async (content: string, j: any) => {
               // stringified markdown -> html
-              const html: string = marked(content)
+              const html: string = await Promise.resolve(marked.parse(content))
 
               return (
                 <li
@@ -238,16 +260,16 @@ const RenderContentObject = (props: tPROPS) => {
     // related to that section
     return (
       <ContentAccordion
-        k={k}
-        obj={obj}
-        examples={examples}
-        fields={fields}
-        infographics={infographics}
-        fieldsMapped={fieldsMapped}
-        fieldsFlattened={fieldsFlattened}
-        infographicDefinitions={infographicDefinitions}
-        explorers={explorers}
-        meta={meta}
+        k={k ?? 0}
+        obj={obj ?? {}}
+        examples={examples ?? {}}
+        fields={fields ?? []}
+        infographics={infographics ?? {}}
+        fieldsMapped={fieldsMapped ?? {}}
+        fieldsFlattened={fieldsFlattened ?? {}}
+        infographicDefinitions={infographicDefinitions ?? {}}
+        explorers={explorers ?? {}}
+        meta={meta ?? {}}
         key={k}
       />
     )

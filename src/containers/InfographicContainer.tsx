@@ -10,10 +10,11 @@ import '../css/components/InfographicContainer.scss'
 
 type tSTATE = {
   countParam: string;
-  current: Object;
-  data: ?Object;
+  current: { dateConstraint?: string; [key: string]: any };
+  data: Object | null | undefined;
   filters: Object;
   infographics: Object;
+  dateContraint: string;
   matchingRecords: number;
   nextCountParam: string;
   nextSearchParam: string;
@@ -32,7 +33,7 @@ class InfographicContainer extends React.Component {
   // explicitly define one for some reason
   state: tSTATE = {
     countParam: '',
-    current: {},
+    current: { dateConstraint: '' },
     data: null,
     dateContraint: '',
     infographics: {},
@@ -58,11 +59,11 @@ class InfographicContainer extends React.Component {
     infographics: [{}],
   };
 
-  constructor (props: Object) {
+  constructor (props: { infographics: Array<{ countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }> }) {
     super(props)
 
     // by default the first explorer is active
-    const current: Object = props.infographics[0]
+    const current = props.infographics[0]
 
     // countParam === count field for current explorer
     // modified by infoExplorer count field
@@ -91,12 +92,12 @@ class InfographicContainer extends React.Component {
    * @param  {Object} infographics [original infographics array]
    * @return {Object} [explorer map with short titles as key]
    */
-  _getInfographicMap (infographics: Array<Object>): Object {
-    const map: Object = {}
+  _getInfographicMap (infographics: Array<{ short: string }>): Record<string, { short: string }> {
+    const map: Record<string, { short: string }> = {}
 
     if (infographics) {
       infographics.forEach(d => {
-        map[d.short] = d
+        map[d.short as string] = d
       })
     }
 
