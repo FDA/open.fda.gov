@@ -725,7 +725,7 @@ class PieChartInfographic extends React.Component {
   }
 
 
-  render (): ?React.Element {
+  render (): any {
     if (!this.state.data) return <span />
     const viewBox = this.props.infographicDefinitions.pieChartConfig.viewBox
     $('.recharts-surface').removeAttr('viewBox')

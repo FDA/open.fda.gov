@@ -11,7 +11,7 @@ const getFieldValues = function (countParam: string, fields: Object): Object {
   // but still needs to render. For example, when it appears
   // under the filters and shows the proportion of queries
   // that match search criteria.
-  let fieldDef: ?Object = null
+  let fieldDef: Object | null | undefined = null
 
   if (fields && countParam) {
     fieldDef = yamlGet(countParam, fields)

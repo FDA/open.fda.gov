@@ -58,7 +58,7 @@ const BreakpointContainer = function (
       })
     }
 
-    render (): ?React.Element {
+    render (): any {
       return (
         <ComposedComponent
           bp={this.state}

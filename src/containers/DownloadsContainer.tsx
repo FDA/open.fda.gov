@@ -6,7 +6,7 @@ import xhrGET from '../utils/xhr'
 import { API_LINK } from '../constants/api'
 
 type tSTATE = {
-  data: ?Object;
+  data: Object | null | undefined;
   showAllResults: boolean;
 };
 
@@ -69,7 +69,7 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
       return resultsByYear
     }
 
-    render (): ?React.Element {
+    render (): any {
       if (typeof this.state.data !== 'object') return <span />
 
       const api_path: string = this.props.meta.api_path

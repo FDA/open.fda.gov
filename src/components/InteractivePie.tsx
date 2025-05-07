@@ -126,7 +126,7 @@ class TwoLevelPieChart extends React.Component {
     }
   }
 
-  render (): ?React.Element {
+  render (): any {
     return (
       <PieChart
         width={this.props.width}

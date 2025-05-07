@@ -5,7 +5,7 @@ import xhrGET from '../utils/xhr'
 import { API_LINK } from '../constants/api'
 
 type tSTATE = {
-  data: ?Array<Object>;
+  data: Object[] | null | undefined;
 };
 
 // A state wrapper for the api status component
@@ -30,7 +30,7 @@ const ApiStatusContainer = function (ComposedApiStatus: ReactClass): ReactClass 
       xhrGET(API_LINK + '/status', _handleResponse)
     }
 
-    render (): ?React.Element {
+    render (): any {
       if (!this.state.data) {
         return (
           <section

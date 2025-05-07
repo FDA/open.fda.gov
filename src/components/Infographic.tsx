@@ -20,22 +20,22 @@ type tEXPLORER = {
 };
 
 type tPROPS = {
-  tourStar: Function;
-  current: tEXPLORER;
-  data: Object;
-  fields: Object;
-  nextCountParam: string;
-  onSearchChange: Function;
-  onSearchChangeUpdate: Function;
-  records: number;
-  recordsTotal: number;
-  searchParam: string;
-  type: string;
-  handler: Function;
-  onCountChange: Function;
-  onKeyPress: Function;
-  onCountChangeAndUpdate: Function;
-  container: Object;
+  tourStart?: () => void;
+  current?: tEXPLORER;
+  data?: Object;
+  fields?: Object;
+  nextCountParam?: string;
+  onSearchChange?: Function;
+  onSearchChangeUpdate?: Function;
+  records?: number;
+  recordsTotal?: number;
+  searchParam?: string;
+  type?: string;
+  handler?: Function;
+  onCountChange?: Function;
+  onKeyPress?: Function;
+  onCountChangeAndUpdate?: Function;
+  container?: Object;
 };
 
 

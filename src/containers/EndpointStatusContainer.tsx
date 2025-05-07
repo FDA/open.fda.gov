@@ -50,7 +50,7 @@ const EndpointStatusContainer = function (ComposedEndpointStatus: ReactClass): R
       this._getStatus()
     }
 
-    render (): ?React.Element {
+    render (): any {
       if (!this.state.data) return <span />
 
       const path: string = this.props.path.replace(/(\/api_endpoints){1}/g, '').replace(/(\/reference){1}/g, '')

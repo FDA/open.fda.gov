@@ -48,7 +48,7 @@ class InteractiveInfographicTour extends React.Component {
   };
 
 
-  render (): ?React.Element {
+  render (): any {
 
     const steps: Array = [
       {

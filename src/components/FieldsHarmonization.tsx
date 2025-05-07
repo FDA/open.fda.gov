@@ -86,7 +86,7 @@ class FieldsHarmonization extends React.Component {
     // array
     let type: string = ''
     // one_of, etc
-    let values: ?Object = null
+    let values: Object | null | undefined = null
     // of strings
     let type2: string = ''
     // description text, can have docs
@@ -263,7 +263,7 @@ class FieldsHarmonization extends React.Component {
     }
   }
 
-  render (): ?React.Element {
+  render (): any {
 
     if (Object.keys(this.state.data).length === 0 && this.state.data.constructor === Object) {
       return <span/>

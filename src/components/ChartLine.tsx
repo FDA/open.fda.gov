@@ -124,7 +124,7 @@ class ChartLine extends React.Component {
     super(props)
   }
 
-  render (): ?React.Element {
+  render (): any {
     let previousChartData: Object = {}
     const years: Array<string> = _getYearsInData(this.props.data)
     let recordsByYear: Object = {}

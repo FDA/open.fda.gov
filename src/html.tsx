@@ -2,7 +2,7 @@
 
 import React from 'react'
 import faviconPNG from './favicon.png'
-import reactTableCSS from '!!raw-loader!../node_modules/react-table/react-table.css'
+import 'react-table/react-table.css'; // Directly import the CSS file
 
 const webFontLoader: string = `
   WebFontConfig = {
@@ -20,11 +20,14 @@ const webFontLoader: string = `
 type tPROPS = {
   body: string,
   title: string,
+  favicon?: string, // Add favicon as an optional property
+  headComponents?: React.ReactNode, // Add headComponents as an optional property
+  postBodyComponents?: React.ReactNode, // Add postBodyComponents as an optional property
 };
 
-const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headComponents }: tPROPS) => (
+const HTML = ({ title = 'openFDA', favicon = faviconPNG, body, postBodyComponents, headComponents }: tPROPS) => (
   <html
-    ref='html'
+    // ref='html' is removed as it is not valid in modern React
     lang='en'>
     <head>
       {headComponents}
@@ -58,12 +61,6 @@ const HTML = ({ title = 'openFDA', favicon, body, postBodyComponents, headCompon
         async
         dangerouslySetInnerHTML={{
           __html: webFontLoader,
-        }}
-      />
-      <style
-        dangerouslySetInnerHTML={{
-          // $FlowIgnore
-          __html: reactTableCSS,
         }}
       />
       {

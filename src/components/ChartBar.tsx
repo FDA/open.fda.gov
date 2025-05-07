@@ -83,7 +83,7 @@ class ChartBar extends React.Component {
     show: 10
   };
 
-  render (): ?React.Element {
+  render (): any {
     const fieldValues: Object = getFieldValues(this.props.countParam, this.props.fields)
 
     return (

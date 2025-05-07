@@ -13,7 +13,7 @@ type tSTATE = {
   current: { dateConstraint?: string; [key: string]: any };
   data: Object | null | undefined;
   filters: Object;
-  infographics: Object;
+  infographics: Record<string, { countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }>;
   dateContraint: string;
   matchingRecords: number;
   nextCountParam: string;
@@ -25,7 +25,11 @@ type tSTATE = {
   type: string;
 };
 
-class InfographicContainer extends React.Component {
+class InfographicContainer extends React.Component<{
+  infographics: Array<{ countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }>;
+  meta: { start: string; api_path: string };
+  fieldsFlattened: Record<string, string>;
+}> {
   static displayName = 'containers/InfographicContainer';
 
   // flow doesn't believe Component
@@ -33,7 +37,14 @@ class InfographicContainer extends React.Component {
   // explicitly define one for some reason
   state: tSTATE = {
     countParam: '',
-    current: { dateConstraint: '' },
+    current: { 
+      dateConstraint: '', 
+      description: '', 
+      filters: [], 
+      title: '', 
+      type: 'Line',
+      short: '' // Add any other required properties if needed
+    },
     data: null,
     dateContraint: '',
     infographics: {},
@@ -59,7 +70,11 @@ class InfographicContainer extends React.Component {
     infographics: [{}],
   };
 
-  constructor (props: { infographics: Array<{ countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }> }) {
+  constructor (props: { 
+    infographics: Array<{ countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }>;
+    meta: { start: string; api_path: string }; 
+    fieldsFlattened: Record<string, string>;
+  }) {
     super(props)
 
     // by default the first explorer is active
@@ -92,8 +107,8 @@ class InfographicContainer extends React.Component {
    * @param  {Object} infographics [original infographics array]
    * @return {Object} [explorer map with short titles as key]
    */
-  _getInfographicMap (infographics: Array<{ short: string }>): Record<string, { short: string }> {
-    const map: Record<string, { short: string }> = {}
+  _getInfographicMap (infographics: Array<{ countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }>): Record<string, { countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }> {
+    const map: Record<string, { countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }> = {}
 
     if (infographics) {
       infographics.forEach(d => {
@@ -132,8 +147,8 @@ class InfographicContainer extends React.Component {
    * @param  {Object} data [dataset data from downloads.json]
    * @return {string} [filter range or '']
    */
-  _getFilterRange (data: Object): string {
-    const curr: Object = this.state.current
+  _getFilterRange (data: { meta: { last_updated: string } }): string {
+    const curr: { dateConstraint?: string } = this.state.current
     // first date of data by endpoint, from _meta.yaml
     const startDate: string = this.props.meta.start
     // search up to the last time we updated an openfda dataset
@@ -172,7 +187,7 @@ class InfographicContainer extends React.Component {
           API_LINK + that.props.meta.api_path + '.json?' + search,
           query
         ]
-        Promise.all(urls.map($.getJSON)).then(function (results) {
+        Promise.all(urls.map(url => fetch(url).then(res => res.json()))).then(function (results) {
           const recordsTotal: number = results[0].meta.results.total
 
           // Get total number of records on the first call
@@ -212,7 +227,7 @@ class InfographicContainer extends React.Component {
    * @param  {string|Object} e [an event object, or the string value]
    * @return {void} [update state]
    */
-  _onSearchChange (e: string|Object) {
+  _onSearchChange (e: string | React.ChangeEvent<HTMLInputElement>) {
     const nextSearchParam: string = typeof e === 'string' ? e : e.target.value
 
     this.setState({
@@ -225,7 +240,7 @@ class InfographicContainer extends React.Component {
    * @param  {string|Object} e [an event object]
    * @return {void} [update state]
    */
-  _onCountChange (e: Object) {
+  _onCountChange (e: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
       countParam: e.target.value,
     })
@@ -236,7 +251,7 @@ class InfographicContainer extends React.Component {
    * @param  {Object} e [an event object]
    * @return {void} [update state, then fetch new query]
    */
-  _onCountChangeAndUpdate (e: Object) {
+  _onCountChangeAndUpdate (e: React.ChangeEvent<HTMLInputElement>) {
     this._onCountChange(e)
     this._update(this.state.searchParam, e.target.value)
   }
@@ -246,21 +261,18 @@ class InfographicContainer extends React.Component {
    * @param  {Object} e [an event object]
    * @return {void} [update state, then fetch new query]
    */
-  _onKeyPress (e: Object) {
-    const code: number = e.keyCode ? e.keyCode : e.which
+  _onKeyPress (e: React.KeyboardEvent) {
+    const code: string = e.key
 
     // Handle space character (don't allow it)
-    if (code === 32 || code === 13) {
+    if (code === ' ' || code === 'Enter') {
       if (e.preventDefault) {
         e.preventDefault()
-      }
-      else {
-        e.returnValue = false
       }
     }
 
     // Handle return keypress
-    if (code === 13) {
+    if (code === 'Enter') {
       this._update()
     }
   }
@@ -284,7 +296,9 @@ class InfographicContainer extends React.Component {
       nextCountParam = nextCount
     }
     else if (typeof nextCount !== 'undefined') {
-      nextCountParam = nextCount.target.value
+      if (nextCount && typeof nextCount === 'object' && 'target' in nextCount) {
+        nextCountParam = (nextCount as React.ChangeEvent<HTMLInputElement>).target.value;
+      }
     }
 
     this.setState({
@@ -300,7 +314,7 @@ class InfographicContainer extends React.Component {
    * @param {Array<Object>} results [results count + meta data]
    * @return {void|number} [nothing if failed query, else reduced count]
    */
-  _getCurrRecords (results: Array<Object>): void|number {
+  _getCurrRecords (results: Array<{ count: number }>): void|number {
     if (!results) return
 
     return results
@@ -313,7 +327,7 @@ class InfographicContainer extends React.Component {
    * @param  {Object} choice [object]
    * @return {void} [just updates state]
    */
-  _tabToggle (choice: Object) {
+  _tabToggle (choice: { short: string }) {
     if (!choice) return
 
     const selected: string = choice.short
@@ -326,12 +340,12 @@ class InfographicContainer extends React.Component {
     })
 
     // Update the infographic
-    const nextSearchParam: string = this.state.infographics[selected].filters[0].searchParam
+    const nextSearchParam: string = this.state.infographics[selected]?.filters[0]?.searchParam || ''
     const nextCountParam: string = this.state.infographics[selected].countParam
     this._update(nextSearchParam, nextCountParam)
   }
 
-  render (): ?React.Element {
+  render (): any {
     if (!this.state.data) return <span />
 
     // pull out keys for sidebarMenu
@@ -340,18 +354,17 @@ class InfographicContainer extends React.Component {
     return (
       <div>
         <Infographic
-          { ...this.props }
-          { ...this.state }
+        {...this.props}
+        {...this.state}
 
-          onSearchChangeUpdate={this._update.bind(this)}
-          onSearchChange={this._onSearchChange.bind(this)}
-          records={this.state.matchingRecords}
-          handler={this._tabToggle.bind(this)}
-          onKeyPress={this._onKeyPress.bind(this)}
-          onCountChange={this._onCountChange.bind(this)}
-          onCountChangeAndUpdate={this._onCountChangeAndUpdate.bind(this)}
-          container={this}
-        />
+        onSearchChangeUpdate={this._update.bind(this)}
+        onSearchChange={this._onSearchChange.bind(this)}
+        records={this.state.matchingRecords}
+        handler={this._tabToggle.bind(this)}
+        onKeyPress={this._onKeyPress.bind(this)}
+        onCountChange={this._onCountChange.bind(this)}
+        onCountChangeAndUpdate={this._onCountChangeAndUpdate.bind(this)}
+        container={this}        />
       </div>
     )
   }

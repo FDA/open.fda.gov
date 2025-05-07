@@ -122,7 +122,7 @@ const Content = (props: tPROPS) => {
 
           if (hasLink) {
             // array of matches, we should have at least one
-            const matches: ?Array<string> = html.match(httpRE)
+            const matches: string[] | null | undefined = html.match(httpRE)
 
             // but just to be safe
             if (matches) {

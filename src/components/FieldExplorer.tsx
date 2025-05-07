@@ -21,7 +21,7 @@ const _renderLi = (props: tLiProps) => {
   // array
   let type: string = ''
   // one_of, etc
-  let values: ?Object = null
+  let values: Object | null | undefined = null
   // of strings
   let type2: string = ''
   // description text, can have docs
