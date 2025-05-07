@@ -1,7 +1,7 @@
 // fetch() polyfill for making API calls.
-require("whatwg-fetch");
+require("whatwg-fetch")
 require("babel-polyfill")
-var Promise = require("bluebird");
+const Promise = require("bluebird")
 
 Promise.config({
   longStackTraces: true,
@@ -10,4 +10,4 @@ Promise.config({
 
 // Object.assign() is commonly used with React.
 // It will use the native implementation if it's present and isn't buggy.
-Object.assign = require("object-assign");
+Object.assign = require("object-assign")

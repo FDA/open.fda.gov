@@ -6,8 +6,8 @@ import content from './_content.yaml'
 import meta from './_meta.yaml'
 
 export default () => (
-    <ContentWrapper
-      content={content}
-      meta={meta}
-    />
+  <ContentWrapper
+    content={content}
+    meta={meta}
+  />
 )
