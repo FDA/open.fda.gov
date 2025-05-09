@@ -18,11 +18,25 @@ const DisclaimerContainer = function (ComposedDisclaimer: React.ComponentType<{ 
     };
 
     componentDidMount () {
-      if (this.props.validated == false) {
+      const hasSeenDisclamer = sessionStorage.getItem('hasSeenDisclaimer')
+      const validated = sessionStorage.getItem('validated') === 'true'
+      if (hasSeenDisclamer == null) {
+        sessionStorage.setItem('hasSeenDisclaimer', 'true')
         this.setState({
           showModal: true
         })
       }
+      else if (validated == true) {
+        this.setState({
+          showModal: false
+        })
+      }
+      else
+        if (this.props.validated == false) {
+          this.setState({
+            showModal: true
+          })
+        }
     }
 
     componentWillReceiveProps (nextProps: HOCProps) {
