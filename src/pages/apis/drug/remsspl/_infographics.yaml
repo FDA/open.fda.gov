@@ -8,12 +8,12 @@
   filters:
     - title: "All REMS SPL submissions"
       searchParam: ""
-    - title: "Sublingual Route of Administration"
-      searchParam: "openfda.route:SUBLINGUAL"
-    - title: "Buccal Route of Administration"
-      searchParam: "openfda.route:BUCCAL"
     - title: "Oral Route of Administration"
       searchParam: "openfda.route:ORAL"
+    - title: "Intravenous Route of Administration"
+      searchParam: "openfda.route:INTRAVENOUS"
+    - title: "Subcutaneous Route of Administration"
+      searchParam: "openfda.route:SUBCUTANEOUS"
   type: Line
   dateConstraint: effective_time
 - title: "Routes of administration"

@@ -9,8 +9,8 @@ description: 'REMS are programs designed to ensure that the benefits of certain 
 source:
   name: 'REMS SPL'
   nameLong: 'REMS SPL'
-  link: ''
-  linkDownload: ''
+  link: 'https://dailymed.nlm.nih.gov/dailymed/spl-resources-all-indexing-files.cfm'
+  linkDownload: 'https://dailymed.nlm.nih.gov/dailymed/spl-resources-all-indexing-files.cfm'
 license:
   name: 'Public Domain and CC0'
   link: 'http://creativecommons.org/publicdomain/zero/1.0/'
