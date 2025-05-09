@@ -1,5 +1,4 @@
 import React, { JSX } from "react"
-import { useTable } from "react-table"
 import { API_LINK } from '../../constants/api'
 
 type PositionsPanelState = {
@@ -96,20 +95,20 @@ const Table = ({ columns, data }: { columns: any; data: any }) => {
   return (
     <table {...getTableProps()} className="table -striped -highlight">
       <thead>
-        {headerGroups.map(headerGroup => (
+        {headerGroups.map((headerGroup: any) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
+            {headerGroup.headers.map((column: any) => (
               <th {...column.getHeaderProps()}>{column.render('Header')}</th>
             ))}
           </tr>
         ))}
       </thead>
       <tbody {...getTableBodyProps()}>
-        {rows.map(row => {
+        {rows.map((row: any) => {
           prepareRow(row)
           return (
             <tr {...row.getRowProps()}>
-              {row.cells.map(cell => (
+              {row.cells.map((cell: any) => (
                 <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
               ))}
             </tr>
@@ -121,3 +120,7 @@ const Table = ({ columns, data }: { columns: any; data: any }) => {
 }
 
 export default PositionsPanel
+function useTable(arg0: { columns: any; data: any; }): { getTableProps: any; getTableBodyProps: any; headerGroups: any; rows: any; prepareRow: any; } {
+  throw new Error("Function not implemented.");
+}
+

@@ -10,7 +10,12 @@ const labelStyl: Object = {
 }
 
 type PROPS = {
-  values: Object;
+  values: {
+    type: string,
+    value: {
+      [key: string]: any
+    }
+  };
 };
 
 // the possible values field is pretty much

@@ -4,7 +4,6 @@ import React from 'react'
 import cx from 'classnames'
 import dateFormat from 'dateformat';
 
-
 type tPROPS = {
   authors: Array<string>;
   date: string;

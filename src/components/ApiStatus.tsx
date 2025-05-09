@@ -77,7 +77,7 @@ const ApiStatus = (props: tPROPS) => (
     <section className='container clearfix marg-t-3 marg-b-3 relative'>
       <ul className='flex-box dir-row flex-wrap'>
         {
-          props.data.map((end: Object, i) => {
+          props.data.map((end: any, i: any) => {
             const { endpoint, status, } = end
 
             const catCx = cx({

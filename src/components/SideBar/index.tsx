@@ -6,7 +6,7 @@ import cx from 'classnames'
 import CustomMenu from './CustomMenu'
 import ReferenceMenu from './ReferenceMenu'
 import DownloadsMenu from './DownloadsMenu'
-import type tMenu from '../../constants/types/menu'
+import type {tMenu} from '../../constants/types/menu'
 
 type tPROPS = {
   bottom: boolean;
@@ -73,14 +73,12 @@ const SideBar = (props: tPROPS) => {
         {
           menu &&
           <CustomMenu
-            bp={bp}
             menu={menu}
           />
         }
         {
           reference &&
           <ReferenceMenu
-            bottomPos={bottomPos}
             content={reference}
             isFixed={fixed}
             isBottom={bottom}

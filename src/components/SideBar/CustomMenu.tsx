@@ -3,8 +3,8 @@
 import React from 'react'
 import cx from 'classnames'
 
-import bp from '../../constants/breakpoints'
-import type tMenu from '../../constants/types/menu'
+import useBreakpoints from '../../constants/breakpoints'
+import type {tMenu} from '../../constants/types/menu'
 
 type PROPS = {
   menu: tMenu;
@@ -16,7 +16,8 @@ type PROPS = {
  * @returns React.Element
  */
 const CustomMenu = ({ menu, }: PROPS) => {
-  if (bp.mob) {
+  const ( mob ) = useBreakpoints()
+  if (mob) {
     return (
       <label>
         <span>Select data visualization to view</span>

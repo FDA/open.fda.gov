@@ -16,7 +16,7 @@ interface FilterProps {
   filters?: any[];
   selected?: string;
   onChange?: () => void;
-  [key: string]: any; // Allow additional props
+  [key: string]: any;
 }
 
 const Filter = (props: FilterProps) => (

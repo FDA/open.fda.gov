@@ -13,7 +13,7 @@ const linkCx: string = 'b-b-1 clr-primary-alt-dark block font-size-5 pad-1 pad-l
 
 type FieldsProps = {
   k: number;
-  id: string; // Ensure the id property is required in the FieldsProps type
+  id: string;
   data: any;
   fields: Object;
 };
@@ -129,7 +129,7 @@ const RenderContentObject = (props: tPROPS) => {
             </button>
           }
           {
-            (obj && obj[key as keyof typeof obj] instanceof Array ? obj[key as keyof typeof obj] : []).map((content: string, i) => {
+            (obj && obj[key as keyof typeof obj] instanceof Array ? obj[key as keyof typeof obj] : []).map((content: string, i: number) => {
               if (typeof content === 'object') {
                 return (
                   <RenderContentObject
@@ -191,7 +191,6 @@ const RenderContentObject = (props: tPROPS) => {
     return (
       <Fields
         k={k ?? 0}
-        id={lowerKey}
         data={obj?.[key]}
         fields={fields ?? []}
       />

@@ -36,14 +36,14 @@ class ApiKey extends React.Component {
       e.returnValue = false
     }
 
-    const email: string = document.getElementById('api-key').value
+    const email: string = document.getElementById('api-key').value || ''
 
     // If we need to make changes to this format, verify with our Umbrella API contact nick.muerdter@nrel.gov
     const postBody: Object = {
       user: {
         'first_name': 'openFDA',
         'last_name': 'User',
-        email,
+        ...(email && { 'email': email }),
         'use_description': 'Signup through open.fda.gov',
         'terms_and_conditions': true,
         'registration_source': 'open.fda.gov'
@@ -76,6 +76,9 @@ class ApiKey extends React.Component {
         })
       })
       .catch(() => {})
+  }
+  handleErrors(handleErrors: any) {
+    throw new Error('Method not implemented.')
   }
 
   render () {

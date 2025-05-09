@@ -1,7 +1,5 @@
-/* @flow */
 import React from 'react';
 import useBreakPoints from '../../constants/breakpoints';
-
 import Link from 'gatsby-link';
 
 type tPROPS = {
