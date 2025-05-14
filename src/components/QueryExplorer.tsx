@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react'
-import marked from 'marked'
+import * as marked from 'marked'
 import Highlight from 'react-highlight.js'
 import cx from 'classnames'
 
@@ -51,16 +51,16 @@ const QueryExplorer = (props: tPROPS) => {
       key={k}
       className='bg-gray-lightest marg-t-2 pad-2 relative'
       id={'explorer' + (name ? ('-' + name) : '')}>
-      <i className='fa fa-lg fa-question-circle clr-primary-alt-dark tourStart' onClick={tourStart}/>
+      <i className="fa fa-lg fa-question-circle clr-primary-alt-dark tourStart" onClick={() => tourStart()}/>
       <p><strong>Example query</strong></p>
       <h3 className='font-size-2 marg-b-2'
-        id={'title' + (name ? ('-' + name) : '')}>
+          id={'title' + (name ? ('-' + name) : '')}>
         {title}
       </h3>
       {
         desc &&
         desc.map((d: string, i) => {
-          const html: string = marked(d)
+          const html = marked.parse(d)
 
           return (
             <div
@@ -75,17 +75,18 @@ const QueryExplorer = (props: tPROPS) => {
       }
       {params && params.toString() &&
         <ol className='b-t-1 marg-t-3 marg-b-2'
-          id={'params' + (name ? ('-' + name) : '')}>
+            id={'params' + (name ? ('-' + name) : '')}>
           {
             params.map((param: string, i) => {
-              const html: string = marked(param)
+              const html = marked.parse(param)
 
               return (
                 <li
                   key={i}
                   className='marg-t-1 pad-t-1 pad-l-2 pad-r-2 b-b-1 qe-li reverse-pre relative'
                   tabIndex={0}
-                  dangerouslySetInnerHTML={{__html: html}} />
+                  dangerouslySetInnerHTML={{__html: html}}>
+                </li>
               )
             })
           }
@@ -96,7 +97,7 @@ const QueryExplorer = (props: tPROPS) => {
         className='bg-gray-dark clr-gray-lightest block row pad-1 small mono'
         id={'query' + (name ? ('-' + name) : '')}
         value={queryToRun}
-        onChange={updateQuery}
+        onChange={() => {updateQuery()}}
       />
       <button
         className={btnCx}
@@ -110,7 +111,7 @@ const QueryExplorer = (props: tPROPS) => {
           aria-label='Close result of query'
           className='bg-secondary-dark hvr-bg-secondary-darkest clr-white marg-t-2 marg-b-2'
           id={'close-query' + (name ? ('-' + name) : '')}
-          onClick={toggleQuery}
+          onClick={() => {toggleQuery()}}
           style={{
             marginLeft: '10px',
           }}>

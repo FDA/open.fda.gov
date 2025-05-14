@@ -1,8 +1,23 @@
 import React from "react"
+import { graphql, PageProps } from "gatsby"
 
-export default function Template ({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
+type frontmatter = {
+  title: string;
+}
+
+type MarkdownRemark = {
+  html: string;
+  frontmatter: frontmatter;
+}
+
+type templateProps = {
+  data: {
+    markdownRemark: MarkdownRemark;
+  }
+}
+
+
+export default function Template ({ data }: templateProps) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
   return (

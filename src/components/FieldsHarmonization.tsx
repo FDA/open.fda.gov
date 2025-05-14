@@ -1,5 +1,5 @@
 import React from 'react'
-import marked from 'marked'
+import {marked} from 'marked'
 import { default as ReactTable } from "react-table"
 import { Tooltip } from 'react-tippy'
 
@@ -16,17 +16,62 @@ import Values from './RenderContentObject/Values'
 
 import '../css/components/FieldsHarmonization.scss'
 
-class FieldsHarmonization extends React.Component {
+import 'react-table/react-table.css'
 
-  constructor (props: Object) {
+type ValueType = {
+  type: string,
+  value: { [key: string]: any }
+}
+
+type FieldType = {
+  [key: string]: number;
+}
+
+type DataItem = {
+  field: Array<string>,
+  [key: string]: any
+}
+
+type EndpointHeader = {
+  classification: string,
+  enforcement: string,
+  event: string,
+  pma: string,
+  recall: string,
+  registrationlisting: string,
+  udi: string,
+  drugsfda: string,
+  label: string,
+  ndc: string,
+  drugshortages: string,
+  nsde: string,
+  [key: string]: string
+}
+
+type PROPS = {
+  master_harmonization: {
+    [key: string]: any
+  },
+  selected_noun: string
+}
+type State = {
+  columns: Array<Object>,
+  data?: Object,
+  nouns: Array<string>,
+  selected_noun: string
+}
+
+class FieldsHarmonization extends React.Component<PROPS, State> {
+
+  constructor (props: PROPS) {
     super(props)
 
-    const master_harmonization = props.master_harmonization
+    const master_harmonization: Record<string, any> = props.master_harmonization
 
-    const nouns = []
+    const nouns: string[] = []
     let selected_noun = ''
     Object.keys(master_harmonization).forEach(function (noun) {
-      let empty = true
+      let empty = !Array.isArray(master_harmonization[noun]) || master_harmonization[noun].length === 0;
       Object.values(master_harmonization[noun]).forEach(function (endpoint_value) {
         if (Array.isArray(endpoint_value) && endpoint_value.length) {
           empty = false
@@ -44,6 +89,7 @@ class FieldsHarmonization extends React.Component {
       selected_noun = nouns[0]
     }
 
+
     this.state = {
       columns: [],
       data: {},
@@ -54,22 +100,23 @@ class FieldsHarmonization extends React.Component {
     this.onChangeNoun = this.onChangeNoun.bind(this)
   }
 
+
   componentDidMount () {
     this.getData()
   }
 
-  componentDidUpdate (prevProps, prevState) {
+  componentDidUpdate (prevProps: any, prevState: any) {
     if (prevState.selected_noun !== this.state.selected_noun) {
       this.getData()
     }
   }
 
-  fieldDefinitionTooltip (dataTip) {
+  fieldDefinitionTooltip (dataTip: any[]) {
     if (dataTip == null) {
       return <span/>
     }
 
-    const dictionary = {
+    const dictionary: Record<string, any> = {
       device510k: device510k,
       deviceclassification: deviceclassification,
       devicepma: devicepma,
@@ -82,7 +129,7 @@ class FieldsHarmonization extends React.Component {
     }
 
     const field_name = dataTip[0]
-    const field = dictionary[dataTip[1]].properties.openfda.properties[field_name]
+    const field = dictionary[dataTip[1]]?.properties?.openfda?.properties[field_name]
     // array
     let type: string = ''
     // one_of, etc
@@ -94,7 +141,7 @@ class FieldsHarmonization extends React.Component {
     // query syntax pattern
     let pattern: string = ''
     // whether field has .exact
-    let isExact: bool = false
+    let isExact: boolean = false
     const divCx: string = 'col t-range-marg-t-2 marg-b-2 t-range-6'
 
     if (field) {
@@ -111,6 +158,8 @@ class FieldsHarmonization extends React.Component {
       type2 = field.items.type
       values = field.items.possible_values
     }
+
+    const typeValues = values as ValueType
 
     return (
       <div className='fields-tooltip'>
@@ -153,9 +202,9 @@ class FieldsHarmonization extends React.Component {
           }
           {
             values &&
-            Object.keys(values.value).length <= 4 &&
+            Object.keys(typeValues.value).length <= 4 &&
             <Values
-              values={values}
+              values={typeValues}
             />
           }
           {
@@ -172,10 +221,10 @@ class FieldsHarmonization extends React.Component {
           }
           {
             values &&
-            Object.keys(values.value).length > 4 &&
+            Object.keys(typeValues.value).length > 4 &&
             <div className='row'>
               <Values
-                values={values}
+                values={typeValues}
               />
             </div>
           }
@@ -186,7 +235,7 @@ class FieldsHarmonization extends React.Component {
   }
 
   getData () {
-    const endpoint_headers = {
+    const endpoint_headers: EndpointHeader = {
       '510k': '510k',
       'classification': 'Classification',
       'enforcement': 'Enforcement',
@@ -202,13 +251,17 @@ class FieldsHarmonization extends React.Component {
       'nsde': 'NSDE'
     }
 
-    const col_list = []
+    const col_list: any[] = []
     const columns = [{
       Header: 'Field',
       accessor: 'field',
-      Cell: row => (<Tooltip
-        arrow
-        html={this.fieldDefinitionTooltip(row.value)}
+      Cell: (row: any) => (<Tooltip
+        arrow={true}
+        className='tooltip'
+        data-tip={row.value[0]}
+        data-for='field-tooltip'
+        data-event='click'
+        html={this.fieldDefinitionTooltip(row.value[0])}
         interactive
         position='right'
         theme='light'
@@ -218,8 +271,8 @@ class FieldsHarmonization extends React.Component {
       width: 242
     }]
 
-    const fields = {}
-    const data = []
+    const fields: FieldType = {}
+    const data: DataItem[] = []
     const noun = this.state.selected_noun
 
     for (const [endpoint_name, endpoint_value] of Object.entries(this.props.master_harmonization[this.state.selected_noun])) {
@@ -239,6 +292,7 @@ class FieldsHarmonization extends React.Component {
             columns.push({
               Header: endpoint_headers[endpoint_name],
               accessor: endpoint_name,
+              width: 100,
               Cell: row => (
                 <div className='checkbox-cell'>{row.value ? <i className='fa fa-2x fa-check' style={{color: "green"}}/> : <span/>}</div>
               )
@@ -254,18 +308,18 @@ class FieldsHarmonization extends React.Component {
     })
   }
 
-  onChangeNoun (e) {
+  onChangeNoun (e: React.ChangeEvent<HTMLInputElement>) {
     const title = e.target.getAttribute('title')
     if (this.state.selected_noun !== title) {
       this.setState({
-        selected_noun: title
+        selected_noun: title || ""
       })
     }
   }
 
   render (): any {
 
-    if (Object.keys(this.state.data).length === 0 && this.state.data.constructor === Object) {
+    if (Object.keys(this.state.data as any).length === 0 && (this.state.data as any).constructor === Object) {
       return <span/>
     }
 
@@ -275,7 +329,7 @@ class FieldsHarmonization extends React.Component {
           className={this.state.selected_noun === noun ? 'selected' : 'unselected'}
           id={'noun-button-' + noun}
           key={noun}
-          onClick={this.onChangeNoun}
+          onClick={() => this.onChangeNoun}
           title={noun}>
           {noun.charAt(0).toUpperCase() + noun.slice(1)}
         </div>
@@ -290,7 +344,7 @@ class FieldsHarmonization extends React.Component {
           }
         </div>
         <ReactTable
-          data={this.state.data}
+          data={this.state.data as any}
           columns={this.state.columns}
           showPagination={false}
           minRows={0}

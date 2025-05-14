@@ -16,16 +16,17 @@ type PROPS = {
  * @returns React.Element
  */
 const CustomMenu = ({ menu, }: PROPS) => {
-  const ( mob ) = useBreakpoints()
+  const { mob, tab, desk, wide } = useBreakpoints()
   if (mob) {
     return (
+      <div>
       <label>
         <span>Select data visualization to view</span>
         <div className='select-wrap marg-b-2'>
           <select
             className='marg-t-1'
-            selected={menu.selected}
-            onChange={menu.handler}>
+            value={menu.selected}
+            onChange={() => menu.handler}>
             {
               menu.data &&
               menu.data.map((d, i) => (
@@ -39,6 +40,7 @@ const CustomMenu = ({ menu, }: PROPS) => {
           </select>
         </div>
       </label>
+      </div>
     )
   }
 
@@ -61,7 +63,7 @@ const CustomMenu = ({ menu, }: PROPS) => {
             <button
               className={btnCx}
               key={i}
-              onClick={menu.handler}>
+              onClick={() => menu.handler}>
               {d}
             </button>
           )
