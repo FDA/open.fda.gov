@@ -6,6 +6,11 @@ import {Doughnut} from 'react-chartjs-2'
 import getFieldValues from '../utils/getFieldValues'
 import '../css/components/Charts.scss'
 
+type tDATA = {
+  count: number;
+  term: string;
+}
+
 const _getChartColor = function (i: number): string {
   const colors: Array<string> = [
     '#1ECFFF',
@@ -23,18 +28,18 @@ const _getChartColor = function (i: number): string {
 }
 
 const _getChartData = function (
-  data: Array<Object>,
-  fieldValues: Object,
+  data: Array<any>,
+  fieldValues: Record<string, any>,
   colors: Array<string>,
   hasLegend: boolean) {
 
   // $FlowIgnore because of the filter
   return {
-    labels: data.map((d: Object) => fieldValues[d.term] || d.term),
+    labels: data.map((d: tDATA) => fieldValues[d.term] || d.term),
     datasets: [
       {
-        data: data.map((d: Object) => d.count),
-        backgroundColor: data.map((d: Object, i) => !colors ? _getChartColor(i) : colors[i])
+        data: data.map((d: any) => d.count),
+        backgroundColor: data.map((d: any, i) => !colors ? _getChartColor(i) : colors[i])
       }
     ]
   }
@@ -50,6 +55,14 @@ type tPROPS = {
   size: string;
   divSize: string;
 };
+
+type ChartData = {
+  labels: Array<string>;
+  datasets: Array<{
+    data: Array<number>;
+    backgroundColor: Array<string>;
+  }>;
+}
 
 /**
  * @description [reactjs chart for endpoint basics pages]
@@ -73,9 +86,9 @@ const ChartDonut = (props: tPROPS) => {
 
   const fieldValues: Object = getFieldValues(countParam, fields)
   // map over data, return as arr of obj formatted for chart js
-  const chartData: Object = _getChartData(data, fieldValues, colors, hasLegend)
+  const chartData: ChartData = _getChartData(data, fieldValues, colors, hasLegend)
   // always map over all data, sometimes chartData can be a subset
-  const total: number = data.map(d => d.count).reduce((a, b) => a + b)
+  const total: number = data.map((d: any) => d.count).reduce((a, b) => a + b)
 
   const legendCx = cx({
     'col t-range-6 d-3 marg-t-2 d-marg-l-2': true,
@@ -92,8 +105,8 @@ const ChartDonut = (props: tPROPS) => {
       <div style={{ width: divSize, paddingBottom: 70, paddingTop: 30, display: 'flex', justifyContent: 'center'}}>
         <Doughnut
           data={chartData}
-          height={size}
-          width={size}
+          height={Number(size)}
+          width={Number(size)}
           options={{
             cutoutPercentage: 60,
             animation: {

@@ -62,7 +62,7 @@
     "mini-css-extract-plugin": "^2.9.2",
     "nib": "^1.1.2",
     "npm": "^11.3.0",
-    "pondjs": "0.8.7",
+    "pondjs": "^0.8.7",
     "postcss-loader": "^6.2.1",
     "prismjs": "^1.22.0",
     "raw-loader": "^4.0.2",

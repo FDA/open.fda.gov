@@ -1,7 +1,7 @@
 import React from 'react'
 import { TimeSeries, TimeRange} from "pondjs"
 import { Charts, ChartContainer, ChartRow, YAxis, LineChart, styler } from "react-timeseries-charts"
-import bp from '../constants/breakpoints'
+import useBreakpoints from '../constants/breakpoints'
 import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
@@ -11,12 +11,93 @@ import '../css/components/APIUsage.scss'
 
 // Update in pages/about/statistics/_content.yaml
 type tPROPS = {
+    clickEndpointDisclaimer: any
     accessSinceLaunch: string,
     dynamicDisclaimer: string
 };
 
+interface Stat{
+  day: string
+  totalCount: number
+}
 
-// mobile sizing for infographic
+interface GraphData{
+  labels: string[]
+  datasets: {
+    fillColor: string
+    strokeColor: string
+    pointColor: string
+    pointStrokeColor: string
+    pointHighlightFill: string
+    pointHighlightStroke: string
+    data: number[]
+  }[]
+  table: any
+}
+
+interface State{
+  lastThirtyDayUsage: number
+  sinceLaunchUsage: string
+  dynamicDisclaimer: string
+  clickEndpointDisclaimer: string
+  data: GraphData | null
+  indexInfo: any
+  downloadStats: any
+  prefix: string
+  breadcrumbs: string[]
+  width: number
+  showGrid: boolean
+  interpolation: string
+  chartRow: {
+    height: number
+    trackerInfoWidth: number
+  }
+  enablePanZoom: boolean
+  yAxis: {
+    label: string
+    width: number
+    type: string
+  }
+  customColorsList: string[]
+  selection: any
+  tracker: any
+  trackerInfoValues: any[]
+  trackerTimeFormat: string
+  fontSize: string
+  fontFamily?: string
+  color?: string | undefined
+  yLegendCoordinate?: number | undefined
+  toolTipLabel?: string | undefined
+  columns: string[] 
+  series?: TimeSeries
+  style?: any
+  max?: number | undefined | null
+  min?: number | undefined | null
+  minTime?: Date
+  maxTime?: Date
+  timerange?: TimeRange
+  highlight?: any
+  docCount?: any
+  downloadCount?: any
+  formatNumber?: any
+  totalCount?: any
+  onHighlightChange?: any
+  onChartResize?: any
+  onSelectionChange?: any
+  onTrackerChanged?: any
+  linkClickHandler?: any
+  refreshPrefix?: any
+  refreshBreadcrumbs?: any
+  fetchStats?: any
+  handleUsageResponse?: any
+  font: any
+  [key: string]: any
+}
+
+let ApiUsage:React.FC<tPROPS> = (props:tPROPS) => {
+  const {mob} = useBreakpoints()
+
+  // mobile sizing for infographic
 // window - 40 (margin) - 40 (padding)
 const hasWindow: boolean = typeof window !== 'undefined'
 let size: number = hasWindow ? window.innerWidth - 80 : 300
@@ -24,7 +105,7 @@ let size: number = hasWindow ? window.innerWidth - 80 : 300
 // desktop sizing is a little more complicated
 // we calculate the width based on window
 // and what we know about how the layout will be
-if (!bp.mob && hasWindow) {
+if (!mob && hasWindow) {
   const winWidth: number = window.innerWidth
 
   // 1400 = site-container width
@@ -43,10 +124,9 @@ if (!bp.mob && hasWindow) {
   }
 }
 
-
-const ApiUsage = (props:tPROPS) => {
-
-  class Usage extends React.Component {
+  class Usage extends React.Component<{}, State> {
+    nf: Intl.NumberFormat
+    handleChartResize: any
 
     constructor (props:tPROPS) {
 
@@ -103,9 +183,9 @@ const ApiUsage = (props:tPROPS) => {
       this.fetchStats()
     }
 
-    handleUsageResponse (data) {
+    handleUsageResponse (data: any) {
 
-      const graphData = {
+      const graphData: GraphData = {
         labels: [],
         datasets: [
           {
@@ -125,7 +205,7 @@ const ApiUsage = (props:tPROPS) => {
 
         graphData.table = data.table
 
-        const dataz = []
+        const dataz: any[] = []
         var minTime = null
         var maxTime = null
         const values = []
@@ -133,7 +213,7 @@ const ApiUsage = (props:tPROPS) => {
         var min = null
         const that = this
 
-        data.stats.forEach(function (stat) {
+        data.stats.forEach(function (stat: any) {
           graphData.labels.push(stat.day)
           dataz.push([new Date(stat.day), stat.totalCount])
           graphData.datasets[0].data.push(stat.totalCount)
@@ -162,22 +242,25 @@ const ApiUsage = (props:tPROPS) => {
         })
       }
 
-      this.state.series = series
-      this.state.style = legendStyle
-      this.state.max = max
-      this.state.min = min
-      this.state.minTime = minTime
-      this.state.maxTime = maxTime
-      this.state.timerange = new TimeRange(minTime, maxTime)
-      this.state.indexInfo = data.indexInfo
-      this.state.downloadStats = data.downloadStats || {}
-      this.state.lastThirtyDayUsage = data.lastThirtyDayUsage
-
-      this.state.data = graphData
+      this.setState({
+      series: series,
+      style: legendStyle,
+      max: max,
+      min: min,
+      minTime: minTime,
+      maxTime: maxTime,
+      timerange: new TimeRange(minTime, maxTime),
+      indexInfo: data.indexInfo,
+      downloadStats: data.downloadStats || {},
+      lastThirtyDayUsage: data.lastThirtyDayUsage,
+        data: graphData
+      })
       this.setState(this.state)
     }
-    refreshPrefix (evt) {
-      this.state.prefix = evt.target.getAttribute('data-prefix')
+    refreshPrefix (evt: any) {
+      this.setState({
+        prefix: evt.target.getAttribute('data-prefix')
+      })
       this.refreshBreadcrumbs()
       this.fetchStats()
     }
@@ -189,7 +272,9 @@ const ApiUsage = (props:tPROPS) => {
         this.state.breadcrumbs.push(this.state.prefix)
       }
       else if (i < (this.state.breadcrumbs.length - 1)) {
-        this.state.breadcrumbs = this.state.breadcrumbs.slice(0, i + 1)
+        this.setState({
+          breadcrumbs: this.state.breadcrumbs.slice(0, i + 1)
+        })
       }
     }
 
@@ -207,7 +292,7 @@ const ApiUsage = (props:tPROPS) => {
       if (typeName in this.state.indexInfo) {
         return this.formatNumber(this.state.indexInfo[typeName])
       }
-      return 0
+      return ""
 
     }
 
@@ -215,8 +300,7 @@ const ApiUsage = (props:tPROPS) => {
       if (typeName in this.state.downloadStats) {
         return this.formatNumber(this.state.downloadStats[typeName])
       }
-      return 0
-
+      return ""
     }
 
     formatNumber (n:number):string {
@@ -229,13 +313,13 @@ const ApiUsage = (props:tPROPS) => {
 
     onHighlightChange () {}
     onChartResize () {}
-    onSelectionChange (selection) {
+    onSelectionChange (selection: any) {
       this.setState({
         selection
       })
     }
 
-    onTrackerChanged (tracker, selection) {
+    onTrackerChanged (tracker: any, selection: any) {
       if (!this.state.series) {
         return
       }
@@ -262,7 +346,7 @@ const ApiUsage = (props:tPROPS) => {
     render () {
       if (this.state.data) {
 
-        const pathFormat = (cell, row) => {
+        const pathFormat = (cell: any, row: any) => {
           let p = row.path.length > 60 ? row.path.substring(0, 60) + "..." : row.path
 
           if (!row.terminal) {
@@ -271,15 +355,15 @@ const ApiUsage = (props:tPROPS) => {
           return p
         }
 
-        $("text").css("font-family", this.state.fontFamily)
-        $('text').css('fill', this.state.color)
+        $("text").css("font-family", this.state.fontFamily ?? 'Arial')
+        $('text').css('fill', this.state.color as string)
         $('text').css('font-size', this.state.fontSize)
 
         const vals = $("text").filter(function () {
           return $(this).attr("transform") == "rotate(-90)"
         })
         if (vals.length) {
-          $(vals[0]).attr("x", this.state.yLegendCoordinate)
+          $(vals[0]).attr("x", this.state.yLegendCoordinate as number)
         }
 
         return (
@@ -291,10 +375,10 @@ const ApiUsage = (props:tPROPS) => {
               </div>
 
               <div className='marg-t-2 b-t-2 pad-t-2'>
-                <h5 className='usage-hash-link' onClick={() => document.getElementById("usage-by-dataset").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})}>View Usage Statistics by Dataset</h5>
+                <h5 className='usage-hash-link' onClick={() => document.getElementById("usage-by-dataset")?.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})}>View Usage Statistics by Dataset</h5>
               </div>
               <div className='marg-t-2 b-t-2 pad-t-2'>
-                <h5 className='usage-hash-link' onClick={() => document.getElementById("dataset-downloads-scroll-anchor").scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})}>View Download Statistics</h5>
+                <h5 className='usage-hash-link' onClick={() => document.getElementById("dataset-downloads-scroll-anchor")?.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})}>View Download Statistics</h5>
               </div>
 
               <div className='marg-t-2 b-t-2 pad-t-2'>
@@ -305,11 +389,11 @@ const ApiUsage = (props:tPROPS) => {
                   <table className='table-sm table-bordered'>
                     <tbody>
                       <tr className='bg-primary-darkest clr-white'>
-                        <td colSpan='2'><strong>Animal & Veterinary</strong></td>
+                        <td colSpan={2}><strong>Animal & Veterinary</strong></td>
                       </tr>
                       <tr><td>Adverse Event Reports</td><td>{this.docCount('animalandveterinarydrugevent')}</td></tr>
                       <tr className='bg-primary-darkest clr-white'>
-                        <td colSpan='2'><strong>Drugs</strong></td>
+                        <td colSpan={2}><strong>Drugs</strong></td>
                       </tr>
                       <tr><td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td></tr>
                       <tr><td>Labeling</td><td>{this.docCount('druglabel')}</td></tr>
@@ -318,11 +402,11 @@ const ApiUsage = (props:tPROPS) => {
                       <tr><td>Drugs@FDA</td><td>{this.docCount('drugsfda')}</td></tr>
                       <tr><td>Drug Shortages</td><td>{this.docCount('drugshortages')}</td></tr>
 
-                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Foods</strong></td></tr>
+                      <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Foods</strong></td></tr>
                       <tr><td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td></tr>
                       <tr><td>Enforcement Reports</td><td>{this.docCount('foodenforcement')}</td></tr>
 
-                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Devices</strong></td></tr>
+                      <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Devices</strong></td></tr>
                       <tr><td>Classifications</td><td>{this.docCount('deviceclass')}</td></tr>
                       <tr><td>Registration and listing</td><td>{this.docCount('devicereglist')}</td></tr>
                       <tr><td>Premarket Approvals (PMAs)</td><td>{this.docCount('devicepma')}</td></tr>
@@ -333,10 +417,10 @@ const ApiUsage = (props:tPROPS) => {
                       <tr><td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td></tr>
                       <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.docCount('covid19serology')}</td></tr>
 
-                      <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan='2'><strong>Tobacco</strong></td></tr>
+                      <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Tobacco</strong></td></tr>
                       <tr> <td>Problem Reports</td><td>{this.docCount('tobaccoproblem')}</td> </tr>
 
-                      <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan='2'><strong>Other</strong></td></tr>
+                      <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Other</strong></td></tr>
                       <tr> <td>Historical Documents</td><td>{this.docCount('otherhistoricaldocument')}</td> </tr>
                       <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
                       <tr> <td>Substance</td><td>{this.docCount('othersubstance')}</td> </tr>
@@ -358,11 +442,11 @@ const ApiUsage = (props:tPROPS) => {
                   <table className='table-sm table-bordered'>
                     <tbody>
                       <tr className='bg-primary-darkest clr-white'>
-                        <td colSpan='2'><strong>Animal & Veterinary</strong></td>
+                        <td colSpan={2}><strong>Animal & Veterinary</strong></td>
                       </tr>
                       <tr><td>Adverse Event Reports</td><td>{this.downloadCount('animalandveterinarydrugevent')}</td></tr>
                       <tr className='bg-primary-darkest clr-white'>
-                        <td colSpan='2'><strong>Drugs</strong></td>
+                        <td colSpan={2}><strong>Drugs</strong></td>
                       </tr>
                       <tr><td>Adverse Event Reports</td><td>{this.downloadCount('drugevent')}</td></tr>
                       <tr><td>Labeling</td><td>{this.downloadCount('druglabel')}</td></tr>
@@ -371,11 +455,11 @@ const ApiUsage = (props:tPROPS) => {
                       <tr><td>Drugs@FDA</td><td>{this.downloadCount('drugsfda')}</td></tr>
                       <tr><td>Drug Shortages</td><td>{this.downloadCount('drugshortages')}</td></tr>
 
-                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Foods</strong></td></tr>
+                      <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Foods</strong></td></tr>
                       <tr><td>Adverse Event Reports</td><td>{this.downloadCount('foodevent')}</td></tr>
                       <tr><td>Enforcement Reports</td><td>{this.downloadCount('foodenforcement')}</td></tr>
 
-                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Devices</strong></td></tr>
+                      <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Devices</strong></td></tr>
                       <tr><td>Classifications</td><td>{this.downloadCount('deviceclass')}</td></tr>
                       <tr><td>Registration and listing</td><td>{this.downloadCount('devicereglist')}</td></tr>
                       <tr><td>Premarket Approvals (PMAs)</td><td>{this.downloadCount('devicepma')}</td></tr>
@@ -386,10 +470,10 @@ const ApiUsage = (props:tPROPS) => {
                       <tr><td>Enforcement Reports</td><td>{this.downloadCount('deviceenforcement')}</td></tr>
                       <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.downloadCount('covid19serology')}</td></tr>
 
-                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Tobacco</strong></td></tr>
+                      <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Tobacco</strong></td></tr>
                       <tr><td>Problem Reports</td><td>{this.downloadCount('tobaccoproblem')}</td></tr>
 
-                      <tr className='bg-primary-darkest clr-white'> <td colSpan='2'><strong>Other</strong></td></tr>
+                      <tr className='bg-primary-darkest clr-white'> <td colSpan={2}><strong>Other</strong></td></tr>
                       <tr> <td>Historical Documents</td><td>{this.downloadCount('otherhistoricaldocument')}</td> </tr>
                       <tr> <td>NSDE</td><td>{this.downloadCount('othernsde')}</td> </tr>
                       <tr> <td>Substance</td><td>{this.downloadCount('othersubstance')}</td> </tr>
@@ -413,7 +497,7 @@ const ApiUsage = (props:tPROPS) => {
                   <ChartContainer
                     timeRange={this.state.timerange}
                     enablePanZoom={this.state.enablePanZoom}
-                    onTimeRangeChanged={timerange => { this.setState({ timerange }) }}
+                    onTimeRangeChanged={(timerange: any) => { this.setState({ timerange }) }}
                     trackerPosition={this.state.tracker}
                     minTime={this.state.minTime}
                     maxTime={this.state.maxTime}

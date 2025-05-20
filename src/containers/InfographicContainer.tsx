@@ -23,10 +23,12 @@ type tSTATE = {
   searchParam: string;
   selected: string;
   type: string;
+  meta: { start: string; api_path: string };
+  fieldsFlattened: Record<string, string>;
 };
 
 class InfographicContainer extends React.Component<{
-  infographics: Array<{ countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }>;
+  infographics?: Array<{ countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }>;
   meta: { start: string; api_path: string };
   fieldsFlattened: Record<string, string>;
 }> {
@@ -64,6 +66,8 @@ class InfographicContainer extends React.Component<{
     selected: '',
     // type of infographic to render
     type: 'Line',
+    meta: this.props.meta,
+    fieldsFlattened: this.props.fieldsFlattened,
   };
 
   static defaultProps: Object = {

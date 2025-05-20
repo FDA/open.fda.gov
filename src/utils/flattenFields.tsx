@@ -16,7 +16,7 @@ import isObject from 'lodash/isObject'
 const completelyFlatten = function (
   item: Object|Array<Object>,
   result: Object = {},
-  prefix: void|string): Object {
+  prefix?: string): Object {
 
   if (isObject(item)) {
     each(item, function (val, key) {
@@ -25,7 +25,12 @@ const completelyFlatten = function (
     })
   }
   else {
-    result[prefix] = item
+    if(prefix) {
+        result[prefix] = item
+    }
+    else{
+        result = {}
+    }
   }
 
   return result

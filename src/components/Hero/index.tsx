@@ -5,14 +5,14 @@ import cx from 'classnames'
 import dateFormat from 'dateformat';
 
 type tPROPS = {
-  authors: Array<string>;
-  date: string;
+  authors?: Array<string>;
+  date?: string;
   description: string;
-  htmlDescription: boolean;
-  label: string;
+  htmlDescription?: boolean;
+  label?: string;
   path: string;
-  title: React.ReactElement|string;
-  type: 'homepage'|'endpoint'|'update'|'dataset';
+  title?: React.ReactElement|string;
+  type?: 'homepage'|'endpoint'|'update'|'dataset';
 };
 
 /**

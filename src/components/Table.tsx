@@ -2,6 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 type tPROPS = {
+    labels: PropTypes.array,
+    formatters: PropTypes.object,
+    className?: PropTypes.string,
+    style?: PropTypes.object,
+    onClick?: PropTypes.func,
     cols : PropTypes.array,
     rows: PropTypes.array
 };

@@ -18,6 +18,17 @@ type tPROPS = {
   menu: tMenu;
   reference: Array<Array<string>|Object>;
   style: Object;
+  [key: string]: any;
+  type: string;
+  infographics: Array<Object>;
+  infographicDefinitions: Object;
+  explorers: Object;
+  fields: Object;
+};
+type tSTATE = {
+  bottom: boolean;
+  bottomPos: number;
+  fixed: boolean;
 };
 
 /**
@@ -26,7 +37,7 @@ type tPROPS = {
  *              [this means it can have different functionality]
  *              [depending on it's end use (sticky vs non-sticky)]
  */
-const SideBar = (props: tPROPS) => {
+const SideBar: React.FC<tPROPS & tSTATE> = (props) => {
   const {
     // for sticky sidebar, are we at the bottom
     bottom,

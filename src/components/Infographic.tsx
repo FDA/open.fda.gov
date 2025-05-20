@@ -8,21 +8,29 @@ import ChartDonut from './ChartDonut'
 import {default as ChartLine} from './ChartLine'
 import Filter from './Filter'
 
-import bp from '../constants/breakpoints'
+import useBreakPoints from '../constants/breakpoints'
 import BPContainer from '../containers/BreakpointContainer'
 import yamlGet from '../utils/yamlGet'
 
 type tEXPLORER = {
   description: Array<string>;
-  filters: Object;
+  filters: Object | undefined;
   title: string;
   type: 'Bar'|'Line'|'Donut';
 };
 
 type tPROPS = {
+  infographics: any
+  countParam: string | number | readonly string[] | undefined
+  fieldsFlattened(fieldsFlattened: any): unknown
+  nextSearchParam: string | number | readonly string[] | undefined
+  query: string | number | readonly string[] | undefined
   tourStart?: () => void;
   current?: tEXPLORER;
-  data?: Object;
+  data?: {
+    error?: boolean;
+    results: Array<Object>;
+  };
   fields?: Object;
   nextCountParam?: string;
   onSearchChange?: Function;
@@ -40,6 +48,9 @@ type tPROPS = {
 
 
 const Infographic = (props: tPROPS) => {
+  const bp = useBreakPoints()
+  const mob: boolean = bp.mob
+  const desk: boolean = bp.desk
   const {
     tourStart,
     current,
@@ -63,7 +74,7 @@ const Infographic = (props: tPROPS) => {
     description,
     filters,
     title,
-  }: tEXPLORER = current
+  }: tEXPLORER = current!
 
   // mobile sizing for infographic
   // window - 40 (margin) - 40 (padding)
@@ -73,7 +84,7 @@ const Infographic = (props: tPROPS) => {
   // desktop sizing is a little more complicated
   // we calculate the width based on window
   // and what we know about how the layout will be
-  if (!bp.mob && hasWindow) {
+  if (!mob && hasWindow) {
     const winWidth: number = window.innerWidth
 
     // 1400 = site-container width
@@ -92,11 +103,11 @@ const Infographic = (props: tPROPS) => {
   // Don't render if there is no data, or the field we are trying to
   // count by (visualize) is unknown
   const fieldDefinition: void|Object = yamlGet(nextCountParam, fields)
-  const error: boolean = data.error || !fieldDefinition
+  const error: boolean = data?.error || !fieldDefinition
 
   // if fieldDef has description, then docs-ify it
   const markedFieldDef: string = fieldDefinition &&
-    fieldDefinition.description ?
+    fieldDefinition?.description ?
     `${marked(fieldDefinition.description)}` :
     ''
 
@@ -140,7 +151,7 @@ const Infographic = (props: tPROPS) => {
         }
         {
           description &&
-          description.map((para, i) =>
+          description?.map((para: any, i: number) =>
             (<div
               key={i}
               tabIndex={0}
@@ -157,10 +168,10 @@ const Infographic = (props: tPROPS) => {
           {
             Object.keys(tabs).map((value, i) => {
               return (<button
-                onClick={() => { handler(tabs[value])} }
+                onClick={() => {handler(tabs[value])} }
                 key={i}
                 id={'tab-' + i}
-                className={container.state.selected === value ? "tab active" : "tab"}>
+                className={container?.state?.selected === value ? "tab active" : "tab"}>
                 {tabs[value].short}
               </button>)
             })
@@ -191,7 +202,7 @@ const Infographic = (props: tPROPS) => {
                   className='select clr-primary'
                   id='view-select'
                   value={props.countParam}
-                  onChange={onCountChangeAndUpdate}
+                  onChange={() =>onCountChangeAndUpdate}
                   // inline because of uncss
                   // client side only code not picked up
                   style={{
@@ -241,8 +252,8 @@ const Infographic = (props: tPROPS) => {
                   className={textAreaCx}
                   id='search-parameter'
                   value={props.nextSearchParam}
-                  onChange={onSearchChange}
-                  onKeyPress={onKeyPress}
+                  onChange={() => onSearchChange}
+                  onKeyPress={() => {onKeyPress}}
                 >
                   i.e. search=device
                 </textarea>
@@ -272,7 +283,7 @@ const Infographic = (props: tPROPS) => {
             <i className='fa fa-lg fa-question-circle clr-primary-alt-dark tourStart' onClick={tourStart}/>
 
             {
-              data.error &&
+              data?.error &&
               <span className='clr-secondary weight-600 txt-c'>
                 Request returned no response.<br />
                 Change your search and/or count parameters and try again
@@ -314,7 +325,7 @@ const Infographic = (props: tPROPS) => {
             { !error && (type === 'Pie' || type === 'Donut') &&
               <ChartDonut
                 countParam={nextCountParam}
-                data={data.results}
+                data={data?.results}
                 fields={fields}
                 hasLegend
                 divSize={`${!bp.desk ? size - 40 : size - 240}px`}
@@ -325,8 +336,8 @@ const Infographic = (props: tPROPS) => {
 
             { !error && type === 'Line' &&
               <ChartLine
-                countParam={nextCountParam}
-                data={data.results}
+                countParam={nextCountParam || ""}
+                data={data?.results}
                 fields={fields}
                 height={`${size / 2}`}
                 width={`${size}`}

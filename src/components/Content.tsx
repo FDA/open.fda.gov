@@ -84,7 +84,9 @@ const Content = (props: tPROPS) => {
           if (words === 'infographic') {
             return (
               <InfographicContainer
-                { ...props }
+                infographics={infographics}
+                meta={meta}
+                fieldsFlattened={fieldsFlattened}  
                 key={i}
               />
             )

@@ -9,26 +9,30 @@ type tSTATE = {
   fixed: boolean;
 };
 
-const SideBarContainer = function (ComposedSideBar: ReactClass): ReactClass {
+
+const SideBarContainer = function (ComposedSideBar: React.ComponentType<tSTATE>):  React.ComponentType {
   class HOC extends React.Component {
     state: tSTATE = {
       bottom: false,
       fixed: false,
+      bottomPos: 0
     };
 
     // this just gets re-assigned in constructor
     // for flow purposes
-    _boundCheckPosition = {};
+    _boundCheckPosition = (event: Event) => {
+      console.log('this should never be called')
+    };
 
     constructor (props: Object) {
       super(props)
       // debounce so we're not calling this functions
       // thousands of times a second
-      this._boundCheckPosition = debounce(this._checkPosition.bind(this), 10)
+      this._boundCheckPosition = debounce(this._checkPosition, 10)
     }
 
     componentDidMount () {
-      const boundCB: Function = this._boundCheckPosition
+      const boundCB = this._boundCheckPosition
 
       if (window) {
         window.addEventListener('scroll', boundCB, false)
@@ -37,7 +41,7 @@ const SideBarContainer = function (ComposedSideBar: ReactClass): ReactClass {
     }
 
     componentWillUnmount () {
-      const boundCB: Function = this._boundCheckPosition
+      const boundCB = this._boundCheckPosition
 
       if (window) {
         window.removeEventListener('scroll', boundCB, false)
@@ -47,11 +51,11 @@ const SideBarContainer = function (ComposedSideBar: ReactClass): ReactClass {
 
     _checkPosition () {
       // the entire aside, the height of the height
-      const wrap: Object = document.getElementById('sidebarWrap')
+      const wrap: any = document.getElementById('sidebarWrap')
       // the actual menu, of variable height, that can be fixed
-      const el: Object = document.getElementById('menu')
+      const el: any = document.getElementById('menu')
       // footer height, used for bottom positioning
-      const footer: Object = document.getElementById('footer')
+      const footer: any = document.getElementById('footer')
       // height of footer with spacing - menu padding
       const bottomPos: number = footer.clientHeight + 50
       // the top position of the wrapper
@@ -100,7 +104,7 @@ const SideBarContainer = function (ComposedSideBar: ReactClass): ReactClass {
     // Finds the absolute position of an element on a page
     _getPos (element: Object): number {
       let absPos: number = 0
-      let el: Object = element
+      let el: any = element
 
       while (el.offsetParent) {
         absPos += el.offsetTop
@@ -135,7 +139,7 @@ const SideBarContainer = function (ComposedSideBar: ReactClass): ReactClass {
       return browserPos
     }
 
-    render (): React.Element {
+    render () {
       return (
         <ComposedSideBar
           {...this.props}

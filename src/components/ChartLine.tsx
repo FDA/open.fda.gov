@@ -48,14 +48,14 @@ const _getYearsInData = (data: Array<Object>) => {
  * @return {Object} [returns an Object where each key is a year, whose values are an array of records]
  */
 const _getRecordsByYear = (data: Array<Object>, years: Array<string>) => {
-  const dataByYear: Object = {}
+  const dataByYear: Record<string, any[]> = {}
 
   years.forEach(y => {
     dataByYear[y] = []
   })
 
   data.forEach(d => {
-    const year: string = d.time.slice(0, 4)
+    const year: string = d?.time?.slice(0, 4)
     return dataByYear[year].push(d)
   })
 
@@ -64,14 +64,14 @@ const _getRecordsByYear = (data: Array<Object>, years: Array<string>) => {
 
 /**
  * @description [reduces records, grouped by year]
- * @param  {Object} data [takes in result of _getRecordsByYear]
+ * @param  {Array<Object>} data [takes in result of _getRecordsByYear]
  * @return {Array<number>} [returns simple array of reduced records]
  */
-const _getTotalsByYear = (data: Object) => {
+const _getTotalsByYear = (data: any) => {
   return Object.keys(data).map(y => {
     return data[y]
-      .map(d => d.count)
-      .reduce((a, b) => a + b)
+      .map((d: any) => d.count)
+      .reduce((a: any, b: any) => a + b)
   })
 }
 
@@ -118,15 +118,15 @@ type PROPS = {
  */
 // const ChartLine = ({ countParam, data, height, fields, width, }: PROPS) => {
 
-class ChartLine extends React.Component {
+class ChartLine extends React.Component<PROPS> {
 
-  constructor (props: Object) {
+  constructor (props: PROPS) {
     super(props)
   }
 
   render (): any {
     let previousChartData: Object = {}
-    const years: Array<string> = _getYearsInData(this.props.data)
+    const years: Array<string> = _getYearsInData(this.props.data) || []
     let recordsByYear: Object = {}
     let totalsByYear: Array<number> = [0]
     const height = parseInt(this.props.height)
@@ -151,8 +151,8 @@ class ChartLine extends React.Component {
     previousChartData = nextChartData
 
     let dataChanged: boolean = false
-    const cData: Array<number> = get(currChartData, 'datasets[0].data')
-    const nData: Array<number> = get(nextChartData, 'datasets[0].data')
+    const cData: Array<number> = get(currChartData, 'datasets[0].data') || []
+    const nData: Array<number> = get(nextChartData, 'datasets[0].data') || []
 
     if (cData && nData) {
       // if we have both current and next chart data
@@ -175,12 +175,20 @@ class ChartLine extends React.Component {
       <span>
 
         <Line
-          title='Line Chart.'
           data={nextChartData}
           height={height}
           width={width}
           redraw={dataChanged}
           options={{
+            Plugin: {
+              title: {
+                display: true,
+                text:'Line Chart.',
+                fontSize: 20,
+                fontColor: '#112e51',
+                padding: 20,
+              }
+            },
             maintainAspectRatio: false, responsive: false, legend: {display: false},
             scales: {
               yAxes: [{
