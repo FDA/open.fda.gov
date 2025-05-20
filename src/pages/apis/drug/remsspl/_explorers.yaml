@@ -9,9 +9,8 @@ effectiveTime:
   title: One REMS SPL record
 medicationGuide:
   params:
-    - search for all records with medication_guide field.
-    - The _exists_ search modifier lets you search for records that contain a specific field, no matter what its contents are. See the API basics page for more details.
-  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=_exists_:rems_statutory_elements.medication_guide'
+    - search for all records with the medication_guide field set to true.
+  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=rems_statutory_elements.medication_guide:true'
   description:
     - This query searches for REMS SPL with a medication guide, and returns one result.
   title: REMS SPL record with a medication guide
@@ -25,14 +24,14 @@ setID:
 sponsorName:
   params:
     - search for all records with given sponsor_name.
-  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=sponsor_name.exact:INDIVIOR%20Inc.'
+  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=sponsor_name:"Syneos%20Health" '
   description:
     - This query searches the REMS SPL dataset for records that match the given sponsor_name.
   title: Search REMS SPL records by Sponsor
 brandName:
   params:
     - search for all records with given brand_name.
-  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=openfda.brand_name:SUBLOCADE'
+  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=products.manufactured_product.brand_name:SUBLOCADE'
   description:
     - This query searches the REMS SPL dataset for records that match a specific brand_name.
   title: Search REMS SPL records by Brand Name
