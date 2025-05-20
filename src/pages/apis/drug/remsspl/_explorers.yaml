@@ -2,7 +2,7 @@ effectiveTime:
   params:
     - search for all records with effective_time between Jun 01, 2016 and Jan 1, 2021.
     - limit to 1 record.
-  query: 'http://34.238.202.4:8000/drug/remsspl.json?search=effective_time:[20160601+TO+20210101]&limit=1'
+  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=effective_time:[20160601+TO+20210101]&limit=1'
   description:
     - This query searches for all records in a certain date range, and asks for a single one.
     - See [searchable fields](/apis/drug/remsspl/searchable-fields/) for more about effective_time. Brackets [ ] are used to specify a range for date, number, or string fields.
@@ -11,28 +11,28 @@ medicationGuide:
   params:
     - search for all records with medication_guide field.
     - The _exists_ search modifier lets you search for records that contain a specific field, no matter what its contents are. See the API basics page for more details.
-  query: 'http://34.238.202.4:8000/drug/remsspl.json?search=_exists_:rems_statutory_elements.medication_guide'
+  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=_exists_:rems_statutory_elements.medication_guide'
   description:
     - This query searches for REMS SPL with a medication guide, and returns one result.
   title: REMS SPL record with a medication guide
 setID:
   params:
     - search for records with given set_id.
-  query: 'http://34.238.202.4:8000/drug/remsspl.json?search=set_id:01291f98-96ef-4336-95f8-825dd19690ce'
+  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=set_id:01291f98-96ef-4336-95f8-825dd19690ce'
   description:
     - This query searches the REMS SPL dataset for records that include a specific set_id
   title: Search REMS SPL records by Set ID
 sponsorName:
   params:
     - search for all records with given sponsor_name.
-  query: 'http://34.238.202.4:8000/drug/remsspl.json?search=sponsor_name.exact:INDIVIOR%20Inc.'
+  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=sponsor_name.exact:INDIVIOR%20Inc.'
   description:
     - This query searches the REMS SPL dataset for records that match the given sponsor_name.
   title: Search REMS SPL records by Sponsor
 brandName:
   params:
     - search for all records with given brand_name.
-  query: 'http://34.238.202.4:8000/drug/remsspl.json?search=openfda.brand_name:SUBLOCADE'
+  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=openfda.brand_name:SUBLOCADE'
   description:
     - This query searches the REMS SPL dataset for records that match a specific brand_name.
   title: Search REMS SPL records by Brand Name
