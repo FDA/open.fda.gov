@@ -3,8 +3,14 @@
 import React from 'react'
 import getFieldValues from '../utils/getFieldValues'
 
-const _renderBars = (data: Array<Object>, fieldValues: Object, show: number) => {
-  const bars: Array<Object> = data.slice(0, show)
+interface BarData {
+  count: number;
+  term?: string;
+  [key: string]: any;
+}
+
+const _renderBars = (data: Array<BarData>, fieldValues: Object, show: number) => {
+  const bars: Array<BarData> = data.slice(0, show)
 
   // get maximum value
   const max: number = bars[0].count
@@ -12,14 +18,14 @@ const _renderBars = (data: Array<Object>, fieldValues: Object, show: number) => 
   // max value * this number = 100
   const remainder: number = 100 / max
 
-  return bars.map((result: Object, i: number) => {
+  return bars.map((result: BarData, i: number) => {
     if (!result.count) return
 
     // the max value should equal 100%
     const width: string = `${Math.round(result.count * remainder)}%`
     // look in both places for term, coerce to string
     // because sometimes we have numbers as terms
-    const term: void|string = result.term || fieldValues[result.term]
+    const term: void|string|undefined|number = result.term !== undefined ? result.term : (result.term !== undefined ? fieldValues[result.term] : undefined)
 
     return (
       <li
@@ -57,12 +63,11 @@ const _renderBars = (data: Array<Object>, fieldValues: Object, show: number) => 
 }
 
 type tPROPS = {
-  data: Array<Object>;
+  data: Array<BarData>;
   fields: Object;
   countParam: string;
   show: number;
 };
-
 
 /**
  * @description [reactjs chart for endpoint basics pages]
@@ -73,9 +78,9 @@ type tPROPS = {
  */
 // const ChartBar = ({ data = [{count: 0}], fields, countParam, show = 10 }: tPROPS) => {
 
-class ChartBar extends React.Component {
+class ChartBar extends React.Component<tPROPS> {
 
-  constructor (props: Object) {
+  constructor (props: tPROPS) {
     super(props)
   }
 

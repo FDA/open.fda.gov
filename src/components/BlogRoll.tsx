@@ -8,7 +8,7 @@ import updates from '../pages/about/updates/updates.yaml'
 import Async from 'react-promise'
 import '../css/components/BlogRoll.scss'
 
-const _sortUpdates = updates => {
+const _sortUpdates = (updates: any[]) => {
   const filtered = updates.filter(u => u.date)
 
   const sorted = filtered.sort(function (a, b) {
@@ -24,6 +24,13 @@ type tPROPS = {
   small: boolean
 };
 
+type Update = {
+  title: string;
+  desc: string;
+  date: string;
+  path: string;
+}
+
 
 const BlogPosts = (props: tPROPS) => {
   const {
@@ -32,7 +39,7 @@ const BlogPosts = (props: tPROPS) => {
 
   // filter out posts without a valid date
   // and also sort them reverse chron
-  let sortedUpdates: Array<Object> = _sortUpdates(updates.updates)
+  let sortedUpdates: Array<Update> = _sortUpdates(updates.updates)
   if (small === true) {
     sortedUpdates = sortedUpdates.slice(0, 3)
   }
@@ -43,13 +50,13 @@ const BlogPosts = (props: tPROPS) => {
       tabIndex={0}
       className={'blog-container ' + (small === true ? 'overflow-hidden small-blog-container' : '')}>
       {
-        sortedUpdates.map((update: Object, i: number) => {
+        sortedUpdates.map((update: Update, i: number) => {
           const {
             desc,
             date
           } = update
 
-          const title = new Promise(function (resolve, reject) {
+          const title: Promise<string> = new Promise(function (resolve, reject) {
             if (update.title.length > 40) {
               resolve((get(update, 'title')).substring(0, 40) + '...')
             }

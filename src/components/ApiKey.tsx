@@ -1,13 +1,21 @@
 /* @flow */
 
 import React from 'react'
+import res from '../pages/data/res';
 
 /**
  * @description [api key widget for signing up api users]
  */
 
+type ApiKeyState = {
+  email: string;
+  emailSent: boolean;
+  loading: boolean;
+  showForm: boolean;
+  [key: string]: any;
+}
 
-class ApiKey extends React.Component {
+class ApiKey extends React.Component<{}, ApiKeyState> {
   constructor (props: Object) {
     super(props)
     this.state = {
@@ -27,7 +35,7 @@ class ApiKey extends React.Component {
     })
   }
 
-  postApiKey (e) {
+  postApiKey (e: { preventDefault: () => void, returnValue: boolean }) {
     this.setState({loading: true})
     if (e.preventDefault) {
       e.preventDefault()
@@ -36,7 +44,8 @@ class ApiKey extends React.Component {
       e.returnValue = false
     }
 
-    const email: string = document.getElementById('api-key').value || ''
+    const emailInput = document.getElementById('api-key') as (HTMLInputElement | null)
+    const email = emailInput ? emailInput.value : ""
 
     // If we need to make changes to this format, verify with our Umbrella API contact nick.muerdter@nrel.gov
     const postBody: Object = {
@@ -77,8 +86,11 @@ class ApiKey extends React.Component {
       })
       .catch(() => {})
   }
-  handleErrors(handleErrors: any) {
-    throw new Error('Method not implemented.')
+  handleErrors(response: Response) {
+    if (!response.ok) {
+      throw Error(response.statusText)
+    }
+    return response;
   }
 
   render () {
@@ -112,7 +124,7 @@ class ApiKey extends React.Component {
                   </label>
                   <button
                     className='block marg-b-2 bg-primary clr-white weight-700'
-                    onClick={this.postApiKey}
+                    onClick={() => this.postApiKey}
                     style={{width: "250px"}}
                   >
                     <i

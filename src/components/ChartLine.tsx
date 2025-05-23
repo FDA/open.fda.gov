@@ -10,7 +10,14 @@ import {default as ChartBar} from './ChartBar'
  * @param  {Object} data [result of the api call]
  * @return {Array<string>} [returns array of years]
  */
-const _getYearsInData = (data: Array<Object>) => {
+
+interface DataItem{
+  time: string;
+  count: number;
+  [key: string]: any;
+}
+
+const _getYearsInData = (data: DataItem[]): string[] | undefined => {
   if (!data[0] || !data[0].time) return
 
   // get first matching year
@@ -47,7 +54,7 @@ const _getYearsInData = (data: Array<Object>) => {
  * @param  {Array<string>} years [result of _getYearsInData]
  * @return {Object} [returns an Object where each key is a year, whose values are an array of records]
  */
-const _getRecordsByYear = (data: Array<Object>, years: Array<string>) => {
+const _getRecordsByYear = (data: DataItem[], years: string[]): Record<string, DataItem[]> => {
   const dataByYear: Record<string, any[]> = {}
 
   years.forEach(y => {
@@ -99,13 +106,21 @@ const _getChartData = (years: Array<string>, totalsByYear: Array<number>) => {
   }
 }
 
-type PROPS = {
+// type PROPS = {
+//   countParam: string;
+//   data: Array<Object>;
+//   height: string;
+//   width: string;
+//   fields: Array<Object>;
+// };
+interface PROPS {
+  data: Array<DataItem>;
   countParam: string;
-  data: Array<Object>;
   height: string;
   width: string;
-  fields: Array<Object>;
-};
+  fields: Record<string, any>[];
+  [key: string]: any;
+}
 
 
 /**
@@ -126,7 +141,7 @@ class ChartLine extends React.Component<PROPS> {
 
   render (): any {
     let previousChartData: Object = {}
-    const years: Array<string> = _getYearsInData(this.props.data) || []
+    const years = _getYearsInData(this.props.data) || []
     let recordsByYear: Object = {}
     let totalsByYear: Array<number> = [0]
     const height = parseInt(this.props.height)

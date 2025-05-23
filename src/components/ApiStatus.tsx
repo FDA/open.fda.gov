@@ -10,7 +10,35 @@ type tPROPS = {
   data: Array<Object>;
 };
 
-const catMap: Object = Object.freeze({
+let endpointKeys = [
+  'animalandveterinarydrugevent',
+  'foodenforcement',
+  'foodevent',
+  'drugevent',
+  'druglabel',
+  'ndc',
+  'drugenforcement',
+  'drugsfda',
+  'drugshortages',
+  'deviceevent',
+  'devicerecall',
+  'deviceclass',
+  'devicereglist',
+  'deviceclearance',
+  'devicepma',
+  'deviceudi',
+  'deviceenforcement',
+  'covid19serology',
+  'otherhistoricaldocument',
+  'othernsde',
+  'othersubstance',
+  'otherunii',
+  'tobaccoproblem'
+]
+
+type EndpointKey = typeof endpointKeys[number]
+
+const catMap: Record<EndpointKey, string> = Object.freeze({
   'animalandveterinarydrugevent': 'Animal & Veterinary › Adverse Events',
   'foodenforcement': 'Foods › Enforcement Reports',
   'foodevent': 'Foods › Adverse Events',
@@ -37,7 +65,7 @@ const catMap: Object = Object.freeze({
 })
 
 
-const endpointLinkMap: Object = Object.freeze({
+const endpointLinkMap: Record<EndpointKey, string> = Object.freeze({
   'animalandveterinarydrugevent': 'animalandveterinary/event',
   'foodevent': 'food/event',
   'foodenforcement': 'food/enforcement',
@@ -73,6 +101,7 @@ const ApiStatus = (props: tPROPS) => (
       label='Learn'
       title='API status'
       description='This is the current status of the openFDA API endpoints, including when they were last updated.'
+      path=""
     />
     <section className='container clearfix marg-t-3 marg-b-3 relative'>
       <ul className='flex-box dir-row flex-wrap'>

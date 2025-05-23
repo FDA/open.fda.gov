@@ -4,7 +4,7 @@ import '../css/components/BreadCrumbs.scss'
 import { Location } from '@reach/router'
 
 // if not on top level page, render breadcrumb nav
-const BreadCrumbs = (props) => {
+const BreadCrumbs = (props: { location: {pathname: string}}) => {
 
   const crumbs = props.location.pathname.split('/').filter(d => d)
   let prevurl = ''
@@ -58,7 +58,7 @@ const BreadCrumbs = (props) => {
 
 BreadCrumbs.displayName = 'component/BreadCrumbs'
 
-export default props => (
+export default (props: any) => (
   <Location>
     {locationProps => <BreadCrumbs {...locationProps} {...props} />}
   </Location>

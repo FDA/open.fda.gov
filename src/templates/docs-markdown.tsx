@@ -1,5 +1,5 @@
-import React from "react"
-import { graphql, PageProps } from "gatsby"
+import React from "react";
+import {graphql} from "gatsby";
 
 type frontmatter = {
   title: string;
@@ -16,12 +16,11 @@ type templateProps = {
   }
 }
 
-
 export default function Template ({ data }: templateProps) {
-  const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark
+  const { markdownRemark } = data; // data.markdownRemark holds our post data
+  const { frontmatter, html } = markdownRemark;
   return (
-    <section className='markdown-content'>
+    <section className="markdown-content">
       <h2>{frontmatter.title}</h2>
       <div
         dangerouslySetInnerHTML={{ __html: html }}
@@ -39,4 +38,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

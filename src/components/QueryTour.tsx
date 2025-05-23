@@ -2,17 +2,38 @@
 
 import React from 'react'
 
-import Joyride, { STATUS } from 'react-joyride'
+import Joyride, { STATUS, Step } from 'react-joyride'
 import QueryExplorer from './QueryExplorer'
 
+type tPROPS = {
+  name: string,
+  desc: string,
+  title: string,
+  query: string,
+  params: Array<string>,
+  k: number,
+  closeTour?: () => void,
+  level: number,
+  results: Array<any>,
+  qwery: string,
+  className?: string,
+  style?: Object,
+  [key: string]: any,
+}
 
-class QueryTour extends React.Component {
+type tSTATe = {
+  tourRun: boolean
+  stepa: Array<Step>
+}
 
-  constructor (props: Object) {
+class QueryTour extends React.Component<tPROPS, tSTATe> {
+
+  constructor (props: tPROPS) {
     super(props)
 
     this.state = {
-      tourRun: false
+      tourRun: false,
+      stepa: []
     }
 
     this.handleClickStart = this.handleClickStart.bind(this)
@@ -25,7 +46,7 @@ class QueryTour extends React.Component {
   }
 
 
-  handleClickStart = e => {
+  handleClickStart = (e: React.MouseEvent) => {
     e.preventDefault()
 
     this.setState({
@@ -39,7 +60,7 @@ class QueryTour extends React.Component {
     })
   }
 
-  handleJoyrideCallback = data => {
+  handleJoyrideCallback = (data: any) => {
     const { status, type } = data
     if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status)) {
       this.setState({ tourRun: false })
@@ -49,7 +70,7 @@ class QueryTour extends React.Component {
 
   render (): any {
 
-    const steps: Array = [
+    const steps: Step[] = [
       {
         target: ('#explorer-' + this.props.name),
         content: 'This tool is intended to demonstrate an example openFDA query.',
@@ -94,8 +115,7 @@ class QueryTour extends React.Component {
           styles={{
             options: {
               primaryColor: "#000",
-              textColor: "#004a14",
-              beaconColor: "rgba(79, 26, 0, 0.6)"
+              textColor: "#004a14"
             }
           }}
           run={this.state.tourRun}
@@ -108,8 +128,7 @@ class QueryTour extends React.Component {
           name={this.props.name}
           originalQuery={this.props.query}
           params={this.props.params}
-          title={this.props.title}
-        />
+          title={this.props.title} k={0} level={0} result={''} query={''}        />
       </section>
     )
   }
