@@ -1,7 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
 import ReactModal from "react-modal"
-import { default as ReactTable } from "react-table"
+import ReactTable from "react-table-6"
+import "react-table-6/react-table.css"
 import { PieChart, Pie, Cell, Tooltip } from "recharts"
 import FileSaver from "file-saver"
 import XLSX from 'xlsx'
@@ -10,9 +11,10 @@ import dictionary from '../constants/fields/master_fields.yaml'
 import { API_LINK } from "../constants/api"
 
 import '../css/components/DataDictionary.scss'
+import { JSX } from 'react/jsx-runtime'
 
 /* generate a download */
-function s2ab (s) {
+function s2ab (s: string) {
   const buf = new ArrayBuffer(s.length)
   const view = new Uint8Array(buf)
   for (let i = 0; i != s.length; ++i) {
@@ -22,12 +24,12 @@ function s2ab (s) {
 }
 
 
-function flattenJSON (data) {
+function flattenJSON (data: string | any[]) {
 
-  const flattenedJSON = []
+  const flattenedJSON: any[] = []
 
   for (let i = 0; i < data.length; i++) {
-    const newRow = {}
+    const newRow: Record<string, any> = {}
     for (const item in data[i]) {
       if (typeof data[i][item] === "object") {
         if (data[i][item] && data[i][item].constructor === Array) {
@@ -49,11 +51,36 @@ function flattenJSON (data) {
 
 }
 
-class DataDictionary extends React.Component {
+interface DataDictionaryState {
+  colors: string[];
+  columns: any[];
+  data: any[];
+  pieData: any[];
+  hits: number | string;
+  totalHits: number | string;
+  modalRows: any[];
+  modalColumns: any[];
+  endpoint_columns: { [key: string]: any[] };
+  endpointOptions: { [key: string]: any[] };
+  nouns: any[];
+  pageSize: number;
+  selectedRow: any;
+  selectedNoun: any;
+  selectedEndpoint: any[];
+  resized: any[];
+  sorted: any[];
+  filtered: any[];
+  showModal?: boolean;
+  search?: string;
+  page?: number;
+  [key: string]: any; // To allow additional properties
+}
+
+class DataDictionary extends React.Component<{}, DataDictionaryState> {
   constructor (props: Object) {
     super(props)
 
-    const nounList = {
+    const nounList: { [key: string]: string } = {
       'animalandveterinary': 'Animal & Veterinary',
       'drug': 'Human Drug',
       'device': 'Device',
@@ -62,7 +89,7 @@ class DataDictionary extends React.Component {
       'tobacco': 'Tobacco'
     }
 
-    const endpointList = {
+    const endpointList: { [key: string]: string } = {
       'event': 'Event',
       'label': 'Label',
       'classification': 'Classification',
@@ -84,9 +111,9 @@ class DataDictionary extends React.Component {
     }
 
 
-    const nouns = []
-    const endpoint_columns = {}
-    const endpoint_options = {}
+    const nouns: any[] = []
+    const endpoint_columns: {[key: string]: any[]} = {}
+    const endpoint_options: {[key: string]: any[]} = {}
     Object.keys(dictionary).forEach(function (noun) {
       nouns.push({'label': nounList[noun], 'value': noun})
       endpoint_columns[noun] = []
@@ -150,13 +177,13 @@ class DataDictionary extends React.Component {
     this.handleNounChange(this.state.selectedNoun)
   }
 
-  getModalData (rowInfo) {
-    const col_list = []
-    const columns = []
+  getModalData (rowInfo: { datasets: string | any[] }) {
+    const col_list: any[] = []
+    const columns: { Header: any; accessor: any; Cell: (row: any) => JSX.Element }[] = []
 
-    const data = {}
+    const data: {[key: string]: boolean} = {}
 
-    this.state.endpoint_columns[this.state.selectedNoun.value].forEach((endpoint) => {
+    this.state.endpoint_columns[this.state.selectedNoun.value].forEach((endpoint: { Header: any; accessor: any }) => {
       const endpoint_name = endpoint.Header
       const endpoint_value = endpoint.accessor
       if (rowInfo.datasets.includes(endpoint_value)) {
@@ -166,7 +193,7 @@ class DataDictionary extends React.Component {
         columns.push({
           Header: endpoint_name,
           accessor: endpoint_value,
-          Cell: row => (
+          Cell: (row: { value: any }) => (
             <div className='checkbox-cell'>{row.value ? <i className='fa fa-2x fa-check' style={{color: "green"}}/> : <span/>}</div>
           )
         })
@@ -186,7 +213,7 @@ class DataDictionary extends React.Component {
     })
   }
 
-  openModal (row) {
+  openModal (row: any) {
     this.getModalData(row)
     this.setState({
       selectedRow: row,
@@ -194,7 +221,7 @@ class DataDictionary extends React.Component {
     })
   }
 
-  handleNounChange (val) {
+  handleNounChange (val: { value: string | number }) {
     this.setState({
       selectedNoun: val,
       selectedEndpoint: this.state.endpointOptions[val.value]
@@ -203,7 +230,7 @@ class DataDictionary extends React.Component {
     })
   }
 
-  handleEndpointChange (val) {
+  handleEndpointChange (val: any) {
     this.setState({
       selectedEndpoint: val
     }, () => {
@@ -211,9 +238,9 @@ class DataDictionary extends React.Component {
     })
   }
 
-  getNestedValue (rowObj, path) {
+  getNestedValue (rowObj: { [x: string]: any }, path: string) {
     const props = path.split('.')
-    props.forEach(function (prop) {
+    props.forEach(function (prop: string | number) {
       if (rowObj) {
         rowObj = rowObj[prop]
       }
@@ -224,15 +251,15 @@ class DataDictionary extends React.Component {
   exportToXLS () {
     try {
       /* export only visible columns */
-      const columns = []
-      this.state.columns.forEach(function (column) {
+      const columns: any[] = []
+      this.state.columns.forEach(function (column: { accessor: any }) {
         columns.push(column.accessor)
       })
 
-      const exportableRows = []
-      this.state.data.forEach((row) => {
-        const truncatedRow = {}
-        let rowData = ""
+      const exportableRows: {}[] = []
+      this.state.data.forEach((row: any) => {
+        const truncatedRow: Record<string, any> = {}
+        let rowData: string = ""
         columns.forEach((column) => {
           const columnValue = this.getNestedValue(row, column)
           truncatedRow[column] = columnValue
@@ -260,7 +287,12 @@ class DataDictionary extends React.Component {
     }
   }
 
-  getObject (data, parent_name, parent_obj, endpoint) {
+getObject (
+  data: { [x: string]: { dataset: any[]; definition?: string; type?: string }; hasOwnProperty?: any },
+  parent_name: string,
+  parent_obj: { [x: string]: { items: any; description: any; type: any } },
+  endpoint: any
+) {
     Object.keys(parent_obj).forEach(function (val) {
       const val_name = parent_name + '.' + val
       if (!data.hasOwnProperty(val_name) && parent_obj[val].hasOwnProperty('items')) {
@@ -284,8 +316,8 @@ class DataDictionary extends React.Component {
   }
 
   getData () {
-    const data = {}
-    const usage_endpoints = {}
+    const data: { [key: string]: any } = {}
+    const usage_endpoints: { [key: string]: number } = {}
     let hits = 0
     let total_hits = 0
     const noun = this.state.selectedNoun.value
@@ -293,14 +325,14 @@ class DataDictionary extends React.Component {
       .then((response) => {
         return response.json()
       }).then((usage_data) => {
-        usage_data.table.forEach((dataset) => {
+        usage_data.table.forEach((dataset: { path: string; hits: number }) => {
           if (dataset.path.includes('/')) {
             usage_endpoints[dataset.path.split('/')[2].split('.')[0]] = dataset.hits
             total_hits += dataset.hits
           }
         })
         if (this.state.selectedEndpoint && this.state.selectedEndpoint.length) {
-          this.state.selectedEndpoint.forEach((endpoint) => {
+          this.state.selectedEndpoint.forEach((endpoint: { value: string }) => {
             if (Object.keys(usage_endpoints).includes(endpoint.value)) {
               hits += usage_endpoints[endpoint.value]
             }
@@ -333,7 +365,13 @@ class DataDictionary extends React.Component {
             })
           })
         }
-        const data_array = []
+const data_array: {
+  field_name: any;
+  dataset_number: any;
+  datatype?: any;
+  datasets?: any;
+  definition?: any;
+}[] = []
         Object.keys(data).forEach((field) => {
           data_array.push({
             'field_name': field,
@@ -391,7 +429,7 @@ class DataDictionary extends React.Component {
 
     if (searchText) {
       const regex = new RegExp(searchText, "i")
-      data = data.filter(row => {
+      data = data.filter((row: any) => {
         for (let i = 0; i < this.state.columns.length; i++) {
           if (regex.test(String(this.getNestedValue(row, this.state.columns[i].accessor)))) {
             return true
@@ -404,7 +442,7 @@ class DataDictionary extends React.Component {
     return (
       <section className='container data-dictionary' id='data-dictionary'>
         <ReactModal
-          isOpen={this.state.showModal}
+          isOpen={!!this.state.showModal}
           className='help-window'
           overlayClassName='modal-overlay'
           contentLabel='Help Modal'
@@ -431,13 +469,12 @@ class DataDictionary extends React.Component {
           <div className='nouns'>
             <h5>Data Category</h5>
             <Select
-              clearable={false}
+              isClearable={false}
               name='toggle'
               options={this.state.nouns}
               onChange={this.handleNounChange}
               placeholder='Select category'
               aria-label='Select category'
-              resetValue='label'
               value={this.state.selectedNoun}
             />
           </div>
@@ -476,14 +513,16 @@ class DataDictionary extends React.Component {
               height={150}
             >
               <Pie
-                ref='interactivePie'
+                // ref removed: string refs are not supported in TypeScript
                 dataKey='value'
                 data={this.state.pieData}
                 innerRadius={40}
                 outerRadius={60}
               >
                 {
-                  this.state.pieData.map((entry, index) => <Cell key={index} fill={ this.state.colors[index % this.state.colors.length] } />)
+                  this.state.pieData.map((entry: any, index: number) => (
+                    <Cell key={index} fill={this.state.colors[index % this.state.colors.length]} />
+                  ))
                 }
               </Pie>
               <Tooltip wrapperStyle={{zIndex: 1000}}/>
@@ -492,8 +531,8 @@ class DataDictionary extends React.Component {
               <h4 style={{marginBottom: "20px"}}>Top 5 Common Fields in {this.state.selectedNoun.label}</h4>
               <ul style={{position: "relative"}}>
                 {
-                  this.state.pieData.map((entry, index) =>
-                    <li key={index}><span className='color-box' style={{backgroundColor: this.state.colors[index]}}/>{entry.name}</li>)
+                  this.state.pieData.map((entry: { name: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined }, index: React.Key | null | undefined) =>
+                    <li key={index}><span className='color-box' style={{backgroundColor: this.state.colors[Number(index) % this.state.colors.length]}}/>{entry.name}</li>)
                 }
               </ul>
             </div>
@@ -515,7 +554,10 @@ class DataDictionary extends React.Component {
         </div>
         <ReactTable
           data={data}
-          getTrProps={(state, rowInfo, column, instance) => {
+          getTrProps={(state: any, rowInfo: any, column: any, instance: any) => {
+            if (!rowInfo || !rowInfo.row || !rowInfo.row._original) {
+              return {};
+            }
             return {
               onClick: () => this.openModal(rowInfo.row._original)
             }
@@ -528,12 +570,12 @@ class DataDictionary extends React.Component {
           className='table -striped -highlight'
           filtered={this.state.filtered}
           resized={this.state.resized}
-          onSortedChange={sorted => this.setState({ sorted })}
-          onPageChange={page => this.setState({ page })}
-          onPageSizeChange={(pageSize, page) =>
+          onSortedChange={(sorted: any) => this.setState({ sorted })}
+          onPageChange={(page: any) => this.setState({ page })}
+          onPageSizeChange={(pageSize: any, page: any) =>
             this.setState({ page, pageSize })}
-          onResizedChange={resized => this.setState({ resized })}
-          onFilteredChange={filtered => this.setState({ filtered })}
+          onResizedChange={(resized: any) => this.setState({ resized })}
+          onFilteredChange={(filtered: any) => this.setState({ filtered })}
           style={{
             width: '100%',
             height: '494px',

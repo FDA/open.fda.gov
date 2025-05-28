@@ -1,6 +1,6 @@
 import React from 'react'
 import {marked} from 'marked'
-import { default as ReactTable } from "react-table"
+import ReactTable from "react-table-6"
 import { Tooltip } from 'react-tippy'
 
 import device510k from '../constants/fields/deviceclearance.yaml'
@@ -16,7 +16,7 @@ import Values from './RenderContentObject/Values'
 
 import '../css/components/FieldsHarmonization.scss'
 
-import 'react-table/react-table.css'
+// import 'react-table/react-table.css'
 
 type ValueType = {
   type: string,
@@ -255,19 +255,22 @@ class FieldsHarmonization extends React.Component<PROPS, State> {
     const columns = [{
       Header: 'Field',
       accessor: 'field',
-      Cell: (row: any) => (<Tooltip
-        arrow={true}
-        className='tooltip'
-        data-tip={row.value[0]}
-        data-for='field-tooltip'
-        data-event='click'
-        html={this.fieldDefinitionTooltip(row.value[0])}
-        interactive
-        position='right'
-        theme='light'
-        trigger='mouseenter'>
-        <span>{row.value[0]}</span>
-      </Tooltip>),
+      Cell: (row: any) => (
+        <Tooltip
+          arrow={true}
+          className='tooltip'
+          data-tip={row.value[0]}
+          data-for="this.field-tooltip"
+          data-event='click'
+          html={this.fieldDefinitionTooltip(row.value[0])}
+          interactive
+          position='right'
+          theme='light'
+          trigger='mouseenter'
+        >
+          <span>{row.value[0]}</span>
+        </Tooltip>
+      ),
       width: 242
     }]
 

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import faviconPNG from './favicon.png'
-import 'react-table/react-table.css'; // Directly import the CSS file
+// import 'react-table/react-table.css'; // Directly import the CSS file
 
 const webFontLoader: string = `
   WebFontConfig = {

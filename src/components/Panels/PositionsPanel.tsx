@@ -1,5 +1,6 @@
 import React, { JSX } from "react"
 import { API_LINK } from '../../constants/api'
+import { useTable } from 'react-table'
 
 type PositionsPanelState = {
   columns: Array<{ Header: string; accessor: string; Cell?: (row: any) => JSX.Element }>;
@@ -120,7 +121,3 @@ const Table = ({ columns, data }: { columns: any; data: any }) => {
 }
 
 export default PositionsPanel
-function useTable(arg0: { columns: any; data: any; }): { getTableProps: any; getTableBodyProps: any; headerGroups: any; rows: any; prepareRow: any; } {
-  throw new Error("Function not implemented.");
-}
-

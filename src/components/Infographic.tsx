@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react'
-import marked from 'marked'
+import {marked} from 'marked'
 
 import ChartBar from './ChartBar'
 import ChartDonut from './ChartDonut'
@@ -19,6 +19,12 @@ type tEXPLORER = {
   type: 'Bar'|'Line'|'Donut';
 };
 
+interface BarData {
+  count: number;
+  term?: string;
+  [key: string]: any;
+}
+
 type tPROPS = {
   infographics: any
   countParam: string | number | readonly string[] | undefined
@@ -29,7 +35,7 @@ type tPROPS = {
   current?: tEXPLORER;
   data?: {
     error?: boolean;
-    results: Array<Object>;
+    results: Array<BarData>;
   };
   fields?: Object;
   nextCountParam?: string;
@@ -43,7 +49,7 @@ type tPROPS = {
   onCountChange?: Function;
   onKeyPress?: Function;
   onCountChangeAndUpdate?: Function;
-  container?: Object;
+  container?: { state: { selected: string } } | null;
 };
 
 
@@ -102,17 +108,17 @@ const Infographic = (props: tPROPS) => {
 
   // Don't render if there is no data, or the field we are trying to
   // count by (visualize) is unknown
-  const fieldDefinition: void|Object = yamlGet(nextCountParam, fields)
+  const fieldDefinition: void|{description?:string} = yamlGet(nextCountParam || "", fields || {})
   const error: boolean = data?.error || !fieldDefinition
 
   // if fieldDef has description, then docs-ify it
   const markedFieldDef: string = fieldDefinition &&
     fieldDefinition?.description ?
-    `${marked(fieldDefinition.description)}` :
+    `${marked.parse(fieldDefinition.description)}` :
     ''
 
   // add breakpoint logic to filter
-  const FilterWithState: ReactClass = BPContainer(Filter, {
+  const FilterWithState = BPContainer(Filter, {
     filters: filters,
     onChange: onSearchChangeUpdate,
     selected: searchParam,
@@ -155,7 +161,7 @@ const Infographic = (props: tPROPS) => {
             (<div
               key={i}
               tabIndex={0}
-              dangerouslySetInnerHTML={{__html: marked(para)}} />)
+              dangerouslySetInnerHTML={{__html: marked.parse(para)}} />)
           )
         }
         <a
@@ -168,7 +174,7 @@ const Infographic = (props: tPROPS) => {
           {
             Object.keys(tabs).map((value, i) => {
               return (<button
-                onClick={() => {handler(tabs[value])} }
+                onClick={() => {handler && handler(tabs[value])} }
                 key={i}
                 id={'tab-' + i}
                 className={container?.state?.selected === value ? "tab active" : "tab"}>
@@ -303,12 +309,12 @@ const Infographic = (props: tPROPS) => {
                   <strong>{nextCountParam}</strong><br />
                   {
                     fieldDefinition &&
-                    fieldDefinition.description &&
+                    fieldDefinition.description ?
                     <span
                       dangerouslySetInnerHTML={{
                         __html: markedFieldDef,
                       }}
-                    />
+                    /> : null
                   }
                 </p>
               </div>
@@ -316,29 +322,28 @@ const Infographic = (props: tPROPS) => {
 
             { !error && type === 'Bar' &&
               <ChartBar
-                data={data.results}
-                fields={fields}
-                countParam={nextCountParam}
+                data={data?.results ?? []}
+                fields={fields || {}}
+                countParam={nextCountParam || ""}
               />
             }
 
             { !error && (type === 'Pie' || type === 'Donut') &&
               <ChartDonut
-                countParam={nextCountParam}
-                data={data?.results}
-                fields={fields}
-                hasLegend
-                divSize={`${!bp.desk ? size - 40 : size - 240}px`}
-                records={records}
-                size={`${!bp.desk ? size - 180 : size - 380}px`}
-              />
+              countParam={nextCountParam || ""}
+              data={data?.results ?? []}
+              fields={fields || {}}
+              hasLegend
+              divSize={`${!bp.desk ? size - 40 : size - 240}px`}
+              records={records ?? 0}
+              size={`${!bp.desk ? size - 180 : size - 380}px`} colors={[]}              />
             }
 
             { !error && type === 'Line' &&
               <ChartLine
                 countParam={nextCountParam || ""}
-                data={data?.results}
-                fields={fields}
+                data={(data?.results ?? []) as any}
+                fields={Array.isArray(fields) ? fields : []}
                 height={`${size / 2}`}
                 width={`${size}`}
               />

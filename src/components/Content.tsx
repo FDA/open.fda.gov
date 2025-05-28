@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react'
-import marked from 'marked'
+import {marked} from 'marked'
 import cx from 'classnames'
 
 import RenderContentObject from './RenderContentObject'
@@ -12,13 +12,14 @@ type tPROPS = {
   content: Array<Object|string>;
   examples: Array<Object>;
   explorers: Object;
-  infographicDefinitions: Object;
-  infographics: Object;
+  infographicDefinitions: any;
+  infographics: any;
   fields: Object;
   showMenu: boolean;
-  meta: Object;
+  meta: { start: string;
+    api_path: string; };
   fieldsMapped: Object;
-  fieldsFlattened: Object;
+  fieldsFlattened: Record<string, string>;
 };
 
 
@@ -74,9 +75,8 @@ const Content = (props: tPROPS) => {
             return (
               <InteractiveInfographic
                 infographicDefinitions={infographicDefinitions}
-                k={i}
-                meta={meta}
                 key={i}
+                meta={meta}
               />
             )
           }
@@ -93,12 +93,15 @@ const Content = (props: tPROPS) => {
           }
 
           // stringified markdown -> html
-          const html: string = marked(words)
+          const html = typeof words === 'string' ? marked.parse(words) : '';
+
+          // Ensure html is always a string (in case marked.parse returns a Promise)
+          const htmlStr: string = typeof html === 'string' ? html : '';
 
           // if header, add header class, etc
           const wrapperCx: string = cx({
-            'font-size-2 weight-700 marg-b-2 marg-t-3': html.indexOf('<h') !== -1,
-            'font-size-5 marg-t-2 marg-b-2': html.indexOf('<p>') !== -1,
+            'font-size-2 weight-700 marg-b-2 marg-t-3': htmlStr.indexOf('<h') !== -1,
+            'font-size-5 marg-t-2 marg-b-2': htmlStr.indexOf('<p>') !== -1,
           })
 
 
@@ -111,20 +114,17 @@ const Content = (props: tPROPS) => {
           // 3) loop over matches, incrementally wrapping external links
           //    with our wrapper class (link-external)
           // 4) finally output the linkified (or not) text
-          //
-          // assume that local links just do /path/path
-          // instead of http://whatever
-          const hasLink: boolean = html.indexOf('http://') !== -1
+          const hasLink: boolean = htmlStr.indexOf('http://') !== -1
           // regex for matching <a> tags WITH a valid http:// href
           const httpRE: RegExp = /<a[\s]+[^>]*?href[\s]?=[\s\"\']*(http:\/\/.*?)[\"\']*.*?>([^<]+|.*?)?<\/a>/gm
           // if no external links, just output the markdownified text
           // otherwise, we'll need to string replace the external links
           // with a wrapper element, for the external link icon
-          let finalOutput: string = html
+          let finalOutput: string = htmlStr
 
           if (hasLink) {
             // array of matches, we should have at least one
-            const matches: string[] | null | undefined = html.match(httpRE)
+             const matches: string[] | null | undefined = typeof html === 'string' ? html.match(httpRE) : null
 
             // but just to be safe
             if (matches) {

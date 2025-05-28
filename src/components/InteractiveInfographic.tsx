@@ -8,18 +8,40 @@ import Select from 'react-select'
 
 import '../css/components/InteractiveInfographic.scss'
 
-type tPROPS = {
-  meta: Array<Object|string>;
-  infographicDefinitions: Object;
+
+interface InfographicChoice {
+  subfield: string;
+  subfieldLabel: string;
+  type: string;
+  [key: string]: any; 
+}
+interface infographicDefinitionsProps {
+  choices: InfographicChoice[];
+  globalDefs: Object;
+  api_path: string;
+}
+
+type tSTATE = {
+  choice: Object|null;
+  options: Array<Object>;
+  choosenField: Object|string;
+  infographic?: React.ReactNode;
 };
 
-class InteractiveInfographic extends React.Component {
+type tPROPS = {
+  meta: {
+    api_path: string;
+  };
+  infographicDefinitions: infographicDefinitionsProps;
+};
+
+class InteractiveInfographic extends React.Component<tPROPS, tSTATE> {
 
   constructor (props: tPROPS) {
     super(props)
 
 
-    const options = this.props.infographicDefinitions.choices.map(choice => {
+    const options = this.props.infographicDefinitions.choices.map((choice: any) => {
       return {
         value: choice.subfield,
         label: choice.subfieldLabel
@@ -38,14 +60,16 @@ class InteractiveInfographic extends React.Component {
     this.handleChange(this.state.choosenField)
   }
 
-  handleChange (value) {
+  handleChange (value: any) {
 
-    let choice = null
-    this.props.infographicDefinitions.choices.forEach(obj => {
+    let choice: InfographicChoice | null = null
+    this.props.infographicDefinitions.choices.forEach((obj: InfographicChoice) => {
       if (obj.subfield == value.value) {
         choice = obj
       }
     })
+
+    if(!choice) return;
 
     let infographic = null
 

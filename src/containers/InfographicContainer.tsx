@@ -45,7 +45,7 @@ class InfographicContainer extends React.Component<{
       filters: [], 
       title: '', 
       type: 'Line',
-      short: '' // Add any other required properties if needed
+      short: ''
     },
     data: null,
     dateContraint: '',
@@ -116,7 +116,13 @@ class InfographicContainer extends React.Component<{
 
     if (infographics) {
       infographics.forEach(d => {
-        map[d.short as string] = d
+        map[d.short as string] = {
+          countParam: d.countParam,
+          short: d.short,
+          filters: d.filters,
+          dateConstraint: d.dateConstraint,
+          type: d.type || 'Line', // default to Line if not specified
+        }
       })
     }
 
@@ -358,17 +364,19 @@ class InfographicContainer extends React.Component<{
     return (
       <div>
         <Infographic
-        {...this.props}
-        {...this.state}
+          {...this.props}
+          {...this.state}
+          fieldsFlattened={(fieldsFlattened: any) => this.state.fieldsFlattened}
 
-        onSearchChangeUpdate={this._update.bind(this)}
-        onSearchChange={this._onSearchChange.bind(this)}
-        records={this.state.matchingRecords}
-        handler={this._tabToggle.bind(this)}
-        onKeyPress={this._onKeyPress.bind(this)}
-        onCountChange={this._onCountChange.bind(this)}
-        onCountChangeAndUpdate={this._onCountChangeAndUpdate.bind(this)}
-        container={this}        />
+          onSearchChangeUpdate={this._update.bind(this)}
+          onSearchChange={this._onSearchChange.bind(this)}
+          records={this.state.matchingRecords}
+          handler={this._tabToggle.bind(this)}
+          onKeyPress={this._onKeyPress.bind(this)}
+          onCountChange={this._onCountChange.bind(this)}
+          onCountChangeAndUpdate={this._onCountChangeAndUpdate.bind(this)}
+          container={this}
+        />
       </div>
     )
   }

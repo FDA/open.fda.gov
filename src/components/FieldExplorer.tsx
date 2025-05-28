@@ -9,6 +9,14 @@ import FieldDownload from './FieldDownload'
 import FieldExplorerContainer from '../containers/FieldExplorerContainer'
 import '../css/components/FieldExplorer.scss'
 
+type tLiProps = {
+  field: any;
+  updateSelected: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  key: string;
+  i: number;
+  isFDA: boolean;
+};
+
 const _renderLi = (props: tLiProps) => {
   const {
     field,
@@ -21,7 +29,7 @@ const _renderLi = (props: tLiProps) => {
   // array
   let type: string = ''
   // one_of, etc
-  let values: Object | null | undefined = null
+  let values: { type: string, value: { [key: string]: any } } | null | undefined = null
   // of strings
   let type2: string = ''
   // description text, can have docs
@@ -29,9 +37,9 @@ const _renderLi = (props: tLiProps) => {
   // query syntax pattern
   let pattern: string = ''
   // whether field has .exact
-  let isExact: bool = false
+  let isExact: boolean = false
   // keys in the selected field
-  const field_keys: Array = Object.keys(field)
+  const field_keys: any[] = Object.keys(field)
 
   if (field) {
     desc = field.description
@@ -77,7 +85,7 @@ const _renderLi = (props: tLiProps) => {
         {
           desc &&
           <div
-            dangerouslySetInnerHTML={{__html: marked(desc)}}
+            dangerouslySetInnerHTML={{__html: marked.parse(desc)}}
           />
         }
         {
@@ -139,7 +147,7 @@ const _renderLi = (props: tLiProps) => {
   )
 }
 
-function render_object (props) {
+function render_object (props: { fields: any; updateSelected: any; selectedField: any; i: any }) {
   const {
     fields,
     selectedField,
@@ -173,15 +181,30 @@ function render_object (props) {
   )
 }
 
-function get_fields (fields, prefix) {
-  return Object.keys(fields).reduce(function (acc, key) {
+function get_fields(
+  fields: { [x: string]: any },
+  prefix: string | undefined
+): Array<{ label: string; value: string }> {
+  return Object.keys(fields).reduce(function (
+    acc: Array<{ label: string; value: string }>,
+    key
+  ) {
     const value = fields[key]
     if (typeof value === 'object' && value !== null && key !== 'possible_values') {
       if (['properties', 'items'].indexOf(key) === -1) {
-        acc.push((typeof prefix === 'undefined') ? {label: key, value: key} : {label: prefix + '.' + key, value: prefix + '.' + key})
-        acc.push.apply(acc, get_fields(value, (typeof prefix === 'undefined') ? key : prefix + '.' + key))
-      }
-      else {
+        acc.push(
+          typeof prefix === 'undefined'
+            ? { label: key, value: key }
+            : { label: prefix + '.' + key, value: prefix + '.' + key }
+        )
+        acc.push.apply(
+          acc,
+          get_fields(
+            value,
+            typeof prefix === 'undefined' ? key : prefix + '.' + key
+          )
+        )
+      } else {
         acc.push.apply(acc, get_fields(value, prefix))
       }
     }
@@ -191,11 +214,11 @@ function get_fields (fields, prefix) {
 
 type tPROPS = {
   k: number;
-  fields: Object;
+  fields: { properties: { [key: string]: any } };
   meta: Object;
   selectedField: string;
   updateField: Function;
-  updateSelected: Function;
+  updateSelected: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 // called by Content
@@ -218,18 +241,17 @@ const FieldExplorer = (props: tPROPS) => {
     updateSelected
   } = props
 
-  const field_names = get_fields(fields.properties)
+  const field_names = get_fields(fields.properties, undefined)
 
   return (
     <section key={k} className='field-explorer'>
-      <Select
+      <Select<{ label: string; value: string }>
         name='form-field-name'
         aria-label='form-field-name'
-        value={selectedField}
+        value={field_names.find(option => option.value === selectedField) || null}
         options={field_names}
-        onChange={updateField}
+        onChange={option => option && updateField(option.value)}
         placeholder='Search the fields'
-        resetValue='fields'
       />
       <div className='sans weight-600 marg-t-2 marg-b-1'>Navigate the fields:</div>
       <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={500} className='field-explorer-border'>
