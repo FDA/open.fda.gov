@@ -7,7 +7,8 @@ import Link from 'gatsby-link'
 import '../css/components/NounBox.scss'
 
 type tPROPS = {
-  endpoint_name: string
+  endpoint_name: string,
+  noun_name: 'food' | 'medical_devices' | 'drugs' | 'other' | 'animal_and_veterinary'
 };
 
 /**

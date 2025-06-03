@@ -6,9 +6,21 @@ import Joyride, { STATUS } from 'react-joyride'
 import InfographicContainer from '../containers/InfographicContainer'
 
 
-class InteractiveInfographicTour extends React.Component {
+type InteractiveInfographicTourState = {
+  tourRun: boolean
+};
 
-  constructor (props: Object) {
+type InteractiveInfographicTourProps = {
+  fieldsMapped: any;
+  fieldsFlattened: any;
+  fields: any;
+  infographics: any;
+  meta: any;
+};
+
+class InteractiveInfographicTour extends React.Component<InteractiveInfographicTourProps, InteractiveInfographicTourState> {
+
+  constructor (props: InteractiveInfographicTourProps) {
     super(props)
 
     this.state = {
@@ -25,7 +37,7 @@ class InteractiveInfographicTour extends React.Component {
   }
 
 
-  handleClickStart = e => {
+  handleClickStart = (e: { preventDefault: () => void }) => {
     e.preventDefault()
 
 
@@ -40,7 +52,7 @@ class InteractiveInfographicTour extends React.Component {
     })
   }
 
-  handleJoyrideCallback = data => {
+  handleJoyrideCallback = (data: { status: any; type: any }) => {
     const { status, type } = data
     if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status)) {
       this.setState({ tourRun: false })
@@ -50,7 +62,7 @@ class InteractiveInfographicTour extends React.Component {
 
   render (): any {
 
-    const steps: Array = [
+    const steps: Array<any> = [
       {
         target: ('#infographic-tabs'),
         content: 'These tabs represents the different charts available to view.',
@@ -105,15 +117,14 @@ class InteractiveInfographicTour extends React.Component {
           styles={{
             options: {
               primaryColor: "#000",
-              textColor: "#004a14",
-              beaconColor: "rgba(79, 26, 0, 0.6)"
+              textColor: "#004a14"
             }
           }}
           run={this.state.tourRun}
           callback={this.handleJoyrideCallback}
         />
         <InfographicContainer
-          tourStart={this.handleClickStart}
+          tourStart={() => this.handleClickStart}
           fieldsMapped={this.props.fieldsMapped}
           fieldsFlattened={this.props.fieldsFlattened}
           fields={this.props.fields}

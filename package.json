@@ -111,6 +111,7 @@
     "@types/prop-types": "^15.7.14",
     "@types/react": "^19.1.2",
     "@types/react-custom-scrollbars": "^4.0.13",
+    "@types/react-document-title": "^2.0.10",
     "@types/react-dom": "^19.1.2",
     "@types/react-highlight.js": "^1.0.5",
     "@types/react-modal": "^3.16.3",

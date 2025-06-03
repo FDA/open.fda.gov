@@ -133,6 +133,8 @@ if (!mob && hasWindow) {
       super(props)
       this.nf = Intl.NumberFormat()
 
+      const initWidth = typeof window !== 'undefined' ? Math.max(1100, window.innerWidth - 400) : 1100
+
       this.state = {
         lastThirtyDayUsage: 0,
         sinceLaunchUsage: props.accessSinceLaunch,
@@ -143,7 +145,7 @@ if (!mob && hasWindow) {
         downloadStats: {},
         prefix: "1/" + API_NAME + "/",
         breadcrumbs: ["1/" + API_NAME + "/"],
-        width: 1100,
+        width: initWidth,
         showGrid: true,
         interpolation: "curveBasis",
         chartRow: {
@@ -177,10 +179,46 @@ if (!mob && hasWindow) {
       this.onHighlightChange = this.onHighlightChange.bind(this)
       this.onSelectionChange = this.onSelectionChange.bind(this)
       this.onTrackerChanged = this.onTrackerChanged.bind(this)
+      this.handleChartResize = this.handleChartResize.bind(this)
+      this.handleWindowResize = this.handleWindowResize.bind(this)
     }
 
     componentDidMount () {
       this.fetchStats()
+
+      if (typeof window !== 'undefined') {
+        window.addEventListener('resize', this.handleChartResize.bind(this))
+      }
+
+      this.setState({
+        width: size,
+        fontFamily: this.state.font,
+        color: this.state.color,
+        yLegendCoordinate: this.state.yLegendCoordinate,
+        fontSize: this.state.fontSize
+      })
+    }
+
+    componentWillUnmount () {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', this.handleChartResize.bind(this))
+      }
+    }
+
+    handleChartResize () {
+      if (typeof window !== 'undefined') {
+        this.setState({
+          width: Math.max(1100, window.innerWidth - 400)
+        })
+      }
+    }
+
+    handleWindowResize = () => {
+      if (typeof window !== 'undefined') {
+        this.setState({
+          width: Math.max(1100, window.innerWidth - 400)
+        })
+      }
     }
 
     handleUsageResponse (data: any) {
@@ -312,7 +350,9 @@ if (!mob && hasWindow) {
     }
 
     onHighlightChange () {}
-    onChartResize () {}
+    onChartResize (width: number) {
+      this.handleChartResize(width)
+    }
     onSelectionChange (selection: any) {
       this.setState({
         selection
@@ -504,7 +544,7 @@ if (!mob && hasWindow) {
                     showGrid={this.state.showGrid}
                     width={this.state.width}
                     onTrackerChanged={this.onTrackerChanged}
-                    onChartResize={this.handleChartResize}
+                    onChartResize={this.onChartResize}
                   >
                     <ChartRow
                       trackerInfoValues={this.state.trackerInfoValues}
@@ -561,17 +601,14 @@ if (!mob && hasWindow) {
 
                       // render without link
                       return (<span key={i}>{ (i > 0 ? ' > ' : '') + b.substring(0, b.length - 1).split('/').pop()}</span>)
-
                     })
                   }
                 </div>
                 <div className='marg-1'>
-
                   <Table labels={['API', 'Hits']}
                     rows={this.state.data.table}
                     cols={['path', 'hits']}
                     formatters={{path: pathFormat}}/>
-
                 </div>
               </div>
             </div>

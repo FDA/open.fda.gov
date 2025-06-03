@@ -3,12 +3,25 @@
 import React from 'react'
 
 
-class Checkbox extends React.Component {
-  state = {
+interface CheckboxProps {
+  column: {
+    isSelected: boolean;
+    label: string;
+    color: string;
+  };
+  handleCheckboxChange: (column: any) => void;
+}
+
+interface CheckboxState {
+  isChecked: boolean;
+}
+
+class Checkbox extends React.Component<CheckboxProps, CheckboxState> {
+  state: CheckboxState = {
     isChecked: this.props.column.isSelected,
   }
 
-  componentDidUpdate (prevProps, prevState, snapshot): void {
+  componentDidUpdate (prevProps: any, prevState: any, snapshot: any): void {
     if (this.props.column.isSelected !== this.state.isChecked) {
       this.setState({
         isChecked: this.props.column.isSelected

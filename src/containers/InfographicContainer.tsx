@@ -30,7 +30,11 @@ type tSTATE = {
 class InfographicContainer extends React.Component<{
   infographics?: Array<{ countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }>;
   meta: { start: string; api_path: string };
-  fieldsFlattened: Record<string, string>;
+  fieldsFlattened?: Record<string, string>;
+  fieldsMapped?: Record<string, any>;
+  fields?: Record<string, any>;
+  tourStart?: () => void;
+  
 }> {
   static displayName = 'containers/InfographicContainer';
 
@@ -67,7 +71,7 @@ class InfographicContainer extends React.Component<{
     // type of infographic to render
     type: 'Line',
     meta: this.props.meta,
-    fieldsFlattened: this.props.fieldsFlattened,
+    fieldsFlattened: this.props.fieldsFlattened || {},
   };
 
   static defaultProps: Object = {
@@ -223,7 +227,7 @@ class InfographicContainer extends React.Component<{
             // what type of chart to render
             // we default to greater specificity (ie, defined by field)
             // but we also fall back to the current explorer default
-            type: that.props.fieldsFlattened[countParam] || that.state.current.type,
+            type: that.props.fieldsFlattened?.[countParam] || that.state.current.type,
           })
         }).catch(function (res) {
           that.setState({ data: res.responseJSON})
@@ -356,7 +360,7 @@ class InfographicContainer extends React.Component<{
   }
 
   render (): any {
-    if (!this.state.data) return <span />
+    if (this.state.data === null) return <span />
 
     // pull out keys for sidebarMenu
     const infographicKeys: Array<string> = Object.keys(this.state.infographics)
@@ -366,6 +370,18 @@ class InfographicContainer extends React.Component<{
         <Infographic
           {...this.props}
           {...this.state}
+          data={
+            this.state.data && typeof this.state.data === 'object' && 'results' in this.state.data
+              ? (this.state.data as { error?: boolean; results: any[] })
+              : undefined
+          }
+          current={{
+            description: this.state.current.description || '',
+            filters: this.state.current.filters || [],
+            title: this.state.current.title || '',
+            type: this.state.current.type || 'Line',
+            ...this.state.current
+          }}
           fieldsFlattened={(fieldsFlattened: any) => this.state.fieldsFlattened}
 
           onSearchChangeUpdate={this._update.bind(this)}

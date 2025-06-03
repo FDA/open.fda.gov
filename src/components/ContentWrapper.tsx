@@ -41,7 +41,8 @@ const wrapperCx = cx({
 })
 
 // add fixed positioning functinality to reference sidebar
-const ComposedSidebar: React.ComponentType<tPROPS> = SideBarContainer(SideBar)
+// If SideBarContainer is a higher-order component that passes through props, use a type assertion:
+const ComposedSidebar = SideBarContainer(SideBar as React.ComponentType<any>)
 
 // i just exist to render the Sidebar, and
 // determine whether we render ref specific
@@ -59,11 +60,11 @@ const ContentWrapper = (props: tPROPS) => {
   useEffect(() => {
   }, [])
 
-  let fieldsMapped: Object = {}
-  let fieldsFlattened: Object = {}
+  let fieldsMapped: Record<string, any> = {}
+  let fieldsFlattened: Record<string, string> = {}
   if (explorers && fields) {
     fieldsMapped = mapFields(fields.properties)
-    fieldsFlattened = flattenFields(fieldsMapped)
+    fieldsFlattened = flattenFields(fieldsMapped) as Record<string, string>
   }
 
   const contentCx = cx({
@@ -78,7 +79,8 @@ const ContentWrapper = (props: tPROPS) => {
         path={''} 
         description=''
         htmlDescription={false}
-        {...meta}      />
+        type={meta.type as "homepage" | "endpoint" | "update" | "dataset" | undefined}
+      />
       {
         <EndpointStatus
         endpoint={''} path={''} status={''} fullPath={''} data={null} {...meta}        />
@@ -87,12 +89,12 @@ const ContentWrapper = (props: tPROPS) => {
         {
           meta.type !== 'update' &&
           <ComposedSidebar
-            className='m-hide'
-            reference={content} content={[]} explorers={{}} infographics={[]} infographicDefinitions={{undefined}} fields={{
+            content={[]} explorers={{}} infographics={[]} infographicDefinitions={{undefined}} fields={{
               properties: []
             }} hideMenu={false} meta={{
               type: ''
-            }} type={""} showMenu={false}          />
+            }} type={""} showMenu={false} 
+            sidebarProps={{ className: 'm-hide' }}        />
         }
         <div
           className={contentCx}
@@ -100,7 +102,13 @@ const ContentWrapper = (props: tPROPS) => {
             maxWidth: '100%',
           }}>
           <Content
-          examples={[]} showMenu={false} {...props}
+          examples={[]} 
+          {...props}
+          meta={{
+            ...props.meta,
+            start: (props.meta as any).start || '',
+            api_path: (props.meta as any).api_path || ''
+          }}
           fieldsMapped={fieldsMapped}
           fieldsFlattened={fieldsFlattened}          />
         </div>

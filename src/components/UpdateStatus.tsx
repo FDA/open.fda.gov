@@ -4,8 +4,16 @@ import moment from "moment"
 import { API_LINK } from "../constants/api"
 
 
-class UpdateStatus extends React.Component {
-  constructor (props: Object) {
+interface UpdateStatusState {
+  status: string | null | undefined;
+}
+
+interface UpdateStatusProps {
+  api_path: string;
+}
+
+class UpdateStatus extends React.Component<UpdateStatusProps, UpdateStatusState> {
+  constructor (props: UpdateStatusProps) {
     super(props)
 
     this.state = {

@@ -2,9 +2,14 @@
 
 import React from 'react'
 
+type Meta = {
+  datasets: string[];
+  // add other properties of meta if needed
+};
+
 type tPROPS = {
   k: number;
-  meta: Object;
+  meta: Meta;
 };
 
 // used by Content to render out datasets

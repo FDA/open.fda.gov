@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-import marked from 'marked'
+import {marked} from 'marked'
 import Datasets from './Datasets'
 import Downloads from './Downloads'
 import MultipleProductTable from './MultipleProductTable'
@@ -11,16 +11,16 @@ import InteractiveInfographic from './InteractiveInfographic'
 import InfographicContainer from '../containers/InfographicContainer'
 
 type tPROPS = {
-  obj: Object;
+  obj: Record<string, any>;
   k: number;
-  examples: Object;
-  explorers: Object;
-  infographicDefinitions: Object;
-  infographics: Object;
-  fieldsMapped: Object;
-  fieldsFlattened: Object;
-  fields: Object;
-  meta: Object;
+  examples: Record<string, any>;
+  explorers: Record<string, any>;
+  infographicDefinitions: Record<string, any>;
+  infographics: Record<string, any>;
+  fieldsMapped: Record<string, any>;
+  fieldsFlattened: Record<string, any>;
+  fields: Record<string, any>;
+  meta: Record<string, any>;
 };
 
 // called by Content
@@ -62,7 +62,15 @@ const ContentAccordion = (props: tPROPS) => {
   // normalize the key
   const lowerKey: string = key.toLowerCase()
   // stringified docs -> html
-  const key_html: string = marked(key)
+  const [key_html, setKeyHtml] = React.useState<string>('');
+  React.useEffect(() => {
+    const result = marked(key);
+    if (result instanceof Promise) {
+      result.then(setKeyHtml);
+    } else {
+      setKeyHtml(result);
+    }
+  }, [key]);
   const wrapperCx: string = 'font-size-2 weight-700 marg-b-2 marg-t-3'
   const sectionCx: string = cx({
     'bg-secondary-lightest marg-t-2 marg-b-2 pad-2 pad-b-1': key === 'disclaimer',
@@ -99,7 +107,15 @@ const ContentAccordion = (props: tPROPS) => {
               )
             }
             // stringified docs -> html
-            const html: string = marked(content)
+            const [html, setHtml] = React.useState<string>('');
+            React.useEffect(() => {
+              const result = marked(content as string);
+              if (result instanceof Promise) {
+                result.then(setHtml);
+              } else {
+                setHtml(result);
+              }
+            }, [content]);
 
             // kind of a weird way to do this
             // but, it might be easier for non-technical
@@ -132,7 +148,6 @@ const ContentAccordion = (props: tPROPS) => {
             if (content === 'multipleProductTable') {
               return (
                 <MultipleProductTable
-                  k={j}
                   key={j}
                 />
               )
@@ -150,23 +165,35 @@ const ContentAccordion = (props: tPROPS) => {
             }
 
             if (content === 'infographic' && infographics) {
+              // Convert infographics object to array if necessary
+              const infographicsArray = Array.isArray(infographics)
+                ? infographics
+                : Object.values(infographics);
               return (
                 <InfographicContainer
                   { ...props }
-                  infographics={infographics}
-                  k={j}
-                  meta={meta}
+                  infographics={infographicsArray}
+                  meta={{
+                    start: meta.start,
+                    api_path: meta.api_path,
+                    ...meta
+                  }}
                   key={j}
                 />
               )
             }
 
             if (content === 'visualization') {
+              // Ensure infographicDefinitions has the required properties
+              const infographicDefs = {
+                choices: infographicDefinitions.choices,
+                globalDefs: infographicDefinitions.globalDefs,
+                api_path: meta.api_path,
+              };
               return (
                 <InteractiveInfographic
-                  infographicDefinitions={infographicDefinitions}
-                  k={j}
-                  meta={meta}
+                  infographicDefinitions={infographicDefs}
+                  meta={{ api_path: meta.api_path }}
                   key={j}
                 />
               )
@@ -186,8 +213,7 @@ const ContentAccordion = (props: tPROPS) => {
                 <KeyFacts
                   noun_name={meta.api_path.split("/")[1]}
                   endpoint_name={meta.api_path.split("/")[2]}
-                  key={j}
-                />
+                  key={j} status={''} harmonized={false}                />
               )
             }
 

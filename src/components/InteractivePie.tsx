@@ -8,7 +8,24 @@ import { PieChart, Pie, Cell, Sector, Legend} from "recharts"
 
 const RADIAN = Math.PI / 180
 
-const renderActiveShape = (props) => {
+interface RenderActiveShapeProps {
+  cx: number;
+  cy: number;
+  midAngle: number;
+  innerRadius: number;
+  outerRadius: number;
+  startAngle: number;
+  endAngle: number;
+  fill: string;
+  payload: any;
+  percent: number;
+  value: number;
+  pct?: string;
+  name?: string;
+  textLabel?: string;
+}
+
+const renderActiveShape = (props: any) => {
   const { cx,
     cy,
     midAngle,
@@ -82,9 +99,27 @@ const renderActiveShape = (props) => {
   )
 }
 
-class TwoLevelPieChart extends React.Component {
+interface TwoLevelPieChartProps {
+  parent: { setState: (state: any) => void };
+  default: { index?: number };
+  width: number;
+  height: number;
+  data: any[];
+  radius: { cx: number; cy: number; innerRadius: number; outerRadius: number };
+  fill: string;
+  colors: string[];
+  textLabel?: string;
+  onMouseEnter?: (data: any, index: number) => void;
+  onClick?: (data: any, index: number) => void;
+}
 
-  constructor (props: Object) {
+interface TwoLevelPieChartState {
+  activeIndex: number | null;
+}
+
+class TwoLevelPieChart extends React.Component<TwoLevelPieChartProps, TwoLevelPieChartState> {
+
+  constructor (props: TwoLevelPieChartProps) {
     super(props)
 
     this.state = {
@@ -105,7 +140,7 @@ class TwoLevelPieChart extends React.Component {
     })
   }
 
-  onPieEnter (data, index) {
+  onPieEnter (data: any[], index:any) {
     this.setState({
       activeIndex: index,
     })
@@ -114,7 +149,7 @@ class TwoLevelPieChart extends React.Component {
     }
   }
 
-  onPieClick (data, index) {
+  onPieClick (data: any[], index: any) {
     this.setState({
       activeIndex: index,
     })
@@ -126,16 +161,18 @@ class TwoLevelPieChart extends React.Component {
     }
   }
 
+  interactivePie = React.createRef<HTMLDivElement>()
+
   render (): any {
     return (
       <PieChart
         width={this.props.width}
         height={this.props.height}
       >
+        <div ref={this.interactivePie}>
         <Pie
-          ref='interactivePie'
           dataKey='value'
-          activeIndex={this.state.activeIndex}
+          activeIndex={this.state.activeIndex !== null ? this.state.activeIndex : undefined}
           activeShape={renderActiveShape}
           data={this.props.data}
           cx={this.props.radius.cx}
@@ -144,12 +181,12 @@ class TwoLevelPieChart extends React.Component {
           outerRadius={this.props.radius.outerRadius}
           fill={this.props.fill}
           onClick={this.onPieClick}
-          textLabel={this.props.textLabel}
         >
           {
             this.props.data.map((entry, index) => <Cell key={index} fill={ this.props.colors[index % this.props.colors.length] } />)
           }
         </Pie>
+        </div>
       </PieChart>
     )
   }

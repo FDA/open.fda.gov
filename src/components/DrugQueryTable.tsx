@@ -6,7 +6,11 @@ const cellCx: string = 'b-b-1 b-r-1 font-size-1 pad-2'
 const smallCx: string = 'small pad-l-1 inline-block'
 const ulCx: string = 'font-size-3 pad-t-1'
 
-const DrugQueryTable = (props: Object) => (
+type DrugQueryTableProps = {
+  k: React.Key
+}
+
+const DrugQueryTable = (props: DrugQueryTableProps) => (
   <section
     key={props.k}
     className='clr-gray marg-t-2 b-l-1 b-t-1'>

@@ -1,72 +1,66 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
 
-type tPROPS = {
-    labels: any[],
-    formatters: Record<string, (cell: any, row: any) => any>,
-    className?: string,
-    style?: React.CSSProperties,
-    onClick?: (event: React.MouseEvent<HTMLElement>) => void,
-    cols : any[],
-    rows: any[],
+type FormatterFn = (cell: any, row: any) => React.ReactNode;
+
+type Props = {
+  labels?: string[];
+  formatters?: Record<string, FormatterFn>;
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: (row: any, rowIndex: number) => void;
+  cols: string[];
+  rows: Record<string, any>[];
 };
 
-const Table = (props:tPROPS) => {
-
-  class HtmlTable extends React.Component {
-    rows: any[];
-    cols: any[];
-    labels: any;
-    formatters: any;
-
-    constructor (props:tPROPS) {
-      super(props)
-      this.rows = props.rows
-      this.cols = props.cols
-      this.labels = props.labels ? props.labels : props.cols
-      this.formatters = props.formatters || {}
-    }
-    format (cell: any, row: any, col: string | number, rowIndex: any, colIndex: any) {
-      const formatter = this.formatters[col]
-      if (formatter) {
-        return formatter(cell, row)
-      }
-      return cell
-    }
-    render () {
-      const head = (
-        <tr>
-          {
-
-            this.labels.map((cell: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined, j: string) => <th key={'c' + j}>{cell}</th>)
-          }
-        </tr>
-      )
-
-      const body = this.rows.map((row: { [x: string]: any; }, i: React.Key | null | undefined) => {
-        return (
-          <tr key={i}>
-            {
-              this.cols.map((col: string | number, j: React.Key | null | undefined) =>
-                <td key={j}>{this.format(row[col], row, col, i, j)}</td>)
-            }
+const Table: React.FC<Props> = ({
+  labels,
+  formatters = {},
+  className = '',
+  style = {},
+  onClick,
+  cols,
+  rows
+}) => {
+  const renderCell = (
+    cell: any,
+    row: Record<string, any>,
+    col: string,
+    rowIndex: number,
+    colIndex: number
+  ) => {
+    const formatter = formatters[col];
+    return formatter ? formatter(cell, row) : cell;
+  };
+return (
+    <div className="overflow-x-auto w-full">
+      <table className={`min-w-full border-collapse table ${className}`}style={style}>
+        <thead style={{ textAlign: 'start' }}>
+          <tr style={{ textAlign: 'start' }}>
+            {(labels ?? cols).map((label, index) => (
+              <th style={{ textAlign: 'start' }} key={index}className="px-4 py-2 border-b font-semibold text-left bg-gray-100">
+                {label}
+              </th>
+            ))}
           </tr>
-        )
-      })
-
-      return (<table className='table'>
-        <thead>
-          {head}
         </thead>
         <tbody>
-          {body}
+          {rows.map((row, rowIndex) => (
+            <tr
+              key={rowIndex}
+              className="hover:bg-gray-50 cursor-pointer"
+              onClick={() => onClick?.(row, rowIndex)}
+            >
+              {cols.map((col, colIndex) => (
+                <td key={colIndex}className="px-4 py-2 border-b">
+                  {renderCell(row[col], row, col, rowIndex, colIndex)}
+                </td>
+              ))}
+            </tr>
+          ))}
         </tbody>
-      </table>)
-    }
-  }
+      </table>
+    </div>
+  );
+};
 
-  return <HtmlTable {...props} />
-}
-
-Table.displayName = 'component/Table'
-export default Table
+export default Table;

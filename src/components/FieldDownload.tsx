@@ -1,7 +1,7 @@
 import React from 'react'
 import '../css/components/FieldDownload.scss'
 
-const pdfDownloadMap: Object = Object.freeze({
+const pdfDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'animalandveterinarydrugevent': '/fields/animalandveterinaryevent_reference.pdf',
   'foodevent': '/fields/foodevent_reference.pdf',
   'foodenforcement': '/fields/foodenforcement_reference.pdf',
@@ -24,9 +24,9 @@ const pdfDownloadMap: Object = Object.freeze({
   'othernsde': '/fields/othernsde_reference.pdf',
   'othersubstance': '/fields/othersubstance_reference.pdf',
   'tobaccoproblem': '/fields/tobaccoproblem_reference.pdf'
-})
+});
 
-const xlsxDownloadMap: Object = Object.freeze({
+const xlsxDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'animalandveterinarydrugevent': '/fields/animalandveterinaryevent_reference.xlsx',
   'foodevent': '/fields/foodevent_reference.xlsx',
   'foodenforcement': '/fields/foodenforcement_reference.xlsx',
@@ -49,9 +49,9 @@ const xlsxDownloadMap: Object = Object.freeze({
   'othernsde': '/fields/othernsde_reference.xlsx',
   'othersubstance': '/fields/othersubstance_reference.xlsx',
   'tobaccoproblem': '/fields/tobaccoproblem_reference.xlsx'
-})
+});
 
-const yamlDownloadMap: Object = Object.freeze({
+const yamlDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'animalandveterinarydrugevent': '/fields/animalandveterinaryevent.yaml',
   'foodevent': '/fields/foodevent.yaml',
   'foodenforcement': '/fields/foodenforcement.yaml',
@@ -74,8 +74,16 @@ const yamlDownloadMap: Object = Object.freeze({
   'othernsde': '/fields/othernsde.yaml',
   'othersubstance': '/fields/othersubstance.yaml',
   'tobaccoproblem': '/fields/tobaccoproblem.yaml'
-})
+});
 
+
+type tPROPS = {
+  k: string | number;
+  meta: {
+    status: string;
+    [key: string]: any;
+  };
+};
 
 const FieldDownload = (props: tPROPS) => {
   const {
@@ -88,17 +96,17 @@ const FieldDownload = (props: tPROPS) => {
     <section className='marg-t-2' key={k}>
       <a href={pdfDownloadMap[meta.status]} className='' download='fields.pdf'>
         <button className='button bg-primary clr-white weight-700'>
-          <fa className='fa fa-file-pdf-o fa-lg marg-r-1' />Download PDF
+          <i className='fa fa-file-pdf-o fa-lg marg-r-1' />Download PDF
         </button>
       </a>
       <a href={xlsxDownloadMap[meta.status]} className='' download='fields.xlsx'>
         <button className='button bg-primary marg-l-2 clr-white weight-700'>
-          <fa className='fa fa-file-excel-o fa-lg marg-r-1' />Download XLSX
+          <i className='fa fa-file-excel-o fa-lg marg-r-1' />Download XLSX
         </button>
       </a>
       <a href={yamlDownloadMap[meta.status]} className='' download='fields.yaml'>
         <button className='button bg-primary marg-l-2 clr-white weight-700'>
-          <fa className='fa fa-file-code-o fa-lg marg-r-1' />Download YAML
+          <i className='fa fa-file-code-o fa-lg marg-r-1' />Download YAML
         </button>
       </a>
     </section>

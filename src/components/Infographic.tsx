@@ -114,7 +114,7 @@ const Infographic = (props: tPROPS) => {
   // if fieldDef has description, then docs-ify it
   const markedFieldDef: string = fieldDefinition &&
     fieldDefinition?.description ?
-    `${marked.parse(fieldDefinition.description)}` :
+    `${marked(fieldDefinition.description)}` :
     ''
 
   // add breakpoint logic to filter
@@ -161,7 +161,7 @@ const Infographic = (props: tPROPS) => {
             (<div
               key={i}
               tabIndex={0}
-              dangerouslySetInnerHTML={{__html: marked.parse(para)}} />)
+              dangerouslySetInnerHTML={{__html: marked(para)}} />)
           )
         }
         <a

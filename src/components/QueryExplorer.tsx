@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react'
-import * as marked from 'marked'
+import {marked} from 'marked'
 import Highlight from 'react-highlight.js'
 import cx from 'classnames'
 
@@ -60,7 +60,7 @@ const QueryExplorer = (props: tPROPS) => {
       {
         desc &&
         desc.map((d: string, i) => {
-          const html = marked.parse(d)
+          const html = marked(d)
 
           return (
             <div
@@ -78,7 +78,7 @@ const QueryExplorer = (props: tPROPS) => {
             id={'params' + (name ? ('-' + name) : '')}>
           {
             params.map((param: string, i) => {
-              const html = marked.parse(param)
+              const html = marked(param)
 
               return (
                 <li

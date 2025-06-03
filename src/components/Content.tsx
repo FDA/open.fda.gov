@@ -93,7 +93,7 @@ const Content = (props: tPROPS) => {
           }
 
           // stringified markdown -> html
-          const html = typeof words === 'string' ? marked.parse(words) : '';
+          const html = typeof words === 'string' ? marked(words) : '';
 
           // Ensure html is always a string (in case marked.parse returns a Promise)
           const htmlStr: string = typeof html === 'string' ? html : '';

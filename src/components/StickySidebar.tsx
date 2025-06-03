@@ -1,17 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export class StickySidebar extends React.Component {
-  constructor (props) {
+interface StickySidebarProps {
+  className?: string;
+  enter?: string;
+  exit?: string;
+  children?: React.ReactNode;
+  sidebarFixed?: boolean;
+  toggleFixed?: (fixed: boolean) => void;
+}
+
+export class StickySidebar extends React.Component<StickySidebarProps> {
+  constructor (props: StickySidebarProps) {
     super(props)
 
     this.scrollListener = this.scrollListener.bind(this)
   }
 
   componentDidMount () {
-    const setInitialHeights = (elements) => {
-      [].forEach.call(elements, (sticky) => {
-        sticky.setAttribute('data-sticky-initial', sticky.getBoundingClientRect().top)
+    interface StickyElement extends HTMLElement {
+      setAttribute(name: string, value: string): void;
+      getBoundingClientRect(): DOMRect;
+    }
+
+    const setInitialHeights = (elements: NodeListOf<Element>) => {
+      [].forEach.call(elements, (sticky: Element) => {
+        const htmlSticky = sticky as HTMLElement;
+        htmlSticky.setAttribute('data-sticky-initial', htmlSticky.getBoundingClientRect().top.toString())
       })
     }
 
@@ -30,14 +45,21 @@ export class StickySidebar extends React.Component {
     const top = document.documentElement.scrollTop || document.body.scrollTop
     const bottom = document.documentElement.scrollHeight || document.body.scrollHeight;
 
-    [].forEach.call(stickies, (sticky) => {
-      const stickyInitial = parseInt(sticky.getAttribute('data-sticky-initial'), 10)
-      const stickyEnter = parseInt(sticky.getAttribute('data-sticky-enter'), 10) || stickyInitial
-      const stickyExit = parseInt(sticky.getAttribute('data-sticky-exit'), 10) || bottom
+    [].forEach.call(stickies, (sticky: HTMLElement) => {
+      const stickyInitial = parseInt(sticky.getAttribute('data-sticky-initial') as string, 10)
+      const stickyEnter = parseInt(sticky.getAttribute('data-sticky-enter') as string, 10) || stickyInitial
+      const stickyExit = parseInt(sticky.getAttribute('data-sticky-exit') as string, 10) || bottom
 
       let stickySidebar = false
 
-      if (document.getElementById('sticky-sidebar').clientHeight < document.getElementById('body-doc-container').clientHeight) {
+      const stickySidebarElem = document.getElementById('sticky-sidebar');
+      const bodyDocContainerElem = document.getElementById('body-doc-container');
+
+      if (
+        stickySidebarElem &&
+        bodyDocContainerElem &&
+        stickySidebarElem.clientHeight < bodyDocContainerElem.clientHeight
+      ) {
         stickySidebar = true
       }
 
@@ -45,18 +67,18 @@ export class StickySidebar extends React.Component {
         if (top >= stickyEnter && top <= stickyExit) {
           sticky.classList.add('sticky-sidebar')
           !this.props.sidebarFixed &&
-          this.props.toggleFixed(true)
+          this.props.toggleFixed && this.props.toggleFixed(true)
         }
         else {
           sticky.classList.remove('sticky-sidebar')
           this.props.sidebarFixed &&
-          this.props.toggleFixed(false)
+          this.props.toggleFixed && this.props.toggleFixed(false)
         }
       }
       else if (sticky.classList.contains('sticky-sidebar')) {
         sticky.classList.remove('sticky-sidebar')
         this.props.sidebarFixed &&
-        this.props.toggleFixed(false)
+        this.props.toggleFixed && this.props.toggleFixed(false)
       }
 
     })

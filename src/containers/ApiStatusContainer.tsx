@@ -10,7 +10,7 @@ type tSTATE = {
 
 // A state wrapper for the api status component
 // just fetches data and then passes it down as props
-const ApiStatusContainer = function (ComposedApiStatus: ReactClass): ReactClass {
+const ApiStatusContainer = function (ComposedApiStatus: React.ComponentType): React.ComponentType {
   class HOC extends React.Component {
     state: tSTATE = {
       data: null,
@@ -21,7 +21,11 @@ const ApiStatusContainer = function (ComposedApiStatus: ReactClass): ReactClass 
     }
 
     _getStatus () {
-      const _handleResponse = data => {
+      interface ApiStatusData {
+        [key: string]: any;
+      }
+
+      const _handleResponse = (data: ApiStatusData[] | null | undefined): void => {
         this.setState({
           data,
         })

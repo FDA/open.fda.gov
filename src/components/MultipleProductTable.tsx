@@ -6,7 +6,11 @@ const cellCx: string = 'b-b-1 b-r-1 font-size-2 pad-2'
 const smallCx: string = 'small pad-l-1 inline-block'
 const ulCx: string = 'font-size-3 weight-300 pad-t-1'
 
-const MultipleProductTable = (props: Object) => (
+type MultipleProductTableProps = {
+  k: React.Key
+}
+
+const MultipleProductTable = (props: MultipleProductTableProps) => (
   <section
     key={props.k}
     className='clr-gray marg-t-2 marg-b-2 b-l-1 b-t-1'>

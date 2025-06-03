@@ -1,14 +1,49 @@
 /* @flow */
 
 import React from 'react'
-import marked from 'marked'
+import {marked} from 'marked'
 
 import Hero from './Hero'
 
 const boxCx: string = 'clr-gray b-b-1 marg-b-2'
 
+type MetaSource = {
+  name: string;
+  nameLong?: string;
+  link: string;
+  linkDownload?: string;
+};
+
+type MetaProvider = {
+  name: string;
+  link: string;
+};
+
+type MetaLicense = {
+  name: string;
+  link: string;
+};
+
+type MetaTime = {
+  frequency?: string;
+  delay?: string;
+  start?: string;
+  current?: string;
+};
+
+type Meta = {
+  title: string;
+  description: string;
+  type: string;
+  additionalContent?: string[];
+  source?: MetaSource;
+  provider?: MetaProvider;
+  license?: MetaLicense;
+  time?: MetaTime;
+};
+
 type tPROPS = {
-  meta: Object;
+  meta: Meta;
 };
 
 // pages like /data/faers/
@@ -18,14 +53,13 @@ const Dataset = ({ meta }: tPROPS) => (
       label='Dataset that supplies data to openFDA'
       title={meta.title}
       description={meta.description}
-      type={meta.type}
-    />
+      type="dataset" path={''}    />
     <div className='container marg-t-3 marg-b-3'>
       <div className='flex-row'>
         <div className='t-4 pad-r-3'>
           <div className='reading-width'>
             {
-              meta.additionalContent &&
+              meta.additionalContent && meta.source &&
               <h2>About {meta.source.name}</h2>
             }
             {

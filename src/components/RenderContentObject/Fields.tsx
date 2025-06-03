@@ -108,7 +108,7 @@ const _renderLi = (props: tLiProps) => {
         {
           desc &&
           <div
-            dangerouslySetInnerHTML={{__html: marked.parse(desc)}}
+            dangerouslySetInnerHTML={{__html: marked(desc)}}
           />
         }
         {
@@ -139,7 +139,7 @@ const _renderLi = (props: tLiProps) => {
           values &&
           values.value && Object.keys(values.value).length <= 4 &&
           <Values
-            values={values}
+            values={{ type: type || type2 || '', value: values.value }}
           />
         }
         {
@@ -163,7 +163,7 @@ const _renderLi = (props: tLiProps) => {
           values.value && Object.keys(values.value).length > 4 &&
           <div className='row'>
             <Values
-              values={values}
+              values={{ type: type || type2 || '', value: values.value }}
             />
           </div>
         }

@@ -1,5 +1,5 @@
 import React from 'react'
-import marked from 'marked'
+import {marked} from 'marked'
 import Scrollbars from 'react-custom-scrollbars'
 import Select from 'react-select'
 // import 'react-select/dist/react-select.css'
@@ -85,7 +85,7 @@ const _renderLi = (props: tLiProps) => {
         {
           desc &&
           <div
-            dangerouslySetInnerHTML={{__html: marked.parse(desc)}}
+            dangerouslySetInnerHTML={{__html: marked(desc)}}
           />
         }
         {
@@ -215,7 +215,7 @@ function get_fields(
 type tPROPS = {
   k: number;
   fields: { properties: { [key: string]: any } };
-  meta: Object;
+  meta: { status: string; [key: string]: any };
   selectedField: string;
   updateField: Function;
   updateSelected: (event: React.MouseEvent<HTMLButtonElement>) => void;

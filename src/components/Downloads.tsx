@@ -8,8 +8,14 @@ import DownloadsContainer from '../containers/DownloadsContainer'
 const liCx: string = 'marg-b-1 row col grow-none t-2 d-2'
 const mbCx: string = 'clr-gray inline-block'
 
-const _renderByLimit = (results, limit) => {
-  const sliced: Array<Object> = results.slice(0, limit)
+type DownloadFile = {
+  file: string;
+  display_name: string;
+  size_mb: string | number;
+};
+
+const _renderByLimit = (results: DownloadFile[], limit: number) => {
+  const sliced: Array<DownloadFile> = results.slice(0, limit)
 
   return sliced.map((s, i) => (
     <li
@@ -29,9 +35,9 @@ const _renderByLimit = (results, limit) => {
   ))
 }
 
-const _renderByYear = (results, years) => {
-  return years.sort().map((y, i) => {
-    const data: Object = results[y]
+const _renderByYear = (results: Record<string, DownloadFile[]>, years: string[]) => {
+  return years.sort().map((y: string, i: number) => {
+    const data: DownloadFile[] = results[y]
 
     return (
       <li
@@ -40,7 +46,7 @@ const _renderByYear = (results, years) => {
         <h3 className='marg-t-2'>{y}</h3>
         <ul>
           {
-            data.map((d, i) => (
+            data.map((d: DownloadFile, i: React.Key | null | undefined) => (
               <li
                 className='marg-b-1'
                 key={i}>
@@ -67,11 +73,11 @@ const _renderByYear = (results, years) => {
 }
 
 type tPROPS = {
-  allPartitions: Array<Object>;
+  allPartitions: Array<DownloadFile>;
   k: number;
   api_path: string;
   title: string;
-  results: Object;
+  results: Record<string, DownloadFile[]>;
   showAllResults: boolean;
   toggle: Function;
   updated: string;
@@ -90,7 +96,7 @@ const Downloads = (props: tPROPS) => {
   } = props
 
   const limit: number = 10 | 0
-  const years: Array<string> = Object.keys(results)
+  const years: string[] = Object.keys(results)
   const btnCx = cx({
     'clr-white weight-700': true,
     'bg-primary': !showAllResults,
@@ -120,7 +126,7 @@ const Downloads = (props: tPROPS) => {
         allPartitions.length > 10 &&
         <button
           className={btnCx}
-          onClick={toggle}>
+          onClick={() => toggle}>
           {
             showAllResults ?
               `Hide all ${allPartitions.length} download files`

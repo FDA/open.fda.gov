@@ -6,9 +6,30 @@ import Link from 'gatsby-link'
 
 import '../css/components/EndpointBox.scss'
 
+type NounName = 'animalandveterinary' | 'food' | 'device' | 'drug' | 'other' | 'tobacco';
+type EndpointName =
+  | 'event'
+  | 'enforcement'
+  | 'classification'
+  | '510k'
+  | 'pma'
+  | 'registrationlisting'
+  | 'recall'
+  | 'udi'
+  | 'covid19serology'
+  | 'label'
+  | 'ndc'
+  | 'drugsfda'
+  | 'drugshortages'
+  | 'historicaldocument'
+  | 'nsde'
+  | 'substance'
+  | 'unii'
+  | 'problem';
+
 type tPROPS = {
-  noun_name: string,
-  endpoint_name: string
+  noun_name: NounName,
+  endpoint_name: EndpointName
 };
 
 /**
@@ -26,7 +47,7 @@ const EndpointBox = (props: tPROPS) => {
     endpoint_name
   } = props
 
-  const description = {
+  const description: Record<NounName, Partial<Record<EndpointName, string>>> = {
     'animalandveterinary': {
       'event': 'Reports of drug side effects, product use errors, product quality problems, and therapeutic failures.'
     },
@@ -64,7 +85,7 @@ const EndpointBox = (props: tPROPS) => {
     }
   }
 
-  const ep_title = {
+  const ep_title: Record<NounName, Partial<Record<EndpointName, string>>> = {
     'animalandveterinary': {
       'event': 'Adverse event reports'
     },
@@ -101,7 +122,7 @@ const EndpointBox = (props: tPROPS) => {
       'problem': 'Tobacco Problem Reports'
     }
   }
-  const bg_color = {
+  const bg_color: Record<NounName, React.CSSProperties> = {
     'animalandveterinary': {background: "linear-gradient(to right bottom, #9cf6f6, #007CBA)"},
     'food': {background: "linear-gradient(to right bottom, rgb(143, 209, 100), rgb(81, 161, 22))"},
     'device': {background: "linear-gradient(to right bottom, #ff8989, #c94747)"},
@@ -110,7 +131,7 @@ const EndpointBox = (props: tPROPS) => {
     'tobacco': {background: "linear-gradient(to right bottom, #e6ccb3, #6d5843)"}
   }
 
-  const icon = {
+  const icon: Record<NounName, Partial<Record<EndpointName, React.ReactNode>>> = {
     'animalandveterinary': {
       'event': <div className='ep-icon' style={bg_color.animalandveterinary}><i className='fa fa-3x fa-warning' style={{color: "white"}}/></div>
     },
@@ -148,7 +169,7 @@ const EndpointBox = (props: tPROPS) => {
     }
   }
 
-  const ep_path = {
+  const ep_path: Record<NounName, Partial<Record<EndpointName, string>>> = {
     'animalandveterinary': {
       'event': '/apis/animalandveterinary/event/'
     },
@@ -188,7 +209,7 @@ const EndpointBox = (props: tPROPS) => {
 
   return (
     <section id='endpoint_box' className='marg-2 endpoint-card'>
-      <Link className='ep-box' to={ep_path[noun_name][endpoint_name]}>
+      <Link className='ep-box' to={ep_path[noun_name][endpoint_name] ?? ''}>
         <div className='ep-icon-container'>
           {icon[noun_name][endpoint_name]}
         </div>

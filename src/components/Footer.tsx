@@ -64,6 +64,7 @@ const aCx: string = 'clr-white inline-block small'
 // although, it technically isn't pure
 // but links should never change once pulled in
 class Footer extends React.Component {
+  static displayName: string
   render () {
     return (
       <footer
@@ -100,7 +101,7 @@ class Footer extends React.Component {
             aria-label='FDA links'>
             <ul className='link-columns'>
               {
-                links.map((item: Object, i: number) => (
+                links.map((item: any, i: number) => (
                   <li
                     key={i}
                     className='marg-b-1'>

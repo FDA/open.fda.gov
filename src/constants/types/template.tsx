@@ -1,6 +1,6 @@
 type tROUTE = {
   childRoutes: Array<Object>;
-  component: React.Element;
+  component: React.ComponentType<any>;
   indexRoute: Object;
   pages: Array<Object>;
   path: string;
@@ -12,7 +12,7 @@ type tROUTE = {
 // use to layout parts of the site differently if we
 // wanted, but wejust immediately render the children
 export type tTEMPLATE = {
-  children: ?React.Element;
+  children: any;
   history: Object;
   location: Object;
   params: Object;

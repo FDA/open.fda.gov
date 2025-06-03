@@ -19,12 +19,14 @@ interface infographicDefinitionsProps {
   choices: InfographicChoice[];
   globalDefs: Object;
   api_path: string;
+  type?: string;
+  [key: string]: any;
 }
 
 type tSTATE = {
-  choice: Object|null;
-  options: Array<Object>;
-  choosenField: Object|string;
+  choice: InfographicChoice | null;
+  options: Array<{ value: string; label: string }>;
+  choosenField: { value: string; label: string };
   infographic?: React.ReactNode;
 };
 
@@ -36,6 +38,7 @@ type tPROPS = {
 };
 
 class InteractiveInfographic extends React.Component<tPROPS, tSTATE> {
+  static displayName: string;
 
   constructor (props: tPROPS) {
     super(props)
@@ -60,11 +63,11 @@ class InteractiveInfographic extends React.Component<tPROPS, tSTATE> {
     this.handleChange(this.state.choosenField)
   }
 
-  handleChange (value: any) {
+  handleChange (value: { value: string; label: string }) {
 
     let choice: InfographicChoice | null = null
     this.props.infographicDefinitions.choices.forEach((obj: InfographicChoice) => {
-      if (obj.subfield == value.value) {
+      if (obj.subfield === value.value) {
         choice = obj
       }
     })
@@ -73,7 +76,7 @@ class InteractiveInfographic extends React.Component<tPROPS, tSTATE> {
 
     let infographic = null
 
-    switch (choice.type) {
+    switch ((choice as InfographicChoice).type) {
     case "PieChart":
       infographic =
           (<PieChartInfographic
@@ -89,7 +92,7 @@ class InteractiveInfographic extends React.Component<tPROPS, tSTATE> {
     this.setState({
       infographic,
       choice,
-      choosenField: value.value
+      choosenField: value
     })
   }
 
@@ -102,10 +105,8 @@ class InteractiveInfographic extends React.Component<tPROPS, tSTATE> {
               name='toggle'
               value={this.state.choosenField}
               options={this.state.options}
-              onChange={this.handleChange}
+              onChange={() => this.handleChange}
               placeholder='Search the fields'
-              resetValue='fields'
-              clearable={false}
             />
           }
         </div>
