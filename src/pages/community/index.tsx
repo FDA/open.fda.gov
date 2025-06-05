@@ -24,6 +24,7 @@ export default () => (
               key={i}
               className={aCx}
               href={tool.url}
+              rel='noopener noreferrer'
               target='_blank'>
               {tool.title}
             </a>
