@@ -114,11 +114,11 @@ const _getChartData = (years: Array<string>, totalsByYear: Array<number>) => {
 //   fields: Array<Object>;
 // };
 interface PROPS {
-  data: Array<DataItem>;
+  data: any[];
   countParam: string;
   height: string;
   width: string;
-  fields: Record<string, any>[];
+  fields: any;
   [key: string]: any;
 }
 

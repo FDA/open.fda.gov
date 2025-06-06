@@ -2,7 +2,7 @@
 
 import React from 'react'
 import cx from 'classnames'
-import marked from 'marked'
+import {marked} from 'marked'
 import Highlight from 'react-highlight.js'
 
 import Fields from './Fields'
@@ -217,12 +217,11 @@ const RenderContentObject = (props: tPROPS) => {
 
     return (
       <QueryExplorer
-        desc={data.description}
+        desc={data.description || ''}
         k={k ?? 0}
-        originalQuery={data.query}
-        params={data.params}
-        title={data.title}
-      />
+        originalQuery={data.query || ''}
+        params={data.params || []}
+        title={data.title || ''} level={0} result={''} query={''}    />
     )
   }
 

@@ -39,7 +39,7 @@ const _getChartData = function (
     datasets: [
       {
         data: data.map((d: any) => d.count),
-        backgroundColor: data.map((d: any, i) => !colors ? _getChartColor(i) : colors[i])
+        backgroundColor: data.map((d: any, i) => colors.length == 0 ? _getChartColor(i) : colors[i])
       }
     ]
   }

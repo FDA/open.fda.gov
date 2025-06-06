@@ -13,16 +13,17 @@ type tPROPS = {
   desc: Array<string>;
   fetchQuery: Function;
   k: number;
-  level: number;
+  level?: number;
   name: string;
-  params: Array<string>;
-  queryToRun: string;
-  result: string;
+  params?: Array<string>;
+  queryToRun?: string;
+  result?: string;
   showResult: boolean;
   title: string;
   toggleQuery: Function;
   updateQuery: Function;
   tourStart: Function;
+  query?: string;
 };
 
 const btnCx = cx({

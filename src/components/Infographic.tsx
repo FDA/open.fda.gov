@@ -8,7 +8,7 @@ import ChartDonut from './ChartDonut'
 import {default as ChartLine} from './ChartLine'
 import Filter from './Filter'
 
-import useBreakPoints from '../constants/breakpoints'
+import bp from '../constants/breakpoints'
 import BPContainer from '../containers/BreakpointContainer'
 import yamlGet from '../utils/yamlGet'
 
@@ -48,13 +48,12 @@ type tPROPS = {
   handler?: Function;
   onCountChange?: Function;
   onKeyPress?: Function;
-  onCountChangeAndUpdate?: Function;
+  onCountChangeAndUpdate: Function;
   container?: { state: { selected: string } } | null;
 };
 
 
 const Infographic = (props: tPROPS) => {
-  const bp = useBreakPoints()
   const mob: boolean = bp.mob
   const desk: boolean = bp.desk
   const {
@@ -90,7 +89,7 @@ const Infographic = (props: tPROPS) => {
   // desktop sizing is a little more complicated
   // we calculate the width based on window
   // and what we know about how the layout will be
-  if (!mob && hasWindow) {
+  if (!bp.mob && hasWindow) {
     const winWidth: number = window.innerWidth
 
     // 1400 = site-container width
@@ -105,6 +104,7 @@ const Infographic = (props: tPROPS) => {
       size = ((winWidth * 0.73) * 0.65) - 40
     }
   }
+
 
   // Don't render if there is no data, or the field we are trying to
   // count by (visualize) is unknown
@@ -208,7 +208,7 @@ const Infographic = (props: tPROPS) => {
                   className='select clr-primary'
                   id='view-select'
                   value={props.countParam}
-                  onChange={() =>onCountChangeAndUpdate}
+                  onChange={() =>onCountChangeAndUpdate()}
                   // inline because of uncss
                   // client side only code not picked up
                   style={{
@@ -323,7 +323,7 @@ const Infographic = (props: tPROPS) => {
             { !error && type === 'Bar' &&
               <ChartBar
                 data={data?.results ?? []}
-                fields={fields || {}}
+                fields={Array.isArray(fields) ? fields : []}
                 countParam={nextCountParam || ""}
               />
             }
@@ -342,8 +342,8 @@ const Infographic = (props: tPROPS) => {
             { !error && type === 'Line' &&
               <ChartLine
                 countParam={nextCountParam || ""}
-                data={(data?.results ?? []) as any}
-                fields={Array.isArray(fields) ? fields : []}
+                data={data?.results || []}
+                fields={fields || {}}
                 height={`${size / 2}`}
                 width={`${size}`}
               />
