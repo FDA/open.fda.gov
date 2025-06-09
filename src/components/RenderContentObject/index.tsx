@@ -236,9 +236,18 @@ const RenderContentObject = (props: tPROPS) => {
       return (
         <ul key={k}>
           {
-            obj?.[key]?.map(async (content: string, j: any) => {
+            obj?.[key]?.map((content: string, j: any) => {
               // stringified markdown -> html
-              const html: string = await Promise.resolve(marked.parse(content))
+              let html: string = '';
+              const parsed = marked.parse(content);
+              if (typeof parsed === 'string') {
+                html = parsed;
+              } else if (parsed instanceof Promise) {
+                // If parse returns a Promise, you may want to handle it asynchronously.
+                // For now, fallback to raw content or a loading state.
+                // You could also use a state and effect to handle async rendering.
+                html = content;
+              }
 
               return (
                 <li
