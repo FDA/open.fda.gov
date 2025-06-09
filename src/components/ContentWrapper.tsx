@@ -14,26 +14,21 @@ import mapFields from '../utils/mapFields'
 import flattenFields from '../utils/flattenFields'
 import '../css/components/ContentWrapper.scss'
 
-type Meta = {
-  type: string;
-}
-type fieldsType = {
-  properties: Array<Object>;
+type FieldsType = {
+  properties: Record<string, any>;
   [key: string]: any;
-}
+};
+
 type tPROPS = {
   content: Array<Object | string>;
   explorers: Object;
   infographics: Array<Object>;
   infographicDefinitions: Object;
-  fields: fieldsType;
-  hideMenu: boolean;
-  meta: Meta;
-  type: String;
-  showMenu: boolean;
+  fields: FieldsType;
   className?: string;
-  style?: Object;
-  reference: Array<Array<string> | Object>;
+  hideMenu: boolean;
+  meta: { type?: string; start?: string | undefined; api_path?: string; [key: string]: any };
+  type: String;
 };
 
 const wrapperCx = cx({
@@ -41,8 +36,7 @@ const wrapperCx = cx({
 })
 
 // add fixed positioning functinality to reference sidebar
-// If SideBarContainer is a higher-order component that passes through props, use a type assertion:
-const ComposedSidebar = SideBarContainer(SideBar as React.ComponentType<any>)
+const ComposedSidebar = SideBarContainer(SideBar)
 
 // i just exist to render the Sidebar, and
 // determine whether we render ref specific
@@ -58,9 +52,9 @@ const ContentWrapper = (props: tPROPS) => {
   } = props
 
   useEffect(() => {
-  }, [])
+  }, []);
 
-  let fieldsMapped: Record<string, any> = {}
+  let fieldsMapped: Record<string, string> = {}
   let fieldsFlattened: Record<string, string> = {}
   if (explorers && fields) {
     fieldsMapped = mapFields(fields.properties)
@@ -76,10 +70,9 @@ const ContentWrapper = (props: tPROPS) => {
     <section>
 
       <Hero
-        path={''} 
-        description=''
-        htmlDescription={false}
-        type={meta.type as "homepage" | "endpoint" | "update" | "dataset" | undefined}
+      authors={[]} date={''} label={''} path={''} title={''} 
+      {...meta}
+      type={meta.type as 'homepage' | 'endpoint' | 'update' | undefined}
       />
       {
         <EndpointStatus
@@ -89,12 +82,9 @@ const ContentWrapper = (props: tPROPS) => {
         {
           meta.type !== 'update' &&
           <ComposedSidebar
-            content={[]} explorers={{}} infographics={[]} infographicDefinitions={{undefined}} fields={{
-              properties: []
-            }} hideMenu={false} meta={{
-              type: ''
-            }} type={""} showMenu={false} 
-            sidebarProps={{ className: 'm-hide' }}        />
+            className='m-hide'
+            reference={content}
+          />
         }
         <div
           className={contentCx}
@@ -102,13 +92,7 @@ const ContentWrapper = (props: tPROPS) => {
             maxWidth: '100%',
           }}>
           <Content
-          examples={[]} 
-          {...props}
-          meta={{
-            ...props.meta,
-            start: (props.meta as any).start || '',
-            api_path: (props.meta as any).api_path || ''
-          }}
+          examples={[]} showMenu={false} {...props}
           fieldsMapped={fieldsMapped}
           fieldsFlattened={fieldsFlattened}          />
         </div>

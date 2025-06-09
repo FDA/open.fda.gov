@@ -1,7 +1,7 @@
 import React from 'react'
 import { TimeSeries, TimeRange} from "pondjs"
 import { Charts, ChartContainer, ChartRow, YAxis, LineChart, styler } from "react-timeseries-charts"
-import useBreakpoints from '../constants/breakpoints'
+import bp from '../constants/breakpoints'
 import Table from './Table'
 import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
@@ -95,7 +95,6 @@ interface State{
 }
 
 let ApiUsage:React.FC<tPROPS> = (props:tPROPS) => {
-  const {mob} = useBreakpoints()
 
   // mobile sizing for infographic
 // window - 40 (margin) - 40 (padding)
@@ -105,7 +104,7 @@ let size: number = hasWindow ? window.innerWidth - 80 : 300
 // desktop sizing is a little more complicated
 // we calculate the width based on window
 // and what we know about how the layout will be
-if (!mob && hasWindow) {
+if (!bp.mob && hasWindow) {
   const winWidth: number = window.innerWidth
 
   // 1400 = site-container width
@@ -126,7 +125,7 @@ if (!mob && hasWindow) {
 
   class Usage extends React.Component<{}, State> {
     nf: Intl.NumberFormat
-    handleChartResize: any
+    // handleChartResize: any
 
     constructor (props:tPROPS) {
 

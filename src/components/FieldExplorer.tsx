@@ -2,22 +2,14 @@ import React from 'react'
 import {marked} from 'marked'
 import Scrollbars from 'react-custom-scrollbars'
 import Select from 'react-select'
-// import 'react-select/dist/react-select.css'
+//import 'react-select/dist/react-select.css'
 import Values from './RenderContentObject/Values'
 import yamlGet from '../utils/yamlGet'
 import FieldDownload from './FieldDownload'
 import FieldExplorerContainer from '../containers/FieldExplorerContainer'
 import '../css/components/FieldExplorer.scss'
 
-type tLiProps = {
-  field: any;
-  updateSelected: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  key: string;
-  i: number;
-  isFDA: boolean;
-};
-
-const _renderLi = (props: tLiProps) => {
+const _renderLi = (props: { field: any; updateSelected: any; key: any; i: any; isFDA: any }) => {
   const {
     field,
     updateSelected,
@@ -29,7 +21,7 @@ const _renderLi = (props: tLiProps) => {
   // array
   let type: string = ''
   // one_of, etc
-  let values: { type: string, value: { [key: string]: any } } | null | undefined = null
+  let values = null
   // of strings
   let type2: string = ''
   // description text, can have docs
@@ -39,7 +31,7 @@ const _renderLi = (props: tLiProps) => {
   // whether field has .exact
   let isExact: boolean = false
   // keys in the selected field
-  const field_keys: any[] = Object.keys(field)
+  let field_keys: Array<any> = Object.keys(field)
 
   if (field) {
     desc = field.description
@@ -147,7 +139,7 @@ const _renderLi = (props: tLiProps) => {
   )
 }
 
-function render_object (props: { fields: any; updateSelected: any; selectedField: any; i: any }) {
+function render_object(props: { fields: any; updateSelected: any; selectedField: any; i: any }) {
   const {
     fields,
     selectedField,
@@ -161,17 +153,17 @@ function render_object (props: { fields: any; updateSelected: any; selectedField
         {
           Object.keys(fields).map((v: string, k) => (
             <li
-              className='field-list-item'
+              className="field-list-item"
               key={k}>
               <button
                 className='marg-b-1 field-name'
-                title={selectedField === "fields" ? v : selectedField.concat(".", v)}
+                title={selectedField === "fields" ? v: selectedField.concat(".", v)}
                 onClick={updateSelected}>
                 {v}
               </button>
               {
-                fields[v].type &&
-                <span className='pad-1 hljs-string inline-block'>{fields[v].type}</span>
+                fields[v]['type'] &&
+                <span className='pad-1 hljs-string inline-block'>{fields[v]['type']}</span>
               }
             </li>
           ))
@@ -181,44 +173,33 @@ function render_object (props: { fields: any; updateSelected: any; selectedField
   )
 }
 
-function get_fields(
-  fields: { [x: string]: any },
-  prefix: string | undefined
-): Array<{ label: string; value: string }> {
-  return Object.keys(fields).reduce(function (
-    acc: Array<{ label: string; value: string }>,
-    key
-  ) {
-    const value = fields[key]
+type FieldOption = { label: string; value: string };
+
+function get_fields(fields: { [x: string]: any }, prefix?: string): FieldOption[] {
+  return Object.keys(fields).reduce<FieldOption[]>(function(acc, key){
+    let value = fields[key];
     if (typeof value === 'object' && value !== null && key !== 'possible_values') {
       if (['properties', 'items'].indexOf(key) === -1) {
-        acc.push(
-          typeof prefix === 'undefined'
-            ? { label: key, value: key }
-            : { label: prefix + '.' + key, value: prefix + '.' + key }
-        )
-        acc.push.apply(
-          acc,
-          get_fields(
-            value,
-            typeof prefix === 'undefined' ? key : prefix + '.' + key
-          )
-        )
-      } else {
+        acc.push((typeof prefix === 'undefined') ? {label: key, value: key}: {label: prefix + '.' + key, value: prefix + '.' + key})
+        acc.push.apply(acc, get_fields(value, (typeof prefix === 'undefined') ? key : prefix + '.' + key))
+      }
+      else {
         acc.push.apply(acc, get_fields(value, prefix))
       }
     }
-    return acc
-  }, [])
+    return acc;
+  }, []);
 }
+
+import { ActionMeta, SingleValue } from 'react-select';
 
 type tPROPS = {
   k: number;
-  fields: { properties: { [key: string]: any } };
+  fields: { properties: any };
   meta: { status: string; [key: string]: any };
   selectedField: string;
-  updateField: Function;
-  updateSelected: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  updateField: (newValue: SingleValue<{ label: string; value: string }>, actionMeta: ActionMeta<{ label: string; value: string }>) => void;
+  updateSelected: Function;
 };
 
 // called by Content
@@ -241,20 +222,22 @@ const FieldExplorer = (props: tPROPS) => {
     updateSelected
   } = props
 
-  const field_names = get_fields(fields.properties, undefined)
+  let field_names = get_fields(fields.properties)
+  // Find the selected option object based on selectedField string
+  const selectedOption = field_names.find(opt => opt.value === selectedField) || null;
 
   return (
-    <section key={k} className='field-explorer'>
-      <Select<{ label: string; value: string }>
-        name='form-field-name'
-        aria-label='form-field-name'
-        value={field_names.find(option => option.value === selectedField) || null}
+    <section key={k} className="field-explorer">
+      <Select
+        name="form-field-name"
+        aria-label="form-field-name"
+        value={selectedOption}
         options={field_names}
-        onChange={option => option && updateField(option.value)}
-        placeholder='Search the fields'
+        onChange={updateField}
+        placeholder="Search the fields"
       />
       <div className='sans weight-600 marg-t-2 marg-b-1'>Navigate the fields:</div>
-      <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={500} className='field-explorer-border'>
+      <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={500} className="field-explorer-border">
         {
           selectedField === 'fields' ?
             render_object({
@@ -262,7 +245,7 @@ const FieldExplorer = (props: tPROPS) => {
               updateSelected,
               selectedField,
               i: k
-            }) :
+            }):
             _renderLi({
               field: yamlGet(selectedField, fields),
               updateSelected,
@@ -272,7 +255,7 @@ const FieldExplorer = (props: tPROPS) => {
             })
         }
       </Scrollbars>
-      <h4 className='marg-t-2'>Download the Fields Reference Document:</h4>
+      <h4 className="marg-t-2">Download the Fields Reference Document:</h4>
       <FieldDownload meta={meta} k={k}/>
     </section>
   )

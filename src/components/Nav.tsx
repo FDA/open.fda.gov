@@ -219,7 +219,10 @@ const Nav = (props: tPROPS) => {
                 <div className='dropdown'>
                   <button
                     title='Disclaimer'
-                    onClick={handleOpenModal}
+                    onClick={() => {handleOpenModal
+                      sessionStorage.setItem('hasSeenDisclaimer', 'false')
+                      sessionStorage.setItem('validated', 'false')
+                    }}
                     className={activeDropdown === 'Home' ? 'menu-header emphasis' : 'menu-header'}
                   >Disclaimer</button>
                 </div>

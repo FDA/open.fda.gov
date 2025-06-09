@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
+import Select from 'react-select'
 import {BarChart, Bar, XAxis, YAxis as YAxisR, CartesianGrid, ResponsiveContainer, Tooltip, Legend} from 'recharts'
 import { API_LINK } from '../constants/api'
-import Select from 'react-select'
 
-const CustomTooltip: React.FC<{ active?: boolean; payload: any[]; label?: string; detail?: any; yLabel?: any }> = ({ active, payload, label, detail, yLabel }) => {
-  if (active) {
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: Array<{ value: any }>;
+  label?: string;
+}
+
+const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload, label }) => {
+  if (active && payload && payload.length > 0) {
     return (
       <div className='custom-tooltip'>
         <h5 className='label'>{label}</h5>
         <p className='intro'>{`${payload[0].value}`}</p>
-        {detail && <p className='detail'>{`Detail: ${detail}`}</p>}
-        {yLabel && <p className='yLabel'>{`Y-Axis Label: ${yLabel}`}</p>}
       </div>
     )
   }
@@ -18,7 +22,7 @@ const CustomTooltip: React.FC<{ active?: boolean; payload: any[]; label?: string
 }
 
 interface AeDrillDownState {
-  data: Array<{ name: string; total: number }>;
+  data: any[];
   dropDown: any[];
   numberOfDocs: any[];
   decade: any[];
@@ -27,13 +31,13 @@ interface AeDrillDownState {
 }
 
 interface AeDrillDownProps {
-  dropDown: any[];
+  dropDown?: any;
   detail?: any;
   xAxis?: any;
 }
 
 class AeDrillDown extends Component<AeDrillDownProps, AeDrillDownState> {
-  constructor (props: any) {
+  constructor (props: AeDrillDownProps) {
     super(props)
 
     this.state = {
@@ -42,7 +46,7 @@ class AeDrillDown extends Component<AeDrillDownProps, AeDrillDownState> {
       numberOfDocs: [],
       decade: [],
       documents: [],
-      selectedEvent: props.dropDown[0]
+      selectedEvent: props.dropDown ? props.dropDown[0] : undefined
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -70,9 +74,9 @@ class AeDrillDown extends Component<AeDrillDownProps, AeDrillDownState> {
       .then(res => res.json())
       .then((json => {
         if (json.results) {
-          const aeData: any = {}
-          json.results.forEach((line: any) => {
-            line.adverse_events_mentioned.forEach((x: any) => {
+          const aeData: { [key: string]: number } = {}
+          json.results.forEach((line: { adverse_events_mentioned: any[]; decade: string; }) => {
+            line.adverse_events_mentioned.forEach((x: { meddra_term: any; count: any; }) => {
               if (x.meddra_term === selectedEvent) {
                 if (line.decade in aeData) {
                   aeData[line.decade] += x.count
@@ -83,7 +87,7 @@ class AeDrillDown extends Component<AeDrillDownProps, AeDrillDownState> {
               }
             })
           })
-          const data: any = []
+          const data: { name: string; total: unknown; }[] = []
           Object.entries(aeData).forEach(entry => {
             data.push({
               name: entry[0],
@@ -114,24 +118,21 @@ class AeDrillDown extends Component<AeDrillDownProps, AeDrillDownState> {
           defaultValue={this.props.dropDown[0]}
         />
 
-      <ResponsiveContainer className='chart-background bar-chart-background' height={500}>
-        <BarChart
-          ref={React.createRef()}
-          data={this.state.data}
-          barCategoryGap="50%" // Move here
-          barGap="50%" // Move here
-        >
-          <XAxis dataKey='name' interval={0} />
-          <YAxisR />
-          <CartesianGrid strokeDasharray='8 8' />
-          <Tooltip content={<CustomTooltip detail={this.props.detail} yLabel={this.props.xAxis} payload={[]} />} />
-          <Legend height={36} verticalAlign='top' />
-          <Bar
-            dataKey='total'
-            fill='#8884d8'
-          />
-        </BarChart>
-      </ResponsiveContainer>
+        <ResponsiveContainer className='chart-background bar-chart-background' height={500}>
+          <BarChart
+            data={this.state.data}
+          >
+            <XAxis dataKey='name' interval={0}/>
+            <YAxisR />
+            <CartesianGrid strokeDasharray='8 8'/>
+            <Tooltip content={<CustomTooltip />} />
+            <Legend height={36} verticalAlign='top'/>
+            <Bar
+              dataKey='total'
+              fill='#8884d8'
+            />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
     )
   }

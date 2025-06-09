@@ -21,7 +21,10 @@ class IndexRoute extends React.Component {
         <p>For additional background information about medical device recalls, see <a href='https://www.fda.gov/MedicalDevices/Safety/ListofRecalls/ucm329946.htm'>here</a>.</p>
 
         <InteractiveInfographic
-          infographicDefinitions={infographic_definitions}
+          infographicDefinitions={{
+            ...infographic_definitions,
+            api_path: meta.api_path
+          }}
           meta={meta}
         />
 

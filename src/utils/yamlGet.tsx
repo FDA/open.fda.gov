@@ -13,20 +13,24 @@ import get from 'lodash/get'
 // hierarchy, finding the right verbose path at which to get
 // the original field definition.
 
-const yamlGet = function (field: string, fieldsYAML: Object): void|Object {
+interface FieldsYAML {
+  properties: Record<string, any>;
+}
+
+const yamlGet = function (field: any, fieldsYAML: FieldsYAML): any {
   // Strip out 'exact', split into array
   const pathParts: Array<string> = field
     .split('.')
-    .filter(item => item !== 'exact')
+    .filter((item: string) => item !== 'exact')
 
-  const newPathParts = []
+  const newPathParts: string[] = []
 
   pathParts.forEach(part => {
     newPathParts.push(part)
     // openfda -> openfda.route -> openfda.route.exact
     let currentPath: string = newPathParts.join('.')
     // currentPath must be the absolute path to get field
-    let currentResult: void|Object = get(fieldsYAML.properties, currentPath)
+    let currentResult: any = get(fieldsYAML.properties, currentPath)
 
     if (!currentResult || !currentResult.type) return
 

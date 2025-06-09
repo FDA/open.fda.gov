@@ -13,10 +13,10 @@ import BPContainer from '../containers/BreakpointContainer'
 import yamlGet from '../utils/yamlGet'
 
 type tEXPLORER = {
-  description: Array<string>;
-  filters: Object | undefined;
-  title: string;
-  type: 'Bar'|'Line'|'Donut';
+  description?: Array<string>;
+  filters?: Object | undefined;
+  title?: string;
+  type?: 'Bar'|'Line'|'Donut';
 };
 
 interface BarData {
@@ -27,9 +27,9 @@ interface BarData {
 
 type tPROPS = {
   infographics: any
-  countParam: string | number | readonly string[] | undefined
-  fieldsFlattened(fieldsFlattened: any): unknown
-  nextSearchParam: string | number | readonly string[] | undefined
+  countParam: any
+  fieldsFlattened?: any
+  nextSearchParam?: string | number | readonly string[] | undefined
   query: string | number | readonly string[] | undefined
   tourStart?: () => void;
   current?: tEXPLORER;
@@ -37,7 +37,7 @@ type tPROPS = {
     error?: boolean;
     results: Array<BarData>;
   };
-  fields?: Object;
+  fields?: any;
   nextCountParam?: string;
   onSearchChange?: Function;
   onSearchChangeUpdate?: Function;
@@ -50,6 +50,9 @@ type tPROPS = {
   onKeyPress?: Function;
   onCountChangeAndUpdate: Function;
   container?: { state: { selected: string } } | null;
+  discription?: string | Array<string>;
+  filters?: Object;
+  title?: string;
 };
 
 
@@ -108,7 +111,7 @@ const Infographic = (props: tPROPS) => {
 
   // Don't render if there is no data, or the field we are trying to
   // count by (visualize) is unknown
-  const fieldDefinition: void|{description?:string} = yamlGet(nextCountParam || "", fields || {})
+  const fieldDefinition: void|{description?:string} = yamlGet(nextCountParam || "", fields as any)
   const error: boolean = data?.error || !fieldDefinition
 
   // if fieldDef has description, then docs-ify it
@@ -208,7 +211,7 @@ const Infographic = (props: tPROPS) => {
                   className='select clr-primary'
                   id='view-select'
                   value={props.countParam}
-                  onChange={() =>onCountChangeAndUpdate()}
+                  onChange={() => onCountChangeAndUpdate()}
                   // inline because of uncss
                   // client side only code not picked up
                   style={{
@@ -259,7 +262,7 @@ const Infographic = (props: tPROPS) => {
                   id='search-parameter'
                   value={props.nextSearchParam}
                   onChange={() => onSearchChange}
-                  onKeyPress={() => {onKeyPress}}
+                  onKeyPress={() => onKeyPress}
                 >
                   i.e. search=device
                 </textarea>

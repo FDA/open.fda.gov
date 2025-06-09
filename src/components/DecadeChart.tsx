@@ -2,7 +2,13 @@ import React, {Component} from 'react'
 import {Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts"
 import { API_LINK } from '../constants/api'
 
-const CustomTooltip: React.FC<{ active?: boolean; payload?: any[]; label?: string }> = ({ active, payload, label }) => {
+type CustomTooltipProps = {
+  active?: boolean;
+  payload?: Array<{ value: number }>;
+  label?: string;
+};
+
+const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
       <div className='custom-tooltip'>
@@ -14,13 +20,15 @@ const CustomTooltip: React.FC<{ active?: boolean; payload?: any[]; label?: strin
   return null
 }
 
+interface DecadeChartProps {}
+
 interface DecadeChartState {
-  data: { name: string; total: number }[];
+  data: Array<{ name: string; total: number }>;
   decade: string;
 }
 
-class DecadeChart extends Component<{}, DecadeChartState> {
-  constructor (props: any) {
+class DecadeChart extends Component<DecadeChartProps, DecadeChartState> {
+  constructor(props: DecadeChartProps) {
     super(props)
     this.state = {
       data: [],
@@ -42,9 +50,9 @@ class DecadeChart extends Component<{}, DecadeChartState> {
       .then(res => res.json())
       .then((json => {
         if (json.results) {
-          const aeData: Record<string, number> = {}
-          json.results.forEach((line: any) => {
-            line.adverse_events_mentioned.forEach((x: any) => {
+          const aeData = {}
+          json.results.forEach(line => {
+            line.adverse_events_mentioned.forEach(x => {
               if (x.meddra_term in aeData) {
                 aeData[x.meddra_term] += x.count
               }
@@ -68,9 +76,9 @@ class DecadeChart extends Component<{}, DecadeChartState> {
       }))
   }
 
-  handleButtonClickDecade = (e: React.MouseEvent<HTMLButtonElement>) => {
+  handleButtonClickDecade = e => {
     this.setState({
-      decade: e.currentTarget.value
+      decade: e.target.value
     }, () => {
       this.getData()
     })
@@ -155,18 +163,18 @@ class DecadeChart extends Component<{}, DecadeChartState> {
                 2010's
             </button>
           </div>
+
+
           <ResponsiveContainer className='chart-background bar-chart-background' height={500} width='90%'>
             <BarChart
               layout='vertical'
               data={this.state.data}
-              barCategoryGap="50%" // Moved here
-              barGap="50%" // Moved here
             >
-              <XAxis type='number' />
-              <YAxis dataKey='name' interval={0} type='category' width={110} />
-              <CartesianGrid strokeDasharray='8 8' />
+              <XAxis type='number'/>
+              <YAxis dataKey='name' interval={0} type='category' width={110}/>
+              <CartesianGrid strokeDasharray='8 8'/>
               <Tooltip content={<CustomTooltip />} />
-              <Legend height={36} verticalAlign='top' />
+              <Legend height={36} verticalAlign='top'/>
               <Bar
                 dataKey='total'
                 fill='#8884d8'

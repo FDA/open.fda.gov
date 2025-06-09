@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { JSX } from 'react'
 import {marked} from 'marked'
 import ReactTable from "react-table-6"
 import { Tooltip } from 'react-tippy'
@@ -16,12 +16,17 @@ import Values from './RenderContentObject/Values'
 
 import '../css/components/FieldsHarmonization.scss'
 
-// import 'react-table/react-table.css'
-
 type ValueType = {
   type: string,
   value: { [key: string]: any }
 }
+
+type TableColumn = {
+  Header: string;
+  accessor: string;
+  Cell?: (row: any) => JSX.Element;
+  width?: number;
+};
 
 type FieldType = {
   [key: string]: number;
@@ -252,24 +257,19 @@ class FieldsHarmonization extends React.Component<PROPS, State> {
     }
 
     const col_list: any[] = []
-    const columns = [{
+    const columns: TableColumn[] = [{
       Header: 'Field',
       accessor: 'field',
       Cell: (row: any) => (
-        <Tooltip
+       <Tooltip
           arrow={true}
-          className='tooltip'
-          data-tip={row.value[0]}
-          data-for="this.field-tooltip"
-          data-event='click'
-          html={this.fieldDefinitionTooltip(row.value[0])}
+          html={this.fieldDefinitionTooltip(row.value)}
           interactive
           position='right'
           theme='light'
-          trigger='mouseenter'
-        >
-          <span>{row.value[0]}</span>
-        </Tooltip>
+          trigger='mouseenter'>
+        <span>{row.value[0]}</span>
+      </Tooltip>
       ),
       width: 242
     }]
@@ -295,7 +295,6 @@ class FieldsHarmonization extends React.Component<PROPS, State> {
             columns.push({
               Header: endpoint_headers[endpoint_name],
               accessor: endpoint_name,
-              width: 100,
               Cell: row => (
                 <div className='checkbox-cell'>{row.value ? <i className='fa fa-2x fa-check' style={{color: "green"}}/> : <span/>}</div>
               )
@@ -311,8 +310,8 @@ class FieldsHarmonization extends React.Component<PROPS, State> {
     })
   }
 
-  onChangeNoun (e: React.ChangeEvent<HTMLInputElement>) {
-    const title = e.target.getAttribute('title')
+  onChangeNoun (e: React.MouseEvent<HTMLDivElement>) {
+    const title = (e.target as HTMLElement).getAttribute('title')
     if (this.state.selected_noun !== title) {
       this.setState({
         selected_noun: title || ""
@@ -332,7 +331,7 @@ class FieldsHarmonization extends React.Component<PROPS, State> {
           className={this.state.selected_noun === noun ? 'selected' : 'unselected'}
           id={'noun-button-' + noun}
           key={noun}
-          onClick={() => this.onChangeNoun}
+          onClick={(e) => this.onChangeNoun(e)}
           title={noun}>
           {noun.charAt(0).toUpperCase() + noun.slice(1)}
         </div>

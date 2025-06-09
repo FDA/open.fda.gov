@@ -2,17 +2,19 @@
 
 import React from 'react'
 import cx from 'classnames'
-import dateFormat from 'dateformat';
+import BreadCrumbs from '../Breadcrumbs'
+import dateFormat from 'dateformat'
+
 
 type tPROPS = {
-  authors?: Array<string>;
-  date?: string;
+  authors: Array<string>;
+  date: string;
   description: string;
-  htmlDescription?: boolean;
-  label?: string;
+  htmlDescription: boolean;
+  label: string;
   path: string;
-  title?: React.ReactElement|string;
-  type?: 'homepage'|'endpoint'|'update'|'dataset';
+  title: string;
+  type: 'homepage'|'endpoint'|'update';
 };
 
 /**
@@ -38,39 +40,42 @@ const Hero = (props: tPROPS) => {
 
   const heroCx = cx({
     'flex-box dir-column': true,
-    'bg-gray': type !== 'dataset' && type !== 'endpoint',
-    'bg-primary': type === 'dataset'
+    'bg-gray': type !== 'endpoint'
   })
 
-  const bg_image_color = {
+  type CategoryName = 'food' | 'device' | 'drug' | 'animal_and_veterinary' | 'other';
+
+  const bg_image_color: Record<CategoryName, React.CSSProperties> = {
     food: {background: 'linear-gradient(to bottom right, rgba(81, 161, 22, 1), rgba(143, 209, 100, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
     device: {background: 'linear-gradient(to right bottom, rgb(232, 92, 44), rgb(236, 169, 6))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
     drug: {background: 'linear-gradient(to bottom right, rgba(153, 88, 163, 1), rgba(220, 141, 188, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
     animal_and_veterinary: {background: 'linear-gradient(to bottom right, rgba(249, 157, 28, 1), rgba(252, 215, 112, 1))', backgroundSize: 'contain', backgroundPosition: 'right', height: '240px'},
     other: {backgroundColor: '#5b616b'}
   }
-  const bg_image = {
+  const bg_image: Record<CategoryName, string> = {
     food: '/img/apple.png',
     device: '/img/stethoscope.png',
     drug: '/img/pill-bottle.png',
     animal_and_veterinary: '/img/dog.png',
-    other: '' // Default value for 'other'
+    other: ''
   }
 
-  const bg_image_style = {
-    food: {height: '300px', mixBlendMode: 'multiply' as React.CSSProperties['mixBlendMode'], position: 'absolute' as React.CSSProperties['position'], right: 0, zoom: '100%', top: '-20px'},
-    device: {height: '300px', mixBlendMode: 'multiply' as React.CSSProperties['mixBlendMode'], position: 'absolute' as React.CSSProperties['position'], right: 0, zoom: '100%', top: '-30px'},
-    drug: {height: '350px', mixBlendMode: 'multiply' as React.CSSProperties['mixBlendMode'], position: 'absolute' as React.CSSProperties['position'], right: 0, zoom: '120%', top: '-65px'},
-    animal_and_veterinary: {height: '300px', mixBlendMode: 'normal' as React.CSSProperties['mixBlendMode'], position: 'absolute' as React.CSSProperties['position'], right: 0, zoom: '100%', top: '0'},
-    other: {height: '300px', mixBlendMode: 'normal' as React.CSSProperties['mixBlendMode'], position: 'absolute' as React.CSSProperties['position'], right: 0, zoom: '100%', top: '0'}
+  const bg_image_style: Partial<Record<CategoryName, React.CSSProperties>> = {
+    food: {height: '300px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '100%', top: '-20px'},
+    device: {height: '300px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '100%', top: '-30px'},
+    drug: {height: '350px', mixBlendMode: 'multiply', position: 'absolute', right: 0, zoom: '120%', top: '-65px'}
   }
 
-  if ('path' in props) {
-    let cat_path = path.split( '/' )
-    var cat_name = cat_path[2] as keyof typeof bg_image_color
-  } else {
-    var cat_name: keyof typeof bg_image_color = 'other'
+  function getCategoryName(path: string): CategoryName {
+    const cat_path = path.split('/');
+    const name = cat_path[2];
+    if (name === 'food' || name === 'device' || name === 'drug' || name === 'animal_and_veterinary') {
+      return name;
+    }
+    return 'other';
   }
+
+  const cat_name: CategoryName = path ? getCategoryName(path) : 'other';
 
 
   const desc: void|string = description && description.trim()

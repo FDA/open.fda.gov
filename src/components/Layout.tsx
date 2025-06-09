@@ -12,17 +12,23 @@ import { Location } from '@reach/router'
 import '../css/app.scss'
 import '../css/components/Nav.scss'
 
-DocumentTitle.displayName = 'Document Title'
 
 const hhsCx = 'pad-r-1 flex-box dir-column m-marg-t-2 m-marg-l-2 hhs'
 const hhsACx = 'clr-white relative hhs'
 
-const Layout = (props) => {
+interface LayoutProps {
+  location: {
+    pathname: string;
+  };
+  children?: React.ReactNode;
+}
+
+const Layout = (props: LayoutProps) => {
 
   const [sidebarFixed, setSidebarFixed] = useState(false)
 
 
-  const toggleSidebarFixed = (fixed) => {
+  const toggleSidebarFixed = (fixed: boolean) => {
     setSidebarFixed(fixed)
   }
 
@@ -82,7 +88,7 @@ const Layout = (props) => {
           </div>
         </div>
         <Sticky scrollClass={scrollClass}>
-          <div className='sticky' id='nav'><Nav meta={props.meta} /></div>
+          <div className='sticky' id='nav'><Nav /></div>
         </Sticky>
         {
           hasSidebar &&
@@ -115,7 +121,7 @@ const Layout = (props) => {
 
 Layout.displayName = 'Layout'
 
-export default props => (
+export default (props: React.PropsWithChildren<unknown>) => (
   <Location>
     {locationProps => <Layout {...locationProps} {...props} />}
   </Location>

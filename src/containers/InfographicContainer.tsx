@@ -11,7 +11,7 @@ import '../css/components/InfographicContainer.scss'
 type tSTATE = {
   countParam: string;
   current: { dateConstraint?: string; [key: string]: any };
-  data: Object | null | undefined;
+  data: any;
   filters: Object;
   infographics: Record<string, { countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }>;
   dateContraint: string;
@@ -51,7 +51,7 @@ class InfographicContainer extends React.Component<{
       type: 'Line',
       short: ''
     },
-    data: null,
+    data: undefined,
     dateContraint: '',
     infographics: {},
     filters: {},
@@ -360,7 +360,7 @@ class InfographicContainer extends React.Component<{
   }
 
   render (): any {
-    if (this.state.data === null) return <span />
+    if (this.state.data === undefined) return <span />
 
     // pull out keys for sidebarMenu
     const infographicKeys: Array<string> = Object.keys(this.state.infographics)
@@ -368,13 +368,8 @@ class InfographicContainer extends React.Component<{
     return (
       <div>
         <Infographic
-          {...this.props}
-          {...this.state}
-          data={
-            this.state.data && typeof this.state.data === 'object' && 'results' in this.state.data
-              ? (this.state.data as { error?: boolean; results: any[] })
-              : undefined
-          }
+            { ...this.props }
+            { ...this.state }
           current={{
             description: this.state.current.description || '',
             filters: this.state.current.filters || [],
@@ -382,17 +377,16 @@ class InfographicContainer extends React.Component<{
             type: this.state.current.type || 'Line',
             ...this.state.current
           }}
-          fieldsFlattened={(fieldsFlattened: any) => this.state.fieldsFlattened}
 
-          onSearchChangeUpdate={this._update.bind(this)}
-          onSearchChange={this._onSearchChange.bind(this)}
-          records={this.state.matchingRecords}
-          handler={this._tabToggle.bind(this)}
-          onKeyPress={this._onKeyPress.bind(this)}
-          onCountChange={this._onCountChange.bind(this)}
-          onCountChangeAndUpdate={this._onCountChangeAndUpdate.bind(this)}
-          container={this}
-        />
+            onSearchChangeUpdate={this._update.bind(this)}
+            onSearchChange={this._onSearchChange.bind(this)}
+            records={this.state.matchingRecords}
+            handler={this._tabToggle.bind(this)}
+            onKeyPress={this._onKeyPress.bind(this)}
+            onCountChange={this._onCountChange.bind(this)}
+            onCountChangeAndUpdate={this._onCountChangeAndUpdate.bind(this)}
+            container={this}
+          />
       </div>
     )
   }

@@ -5,63 +5,60 @@ import debounce from 'lodash/debounce'
 
 type tSTATE = {
   bottom: boolean;
-  bottomPos: number;
+  bottomPos?: number;
   fixed: boolean;
 };
 
-
-const SideBarContainer = function (ComposedSideBar: React.ComponentType<tSTATE>):  React.ComponentType {
+const SideBarContainer = function (ComposedSideBar: any): React.ComponentType {
   class HOC extends React.Component {
     state: tSTATE = {
       bottom: false,
       fixed: false,
-      bottomPos: 0
     };
 
     // this just gets re-assigned in constructor
     // for flow purposes
-    _boundCheckPosition = (event: Event) => {
-      console.log('this should never be called')
-    };
+    _boundCheckPosition: () => void;
+    private boundCB!: (event: Event) => void;
 
     constructor (props: Object) {
       super(props)
       // debounce so we're not calling this functions
       // thousands of times a second
-      this._boundCheckPosition = debounce(this._checkPosition, 10)
+      this._boundCheckPosition = debounce(this._checkPosition.bind(this), 10)
     }
 
     componentDidMount () {
-      const boundCB = this._boundCheckPosition
+      this.boundCB = this._boundCheckPosition
 
       if (window) {
-        window.addEventListener('scroll', boundCB, false)
-        window.addEventListener('resize', boundCB)
+        window.addEventListener('scroll', this.boundCB, false)
+        window.addEventListener('resize', this.boundCB)
       }
     }
 
     componentWillUnmount () {
-      const boundCB = this._boundCheckPosition
+      this.boundCB = this._boundCheckPosition
 
       if (window) {
-        window.removeEventListener('scroll', boundCB, false)
-        window.removeEventListener('resize', boundCB)
+        window.removeEventListener('scroll', this.boundCB, false)
+        window.removeEventListener('resize', this.boundCB)
       }
     }
 
     _checkPosition () {
       // the entire aside, the height of the height
-      const wrap: any = document.getElementById('sidebarWrap')
+      const wrap = document.getElementById('sidebarWrap') as HTMLElement | null
       // the actual menu, of variable height, that can be fixed
-      const el: any = document.getElementById('menu')
+      const el = document.getElementById('menu') as HTMLElement | null
       // footer height, used for bottom positioning
-      const footer: any = document.getElementById('footer')
+      const footer = document.getElementById('footer') as HTMLElement | null
       // height of footer with spacing - menu padding
-      const bottomPos: number = footer.clientHeight + 50
+      const bottomPos: number = (footer?.clientHeight ?? 0) + 50
       // the top position of the wrapper
       const runwayStart: number = this._getPos(wrap)
       // the bottom position of the wrapper, the end of the runway
-      const runwayEnd: number = wrap.clientHeight
+      const runwayEnd: number = wrap ? wrap.clientHeight : 0
       // current browser scroll position
       const browser: number = this._getPageScroll()
       // browser position - content above sidebar
@@ -79,7 +76,7 @@ const SideBarContainer = function (ComposedSideBar: React.ComponentType<tSTATE>)
         let fixed: boolean = true
         // we're at the end of the runway
         let bottom: boolean = false
-        const elementBottomPos: number = realPos + (el.clientHeight)
+        const elementBottomPos: number = el ? realPos + el.clientHeight : realPos
 
 
         // account for the 85px spacer at the bottom
@@ -102,7 +99,8 @@ const SideBarContainer = function (ComposedSideBar: React.ComponentType<tSTATE>)
 
     // findPos() by quirksmode.org
     // Finds the absolute position of an element on a page
-    _getPos (element: Object): number {
+    _getPos (element: HTMLElement | null): number {
+      if (!element) return 0;
       let absPos: number = 0
       let el: any = element
 

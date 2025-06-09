@@ -52,8 +52,7 @@ class IndexRoute extends React.Component {
         <h2>Harmonization Chart</h2>
         <p>The below chart provides the specific fields which are harmonized in each category. Note that not all datasets utilize harmonization.</p>
         <FieldsHarmonization
-          master_harmonization={master_harmonization}
-        />
+          master_harmonization={master_harmonization} selected_noun={""}        />
 
         <div className='bg-secondary-lightest marg-t-2 marg-b-2 pad-2 pad-b-1'>
           <h2>Limits of openFDA harmonization</h2>

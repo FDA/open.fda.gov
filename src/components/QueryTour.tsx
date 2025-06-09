@@ -46,9 +46,7 @@ class QueryTour extends React.Component<tPROPS, tSTATe> {
   }
 
 
-  handleClickStart = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-
+  handleClickStart = () => {
     this.setState({
       tourRun: true
     })

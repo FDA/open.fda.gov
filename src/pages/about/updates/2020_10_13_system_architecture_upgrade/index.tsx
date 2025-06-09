@@ -8,6 +8,7 @@ import meta from './_meta.yaml'
 export default () => (
   <ContentWrapper
     content={content}
-    meta={meta}
-  />
+    meta={meta} explorers={{}} infographics={[]} infographicDefinitions={{}} fields={{
+      properties: []
+    }} hideMenu={false}  />
 )

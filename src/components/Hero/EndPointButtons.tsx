@@ -1,5 +1,5 @@
 import React from 'react';
-import useBreakPoints from '../../constants/breakpoints';
+import bp from '../../constants/breakpoints';
 import Link from 'gatsby-link';
 
 type tPROPS = {
@@ -16,12 +16,11 @@ const EndpointButtons = (props: tPROPS) => {
   // Reference button === this + /reference/
   const isBasics: boolean = props.path.indexOf('reference') === -1;
   const path: string = props.path.replace(/(\/reference){1}\/?/, '');
-  const {mob} = useBreakPoints();
 
   const getActiveCx = (idx: number) => {
     const isActive = (idx === 0 && isBasics) || (idx !== 0 && !isBasics);
     const baseClass = 'btn tab bg-secondary weight-700 m-pad-l-2 m-pad-r-2 pad-t-2 pad-b-2 pad-l-3 pad-r-3';
-    const breakpointClass = mob ? 'smallest' : '';
+    const breakpointClass = bp.mob ? 'smallest' : '';
     const marginClass = idx === 0 ? 'marg-r-1' : '';
     const colorClass = isActive ? 'bg-white clr-primary-dark' : 'clr-white';
 
