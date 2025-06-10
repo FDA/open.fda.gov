@@ -11,7 +11,7 @@ pipeline {
     	npm_config_cache = '$HOME/.npm'
     	CYPRESS_CACHE_FOLDER = "$HOME/cache/Cypress"
     	NO_COLOR=1
-    	DEBUG=start-server-and-test
+    	DEBUG="start-server-and-test"
     }
     stages {
         stage('Install dependencies') {
