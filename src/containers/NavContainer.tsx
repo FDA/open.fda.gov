@@ -1,5 +1,3 @@
-/* @flow */
-
 import React from 'react'
 
 type tSTATE = {
@@ -83,10 +81,19 @@ const NavContainer = function (ComposedNav: React.ComponentType<any>): React.Com
     }
 
     _handleOpenModal () {
+      // Force immediate update for better responsiveness
+      sessionStorage.removeItem('nav.disclaimer.accepted')
+      sessionStorage.removeItem('validated')
+      sessionStorage.removeItem('hasSeenDisclaimer')
+      setTimeout(() => {
       this.setState({
         validated: false,
         showModal: true
+      }, () => {
+        // Clear any existing validation to ensure modal opens
+        
       })
+    }, 0)
     }
 
     _handleCloseModal () {
@@ -118,3 +125,4 @@ const NavContainer = function (ComposedNav: React.ComponentType<any>): React.Com
 }
 
 export default NavContainer
+

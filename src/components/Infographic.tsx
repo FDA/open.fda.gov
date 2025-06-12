@@ -211,7 +211,7 @@ const Infographic = (props: tPROPS) => {
                   className='select clr-primary'
                   id='view-select'
                   value={props.countParam}
-                  onChange={() => onCountChangeAndUpdate()}
+                  onChange={onCountChangeAndUpdate}
                   // inline because of uncss
                   // client side only code not picked up
                   style={{

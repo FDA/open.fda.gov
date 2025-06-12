@@ -1,40 +1,28 @@
 import React from "react";
-import {graphql} from "gatsby";
+import { graphql } from "gatsby";
 
-type frontmatter = {
-  title: string;
-}
-
-type MarkdownRemark = {
-  html: string;
-  frontmatter: frontmatter;
-}
-
-type templateProps = {
-  data: {
-    markdownRemark: MarkdownRemark;
-  }
-}
-
-export default function Template ({ data }: templateProps) {
-  const { markdownRemark } = data; // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark;
+export default function Template({ data }: any) {
+  const node = data.allMarkdownRemark.edges[0]?.node;
+  if (!node) return <div>No content found.</div>;
+  const { frontmatter, html } = node;
   return (
     <section className="markdown-content">
       <h2>{frontmatter.title}</h2>
-      <div
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </section>
-  )
+  );
 }
 
 export const query = graphql`
   query BlogPostQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
+    allMarkdownRemark(filter: { fields: { slug: { eq: $slug } } }) {
+      edges {
+        node {
+          html
+          frontmatter {
+            title
+          }
+        }
       }
     }
   }

@@ -1,3 +1,4 @@
+
 /* @flow */
 
 import React from 'react'
@@ -13,41 +14,31 @@ type HOCProps = {
 const DisclaimerContainer = function (ComposedDisclaimer: React.ComponentType<{ showModal: boolean; setIsModal: (val: boolean) => void; validated: boolean }>): React.ComponentType<HOCProps> {
 
   class HOC extends React.Component<HOCProps> {
-    state: tSTATE = {
-      showModal: false
-    };
+    constructor (props: HOCProps) {
+      super(props);
+      this.state = {
+        showModal: !this.props.validated
+      };
+    }
 
     componentDidMount () {
       const hasSeenDisclamer = sessionStorage.getItem('hasSeenDisclaimer')
       const validated = sessionStorage.getItem('validated') === 'true'
+      
+      // Simplify the logic to be more responsive
       if (hasSeenDisclamer == null) {
         sessionStorage.setItem('hasSeenDisclaimer', 'true')
-        this.setState({
-          showModal: true
-        })
+        this.setState({ showModal: true })
+      } else {
+        // Set modal state based on validation status
+        this.setState({ showModal: !validated && !this.props.validated })
       }
-      else if (validated == true) {
-        this.setState({
-          showModal: false
-        })
-      }
-      else
-        if (this.props.validated == false) {
-          this.setState({
-            showModal: true
-          })
-        }
     }
 
     componentWillReceiveProps (nextProps: HOCProps) {
-      if (this.props.validated == true && nextProps.validated == false) {
+      if (this.props.validated !== nextProps.validated || !nextProps.validated) {
         this.setState({
-          showModal: true
-        })
-      }
-      else if (this.props.validated == false && nextProps.validated == true) {
-        this.setState({
-          showModal: false
+          showModal: !nextProps.validated
         })
       }
     }
@@ -59,6 +50,7 @@ const DisclaimerContainer = function (ComposedDisclaimer: React.ComponentType<{ 
     }
 
     setIsModal (val: boolean) {
+      // Immediately update the modal state for better responsiveness
       this.setState({
         showModal: val
       })
