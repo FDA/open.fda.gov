@@ -5,13 +5,14 @@
   "author": "Jack Finch <jack.finch@semanticbits.com>",
   "scripts": {
     "dev": "gatsby develop -H 0.0.0.0 -p 3000",
+    "serve": "gatsby serve -H 0.0.0.0 -p 3000",
     "build": "gatsby build --verbose",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.{js,ts,tsx}'",
     "develop": "gatsby develop",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test:e2e": "start-server-and-test dev http-get://127.0.0.1:3000 cy:open",
-    "test:e2e:ci": "start-server-and-test dev http-get://172.17.0.2:3000 cy:run",
+    "test:e2e": "start-server-and-test dev http://localhost:3000 cy:open",
+    "test:e2e:ci": "start-server-and-test serve http://localhost:3000 cy:run",
     "type-check": "tsc --noEmit"
   },
   "repository": {
