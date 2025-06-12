@@ -10,11 +10,10 @@ import '../css/components/InfographicContainer.scss'
 
 type tSTATE = {
   countParam: string;
-  current: { dateConstraint?: string; [key: string]: any };
-  data: any;
-  filters: Object;
-  infographics: Record<string, { countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }>;
-  dateContraint: string;
+  current: { [key: string]: any };
+  data: { [key: string]: any } | null;
+  filters: { [key: string]: any };
+  infographics: { [key: string]: any };
   matchingRecords: number;
   nextCountParam: string;
   nextSearchParam: string;
@@ -23,19 +22,15 @@ type tSTATE = {
   searchParam: string;
   selected: string;
   type: string;
-  meta: { start: string; api_path: string };
-  fieldsFlattened: Record<string, string>;
 };
 
-class InfographicContainer extends React.Component<{
-  infographics?: Array<{ countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }>;
-  meta: { start: string; api_path: string };
-  fieldsFlattened?: Record<string, string>;
-  fieldsMapped?: Record<string, any>;
-  fields?: Record<string, any>;
-  tourStart?: () => void;
-  
-}> {
+type InfographicContainerProps = {
+  infographics: Array<Object>;
+  meta?: any;
+  fieldsFlattened?: any;
+};
+
+class InfographicContainer extends React.Component<InfographicContainerProps, tSTATE> {
   static displayName = 'containers/InfographicContainer';
 
   // flow doesn't believe Component
@@ -43,16 +38,8 @@ class InfographicContainer extends React.Component<{
   // explicitly define one for some reason
   state: tSTATE = {
     countParam: '',
-    current: { 
-      dateConstraint: '', 
-      description: '', 
-      filters: [], 
-      title: '', 
-      type: 'Line',
-      short: ''
-    },
-    data: undefined,
-    dateContraint: '',
+    current: {},
+    data: null,
     infographics: {},
     filters: {},
     matchingRecords: 0,
@@ -70,23 +57,17 @@ class InfographicContainer extends React.Component<{
     selected: '',
     // type of infographic to render
     type: 'Line',
-    meta: this.props.meta,
-    fieldsFlattened: this.props.fieldsFlattened || {},
   };
 
-  static defaultProps: Object = {
+  static defaultProps: InfographicContainerProps = {
     infographics: [{}],
   };
 
-  constructor (props: { 
-    infographics: Array<{ countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }>;
-    meta: { start: string; api_path: string }; 
-    fieldsFlattened: Record<string, string>;
-  }) {
+  constructor (props: InfographicContainerProps) {
     super(props)
 
     // by default the first explorer is active
-    const current = props.infographics[0]
+    const current = props.infographics[0] as { [key: string]: any };
 
     // countParam === count field for current explorer
     // modified by infoExplorer count field
@@ -115,18 +96,12 @@ class InfographicContainer extends React.Component<{
    * @param  {Object} infographics [original infographics array]
    * @return {Object} [explorer map with short titles as key]
    */
-  _getInfographicMap (infographics: Array<{ countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }>): Record<string, { countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }> {
-    const map: Record<string, { countParam: string; short: string; filters: Array<{ searchParam: string }>; dateConstraint?: string; type?: string }> = {}
+  _getInfographicMap (infographics: Array<{ [key: string]: any }>): { [key: string]: any } {
+    const map: { [key: string]: any } = {}
 
     if (infographics) {
       infographics.forEach(d => {
-        map[d.short as string] = {
-          countParam: d.countParam,
-          short: d.short,
-          filters: d.filters,
-          dateConstraint: d.dateConstraint,
-          type: d.type || 'Line', // default to Line if not specified
-        }
+        map[d.short] = d
       })
     }
 
@@ -162,7 +137,7 @@ class InfographicContainer extends React.Component<{
    * @return {string} [filter range or '']
    */
   _getFilterRange (data: { meta: { last_updated: string } }): string {
-    const curr: { dateConstraint?: string } = this.state.current
+    const curr = this.state.current as { [key: string]: any, dateConstraint?: string }
     // first date of data by endpoint, from _meta.yaml
     const startDate: string = this.props.meta.start
     // search up to the last time we updated an openfda dataset
@@ -187,12 +162,12 @@ class InfographicContainer extends React.Component<{
    * @returns {Promise} [like all async methods, returns a promise]
    */
   _fetchQueryAndUpdate (searchParam: string, countParam: string) {
-    const that = this
-    const download_url = API_LINK + '/download.json'
+    var that = this
+    let download_url = API_LINK + '/download.json'
     fetch(download_url)
       .then(function (res) {
         return res.json()
-      }).then(function (res) {
+      }).then(function(res) {
         const range: string = that._getFilterRange(res)
         const search: string = that._getFilterSearch(searchParam, range)
         const query: string = API_LINK + that.props.meta.api_path + '.json?' + search + 'count=' + countParam
@@ -200,8 +175,8 @@ class InfographicContainer extends React.Component<{
         const urls = [
           API_LINK + that.props.meta.api_path + '.json?' + search,
           query
-        ]
-        Promise.all(urls.map(url => fetch(url).then(res => res.json()))).then(function (results) {
+        ];
+        Promise.all(urls.map((url) => $.getJSON(url))).then(function(results) {
           const recordsTotal: number = results[0].meta.results.total
 
           // Get total number of records on the first call
@@ -227,13 +202,14 @@ class InfographicContainer extends React.Component<{
             // what type of chart to render
             // we default to greater specificity (ie, defined by field)
             // but we also fall back to the current explorer default
-            type: that.props.fieldsFlattened?.[countParam] || that.state.current.type,
+            type: that.props.fieldsFlattened[countParam] || that.state.current.type,
           })
-        }).catch(function (res) {
+        }).catch(function(res) {
           that.setState({ data: res.responseJSON})
         })
       })
   }
+
 
 
   /**
@@ -242,7 +218,12 @@ class InfographicContainer extends React.Component<{
    * @return {void} [update state]
    */
   _onSearchChange (e: string | React.ChangeEvent<HTMLInputElement>) {
-    const nextSearchParam: string = typeof e === 'string' ? e : e.target.value
+    const nextSearchParam: string =
+      typeof e === 'string'
+        ? e
+        : (e && typeof (e as React.ChangeEvent<HTMLInputElement>).target?.value === 'string'
+            ? (e as React.ChangeEvent<HTMLInputElement>).target.value
+            : '');
 
     this.setState({
       nextSearchParam,
@@ -251,10 +232,10 @@ class InfographicContainer extends React.Component<{
 
   /**
    * @description [any interaction that updates the count param]
-   * @param  {string|Object} e [an event object]
+   * @param  {Object} e [an event object]
    * @return {void} [update state]
    */
-  _onCountChange (e: React.ChangeEvent<HTMLInputElement>) {
+  _onCountChange (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     this.setState({
       countParam: e.target.value,
     })
@@ -265,28 +246,31 @@ class InfographicContainer extends React.Component<{
    * @param  {Object} e [an event object]
    * @return {void} [update state, then fetch new query]
    */
-  _onCountChangeAndUpdate (e: React.ChangeEvent<HTMLInputElement>) {
-    this._onCountChange(e)
-    this._update(this.state.searchParam, e.target.value)
+  _onCountChangeAndUpdate (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+      this._onCountChange(e)
+      this._update(this.state.searchParam, e.target.value)
   }
 
   /**
    * @description [callback when typing into an infoExplorer field]
-   * @param  {Object} e [an event object]
+   * @param  {React.KeyboardEvent<HTMLInputElement>} e [an event object]
    * @return {void} [update state, then fetch new query]
    */
-  _onKeyPress (e: React.KeyboardEvent) {
-    const code: string = e.key
+  _onKeyPress (e: React.KeyboardEvent<HTMLInputElement>) {
+    const code: number = e.keyCode ? e.keyCode : e.which
 
     // Handle space character (don't allow it)
-    if (code === ' ' || code === 'Enter') {
+    if (code === 32 || code === 13) {
       if (e.preventDefault) {
         e.preventDefault()
+      }
+      else {
+        (e as any).returnValue = false
       }
     }
 
     // Handle return keypress
-    if (code === 'Enter') {
+    if (code === 13) {
       this._update()
     }
   }
@@ -297,22 +281,22 @@ class InfographicContainer extends React.Component<{
    * @param  {string} nextCount?:  string        [description]
    * @return {void} [just updates state, the fetches the query]
    */
-  _update (nextSearch?: string, nextCount?: string) {
+  _update (nextSearch?: string | React.ChangeEvent<HTMLInputElement | HTMLSelectElement>, nextCount?: string | React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     let nextSearchParam: string = this.state.nextSearchParam
 
     if (typeof nextSearch === 'string') {
       nextSearchParam = nextSearch
-    }
+    } else if(nextSearch && typeof nextSearch === 'object' && 'target' in nextSearch) {
+      nextSearchParam = nextSearch.target.value
+      }
 
     let nextCountParam: string = this.state.countParam
 
     if (typeof nextCount === 'string') {
       nextCountParam = nextCount
     }
-    else if (typeof nextCount !== 'undefined') {
-      if (nextCount && typeof nextCount === 'object' && 'target' in nextCount) {
-        nextCountParam = (nextCount as React.ChangeEvent<HTMLInputElement>).target.value;
-      }
+    else if (nextCount && typeof nextCount === 'object' && 'target' in nextCount) {
+      nextCountParam = nextCount.target.value
     }
 
     this.setState({
@@ -325,7 +309,7 @@ class InfographicContainer extends React.Component<{
 
   /**
    * @description [updates the x records match string just below info filters]
-   * @param {Array<Object>} results [results count + meta data]
+   * @param {Array<{ count: number }>} results [results count + meta data]
    * @return {void|number} [nothing if failed query, else reduced count]
    */
   _getCurrRecords (results: Array<{ count: number }>): void|number {
@@ -354,29 +338,22 @@ class InfographicContainer extends React.Component<{
     })
 
     // Update the infographic
-    const nextSearchParam: string = this.state.infographics[selected]?.filters[0]?.searchParam || ''
+    const nextSearchParam: string = this.state.infographics[selected].filters[0].searchParam
     const nextCountParam: string = this.state.infographics[selected].countParam
     this._update(nextSearchParam, nextCountParam)
   }
 
-  render (): any {
-    if (this.state.data === undefined) return <span />
+  render (){
+    if (!this.state.data) return <span />
 
     // pull out keys for sidebarMenu
     const infographicKeys: Array<string> = Object.keys(this.state.infographics)
 
     return (
-      <div>
-        <Infographic
+        <div>
+          <Infographic
             { ...this.props }
             { ...this.state }
-          current={{
-            description: this.state.current.description || '',
-            filters: this.state.current.filters || [],
-            title: this.state.current.title || '',
-            type: this.state.current.type || 'Line',
-            ...this.state.current
-          }}
 
             onSearchChangeUpdate={this._update.bind(this)}
             onSearchChange={this._onSearchChange.bind(this)}
@@ -387,7 +364,7 @@ class InfographicContainer extends React.Component<{
             onCountChangeAndUpdate={this._onCountChangeAndUpdate.bind(this)}
             container={this}
           />
-      </div>
+        </div>
     )
   }
 }

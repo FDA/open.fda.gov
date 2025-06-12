@@ -60,7 +60,7 @@ Add responsive scrolling without changing layout
   overflow-x: auto;
 }
 .table {
-  max-width: 70vw !important;
-  min-width: 60vw !important;
+  max-width: auto !important;
+  min-width: auto !important;
   overflow-x: scroll;
 }

@@ -105,8 +105,8 @@ const ChartDonut = (props: tPROPS) => {
       <div style={{ width: divSize, paddingBottom: 70, paddingTop: 30, display: 'flex', justifyContent: 'center'}}>
         <Doughnut
           data={chartData}
-          height={Number(size)}
-          width={Number(size)}
+          height={size === 'small' ? 150 : 250}
+          width={size === 'small' ? 150 : 250}
           options={{
             cutoutPercentage: 60,
             animation: {

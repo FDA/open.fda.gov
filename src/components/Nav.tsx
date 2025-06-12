@@ -219,7 +219,8 @@ const Nav = (props: tPROPS) => {
                 <div className='dropdown'>
                   <button
                     title='Disclaimer'
-                    onClick={() => {handleOpenModal
+                    onClick={(e) => {handleOpenModal(e)
+                      e.stopPropagation()
                       sessionStorage.setItem('hasSeenDisclaimer', 'false')
                       sessionStorage.setItem('validated', 'false')
                     }}

@@ -1,3 +1,4 @@
+
 /* @flow */
 
 import React from 'react'
@@ -26,6 +27,14 @@ const Disclaimer = (props: tPROPS) => {
     setIsModal
   } = props
 
+  React.useEffect(() => {
+    if (!showModal) {
+      const forceUpdate = setTimeout(() => {
+        setIsModal(false);
+      }, 0);
+      return () => clearTimeout(forceUpdate);
+  }}, [showModal]);
+
 
   return (
     <ReactModal
@@ -33,8 +42,12 @@ const Disclaimer = (props: tPROPS) => {
       className='modal-container'
       overlayClassName='modal-overlay'
       contentLabel='Disclaimer Modal'
-      shouldCloseOnOverlayClick={false}
+      // shouldCloseOnOverlayClick={false}
+      // shouldReturnFocusAfterClose={false}
+      shouldFocusAfterRender={true}
       ariaHideApp={false}
+      shouldCloseOnEsc={false}
+      closeTimeoutMS={0}
     >
       <h4 className='modal-header'>Disclaimer</h4>
       <div className='modal-body'>
@@ -52,3 +65,4 @@ const Disclaimer = (props: tPROPS) => {
 
 Disclaimer.displayName = 'components/Disclaimer'
 export default Disclaimer
+
