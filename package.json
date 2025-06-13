@@ -119,7 +119,7 @@
     "@types/react-radio-group": "^3.0.7",
     "@types/react-select": "^5.0.1",
     "@types/react-table": "^7.7.20",
-    "cypress": "^9.2.1",
+    "cypress": "^14.4.1",
     "cypress-multi-reporters": "^1.5.0",
     "mocha-junit-reporter": "^2.0.2",
     "prettier": "^1.19.1",
