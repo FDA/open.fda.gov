@@ -96,7 +96,7 @@ interface State{
 
 let ApiUsage:React.FC<tPROPS> = (props:tPROPS) => {
 
-  // mobile sizing for infographic
+// mobile sizing for infographic
 // window - 40 (margin) - 40 (padding)
 const hasWindow: boolean = typeof window !== 'undefined'
 let size: number = hasWindow ? window.innerWidth - 80 : 300
@@ -131,7 +131,6 @@ if (!bp.mob && hasWindow) {
 
       super(props)
       this.nf = Intl.NumberFormat()
-
       const initWidth = typeof window !== 'undefined' ? Math.max(1100, window.innerWidth - 400) : 1100
 
       this.state = {
@@ -185,7 +184,7 @@ if (!bp.mob && hasWindow) {
     componentDidMount () {
       this.fetchStats()
 
-      if (typeof window !== 'undefined') {
+     if (typeof window !== 'undefined') {
         window.addEventListener('resize', this.handleChartResize.bind(this))
       }
 
@@ -211,7 +210,6 @@ if (!bp.mob && hasWindow) {
         })
       }
     }
-
     handleWindowResize = () => {
       if (typeof window !== 'undefined') {
         this.setState({
@@ -250,7 +248,7 @@ if (!bp.mob && hasWindow) {
         var min = null
         const that = this
 
-        data.stats.forEach(function (stat: any) {
+        data.stats.forEach(function (stat:any){
           graphData.labels.push(stat.day)
           dataz.push([new Date(stat.day), stat.totalCount])
           graphData.datasets[0].data.push(stat.totalCount)
@@ -294,10 +292,8 @@ if (!bp.mob && hasWindow) {
       })
       this.setState(this.state)
     }
-    refreshPrefix (evt: any) {
-      this.setState({
-        prefix: evt.target.getAttribute('data-prefix')
-      })
+    refreshPrefix (evt: any){
+      this.state.prefix = evt.target.getAttribute('data-prefix')
       this.refreshBreadcrumbs()
       this.fetchStats()
     }
@@ -309,9 +305,7 @@ if (!bp.mob && hasWindow) {
         this.state.breadcrumbs.push(this.state.prefix)
       }
       else if (i < (this.state.breadcrumbs.length - 1)) {
-        this.setState({
-          breadcrumbs: this.state.breadcrumbs.slice(0, i + 1)
-        })
+        this.state.breadcrumbs = this.state.breadcrumbs.slice(0, i + 1)
       }
     }
 
@@ -349,8 +343,8 @@ if (!bp.mob && hasWindow) {
     }
 
     onHighlightChange () {}
-    onChartResize (width: number) {
-      this.handleChartResize(width)
+    onChartResize () {
+      this.handleChartResize()
     }
     onSelectionChange (selection: any) {
       this.setState({
@@ -600,14 +594,17 @@ if (!bp.mob && hasWindow) {
 
                       // render without link
                       return (<span key={i}>{ (i > 0 ? ' > ' : '') + b.substring(0, b.length - 1).split('/').pop()}</span>)
+
                     })
                   }
                 </div>
                 <div className='marg-1'>
+
                   <Table labels={['API', 'Hits']}
                     rows={this.state.data.table}
                     cols={['path', 'hits']}
                     formatters={{path: pathFormat}}/>
+
                 </div>
               </div>
             </div>

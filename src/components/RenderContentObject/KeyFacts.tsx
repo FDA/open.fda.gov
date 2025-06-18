@@ -6,7 +6,7 @@ import '../../css/components/KeyFacts.scss'
 import xhrGET from "../../utils/xhr"
 import {API_LINK} from "../../constants/api"
 
-const source = {
+const source: Record<string, Record<string, string>> = {
   'animalandveterinary': {
     'event': 'Animal Drug Adverse Events (ADAE)'
   },
@@ -44,7 +44,7 @@ const source = {
   }
 }
 
-const sourceLink = {
+const sourceLink: any = {
   'animalandveterinary': {
     'event': '/data/adae/'
   },
@@ -80,7 +80,7 @@ const sourceLink = {
   }
 }
 
-const timePeriod = {
+const timePeriod: any = {
   'animalandveterinary': {
     'event': '1987 to'
   },
