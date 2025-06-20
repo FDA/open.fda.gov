@@ -1,0 +1,31 @@
+- title: "Cosmetic adverse event reports since 2010"
+  short: "Reports over time"
+  description:
+    - "This is the openFDA API endpoint for cosmetic adverse event reports."
+    - "The chart below is provided here to help illustrate how the cosmetic adverse event reports data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results)."
+  countParam: "initial_received_date"
+  filters:
+    - title: "All adverse event reports"
+      searchParam: ""
+    - title: "Direct Report"
+      searchParam: 'report_type:"Direct"'
+    - title: "Expedited Report"
+      searchParam: 'report_type:"Expedited (15-Day)"'
+    - title: "Reported before Modernization of Cosmetics Regulations Act"
+      searchParam: 'report_type:"Pre-MoCRA"'
+  dateConstraint:
+  type: Line
+- title: "Outcomes by Product Role"
+  short: "Outcomes by role"
+  description:
+    - "The chart below is provided here to help illustrate how the cosmetic adverse event reports data can be queried and used. You can interact with the chart by (1) selecting a different filter (which changes the search parameter) or by (2) selecting a different field from the drop down list (which changes the field used to count the results)."
+  countParam: "outcomes.exact"
+  filters:
+    - title: "All adverse event reports"
+      searchParam: ""
+    - title: "Role: Suspect"
+      searchParam: 'products.role:"Suspect"'
+    - title: "Role: Concomitant"
+      searchParam: 'products.role:"Concomitant"'
+  dateConstraint:
+  type: Bar

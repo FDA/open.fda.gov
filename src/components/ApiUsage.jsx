@@ -305,13 +305,10 @@ const ApiUsage = (props:tPROPS) => {
                 <div>
                   <table className='table-sm table-bordered'>
                     <tbody>
-                      <tr className='bg-primary-darkest clr-white'>
-                        <td colSpan='2'><strong>Animal & Veterinary</strong></td>
-                      </tr>
+                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Animal & Veterinary</strong></td></tr>
                       <tr><td>Adverse Event Reports</td><td>{this.docCount('animalandveterinarydrugevent')}</td></tr>
-                      <tr className='bg-primary-darkest clr-white'>
-                        <td colSpan='2'><strong>Drugs</strong></td>
-                      </tr>
+
+                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Drugs</strong></td></tr>
                       <tr><td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td></tr>
                       <tr><td>Labeling</td><td>{this.docCount('druglabel')}</td></tr>
                       <tr><td>NDC Directory</td><td>{this.docCount('ndc')}</td></tr>
@@ -322,6 +319,9 @@ const ApiUsage = (props:tPROPS) => {
                       <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Foods</strong></td></tr>
                       <tr><td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td></tr>
                       <tr><td>Enforcement Reports</td><td>{this.docCount('foodenforcement')}</td></tr>
+
+                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Cosmetics</strong></td></tr>
+                      <tr><td>Adverse Event Reports</td><td>{this.docCount('cosmeticevent')}</td></tr>
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Devices</strong></td></tr>
                       <tr><td>Classifications</td><td>{this.docCount('deviceclass')}</td></tr>
