@@ -20,7 +20,7 @@ type tPROPS = {
   fieldsMapped: Record<string, any>;
   fieldsFlattened: Record<string, any>;
   fields: Record<string, any>;
-  meta: Record<string, any>;
+  meta: any;
 };
 
 // called by Content
@@ -92,7 +92,7 @@ const ContentAccordion = (props: tPROPS) => {
       <div>
         {
           // the actual p tags and such
-          obj[key].map((content: string|Object, j) => {
+          obj[key].map((content: string|Object, j: number) => {
             if (typeof content === 'object') {
               return (
                 <RenderContentObject
@@ -148,7 +148,7 @@ const ContentAccordion = (props: tPROPS) => {
             if (content === 'multipleProductTable') {
               return (
                 <MultipleProductTable
-                  key={j}
+                  k={j}
                 />
               )
             }
