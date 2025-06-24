@@ -27,16 +27,17 @@ class IndexRoute extends React.Component {
         </p>
 
         <ul>
-          <li>(A) results in:</li>
-          <ul>
-            <li>death</li>
-            <li>a life-threatening experience</li>
-            <li>inpatient hospitalization</li>
-            <li>a persistent or significant disability or incapacity</li>
-            <li>a congenital anomaly or birth defect</li>
-            <li>an infection</li>
-            <li>significant disfigurement (including serious and persistent rashes, second- or third-degree burns, significant hair loss, or persistent or significant alteration of appearance), other than as intended under conditions of use that are customary or usual</li>
-          </ul>
+          <li>(A) results in:
+            <ul>
+              <li>death</li>
+              <li>a life-threatening experience</li>
+              <li>inpatient hospitalization</li>
+              <li>a persistent or significant disability or incapacity</li>
+              <li>a congenital anomaly or birth defect</li>
+              <li>an infection</li>
+              <li>significant disfigurement (including serious and persistent rashes, second- or third-degree burns, significant hair loss, or persistent or significant alteration of appearance), other than as intended under conditions of use that are customary or usual</li>
+            </ul>
+          </li>
           <li>(B) requires, based on reasonable medical judgment, a medical or surgical intervention to prevent an outcome described in (A) above.</li>
         </ul>
 
