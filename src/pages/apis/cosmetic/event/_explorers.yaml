@@ -5,4 +5,4 @@ oneReport:
     - See the [header fields reference](/apis/cosmetic/event/searchable-fields/) for more about initial_received_date. Brackets `[ ]` are used to specify a range for date, number, or string fields.
   params:
     - search for all records with original_receive_date between Jan 06, 2004 and Nov 07, 2016. limit to 1 record.
-  query: 'https://api.fda.gov/cosmetic/event.json?search=initial_received_date:[20040106+TO+20161107]&limit=1'
+  query: 'https://openfda-api.preprod.fda.gov/cosmetic/event.json?search=initial_received_date:[20040106+TO+20161107]&limit=1'

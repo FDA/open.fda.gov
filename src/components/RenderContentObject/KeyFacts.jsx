@@ -181,7 +181,7 @@ class KeyFacts extends React.Component {
 
   _getStatus () {
     const _handleResponse = data => {
-      const lastUpdated = data.find(dataset => dataset.endpoint === this.props.status).last_updated
+      const lastUpdated = data.find(dataset => dataset.endpoint === this.props.status)?.last_updated;
       console.log(lastUpdated)
       this.setState({
         lastUpdated,
