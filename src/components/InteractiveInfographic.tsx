@@ -105,7 +105,7 @@ class InteractiveInfographic extends React.Component<tPROPS, tSTATE> {
               name='toggle'
               value={this.state.choosenField}
               options={this.state.options}
-              onChange={() => this.handleChange}
+              onChange={this.handleChange}
               placeholder='Search the fields'
             />
           }
