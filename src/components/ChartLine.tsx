@@ -10,14 +10,9 @@ import {default as ChartBar} from './ChartBar'
  * @param  {Object} data [result of the api call]
  * @return {Array<string>} [returns array of years]
  */
+type DataWithTime = { time: string; [key: string]: any };
 
-interface DataItem{
-  time: string;
-  count: number;
-  [key: string]: any;
-}
-
-const _getYearsInData = (data: DataItem[]): string[] | undefined => {
+const _getYearsInData = (data: Array<DataWithTime>) => {
   if (!data[0] || !data[0].time) return
 
   // get first matching year
@@ -54,15 +49,15 @@ const _getYearsInData = (data: DataItem[]): string[] | undefined => {
  * @param  {Array<string>} years [result of _getYearsInData]
  * @return {Object} [returns an Object where each key is a year, whose values are an array of records]
  */
-const _getRecordsByYear = (data: DataItem[], years: string[]): Record<string, DataItem[]> => {
-  const dataByYear: Record<string, any[]> = {}
+const _getRecordsByYear = (data: Array<any>, years: Array<string>) => {
+  const dataByYear: { [key: string]: any[] } = {}
 
   years.forEach(y => {
     dataByYear[y] = []
   })
 
   data.forEach(d => {
-    const year: string = d?.time?.slice(0, 4)
+    const year: string = d.time.slice(0, 4)
     return dataByYear[year].push(d)
   })
 
@@ -71,14 +66,14 @@ const _getRecordsByYear = (data: DataItem[], years: string[]): Record<string, Da
 
 /**
  * @description [reduces records, grouped by year]
- * @param  {Array<Object>} data [takes in result of _getRecordsByYear]
+ * @param  {Object} data [takes in result of _getRecordsByYear]
  * @return {Array<number>} [returns simple array of reduced records]
  */
-const _getTotalsByYear = (data: any) => {
+const _getTotalsByYear = (data: { [key: string]: any[] }) => {
   return Object.keys(data).map(y => {
     return data[y]
-      .map((d: any) => d.count)
-      .reduce((a: any, b: any) => a + b)
+      .map(d => d.count)
+      .reduce((a, b) => a + b)
   })
 }
 
@@ -106,21 +101,13 @@ const _getChartData = (years: Array<string>, totalsByYear: Array<number>) => {
   }
 }
 
-// type PROPS = {
-//   countParam: string;
-//   data: Array<Object>;
-//   height: string;
-//   width: string;
-//   fields: Array<Object>;
-// };
-interface PROPS {
-  data: any[];
+type PROPS = {
   countParam: string;
+  data: Array<DataWithTime>;
   height: string;
   width: string;
-  fields: any;
-  [key: string]: any;
-}
+  fields: Array<Object>;
+};
 
 
 /**
@@ -139,10 +126,10 @@ class ChartLine extends React.Component<PROPS> {
     super(props)
   }
 
-  render (): any {
+  render () {
     let previousChartData: Object = {}
-    const years = _getYearsInData(this.props.data) || []
-    let recordsByYear: Object = {}
+    const years: any = _getYearsInData(this.props.data)
+    let recordsByYear: { [key: string]: any[] } = {}
     let totalsByYear: Array<number> = [0]
     const height = parseInt(this.props.height)
     const width = parseInt(this.props.width)
@@ -166,14 +153,14 @@ class ChartLine extends React.Component<PROPS> {
     previousChartData = nextChartData
 
     let dataChanged: boolean = false
-    const cData: Array<number> = get(currChartData, 'datasets[0].data') || []
-    const nData: Array<number> = get(nextChartData, 'datasets[0].data') || []
+    const cData: any = get(currChartData, 'datasets[0].data')
+    const nData: any = get(nextChartData, 'datasets[0].data')
 
     if (cData && nData) {
       // if we have both current and next chart data
       // we iterate over the dataset, and if -anything-
       // is not the same, we update
-      dataChanged = cData.some((d, i) => nData[i] !== d)
+      dataChanged = cData.some((d: any, i: string | number) => nData[i] !== d)
     }
 
     // if something wrong happened with the years
@@ -190,20 +177,12 @@ class ChartLine extends React.Component<PROPS> {
       <span>
 
         <Line
+          title='Line Chart.'
           data={nextChartData}
           height={height}
           width={width}
           redraw={dataChanged}
           options={{
-            Plugin: {
-              title: {
-                display: true,
-                text:'Line Chart.',
-                fontSize: 20,
-                fontColor: '#112e51',
-                padding: 20,
-              }
-            },
             maintainAspectRatio: false, responsive: false, legend: {display: false},
             scales: {
               yAxes: [{
