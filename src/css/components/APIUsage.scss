@@ -1,11 +1,66 @@
 @import '../vars';
-
 .usage-hash-link {
   color: $clrPrimary;
   cursor: pointer;
   text-decoration: none;
 }
-
 aside {
   min-width: 275px !important;
+}
+Add responsive scrolling without changing layout
+.flex-box {
+  overflow-x: auto;
+  max-width: 100%;
+  
+  // Make tables scrollable on small screens
+  table {
+    max-width: 100%;
+    
+    td {
+      word-break: normal;
+    }
+  }
+  
+  Add scrolling to table containers
+  div > table {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  Make chart container scrollable
+  .marg-l-1 {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+  
+  // Make breadcrumbs scrollable
+  .marg-l-1.marg-t-1.font-size-3.b-t-light-1 {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+  }
+  
+  // Make dataset table scrollable
+  .marg-1 {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+}
+// Ensure the entire component doesn't overflow the viewport
+.flex-box, .float-r {
+  max-width: 100%;
+}
+
+.mainDiv{
+  max-width: 100%;
+}
+
+.chartContainer {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.table {
+  max-width: auto !important;
+  min-width: auto !important;
+  overflow-x: scroll;
 }

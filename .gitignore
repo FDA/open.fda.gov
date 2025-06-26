@@ -12,8 +12,6 @@ npm-debug.log.931881047
 .cache
 #package-lock.json
 /cypress/integration/examples/
-/cypress/fixtures/
-/cypress/plugins/
 /cypress/videos/
 /cypress/results/
 /cypress/screenshots/

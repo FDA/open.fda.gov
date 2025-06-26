@@ -385,3 +385,8 @@ h5, .font-size-5 {
      flex-direction: column;
    }
  }
+
+  .recharts-wrapper svg {
+    width: auto !important;
+    height: auto !important;
+  }

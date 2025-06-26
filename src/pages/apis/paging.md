@@ -18,15 +18,10 @@ to extract the results you need or write custom code to do so.
 Use the "Search After" feature that permits scrolling through a result set of unlimited size, up
 to the size of the dataset itself. The following are the basic steps you need to follow:
 
-- Execute your initial query that produces a large number of matches. Make sure **not** to include the
-`skip` parameter, because `skip` and `search_after` do not work together (technical explanation is [here](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-request-search-after.html)).
-The initial query will return your first page of data. For example:
+- Execute your initial query that produces a large number of matches. Make sure **not** to include the `skip` parameter, because `skip` and `search_after` do not work together (technical explanation is [here](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-request-search-after.html)). The initial query will return your first page of data. For example:
 
     `https://api.fda.gov/drug/event.json?search=patient.drug.openfda.product_type.exact:%22HUMAN%20PRESCRIPTION%20DRUG%22&limit=100&sort=receivedate:asc`
-- Extract the `Link` HTTP header contained in the response. Detailed information about the purpose and structure
-of the `Link` header can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link). 
-In short, this header will contain a `rel="Next"` URL representing the query you need to use to obtain the next page of data. Missing
-header indicates you are already on the last page. An example of extracting the header value using `curl`:
+- Extract the `Link` HTTP header contained in the response. Detailed information about the purpose and structure of the `Link` header can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link). In short, this header will contain a `rel="Next"` URL representing the query you need to use to obtain the next page of data. Missing header indicates you are already on the last page. An example of extracting the header value using `curl`:
     
     ```shell script
     bash-3.2$ curl -sIg 'https://api.fda.gov/drug/event.json?search=patient.drug.openfda.product_type.exact:%22HUMAN%20PRESCRIPTION%20DRUG%22&limit=100&sort=receivedate:asc' | grep "Link: "
