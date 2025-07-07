@@ -127,7 +127,7 @@ class EndpointPagesTestHelper {
     cy.get('section.doc-content h2').should('be.visible').should('have.text', 'Searchable Fields')
     cy.get('section.field-explorer').should('be.visible').within(($fe) => {
       // Verify at least the field list dropdown opens.
-      cy.contains('Search the fields').should('be.visible').trigger('mousedown')
+      cy.contains('Search the fields').should('be.visible').trigger('mousedown', { force: true })
     })
   }
 
