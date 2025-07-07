@@ -14,6 +14,9 @@ const source = {
     'enforcement': 'FDA Recall Enterprise System (RES)',
     'event': 'Center for Food Safety and Applied Nutrition Adverse Event Reporting System (CAERS)'
   },
+  'cosmetic': {
+    'event': 'Cosmetic Adverse Events'
+  },
   'device': {
     'event': 'Manufacturer and User Facility Device Experience (MAUDE)',
     'classification': 'Product Classification Database',
@@ -52,6 +55,9 @@ const sourceLink = {
     'enforcement': '/data/res/',
     'event': '/data/caers/'
   },
+  'cosmetic': {
+    'event': '/apis/cosmetic/event/'
+  },
   'device': {
     'event': '/data/maude/',
     'classification': '/data/product-classification/',
@@ -86,6 +92,9 @@ const timePeriod = {
   },
   'food': {
     'enforcement': '2004 to',
+    'event': '2004 to'
+  },
+  'cosmetic': {
     'event': '2004 to'
   },
   'device': {
@@ -125,6 +134,9 @@ const frequency = {
   'food': {
     'enforcement': 'Weekly',
     'event': 'Quarterly'
+  },
+  'cosmetic': {
+    'event': 'Infrequent'
   },
   'device': {
     'event': 'Weekly',
@@ -169,7 +181,7 @@ class KeyFacts extends React.Component {
 
   _getStatus () {
     const _handleResponse = data => {
-      const lastUpdated = data.find(dataset => dataset.endpoint === this.props.status).last_updated
+      const lastUpdated = data.find(dataset => dataset.endpoint === this.props.status)?.last_updated;
       console.log(lastUpdated)
       this.setState({
         lastUpdated,
