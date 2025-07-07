@@ -7,8 +7,17 @@ import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
 import '../css/components/APIUsage.scss'
 
-// Update total usage numbers with: https://api.fda.gov/usage.json?start_at=2025-06-10 - last 2025-06-10
-// Current total: 1,000 million
+// Update total usage numbers with: https://api.fda.gov/usage.json?start_at=2025-07-07 - last 2025-07-07
+// Current total: 1,024 million
+
+const nounMap = {
+  drug: "Drug",
+  device: "Device",
+  food: "Food",
+  other: "Other",
+  animalandveterinary: "Animal and Veterinary",
+  tobacco: "Tobacco"
+}
 
 // Update in pages/about/statistics/_content.yaml
 type tPROPS = {
@@ -400,6 +409,11 @@ if (!bp.mob && hasWindow) {
           $(vals[0]).attr("x", this.state.yLegendCoordinate as number)
         }
 
+        let nounName
+        if (this.state.breadcrumbs.length > 1) {
+          nounName = nounMap[this.state.breadcrumbs[1].substring(0, this.state.breadcrumbs[1].length - 1).split('/').pop()]
+        }
+
         return (
           <div className='flex-box'>
             <aside className='relative col'>
@@ -523,7 +537,7 @@ if (!bp.mob && hasWindow) {
             </aside>
 
             <div className='float-r b-l-2'>
-              <h2 className='txt-c marg-t-2'>API Calls in the Past 30 Days: {this.totalCount('lastThirtyDayUsage')}</h2>
+              <h2 className='txt-c marg-t-2'>{nounName} API Calls in the Past 30 Days: {this.totalCount('lastThirtyDayUsage')}</h2>
               <div className='italic txt-c t-6 smallest'> {this.state.dynamicDisclaimer}</div>
               <div className='marg-l-1'>
 
@@ -572,7 +586,7 @@ if (!bp.mob && hasWindow) {
 
               </div>
               <div id='usage-by-dataset'>
-                <h3 className='txt-c marg-t-3 b-t-light-1'>API Calls in Past 30 Days by Dataset</h3>
+                <h3 className='txt-c marg-t-3 b-t-light-1'>{nounName} API Calls in Past 30 Days by Dataset</h3>
                 <div className='italic txt-c t-6 smallest'> {this.state.clickEndpointDisclaimer}</div>
                 <div className='marg-l-1 marg-t-1 font-size-3 b-t-light-1'>
                   {
