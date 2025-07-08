@@ -25,14 +25,14 @@ const _renderBars = (data: Array<BarData>, fieldValues: Object, show: number) =>
     const width: string = `${Math.round(result.count * remainder)}%`
     // look in both places for term, coerce to string
     // because sometimes we have numbers as terms
-    const term: void|string|undefined|number = result.term !== undefined ? result.term : (result.term !== undefined ? fieldValues[result.term] : undefined)
+    const term: void|string = result.term || fieldValues[result.term]
 
     return (
       <li
         className='pad-r-1 pad-b-2'
         tabIndex={0}
         key={i}>
-        { (typeof term === 'string' || typeof term === 'number') &&
+       { (typeof term === 'string' || typeof term === 'number') &&
           <div className='clr-gray small weight-600'>
             <span className='clr-gray-dark'>
               {`${term}`.toLowerCase()}

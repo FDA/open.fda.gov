@@ -44,8 +44,8 @@ class ApiKey extends React.Component<{}, ApiKeyState> {
       e.returnValue = false
     }
 
-    const emailInput = document.getElementById('api-key') as (HTMLInputElement | null)
-    const email = emailInput ? emailInput.value : ""
+    const emailInput = document.getElementById('api-key') as HTMLInputElement | null;
+    const email: string = emailInput ? emailInput.value : '';
 
     // If we need to make changes to this format, verify with our Umbrella API contact nick.muerdter@nrel.gov
     const postBody: Object = {
@@ -86,12 +86,6 @@ class ApiKey extends React.Component<{}, ApiKeyState> {
       })
       .catch(() => {})
   }
-  handleErrors(response: Response) {
-    if (!response.ok) {
-      throw Error(response.statusText)
-    }
-    return response;
-  }
 
   render () {
     const { emailSent, loading, showForm } = this.state
@@ -124,7 +118,7 @@ class ApiKey extends React.Component<{}, ApiKeyState> {
                   </label>
                   <button
                     className='block marg-b-2 bg-primary clr-white weight-700'
-                    onClick={() => this.postApiKey}
+                    onClick={this.postApiKey}
                     style={{width: "250px"}}
                   >
                     <i
