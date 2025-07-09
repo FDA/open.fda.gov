@@ -54,6 +54,7 @@ const EndpointBox = (props: tPROPS) => {
       'drugshortages': 'Drug Shortages can occur for many reasons, including manufacturing and quality problems, delays, and discontinuations.'
     },
     'other': {
+      'approvedcrls': 'Centralized database of approved Complete Response Letters',
       'historicaldocument': 'FDA Press Releases, 1913-2014, in searchable format',
       'nsde': 'Comprehensive NDC SPL Data Elements File',
       'substance': 'Substance information that is precise to the molecular level for use internally and externally (where appropriate).',
@@ -92,6 +93,7 @@ const EndpointBox = (props: tPROPS) => {
       'drugshortages': 'Drug shortages'
     },
     'other': {
+      'approvedcrls': 'Approved Complete Response Letters',
       'historicaldocument': 'Historical Documents',
       'nsde': 'NDC SPL Data Elements',
       'substance': 'Substance Data',
@@ -138,6 +140,7 @@ const EndpointBox = (props: tPROPS) => {
       'drugshortages': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-at" style={{color: "white"}}/></div>
     },
     'other': {
+      'approvedcrls': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-book" style={{color: "white"}}/></div>,
       'historicaldocument': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-history" style={{color: "white"}}/></div>,
       'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
       'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{color: "white"}}/></div>,
@@ -176,6 +179,7 @@ const EndpointBox = (props: tPROPS) => {
       'drugshortages': '/apis/drug/drugshortages/'
     },
     'other': {
+      'approvedcrls': '/apis/other/approvedcrls/',
       'historicaldocument': '/apis/other/historicaldocument/',
       'nsde': '/apis/other/nsde/',
       'substance': '/apis/other/substance/',

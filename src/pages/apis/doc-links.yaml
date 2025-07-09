@@ -396,6 +396,12 @@
   link: /other/
   collapse: true
   items:
+    - title: Approved CRLs
+      id: other-approvedcrls
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/other/approved_crls/
     - title: Historical Documents
       id: other-historicaldocument
       collapse: true
