@@ -9,6 +9,10 @@ export default () => (
       <div className='flex-row just-center align-center flex-wrap'>
         <EndpointBox
           noun_name='other'
+          endpoint_name='approvedcrls'
+        />
+        <EndpointBox
+          noun_name='other'
           endpoint_name='historicaldocument'
         />
         <EndpointBox
