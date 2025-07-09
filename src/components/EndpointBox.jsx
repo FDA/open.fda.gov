@@ -179,7 +179,7 @@ const EndpointBox = (props: tPROPS) => {
       'drugshortages': '/apis/drug/drugshortages/'
     },
     'other': {
-      'approvedcrls': '/apis/other/approvedcrls/',
+      'approvedcrls': '/apis/other/approved_CRLs/',
       'historicaldocument': '/apis/other/historicaldocument/',
       'nsde': '/apis/other/nsde/',
       'substance': '/apis/other/substance/',

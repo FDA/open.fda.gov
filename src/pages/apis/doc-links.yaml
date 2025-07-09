@@ -401,7 +401,7 @@
       collapse: true
       items:
         - title: Overview
-          link: /apis/other/approved_crls/
+          link: /apis/other/approved_CRLs/
     - title: Historical Documents
       id: other-historicaldocument
       collapse: true
