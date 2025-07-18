@@ -26,18 +26,16 @@ interface BarData {
 }
 
 type tPROPS = {
+  tourStar: Function;
   infographics: any
   countParam: any
   fieldsFlattened?: any
   nextSearchParam?: string | number | readonly string[] | undefined
   query: string | number | readonly string[] | undefined
   tourStart?: () => void;
-  current?: tEXPLORER;
-  data?: {
-    error?: boolean;
-    results: Array<BarData>;
-  };
-  fields?: any;
+  current: tEXPLORER;
+  data: Object;
+  fields?: Object;
   nextCountParam?: string;
   onSearchChange?: Function;
   onSearchChangeUpdate?: Function;
@@ -49,7 +47,7 @@ type tPROPS = {
   onCountChange?: Function;
   onKeyPress?: Function;
   onCountChangeAndUpdate: Function;
-  container?: { state: { selected: string } } | null;
+  container?: Object;
   discription?: string | Array<string>;
   filters?: Object;
   title?: string;
@@ -82,7 +80,7 @@ const Infographic = (props: tPROPS) => {
     description,
     filters,
     title,
-  }: tEXPLORER = current!
+  }: tEXPLORER = current
 
   // mobile sizing for infographic
   // window - 40 (margin) - 40 (padding)
@@ -108,10 +106,9 @@ const Infographic = (props: tPROPS) => {
     }
   }
 
-
   // Don't render if there is no data, or the field we are trying to
   // count by (visualize) is unknown
-  const fieldDefinition: void|{description?:string} = yamlGet(nextCountParam || "", fields as any)
+  const fieldDefinition: void|Object = yamlGet(nextCountParam, fields)
   const error: boolean = data?.error || !fieldDefinition
 
   // if fieldDef has description, then docs-ify it
@@ -180,7 +177,7 @@ const Infographic = (props: tPROPS) => {
                 onClick={() => {handler && handler(tabs[value])} }
                 key={i}
                 id={'tab-' + i}
-                className={container?.state?.selected === value ? "tab active" : "tab"}>
+                className={container?.state?.selected === value ? "tab active": "tab"}>
                 {tabs[value].short}
               </button>)
             })
@@ -261,8 +258,8 @@ const Infographic = (props: tPROPS) => {
                   className={textAreaCx}
                   id='search-parameter'
                   value={props.nextSearchParam}
-                  onChange={() => onSearchChange}
-                  onKeyPress={() => onKeyPress}
+                  onChange={onSearchChange}
+                  onKeyPress={onKeyPress}
                 >
                   i.e. search=device
                 </textarea>
@@ -336,8 +333,8 @@ const Infographic = (props: tPROPS) => {
               countParam={nextCountParam || ""}
               data={data?.results ?? []}
               fields={fields || {}}
-              hasLegend
-              divSize={`${!bp.desk ? size - 40 : size - 240}px`}
+                hasLegend
+                divSize={`${!bp.desk ? size - 40 : size - 240}px`}
               records={records ?? 0}
               size={`${!bp.desk ? size - 180 : size - 380}px`} colors={[]}              />
             }
