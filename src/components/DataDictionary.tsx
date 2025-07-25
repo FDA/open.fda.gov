@@ -77,8 +77,11 @@ interface DataDictionaryState {
 }
 
 class DataDictionary extends React.Component<{}, DataDictionaryState> {
+  tableBodyRef: React.RefObject<HTMLDivElement>;
   constructor (props: Object) {
     super(props)
+
+    this.tableBodyRef = React.createRef() as React.RefObject<HTMLDivElement>
 
     const nounList: { [key: string]: string } = {
       'animalandveterinary': 'Animal & Veterinary',
@@ -228,6 +231,13 @@ class DataDictionary extends React.Component<{}, DataDictionaryState> {
     }, () => {
       this.getData()
     })
+  }
+
+  handleChange() {
+    const body = document.querySelector('.ReactTable .rt-tbody') as HTMLDivElement;
+    if (body) {
+      body.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
   }
 
   handleEndpointChange (val: any) {
@@ -552,6 +562,7 @@ const data_array: {
             </a>
           </div>
         </div>
+        <div ref={this.tableBodyRef}>
         <ReactTable
           data={data}
           getTrProps={(state: any, rowInfo: any, column: any, instance: any) => {
@@ -570,18 +581,32 @@ const data_array: {
           className='table -striped -highlight'
           filtered={this.state.filtered}
           resized={this.state.resized}
-          onSortedChange={(sorted: any) => this.setState({ sorted })}
-          onPageChange={(page: any) => this.setState({ page })}
+          onSortedChange={(sorted: any) =>{
+             this.setState({ sorted })
+             this.handleChange()
+            }}
+          onPageChange={(page: any) =>{ 
+            this.handleChange()
+            this.setState({ page })
+            
+          }}
           onPageSizeChange={(pageSize: any, page: any) =>
             this.setState({ page, pageSize })}
-          onResizedChange={(resized: any) => this.setState({ resized })}
-          onFilteredChange={(filtered: any) => this.setState({ filtered })}
+          onResizedChange={(resized: any) => {
+            this.setState({ resized })
+            this.handleChange()
+          }}
+          onFilteredChange={(filtered: any) => {
+            this.setState({ filtered })
+            this.handleChange()
+          }}
           style={{
             width: '100%',
             height: '494px',
             position: 'relative'
           }}
         />
+        </div>
       </section>
     )
   }
