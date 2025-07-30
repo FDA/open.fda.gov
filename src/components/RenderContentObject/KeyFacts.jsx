@@ -34,6 +34,7 @@ const source = {
     'shortages': 'Drug Shortages'
   },
   'other': {
+    'crl': 'Approved Complete Response Letters',
     'historicaldocument': 'Historic FDA Press Releases',
     'nsde': 'NDC SPL Data Elements',
     'substance': 'Substance Data Reports',
@@ -70,6 +71,7 @@ const sourceLink = {
     'shortages': '/data/drugshortages'
   },
   'other': {
+    'crl': '/apis/other/crls',
     'historicaldocument': '/data/historicaldocument/',
     'nsde': '/apis/other/nsde/',
     'substance': '/apis/other/substance/',
@@ -108,6 +110,7 @@ const timePeriod = {
     'shortages': '2012 to'
   },
   'other': {
+    'crl': '2020-2024',
     'historicaldocument': '1913 to',
     'nsde': '2009 to',
     'substance': 'Last updated',
@@ -146,6 +149,7 @@ const frequency = {
     'shortages': 'Daily'
   },
   'other': {
+    'crl': 'Infrequently',
     'historicaldocument': 'Infrequently',
     'nsde': 'Daily',
     'substance': 'Every few months',

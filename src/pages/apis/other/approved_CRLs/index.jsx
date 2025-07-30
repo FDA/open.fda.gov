@@ -1,4 +1,6 @@
 import React from "react"
+import KeyFacts from "../../../../components/RenderContentObject/KeyFacts";
+import meta from "../historicaldocument/_meta.yaml";
 
 class IndexRoute extends React.Component {
   render () {
@@ -9,7 +11,13 @@ class IndexRoute extends React.Component {
         <p>These records include Complete Response Letters (CRL) issued in response to approved new drug applications
         (NDAs) and biologics license applications (BLAs) between 2020 and 2024. This is the first ever centralized
         database of past CRLs.</p>
-        <a href='https://download.open.fda.gov/ApprovedCRLs_NDA_BLA_2020-2024.zip'>Download Approved CRLs</a>
+        <a href='https://download.open.fda.gov/ApprovedCRLs_NDA_BLA_2020-2024.zip'>Download Approved CRLs in PDF format</a>
+        <KeyFacts
+          noun_name={meta.api_path.split("/")[1]}
+          endpoint_name={meta.api_path.split("/")[2]}
+          harmonized={false}
+          status={meta.status}
+        />
       </section>
     )
   }

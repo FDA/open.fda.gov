@@ -1,0 +1,12 @@
+- title: "Search Term Frequency"
+  short: "Search Term Frequency"
+  dataset: CRL
+  description:
+    - "Distribution of search term frequencies in the approved CRLs by date"
+  countParam: "letter_type"
+  filters:
+    - title: "Letters from the Division of Hematology Products"
+      searchParam: 'approver_center:"Division of Hematology Products"'
+    - title: "Letters from the Office of Hematology and Oncology Products"
+      searchParam: 'approver_center:"Office of Hematology and Oncology Products"'
+  type: Line
