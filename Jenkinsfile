@@ -2,7 +2,7 @@ pipeline {
    agent {
        // this image provides everything needed to run Cypress
        docker {
-         image 'cypress/base:14.17.0'
+         image 'cypress/base:18.20.3'
          args  '--ipc=host'
        }
     }
@@ -11,6 +11,7 @@ pipeline {
     	npm_config_cache = '$HOME/.npm'
     	CYPRESS_CACHE_FOLDER = "$HOME/cache/Cypress"
     	NO_COLOR=1
+    	DEBUG="start-server-and-test"
     }
     stages {
         stage('Install dependencies') {
