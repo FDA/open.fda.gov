@@ -57,7 +57,7 @@ const catMap: Record<EndpointKey, string> = Object.freeze({
   'deviceudi': 'Devices › UDI',
   'deviceenforcement': 'Devices › Enforcement Reports',
   'covid19serology': 'Devices › COVID-19 Serological Testing Evaluations',
-  'othercrl': 'Other › CRL',
+  'othercrl': 'Other › Complete Response Letters',
   'otherhistoricaldocument': 'Other › Historical Documents',
   'othernsde': 'Other › NSDE',
   'othersubstance': 'Other › Substance',

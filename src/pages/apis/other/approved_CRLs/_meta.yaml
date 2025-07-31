@@ -4,8 +4,8 @@ description: "Complete Response Letters (CRL) issued in response to approved new
 datasets:
   - CRLs
 label: CRL
-title: Historical Documents
-path: /apis/other/crl
+title: Approved Complete Response Letters
+path: /apis/other/approved_CRLs
 api_path: /other/crl
 start: 01012020
 status: othercrl

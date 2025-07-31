@@ -71,7 +71,7 @@ const sourceLink: any = {
     'shortages': '/data/drugshortages'
   },
   'other': {
-    'crl': '/apis/other/crls',
+    'crl': '/apis/other/approved_CRLs',
     'historicaldocument': '/data/historicaldocument/',
     'nsde': '/apis/other/nsde/',
     'substance': '/apis/other/substance/',

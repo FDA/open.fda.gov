@@ -1,6 +1,6 @@
 import React from "react"
 import KeyFacts from "../../../../components/RenderContentObject/KeyFacts";
-import meta from "../historicaldocument/_meta.yaml";
+import meta from "../approved_CRLs/_meta.yaml";
 
 class IndexRoute extends React.Component {
   render () {
