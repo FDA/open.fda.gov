@@ -16,8 +16,8 @@
 }
 
 .field-name:hover {
-	background-color: $clrPrimary;
-	color: $clrWhite;
+	background-color: vars.$clrPrimary;
+	color: vars.$clrWhite;
 }
 
 .field-list {

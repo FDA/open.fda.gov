@@ -1,6 +1,6 @@
 @use '../vars';
 .usage-hash-link {
-  color: $clrPrimary;
+  color: vars.$clrPrimary;
   cursor: pointer;
   text-decoration: none;
 }

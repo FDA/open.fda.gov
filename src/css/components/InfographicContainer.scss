@@ -72,7 +72,7 @@
 	display: none;
 }
 
-@media (max-width: $bpMob) {
+@media (max-width: vars.$bpMob) {
 	.infographic {
 		display: none;
 	}

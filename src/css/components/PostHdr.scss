@@ -1,6 +1,6 @@
 @use '../vars';
 
-@media (min-width: $bpTab) {
+@media (min-width: vars.$bpTab) {
 	.post-hdr {
 		min-height: 300px;
 	}

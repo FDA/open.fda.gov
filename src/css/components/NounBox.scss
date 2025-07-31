@@ -46,7 +46,7 @@
 	font-weight: bold;
 }
 
-@media (max-width: $tablet) {
+@media (max-width: vars.$tablet) {
 	.noun-card {
 		width: 45.5vw;
 		max-width: 250px;

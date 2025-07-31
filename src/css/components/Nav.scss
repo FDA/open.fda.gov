@@ -81,7 +81,7 @@
 }
 
 .emphasis {
-	color: $clrPrimary;
+	color: vars.$clrPrimary;
 }
 
 .nav-bar .header-selected {
@@ -103,7 +103,7 @@
 .sub-menu-container {
 	position: relative;
 	margin-bottom: 0;
-	background-color: $clrWhite;
+	background-color: vars.$clrWhite;
 	border: 1px solid #ccc;
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
@@ -120,8 +120,8 @@
 }
 
 .sub-menu-item:hover {
-	background-color: $clrPrimary;
-	color: $clrWhite;
+	background-color: vars.$clrPrimary;
+	color: vars.$clrWhite;
 }
 
 .sub-menu-item:focus {
@@ -171,13 +171,13 @@
 	z-index: 1000;
 }
 
-@media (min-width: $bpTabRange1) and (max-width: $bpTabRange2) {
+@media (min-width: vars.$bpTabRange1) and (max-width: vars.$bpTabRange2) {
 	.fda-bar {
 		margin-top: 35px;
 	}
 }
 
-@media (max-width: $bpMob) {
+@media (max-width: vars.$bpMob) {
 	.fda-bar {
 		margin-top: 55px;
 	}
@@ -191,7 +191,7 @@
 	}
 }
 
-@media (max-width: $tablet) {
+@media (max-width: vars.$tablet) {
 	.main-nav-bar {
 		position: fixed;
 		top: 58px;
@@ -258,11 +258,11 @@
 	}
 
 	.nav-li + .nav-li {
-		border-top: 1px solid $clrGrayLightest;
+		border-top: 1px solid vars.$clrGrayLightest;
 	}
 }
 
-@media (min-width: $bpDesk) {
+@media (min-width: vars.$bpDesk) {
 	.nav-li {
 		margin-right: 15px;
 		min-width: 160px;

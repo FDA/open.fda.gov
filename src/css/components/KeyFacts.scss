@@ -35,7 +35,7 @@
 	width: 62%;
 }
 
-@media (max-width: $tablet) {
+@media (max-width: vars.$tablet) {
 	.key-facts li i {
 		display: none;
 	}

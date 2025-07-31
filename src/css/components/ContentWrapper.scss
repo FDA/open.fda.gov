@@ -1,6 +1,6 @@
 @use '../vars';
 
-@media (min-width: $bpTab) {
+@media (min-width: vars.$bpTab) {
 	.content {
 		float: right;
 		width: 75%;
@@ -15,7 +15,7 @@
 	}
 }
 
-@media (min-width: $bpDesk) {
+@media (min-width: vars.$bpDesk) {
 	.ref-content {
 		width: 75%;
 	}

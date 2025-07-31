@@ -13,5 +13,5 @@
 
 .field-button:focus,
 .field-button:active {
-	box-shadow: 0 0 3px $clrPrimary, 0 0 7px $clrPrimary;
+	box-shadow: 0 0 3px vars.$clrPrimary, 0 0 7px vars.$clrPrimary;
 }

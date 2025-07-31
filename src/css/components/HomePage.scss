@@ -149,20 +149,20 @@
 	left: 100%;
 }
 
-@media (min-width: $bpDesk) {
+@media (min-width: vars.$bpDesk) {
 	.homepage-link-list {
 		width: 70%;
 	}
 }
 
-@media (max-width: $bpMob) {
+@media (max-width: vars.$bpMob) {
 	.center-heading span:before,
   .center-heading span:after {
 		display: none;
 	}
 }
 
-@media (max-width: $tablet) {
+@media (max-width: vars.$tablet) {
 	.container-homepage {
 		width: 95%;
 		flex-direction: column;
@@ -213,7 +213,7 @@
 	}
 }
 
-@media (max-width: $bpMobSmall) {
+@media (max-width: vars.$bpMobSmall) {
 	.area-chart-container {
 		background-image: none;
 	}

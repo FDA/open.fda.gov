@@ -72,7 +72,7 @@
 	left: calc(50% - 1px);
 }
 
-@media (max-width: $tablet) {
+@media (max-width: vars.$tablet) {
 	.steps {
 		flex-direction: column;
 	}

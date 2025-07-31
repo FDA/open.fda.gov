@@ -42,7 +42,7 @@
 	width: calc(100% - 39px);
 }
 
-@media (max-width: $bpMob) {
+@media (max-width: vars.$bpMob) {
 	.cat-menu-item {
 		font-size: 4.5vw;
 		font-weight: bold;

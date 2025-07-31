@@ -134,10 +134,10 @@
    -webkit-osx-font-smoothing: grayscale;
    -webkit-overflow-scrolling: touch;
    -webkit-text-size-adjust: 100%;
-   background-color: $clrWhite;
-   color: $clrBase;
-   font-family: $sans;
-   font-size: $pSize;
+   background-color: vars.$clrWhite;
+   color: vars.$clrBase;
+   font-family: vars.$sans;
+   font-size: vars.$pSize;
    font-weight: 300;
    overflow-x: hidden;
    scroll-behavior: smooth;
@@ -146,22 +146,22 @@
    overflow-y: scroll;
  }
  
- @media (min-width: $bpTab) {
+ @media (min-width: vars.$bpTab) {
    html {
      text-rendering: optimizeLegibility;
    }
  }
  
  a {
-   color: $clrPrimary;
+   color: vars.$clrPrimary;
    cursor: pointer;
    text-decoration: none;
  }
  
  p {
-   color: $clrBase;
-   font-size: $pSize;
-   line-height: $pLH;
+   color: vars.$clrBase;
+   font-size: vars.$pSize;
+   line-height: vars.$pLH;
    margin-bottom: 20px;
  }
  
@@ -171,7 +171,7 @@
  h4,
  h5,
  h6 {
-   font-family: $serif;
+   font-family: vars.$serif;
    font-weight: 700;
  }
  
@@ -228,12 +228,12 @@
  button {
    border: 0;
    border-radius: 5px;
-   color: $clrGrayDark;
+   color: vars.$clrGrayDark;
    background: transparent;
    cursor: pointer;
    display: inline-block;
-   font-family: $sans;
-   font-size: $pSize;
+   font-family: vars.$sans;
+   font-size: vars.$pSize;
    outline: 0;
    padding: 15px 20px;
  }
@@ -242,7 +242,7 @@
  button:focus,
  .btn:active,
  button:active {
-   box-shadow: 0 0 3px $clrPrimary, 0 0 7px $clrPrimary;
+   box-shadow: 0 0 3px vars.$clrPrimary, 0 0 7px vars.$clrPrimary;
  }
  
  .btn .btn,
@@ -265,12 +265,12 @@
  select,
  .select {
    appearance: none;
-   background: $clrWhite;
+   background: vars.$clrWhite;
    border-radius: 0;
-   color: $clrGrayDark;
+   color: vars.$clrGrayDark;
    display: block;
    font-family: inherit;
-   font-size: $h4Size;
+   font-size: vars.$h4Size;
    padding: 7px;
    width: 100%;
  }
@@ -300,16 +300,16 @@
  
  pre,
  code {
-   background: $clrGrayLightest;
-   color: $clrBase;
-   font-family: $mono;
-   font-size: $smallSize;
+   background: vars.$clrGrayLightest;
+   color: vars.$clrBase;
+   font-family: vars.$mono;
+   font-size: vars.$smallSize;
  }
  
  .reverse-pre pre,
  .reverse-pre code {
-   background: $clrGrayDark;
-   color: $clrGrayLightest;
+   background: vars.$clrGrayDark;
+   color: vars.$clrGrayLightest;
  }
  
  code {
@@ -328,54 +328,54 @@
  }
 
 h1, .font-size-1 {
-  font-size: $h2Size;
-  line-height: $h2LH;
-  @media (min-width: $bpTab) {
-    font-size: $h1Size;
-    line-height: $h1LH;
+  font-size: vars.$h2Size;
+  line-height: vars.$h2LH;
+  @media (min-width: vars.$bpTab) {
+    font-size: vars.$h1Size;
+    line-height: vars.$h1LH;
   }
 }
 
 h2, .font-size-2 {
-  font-size: $h3Size;
-  line-height: $h3LH;
-  @media (min-width: $bpTab) {
-    font-size: $h2Size;
-    line-height: $h2LH;
+  font-size: vars.$h3Size;
+  line-height: vars.$h3LH;
+  @media (min-width: vars.$bpTab) {
+    font-size: vars.$h2Size;
+    line-height: vars.$h2LH;
   }
 }
 
 h3, .font-size-3 {
-  font-size: $h4Size;
-  line-height: $h4LH;
-  @media (min-width: $bpTab) {
-    font-size: $h3Size;
-    line-height: $h3LH;
+  font-size: vars.$h4Size;
+  line-height: vars.$h4LH;
+  @media (min-width: vars.$bpTab) {
+    font-size: vars.$h3Size;
+    line-height: vars.$h3LH;
   }
 }
 
 h4, .font-size-4 {
-  font-size: $ledeSize;
-  line-height: $ledeLH;
+  font-size: vars.$ledeSize;
+  line-height: vars.$ledeLH;
 }
 
 h5, .font-size-5 {
-  font-size: $pSize;
-  line-height: $pLH;
+  font-size: vars.$pSize;
+  line-height: vars.$pLH;
 }
 
 .small {
-  font-size: $smallSize;
-  line-height: $smallLH;
+  font-size: vars.$smallSize;
+  line-height: vars.$smallLH;
 }
 
 .smallest {
-  font-size: $smallestSize;
-  line-height: $smallestLH;
+  font-size: vars.$smallestSize;
+  line-height: vars.$smallestLH;
 }
 
  
- @media (max-width: $tablet) {
+ @media (max-width: vars.$tablet) {
    .body-container {
      padding-top: 128px;
    }

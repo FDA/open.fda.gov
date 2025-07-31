@@ -64,7 +64,7 @@
 	padding: 20px;
 }
 
-@media (max-width: $bpMob) {
+@media (max-width: vars.$bpMob) {
 	.ep-box {
 		width: 300px;
 	}
