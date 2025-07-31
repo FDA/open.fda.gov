@@ -155,25 +155,25 @@
  * @returns color classes for every color in the hash
  */
 
- @each vars.$key, vars.$value in vars.$uswds-colors {
-  .bg-#{vars.$key} {
-    background-color: vars.$value;
+ @each $key, $value in vars.$uswds-colors {
+  .bg-#{$key} {
+    background-color: $value;
   }
   
-  .hvr-bg-#{vars.$key}.active,
-  .hvr-bg-#{vars.$key}:hover,
-  .hvr-bg-#{vars.$key}:active {
-    background-color: vars.$value;
+  .hvr-bg-#{$key}.active,
+  .hvr-bg-#{$key}:hover,
+  .hvr-bg-#{$key}:active {
+    background-color: $value;
   }
   
-  .clr-#{vars.$key} {
-    color: vars.$value;
+  .clr-#{$key} {
+    color: $value;
   }
   
-  .hvr-clr-#{vars.$key}.active,
-  .hvr-clr-#{vars.$key}:hover,
-  .hvr-clr-#{vars.$key}:active {
-    color: vars.$value;
+  .hvr-clr-#{$key}.active,
+  .hvr-clr-#{$key}:hover,
+  .hvr-clr-#{$key}:active {
+    color: $value;
   }
 }
 
