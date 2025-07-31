@@ -1,13 +1,15 @@
+@use './vars';
+
 .sans {
-	font-family: $sans;
+	font-family: vars.$sans;
 }
 
 .serif {
-	font-family: $serif;
+	font-family: vars.$serif;
 }
 
 .mono {
-	font-family: $mono;
+	font-family: vars.$mono;
 }
 
 .small-caps {
@@ -23,75 +25,75 @@
 }
 
 .b-1 {
-	border: 1px solid $clrGrayLighter;
+	border: 1px solid vars.$clrGrayLighter;
 }
 
 .b-t-1 {
-	border-top: 1px solid $clrGrayLighter;
+	border-top: 1px solid vars.$clrGrayLighter;
 }
 
 .b-r-1 {
-	border-right: 1px solid $clrGrayLighter;
+	border-right: 1px solid vars.$clrGrayLighter;
 }
 
 .b-b-1 {
-	border-bottom: 1px solid $clrGrayLighter;
+	border-bottom: 1px solid vars.$clrGrayLighter;
 }
 
 .b-l-1 {
-	border-left: 1px solid $clrGrayLighter;
+	border-left: 1px solid vars.$clrGrayLighter;
 }
 
 .b-t-light-1 {
-	border-top: 1px solid $clrGrayLighter2;
+	border-top: 1px solid vars.$clrGrayLighter2;
 }
 
 .b-r-light-1 {
-	border-right: 1px solid $clrGrayLighter2;
+	border-right: 1px solid vars.$clrGrayLighter2;
 }
 
 .b-b-light-1 {
-	border-bottom: 1px solid $clrGrayLighter2;
+	border-bottom: 1px solid vars.$clrGrayLighter2;
 }
 
 .b-l-light-1 {
-	border-left: 1px solid $clrGrayLighter2;
+	border-left: 1px solid vars.$clrGrayLighter2;
 }
 
 .b-2 {
-	border: 2px solid $clrGrayLighter;
+	border: 2px solid vars.$clrGrayLighter;
 }
 
 .b-t-2 {
-	border-top: 2px solid $clrGrayLighter;
+	border-top: 2px solid vars.$clrGrayLighter;
 }
 
 .b-r-2 {
-	border-right: 2px solid $clrGrayLighter;
+	border-right: 2px solid vars.$clrGrayLighter;
 }
 
 .b-b-2 {
-	border-bottom: 2px solid $clrGrayLighter;
+	border-bottom: 2px solid vars.$clrGrayLighter;
 }
 
 .b-l-2 {
-	border-left: 2px solid $clrGrayLighter;
+	border-left: 2px solid vars.$clrGrayLighter;
 }
 
 .b-t-light-2 {
-	border-top: 2px solid $clrGrayLighter2;
+	border-top: 2px solid vars.$clrGrayLighter2;
 }
 
 .b-r-light-2 {
-	border-right: 2px solid $clrGrayLighter2;
+	border-right: 2px solid vars.$clrGrayLighter2;
 }
 
 .b-b-light-2 {
-	border-bottom: 2px solid $clrGrayLighter2;
+	border-bottom: 2px solid vars.$clrGrayLighter2;
 }
 
 .b-l-light-1 {
-	border-left: 2px solid $clrGrayLighter2;
+	border-left: 2px solid vars.$clrGrayLighter2;
 }
 
 .center {
@@ -153,25 +155,25 @@
  * @returns color classes for every color in the hash
  */
 
- @each $key, $value in $uswds-colors {
-  .bg-#{$key} {
-    background-color: $value;
+ @each vars.$key, vars.$value in vars.$uswds-colors {
+  .bg-#{vars.$key} {
+    background-color: vars.$value;
   }
   
-  .hvr-bg-#{$key}.active,
-  .hvr-bg-#{$key}:hover,
-  .hvr-bg-#{$key}:active {
-    background-color: $value;
+  .hvr-bg-#{vars.$key}.active,
+  .hvr-bg-#{vars.$key}:hover,
+  .hvr-bg-#{vars.$key}:active {
+    background-color: vars.$value;
   }
   
-  .clr-#{$key} {
-    color: $value;
+  .clr-#{vars.$key} {
+    color: vars.$value;
   }
   
-  .hvr-clr-#{$key}.active,
-  .hvr-clr-#{$key}:hover,
-  .hvr-clr-#{$key}:active {
-    color: $value;
+  .hvr-clr-#{vars.$key}.active,
+  .hvr-clr-#{vars.$key}:hover,
+  .hvr-clr-#{vars.$key}:active {
+    color: vars.$value;
   }
 }
 
@@ -250,19 +252,19 @@
 }
 
 .always-show-scroll::-webkit-scrollbar-thumb {
-	background-color: $clrPrimaryDarker;
+	background-color: vars.$clrPrimaryDarker;
 }
 /**
  * Hide element visually, but leave it available for screenreaders
  * anything that gets toggled but needs to be accessible
  * is a good candidate for this instead of display none
- * $see http://open.blogs.nytimes.com/2014/06/24/improving-article-accessibility/
+ * vars.$see http://open.blogs.nytimes.com/2014/06/24/improving-article-accessibility/
  */
 .visually-hidden {
-	background: $clrWhite;
+	background: vars.$clrWhite;
 	border: 0;
 	clip: rect(0 0 0 0);
-	color: $clrPrimaryDarker;
+	color: vars.$clrPrimaryDarker;
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
@@ -304,16 +306,16 @@
 }
 
 .menu-item {
-	color: $clrBase;
+	color: vars.$clrBase;
 	border-radius: 0;
-	font-size: $pSize;
+	font-size: vars.$pSize;
 	padding: 10px 10px 10px 0px;
 	text-align: left;
 }
 
 .menu-item.depth-2,
 .menu-item.depth-3 {
-	font-size: $smallSize;
+	font-size: vars.$smallSize;
 }
 
 .menu-item.depth-2 {
@@ -325,14 +327,14 @@
 }
 
 .menu-item.active {
-	color: $clrPrimary;
-	border-left: 4px solid $clrPrimary;
+	color: vars.$clrPrimary;
+	border-left: 4px solid vars.$clrPrimary;
 	font-weight: bolder;
 	padding-left: 15px;
 }
 
 .menu-item a:hover {
-	background-color: $clrGrayLightest;
+	background-color: vars.$clrGrayLightest;
 }
 
 .link-external {
@@ -354,14 +356,14 @@
 	font-weight: 300;
 }
 
-@media (max-width: $bpTab) {
+@media (max-width: vars.$bpTab) {
 	.responsive-header {
 		font-size: 4.5vw;
 		font-weight: bold;
 	}
 }
 
-@media (min-width: $bpTabRange1) and (max-width: $bpTabRange2) {
+@media (min-width: vars.$bpTabRange1) and (max-width: vars.$bpTabRange2) {
 	.responsive-header {
 		font-size: 22px;
 	}
