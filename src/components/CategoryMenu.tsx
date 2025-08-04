@@ -1,6 +1,6 @@
 /* @flow */
 
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 
 const CategoryMenu = () => {
   if (typeof window === 'undefined') return <span />

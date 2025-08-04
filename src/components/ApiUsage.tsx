@@ -288,19 +288,18 @@ if (!bp.mob && hasWindow) {
       }
 
       this.setState({
-      series: series,
-      style: legendStyle,
-      max: max,
-      min: min,
-      minTime: minTime,
-      maxTime: maxTime,
-      timerange: new TimeRange(minTime, maxTime),
-      indexInfo: data.indexInfo,
-      downloadStats: data.downloadStats || {},
-      lastThirtyDayUsage: data.lastThirtyDayUsage,
+        series: series,
+        style: legendStyle,
+        max: max,
+        min: min,
+        minTime: minTime,
+        maxTime: maxTime,
+        timerange: new TimeRange(minTime, maxTime),
+        indexInfo: data.indexInfo,
+        downloadStats: data.downloadStats || {},
+        lastThirtyDayUsage: data.lastThirtyDayUsage,
         data: graphData
       })
-      this.setState(this.state)
     }
     refreshPrefix (evt: any){
       this.state.prefix = evt.target.getAttribute('data-prefix')
@@ -319,15 +318,20 @@ if (!bp.mob && hasWindow) {
       }
     }
 
-    fetchStats () {
-      const that = this
-      fetch(API_LINK + '/usage.json?prefix=' + this.state.prefix)
-        .then(function (response) {
-          return response.json()
-        }).then(function (data) {
-          that.handleUsageResponse(data)
-        })
+    async fetchStats () {
+      try{
+        const that = this
+        await fetch(API_LINK + '/usage.json?prefix=' + this.state.prefix)
+          .then(function (response) {
+            return response.json()
+          }).then(function (data) {
+            that.handleUsageResponse(data)
+          })
+        }
+      catch (e) {
+        console.error("Error fetching API usage data:", e)
     }
+  }
 
     docCount (typeName:string):string {
       if (typeName in this.state.indexInfo) {

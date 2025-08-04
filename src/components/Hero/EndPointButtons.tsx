@@ -1,6 +1,6 @@
 import React from 'react';
 import bp from '../../constants/breakpoints';
-import Link from 'gatsby-link';
+import {Link} from 'gatsby';
 
 type tPROPS = {
   path: string;

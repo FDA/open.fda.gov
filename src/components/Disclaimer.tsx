@@ -3,7 +3,7 @@
 
 import React from 'react'
 import ReactModal from 'react-modal'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 import '../css/components/Disclaimer.scss'
 
 type tPROPS = {

@@ -10,5 +10,5 @@ export default () => (
     content={content}
     meta={meta} explorers={{}} fields={{
       properties: []
-    }} infographicDefinitions={{}} infographics={[]} type="" hideMenu={false} reference={[]}  />
+    }} infographicDefinitions={{}} infographics={[]} type="" hideMenu={false}  />
 )

@@ -4,7 +4,7 @@ import React from 'react'
 
 import NavContainer from '../containers/NavContainer'
 
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 
 import '../css/components/Nav.scss'
 import Disclaimer from './Disclaimer'

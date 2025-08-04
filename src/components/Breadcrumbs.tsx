@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 import '../css/components/BreadCrumbs.scss'
 import { Location } from '@reach/router'
 

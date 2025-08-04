@@ -3,7 +3,7 @@
 import React from 'react'
 import dateFormat from 'dateformat'
 import get from 'lodash/get'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 import updates from '../pages/about/updates/updates.yaml'
 import Async from 'react-promise'
 import '../css/components/BlogRoll.scss'

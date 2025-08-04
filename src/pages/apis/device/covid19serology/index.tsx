@@ -1,5 +1,5 @@
 import React from "react"
-import Link from "gatsby-link"
+import {Link} from 'gatsby'
 
 import KeyFacts from '../../../../components/RenderContentObject/KeyFacts'
 import meta from './_meta.yaml'

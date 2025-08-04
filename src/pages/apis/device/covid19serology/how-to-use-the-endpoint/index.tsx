@@ -1,5 +1,5 @@
 import React from "react"
-import Link from "gatsby-link"
+import {Link} from 'gatsby'
 
 import APIUseSteps from "../../../../../components/APIUseSteps"
 import APIQueryBreakdown from "../../../../../components/APIQueryBreakdown"

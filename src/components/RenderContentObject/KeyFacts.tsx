@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 import '../../css/components/KeyFacts.scss'
 import xhrGET from "../../utils/xhr"
 import {API_LINK} from "../../constants/api"
@@ -180,7 +180,7 @@ class KeyFacts extends React.Component<KeyFactsProps> {
 
   _getStatus () {
     const _handleResponse = (data: any) => {
-      const lastUpdated = data.find((dataset : any) => dataset.endpoint === this.props.status).last_updated
+      const lastUpdated = data.find((dataset : any) => dataset.endpoint === this.props.status)?.last_updated
       console.log(lastUpdated)
       this.setState({
         lastUpdated,

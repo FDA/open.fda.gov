@@ -1,5 +1,6 @@
 import React from "react"
-import Link, { GatsbyLinkProps } from "gatsby-link"
+import { GatsbyLinkProps } from "gatsby-link"
+import { Link } from "gatsby"
 import cx from 'classnames'
 import ComposedDocSidebar from "../containers/DocSidebarContainer"
 import '../css/components/DocSidebar.scss'
