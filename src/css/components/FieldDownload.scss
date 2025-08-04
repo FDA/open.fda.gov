@@ -5,8 +5,8 @@
 	border-radius: 5px;
 	cursor: pointer;
 	display: inline-block;
-	font-family: $sans;
-	font-size: $pSize;
+	font-family: vars.$sans;
+	font-size: vars.$pSize;
 	outline: 0;
 	padding: 15px 20px;
 }
