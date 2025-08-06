@@ -1,0 +1,84 @@
+
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "openFDA is a research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2024-03-20",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 8858
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "openFDA is a research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2024-03-20",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 8858
+      }
+    }
+  },
+  "results": [
+    {
+      "letter_date": "10/05/2018",
+      "approver_title": "Acting Deputy Director",
+      "file_name": "209510_2020_Orig1s000OtherActionLtrs.pdf",
+      "approver_name": "Victor Crentsil, M.D., M.H.S.",
+      "company_name": "Acacia Pharma Ltd",
+      "approver_center": [
+        "Office of Drug Evaluation III",
+        "Center for Drug Evaluation and Research"
+      ],
+      "text": "wo\n\nsy\n\n? “%y\ni 4 DEPARTMENT OF HEALTH AND HUMAN SERVICES\n‘Waa\n\nFood and Drug Administration\nSilver Spring, MD 20993\n\nNDA 209510\nCOMPLETE RESPONSE\n\nAcacia Pharma Ltd\n\nC/o Acacia Pharma Inc.\nAttention: Paul A. Orth, Pharm.D.\nGlobal Head Regulatory Affairs\n450 E. 96th St Ste 500\nIndianapolis, IN 46240\n\nDear Dr. Orth:\n\nPlease refer to your New Drug Application (NDA) dated October 5, 2017, received October 5,\n2017 submitted pursuant to section 505(b)(2) of the Federal Food, Drug, and Cosmetic Act for\nBarhemsys (amisulpride) injection, 5 mg/2 mL.\n\nWe have completed our review of this application, as amended, and have determined that we\ncannot approve this application in its present form. We have described our reasons for this\n\naction below and, where possible, our recommendations to address these issues.\n\nPRODUCT QUALITY/FACILITY INSPECTION DEFICIENCIES\n\nDuring a recent inspection of the ow\nmanufacturing facility for this application, our field investigator conveyed deficiencies to the\nrepresentative of the facility at the close of the inspection. Satisfactory resolution of these\nobservations is required before this NDA may be approved.\n\nPRESCRIBING INFORMATION\n\n1. Submit a revised PI, based on the version appended to this letter.\n\nYour proposed prescribing information (PI) must conform to the content and format regulations\nfound at 21 CFR 201.56(a) and (d) and 201.57. As you develop your proposed PI, we encourage\nyou to review the labeling review resources on the PLR Requirements for Prescribing\nInformation and Pregnancy and Lactation Labeling Final Rule websites, which include:\ne The Final Rule (Physician Labeling Rule) on the content and format of the PI for\nhuman drug and biological products\ne The Final Rule (Pregnancy and Lactation Labeling Rule) on the content and format of\ninformation in the PI on pregnancy, lactation, and females and males of reproductive\npotential\ne Regulations and related guidance documents\n\nReference ID: 4331444\n\nNDA 209510\nPage 2\n\ne Asample tool illustrating the format for Highlights and Contents, and\n\ne The Selected Requirements for Prescribing Information (SRPI) — a checklist of\nimportant format items from labeling regulations and guidances.\n\ne FDA’s established pharmacologic class (EPC) text phrases for inclusion in the\nHighlights Indications and Usage heading.\n\nCARTON AND CONTAINER LABELING\n\n2. Submit draft carton and container labeling based on the version appended to this letter.\nPROPRIETARY NAME\n\n3. Please refer to correspondence dated, May 24, 2018, which addresses the proposed\nproprietary name, Barhemsys. This name was found acceptable pending approval of the\napplication in the current review cycle. Please resubmit the proposed proprietary name\nwhen you respond to the application deficiencies.\n\nSAFETY UPDATE\n\nWhen you respond to the above deficiencies, include a safety update as described at\n\n21 CFR 314.50(d)(5)(vi)(b). The safety update should include data from all nonclinical and\nclinical studies/trials of the drug under consideration regardless of indication, dosage form, or\ndose level.\n\n1. Describe in detail any significant changes or findings in the safety profile.\n\n2. When assembling the sections describing discontinuations due to adverse events, serious\nadverse events, and common adverse events, incorporate new safety data as follows:\n\n¢ Present new safety data from the studies/clinical trials for the proposed indication\nusing the same format as in the original submission.\n\ne Present tabulations of the new safety data combined with the original application\ndata.\n\ne Include tables that compare frequencies of adverse events in the original application\nwith the retabulated frequencies described in the bullet above.\n\ne For indications other than the proposed indication, provide separate tables for the\nfrequencies of adverse events occurring in clinical trials.\n\n3. Present a retabulation of the reasons for premature trial discontinuation by incorporating\nthe drop-outs from the newly completed trials. Describe any new trends or patterns\nidentified.\n\n4. Provide case report forms and narrative summaries for each patient who died during a\nclinical trial or who did not complete a trial because of an adverse event. In addition,\nprovide narrative summaries for serious adverse events.\n\nReference ID: 4331444\n\nNDA 209510\nPage 3\n\n5. Describe any information that suggests a substantial change in the incidence of common,\nbut less serious, adverse events between the new data and the original application data.\n\n6. Provide updated exposure information for the clinical studies/trials (e.g., number of\nsubjects, person time).\n\n7. Provide a summary of worldwide experience on the safety of this drug. Include an\nupdated estimate of use for drug marketed in other countries.\n\n8. Provide English translations of current approved foreign labeling not previously\nsubmitted.\n\nADDITIONAL COMMENTS\n\nWe have the following additional comment/recommendation that is not an approvability issue\nbut should be addressed in the Complete Response action:\n\nThe effects of severe renal impairment on amisulpride pharmacokinetics has not been adequately\ncharacterized and amisulpride was studied only in a limited number of patients with severe renal\nimpairment in the clinical trials. Because of this limited information, the dosing for patients with\nsevere renal impairment cannot be supported by available data. To inform dosing for patients\nwith severe renal impairment and end-stage renal disease, we recommend that you conduct a\npharmacokinetic study following a single dose of amisulpride in patients with severe renal\nimpairment and end-stage renal disease (i.e., eGFR < 30 mL/min/1.73 m7), and healthy subjects\nas a control group.\n\nOTHER\n\nWithin one year after the date of this letter, you are required to resubmit or take other actions\navailable under 21 CFR 314.110. If you do not take one of these actions, we may consider your\nlack of response a request to withdraw the application under 21 CFR 314.65. You may also\nrequest an extension of time in which to resubmit the application.\n\nA resubmission must fully address all the deficiencies listed in this letter and should be clearly\nmarked with \"RESUBMISSION\" in large font, bolded type at the beginning of the cover letter\nof the submission. The cover letter should clearly state that you consider this resubmission a\ncomplete response to the deficiencies outlined in this letter. A partial response to this letter will\nnot be processed as a resubmission and will not start a new review cycle.\n\nYou may request a meeting or teleconference with us to discuss what steps you need to take\nbefore the application may be approved. If you wish to have such a meeting, submit your\nmeeting request as described in the draft FDA Guidance for Industry, “Formal Meetings\nBetween the FDA and Sponsors or Applicants of PDUFA Products,” December 2017 at\nhttps://www.fda.gov/Drugs/GuidanceComplianceRegulatoryInformation/Guidances/UCM59054\n7.\n\nReference ID: 4331444\n\nNDA 209510\nPage 4\n\nThe drug product may not be legally marketed until you have been notified in writing that this\napplication is approved.\n\nIf you have any questions, call CAPT Mimi Phan, Regulatory Project Manager, at (301) 796-\n5408.\n\nSincerely,\n\n{See appended electronic signature page}\n\nVictor Crentsil, M.D., M.H.S.\n\nActing Deputy Director\n\nOffice of Drug Evaluation III\n\nCenter for Drug Evaluation and Research\n\nENCLOSURES:\nPrescribing Information Labeling\nContainer and Carton Labeling\n\n16 Page(s) of Draft Labeling have been Withheld in Full as B4 (CCI/TS) immediately\nfollowing this page\n\nReference ID: 4331444\n\nSignature Page 1 of 1\n\nThis is a representation of an electronic record that was signed\nelectronically. Following this are manifestations of any and all\nelectronic signatures for this electronic record.\n\nVICTOR CRENTSIL\n10/05/2018\n\nReference ID: 4331444\n",
+      "application_number": [
+        "NDA 209510"
+      ],
+      "company_rep": "Paul A. Orth, Pharm.D.",
+      "letter_type": "COMPLETE RESPONSE",
+      "company_address": "450 E. 96th St Ste 500\nIndianapolis, IN 46240"
+    }
+  ],
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2025-07-15"
+    },
+    "results": [
+      {
+        "term": "COMPLETE RESPONSE",
+        "count": 281
+      },
+      {
+        "term": "TENTATIVE APPROVAL",
+        "count": 4
+      },
+      {
+        "term": "APPROVAL",
+        "count": 1
+      },
+      {
+        "term": "CORRECTED PROVISIONAL DETERMINATION",
+        "count": 1
+      },
+      {
+        "term": "PROVISIONAL DETERMINATION",
+        "count": 1
+      },
+      {
+        "term": "RESCIND COMPLETE RESPONSE",
+        "count": 1
+      }
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-@import '../vars';
+@use '../vars';
 
 .long-text-formatter {
 	word-break: breakall;
@@ -288,7 +288,7 @@
 	font-family: Merriweather, Georgia, serif;
 }
 
-@media (max-width: $tablet) {
+@media (max-width: vars.$tablet) {
 	.interactive-infographic-border {
 		display: none;
 	}

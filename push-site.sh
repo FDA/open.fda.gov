@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-BUCKET="open.fda.gov-clr"
+BUCKET="open.fda.gov-crl"
 
 echo "Pushing to: ${BUCKET}"
 

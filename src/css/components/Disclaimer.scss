@@ -1,4 +1,4 @@
-@import '../vars';
+@use '../vars';
 
 .modal-overlay {
 	position: fixed;
@@ -49,13 +49,13 @@
 	line-height: 20px;
 }
 
-@media (max-width: $tablet) {
+@media (max-width: vars.$tablet) {
 	.modal-container {
 		height: 250px;
 	}
 }
 
-@media (max-width: $bpMob) {
+@media (max-width: vars.$bpMob) {
 	.modal-container {
 		height: 320px;
 	}

@@ -1,3 +1,5 @@
+@use './vars';
+
 .col {
 	display: inline-block;
 	-ms-flex: 1 0 0;
@@ -7,11 +9,11 @@
 }
 
 .header-width {
-	max-width: $gridHeader;
+	max-width: vars.$gridHeader;
 }
 
 .reading-width {
-	max-width: $gridReading;
+	max-width: vars.$gridReading;
 }
 
 .grow-none {
@@ -383,14 +385,14 @@
 	padding-left: 60px;
 }
 
-@media (min-width: $bpTab) {
+@media (min-width: vars.$bpTab) {
 	.col {
 		float: left;
 		margin-right: 1%;
 	}
 
 	.container {
-		max-width: $gridMaxWidth;
+		max-width: vars.$gridMaxWidth;
 		width: 95%;
 	}
 
@@ -590,7 +592,7 @@
 	}
 }
 
-@media (max-width: $bpMob) {
+@media (max-width: vars.$bpMob) {
 	.col {
 		width: 100%;
 	}
@@ -724,7 +726,7 @@
 	}
 }
 
-@media (min-width: $bpTabRange1) and (max-width: $bpTabRange2) {
+@media (min-width: vars.$bpTabRange1) and (max-width: vars.$bpTabRange2) {
 	.t-range-omega {
 		margin-right: 0 !important;
 	}
@@ -883,13 +885,13 @@
 	}
 }
 
-@media (min-width: $bpDesk) {
+@media (min-width: vars.$bpDesk) {
 	.d-max-width {
-		max-width: $gridMaxWidth;
+		max-width: vars.$gridMaxWidth;
 	}
 
 	.d-reading-width {
-		max-width: $gridReading;
+		max-width: vars.$gridReading;
 	}
 
 	.d-flex {
@@ -1058,7 +1060,7 @@
 	}
 }
 
-@media (max-width: $tablet) {
+@media (max-width: vars.$tablet) {
 	.tab-hide {
 		display: none;
 	}

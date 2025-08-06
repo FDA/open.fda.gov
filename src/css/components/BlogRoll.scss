@@ -1,4 +1,4 @@
-@import '../vars';
+@use '../vars';
 
 .blog-cards,
 .blog-list {
@@ -131,7 +131,7 @@
 	letter-spacing: 1px;
 }
 
-@media (max-width: $tablet) {
+@media (max-width: vars.$tablet) {
 	.blog-list {
 		padding-left: 0;
 		padding-top: 4vw;

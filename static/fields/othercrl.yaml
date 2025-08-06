@@ -1,0 +1,79 @@
+properties:
+  file_name:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: "The name of the file."
+    possible_values:
+  application_number:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: "This corresponds to the NDA, ANDA, or BLA number reported by the labeler for products which have the corresponding Marketing Category designated. If the designated Marketing Category is OTC Monograph Final or OTC Monograph Not Final, then the application number will be the CFR citation corresponding to the appropriate Monograph (e.g. “part 341”). For unapproved drugs, this field will be null."
+    possible_values:
+  letter_type:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: "They type of letter."
+    possible_values:
+  letter_date:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: "The date the letter was signed."
+    possible_values:
+  company_name:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: "The name of the company."
+    possible_values:
+  company_rep:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: "The representative of the company."
+    possible_values:
+  company_address:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: "The contact address of the company."
+    possible_values:
+  approval_name:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: "The name of the person responsible for approval."
+    possible_values:
+  approval_title:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: "The professional title of the person responsible for approval."
+    possible_values:
+  approval_center:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: "The FDA center responsible for approval."
+    possible_values:
+  text:
+    format:
+    is_exact: false
+    type: string
+    pattern:
+    description: "The text of the file."
+    possible_values:
+type: object
