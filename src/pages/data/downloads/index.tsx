@@ -26,10 +26,12 @@ import device_registration_listing_meta from '../../apis/device/registrationlist
 import device_udi_meta from '../../apis/device/udi/_meta.yaml'
 import device_covid19serology_meta from '../../apis/device/covid19serology/_meta.yaml'
 import tobacco_problem_meta from '../../apis/tobacco/problem/_meta.yaml'
+import other_crl_meta from '../../apis/other/approved_CRLs/_meta.yaml'
 import other_historicaldocument_meta from '../../apis/other/historicaldocument/_meta.yaml'
 import other_nsde_meta from '../../apis/other/nsde/_meta.yaml'
 import other_substance_meta from '../../apis/other/substance/_meta.yaml'
 import other_unii_meta from '../../apis/other/unii/_meta.yaml'
+import approved_CRLs from "../../apis/other/approved_CRLs";
 
 const ComposedSidebar: ReactClass = SideBarContainer(SideBar)
 
@@ -59,6 +61,7 @@ const endpoint_list = {
   'Tobacco': 'tobacco_header',
   'Tobacco Problem Reports': tobacco_problem_meta,
   'Other': 'other_header',
+  'Approved CRLs': other_crl_meta,
   'Historical Documents': other_historicaldocument_meta,
   'NSDE': other_nsde_meta,
   'Substance': other_substance_meta,

@@ -34,7 +34,7 @@ const source: Record<string, Record<string, string>> = {
     'shortages': 'Drug Shortages'
   },
   'other': {
-    'crl': 'Approved Complete Response Letters',
+    'approved_CRLs': 'Approved Complete Response Letters',
     'historicaldocument': 'Historic FDA Press Releases',
     'nsde': 'NDC SPL Data Elements',
     'substance': 'Substance Data Reports',
@@ -71,7 +71,7 @@ const sourceLink: any = {
     'shortages': '/data/drugshortages'
   },
   'other': {
-    'crl': '/apis/other/approved_CRLs',
+    'approved_CRLs': '/apis/other/approved_CRLs',
     'historicaldocument': '/data/historicaldocument/',
     'nsde': '/apis/other/nsde/',
     'substance': '/apis/other/substance/',
@@ -110,7 +110,7 @@ const timePeriod: any = {
     'shortages': '2012 to'
   },
   'other': {
-    'crl': '2020-2024',
+    'approved_CRLs': '2020-2024',
     'historicaldocument': '1913 to',
     'nsde': '2009 to',
     'substance': 'Last updated',
@@ -149,7 +149,7 @@ const frequency = {
     'shortages': 'Daily'
   },
   'other': {
-    'crl': 'Infrequently',
+    'approved_CRLs': 'Infrequently',
     'historicaldocument': 'Infrequently',
     'nsde': 'Daily',
     'substance': 'Every few months',
