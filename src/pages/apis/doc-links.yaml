@@ -402,6 +402,16 @@
       items:
         - title: Overview
           link: /apis/other/approved_CRLs/
+        - title: How to use the API
+          link: /apis/other/approved_CRLs/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/other/approved_CRLs/example-api-queries/
+        - title: Understanding the API Results
+          link: /apis/other/approved_CRLs/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/other/approved_CRLs/download/
+        - title: Searchable fields
+          link: /apis/other/approved_CRLs/searchable-fields/
     - title: Historical Documents
       id: other-historicaldocument
       collapse: true

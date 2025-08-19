@@ -1,10 +1,10 @@
-@import './vars';
-@import './base';
-@import './grid';
-@import './helpers';
-@import './syntax';
-@import './table';
-@import './update';
+@use './vars';
+@use './base';
+@use './grid';
+@use './helpers';
+@use './syntax';
+@use './table';
+@use './update';
 
-@import '../css/components/DocMarkdown';
-@import '../css/components/SideBar';
+@use '../css/components/DocMarkdown';
+@use '../css/components/SideBar';

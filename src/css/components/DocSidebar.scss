@@ -1,4 +1,4 @@
-@import '../vars';
+@use '../vars';
 
 .doc-sidebar-mobile {
 	height: 44px;
@@ -18,9 +18,9 @@
 
 .sidebar-item,
 .sidebar-header {
-	color: $clrBase;
+	color: vars.$clrBase;
 	border-radius: 0;
-	font-size: $pSize;
+	font-size: vars.$pSize;
 	text-align: left;
 	padding: 10px 10px 10px 0px;
 }
@@ -29,7 +29,7 @@
 .sidebar-header.depth-2,
 .sidebar-item.depth-3,
 .sidebar-header.depth-3 {
-	font-size: $smallSize;
+	font-size: vars.$smallSize;
 }
 
 .sidebar-item.depth-2,
@@ -44,7 +44,7 @@
 
 .sidebar-item:hover,
 .sidebar-header:hover {
-	background-color: $clrGrayLightest;
+	background-color: vars.$clrGrayLightest;
 }
 
 .sidebar-item.sidebar-cross::before,
@@ -82,12 +82,12 @@
 .sidebar-item-active {
 	font-weight: bold;
 	opacity: 1;
-	color: $clrPrimary;
+	color: vars.$clrPrimary;
 	font-weight: 600;
 }
 
 .sidebar-item-active:before {
-	background: $clrPrimary;
+	background: vars.$clrPrimary;
 	transform: scale(1);
 }
 
@@ -163,20 +163,20 @@
 }
 
 .sticky-sidebar::-webkit-scrollbar-thumb {
-	background: $clrPrimary;
+	background: vars.$clrPrimary;
 }
 
 .sticky-sidebar::-webkit-scrollbar-track {
-	background: $clrPrimaryAltLightest;
+	background: vars.$clrPrimaryAltLightest;
 }
 
-@media (min-width: $bpDesk) {
+@media (min-width: vars.$bpDesk) {
 	.doc-sidebar-mobile {
 		display: none;
 	}
 }
 
-@media (max-width: $tablet) {
+@media (max-width: vars.$tablet) {
 	.doc-sidebar {
 		width: 100%;
 		height: calc(100vh - 171px);
@@ -189,11 +189,11 @@
 	}
 
 	::-webkit-scrollbar-thumb {
-		background: $clrPrimary;
+		background: vars.$clrPrimary;
 	}
 
 	::-webkit-scrollbar-track {
-		background: $clrPrimaryAltLightest;
+		background: vars.$clrPrimaryAltLightest;
 	}
 
 	.doc-sidebar-mobile {

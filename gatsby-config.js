@@ -8,7 +8,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
+        path: `${__dirname}/src/pages/`,
         name: "pages",
       },
     },
@@ -32,6 +32,7 @@ module.exports = {
     `gatsby-plugin-stylus`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-flow`,
-    `gatsby-plugin-sass`
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-typescript`,
   ],
 }
