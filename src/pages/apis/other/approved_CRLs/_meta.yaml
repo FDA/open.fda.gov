@@ -1,0 +1,12 @@
+documentTitle: openFDA › Other › approved_CRLs
+name: Complete Response Letters
+description: "Complete Response Letters (CRL) issued in response to approved new drug applications (NDAs) and biologics license applications (BLAs)"
+datasets:
+  - CRLs
+label: CRL
+title: Approved Complete Response Letters
+path: /apis/other/approved_CRLs
+api_path: /other/crl
+start: 01012020
+status: othercrl
+type: endpoint

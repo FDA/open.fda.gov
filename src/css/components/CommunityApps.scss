@@ -1,4 +1,4 @@
-@import '../vars';
+@use '../vars';
 
 .apps-section {
 	margin: auto;
@@ -47,7 +47,7 @@
 	background-size: 15px;
 }
 
-@media (max-width: $tablet) {
+@media (max-width: vars.$tablet) {
 	.apps-section {
 		width: 100%;
 	}
