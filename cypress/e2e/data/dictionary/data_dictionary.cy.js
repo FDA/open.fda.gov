@@ -106,7 +106,7 @@ context('Data Dictionary', () => {
     changeDataCategory(2, 'Human Drug', ['Enforcement', 'Event',
       'Label', 'NDC', 'Drugs@FDA'], 'openfda.')
     changeDataCategory(3, 'Food', ['Enforcement', 'Event'], 'meta.')
-    changeDataCategory(4, 'Other', ['Historical Documents', 'NSDE', 'Substance Data', 'UNII'], '')
+    changeDataCategory(4, 'Other', ['Complete Response Letters', 'Historical Documents', 'NSDE', 'Substance Data', 'UNII'], '')
     changeDataCategory(5, 'Tobacco', ['Problem'], '')
   })
 
