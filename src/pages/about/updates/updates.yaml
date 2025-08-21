@@ -144,6 +144,6 @@ updates:
     date: 2025-03-25
     desc: "The dataset Drug Shortages is now available."
   - title: "Complete Response Letters released"
-    path: /apis/other/approved_CRLs/
+    path: /apis/transparency/completeresponseletters/
     date: 2025-07-11
-    desc: "Complete Response Letters (CRL) issued in response to approved new drug applications (NDAs) and biologics license applications (BLAs) between 2020 and 2024 have been released."
+    desc: "Complete Response Letters (CRL) issued in response to new drug applications (NDAs) and biologics license applications (BLAs) between 2020 and 2024 have been released."

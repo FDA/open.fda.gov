@@ -16,7 +16,8 @@ const nounMap = {
   food: "Food",
   other: "Other",
   animalandveterinary: "Animal and Veterinary",
-  tobacco: "Tobacco"
+  tobacco: "Tobacco",
+  transparency: "Transparency"
 }
 
 // Update in pages/about/statistics/_content.yaml
@@ -248,6 +249,7 @@ if (!bp.mob && hasWindow) {
 
       if (data) {
 
+        console.log("data table: ", data.table)
         graphData.table = data.table
 
         const dataz: any[] = []
@@ -325,6 +327,7 @@ if (!bp.mob && hasWindow) {
         .then(function (response) {
           return response.json()
         }).then(function (data) {
+          console.log("fetched data: ", data)
           that.handleUsageResponse(data)
         })
     }
@@ -468,8 +471,10 @@ if (!bp.mob && hasWindow) {
                       <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Tobacco</strong></td></tr>
                       <tr> <td>Problem Reports</td><td>{this.docCount('tobaccoproblem')}</td> </tr>
 
+                      <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Transparency</strong></td></tr>
+                      <tr> <td>Complete Response Letters</td><td>{this.docCount('transparencycrl')}</td> </tr>
+
                       <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Other</strong></td></tr>
-                      <tr> <td>Complete Response Letters</td><td>{this.docCount('othercrl')}</td> </tr>
                       <tr> <td>Historical Documents</td><td>{this.docCount('otherhistoricaldocument')}</td> </tr>
                       <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
                       <tr> <td>Substance</td><td>{this.docCount('othersubstance')}</td> </tr>
@@ -521,6 +526,9 @@ if (!bp.mob && hasWindow) {
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Tobacco</strong></td></tr>
                       <tr><td>Problem Reports</td><td>{this.downloadCount('tobaccoproblem')}</td></tr>
+
+                      <tr className='bg-primary-darkest clr-white'> <td colSpan={2}><strong>Transparency</strong></td></tr>
+                      <tr> <td>Complete Response Letters</td><td>{this.downloadCount('transparencycrl')}</td> </tr>
 
                       <tr className='bg-primary-darkest clr-white'> <td colSpan={2}><strong>Other</strong></td></tr>
                       <tr> <td>Complete Response Letters</td><td>{this.downloadCount('othercrl')}</td> </tr>

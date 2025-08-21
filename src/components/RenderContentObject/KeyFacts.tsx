@@ -34,7 +34,6 @@ const source: Record<string, Record<string, string>> = {
     'shortages': 'Drug Shortages'
   },
   'other': {
-    'approved_CRLs': 'Approved Complete Response Letters',
     'historicaldocument': 'Historic FDA Press Releases',
     'nsde': 'NDC SPL Data Elements',
     'substance': 'Substance Data Reports',
@@ -42,6 +41,13 @@ const source: Record<string, Record<string, string>> = {
   },
   'tobacco': {
     'problem': 'Tobacco Problem Reports'
+  },
+  'transparency': {
+    'crl': 'Complete Response Letters',
+    'historicaldocument': 'Historic FDA Press Releases',
+    'nsde': 'NDC SPL Data Elements',
+    'substance': 'Substance Data Reports',
+    'unii': 'Unique Ingredient Identifiers'
   }
 }
 
@@ -71,7 +77,6 @@ const sourceLink: any = {
     'shortages': '/data/drugshortages'
   },
   'other': {
-    'approved_CRLs': '/apis/other/approved_CRLs',
     'historicaldocument': '/data/historicaldocument/',
     'nsde': '/apis/other/nsde/',
     'substance': '/apis/other/substance/',
@@ -79,7 +84,10 @@ const sourceLink: any = {
   },
   'tobacco': {
     'problem': '/data/tobaccoproblem/'
-  }
+  },
+  'transparency': {
+    'crl': '/apis/transparency/completeresponseletters',
+  },
 }
 
 const timePeriod: any = {
@@ -110,7 +118,6 @@ const timePeriod: any = {
     'shortages': '2012 to'
   },
   'other': {
-    'approved_CRLs': '2020-2024',
     'historicaldocument': '1913 to',
     'nsde': '2009 to',
     'substance': 'Last updated',
@@ -118,6 +125,9 @@ const timePeriod: any = {
   },
   'tobacco': {
     'problem': '2017 to'
+  },
+  'transparency': {
+    'crl': '2020-2024'
   }
 }
 
@@ -149,7 +159,6 @@ const frequency = {
     'shortages': 'Daily'
   },
   'other': {
-    'approved_CRLs': 'Infrequently',
     'historicaldocument': 'Infrequently',
     'nsde': 'Daily',
     'substance': 'Every few months',
@@ -157,7 +166,10 @@ const frequency = {
   },
   'tobacco': {
     'problem': 'Quarterly'
-  }
+  },
+  'transparency': {
+    'crl': 'Infrequently'
+  },
 }
 interface KeyFactsProps {
   status: string;

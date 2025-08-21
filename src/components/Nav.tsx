@@ -161,6 +161,7 @@ const Nav = (props: tPROPS) => {
                       <Link className={linkCx} to='/apis/food/' onClick={closeMobileNav}>Food Endpoints</Link>
                       <Link className={linkCx} to='/apis/other/' onClick={closeMobileNav}>Other Endpoints</Link>
                       <Link className={linkCx} to='/apis/tobacco/' onClick={closeMobileNav}>Tobacco Endpoints</Link>
+                      <Link className={linkCx} to='/apis/transparency/' onClick={closeMobileNav}>Transparency Endpoints</Link>
                     </div>
                   </div>
                 </div>
