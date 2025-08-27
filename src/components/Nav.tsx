@@ -204,14 +204,6 @@ const Nav = (props: tPROPS) => {
                         target='_blank'>
                         Q&A (StackExchange)
                       </a>
-                      <a
-                        className={`${linkCx}`}
-                        href='https://twitter.com/openFDA'
-                        onClick={closeMobileNav}
-                        rel='noopener noreferrer'
-                        target='_blank'>
-                        @openFDA (Twitter)
-                      </a>
                       <Link className={linkCx} to='/community/' onClick={closeMobileNav}>openFDA Apps</Link>
                     </div>
                   </div>
