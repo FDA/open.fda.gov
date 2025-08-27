@@ -46,7 +46,6 @@ context('Top menu bar', () => {
       .should('be.visible').trigger('mouseover').within(() => {
         cy.get('a[href="https://github.com/FDA"]').should('be.visible').should('have.text', 'Source code (GitHub)')
         cy.get('a[href="https://opendata.stackexchange.com/questions/tagged/openfda"]').should('be.visible').should('have.text', 'Q&A (StackExchange)')
-        cy.get('a[href="https://twitter.com/openFDA"]').should('be.visible').should('have.text', '@openFDA (Twitter)')
         cy.get('a[href="/community/"]').should('be.visible').should('have.text', 'openFDA Apps')
       }).trigger('mouseout')
 
