@@ -9,7 +9,7 @@ class IndexRoute extends React.Component {
       <section className='doc-content'>
         <h2>Complete Response Letters</h2>
         <p>This database contains Complete Response Letters (CRLs) associated with approved and unapproved New Drug Applications (NDAs) and Biologics License Applications (BLAs).
-          Currently, the database includes CRLs issued to sponsors between 2024 and 2025. FDA will continue to add to this database as CRLs are issued to sponsors, providing
+          Currently, the database includes CRLs issued to sponsors as recently as 2025. FDA will continue to add to this database as CRLs are issued to sponsors, providing
           the public with significant insight into the agency’s decisions. Additionally, FDA may publish in this database batches of CRLs from its archives associated with
           withdrawn and approved applications.</p>
 
