@@ -86,7 +86,6 @@ const sourceLink: any = {
     'problem': '/data/tobaccoproblem/'
   },
   'transparency': {
-    'crl': '/apis/transparency/completeresponseletters',
   },
 }
 
