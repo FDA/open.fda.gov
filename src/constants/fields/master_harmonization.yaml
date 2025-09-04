@@ -167,5 +167,6 @@ food:
   enforcement: []
   event: []
 other:
-  crl: []
   nsde: []
+transparency:
+  crl: []

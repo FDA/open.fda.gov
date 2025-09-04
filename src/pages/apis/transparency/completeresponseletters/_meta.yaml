@@ -1,0 +1,12 @@
+documentTitle: openFDA › Transparency › Complete Response Letters
+name: Complete Response Letters
+description: "Complete Response Letters (CRL) issued in response to new drug applications (NDAs) and biologics license applications (BLAs)"
+datasets:
+  - CRLs
+label: CRL
+title: Complete Response Letters
+path: /apis/transparency/completeresponseletters
+api_path: /transparency/crl
+start: 01012020
+status: transparencycrl
+type: endpoint

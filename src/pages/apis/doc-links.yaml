@@ -396,22 +396,6 @@
   link: /other/
   collapse: true
   items:
-    - title: Approved CRLs
-      id: other-approvedcrls
-      collapse: true
-      items:
-        - title: Overview
-          link: /apis/other/approved_CRLs/
-        - title: How to use the API
-          link: /apis/other/approved_CRLs/how-to-use-the-endpoint/
-        - title: Example API queries
-          link: /apis/other/approved_CRLs/example-api-queries/
-        - title: Understanding the API Results
-          link: /apis/other/approved_CRLs/understanding-the-api-results/
-        - title: Download the dataset
-          link: /apis/other/approved_CRLs/download/
-        - title: Searchable fields
-          link: /apis/other/approved_CRLs/searchable-fields/
     - title: Historical Documents
       id: other-historicaldocument
       collapse: true
@@ -482,7 +466,6 @@
           link: /apis/other/unii/download/
         - title: Searchable fields
           link: /apis/other/unii/searchable-fields/
-
 - title: Tobacco API Endpoints
   id: tobacco-api-endpoints
   link: /tobacco/
@@ -506,3 +489,26 @@
           link: /apis/tobacco/problem/download/
         - title: Searchable fields
           link: /apis/tobacco/problem/searchable-fields/
+
+- title: Transparency API Endpoints
+  id: transparency-api-endpoints
+  link: /transparency/
+  collapse: true
+  items:
+    - title: Complete Response Letters
+      id: transparency-completeresponseletters
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/transparency/completeresponseletters/
+        - title: How to use the API
+          link: /apis/transparency/completeresponseletters/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/transparency/completeresponseletters/example-api-queries/
+        - title: Understanding the API Results
+          link: /apis/transparency/completeresponseletters/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/transparency/completeresponseletters/download/
+        - title: Searchable fields
+          link: /apis/transparency/completeresponseletters/searchable-fields/
+

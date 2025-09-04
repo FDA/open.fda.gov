@@ -33,7 +33,8 @@ let endpointKeys = [
   'othernsde',
   'othersubstance',
   'otherunii',
-  'tobaccoproblem'
+  'tobaccoproblem',
+  'transparencycrl'
 ]
 
 type EndpointKey = typeof endpointKeys[number]
@@ -57,12 +58,12 @@ const catMap: Record<EndpointKey, string> = Object.freeze({
   'deviceudi': 'Devices › UDI',
   'deviceenforcement': 'Devices › Enforcement Reports',
   'covid19serology': 'Devices › COVID-19 Serological Testing Evaluations',
-  'othercrl': 'Other › Complete Response Letters',
   'otherhistoricaldocument': 'Other › Historical Documents',
   'othernsde': 'Other › NSDE',
   'othersubstance': 'Other › Substance',
   'otherunii': 'Other › UNII',
-  'tobaccoproblem': 'Tobacco › Problem Reports'
+  'tobaccoproblem': 'Tobacco › Problem Reports',
+  'transparencycrl': 'Transparency › Complete Response Letters'
 })
 
 
@@ -85,12 +86,12 @@ const endpointLinkMap: Record<EndpointKey, string> = Object.freeze({
   'deviceudi': 'device/udi',
   'deviceenforcement': 'device/enforcement',
   'covid19serology': 'device/covid19serology',
-  'othercrl': 'other/crl',
   'otherhistoricaldocument': 'other/historicaldocument',
   'othernsde': 'other/nsde',
   'othersubstance': 'other/substance',
   'otherunii': 'other/unii',
-  'tobaccoproblem': 'tobacco/problem'
+  'tobaccoproblem': 'tobacco/problem',
+  'transparencycrl': 'transparency/crl'
 })
 
 /**
