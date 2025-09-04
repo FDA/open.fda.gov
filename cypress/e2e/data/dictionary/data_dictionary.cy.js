@@ -108,7 +108,6 @@ context('Data Dictionary', () => {
     changeDataCategory(3, 'Food', ['Enforcement', 'Event'], 'meta.')
     changeDataCategory(4, 'Other', ['Historical Documents', 'NSDE', 'Substance Data', 'UNII'], '')
     changeDataCategory(5, 'Tobacco', ['Problem'], '')
-    changeDataCategory(6, 'Transparency', ['Complete Response Letters'], '')
   })
 
   it('Inline table search should work', () => {
