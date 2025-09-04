@@ -52,7 +52,7 @@ const TransparencyBox = (props: tPROPS) => {
 
   const ep_path: Record<NounName, Partial<Record<EndpointName, string>>> = {
     'transparency': {
-      'crl': 'https://openfda-site.preprod.fda.gov/crltable/'
+      'crl': 'https://open.fda.gov/crltable/'
     }
   }
 

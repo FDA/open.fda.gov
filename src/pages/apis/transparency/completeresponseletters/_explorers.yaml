@@ -2,7 +2,7 @@ letter22:
   params:
     - search for a single file with a letter date of 2/18/2022
     - limit to 1 record.
-  query: 'https://openfda-api.preprod.fda.gov/transparency/crl.json?search=letter_date:"02/18/2022"'
+  query: 'https://api.fda.gov/transparency/crl.json?search=letter_date:"02/18/2022"'
   description:
     - This query searches for letters dated 2/18/2022 and returns 1 result
   title: Letters from 2/18/2022
@@ -10,7 +10,7 @@ evalIII:
   params:
     - search for letters under the approval of the Office of Drug Evaluation III
     - limit to 5 record.
-  query: 'https://openfda-api.preprod.fda.gov/transparency/crl.json?search=approver_center:"Office of Drug Evaluation III"&limit=5'
+  query: 'https://api.fda.gov/transparency/crl.json?search=approver_center:"Office of Drug Evaluation III"&limit=5'
   description:
     - This query searches for letters under the appoval of the Office of Drug Evaluation III and returns 5 results
   title: Letters under the approval of the Office of Drug Evaluation III
