@@ -33,7 +33,14 @@ class IndexRoute extends React.Component {
         <p>FDA current leadership’s efforts to prioritize radical transparency by making CRLs publicly available is consistent with the agency’s broader strategic objectives to
           innovate and modernize the agency and to rebuild public trust in the integrity of the agency’s regulatory decision-making.</p>
 
-        <p>The disclosure of this information is consistent with the Administration’s directive under Executive Order No. 14303, to release “data, analyses, and conclusions associated with scientific and technological information produced or used by the agency that the agency reasonably assesses will have a clear and substantial effect on important public policies or important private sector decisions.” See Executive Order No. 14303, “Restoring Gold Standard Science” (emphasizing the importance of credible and impartial scientific evidence in federal decisions, and the public disclosure of the same).</p>
+        <p>The disclosure of this information is consistent with the Administration’s directive under Executive Order No. 14303, to release “data, analyses, and conclusions
+          associated with scientific and technological information produced or used by the agency that the agency reasonably assesses will have a clear and substantial effect
+          on important public policies or important private sector decisions.” See Executive Order No. 14303, “Restoring Gold Standard Science” (emphasizing the importance of
+          credible and impartial scientific evidence in federal decisions, and the public disclosure of the same).</p>
+
+        <p>FDA's Disclosure Team is redacting in accordance with the agency's updated policy guidelines around CRLs. Each CRL presents its own unique issues and is assessed
+          independently.</p>
+
         <p><a href='https://download.open.fda.gov/approved_CRLs.zip'>Download Approved Complete Response Letters in PDF format</a></p>
         <p><a href='https://download.open.fda.gov/unapproved_CRLs.zip'>Download Unapproved Complete Response Letters in PDF format</a></p>
         <KeyFacts
