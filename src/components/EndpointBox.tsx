@@ -6,7 +6,7 @@ import Link from 'gatsby-link'
 
 import '../css/components/EndpointBox.scss'
 
-type NounName = 'animalandveterinary' | 'food' | 'device' | 'drug' | 'other' | 'tobacco';
+type NounName = 'animalandveterinary' | 'food' | 'device' | 'drug' | 'other' | 'tobacco' | 'transparency';
 type EndpointName =
   | 'event'
   | 'enforcement'
@@ -25,7 +25,8 @@ type EndpointName =
   | 'nsde'
   | 'substance'
   | 'unii'
-  | 'problem';
+  | 'problem'
+  | 'completeresponseletters';
 
 type tPROPS = {
   noun_name: NounName,
@@ -75,7 +76,6 @@ const EndpointBox = (props: tPROPS) => {
       'drugshortages': 'Drug Shortages can occur for many reasons, including manufacturing and quality problems, delays, and discontinuations.'
     },
     'other': {
-      'approvedcrls': 'Centralized database of approved Complete Response Letters',
       'historicaldocument': 'FDA Press Releases, 1913-2014, in searchable format',
       'nsde': 'Comprehensive NDC SPL Data Elements File',
       'substance': 'Substance information that is precise to the molecular level for use internally and externally (where appropriate).',
@@ -83,6 +83,9 @@ const EndpointBox = (props: tPROPS) => {
     },
     'tobacco': {
       'problem': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.'
+    },
+    'transparency': {
+      'crl': 'Centralized database of Complete Response Letters (CRLs)',
     }
   }
 
@@ -114,7 +117,6 @@ const EndpointBox = (props: tPROPS) => {
       'drugshortages': 'Drug shortages'
     },
     'other': {
-      'approvedcrls': 'Approved Complete Response Letters',
       'historicaldocument': 'Historical Documents',
       'nsde': 'NDC SPL Data Elements',
       'substance': 'Substance Data',
@@ -122,6 +124,9 @@ const EndpointBox = (props: tPROPS) => {
     },
     'tobacco': {
       'problem': 'Tobacco Problem Reports'
+    },
+    'transparency': {
+      'crl': 'Complete Response Letters',
     }
   }
   const bg_color: Record<NounName, React.CSSProperties> = {
@@ -130,7 +135,8 @@ const EndpointBox = (props: tPROPS) => {
     'device': {background: "linear-gradient(to right bottom, #ff8989, #c94747)"},
     'drug': {background: "linear-gradient(to right bottom, rgb(220, 141, 188), rgb(153, 88, 163))"},
     'other': {background: "linear-gradient(to right bottom, #9cf6f6, #099db7)"},
-    'tobacco': {background: "linear-gradient(to right bottom, #e6ccb3, #6d5843)"}
+    'tobacco': {background: "linear-gradient(to right bottom, #e6ccb3, #6d5843)"},
+    'transparency': {background: "linear-gradient(to right bottom, rgb(241 238 237), rgb(133 133 132))"},
   }
 
   const icon: Record<NounName, Partial<Record<EndpointName, React.ReactNode>>> = {
@@ -161,7 +167,6 @@ const EndpointBox = (props: tPROPS) => {
       'drugshortages': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-at' style={{color: "white"}}/></div>
     },
     'other': {
-      'approvedcrls': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-book" style={{color: "white"}}/></div>,
       'historicaldocument': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-history" style={{color: "white"}}/></div>,
       'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
       'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{color: "white"}}/></div>,
@@ -169,6 +174,9 @@ const EndpointBox = (props: tPROPS) => {
     },
     'tobacco': {
       'problem': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-leaf' style={{color: "white"}}/></div>
+    },
+    'transparency': {
+      'crl': <div className='ep-icon' style={bg_color.transparency}><i className='fa fa-3x fa-book' style={{color: "white"}}/></div>
     }
   }
 
@@ -208,6 +216,9 @@ const EndpointBox = (props: tPROPS) => {
     },
     'tobacco': {
       'problem': '/apis/tobacco/problem/'
+    },
+    'transparency': {
+      'crl': '/apis/transparency/completeresponseletters/'
     }
   }
 
