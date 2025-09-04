@@ -2,7 +2,7 @@ pipeline {
    agent {
        // this image provides everything needed to run Cypress
        docker {
-         image 'cypress/base:18.20.3'
+         image 'cypress/base:20.18.0'
          args  '--ipc=host'
        }
     }
