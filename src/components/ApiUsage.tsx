@@ -457,7 +457,10 @@ if (!bp.mob && hasWindow) {
                       <tr><td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td></tr>
                       <tr><td>Enforcement Reports</td><td>{this.docCount('foodenforcement')}</td></tr>
 
-                      <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Devices</strong></td></tr>
+                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Cosmetics</strong></td></tr>
+                      <tr><td>Adverse Event Reports</td><td>{this.docCount('cosmeticevent')}</td></tr>
+
+                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Devices</strong></td></tr>
                       <tr><td>Classifications</td><td>{this.docCount('deviceclass')}</td></tr>
                       <tr><td>Registration and listing</td><td>{this.docCount('devicereglist')}</td></tr>
                       <tr><td>Premarket Approvals (PMAs)</td><td>{this.docCount('devicepma')}</td></tr>

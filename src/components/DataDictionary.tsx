@@ -85,6 +85,7 @@ class DataDictionary extends React.Component<{}, DataDictionaryState> {
       'drug': 'Human Drug',
       'device': 'Device',
       'food': 'Food',
+      'cosmetic': 'Cosmetic',
       'other': 'Other',
       'tobacco': 'Tobacco',
       'transparency': 'Transparency'
