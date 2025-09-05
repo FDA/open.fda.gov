@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-BUCKET="open.fda.gov-prod"
+BUCKET="open.fda.gov-$TODAY"
 
 echo "Pushing to: ${BUCKET}"
 
