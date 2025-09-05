@@ -40,7 +40,7 @@ class IndexRoute extends React.Component {
 
         <p>FDA's Disclosure Team is redacting in accordance with the agency's updated policy guidelines around CRLs. Each CRL presents its own unique issues and is assessed
           independently.</p>
-
+        <p><a href='https://open.fda.gov/crltable/'>Search for CRLs</a></p>
         <p><a href='https://download.open.fda.gov/approved_CRLs.zip'>Download Approved Complete Response Letters in PDF format</a></p>
         <p><a href='https://download.open.fda.gov/unapproved_CRLs.zip'>Download Unapproved Complete Response Letters in PDF format</a></p>
         <KeyFacts
