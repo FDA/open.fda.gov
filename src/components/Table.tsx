@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
 
 type tPROPS = {
@@ -15,6 +15,7 @@ const Table = (props:tPROPS) => {
         cols: string[];
         labels: any;
         formatters: { [key: string]: (cell: any, row: any) => any };
+        containerRef: React.RefObject<HTMLTableSectionElement | null>;
 
         constructor(props:tPROPS) {
             super(props);
@@ -22,7 +23,13 @@ const Table = (props:tPROPS) => {
             this.cols = props.cols;
             this.labels = (props as any).labels ? (props as any).labels : props.cols;
             this.formatters = (props as any).formatters || {};
+            this.containerRef = React.createRef<HTMLTableSectionElement>();
         }
+
+        componentDidMount(): void {
+            this.containerRef.current?.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        }
+
         format(cell: any, row: any, col: string | number, rowIndex: any, colIndex: any) {
             let formatter = this.formatters[col];
             if(formatter) {
@@ -51,14 +58,18 @@ const Table = (props:tPROPS) => {
                 );
             });
 
-            return (<table className="table">
+            return (
+                <div ref={this.containerRef} className="table-responsive">
+            <table className="table">
                 <thead>
                     {head}
                 </thead>
-                <tbody>
+                <tbody ref={this.containerRef}>
                     {body}
                 </tbody>
-            </table>);
+            </table>
+            </div>
+            );
         }
     }
 
