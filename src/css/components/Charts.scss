@@ -1,26 +1,26 @@
-@import '../vars';
+@use '../vars';
 
-@media (min-width: $bpTab) {
+@media (min-width: vars.$bpTab) {
 	.infographic-container {
 		max-width: 1100px;
 		width: 100%;
 	}
 }
 
-@media (max-width: $bpMob) {
+@media (max-width: vars.$bpMob) {
 	.donut-wrap {
 		flex-wrap: wrap;
 	}
 }
 
-@media (min-width: $bpTabRange1) and (max-width: $bpTabRange2) {
+@media (min-width: vars.$bpTabRange1) and (max-width: vars.$bpTabRange2) {
 	.donut-wrap {
 		flex-wrap: wrap;
 	}
 }
 
-@media (min-width: $bpDesk) {
+@media (min-width: vars.$bpDesk) {
 	.donut-legend {
-		border-left: 1px solid $clrGrayLighter;
+		border-left: 1px solid vars.$clrGrayLighter;
 	}
 }

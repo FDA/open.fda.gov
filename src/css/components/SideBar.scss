@@ -1,4 +1,4 @@
-@import '../vars';
+@use '../vars';
 
 .sb-active:before {
 	content: '\25BA';
@@ -13,7 +13,7 @@ html -webkit-scrollbar {
 	width: 1px;
 }
 
-@media (min-width: $bpTab) {
+@media (min-width: vars.$bpTab) {
 	.sb,
   .sb-fixed,
   .sb-bottom,
@@ -50,13 +50,13 @@ html -webkit-scrollbar {
 	}
 }
 
-@media (min-width: $bpDesk) {
+@media (min-width: vars.$bpDesk) {
 	.sb {
 		margin-right: 50px;
 	}
 }
 
-@media (min-width: $bpWide) {
+@media (min-width: vars.$bpWide) {
 	.sb-gradient {
 		left: 20px;
 		left: calc((100vw - 1400px) / 2);

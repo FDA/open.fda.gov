@@ -1,4 +1,4 @@
-@import '../vars';
+@use '../vars';
 
 .field-explorer {
 	height: 740px;
@@ -16,8 +16,8 @@
 }
 
 .field-name:hover {
-	background-color: $clrPrimary;
-	color: $clrWhite;
+	background-color: vars.$clrPrimary;
+	color: vars.$clrWhite;
 }
 
 .field-list {
