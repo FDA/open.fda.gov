@@ -109,7 +109,7 @@ properties:
       type: string
     type: array
   meddra_version:
-    description: "The meddra version."
+    description: "The MedDRA version."
     format:
     is_exact: false
     possible_values:

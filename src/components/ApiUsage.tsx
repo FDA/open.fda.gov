@@ -17,7 +17,8 @@ const nounMap = {
   other: "Other",
   animalandveterinary: "Animal and Veterinary",
   tobacco: "Tobacco",
-  transparency: "Transparency"
+  transparency: "Transparency",
+  cosmetic: "Cosmetic"
 }
 
 // Update in pages/about/statistics/_content.yaml

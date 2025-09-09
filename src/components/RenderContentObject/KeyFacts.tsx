@@ -63,7 +63,6 @@ const sourceLink: any = {
     'event': '/data/caers/'
   },
   'cosmetic': {
-    'event': '/apis/cosmetic/event/'
   },
   'device': {
     'event': '/data/maude/',

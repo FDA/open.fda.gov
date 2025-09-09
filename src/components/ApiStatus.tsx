@@ -14,6 +14,7 @@ let endpointKeys = [
   'animalandveterinarydrugevent',
   'foodenforcement',
   'foodevent',
+  'cosmeticevent',
   'drugevent',
   'druglabel',
   'ndc',

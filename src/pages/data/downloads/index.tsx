@@ -8,6 +8,7 @@ import SideBar from '../../../components/SideBar'
 import SideBarContainer from '../../../containers/SideBarContainer'
 
 import animalandveterinary_event_meta from '../../apis/animalandveterinary/event/_meta.yaml'
+import cosmetic_event_meta from '../../apis/cosmetic/event/_meta.yaml'
 import food_enforcement_meta from '../../apis/food/enforcement/_meta.yaml'
 import food_event_meta from '../../apis/food/event/_meta.yaml'
 import drug_enforcement_meta from '../../apis/drug/enforcement/_meta.yaml'
@@ -37,6 +38,8 @@ const ComposedSidebar: ReactClass = SideBarContainer(SideBar)
 const endpoint_list = {
   'Animal and Veterinary': 'animalandveterinary_header',
   'Animal And Veterinary Event': animalandveterinary_event_meta,
+  'Cosmetic': 'cosmetic_header',
+  'Cosmetic Event': cosmetic_event_meta,
   'Food': 'food_header',
   'Food Enforcement': food_enforcement_meta,
   'Food Event': food_event_meta,
