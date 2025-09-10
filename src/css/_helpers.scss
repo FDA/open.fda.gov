@@ -126,6 +126,16 @@
 	text-overflow: ellipsis;
 }
 
+.txt-overflow-ellipsis-wrap-4 {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	line-clamp: 4;
+	-webkit-box-orient: vertical;
+	max-width: 100%;
+}
+
 .italic {
 	font-style: italic !important;
 }

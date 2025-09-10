@@ -87,7 +87,7 @@ const BlogPosts = (props: tPROPS) => {
                     <div>
                       <Async promise={title} then={(val) => <h2 className='blog-header clr-primary-darker'>{val}</h2>}/>
                       <div className='clr-gray-light marg-b-1 t-marg-t-05 time-stamp'>{formattedDate}</div>
-                      <p className='smallest txt-overflow-ellipsis'>{desc}</p>
+                      <p className='smallest txt-overflow-ellipsis txt-overflow-ellipsis-wrap-4'>{desc}</p>
                       {
                         small === false &&
                         <span className='absolute pad-b-2 weight-700 clr-primary'>READ MORE <i
