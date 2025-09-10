@@ -33,7 +33,8 @@ let endpointKeys = [
   'othernsde',
   'othersubstance',
   'otherunii',
-  'tobaccoproblem'
+  'tobaccoproblem',
+  'transparencycrl'
 ]
 
 type EndpointKey = typeof endpointKeys[number]
@@ -61,7 +62,8 @@ const catMap: Record<EndpointKey, string> = Object.freeze({
   'othernsde': 'Other › NSDE',
   'othersubstance': 'Other › Substance',
   'otherunii': 'Other › UNII',
-  'tobaccoproblem': 'Tobacco › Problem Reports'
+  'tobaccoproblem': 'Tobacco › Problem Reports',
+  'transparencycrl': 'Transparency › Complete Response Letters'
 })
 
 
@@ -88,7 +90,8 @@ const endpointLinkMap: Record<EndpointKey, string> = Object.freeze({
   'othernsde': 'other/nsde',
   'othersubstance': 'other/substance',
   'otherunii': 'other/unii',
-  'tobaccoproblem': 'tobacco/problem'
+  'tobaccoproblem': 'tobacco/problem',
+  'transparencycrl': 'transparency/crl'
 })
 
 /**

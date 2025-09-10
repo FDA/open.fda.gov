@@ -41,6 +41,13 @@ const source: Record<string, Record<string, string>> = {
   },
   'tobacco': {
     'problem': 'Tobacco Problem Reports'
+  },
+  'transparency': {
+    'crl': 'Complete Response Letters',
+    'historicaldocument': 'Historic FDA Press Releases',
+    'nsde': 'NDC SPL Data Elements',
+    'substance': 'Substance Data Reports',
+    'unii': 'Unique Ingredient Identifiers'
   }
 }
 
@@ -77,7 +84,9 @@ const sourceLink: any = {
   },
   'tobacco': {
     'problem': '/data/tobaccoproblem/'
-  }
+  },
+  'transparency': {
+  },
 }
 
 const timePeriod: any = {
@@ -115,6 +124,9 @@ const timePeriod: any = {
   },
   'tobacco': {
     'problem': '2017 to'
+  },
+  'transparency': {
+    'crl': '2020-2024'
   }
 }
 
@@ -153,7 +165,10 @@ const frequency = {
   },
   'tobacco': {
     'problem': 'Quarterly'
-  }
+  },
+  'transparency': {
+    'crl': 'Infrequently'
+  },
 }
 interface KeyFactsProps {
   status: string;

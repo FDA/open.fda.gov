@@ -26,6 +26,7 @@ import device_registration_listing_meta from '../../apis/device/registrationlist
 import device_udi_meta from '../../apis/device/udi/_meta.yaml'
 import device_covid19serology_meta from '../../apis/device/covid19serology/_meta.yaml'
 import tobacco_problem_meta from '../../apis/tobacco/problem/_meta.yaml'
+import transparency_crl_meta from '../../apis/transparency/completeresponseletters/_meta.yaml'
 import other_historicaldocument_meta from '../../apis/other/historicaldocument/_meta.yaml'
 import other_nsde_meta from '../../apis/other/nsde/_meta.yaml'
 import other_substance_meta from '../../apis/other/substance/_meta.yaml'
@@ -58,6 +59,8 @@ const endpoint_list = {
   'COVID-19 Serological Testing Evaluations': device_covid19serology_meta,
   'Tobacco': 'tobacco_header',
   'Tobacco Problem Reports': tobacco_problem_meta,
+  'Transparency': 'transparency_header',
+  'Complete Response Letters': transparency_crl_meta,
   'Other': 'other_header',
   'Historical Documents': other_historicaldocument_meta,
   'NSDE': other_nsde_meta,

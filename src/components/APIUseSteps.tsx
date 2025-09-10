@@ -39,7 +39,7 @@ const APIUseSteps = (props: tPROPS) => {
         </li>
         <li>
           <div className='step-num'>3</div>
-          <div className='step-desc'>Try out the {endpoint_name} endpoint using the <Link to={String(endpoint_path) + 'explore-the-api-with-an-interactive-chart/'}>interactive examples</Link> and tools below.</div>
+          <div className='step-desc'>Try out the {endpoint_name} endpoint using the <Link to={String(endpoint_path) + 'example-api-queries/'}>interactive examples</Link> and tools below.</div>
         </li>
       </ul>
     </section>

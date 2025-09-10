@@ -7,8 +7,8 @@ import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
 import '../css/components/APIUsage.scss'
 
-// Update total usage numbers with: https://api.fda.gov/usage.json?start_at=2025-08-05 - last 2025-08-05
-// Current total: 1,050 million
+// Update total usage numbers with: https://api.fda.gov/usage.json?start_at=2025-09-03 - last 2025-09-03
+// Current total: 1,077 million
 
 const nounMap = {
   drug: "Drug",
@@ -16,7 +16,8 @@ const nounMap = {
   food: "Food",
   other: "Other",
   animalandveterinary: "Animal and Veterinary",
-  tobacco: "Tobacco"
+  tobacco: "Tobacco",
+  transparency: "Transparency"
 }
 
 // Update in pages/about/statistics/_content.yaml
@@ -78,7 +79,7 @@ interface State{
   color?: string | undefined
   yLegendCoordinate?: number | undefined
   toolTipLabel?: string | undefined
-  columns: string[] 
+  columns: string[]
   series?: TimeSeries
   style?: any
   max?: number | undefined | null
@@ -248,6 +249,7 @@ if (!bp.mob && hasWindow) {
 
       if (data) {
 
+        console.log("data table: ", data.table)
         graphData.table = data.table
 
         const dataz: any[] = []
@@ -325,6 +327,7 @@ if (!bp.mob && hasWindow) {
         .then(function (response) {
           return response.json()
         }).then(function (data) {
+          console.log("fetched data: ", data)
           that.handleUsageResponse(data)
         })
     }
@@ -468,6 +471,9 @@ if (!bp.mob && hasWindow) {
                       <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Tobacco</strong></td></tr>
                       <tr> <td>Problem Reports</td><td>{this.docCount('tobaccoproblem')}</td> </tr>
 
+                      <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Transparency</strong></td></tr>
+                      <tr> <td>Complete Response Letters</td><td>{this.docCount('transparencycrl')}</td> </tr>
+
                       <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Other</strong></td></tr>
                       <tr> <td>Historical Documents</td><td>{this.docCount('otherhistoricaldocument')}</td> </tr>
                       <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
@@ -521,7 +527,11 @@ if (!bp.mob && hasWindow) {
                       <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Tobacco</strong></td></tr>
                       <tr><td>Problem Reports</td><td>{this.downloadCount('tobaccoproblem')}</td></tr>
 
+                      <tr className='bg-primary-darkest clr-white'> <td colSpan={2}><strong>Transparency</strong></td></tr>
+                      <tr> <td>Complete Response Letters</td><td>{this.downloadCount('transparencycrl')}</td> </tr>
+
                       <tr className='bg-primary-darkest clr-white'> <td colSpan={2}><strong>Other</strong></td></tr>
+                      <tr> <td>Complete Response Letters</td><td>{this.downloadCount('othercrl')}</td> </tr>
                       <tr> <td>Historical Documents</td><td>{this.downloadCount('otherhistoricaldocument')}</td> </tr>
                       <tr> <td>NSDE</td><td>{this.downloadCount('othernsde')}</td> </tr>
                       <tr> <td>Substance</td><td>{this.downloadCount('othersubstance')}</td> </tr>
