@@ -29,6 +29,7 @@ import tobacco_problem_meta from '../../apis/tobacco/problem/_meta.yaml'
 import transparency_crl_meta from '../../apis/transparency/completeresponseletters/_meta.yaml'
 import other_historicaldocument_meta from '../../apis/other/historicaldocument/_meta.yaml'
 import other_nsde_meta from '../../apis/other/nsde/_meta.yaml'
+import other_pubmed_meta from '../../apis/other/pubmed/_meta.yaml'
 import other_substance_meta from '../../apis/other/substance/_meta.yaml'
 import other_unii_meta from '../../apis/other/unii/_meta.yaml'
 
@@ -64,6 +65,7 @@ const endpoint_list = {
   'Other': 'other_header',
   'Historical Documents': other_historicaldocument_meta,
   'NSDE': other_nsde_meta,
+  'PubMed': other_pubmed_meta,
   'Substance': other_substance_meta,
   'UNII': other_unii_meta
 }

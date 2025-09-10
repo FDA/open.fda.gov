@@ -26,7 +26,8 @@ type EndpointName =
   | 'substance'
   | 'unii'
   | 'problem'
-  | 'completeresponseletters';
+  | 'completeresponseletters'
+  | 'pubmed';
 
 type tPROPS = {
   noun_name: NounName,
@@ -78,6 +79,7 @@ const EndpointBox = (props: tPROPS) => {
     'other': {
       'historicaldocument': 'FDA Press Releases, 1913-2014, in searchable format',
       'nsde': 'Comprehensive NDC SPL Data Elements File',
+      'pubmed': 'Citations for biomedical literature',
       'substance': 'Substance information that is precise to the molecular level for use internally and externally (where appropriate).',
       'unii': 'Unique Ingredient Identifier list.'
     },
@@ -85,7 +87,7 @@ const EndpointBox = (props: tPROPS) => {
       'problem': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.'
     },
     'transparency': {
-      'crl': 'Centralized database of Complete Response Letters (CRLs)',
+      'crl': 'Centralized database of Complete Response Letters (CRLs)'
     }
   }
 
@@ -119,6 +121,7 @@ const EndpointBox = (props: tPROPS) => {
     'other': {
       'historicaldocument': 'Historical Documents',
       'nsde': 'NDC SPL Data Elements',
+      'pubmed': 'PubMed',
       'substance': 'Substance Data',
       'unii': 'UNII'
     },
@@ -169,6 +172,7 @@ const EndpointBox = (props: tPROPS) => {
     'other': {
       'historicaldocument': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-history" style={{color: "white"}}/></div>,
       'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
+      'pubmed': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-bookmark" style={{color: "white"}}/></div>,
       'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{color: "white"}}/></div>,
       'unii': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>
     },
@@ -208,9 +212,9 @@ const EndpointBox = (props: tPROPS) => {
       'drugshortages': '/apis/drug/drugshortages/'
     },
     'other': {
-      'approvedcrls': '/apis/other/approved_CRLs/',
       'historicaldocument': '/apis/other/historicaldocument/',
       'nsde': '/apis/other/nsde/',
+      'pubmed': '/apis/other/pubmed/',
       'substance': '/apis/other/substance/',
       'unii': '/apis/other/unii/'
     },

@@ -17,6 +17,10 @@ export default () => (
         />
         <EndpointBox
           noun_name='other'
+          endpoint_name='pubmed'
+        />
+        <EndpointBox
+          noun_name='other'
           endpoint_name='substance'
         />
         <EndpointBox

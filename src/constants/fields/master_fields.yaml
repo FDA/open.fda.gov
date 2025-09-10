@@ -8534,6 +8534,170 @@ other:
                 hide: true
                 possible_values:
     type: object
+  pubmed:
+    properties:
+      pmid:
+        format:
+        is_exact: true
+        type: string
+        pattern:
+        description: "PubMed Identifier"
+        possible_values:
+      doi:
+        format:
+        is_exact: true
+        type: string
+        pattern:
+        description: "Digital Object Identifier"
+        possible_values:
+      title:
+        format:
+        is_exact: true
+        type: string
+        pattern:
+        description: "Title of the publication"
+        possible_values:
+      abstract:
+        format:
+        is_exact: true
+        type: string
+        pattern:
+        description: "The abstract view of the publication."
+        possible_values:
+      category:
+        format:
+        is_exact: true
+        type: string
+        pattern:
+        description: "Category of publication"
+        possible_values:
+      type:
+        format:
+        is_exact: true
+        type: string
+        pattern:
+        description: "Publication type"
+        possible_values:
+      month_published:
+        format:
+        is_exact: true
+        type: integer
+        pattern:
+        description: "Month of publishing"
+        possible_values:
+      year_published:
+        format:
+        is_exact: true
+        type: integer
+        pattern:
+        description: "Year of publishing"
+        possible_values:
+      affiliations:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Affiliated entities"
+          possible_values:
+      authers:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "All authors of the publication"
+          possible_values:
+      cder_authors:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Publication authors from CDER"
+          possible_values:
+      office_division_branch:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "What FDA offices are involved in the publication"
+          possible_values:
+      journal:
+        format:
+        is_exact: true
+        type: string
+        pattern:
+        description: "Journal name"
+        possible_values:
+      journal_info:
+        format:
+        is_exact: true
+        type: string
+        pattern:
+        description: "Journal reference info"
+        possible_values:
+      event_info:
+        format:
+        is_exact: true
+        type: string
+        pattern:
+        description: "Generally used when the publication is tied to a conference, symposium, or workshop"
+        possible_values:
+      book_info:
+        format:
+        is_exact: true
+        type: string
+        pattern:
+        description: "Generally used when the publication is part of a book or book chapter, rather than a journal or conference"
+        possible_values:
+      citation:
+        format:
+        is_exact: true
+        type: string
+        pattern:
+        description: "All included citations"
+        possible_values:
+      pub_status:
+        format:
+        is_exact: true
+        type: string
+        pattern:
+        description: "Status of the publication"
+        possible_values:
+      keywords:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Identified keywords in the publication"
+          possible_values:
+      mesh_qualifier_name:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Medical Subject Heading qualifiers applied to the publication"
+          possible_values:
+      mesh_descriptor_name:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Medical Subject Heading descriptors applied to the publication"
+          possible_values:
+    type: object
   substance:
     properties:
       codes:

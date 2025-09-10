@@ -1,0 +1,111 @@
+
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2025-09-09",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 115
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2025-09-09",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 115
+      }
+    }
+  },
+  "results": [
+    {
+      "journal_info": "2024 7 30;45(6):104448.",
+      "keywords": [
+        "COVID-19 vaccination",
+        "Tinnitus",
+        "Vaccine safety"
+      ],
+      "citation": "Yih WK, Duffy J, Su JR, Bazel S, Fireman B, Hurley L, Maro JC, Marquez P, Moro P, Nair N, Nelson J, Smith N, Sundaram M, Vasquez-Benitez G, Weintraub E, Xu S, Shimabukuro T. Tinnitus after COVID-19 vaccination: Findings from the vaccine adverse event reporting system and the vaccine safety datalink. American journal of otolaryngology. 2024 7 30;45(6):104448. doi:10.1016/j.amjoto.2024.104448. PMID: 39096568",
+      "affiliations": [
+        "Immunization Safety Office, Centers for Disease Control and Prevention, Atlanta, GA, United States of America. Electronic address: jduffy@cdc.gov.",
+        "HealthPartners Institute, Bloomington, MN, United States of America.",
+        "Office of Biostatistics and Pharmacovigilance, Food and Drug Administration, Silver Spring, MD, United States of America.",
+        "Kaiser Permanente Northern California, Oakland, CA, United States of America.",
+        "Marshfield Clinic Research Institute, Marshfield, WI, United States of America.",
+        "Department of Medicine, University of Colorado School of Medicine, Aurora, CO, United States of America.",
+        "Kaiser Permanente Washington Health Research Institute, Seattle, WA, United States of America.",
+        "Harvard Pilgrim Health Care Institute and Department of Population Medicine, Harvard Medical School, Boston, MA, United States of America.",
+        "Kaiser Permanente Northwest, Portland, OR, United States of America.",
+        "Ambulatory Care Services, Denver Health and Hospitals, Denver, CO, United States of America",
+        "Immunization Safety Office, Centers for Disease Control and Prevention, Atlanta, GA, United States of America.",
+        "Department of Research and Evaluation, Kaiser Permanente Southern California, Pasadena, CA, United States of America."
+      ],
+      "abstract": "To assess the occurrence of tinnitus following COVID-19 vaccination using data mining and descriptive analyses in two U.S. vaccine safety surveillance systems.Reports of tinnitus after COVID-19 vaccination to the Vaccine Adverse Event Reporting System (VAERS) from 2020 through 2024 were examined using empirical Bayesian data mining and by calculating reporting rates. In the Vaccine Safety Datalink (VSD) population, ICD-10 coded post-vaccination medical visits were examined using tree-based data mining, and tinnitus visit incidence rates during post-vaccination days 1-140 were calculated by age group for COVID-19 vaccines and for comparison, influenza vaccine.VAERS data mining did not find disproportionate reporting of tinnitus for any COVID-19 vaccine. VAERS received up to 84.82 tinnitus reports per million COVID-19 vaccine doses administered. VSD tree-based data mining found no signals for tinnitus. VSD tinnitus visit incidence rates after COVID-19 vaccines were similar to those after influenza vaccine except for the group aged â‰¥65Â years (Moderna COVID-19 vaccine, 165 per 10,000 person-years; Pfizer-BioNTech COVID-19 vaccine, 154; influenza vaccine, 135).Overall, these findings do not support an increased risk of tinnitus following COVID-19 vaccination but cannot definitively exclude the possibility. Descriptive comparisons between COVID-19 and influenza vaccines were limited by lack of adjustment for potential confounding factors.",
+      "pmid": "39096568",
+      "title": "Tinnitus after COVID-19 vaccination: Findings from the vaccine adverse event reporting system and the vaccine safety datalink.",
+      "pub_status": "aheadofprint",
+      "journal": "American journal of otolaryngology",
+      "cder_authors": [
+        "Nair, Narayan",
+        "Bazel, Samaneh"
+      ],
+      "category": "Journal",
+      "month_published": "7",
+      "doi": "10.1016/j.amjoto.2024.104448",
+      "year_published": "2024",
+      "authors": [
+        "Nair, Narayan",
+        "Duffy, Jonathan",
+        "Maro, Judith C",
+        "Shimabukuro, Tom",
+        "Fireman, Bruce",
+        "Moro, Pedro",
+        "Nelson, Jennifer",
+        "Weintraub, Eric",
+        "Yih, W Katherine",
+        "Hurley, Laura",
+        "Vasquez-Benitez, Gabriela",
+        "Xu, Stanley",
+        "Bazel, Samaneh",
+        "Sundaram, Maria",
+        "Smith, Ning",
+        "Su, John R",
+        "Marquez, Paige"
+      ]
+    }
+  ],
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2025-09-09"
+    },
+    "results": [
+      {
+        "term": "ppublish",
+        "count": 75
+      },
+      {
+        "term": "epublish",
+        "count": 24
+      },
+      {
+        "term": "aheadofprint",
+        "count": 16
+      }
+    ]
+  }
+}
