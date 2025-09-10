@@ -46,14 +46,14 @@ properties:
     is_exact: true
     type: integer
     pattern:
-    description: "Month of publishing"
+    description: "Month of publication"
     possible_values:
   year_published:
     format:
     is_exact: true
     type: integer
     pattern:
-    description: "Year of publishing"
+    description: "Year of publication"
     possible_values:
   affiliations:
     type: array

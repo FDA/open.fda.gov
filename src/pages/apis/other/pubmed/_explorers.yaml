@@ -2,7 +2,7 @@ onePub:
   params:
     - search for all publications and display one.
     - limit to 1 record.
-  query: 'https://api.fda.gov/other/pubmed.json?limit=1'
+  query: 'https://openfda-api.preprod.fda.gov/other/pubmed.json?limit=1'
   description:
     - This query searches for all publications and asks for a single one.
   title: One Publication
@@ -10,7 +10,7 @@ byPMID:
   params:
   - search for a specific pmid.
   - limit to 1 record.
-  query: 'https://api.fda.gov/other/pubmed.json?search=pmid:"39236773"'
+  query: 'https://openfda-api.preprod.fda.gov/other/pubmed.json?search=pmid:"39236773"'
   description:
     - This query searches for the publication with the specific pmid "39236773", and returns one result.
   title: Publication by pmid
