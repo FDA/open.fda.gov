@@ -38,7 +38,7 @@ const ComposedSidebar: ReactClass = SideBarContainer(SideBar)
 const endpoint_list = {
   'Animal and Veterinary': 'animalandveterinary_header',
   'Animal And Veterinary Event': animalandveterinary_event_meta,
-  'Cosmetic': 'cosmetic_header',
+  'Cosmetics': 'cosmetic_header',
   'Cosmetic Event': cosmetic_event_meta,
   'Food': 'food_header',
   'Food Enforcement': food_enforcement_meta,
