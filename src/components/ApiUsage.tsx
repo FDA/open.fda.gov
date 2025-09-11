@@ -539,7 +539,6 @@ if (!bp.mob && hasWindow) {
                       <tr> <td>Complete Response Letters</td><td>{this.downloadCount('transparencycrl')}</td> </tr>
 
                       <tr className='bg-primary-darkest clr-white'> <td colSpan={2}><strong>Other</strong></td></tr>
-                      <tr> <td>Complete Response Letters</td><td>{this.downloadCount('othercrl')}</td> </tr>
                       <tr> <td>Historical Documents</td><td>{this.downloadCount('otherhistoricaldocument')}</td> </tr>
                       <tr> <td>NSDE</td><td>{this.downloadCount('othernsde')}</td> </tr>
                       <tr> <td>Substance</td><td>{this.downloadCount('othersubstance')}</td> </tr>

@@ -47,10 +47,6 @@ const source: Record<string, Record<string, string>> = {
   },
   'transparency': {
     'crl': 'Complete Response Letters',
-    'historicaldocument': 'Historic FDA Press Releases',
-    'nsde': 'NDC SPL Data Elements',
-    'substance': 'Substance Data Reports',
-    'unii': 'Unique Ingredient Identifiers'
   }
 }
 

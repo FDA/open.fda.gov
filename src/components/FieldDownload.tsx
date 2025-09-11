@@ -21,11 +21,11 @@ const pdfDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'deviceudi': '/fields/deviceudi_reference.pdf',
   'deviceenforcement': '/fields/deviceenforcement_reference.pdf',
   'covid19serology': '/fields/devicecovid19serology_reference.pdf',
-  'othercrl': '/fields/othercrl_reference.pdf',
   'otherhistoricaldocument': '/fields/otherhistoricaldocument_reference.pdf',
   'othernsde': '/fields/othernsde_reference.pdf',
   'othersubstance': '/fields/othersubstance_reference.pdf',
-  'tobaccoproblem': '/fields/tobaccoproblem_reference.pdf'
+  'tobaccoproblem': '/fields/tobaccoproblem_reference.pdf',
+  'transparencycrl': '/fields/transparencycrl_reference.pdf'
 });
 
 const xlsxDownloadMap: Readonly<Record<string, string>> = Object.freeze({
@@ -48,11 +48,11 @@ const xlsxDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'deviceudi': '/fields/deviceudi_reference.xlsx',
   'deviceenforcement': '/fields/deviceenforcement_reference.xlsx',
   'covid19serology': '/fields/devicecovid19serology_reference.xlsx',
-  'othercrl': '/fields/othercrl_reference.xlsx',
   'otherhistoricaldocument': '/fields/otherhistoricaldocument_reference.xlsx',
   'othernsde': '/fields/othernsde_reference.xlsx',
   'othersubstance': '/fields/othersubstance_reference.xlsx',
-  'tobaccoproblem': '/fields/tobaccoproblem_reference.xlsx'
+  'tobaccoproblem': '/fields/tobaccoproblem_reference.xlsx',
+  'transparencycrl': '/fields/transparencycrl_reference.xlsx'
 });
 
 const yamlDownloadMap: Readonly<Record<string, string>> = Object.freeze({
@@ -75,11 +75,11 @@ const yamlDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'deviceudi': '/fields/deviceudi.yaml',
   'deviceenforcement': '/fields/deviceenforcement.yaml',
   'covid19serology': '/fields/devicecovid19serology.yaml',
-  'othercrl': '/fields/othercrl.yaml',
   'otherhistoricaldocument': '/fields/otherhistoricaldocument.yaml',
   'othernsde': '/fields/othernsde.yaml',
   'othersubstance': '/fields/othersubstance.yaml',
-  'tobaccoproblem': '/fields/tobaccoproblem.yaml'
+  'tobaccoproblem': '/fields/tobaccoproblem.yaml',
+  'transparencycrl': '/fields/transparencycrl.yaml'
 });
 
 
