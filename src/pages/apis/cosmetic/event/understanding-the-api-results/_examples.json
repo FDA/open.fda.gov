@@ -1,0 +1,82 @@
+{
+  "anatomy": {
+    "meta": {
+      "disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "http://open.fda.gov/license",
+      "last_updated": "2025-06-20",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 81521
+      }
+    },
+    "results": [
+      {}
+    ]
+  },
+  "meta": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2016-11-04",
+      "results": {
+        "skip": 0,
+        "limit": 1,
+        "total": 3253
+      }
+    }
+  },
+  "header": {
+    "results": [
+      {
+        "receiver": {
+          "country": "USA",
+          "street_address": "7500 Standish Place (HFV-210) Room N403",
+          "city": "Rockville",
+          "organization": "Food and Drug Administration Center for Veterinary Medicine",
+          "state": "MD",
+          "postal_code": "20855"
+        },
+        "unique_aer_id_number": "USA-USFDACVM-2016-US-006919",
+        "original_receive_date": "20160118",
+        "primary_reporter": "Animal Owner",
+        "secondary_reporter": "Other",
+        "report_id": "N141175",
+        "serious_ae": "false",
+        "type_of_information": "Lack Of Expected Effectiveness"
+      }
+    ]
+  },
+  "count": [
+    {
+      "term": "Other Serious or Important Medical Event",
+      "count": 62608
+    },
+    {
+      "term": "Death",
+      "count": 24803
+    },
+    {
+      "term": "Hospitalization",
+      "count": 15646
+    },
+    {
+      "term": "Disability",
+      "count": 483
+    },
+    {
+      "term": "Required Intervention",
+      "count": 371
+    },
+    {
+      "term": "Life Threatening",
+      "count": 367
+    },
+    {
+      "term": "Congenital Anomaly",
+      "count": 56
+    }
+  ]
+}

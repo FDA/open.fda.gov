@@ -56,6 +56,9 @@ const EndpointBox = (props: tPROPS) => {
       'enforcement': 'Food product recall enforcement reports.',
       'event': 'Food, dietary supplement, and cosmetic adverse event reports.'
     },
+    'cosmetic': {
+      'event': 'Cosmetic adverse event reports.'
+    },
     'device': {
       'event': 'Reports of serious injuries, deaths, malfunctions, and other undesirable effects associated with the use of medical devices.',
       'classification': 'Medical device names, their associated product codes, their medical specialty areas (panels) and their classification.',
@@ -97,6 +100,9 @@ const EndpointBox = (props: tPROPS) => {
       'enforcement': 'Recall enforcement reports',
       'event': 'CAERS reports'
     },
+    'cosmetic': {
+      'event': 'Adverse event reports.'
+    },
     'device': {
       'event': 'Adverse event reports',
       'classification': 'Classification',
@@ -132,6 +138,7 @@ const EndpointBox = (props: tPROPS) => {
   const bg_color: Record<NounName, React.CSSProperties> = {
     'animalandveterinary': {background: "linear-gradient(to right bottom, #9cf6f6, #007CBA)"},
     'food': {background: "linear-gradient(to right bottom, rgb(143, 209, 100), rgb(81, 161, 22))"},
+    'cosmetic': {background: "linear-gradient(to right bottom, #CFA1CF, #592680)"},
     'device': {background: "linear-gradient(to right bottom, #ff8989, #c94747)"},
     'drug': {background: "linear-gradient(to right bottom, rgb(220, 141, 188), rgb(153, 88, 163))"},
     'other': {background: "linear-gradient(to right bottom, #9cf6f6, #099db7)"},
@@ -146,6 +153,9 @@ const EndpointBox = (props: tPROPS) => {
     'food': {
       'enforcement': <div className='ep-icon' style={bg_color.food}><i className='fa fa-3x fa-rotate-left' style={{color: "white"}}/></div>,
       'event': <div className='ep-icon' style={bg_color.food}><i className='fa fa-3x fa-warning' style={{color: "white"}}/></div>
+    },
+    'cosmetic': {
+      'event': <div className='ep-icon' style={bg_color.cosmetic}><i className='fa fa-3x fa-warning' style={{color: "white"}}/></div>
     },
     'device': {
       'event': <div className='ep-icon' style={bg_color.device}><i className='fa fa-3x fa-warning' style={{color: "white"}}/></div>,
@@ -188,6 +198,9 @@ const EndpointBox = (props: tPROPS) => {
       'enforcement': '/apis/food/enforcement/',
       'event': '/apis/food/event/'
     },
+    'cosmetic': {
+      'event': '/apis/cosmetic/event/'
+    },
     'device': {
       'event': '/apis/device/event/',
       'classification': '/apis/device/classification/',
@@ -222,16 +235,16 @@ const EndpointBox = (props: tPROPS) => {
   }
 
   return (
-    <section id='endpoint_box' className='marg-2 endpoint-card'>
-      <Link className='ep-box' to={ep_path[noun_name][endpoint_name] ?? ''}>
-        <div className='ep-icon-container'>
+    <section id='endpoint_box' className="marg-2 endpoint-card">
+      <Link className="ep-box" to={ep_path[noun_name][endpoint_name]}>
+        <div className="ep-icon-container">
           {icon[noun_name][endpoint_name]}
         </div>
         <div className='flex-row dir-column ep-text-box no-flex-wrap'>
-          <h3 className='txt-c clr-primary-darker'>{ep_title[noun_name][endpoint_name]}</h3>
-          <span className='marg-1 clr-black'>{description[noun_name][endpoint_name]}</span>
+          <h3 className="txt-c clr-primary-darker">{ep_title[noun_name][endpoint_name]}</h3>
+          <span className="marg-1 clr-black">{description[noun_name][endpoint_name]}</span>
         </div>
-        <span className='btn btn-icon-right clr-primary weight-700'>LEARN MORE<i className='fa fa-angle-right marg-l-1'/></span>
+        <span className="btn btn-icon-right clr-primary weight-700">LEARN MORE<i className="fa fa-angle-right marg-l-1"/></span>
       </Link>
     </section>
   )
