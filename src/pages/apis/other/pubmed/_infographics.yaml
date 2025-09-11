@@ -1,0 +1,16 @@
+- title: "Publication Status"
+  short: "Publication Status"
+  dataset: NSDE
+  description:
+    - "PubMed hosts publications of many types in a variety of states of publishing."
+  countParam: "pub_status"
+  filters:
+    - title: "All Publications by publication type"
+      searchParam: ''
+    - title: "Reviews"
+      searchParam: 'type:Review'
+    - title: "Letter"
+      searchParam: 'type:Letter'
+    - title: "Editorial"
+      searchParam: 'type:Editorial'
+  type: Bar
