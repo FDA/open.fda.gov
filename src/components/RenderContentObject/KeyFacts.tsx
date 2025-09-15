@@ -99,7 +99,7 @@ const timePeriod: any = {
     'event': '2004 to'
   },
   'cosmetic': {
-    'event': '2004 to'
+    'event': '2001 to'
   },
   'device': {
     'event': '2009 to',
