@@ -7,7 +7,7 @@ label: Cosmetic Adverse Events
 title: Cosmetic Adverse Events
 path: /apis/cosmetic/event
 api_path: /cosmetic/event
-start: 20040106
+start: 20010101
 status: cosmeticevent
 dateConstraintKey: initial_received_date
 type: endpoint
