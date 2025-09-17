@@ -10,8 +10,6 @@
       searchParam: ""
     - title: "Oral Route of Administration"
       searchParam: "openfda.route:ORAL"
-    - title: "Intravenous Route of Administration"
-      searchParam: "openfda.route:INTRAVENOUS"
     - title: "Subcutaneous Route of Administration"
       searchParam: "openfda.route:SUBCUTANEOUS"
   type: Line

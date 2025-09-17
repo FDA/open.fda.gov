@@ -1,8 +1,8 @@
 effectiveTime:
   params:
-    - search for all records with effective_time between Jun 01, 2016 and Jan 1, 2021.
+    - search for all records with effective_time between Jun 01, 2016 and Jan 1, 2024.
     - limit to 1 record.
-  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=effective_time:[20160601+TO+20210101]&limit=1'
+  query: 'https://openfda-api.preprod.fda.gov/drug/remsspl.json?search=effective_time:[20160601+TO+20240101]&limit=1'
   description:
     - This query searches for all records in a certain date range, and asks for a single one.
     - See [searchable fields](/apis/drug/remsspl/searchable-fields/) for more about effective_time. Brackets [ ] are used to specify a range for date, number, or string fields.
