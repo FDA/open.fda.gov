@@ -34,7 +34,8 @@ const source: Record<string, Record<string, string>> = {
     'ndc': 'NDC Directory',
     'enforcement': 'FDA Recall Enterprise System (RES)',
     'drugsfda': 'Drugs@FDA',
-    'shortages': 'Drug Shortages'
+    'shortages': 'Drug Shortages',
+    'remsspl': 'REMS SPL'
   },
   'other': {
     'historicaldocument': 'Historic FDA Press Releases',
@@ -75,7 +76,8 @@ const sourceLink: any = {
     'ndc': '/data/ndc/',
     'enforcement': '/data/res/',
     'drugsfda': '/data/drugsfda/',
-    'shortages': '/data/drugshortages'
+    'shortages': '/data/drugshortages',
+    'remsspl': '/data/remsspl/'
   },
   'other': {
     'historicaldocument': '/data/historicaldocument/',
@@ -118,7 +120,8 @@ const timePeriod: any = {
     'ndc': 'Last updated on',
     'enforcement': '2004 to',
     'drugsfda': '1939 to',
-    'shortages': '2012 to'
+    'shortages': '2012 to',
+    'remsspl': '2007 to present'
   },
   'other': {
     'historicaldocument': '1913 to',
@@ -162,7 +165,8 @@ const frequency = {
     'ndc': 'Daily',
     'enforcement': 'Weekly',
     'drugsfda': 'Daily (Monday-Friday)',
-    'shortages': 'Daily'
+    'shortages': 'Daily',
+    'remsspl': 'Weekly'
   },
   'other': {
     'historicaldocument': 'Infrequently',

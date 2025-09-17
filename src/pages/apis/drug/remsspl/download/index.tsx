@@ -6,7 +6,7 @@ import Downloads from '../../../../../components/Downloads'
 import meta from '../_meta.yaml'
 
 class IndexRoute extends React.Component {
-  render() {
+  render () {
 
     return (
       <section className="doc-content">

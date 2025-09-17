@@ -1,4 +1,16 @@
 properties:
+  rems_released:
+    description: "The release status of the document."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  rems_released_date:
+    description: "The release date of the document."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
   document_id:
     description: "Unique identifier for the entire document."
     format:
@@ -53,6 +65,922 @@ properties:
     is_exact: false
     possible_values:
     type: string
+  related_spl_document_set_id:
+    type: array
+    items:
+      description: "REMS append the related document(s) with more detail on how to evaluate and manage risks regarding the product described in the related
+                      document(s). The related document(s) SPL document is referred to by its setId"
+      format:
+      is_exact: false
+      possible_values:
+      type: string
+  products:
+    items:
+      manufactured_product:
+        type: object
+        properties:
+          brand_name:
+            format:
+            is_exact: true
+            type: string
+            pattern:
+            description: "Brand or trade name of the drug product."
+            possible_values:
+          package_type:
+            description: "The package type of the drug."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          generic_name:
+            description: "Generic name(s) of the drug product."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+      marketing_info:
+        type: object
+        properties:
+          marketing_category:
+            description: "Product types are broken down into several potential Marketing Categories, such as NDA/ANDA/BLA, OTC Monograph, or Unapproved Drug."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          application_number:
+            description: "This corresponds to the NDA, ANDA, or BLA number reported by the labeler for products which have the corresponding Marketing Category designated. If the designated Marketing Category is OTC Monograph Final or OTC Monograph Not Final, then the application number will be the CFR citation corresponding to the appropriate Monograph (e.g. “part 341”). For unapproved drugs, this field will be null."
+            format:
+            is_exact: true
+            type: string
+            pattern: ^[BLA|ANDA|NDA]{3,4}[0-9]{6}$
+            possible_values:
+          approval_holder_org:
+            description: "The organization that holds the drug approval."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+    type: array
+  rems_statutory_elements:
+    type: object
+    properties:
+      title:
+        description: "Title of this section."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      text:
+        description: "Includes all the raw text content for this section."
+        format:
+        is_exact: false
+        possible_values:
+      effective_time:
+        description: "Date reference to the particular version of the labeling document."
+        format: date
+        is_exact: false
+        pattern: "YYYYmmdd"
+        type: string
+      medication_guide:
+        description: "Indicates whether a medication guide is included."
+        format:
+        is_exact: false
+        type: boolean
+      communication_plan:
+        description: "Indicates whether a communication plan is included."
+        format:
+        is_exact: false
+        type: boolean
+      packaging_and_disposal:
+        description: "Indicates whether packaging and disposal instructions are included."
+        format:
+        is_exact: false
+        type: boolean
+      elements_to_ensure_safe_use:
+        properties:
+          rems_etasu_A:
+            description: "Elements to Assure Safe Use A."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          rems_etasu_B:
+            description: "Elements to Assure Safe Use B."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          rems_etasu_C:
+            description: "Elements to Assure Safe Use C."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          rems_etasu_D:
+            description: "Elements to Assure Safe Use D."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          rems_etasu_E:
+            description: "Elements to Assure Safe Use E."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          rems_etasu_F:
+            description: "Elements to Assure Safe Use F."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+      implementation_system:
+        description: "Indicates whether implementation system instructions are included."
+        format:
+        is_exact: false
+        type: boolean
+      timetable_for_submission_of_assessments:
+        description: "Indicates whether a timetable for submission of assessments is included."
+        format:
+        is_exact: false
+        type: boolean
+      spl_unclassified_section:
+        type: object
+        properties:
+          title:
+            description: "Title of this section."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          text:
+            description: "Includes all the raw text content for this section."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          effective_time:
+            description: "Date reference to the particular version of the labeling document."
+            format: date
+            is_exact: false
+            pattern: "YYYYmmdd"
+            type: string
+  spl_unclassified_section:
+    type: object
+    properties:
+      title:
+        description: "Title of this section."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      text:
+        description: "Includes all the raw text content for this section."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      effective_time:
+        description: "Date reference to the particular version of the labeling document."
+        format: date
+        is_exact: false
+        pattern: "YYYYmmdd"
+        type: string
+  rems_administrative_information:
+    type: object
+    properties:
+      title:
+        description: "Title of this section."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      text:
+        description: "Includes all the raw text content for this section."
+        format:
+        is_exact: false
+        possible_values:
+      effective_time:
+        description: "Date reference to the particular version of the labeling document."
+        format: date
+        is_exact: false
+        pattern: "YYYYmmdd"
+        type: string
+      rems_released_date:
+        description: "The release date of the document."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      initial_rems_approval:
+        description: "The initial REMS approval."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      most_recent_rems_update:
+        description: "Date of the most recent REMS update."
+        format: date
+        is_exact: false
+        pattern: "YYYYmmdd"
+        type: string
+      risks:
+        description: "The risks indicated."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      approval:
+        type: array
+        items:
+          properties:
+            code:
+              description: "The code for this approval in substance administration."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+            code_system:
+              description: "The code system used for this approval in substance administration."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+            name:
+              description: "The name of this approval in substance administration."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+            effective_time:
+              description: "Date reference to the particular version of the document."
+              format: date
+              is_exact: false
+              pattern: "YYYYmmdd"
+              type: string
+  rems_goals:
+    type: object
+    properties:
+      title:
+        description: "Title of this section."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      content:
+        description: "Includes all the raw text content for this section."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      effective_time:
+        description: "Date reference to the particular version of the labeling document."
+        format: date
+        is_exact: false
+        pattern: "YYYYmmdd"
+        type: string
+  rems_requirements:
+    type: object
+    properties:
+      effective_time:
+        description: "Date reference to the particular version of the labeling document."
+        format: date
+        is_exact: false
+        pattern: "YYYYmmdd"
+        type: string
+      title:
+        description: "The title of this section."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      text:
+        description: "Information about the contents of this section."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      rems_participant_requirements:
+        type: object
+        properties:
+          title:
+            description: "Title of this section."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          content:
+            description: "Includes all the raw text content for this section."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          effective_time:
+            description: "Date reference to the particular version of the labeling document."
+            format: date
+            is_exact: false
+            pattern: "YYYYmmdd"
+            type: string
+          substance_administration:
+            type: array
+            items:
+              properties:
+                protocol:
+                  type: array
+                  items:
+                    properties:
+                      protocol_text:
+                        description: "Includes all the raw text content for this section."
+                        format:
+                        is_exact: false
+                        possible_values:
+                        type: string
+                      protocol_code:
+                        description: "The code for this protocol in substance administration."
+                        format:
+                        is_exact: false
+                        possible_values:
+                        type: string
+                      protocol_code_name:
+                        description: "The name of this protocol in substance administration."
+                        format:
+                        is_exact: false
+                        possible_values:
+                        type: string
+                      code_system:
+                        description: "The code system used for this protocol in substance administration."
+                        format:
+                        is_exact: false
+                        possible_values:
+                        type: string
+                      requirement:
+                        description: "The requirement of the drug being a component of a REMS protocol described in the REMS Summary."
+                        type: object
+                        properties:
+                          protocol_text:
+                            description: "Includes all the raw text content for this section."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          protocol_code:
+                            description: "The code for this protocol in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          protocol_code_name:
+                            description: "The name of this protocol in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          protocol_timing_code_name:
+                            description: "The name for the timing in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          protocol_timing_code:
+                            description: "The code for the timing in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          requirement_code:
+                            description: "The code for this requirement in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          requirement_code_name:
+                            description: "The name of the appended REMS material that are part of the program."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          requirement_text_number:
+                            description: "The number associated with the requirement text content for this section."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          requirement_text:
+                            description: "Includes all the requirement text content for this section."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          reference_id:
+                            description: "References the procedural step the healthcare provider or the patient should undertake."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          stakeholder_code:
+                            description: "The code of the stakeholder for the requirement in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          stakeholder_code_name:
+                            description: "The name of the stakeholder for the requirement in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          document_reference_root:
+                            description: "Reference id for the document root."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string\
+      rems_applicant_requirements:
+        type: object
+        properties:
+          title:
+            description: "Title of this section."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          content:
+            description: "Includes all the raw text content for this section."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          effective_time:
+            description: "Date reference to the particular version of the labeling document."
+            format: date
+            is_exact: false
+            pattern: "YYYYmmdd"
+            type: string
+          rems_communication:
+            type: object
+            properties:
+              text:
+                description: "Includes all the raw text content for this section."
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              effective_time:
+                description: "Date reference to the particular version of the labeling document."
+                format: date
+                is_exact: false
+                pattern: "YYYYmmdd"
+                type: string
+          substance_administration:
+            type: array
+            items:
+              properties:
+                protocol:
+                  type: array
+                  items:
+                    properties:
+                      protocol_text:
+                        description: "Includes all the raw text content for this section."
+                        format:
+                        is_exact: false
+                        possible_values:
+                        type: string
+                      protocol_code:
+                        description: "The code for this protocol in substance administration."
+                        format:
+                        is_exact: false
+                        possible_values:
+                        type: string
+                      protocol_code_name:
+                        description: "The name of this protocol in substance administration."
+                        format:
+                        is_exact: false
+                        possible_values:
+                        type: string
+                      code_system:
+                        description: "The code system used for this protocol in substance administration."
+                        format:
+                        is_exact: false
+                        possible_values:
+                        type: string
+                      requirement:
+                        description: "The requirement of the drug being a component of a REMS protocol described in the REMS Summary."
+                        type: object
+                        properties:
+                          protocol_text:
+                            description: "Includes all the raw text content for this section."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          protocol_code:
+                            description: "The code for this protocol in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          protocol_code_name:
+                            description: "The name of this protocol in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          protocol_timing_code_name:
+                            description: "The name for the timing in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          protocol_timing_code:
+                            description: "The code for the timing in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          requirement_code:
+                            description: "The code for this requirement in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          requirement_code_name:
+                            description: "The name of the appended REMS material that are part of the program."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          requirement_text_number:
+                            description: "The number associated with the requirement text content for this section."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          requirement_text:
+                            description: "Includes all the requirement text content for this section."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          reference_id:
+                            description: "References the procedural step the healthcare provider or the patient should undertake."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          stakeholder_code:
+                            description: "The code of the stakeholder for the requirement in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          stakeholder_code_name:
+                            description: "The name of the stakeholder for the requirement in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          document_reference_root:
+                            description: "Reference id for the document root."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string\
+      rems_communication:
+        type: object
+        properties:
+          text:
+            description: "Includes all the raw text content for this section."
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          effective_time:
+            description: "Date reference to the particular version of the labeling document."
+            format: date
+            is_exact: false
+            pattern: "YYYYmmdd"
+            type: string
+  rems_submission_assessments_timetable:
+    type: object
+    properties:
+      content:
+        description: "Includes all the raw text content for this section."
+        format:
+        is_exact: false
+        possible_values:
+      effective_time:
+        description: "Date reference to the particular version of the labeling document."
+        format: date
+        is_exact: false
+        pattern: "YYYYmmdd"
+        type: string
+  rems_material:
+    type: object
+    properties:
+      title:
+        description: "Title of this section."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      text:
+        description: "Includes all the raw text content for this section."
+        format:
+        is_exact: false
+        possible_values:
+      effective_time:
+        description: "Date reference to the particular version of the labeling document."
+        format: date
+        is_exact: false
+        pattern: "YYYYmmdd"
+        type: string
+      document:
+        properties:
+          title:
+            description: "The title of this document."
+            format:
+            is_exact: exact
+            possible_values:
+            type: string
+          rems_electronic_resource_name:
+            description: "The name of the electronic resource."
+            format:
+            is_exact: exact
+            possible_values:
+            type: string
+          developer_of_the_standard:
+            description: "The developer of the standard."
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          standard_version:
+            description: "The version of the standard."
+            format:
+            is_exact: exact
+            possible_values:
+            type: string
+          transaction:
+            description: "Information about the transaction."
+            format:
+            is_exact: exact
+            possible_values:
+            type: string
+          destination_address:
+            description: "The destination address."
+            format:
+            is_exact: exact
+            possible_values:
+            type: string
+          id_rems_material_document:
+            description: "The id of the REMS Material document."
+            format:
+            is_exact: exact
+            possible_values:
+            type: string
+          reference:
+            description: "The reference to this document."
+            format:
+            is_exact: exact
+            possible_values:
+            type: string
+  rems_elements:
+    type: array
+    items:
+      properties:
+        medication_guide:
+          properties:
+            content:
+              description: "Includes all the raw text content for this section."
+              format:
+              is_exact: false
+              possible_values:
+              type: string
+            effective_time:
+              description: "Date reference to the particular version of the labeling document."
+              format: date
+              is_exact: false
+              pattern: "YYYYmmdd"
+              type: string
+        elements_to_assure_safe_use:
+          type: array
+          items:
+            properties:
+              content:
+                description: "Includes all the raw text content for this section."
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              effective_time:
+                description: "Date reference to the particular version of the labeling document."
+                format: date
+                is_exact: false
+                pattern: "YYYYmmdd"
+                type: string
+        rems_implementation_system:
+          type: array
+          items:
+            properties:
+              content:
+                description: "Includes all the raw text content for this section."
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              effective_time:
+                description: "Date reference to the particular version of the labeling document."
+                format: date
+                is_exact: false
+                pattern: "YYYYmmdd"
+                type: string
+        rems_summary:
+          type: array
+          items:
+            properties:
+              title:
+                description: "The title of this section."
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              text:
+                description: "Information about the contents of this section."
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              effective_time:
+                description: "Date reference to the particular version of the labeling document."
+                format: date
+                is_exact: false
+                pattern: "YYYYmmdd"
+                type: string
+              substance_administration:
+                type: array
+                items:
+                  properties:
+                    protocol:
+                      type: array
+                      items:
+                        properties:
+                          protocol_text:
+                            description: "Includes all the raw text content for this section."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          protocol_code:
+                            description: "The code for this protocol in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          protocol_code_name:
+                            description: "The name of this protocol in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          code_system:
+                            description: "The code system used for this protocol in substance administration."
+                            format:
+                            is_exact: false
+                            possible_values:
+                            type: string
+                          requirement:
+                            description: "The requirement of the drug being a component of a REMS protocol described in the REMS Summary."
+                            type: object
+                            properties:
+                              protocol_text:
+                                description: "Includes all the raw text content for this section."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string
+                              protocol_code:
+                                description: "The code for this protocol in substance administration."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string
+                              protocol_code_name:
+                                description: "The name of this protocol in substance administration."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string
+                              protocol_timing_code_name:
+                                description: "The name for the timing in substance administration."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string
+                              protocol_timing_code:
+                                description: "The code for the timing in substance administration."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string
+                              requirement_code:
+                                description: "The code for this requirement in substance administration."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string
+                              requirement_code_name:
+                                description: "The name of the appended REMS material that are part of the program."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string
+                              requirement_text_number:
+                                description: "The number associated with the requirement text content for this section."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string
+                              requirement_text:
+                                description: "Includes all the requirement text content for this section."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string
+                              reference_id:
+                                description: "References the procedural step the healthcare provider or the patient should undertake."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string
+                              stakeholder_code:
+                                description: "The code of the stakeholder for the requirement in substance administration."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string
+                              stakeholder_code_name:
+                                description: "The name of the stakeholder for the requirement in substance administration."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string
+                              document_reference_root:
+                                description: "Reference id for the document root."
+                                format:
+                                is_exact: false
+                                possible_values:
+                                type: string\
+  rems_electronic_resource:
+    type: object
+    properties:
+      effective_time:
+        description: "Date reference to the particular version of the labeling document."
+        format: date
+        is_exact: false
+        pattern: "YYYYmmdd"
+        type: string
+      reference:
+        description: "The reference to this document."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      rems_electronic_resource_name:
+        description: "The name of the electronic resource."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      developer_of_the_standard:
+        description: "The developer of the standard."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      standard_version:
+        description: "The version of the standard."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      transaction:
+        description: "Information about the transaction."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      destination_address:
+        description: "The destination address."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      id_rems_material_document:
+        description: "The id of the REMS Material document."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
   openfda:
     type: object
     properties:
@@ -144,15 +1072,6 @@ properties:
           pattern:
           description: "Established pharmacologic class associated with an approved indication of an active moiety (generic drug) that the FDA has determined to be scientifically valid and clinically meaningful. Takes the form of the pharmacologic class, followed by `[EPC]` (such as `Thiazide Diuretic [EPC]` or `Tumor Necrosis Factor Blocker [EPC]`."
           possible_values:
-      pharm_class_pe:
-        type: array
-        items:
-          format:
-          is_exact: true
-          type: string
-          pattern:
-          description: "Physiologic effect or pharmacodynamic effect—tissue, organ, or organ system level functional activity—of the drug’s established pharmacologic class. Takes the form of the effect, followed by `[PE]` (such as `Increased Diuresis [PE]` or `Decreased Cytokine Activity [PE]`."
-          possible_values:
       pharm_class_moa:
         type: array
         items:
@@ -161,6 +1080,15 @@ properties:
           type: string
           pattern:
           description: "Mechanism of action of the drug—molecular, subcellular, or cellular functional activity—of the drug’s established pharmacologic class. Takes the form of the mechanism of action, followed by `[MoA]` (such as `Calcium Channel Antagonists [MoA]` or `Tumor Necrosis Factor Receptor Blocking Activity [MoA]`."
+          possible_values:
+      pharm_class_pe:
+        type: array
+        items:
+          format:
+          is_exact: true
+          type: string
+          pattern:
+          description: "Physiologic effect or pharmacodynamic effect—tissue, organ, or organ system level functional activity—of the drug’s established pharmacologic class. Takes the form of the effect, followed by `[PE]` (such as `Increased Diuresis [PE]` or `Decreased Cytokine Activity [PE]`."
           possible_values:
       product_ndc:
         type: array
@@ -278,990 +1206,4 @@ properties:
             value:
               name: "Universal Product Code"
               link: "https://en.wikipedia.org/wiki/Universal_Product_Code"
-  products:
-    items:
-      manufactured_product:
-        type: object
-        properties:
-          generic_name:
-            description: "Generic name(s) of the drug product."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          brand_name:
-            format:
-            is_exact: true
-            type: string
-            pattern:
-            description: "Brand or trade name of the drug product."
-            possible_values:
-          package_type:
-            description: "The package type of the drug."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-      marketing_info:
-        type: object
-        properties:
-          application_number:
-            description: "This corresponds to the NDA, ANDA, or BLA number reported by the labeler for products which have the corresponding Marketing Category designated. If the designated Marketing Category is OTC Monograph Final or OTC Monograph Not Final, then the application number will be the CFR citation corresponding to the appropriate Monograph (e.g. “part 341”). For unapproved drugs, this field will be null."
-            format:
-            is_exact: true
-            type: string
-            pattern: ^[BLA|ANDA|NDA]{3,4}[0-9]{6}$
-            possible_values:
-          approval_holder_org:
-            description: "The organization that holds the drug approval."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          marketing_category:
-            description: "Product types are broken down into several potential Marketing Categories, such as NDA/ANDA/BLA, OTC Monograph, or Unapproved Drug."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-    type: array
-  related_spl_document_set_id:
-    type: array
-    items:
-      description: "REMS append the related document(s) with more detail on how to evaluate and manage risks regarding the product described in the related
-                      document(s). The related document(s) SPL document is referred to by its setId"
-      format:
-      is_exact: false
-      possible_values:
-      type: string
-  rems_administrative_information:
-    type: object
-    properties:
-      content:
-        description: "Includes all the raw text content for this section."
-        format:
-        is_exact: false
-        possible_values:
-      effective_time:
-        description: "Date reference to the particular version of the labeling document."
-        format: date
-        is_exact: false
-        pattern: "YYYYmmdd"
-        type: string
-      initial_rems_approval:
-        description: "The initial REMS approval."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      most_recent_rems_update:
-        description: "Date of the most recent REMS update."
-        format: date
-        is_exact: false
-        pattern: "YYYYmmdd"
-        type: string
-      risks:
-        description: "The risks indicated."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      approval:
-        type: array
-        items:
-          properties:
-            code:
-              description: "The code for this approval in substance administration."
-              format:
-              is_exact: false
-              possible_values:
-              type: string
-            code_system:
-              description: "The code system used for this approval in substance administration."
-              format:
-              is_exact: false
-              possible_values:
-              type: string
-            effective_time:
-              description: "Date reference to the particular version of the document."
-              format: date
-              is_exact: false
-              pattern: "YYYYmmdd"
-              type: string
-            name:
-              description: "The name of this approval in substance administration."
-              format:
-              is_exact: false
-              possible_values:
-              type: string
-  rems_elements:
-    type: array
-    items:
-      properties:
-        medication_guide:
-          properties:
-            content:
-              description: "Includes all the raw text content for this section."
-              format:
-              is_exact: false
-              possible_values:
-              type: string
-            effective_time:
-              description: "Date reference to the particular version of the labeling document."
-              format: date
-              is_exact: false
-              pattern: "YYYYmmdd"
-              type: string
-        elements_to_assure_safe_use:
-          type: array
-          items:
-            properties:
-              content:
-                description: "Includes all the raw text content for this section."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              effective_time:
-                description: "Date reference to the particular version of the labeling document."
-                format: date
-                is_exact: false
-                pattern: "YYYYmmdd"
-                type: string
-        rems_implementation_system:
-          type: array
-          items:
-            properties:
-              content:
-                description: "Includes all the raw text content for this section."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              effective_time:
-                description: "Date reference to the particular version of the labeling document."
-                format: date
-                is_exact: false
-                pattern: "YYYYmmdd"
-                type: string
-        rems_submission_assessments_timetable:
-          description: "Description of the timetable for submissions assessments to FDA by the sponsor."
-          type: array
-          items:
-            properties:
-              content:
-                description: "Includes all the raw text content for this section."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              effective_time:
-                description: "Date reference to the particular version of the labeling document."
-                format: date
-                is_exact: false
-                pattern: "YYYYmmdd"
-                type: string
-        rems_summary:
-          type: array
-          items:
-            properties:
-              text:
-                description: "Information about the contents of this section."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              title:
-                description: "The title of this section."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              effective_time:
-                description: "Date reference to the particular version of the labeling document."
-                format: date
-                is_exact: false
-                pattern: "YYYYmmdd"
-                type: string
-              substance_administration:
-                type: array
-                items:
-                  properties:
-                    protocol:
-                      type: array
-                      items:
-                        properties:
-                          timing_text:
-                            description: "The text for the timing in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          timing_code:
-                            description: "The code for the timing in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          text:
-                            description: "Includes all the raw text content for this section."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          protocol_code:
-                            description: "The code for this protocol in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          code_system:
-                            description: "The code system used for this protocol in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          name:
-                            description: "The name of this protocol in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          requirement:
-                            description: "The requirement of the drug being a component of a REMS protocol described in the REMS Summary."
-                            type: object
-                            properties:
-                              activity_text:
-                                description: "The text included with the activity."
-                                format:
-                                is_exact: false
-                                possible_values:
-                                type: string
-                              activity_name:
-                                description: "The name of the activity that is part of the program."
-                                format:
-                                is_exact: false
-                                possible_values:
-                                type: string
-                              activity_code:
-                                description: "The code for this activity in substance administration."
-                                format:
-                                is_exact: false
-                                possible_values:
-                                type: string
-                              timing_text:
-                                description: "The text for the timing in substance administration."
-                                format:
-                                is_exact: false
-                                possible_values:
-                                type: string
-                              timing_code:
-                                description: "The code for the timing in substance administration."
-                                format:
-                                is_exact: false
-                                possible_values:
-                                type: string
-                              requirement_text:
-                                description: "Includes all the requirement text content for this section."
-                                format:
-                                is_exact: false
-                                possible_values:
-                                type: string
-                              requirement_code:
-                                description: "The code for this requirement in substance administration."
-                                format:
-                                is_exact: false
-                                possible_values:
-                                type: string
-                              name:
-                                description: "The name of the appended REMS material that are part of the program."
-                                format:
-                                is_exact: false
-                                possible_values:
-                                type: string
-                              reference_id:
-                                description: "References the procedural step the healthcare provider or the patient should undertake."
-                                format:
-                                is_exact: false
-                                possible_values:
-                                type: string
-                              stakeholder_code:
-                                description: "The code of the stakeholder for the requirement in substance administration."
-                                format:
-                                is_exact: false
-                                possible_values:
-                                type: string
-                              stakeholder:
-                                description: "The name of the stakeholder for the requirement in substance administration."
-                                format:
-                                is_exact: false
-                                possible_values:
-                                type: string
-                              document_reference_root:
-                                description: "Reference id for the document root."
-                                format:
-                                is_exact: false
-                                possible_values:
-                                type: string
-                    approval:
-                      type: array
-                      items:
-                        properties:
-                          code:
-                            description: "The code for this approval in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          code_system:
-                            description: "The code system used for this approval in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          effective_time:
-                            description: "Date reference to the particular version of the document."
-                            format: date
-                            is_exact: false
-                            pattern: "YYYYmmdd"
-                            type: string
-                          name:
-                            description: "The name of this approval in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-        rems_material:
-          type: array
-          items:
-            properties:
-              effective_time:
-                description: "Date reference to the particular version of the document."
-                format: date
-                is_exact: false
-                pattern: "YYYYmmdd"
-                type: string
-              document:
-                type: array
-                items:
-                  properties:
-                    name:
-                      description: "The name of the REMS material document that are part of the program."
-                      format:
-                      is_exact: true
-                      possible_values:
-                      type: string
-                    reference:
-                      description: "The location of the appended REMS material that are part of the program."
-                      format:
-                      is_exact: true
-                      possible_values:
-                      type: string
-  rems_goals:
-    type: object
-    properties:
-      content:
-        description: "Includes all the raw text content for this section."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      effective_time:
-        description: "Date reference to the particular version of the labeling document."
-        format: date
-        is_exact: false
-        pattern: "YYYYmmdd"
-        type: string
-  rems_material:
-    type: object
-    properties:
-      content:
-        description: "Includes all the raw text content for this section."
-        format:
-        is_exact: false
-        possible_values:
-      effective_time:
-        description: "Date reference to the particular version of the labeling document."
-        format: date
-        is_exact: false
-        pattern: "YYYYmmdd"
-        type: string
-      title:
-        description: "Title of this section."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      document:
-        properties:
-          rems_electronic_resource_name:
-            description: "The name of the electronic resource."
-            format:
-            is_exact: exact
-            possible_values:
-            type: string
-          developer_of_the_standard:
-            description: "The developer of the standard."
-            format:
-            is_exact: true
-            possible_values:
-            type: string
-          standard_version:
-            description: "The version of the standard."
-            format:
-            is_exact: exact
-            possible_values:
-            type: string
-          transaction:
-            description: "Information about the transaction."
-            format:
-            is_exact: exact
-            possible_values:
-            type: string
-          destination_address:
-            description: "The destination address."
-            format:
-            is_exact: exact
-            possible_values:
-            type: string
-          id_rems_material_document:
-            description: "The id of the REMS Material document."
-            format:
-            is_exact: exact
-            possible_values:
-            type: string
-          name:
-            description: "The name of this document."
-            format:
-            is_exact: exact
-            possible_values:
-            type: string
-          reference:
-            description: "The reference to this document."
-            format:
-            is_exact: exact
-            possible_values:
-            type: string
-  rems_requirements:
-    type: object
-    properties:
-      text:
-        description: "Information about the contents of this section."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      title:
-        description: "The title of this section."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      effective_time:
-        description: "Date reference to the particular version of the labeling document."
-        format: date
-        is_exact: false
-        pattern: "YYYYmmdd"
-        type: string
-      rems_participant_requirements:
-        type: object
-        properties:
-          content:
-            description: "Includes all the raw text content for this section."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          effective_time:
-            description: "Date reference to the particular version of the labeling document."
-            format: date
-            is_exact: false
-            pattern: "YYYYmmdd"
-            type: string
-          title:
-            description: "Title of this section."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          substance_administration:
-            type: array
-            items:
-              properties:
-                protocol:
-                  type: array
-                  items:
-                    properties:
-                      timing_text:
-                        description: "The text for the timing in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      timing_code:
-                        description: "The code for the timing in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      text:
-                        description: "Includes all the raw text content for this section."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      protocol_code:
-                        description: "The code for this protocol in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      code_system:
-                        description: "The code system used for this protocol in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      name:
-                        description: "The name of this protocol in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      requirement:
-                        description: "The requirement of the drug being a component of a REMS protocol described in the REMS Summary."
-                        type: object
-                        properties:
-                          activity_text:
-                            description: "The text included with the activity."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          activity_name:
-                            description: "The name of the activity that is part of the program."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          activity_code:
-                            description: "The code for this activity in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          timing_text:
-                            description: "The text for the timing in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          timing_code:
-                            description: "The code for the timing in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          requirement_text:
-                            description: "Includes all the requirement text content for this section."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          requirement_code:
-                            description: "The code for this requirement in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          name:
-                            description: "The name of the appended REMS material that are part of the program."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          reference_id:
-                            description: "References the procedural step the healthcare provider or the patient should undertake."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          stakeholder_code:
-                            description: "The code of the stakeholder for the requirement in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          stakeholder:
-                            description: "The name of the stakeholder for the requirement in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          document_reference_root:
-                            description: "Reference id for the document root."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                approval:
-                  type: array
-                  items:
-                    properties:
-                      code:
-                        description: "The code for this approval in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      code_system:
-                        description: "The code system used for this approval in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      effective_time:
-                        description: "Date reference to the particular version of the document."
-                        format: date
-                        is_exact: false
-                        pattern: "YYYYmmdd"
-                        type: string
-                      name:
-                        description: "The name of this approval in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-      rems_applicant_requirements:
-        type: object
-        properties:
-          content:
-            description: "Includes all the raw text content for this section."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          effective_time:
-            description: "Date reference to the particular version of the labeling document."
-            format: date
-            is_exact: false
-            pattern: "YYYYmmdd"
-            type: string
-          rems_communication:
-            type: object
-            properties:
-              text:
-                description: "Includes all the raw text content for this section."
-                format:
-                is_exact: false
-                possible_values:
-                type: string
-              effective_time:
-                description: "Date reference to the particular version of the labeling document."
-                format: date
-                is_exact: false
-                pattern: "YYYYmmdd"
-                type: string
-          substance_administration:
-            type: array
-            items:
-              properties:
-                protocol:
-                  type: array
-                  items:
-                    properties:
-                      timing_text:
-                        description: "The text for the timing in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      timing_code:
-                        description: "The code for the timing in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      text:
-                        description: "Includes all the raw text content for this section."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      protocol_code:
-                        description: "The code for this protocol in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      code_system:
-                        description: "The code system used for this protocol in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      name:
-                        description: "The name of this protocol in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      requirement:
-                        description: "The requirement of the drug being a component of a REMS protocol described in the REMS Summary."
-                        type: object
-                        properties:
-                          activity_text:
-                            description: "The text included with the activity."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          activity_name:
-                            description: "The name of the activity that is part of the program."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          activity_code:
-                            description: "The code for this activity in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          timing_text:
-                            description: "The text for the timing in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          timing_code:
-                            description: "The code for the timing in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          requirement_text:
-                            description: "Includes all the requirement text content for this section."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          requirement_code:
-                            description: "The code for this requirement in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          name:
-                            description: "The name of the appended REMS material that are part of the program."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          reference_id:
-                            description: "References the procedural step the healthcare provider or the patient should undertake."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          stakeholder_code:
-                            description: "The code of the stakeholder for the requirement in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          stakeholder:
-                            description: "The name of the stakeholder for the requirement in substance administration."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                          document_reference_root:
-                            description: "Reference id for the document root."
-                            format:
-                            is_exact: false
-                            possible_values:
-                            type: string
-                approval:
-                  type: array
-                  items:
-                    properties:
-                      code:
-                        description: "The code for this approval in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      code_system:
-                        description: "The code system used for this approval in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-                      effective_time:
-                        description: "Date reference to the particular version of the document."
-                        format: date
-                        is_exact: false
-                        pattern: "YYYYmmdd"
-                        type: string
-                      name:
-                        description: "The name of this approval in substance administration."
-                        format:
-                        is_exact: false
-                        possible_values:
-                        type: string
-      rems_communication:
-        type: object
-        properties:
-          text:
-            description: "Includes all the raw text content for this section."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          effective_time:
-            description: "Date reference to the particular version of the labeling document."
-            format: date
-            is_exact: false
-            pattern: "YYYYmmdd"
-            type: string
-  rems_statutory_elements:
-    type: object
-    properties:
-      title:
-        description: "Title of this section."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      text:
-        description: "Includes all the raw text content for this section."
-        format:
-        is_exact: false
-        possible_values:
-      effective_time:
-        description: "Date reference to the particular version of the labeling document."
-        format: date
-        is_exact: false
-        pattern: "YYYYmmdd"
-        type: string
-      medication_guide:
-        description: "Indicates whether a medication guide is included."
-        format:
-        is_exact: false
-        type: boolean
-      communication_plan:
-        description: "Indicates whether a communication plan is included."
-        format:
-        is_exact: false
-        type: boolean
-      packaging_and_disposal:
-        description: "Indicates whether packaging and disposal instructions are included."
-        format:
-        is_exact: false
-        type: boolean
-      elements_to_ensure_safe_use:
-        properties:
-          rems_etasu_A:
-            description: "Elements to Assure Safe Use A."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          rems_etasu_B:
-            description: "Elements to Assure Safe Use B."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          rems_etasu_C:
-            description: "Elements to Assure Safe Use C."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          rems_etasu_D:
-            description: "Elements to Assure Safe Use D."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          rems_etasu_E:
-            description: "Elements to Assure Safe Use E."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          rems_etasu_F:
-            description: "Elements to Assure Safe Use F."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-      implementation_system:
-        description: "Indicates whether implementation system instructions are included."
-        format:
-        is_exact: false
-        type: boolean
-      timetable_for_submission_of_assessments:
-        description: "Indicates whether a timetable for submission of assessments is included."
-        format:
-        is_exact: false
-        type: boolean
-      spl_unclassified_section:
-        type: object
-        properties:
-          text:
-            description: "Includes all the raw text content for this section."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-          effective_time:
-            description: "Date reference to the particular version of the labeling document."
-            format: date
-            is_exact: false
-            pattern: "YYYYmmdd"
-            type: string
-          title:
-            description: "Title of this section."
-            format:
-            is_exact: false
-            possible_values:
-            type: string
-  rems_submission_assessments_timetable:
-    type: object
-    properties:
-      content:
-        description: "Includes all the raw text content for this section."
-        format:
-        is_exact: false
-        possible_values:
-      effective_time:
-        description: "Date reference to the particular version of the labeling document."
-        format: date
-        is_exact: false
-        pattern: "YYYYmmdd"
-        type: string
-  spl_unclassified_section:
-    type: object
-    properties:
-      text:
-        description: "Includes all the raw text content for this section."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
-      effective_time:
-        description: "Date reference to the particular version of the labeling document."
-        format: date
-        is_exact: false
-        pattern: "YYYYmmdd"
-        type: string
-      title:
-        description: "Title of this section."
-        format:
-        is_exact: false
-        possible_values:
-        type: string
   type: object

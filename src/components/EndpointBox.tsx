@@ -76,7 +76,7 @@ const EndpointBox = (props: tPROPS) => {
       'ndc': 'NDC directory containing information on the National Drug Code (NDC)',
       'enforcement': 'Drug product recall enforcement reports.',
       'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.',
-      'drugshortages': 'Drug Shortages can occur for many reasons, including manufacturing and quality problems, delays, and discontinuations.'
+      'drugshortages': 'Drug Shortages can occur for many reasons, including manufacturing and quality problems, delays, and discontinuations.',
       'remsspl': 'REMS are programs designed to ensure that the benefits of certain drugs outweigh their risks.'
     },
     'other': {
@@ -89,7 +89,7 @@ const EndpointBox = (props: tPROPS) => {
       'problem': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.'
     },
     'transparency': {
-      'crl': 'Centralized database of Complete Response Letters (CRLs)',
+      'crl': 'Centralized database of Complete Response Letters (CRLs)'
     }
   }
 
@@ -134,7 +134,7 @@ const EndpointBox = (props: tPROPS) => {
       'problem': 'Tobacco Problem Reports'
     },
     'transparency': {
-      'crl': 'Complete Response Letters',
+      'crl': 'Complete Response Letters'
     }
   }
   const bg_color: Record<NounName, React.CSSProperties> = {

@@ -21,6 +21,7 @@ let endpointKeys = [
   'drugenforcement',
   'drugsfda',
   'drugshortages',
+  'remsspl',
   'deviceevent',
   'devicerecall',
   'deviceclass',
