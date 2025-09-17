@@ -100,18 +100,18 @@ context('Data Dictionary', () => {
   })
 
   it('Changing Data Category should work as designed', () => {
-    changeDataCategory(1, 'Device', ['Classification', '510k Clearance',
+    changeDataCategory(2, 'Device', ['Classification', '510k Clearance',
       'COVID-19 Serology', 'Enforcement', 'Event', 'Pre-Market Approval',
       'Recall', 'Registration List', 'UDI'], '')
-    changeDataCategory(2, 'Human Drug', ['Enforcement', 'Event',
+    changeDataCategory(3, 'Human Drug', ['Enforcement', 'Event',
       'Label', 'NDC', 'Drugs@FDA'], 'openfda.')
-    changeDataCategory(3, 'Food', ['Enforcement', 'Event'], 'meta.')
-    changeDataCategory(4, 'Other', ['Historical Documents', 'NSDE', 'Substance Data', 'UNII'], '')
-    changeDataCategory(5, 'Tobacco', ['Problem'], '')
+    changeDataCategory(4, 'Food', ['Enforcement', 'Event'], 'meta.')
+    changeDataCategory(5, 'Other', ['Historical Documents', 'NSDE', 'Substance Data', 'UNII'], '')
+    changeDataCategory(6, 'Tobacco', ['Problem'], '')
   })
 
   it('Inline table search should work', () => {
-    changeDataCategory(2, 'Human Drug', [], '')
+    changeDataCategory(3, 'Human Drug', [], '')
     cy.get('div.table-databar input.search-input').type('manufacturer_name')
     verifyDataTableNavigation(1)
     cy.get('div.ReactTable div.rt-tbody > div:nth-of-type(1) > div').click()
