@@ -23,6 +23,8 @@
     link: /apis/query-syntax/
   - title: Advanced syntax
     link: /apis/advanced-syntax/
+  - title: Wildcard search
+    link: /apis/wildcard-search/
   - title: Dates and ranges
     link: /apis/dates-and-ranges/
   - title: Missing values
@@ -160,6 +162,24 @@
           link: /apis/drug/drugsfda/download/
         - title: Searchable fields
           link: /apis/drug/drugsfda/searchable-fields/
+    - title: Drug Shortages
+      id: drug-drug-shortages
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/drug/drugshortages/
+        - title: How to use the API
+          link: /apis/drug/drugshortages/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/drug/drugshortages/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/drug/drugshortages/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/drug/drugshortages/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/drug/drugshortages/download/
+        - title: Searchable fields
+          link: /apis/drug/drugshortages/searchable-fields/
     - title: REMS SPL
       id: drug-rems-spl
       collapse: true
@@ -389,11 +409,53 @@
         - title: Searchable fields
           link: /apis/food/event/searchable-fields/
 
+- title: Cosmetic API Endpoints
+  id: cosmetic-api-endpoints
+  link: /cosmetic/
+  collapse: true
+  items:
+    - title: Cosmetic Events
+      id: cosmetic-adverse-events
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/cosmetic/event/
+        - title: How to use the API
+          link: /apis/cosmetic/event/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/cosmetic/event/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/cosmetic/event/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/cosmetic/event/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/cosmetic/event/download/
+        - title: Searchable fields
+          link: /apis/cosmetic/event/searchable-fields/
+
 - title: Other API Endpoints
   id: other-api-endpoints
   link: /other/
   collapse: true
   items:
+    - title: Historical Documents
+      id: other-historicaldocument
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/other/historicaldocument/
+        - title: How to use the API
+          link: /apis/other/historicaldocument/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/other/historicaldocument/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/other/historicaldocument/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/other/historicaldocument/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/other/historicaldocument/download/
+        - title: Searchable fields
+          link: /apis/other/historicaldocument/searchable-fields/
     - title: NSDE
       id: other-nsde
       collapse: true
@@ -446,7 +508,6 @@
           link: /apis/other/unii/download/
         - title: Searchable fields
           link: /apis/other/unii/searchable-fields/
-
 - title: Tobacco API Endpoints
   id: tobacco-api-endpoints
   link: /tobacco/
@@ -470,3 +531,26 @@
           link: /apis/tobacco/problem/download/
         - title: Searchable fields
           link: /apis/tobacco/problem/searchable-fields/
+
+- title: Transparency API Endpoints
+  id: transparency-api-endpoints
+  link: /transparency/
+  collapse: true
+  items:
+    - title: Complete Response Letters
+      id: transparency-completeresponseletters
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/transparency/completeresponseletters/
+        - title: How to use the API
+          link: /apis/transparency/completeresponseletters/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/transparency/completeresponseletters/example-api-queries/
+        - title: Understanding the API Results
+          link: /apis/transparency/completeresponseletters/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/transparency/completeresponseletters/download/
+        - title: Searchable fields
+          link: /apis/transparency/completeresponseletters/searchable-fields/
+

@@ -67,6 +67,27 @@ drug:
     - pharm_class_cs
     - nui
     - pharm_class_pe
+  drugshortages:
+    - brand_name
+    - dosage_form
+    - is_original_packager
+    - manufacturer_name
+    - nui
+    - original_packager_product_ndc
+    - package_ndc
+    - pharm_class_cs
+    - pharm_class_epc
+    - pharm_class_moa
+    - pharm_class_pe
+    - product_ndc
+    - product_type
+    - route
+    - rxcui
+    - spl_id
+    - spl_set_id
+    - substance_name
+    - unii
+    - upc
   enforcement:
     - manufacturer_name
     - unii
@@ -171,3 +192,5 @@ food:
   event: []
 other:
   nsde: []
+transparency:
+  crl: []

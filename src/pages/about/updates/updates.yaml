@@ -131,3 +131,23 @@ updates:
     path: /apis/device/udi/
     date: 2023-08-15
     desc: "The openFDA UDI API has been updated to include the Global Medical Device Nomenclature (GMDN) Code."
+  - title: "New feature - Wildcard Search"
+    path: /apis/wildcard-search/
+    date: 2024-02-23
+    desc: 'All openFDA API endpoints may be queried using a "wildcard search". Click this link for more details.'
+  - title: "New openFDA Dataset - Historical Documents"
+    path: /apis/other/historicaldocument/
+    date: 2024-03-20
+    desc: "The dataset Historical Documents is now available."
+  - title: "New openFDA Dataset - Drug Shortages"
+    path: /apis/drug/drugshortages/
+    date: 2025-03-25
+    desc: "The dataset Drug Shortages is now available."
+  - title: "Complete Response Letters released"
+    path: /apis/transparency/completeresponseletters/
+    date: 2025-09-05
+    desc: "Complete Response Letters (CRL) issued in response to new drug applications (NDAs) and biologics license applications (BLAs) have been released. Currently, the database includes CRLs issued to sponsors as recently as 2025."
+  - title: "New openFDA Dataset - Cosmetic Adverse Events"
+    path: /apis/cosmetic/event/
+    date: 2025-09-13
+    desc: "The dataset Cosmetic Adverse Events is now available."

@@ -1,0 +1,35 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › Drug Shortages'
+crumbs:
+  - openFDA
+  - Datasets
+  - Drug Shortages
+title: 'Drug Shortages'
+description: 'Drug Shortages can occur for many reasons, including manufacturing and quality problems, delays, and
+    discontinuations. Manufacturers provide FDA most drug shortage information, and the agency works closely with them 
+    to prevent or reduce the impact of shortages. When a shortage is listed as current on the Drug Shortage Database, 
+    the FDA is aware of the supply situation and is working with the manufactures on efforts to mitigate the supply 
+    disruption. FDA also continue to work with manufacturers on shortage prevention efforts for drugs not yet listed 
+    on the Drug Shortage Database.'
+source:
+  name: 'Drug Shortages'
+  nameLong: 'Drug Shortages'
+  link: 'https://www.fda.gov/drugs/drug-safety-and-availability/drug-shortages'
+  linkDownload: 'https://dps.fda.gov/drugshortages'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+  time:
+  start:
+  current:
+  delay:
+  frequency: 'Daily'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - 'The Federal Food, Drug, and Cosmetic Act defines a drug shortage as a period of time when the demand or projected 
+    demand for the drug within the United States exceeds the supply of the drug. FDA tracks shortages at the national 
+    level and receives information from manufacturers about their ability to supply the market. We consider a drug to be 
+    in shortage when, on a nationwide level, supply is not meeting current demand, or if supply is not forecasted to meet 
+    projected demand.'

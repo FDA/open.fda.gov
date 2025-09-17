@@ -1,0 +1,134 @@
+properties:
+  report_number:
+    description: "The report number."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  report_version:
+    description: "The report version."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  legacy_report_id:
+    description: "The legacy report number."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  report_type:
+    description: "The type of the report."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  initial_received_date:
+    description: "Date the report was received by FDA."
+    format: date
+    is_exact: false
+    possible_values:
+    type: string
+  latest_received_date:
+    description: "Date the latest report was received by FDA."
+    format: date
+    is_exact: false
+    possible_values:
+    type: string
+  event_date:
+    description: "Date of the adverse event (when it was considered to have started)."
+    format: date
+    is_exact: false
+    possible_values:
+    type: string
+  products:
+    items:
+      properties:
+        product_name:
+          description: "The reported name of the product."
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        role:
+          description: "The reported role of the product in the adverse event report."
+          possible_values:
+            type: one_of
+            value:
+              "Suspect": "The product was suspected of causing the adverse event"
+              "Concomitant": "The product was not suspected of causing the adverse event, but was being consumed or used at the same time when the adverse event started"
+          format:
+          is_exact: true
+          type: string
+      type: object
+    type: array
+  patient:
+    properties:
+      age:
+        description: "The reported age of the consumer at the time of the adverse event report, expressed in the unit in the field `age_unit`."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      age_unit:
+        description: "Encodes the unit in which the age of the consumer is expressed."
+        possible_values:
+          type: one_of
+          value:
+            "Day(s)": "age is expressed in days"
+            "Week(s)": "age is expressed in weeks"
+            "Month(s)": "age is expressed in months"
+            "Year(s)": "age is expressed in years"
+            "Decade(s)": "age is expressed in decades"
+            "Not Available": "Unknown"
+        format:
+        is_exact: false
+        type: string
+      gender:
+        description: "The reported gender of the consumer."
+        possible_values:
+          type: one_of
+          value:
+            "Female": "Female"
+            "Male": "Male"
+            "Not Available": "Unknown"
+        format:
+        is_exact: false
+        type: string
+    type: object
+  reactions:
+    items:
+      description: "MedDRA terms for the reactions. Note that these terms are encoded in British English. For instance, *diarrhea* is recorded as `DIARRHOEA`"
+      possible_values:
+        type: reference
+        value:
+          name: "MedDRA"
+          link: "http://www.meddra.org/"
+      format:
+      is_exact: true
+      type: string
+    type: array
+  meddra_version:
+    description: "The MedDRA version."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  outcomes:
+    items:
+      description: "The outcome or consequence of the adverse event."
+      possible_values:
+        type: one_of
+        value:
+          "OTHER SERIOUS OR IMPORTANT MEDICAL EVENTS": "The outcome included non-specified serious medical events"
+          "DEATH": "The adverse event was the death of the consumer"
+          "HOSPITALIZATION": "The consumer was hospitalized"
+          "DISABILITY": "The adverse event caused the permanent disability"
+          "REQUIRED INTERVENTION": "The adverse event caused an illness or injury serious enough to require intervention to prevent permanent impairment or disability"
+          "LIFE THREATENING": "The adverse event was life threatening"
+          "CONGENITAL ANOMALY": "The adverse event caused a birth defect in a baby"
+      format:
+      is_exact: true
+      type: string
+    type: array
+type: object

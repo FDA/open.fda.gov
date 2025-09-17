@@ -1,17 +1,17 @@
-@import '../vars';
+@use '../vars';
 
 .field-button {
 	border: 0;
 	border-radius: 5px;
 	cursor: pointer;
 	display: inline-block;
-	font-family: $sans;
-	font-size: $pSize;
+	font-family: vars.$sans;
+	font-size: vars.$pSize;
 	outline: 0;
 	padding: 15px 20px;
 }
 
 .field-button:focus,
 .field-button:active {
-	box-shadow: 0 0 3px $clrPrimary, 0 0 7px $clrPrimary;
+	box-shadow: 0 0 3px vars.$clrPrimary, 0 0 7px vars.$clrPrimary;
 }

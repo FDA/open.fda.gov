@@ -1,4 +1,4 @@
-@import '../vars';
+@use '../vars';
 
 .doc-container {
 	width: 100%;
@@ -83,12 +83,24 @@
 	margin-bottom: calc(1.05rem / 2);
 }
 
-.doc-content > ul {
+
+.doc-content > ul > li > ul > li {
+  display: list-item;
+  font-size: 17px;
+  list-style-position: outside;
+}
+
+.doc-content > ul,
+.doc-content > ul > li > ul {
 	padding-left: 1.4rem;
 }
 
-.doc-content > ul > li {
+.doc-content > ul > li, {
 	list-style-type: disc;
+}
+
+.doc-content > ul > li > ul > li {
+  list-style-type: circle;
 }
 
 .doc-content > ol {
@@ -108,14 +120,14 @@
 	margin-top: 4.2rem;
 }
 
-@media (max-width: $tablet) {
+@media (max-width: vars.$tablet) {
 	.doc-container {
 		padding-left: 0;
 		padding-top: 44px;
 	}
 }
 
-@media (min-width: $bpTab) {
+@media (min-width: vars.$bpTab) {
 	.doc-content,
   .markdown-content {
 		margin-left: auto;

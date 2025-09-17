@@ -1,0 +1,13 @@
+documentTitle: openFDA › Cosmetic › Adverse Events API
+name: Cosmetic Adverse Events
+description: ""
+datasets:
+  - CAE
+label: Cosmetic Adverse Events
+title: Cosmetic Adverse Events
+path: /apis/cosmetic/event
+api_path: /cosmetic/event
+start: 20010101
+status: cosmeticevent
+dateConstraintKey: initial_received_date
+type: endpoint
