@@ -22,8 +22,6 @@
   filters:
     - title: "All registrations and listings"
       searchParam: ""
-    - title: "All registrations and listings not in US"
-      searchParam: "registration.iso_country_code:(NOT US)"
     - title: "Sunglasses (Non-Prescription Including Photosensitive)"
       searchParam: "products.product_code:HQY"
     - title: "Establishment type equals *Manufacture Medical Device*"
