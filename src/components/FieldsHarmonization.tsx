@@ -12,6 +12,7 @@ import druglabel from '../constants/fields/druglabel.yaml'
 import drugndc from '../constants/fields/drugndc.yaml'
 import drugsfda from '../constants/fields/drugsfda.yaml'
 import drugshortages from '../constants/fields/drugshortages.yaml'
+import drugremsspl from '../constants/fields/drugremsspl.yaml'
 import Values from './RenderContentObject/Values'
 
 import '../css/components/FieldsHarmonization.scss'
@@ -130,7 +131,8 @@ class FieldsHarmonization extends React.Component<PROPS, State> {
       drugenforcement: drugenforcement,
       druglabel: druglabel,
       drugndc: drugndc,
-      drugdrugshortages: drugshortages
+      drugdrugshortages: drugshortages,
+      drugremsspl: drugremsspl
     }
 
     const field_name = dataTip[0]
@@ -253,6 +255,7 @@ class FieldsHarmonization extends React.Component<PROPS, State> {
       'label': 'Label',
       'ndc': 'NDC',
       'drugshortages': 'Drug Shortages',
+      'remsspl': 'REMS SPL',
       'nsde': 'NSDE'
     }
 
