@@ -39,6 +39,7 @@ const source: Record<string, Record<string, string>> = {
   'other': {
     'historicaldocument': 'Historic FDA Press Releases',
     'nsde': 'NDC SPL Data Elements',
+    'pubmed': 'PubMed',
     'substance': 'Substance Data Reports',
     'unii': 'Unique Ingredient Identifiers'
   },
@@ -123,6 +124,7 @@ const timePeriod: any = {
   'other': {
     'historicaldocument': '1913 to',
     'nsde': '2009 to',
+    'pubmed': '2024 to',
     'substance': 'Last updated',
     'unii': '2006 to'
   },
@@ -167,6 +169,7 @@ const frequency = {
   'other': {
     'historicaldocument': 'Infrequently',
     'nsde': 'Daily',
+    'pubmed': 'Infrequently',
     'substance': 'Every few months',
     'unii': 'Daily'
   },

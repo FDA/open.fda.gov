@@ -1,0 +1,11 @@
+type: endpoint
+documentTitle: openFDA › Other › PubMed API
+label: PubMed
+title: PubMed
+description: "Citations for biomedical literature from MEDLINE, life science journals, and online books."
+datasets:
+  - PubMed
+path: /apis/other/pubmed
+api_path: /other/pubmed
+start: 20240101
+status: otherpubmed
