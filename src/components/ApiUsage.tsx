@@ -8,7 +8,7 @@ import {default as $} from 'jquery'
 import '../css/components/APIUsage.scss'
 
 // Update total usage numbers with: https://api.fda.gov/usage.json?start_at=2025-09-03 - last 2025-09-03
-// Current total: 1,077 million
+// Current total: 1,123 million
 
 const nounMap = {
   drug: "Drug",
