@@ -1,0 +1,13 @@
+documentTitle: openFDA › Drugs › REMS SPL
+name: Risk Evaluation and Mitigation Strategy
+description: "REMS are programs designed to ensure that the benefits of certain drugs outweigh their risks."
+datasets:
+  - REMSSPL
+label: Risk Evaluation and Mitigation Strategy
+title: Risk Evaluation and Mitigation Strategy
+path: /apis/drug/remsspl
+api_path: /drug/remsspl
+start: 20160101
+status: remsspl
+dateConstraintKey: rems_goals.effective_time
+type: endpoint
