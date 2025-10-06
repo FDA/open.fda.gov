@@ -23,6 +23,7 @@ const pdfDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'covid19serology': '/fields/devicecovid19serology_reference.pdf',
   'otherhistoricaldocument': '/fields/otherhistoricaldocument_reference.pdf',
   'othernsde': '/fields/othernsde_reference.pdf',
+  'otherpubmed': '/fields/otherpubmed_reference.pdf',
   'othersubstance': '/fields/othersubstance_reference.pdf',
   'tobaccoproblem': '/fields/tobaccoproblem_reference.pdf',
   'transparencycrl': '/fields/transparencycrl_reference.pdf'
@@ -50,6 +51,7 @@ const xlsxDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'covid19serology': '/fields/devicecovid19serology_reference.xlsx',
   'otherhistoricaldocument': '/fields/otherhistoricaldocument_reference.xlsx',
   'othernsde': '/fields/othernsde_reference.xlsx',
+  'otherpubmed': '/fields/otherpubmed_reference.xlsx',
   'othersubstance': '/fields/othersubstance_reference.xlsx',
   'tobaccoproblem': '/fields/tobaccoproblem_reference.xlsx',
   'transparencycrl': '/fields/transparencycrl_reference.xlsx'
@@ -77,6 +79,7 @@ const yamlDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'covid19serology': '/fields/devicecovid19serology.yaml',
   'otherhistoricaldocument': '/fields/otherhistoricaldocument.yaml',
   'othernsde': '/fields/othernsde.yaml',
+  'otherpubmed': '/fields/otherpubmed.yaml',
   'othersubstance': '/fields/othersubstance.yaml',
   'tobaccoproblem': '/fields/tobaccoproblem.yaml',
   'transparencycrl': '/fields/transparencycrl.yaml'
