@@ -6,7 +6,7 @@ import Link from 'gatsby-link'
 
 import '../css/components/EndpointBox.scss'
 
-type NounName = 'animalandveterinary' | 'food' | 'device' | 'drug' | 'other' | 'tobacco' | 'transparency';
+type NounName = 'animalandveterinary' | 'food' | 'device' | 'drug' | 'other' | 'publications' | 'tobacco' | 'transparency';
 type EndpointName =
   | 'event'
   | 'enforcement'
@@ -26,7 +26,8 @@ type EndpointName =
   | 'substance'
   | 'unii'
   | 'problem'
-  | 'completeresponseletters';
+  | 'completeresponseletters'
+  | 'peerreviewed';
 
 type tPROPS = {
   noun_name: NounName,
@@ -84,6 +85,9 @@ const EndpointBox = (props: tPROPS) => {
       'substance': 'Substance information that is precise to the molecular level for use internally and externally (where appropriate).',
       'unii': 'Unique Ingredient Identifier list.'
     },
+    'publications': {
+      'peerreviewed': 'Journals reflecting FDA-authored works from September 2023 through September 2025.'
+    },
     'tobacco': {
       'problem': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.'
     },
@@ -128,13 +132,17 @@ const EndpointBox = (props: tPROPS) => {
       'substance': 'Substance Data',
       'unii': 'UNII'
     },
+    'publications': {
+      'peerreviewed': 'Peer Reviewed Journals'
+    },
     'tobacco': {
       'problem': 'Tobacco Problem Reports'
     },
     'transparency': {
-      'crl': 'Complete Response Letters',
+      'crl': 'Complete Response Letters'
     }
   }
+
   const bg_color: Record<NounName, React.CSSProperties> = {
     'animalandveterinary': {background: "linear-gradient(to right bottom, #9cf6f6, #007CBA)"},
     'food': {background: "linear-gradient(to right bottom, rgb(143, 209, 100), rgb(81, 161, 22))"},
@@ -142,6 +150,7 @@ const EndpointBox = (props: tPROPS) => {
     'device': {background: "linear-gradient(to right bottom, #ff8989, #c94747)"},
     'drug': {background: "linear-gradient(to right bottom, rgb(220, 141, 188), rgb(153, 88, 163))"},
     'other': {background: "linear-gradient(to right bottom, #9cf6f6, #099db7)"},
+    'publications': {background: "linear-gradient(to right bottom, #9cf6f6, #099db7)"},
     'tobacco': {background: "linear-gradient(to right bottom, #e6ccb3, #6d5843)"},
     'transparency': {background: "linear-gradient(to right bottom, rgb(241 238 237), rgb(133 133 132))"},
   }
@@ -177,10 +186,13 @@ const EndpointBox = (props: tPROPS) => {
       'drugshortages': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-at' style={{color: "white"}}/></div>
     },
     'other': {
-      'historicaldocument': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-history" style={{color: "white"}}/></div>,
-      'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{color: "white"}}/></div>,
-      'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{color: "white"}}/></div>,
-      'unii': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-barcode" style={{color: "white"}}/></div>
+      'historicaldocument': <div className='ep-icon' style={bg_color['other']}><i className='fa fa-3x fa-history' style={{color: "white"}}/></div>,
+      'nsde': <div className='ep-icon' style={bg_color['other']}><i className='fa fa-3x fa-database' style={{color: "white"}}/></div>,
+      'substance': <div className='ep-icon' style={bg_color['other']}><i className='fa fa-3x fa-flask' style={{color: "white"}}/></div>,
+      'unii': <div className='ep-icon' style={bg_color['other']}><i className='fa fa-3x fa-barcode' style={{color: "white"}}/></div>
+    },
+    'publications': {
+      'peerreviewed': <div className='ep-icon' style={bg_color.publications}><i className='fa fa-3x fa-book' style={{color: "white"}}/></div>
     },
     'tobacco': {
       'problem': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-leaf' style={{color: "white"}}/></div>
@@ -225,6 +237,9 @@ const EndpointBox = (props: tPROPS) => {
       'nsde': '/apis/other/nsde/',
       'substance': '/apis/other/substance/',
       'unii': '/apis/other/unii/'
+    },
+    'publications': {
+      'peerreviewed': '/apis/publications/peerreviewed/'
     },
     'tobacco': {
       'problem': '/apis/tobacco/problem/'

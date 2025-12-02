@@ -1,0 +1,14 @@
+- title: "Keywords by Type"
+  short: "Keywords by Type"
+  dataset: PRJ
+  description:
+    - "Distribution of keywords in the peer reviewed journals by journal type"
+  countParam: "keywords.exact"
+  filters:
+    - title: "Reviewss"
+      searchParam: 'journal_type:Review'
+    - title: "Editorials"
+      searchParam: 'journal_type:Editorial'
+    - title: "Letters"
+      searchParam: 'journal_type:Letter'
+  type: Line

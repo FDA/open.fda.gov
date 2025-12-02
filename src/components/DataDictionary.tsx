@@ -87,6 +87,7 @@ class DataDictionary extends React.Component<{}, DataDictionaryState> {
       'food': 'Food',
       'cosmetic': 'Cosmetic',
       'other': 'Other',
+      'publications': 'Publications',
       'tobacco': 'Tobacco',
       'transparency': 'Transparency'
     }
@@ -110,7 +111,8 @@ class DataDictionary extends React.Component<{}, DataDictionaryState> {
       'substance': 'Substance Data',
       'udi': 'UDI',
       'unii': 'UNII',
-      'crl': 'Complete Response Letters'
+      'crl': 'Complete Response Letters',
+      'peerreviewed': 'Peer Reviewed Journals'
     }
 
 

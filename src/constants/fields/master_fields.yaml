@@ -11415,6 +11415,142 @@ other:
               name: "Unique Ingredient Identifiers"
               link: "http://fdasis.nlm.nih.gov/srs/srs.jsp"
     type: object
+publications:
+  peerreviewed:
+    properties:
+      pubmed_id:
+        description: "The PubMed identifier"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      category:
+        description: "What category of publication it is"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      title:
+        description: "The title of the publication"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      abstract:
+        description: "The abstract text"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      authors:
+        type: array
+        items:
+          description: "The authors of the publication"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+      affiliations:
+        type: array
+        items:
+          description: "The organizations affiliated with the publication"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+      journal:
+        description: "The name of the journal"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      volume:
+        description: "What volume the publication is in"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      issue:
+        description: "What issue the publication is in"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      pub_status:
+        description: "The publication status"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      month:
+        description: "The month published"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      year:
+        description: "The year published"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      journal_type:
+        description: "The type of journal"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      doi_id:
+        description: "The DOI identifier"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      keywords:
+        type: array
+        items:
+          description: "Keywords found in the publication"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+      mesh_descriptor_name:
+        type: array
+        items:
+          description: "Names of the mesh descriptors included in the publication"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+      mesh_qualifier_name:
+        type: array
+        items:
+          description: "Names of the mesh qualifiers included in the publication"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+      citation:
+        description: "The full citation"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      fda_authors:
+        type: array
+        items:
+          description: "The FDA authors of the publication"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+      link:
+        description: "The url link to the full publication"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+    type: object
 tobacco:
   problem:
     properties:
