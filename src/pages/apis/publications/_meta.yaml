@@ -1,6 +1,6 @@
-documentTitle: openFDA › Transparency
+documentTitle: openFDA › Publications
 label: API categories
-title: Transparency
-description: "Data which provides transparency regarding FDA operations."
-path: /apis/transparency
+title: Publications
+description: "The Publications API provides access to various FDA-authored works and research publications."
+path: /apis/publications
 type: noun
