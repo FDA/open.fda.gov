@@ -17,7 +17,7 @@ class IndexRoute extends React.Component {
 
         <h4>Responsible Use of Data</h4>
         <p>This information is provided for reference purposes only and does not constitute legal advice, regulatory
-          guidance, or an official position of the U.S. Food and Drug Administration.”</p>
+          guidance, or an official position of the U.S. Food and Drug Administration.</p>
 
         <p><a href='https://open.fda.gov/prjtable/'>Search for Peer Reviewed Journals</a></p>
         <KeyFacts
