@@ -92,7 +92,7 @@ const EndpointBox = (props: tPROPS) => {
       'problem': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.'
     },
     'transparency': {
-      'crl': 'Centralized database of Complete Response Letters (CRLs)',
+      'crl': 'Centralized database of Complete Response Letters (CRLs)'
     }
   }
 

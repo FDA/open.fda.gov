@@ -8,7 +8,7 @@ class IndexRoute extends React.Component {
     return (
       <section className='doc-content'>
         <h2>Peer Reviewed Journals</h2>
-        <p>he information reflects FDA-authored works from September 2023 through September 2025.
+        <p>The information reflects FDA-authored works from September 2023 through September 2025.
           Every effort has been made to identify and include all publications produced within this timeframe.
           However, some publications may not appear in this dataset due to incomplete, inconsistent, or inaccurately
           reported author affiliation information.</p>
