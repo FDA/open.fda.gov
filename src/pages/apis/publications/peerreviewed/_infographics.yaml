@@ -5,7 +5,7 @@
     - "Distribution of keywords in the peer reviewed journals by journal type"
   countParam: "keywords.exact"
   filters:
-    - title: "Reviewss"
+    - title: "Reviews"
       searchParam: 'journal_type:Review'
     - title: "Editorials"
       searchParam: 'journal_type:Editorial'
