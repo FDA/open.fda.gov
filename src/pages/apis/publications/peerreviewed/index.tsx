@@ -19,7 +19,7 @@ class IndexRoute extends React.Component {
         <p>This information is provided for reference purposes only and does not constitute legal advice, regulatory
           guidance, or an official position of the U.S. Food and Drug Administration.</p>
 
-        <p><a href='https://open.fda.gov/prjtable/'>Search for Peer Reviewed Journals</a></p>
+        <p><a href='https://openfda-site.preprod.fda.gov/prjtable/'>Search for Peer Reviewed Journals</a></p>
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
           endpoint_name={meta.api_path.split("/")[2]}
