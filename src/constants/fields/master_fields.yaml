@@ -11433,7 +11433,7 @@ publications:
       title:
         description: "The title of the publication"
         format:
-        is_exact: false
+        is_exact: true
         possible_values:
         type: string
       abstract:
@@ -11447,7 +11447,7 @@ publications:
         items:
           description: "The authors of the publication"
           format:
-          is_exact: false
+          is_exact: true
           possible_values:
           type: string
       affiliations:
@@ -11455,13 +11455,13 @@ publications:
         items:
           description: "The organizations affiliated with the publication"
           format:
-          is_exact: false
+          is_exact: true
           possible_values:
           type: string
       journal:
         description: "The name of the journal"
         format:
-        is_exact: false
+        is_exact: true
         possible_values:
         type: string
       volume:
@@ -11511,7 +11511,7 @@ publications:
         items:
           description: "Keywords found in the publication"
           format:
-          is_exact: false
+          is_exact: true
           possible_values:
           type: string
       mesh_descriptor_name:
@@ -11519,7 +11519,7 @@ publications:
         items:
           description: "Names of the mesh descriptors included in the publication"
           format:
-          is_exact: false
+          is_exact: true
           possible_values:
           type: string
       mesh_qualifier_name:
@@ -11527,7 +11527,7 @@ publications:
         items:
           description: "Names of the mesh qualifiers included in the publication"
           format:
-          is_exact: false
+          is_exact: true
           possible_values:
           type: string
       citation:
@@ -11541,7 +11541,7 @@ publications:
         items:
           description: "The FDA authors of the publication"
           format:
-          is_exact: false
+          is_exact: true
           possible_values:
           type: string
       link:
