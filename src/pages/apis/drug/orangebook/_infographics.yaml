@@ -1,0 +1,54 @@
+- title: "Approval over time"
+  short: "Approval over time"
+  description:
+    - "This is a visualization of approval dates over time."
+  countParam: "approval_date"
+  filters:
+    - title: "All products"
+      searchParam: ""
+    - title: "Over-the-counter drug labeling"
+      searchParam: "product_type:otc"
+    - title: "Prescription drug labeling"
+      searchParam: "product_type:prescription"
+    - title: "Discontinued"
+      searchParam: "product_type:discontinued"
+    - title: "New Drug Application"
+      searchParam: "route:oral"
+    - title: "Abbreviated New Drug Application"
+      searchParam: "route:intravenous"
+  type: Line
+  dateConstraint: approval_date
+- title: "Top dosage form results"
+  short: "Dosage form"
+  description:
+    - "Display the top dosage forms of among all products."
+  countParam: "dosage_form"
+  filters:
+    - title: "All products"
+      searchParam: ""
+    - title: "Therapeutic Equivalence Code AB"
+      searchParam: "therapeutic_equivalence_codes:AB"
+    - title: "Therapeutic Equivalence Code AP"
+      searchParam: "therapeutic_equivalence_codes:AP"
+    - title: "Therapeutic Equivalence Code AA"
+      searchParam: "therapeutic_equivalence_codes:AA"
+    - title: "Therapeutic Equivalence Code AT"
+      searchParam: "therapeutic_equivalence_codes:AT"
+  type: Bar
+  dateConstraint: false
+- title: "Routes of administration"
+  short: "Routes of administration"
+  description:
+    - "Most drug products describe a product with a single route of administration — oral, intravenous, topical, and so forth. Click the buttons below to see the top routes of administration."
+  countParam: "route.exact"
+  filters:
+    - title: "All products"
+      searchParam: ""
+    - title: "Over-the-counter drug labeling"
+      searchParam: "product_type:otc"
+    - title: "Prescription drug labeling"
+      searchParam: "product_type:prescription"
+    - title: "Discontinued"
+      searchParam: "product_type:discontinued"
+  type: Line
+  dateConstraint: false

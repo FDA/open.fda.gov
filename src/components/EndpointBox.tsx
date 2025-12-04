@@ -19,6 +19,7 @@ type EndpointName =
   | 'covid19serology'
   | 'label'
   | 'ndc'
+  | 'orangebook'
   | 'drugsfda'
   | 'drugshortages'
   | 'historicaldocument'
@@ -75,6 +76,7 @@ const EndpointBox = (props: tPROPS) => {
       'label': 'Structured product information, including prescribing information, for approved drug products.',
       'ndc': 'NDC directory containing information on the National Drug Code (NDC)',
       'enforcement': 'Drug product recall enforcement reports.',
+      'orangebook': 'Approved Drug Products with Therapeutic Equivalence Evaluations (Orange Book).',
       'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.',
       'drugshortages': 'Drug Shortages can occur for many reasons, including manufacturing and quality problems, delays, and discontinuations.'
     },
@@ -119,6 +121,7 @@ const EndpointBox = (props: tPROPS) => {
       'label': 'Product labeling',
       'ndc': 'NDC Directory',
       'enforcement': 'Recall enforcement reports',
+      'orangebook': 'Orange Book',
       'drugsfda': 'Drugs@FDA',
       'drugshortages': 'Drug shortages'
     },
@@ -173,6 +176,7 @@ const EndpointBox = (props: tPROPS) => {
       'label': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-barcode' style={{color: "white"}}/></div>,
       'ndc': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-database' style={{color: "white"}}/></div>,
       'enforcement': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-rotate-left' style={{color: "white"}}/></div>,
+      'orangebook': <div className="ep-icon" style={bg_color['drug']}><i className="fa fa-3x fa-book" style={{color: "white"}}/></div>,
       'drugsfda': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-at' style={{color: "white"}}/></div>,
       'drugshortages': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-at' style={{color: "white"}}/></div>
     },
@@ -217,6 +221,7 @@ const EndpointBox = (props: tPROPS) => {
       'label': '/apis/drug/label/',
       'ndc': '/apis/drug/ndc/',
       'enforcement': '/apis/drug/enforcement/',
+      'orangebook': '/apis/drug/orangebook/',
       'drugsfda': '/apis/drug/drugsfda/',
       'drugshortages': '/apis/drug/drugshortages/'
     },
