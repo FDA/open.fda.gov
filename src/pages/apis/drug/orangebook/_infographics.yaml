@@ -12,10 +12,6 @@
       searchParam: "product_type:prescription"
     - title: "Discontinued"
       searchParam: "product_type:discontinued"
-    - title: "New Drug Application"
-      searchParam: "route:oral"
-    - title: "Abbreviated New Drug Application"
-      searchParam: "route:intravenous"
   type: Line
   dateConstraint: approval_date
 - title: "Top dosage form results"
