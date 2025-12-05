@@ -22,7 +22,7 @@
   short: "Dosage form"
   description:
     - "Display the top dosage forms of among all products."
-  countParam: "dosage_form"
+  countParam: "dosage_form.exact"
   filters:
     - title: "All products"
       searchParam: ""
