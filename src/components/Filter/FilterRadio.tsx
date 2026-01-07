@@ -1,6 +1,5 @@
 /* @flow */
 
-import React from 'react'
 import {RadioGroup, Radio} from 'react-radio-group'
 
 type Filter = {
@@ -22,7 +21,10 @@ type PROPS = {
  * @return {React.Element}
  */
 const FilterRadio = ({ filters, onChange, selected }: PROPS) => {
-  const _onChange = (value: any) => onChange(value)
+
+  const handleChange = (value: any): void => {
+    onChange(value)
+  }
 
   return (
     <RadioGroup
@@ -31,29 +33,24 @@ const FilterRadio = ({ filters, onChange, selected }: PROPS) => {
       // work without it
       name='infographic'
       selectedValue={selected}
-      onChange={_onChange}>
+      onChange={handleChange}>
       {
         <fieldset
           id='params-filter'
           tabIndex={0}
-          style={{
-            border: 0,
-            margin: 0,
-            padding: 0,
-          }}>
+          className='no-b no-marg no-pad'
+        >
           <legend className='visually-hidden'>
               Filter records using example parameters for current visualization.
           </legend>
           {
-            filters.map((filter: Filter, i) => (
+            filters?.map((filter: Filter, i) => (
               <label
                 className='clr-gray cursor-pointer smallest weight-600 row block pad-b-1'
                 tabIndex={0}
                 role='option'
                 key={i}
-                style={{
-                  cursor: 'pointer',
-                }}>
+              >
                 <Radio
                   tabIndex={-1}
                   className='marg-r-1'

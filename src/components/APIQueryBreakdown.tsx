@@ -1,9 +1,5 @@
 /* @flow */
 
-import React from 'react'
-
-import Link from 'gatsby-link'
-
 import '../css/components/APIQueryBreakdown.scss'
 
 type tPROPS = {
