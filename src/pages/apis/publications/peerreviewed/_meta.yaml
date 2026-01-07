@@ -1,0 +1,12 @@
+documentTitle: openFDA › Publications › Peer Reviewed Journals
+name: Peer Reviewed Journals
+description: "Peer Reviewed Journals reflecting FDA-authored works from September 2023 through September 2025."
+datasets:
+  - PRJs
+label: PRJ
+title: Peer Reviewed Journals
+path: /apis/publications/peerreviewed
+api_path: /publications/peerreviewed
+start: 01012023
+status: publicationspeerreviewed
+type: endpoint

@@ -1,0 +1,148 @@
+
+{
+  "results": [
+    {
+      "journal_info": "2024 9 24;76:102838.",
+      "keywords": [
+        "Phase I",
+        "Quality of life",
+        "Trial designs",
+        "Phase II",
+        "Dose-finding",
+        "Patient-centred clinical development",
+        "Early phase trials",
+        "Tolerability",
+        "Patient-reported outcomes"
+      ],
+      "year": "2024",
+      "citation": "Yap C, Lee Aiyegbusi O, Alger E, et al. Advancing patient-centric care: integrating patient reported outcomes for tolerability assessment in early phase clinical trials - insights from an expert virtual roundtable. EClinicalMedicine;76. doi: 10.1016/j.eclinm.2024.102838",
+      "fda_authors": [
+        "Bhatnagar, Vishal"
+      ],
+      "link": "https://pubmed.ncbi.nlm.nih.gov/39386161",
+      "affiliations": [
+        "Drug Development Unit, Royal Marsden/Institute of Cancer Research, Sutton, UK.",
+        "Canadian Cancer Trials Group (CCTG), Kingston, Ontario, Canada.",
+        "Oncology Center of Excellence, US Food and Drug Administration, Silver Spring, MD, USA.",
+        "Clinical Trials and Statistics Unit, The Institute of Cancer Research, London, UK.",
+        "Lineberger Comprehensive Cancer Center, Chapel Hill, NC, 27514, USA.",
+        "Pfizer Oncology, Global Medical Affairs/Early-Stage Development, Zug, Switzerland.",
+        "Medicines and Healthcare Products Regulatory Agency (MHRA), UK.",
+        "Princess Alexandra Hospital, Cancer Services, Brisbane, Queensland, Australia.",
+        "Centre for Patient-Reported Outcomes Research (CPROR), Institute of Applied Health Research, University of Birmingham, Birmingham, UK.",
+        "Quality of Life Department, European Organisation for Research and Treatment of Cancer, Brussels, Belgium.",
+        "Veloxis Pharmaceuticals, Cary, NC, USA.",
+        "Department of Quantitative Health Sciences, Mayo Clinic, Scottsdale, AZ, USA.",
+        "Merck KGaA, Darmstadt, Germany.",
+        "Centre for Patient Reported Outcomes Research (CPROR), Institute of Applied Health Research, University of Birmingham, Birmingham, UK.",
+        "Academic Unit of Ophthalmology, Institute of Inflammation and Ageing, University of Birmingham, UK.",
+        "LUNGevity Foundation, Bethesda, MD, USA.",
+        "Leeds Institute for Medical Research, University of Leeds, St James's University Hospital, Leeds, UK.",
+        "Center for Outcomes Research and Evaluation, Yale New Haven Hospital, New Haven, CT, USA.",
+        "The Association of the British Pharmaceutical Industry, UK.",
+        "RTI Health Solutions, Patient Centered Outcomes Research, Research Triangle Park, NC, USA.",
+        "Health Canada, Ottawa, Ontario, Canada.",
+        "Department of Medical Social Sciences, Northwestern University Feinberg School of Medicine, Chicago, IL, USA.",
+        "NU Cancer, Newcastle University, Newcastle upon Tyne, UK.",
+        "University of North Carolina Gillings School of Global Public Health, Chapel Hill, NC, USA.",
+        "AstraZeneca, Oncology Research and Development, Gaithersburg, MD, USA.",
+        "Federal Agency for Medicines and Health Products (FAMHP), Brussels, Belgium.",
+        "Cancer Research Advocates Forum UK, Sarcoma Patient Advocacy Global Network, UK."
+      ],
+      "abstract": "Early phase clinical trials provide an initial evaluation of therapies' risks and benefits to patients, including safety and tolerability, which typically relies on reporting outcomes by investigator and laboratory assessments. Use of patient-reported outcomes (PROs) to inform risks (tolerability) and benefits (improvement in disease symptoms) is more common in later than early phase trials. We convened a two-day expert roundtable covering: (1) the necessity and feasibility of a universal PRO core conceptual model for early phase trials; (2) the practical integration of PROs in early phase trials to inform tolerability assessment, guide dose decisions, or as real-time safety alerts to enhance investigator-reported adverse events. Participants (n┬á=┬á22) included: patient advocates, regulators, clinicians, statisticians, pharmaceutical representatives, and PRO methodologists working across diverse clinical areas. In this manuscript, we report major recommendations resulting from the roundtable discussions corresponding to each theme. Additionally, we highlight priority areas necessitating further investigation.",
+      "title": "Advancing patient-centric care: integrating patient reported outcomes for tolerability assessment in early phase clinical trials - insights from an expert virtual roundtable.",
+      "pub_status": "epublish",
+      "doi_id": "10.1016/j.eclinm.2024.102838",
+      "pubmed_id": "39386161",
+      "volume": "76",
+      "journal": "EClinicalMedicine",
+      "month": "9",
+      "category": "Journal",
+      "journal_type": "Review",
+      "authors": [
+        "Alger, Emily",
+        "Petrie, Joan",
+        "Basch, Ethan",
+        "Hansen, Aaron R",
+        "Dueck, Amylou C",
+        "Piccinin, Claire",
+        "Minchom, Anna",
+        "Gnanasakthy, Ari",
+        "Weber, Harald A",
+        "Rantell, Khadija Rerhou",
+        "Krumholz, Harlan",
+        "Bhatnagar, Vishal",
+        "Sasseville, Maxime",
+        "Yap, Christina",
+        "Seymour, Lesley K",
+        "Kholmanskikh, Olga",
+        "Wilson, Roger",
+        "Peipert, John Devin",
+        "Retzer, Ameeta",
+        "Lee Aiyegbusi, Olalekan",
+        "Greystoke, Alastair",
+        "Bell, Jill",
+        "O'Connor, Daniel",
+        "Calvert, Melanie",
+        "Cella, David",
+        "Kamudoni, Paul",
+        "Collis, Philip",
+        "Gilbert, Alexandra",
+        "Rauz, Saaeha",
+        "Wagner, Lynne",
+        "King-Kallimanis, Bellinda L",
+        "Rizk, Steven"
+      ]
+    }
+  ],
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2025-11-26"
+    },
+    "results": [
+      {
+        "term": "Review",
+        "count": 356
+      },
+      {
+        "term": "Editorial",
+        "count": 48
+      },
+      {
+        "term": "Letter",
+        "count": 29
+      },
+      {
+        "term": "Case Reports",
+        "count": 7
+      },
+      {
+        "term": "Dataset",
+        "count": 4
+      },
+      {
+        "term": "News",
+        "count": 3
+      },
+      {
+        "term": "Case Reports;Review",
+        "count": 1
+      },
+      {
+        "term": "News;Letter",
+        "count": 1
+      },
+      {
+        "term": "Review;Letter",
+        "count": 1
+      },
+      {
+        "term": "Technical Report",
+        "count": 1
+      }
+    ]
+  }
+}

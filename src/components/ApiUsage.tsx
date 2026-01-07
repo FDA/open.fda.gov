@@ -18,7 +18,8 @@ const nounMap = {
   animalandveterinary: "Animal and Veterinary",
   tobacco: "Tobacco",
   transparency: "Transparency",
-  cosmetic: "Cosmetic"
+  cosmetic: "Cosmetic",
+  publications: "Peer Reviewed"
 }
 
 // Update in pages/about/statistics/_content.yaml
@@ -472,6 +473,9 @@ if (!bp.mob && hasWindow) {
                       <tr><td>Enforcement Reports</td><td>{this.docCount('deviceenforcement')}</td></tr>
                       <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.docCount('covid19serology')}</td></tr>
 
+                      <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Publications</strong></td></tr>
+                      <tr> <td>Peer Reviewed Journals</td><td>{this.docCount('publicationspeerreviewed')}</td> </tr>
+
                       <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Tobacco</strong></td></tr>
                       <tr> <td>Problem Reports</td><td>{this.docCount('tobaccoproblem')}</td> </tr>
 
@@ -531,6 +535,9 @@ if (!bp.mob && hasWindow) {
                       <tr><td>UDIs</td><td>{this.downloadCount('deviceudi')}</td></tr>
                       <tr><td>Enforcement Reports</td><td>{this.downloadCount('deviceenforcement')}</td></tr>
                       <tr><td>COVID-19 Serological Testing Evaluations</td><td>{this.downloadCount('covid19serology')}</td></tr>
+
+                      <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Publications</strong></td></tr>
+                      <tr><td>Peer Reviewed</td><td>{this.downloadCount('publicationspeerreviewed')}</td></tr>
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Tobacco</strong></td></tr>
                       <tr><td>Problem Reports</td><td>{this.downloadCount('tobaccoproblem')}</td></tr>

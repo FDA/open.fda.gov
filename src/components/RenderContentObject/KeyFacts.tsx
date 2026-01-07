@@ -42,6 +42,9 @@ const source: Record<string, Record<string, string>> = {
     'substance': 'Substance Data Reports',
     'unii': 'Unique Ingredient Identifiers'
   },
+  'publications': {
+    'peerreviewed': 'Peer Reviewed Journals'
+  },
   'tobacco': {
     'problem': 'Tobacco Problem Reports'
   },
@@ -82,6 +85,9 @@ const sourceLink: any = {
     'nsde': '/apis/other/nsde/',
     'substance': '/apis/other/substance/',
     'unii': '/data/unii/'
+  },
+  'publications': {
+    'peerreviewed': '/apis/publications/peerreviewed/'
   },
   'tobacco': {
     'problem': '/data/tobaccoproblem/'
@@ -126,6 +132,9 @@ const timePeriod: any = {
     'substance': 'Last updated',
     'unii': '2006 to'
   },
+  'publications': {
+    'peerreviewed': '2023-09-01 to'
+  },
   'tobacco': {
     'problem': '2017 to'
   },
@@ -169,6 +178,9 @@ const frequency = {
     'nsde': 'Daily',
     'substance': 'Every few months',
     'unii': 'Daily'
+  },
+  'publications': {
+    'peerreviewed': 'Infrequently'
   },
   'tobacco': {
     'problem': 'Quarterly'
