@@ -28,8 +28,12 @@ export default () => (
           endpoint_name='drugsfda'
         />
         <EndpointBox
+            noun_name='drug'
+            endpoint_name='drugshortages'
+        />
+        <EndpointBox
           noun_name='drug'
-          endpoint_name='drugshortages'
+          endpoint_name='remsspl'
         />
       </div>
     </div>
