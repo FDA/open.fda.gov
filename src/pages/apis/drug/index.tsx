@@ -25,6 +25,10 @@ export default () => (
         />
         <EndpointBox
           noun_name='drug'
+          endpoint_name='orangebook'
+        />
+        <EndpointBox
+          noun_name='drug'
           endpoint_name='drugsfda'
         />
         <EndpointBox

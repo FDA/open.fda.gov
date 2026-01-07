@@ -444,13 +444,13 @@ if (!bp.mob && hasWindow) {
                         <td colSpan={2}><strong>Animal & Veterinary</strong></td>
                       </tr>
                       <tr><td>Adverse Event Reports</td><td>{this.docCount('animalandveterinarydrugevent')}</td></tr>
-                      <tr className='bg-primary-darkest clr-white'>
-                        <td colSpan={2}><strong>Drugs</strong></td>
-                      </tr>
+
+                      <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Drugs</strong></td></tr>
                       <tr><td>Adverse Event Reports</td><td>{this.docCount('drugevent')}</td></tr>
                       <tr><td>Labeling</td><td>{this.docCount('druglabel')}</td></tr>
                       <tr><td>NDC Directory</td><td>{this.docCount('ndc')}</td></tr>
                       <tr><td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td></tr>
+                      <tr><td>Orange Book</td><td>{this.docCount('drugorangebook')}</td></tr>
                       <tr><td>Drugs@FDA</td><td>{this.docCount('drugsfda')}</td></tr>
                       <tr><td>Drug Shortages</td><td>{this.docCount('drugshortages')}</td></tr>
 
@@ -510,6 +510,7 @@ if (!bp.mob && hasWindow) {
                       <tr><td>Labeling</td><td>{this.downloadCount('druglabel')}</td></tr>
                       <tr><td>NDC Directory</td><td>{this.downloadCount('ndc')}</td></tr>
                       <tr><td>Enforcement Reports</td><td>{this.downloadCount('drugenforcement')}</td></tr>
+                      <tr><td>Orange Book</td><td>{this.downloadCount('drugorangebook')}</td></tr>
                       <tr><td>Drugs@FDA</td><td>{this.downloadCount('drugsfda')}</td></tr>
                       <tr><td>Drug Shortages</td><td>{this.downloadCount('drugshortages')}</td></tr>
 
