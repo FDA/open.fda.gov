@@ -21,13 +21,14 @@ const FilterSelect = ({ filters, selected, onChange }: PROPS) => {
  * @return {React.Element}
  */
 const FilterSelect = ({ filters, selected, onChange }: PROPS) => {
-  const _onChange = (e: any) => onChange(e.target.value)
+
+  const handleChange = (e: any) => onChange(e.target.value)
 
   return (
     <div className='select-wrap'>
       <select
         value={selected}
-        onChange={_onChange}>
+        onChange={handleChange}>
         {
           filters &&
           filters.map((filter: Filter, i: any) => (

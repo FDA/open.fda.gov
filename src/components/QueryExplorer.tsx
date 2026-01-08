@@ -4,34 +4,16 @@ import React from 'react'
 import {marked} from 'marked'
 import Highlight from 'react-highlight.js'
 import cx from 'classnames'
-
+import { queryExplorerProps } from '../types'
 import QueryExplorerContainer from '../containers/QueryExplorerContainer'
-
 import '../css/components/QueryExplorer.scss'
-
-type tPROPS = {
-  desc: Array<string>;
-  fetchQuery: Function;
-  k: number;
-  level?: number;
-  name: string;
-  params?: Array<string>;
-  queryToRun?: string;
-  result?: string;
-  showResult: boolean;
-  title: string;
-  toggleQuery: Function;
-  updateQuery: Function;
-  tourStart: Function;
-  query?: string;
-};
 
 const btnCx = cx({
   'bg-primary hvr-bg-primary-darker': true,
   'clr-white marg-t-2 marg-b-2': true,
 })
 
-const QueryExplorer = (props: tPROPS) => {
+const QueryExplorer = (props: queryExplorerProps) => {
   const {
     desc,
     fetchQuery,

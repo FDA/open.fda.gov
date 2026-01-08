@@ -1,10 +1,7 @@
 /* @flow */
 
-import React from 'react'
-
-import Link from 'gatsby-link'
-
 import '../css/components/APIQueryBreakdown.scss'
+import * as React from 'react'
 
 type tPROPS = {
   endpoint_path: string,
