@@ -1,6 +1,7 @@
 /* @flow */
 
 import '../css/components/APIQueryBreakdown.scss'
+import * as React from 'react'
 
 type tPROPS = {
   endpoint_path: string,
