@@ -1,5 +1,6 @@
 /* @flow */
 
+import React from 'react'
 import {RadioGroup, Radio} from 'react-radio-group'
 
 type Filter = {
