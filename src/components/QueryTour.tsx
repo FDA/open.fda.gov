@@ -4,47 +4,58 @@ import React from 'react'
 
 import Joyride, { STATUS, Step } from 'react-joyride'
 import QueryExplorer from './QueryExplorer'
+import type { queryTour, queryTourState } from '../types';
 
-type tPROPS = {
-  name: string,
-  desc: string,
-  title: string,
-  query: string,
-  params: Array<string>,
-  k: number,
-  closeTour?: () => void,
-  level: number,
-  results: Array<any>,
-  qwery: string,
-  className?: string,
-  style?: Object,
-  [key: string]: any,
-}
+const steps = (name: string): Step[] => [
+  {
+    target: ('#explorer-' + name),
+    content: 'This tool is intended to demonstrate an example openFDA query.',
+    placement: 'top',
+    disableBeacon: true,
+    placementBeacon: 'top-end'
+  },
+  {
+    target: ('#params-' + name),
+    content: 'These are the parameters of the query.',
+    placement: 'top'
+  },
+  {
+    target: ('#query-' + name),
+    content: 'You can use this tool to modify the query as desired.',
+    placement: 'bottom'
+  },
+  {
+    target: ('#run-query-' + name),
+    content: 'Click this button to run the query.',
+    placement: 'bottom'
+  },
+  {
+    target: ('#query-result-' + name),
+    content: 'The query results display here.',
+    placement: 'top'
+  },
+  {
+    target: ('#close-query-' + name),
+    content: 'Click this button to close the query.',
+    placement: 'bottom'
+  }
+]
 
-type tSTATe = {
-  tourRun: boolean
-  stepa: Array<Step>
-}
+class QueryTour extends React.Component<queryTour, queryTourState> {
 
-class QueryTour extends React.Component<tPROPS, tSTATe> {
-
-  constructor (props: tPROPS) {
+  constructor (props: queryTour) {
     super(props)
 
     this.state = {
       tourRun: false,
-      stepa: []
+      stepa: steps(this.props.name)
     }
 
     this.handleClickStart = this.handleClickStart.bind(this)
     this.handleJoyrideCallback = this.handleJoyrideCallback.bind(this)
     this.closeTour = this.closeTour.bind(this)
+    
   }
-
-  componentDidMount () {
-
-  }
-
 
   handleClickStart = () => {
     this.setState({
@@ -59,7 +70,7 @@ class QueryTour extends React.Component<tPROPS, tSTATe> {
   }
 
   handleJoyrideCallback = (data: any) => {
-    const { status, type } = data
+    const { status } = data
     if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status)) {
       this.setState({ tourRun: false })
     }
@@ -67,49 +78,13 @@ class QueryTour extends React.Component<tPROPS, tSTATe> {
 
 
   render (): any {
-
-    const steps: Step[] = [
-      {
-        target: ('#explorer-' + this.props.name),
-        content: 'This tool is intended to demonstrate an example openFDA query.',
-        placement: 'top',
-        disableBeacon: true,
-        placementBeacon: 'top-end'
-      },
-      {
-        target: ('#params-' + this.props.name),
-        content: 'These are the parameters of the query.',
-        placement: 'top'
-      },
-      {
-        target: ('#query-' + this.props.name),
-        content: 'You can use this tool to modify the query as desired.',
-        placement: 'bottom'
-      },
-      {
-        target: ('#run-query-' + this.props.name),
-        content: 'Click this button to run the query.',
-        placement: 'bottom'
-      },
-      {
-        target: ('#query-result-' + this.props.name),
-        content: 'The query results display here.',
-        placement: 'top'
-      },
-      {
-        target: ('#close-query-' + this.props.name),
-        content: 'Click this button to close the query.',
-        placement: 'bottom'
-      }
-    ]
-
     return (
       <section>
         <Joyride
           continuous
           showSkipButton
           spotlightClicks
-          steps={steps}
+          steps={this.state.stepa}
           styles={{
             options: {
               primaryColor: "#000",
@@ -126,7 +101,8 @@ class QueryTour extends React.Component<tPROPS, tSTATe> {
           name={this.props.name}
           originalQuery={this.props.query}
           params={this.props.params}
-          title={this.props.title} k={0} level={0} result={''} query={''}        />
+          title={this.props.title} k={0} level={0} result={''} query={''}        
+        />
       </section>
     )
   }
