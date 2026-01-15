@@ -35,7 +35,7 @@ const _renderByYear = (results: any, years: any) => {
     data = data.sort((a: any, b: any) => {
       const aA = Number(a.display_name.match(/Q(\d)/)?.[1]);
       const bA = Number(b.display_name.match(/Q(\d)/)?.[1]);
-      return bA - aA;
+      return aA - bA;
     })
 
     return (
