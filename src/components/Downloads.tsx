@@ -31,7 +31,12 @@ const _renderByLimit = (results: any, limit: any) => {
 
 const _renderByYear = (results: any, years: any) => {
   return years.sort().map((y: any, i: any) => {
-    const data: any[] = results[y]
+    let data: any[] = results[y]
+    data = data.sort((a: any, b: any) => {
+      const aA = Number(a.display_name.match(/Q(\d)/)?.[1]);
+      const bA = Number(b.display_name.match(/Q(\d)/)?.[1]);
+      return aA - bA;
+    })
 
     return (
       <li
