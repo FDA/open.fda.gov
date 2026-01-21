@@ -13,35 +13,24 @@ import SideBarContainer from '../containers/SideBarContainer'
 import mapFields from '../utils/mapFields'
 import flattenFields from '../utils/flattenFields'
 import '../css/components/ContentWrapper.scss'
-
-type FieldsType = {
-  properties: Record<string, any>;
-  [key: string]: any;
-};
-
-type tPROPS = {
-  content?: Array<Object | string>;
-  explorers?: Object;
-  infographics?: Array<Object>;
-  infographicDefinitions?: Object;
-  fields?: FieldsType;
-  className?: string;
-  hideMenu?: boolean;
-  meta: { type?: string; start?: string | undefined; api_path?: string; [key: string]: any };
-  type?: String;
-};
+import type { contentWrapperProps, FieldsType } from '../types'
 
 const wrapperCx = cx({
   'container marg-b-3 relative row content-wrapper': true,
 })
 
+const contentCx = cx({
+  'float-r': true,
+  'ref-content': true,
+})
+
 // add fixed positioning functinality to reference sidebar
-const ComposedSidebar = SideBarContainer(SideBar)
+const ComposedSidebar: React.ComponentType<any> = SideBarContainer(SideBar)
 
 // i just exist to render the Sidebar, and
 // determine whether we render ref specific
 // components or not
-const ContentWrapper = (props: tPROPS) => {
+const ContentWrapper = (props: contentWrapperProps) => {
   const {
     content,
     explorers,
@@ -51,9 +40,6 @@ const ContentWrapper = (props: tPROPS) => {
     meta
   } = props
 
-  useEffect(() => {
-  }, []);
-
   let fieldsMapped: Record<string, string> = {}
   let fieldsFlattened: Record<string, string> = {}
   if (explorers && fields) {
@@ -61,22 +47,16 @@ const ContentWrapper = (props: tPROPS) => {
     fieldsFlattened = flattenFields(fieldsMapped) as Record<string, string>
   }
 
-  const contentCx = cx({
-    'float-r': true,
-    'ref-content': true,
-  })
-
   return (
     <section>
-
       <Hero
-      authors={[]} date={''} label={''} path={''} title={''} 
-      {...meta}
-      type={meta.type as 'homepage' | 'endpoint' | 'update' | undefined}
+        authors={[]} date={''} label={''} path={''} title={''}
+        {...meta}
+        type={meta.type as 'homepage' | 'endpoint' | 'update' | undefined}
       />
       {
         <EndpointStatus
-        endpoint={''} path={''} status={''} fullPath={''} data={null} {...meta}        />
+          endpoint={''} path={''} status={''} fullPath={''} data={null} {...meta} />
       }
       <section className={wrapperCx}>
         {
@@ -92,9 +72,11 @@ const ContentWrapper = (props: tPROPS) => {
             maxWidth: '100%',
           }}>
           <Content
-          examples={[]} showMenu={false} {...props}
-          fieldsMapped={fieldsMapped}
-          fieldsFlattened={fieldsFlattened}          />
+            examples={[]} showMenu={false} {...props}
+            fieldsMapped={fieldsMapped}
+            fieldsFlattened={fieldsFlattened}
+            meta={{ ...meta, start: meta.start || '', api_path: meta.api_path || '' }}
+          />
         </div>
       </section>
     </section>
