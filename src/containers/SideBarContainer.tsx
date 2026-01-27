@@ -2,18 +2,18 @@
 
 import React from 'react'
 import debounce from 'lodash/debounce'
+import type { sidebarState } from '../types/sidebar.types'
 
-type tSTATE = {
-  bottom: boolean;
-  bottomPos?: number;
-  fixed: boolean;
-};
+/**
+ * @description [HOC container for sidebar to make it sticky on scroll]
+ */
 
 const SideBarContainer = function (ComposedSideBar: any): React.ComponentType {
   class HOC extends React.Component {
-    state: tSTATE = {
+    state: sidebarState = {
       bottom: false,
       fixed: false,
+      bottomPos: 0
     };
 
     // this just gets re-assigned in constructor
@@ -21,14 +21,14 @@ const SideBarContainer = function (ComposedSideBar: any): React.ComponentType {
     _boundCheckPosition: () => void;
     private boundCB!: (event: Event) => void;
 
-    constructor (props: Object) {
+    constructor(props: Object) {
       super(props)
       // debounce so we're not calling this functions
       // thousands of times a second
       this._boundCheckPosition = debounce(this._checkPosition.bind(this), 10)
     }
 
-    componentDidMount () {
+    componentDidMount() {
       this.boundCB = this._boundCheckPosition
 
       if (window) {
@@ -37,7 +37,7 @@ const SideBarContainer = function (ComposedSideBar: any): React.ComponentType {
       }
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
       this.boundCB = this._boundCheckPosition
 
       if (window) {
@@ -46,7 +46,7 @@ const SideBarContainer = function (ComposedSideBar: any): React.ComponentType {
       }
     }
 
-    _checkPosition () {
+    _checkPosition() {
       // the entire aside, the height of the height
       const wrap = document.getElementById('sidebarWrap') as HTMLElement | null
       // the actual menu, of variable height, that can be fixed
@@ -99,7 +99,7 @@ const SideBarContainer = function (ComposedSideBar: any): React.ComponentType {
 
     // findPos() by quirksmode.org
     // Finds the absolute position of an element on a page
-    _getPos (element: HTMLElement | null): number {
+    _getPos(element: HTMLElement | null): number {
       if (!element) return 0;
       let absPos: number = 0
       let el: any = element
@@ -120,7 +120,7 @@ const SideBarContainer = function (ComposedSideBar: any): React.ComponentType {
 
     // getPageScroll() by quirksmode.org
     // Finds the scroll position of a page
-    _getPageScroll (): number {
+    _getPageScroll(): number {
       let browserPos: number = 0
 
       if (self.pageYOffset) {
@@ -137,7 +137,7 @@ const SideBarContainer = function (ComposedSideBar: any): React.ComponentType {
       return browserPos
     }
 
-    render () {
+    render() {
       return (
         <ComposedSideBar
           {...this.props}
