@@ -24,7 +24,7 @@ class IndexRoute extends React.Component {
         <h3>Additional Information About Orange book</h3>
         <p>To read more about Orange Book, please visit:</p>
         <ul>
-          <li><a href='https://www.fda.gov/Drugs/DevelopmentApprovalProcess/ucm079068.htm'>Orange Book Preface</a></li>
+          <li><a href='https://www.fda.gov/drugs/drug-approvals-and-databases/approved-drug-products-therapeutic-equivalence-evaluations-orange-book'>Orange Book</a></li>
         </ul>
 
         <h3>Responsible use of the data</h3>

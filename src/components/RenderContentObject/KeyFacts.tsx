@@ -119,7 +119,7 @@ const timePeriod: any = {
     'label': 'The bulk of the data is from June 2009 (when labeling was first posted publicly in the SPL format) to the present. However, there are a small number of records from earlier than mid-2009. The last update was on',
     'ndc': 'Last updated on',
     'enforcement': '2004 to',
-    'orangebook': '1980 to',
+    'orangebook': 'Content current as of:',
     'drugsfda': '1939 to',
     'shortages': '2012 to'
   },
@@ -164,7 +164,7 @@ const frequency = {
     'label': 'Weekly',
     'ndc': 'Daily',
     'enforcement': 'Weekly',
-    'orangebook': 'Monthly',
+    'orangebook': 'Daily',
     'drugsfda': 'Daily (Monday-Friday)',
     'shortages': 'Daily'
   },

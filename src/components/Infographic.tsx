@@ -109,6 +109,7 @@ const Infographic = (props: tPROPS) => {
   // Don't render if there is no data, or the field we are trying to
   // count by (visualize) is unknown
   const fieldDefinition: void|Object = yamlGet(nextCountParam, fields)
+  console.log("fielddef: ", fieldDefinition, "nextcountParam: ", nextCountParam, "fields: ", fields)
   const error: boolean = data?.error || !fieldDefinition
 
   // if fieldDef has description, then docs-ify it
@@ -192,53 +193,8 @@ const Infographic = (props: tPROPS) => {
               borderBottom: bp.mob ? '1px solid #e4e2e0' : 0,
               borderRight: '2px solid #e4e2e0',
             }}>
-            <p className='infographic-header'>
-              View:
-            </p>
-            <div
-              className='select-wrap'
-              style={{
-                marginTop: '10px',
-              }}>
-              <label>
-                <span className='visually-hidden'>
-                  Select a count parameter to filter by
-                </span>
-                <select
-                  className='select clr-primary'
-                  id='view-select'
-                  value={props.countParam}
-                  onChange={onCountChangeAndUpdate}
-                  // inline because of uncss
-                  // client side only code not picked up
-                  style={{
-                    appearance: 'none',
-                    background: '#fff',
-                    border: '1px solid #0af',
-                    borderRadius: 0,
-                    display: 'block',
-                    fontFamily: 'inherit',
-                    fontSize: '14px',
-                    outline: 0,
-                    padding: '7px',
-                    width: '100%',
-                    WebkitAppearance: "none"
-                  }}>
-                  {
-                    Object.keys(props.fieldsFlattened).map((field: string, i) => (
-                      <option
-                        key={i}
-                        value={field}>
-                        {field}
-                      </option>
-                    ))
-                  }
-                </select>
-              </label>
-            </div>
 
             <p className='infographic-header'>
-              <br/>
               Filter:
             </p>
             <FilterWithState />

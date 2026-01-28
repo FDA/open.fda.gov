@@ -17,8 +17,8 @@ class IndexRoute extends React.Component {
 
         <h3>Making a simple API Call</h3>
         <p>You can call the Application Programming Interface from a web browser. Simply type a valid query in your browser’s address bar and press the Enter key.</p>
-        <p>In the example below, we are searching the records in the Drug Orange Book endpoint for matches with <code>AP</code> in the <code>therapeutic_equivalence_codes</code> field. We are requesting to see the first 5 records that match.</p>
-        <APIQueryBreakdown endpoint_path='/drug/orangebook.json' query='therapeutic_equivalence_codes:"AP"'/>
+        <p>In the example below, we are searching the records in the Drug Orange Book endpoint for matches with <code>AP</code> in the <code>products.therapeutic_equivalence_codes</code> field. We are requesting to see the first 5 records that match.</p>
+        <APIQueryBreakdown endpoint_path='/drug/orangebook.json' query='products.therapeutic_equivalence_codes:"AP"'/>
 
         <h3>Some key pointers</h3>
         <ul>
