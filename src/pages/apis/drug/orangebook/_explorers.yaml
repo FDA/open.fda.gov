@@ -1,0 +1,33 @@
+oneProduct:
+  title: One product
+  description:
+    - "This query searches for a specific product by application number."
+  params:
+    - "Search for application number 078687."
+    - "Limit to 1 record."
+  query: 'https://openfda-api.preprod.fda.gov/drug/orangebook.json?search=products.application_number:078687&limit=1'
+expiring2020:
+  title: Expiring in 2020
+  description:
+    - "This query searches all products that have patents and exclusivities expiring in the calendar year 2020."
+    - 'Date ranges are wrapped in square brackets `[]`.'
+  params:
+    - "Search for all products which have `patents.expire_date` falling within 2020."
+    - "Search for all products which have `exclusivity.exclusivity_expire_date` falling within 2020."
+    - "Limit to 1 record."
+  query: 'https://openfda-api.preprod.fda.gov/drug/orangebook.json?search=patents.expire_date:[2020-01-01+TO+2020-12-31]+exclusivity.exclusivity_expire_date:[2020-01-01+TO+2020-12-31]'
+singleSource:
+  title: Single source products
+  description:
+    - "This query searches for all products which have only a single source."
+  params:
+    - "Search for all products without a therapeutic equivalence code."
+    - "Limit to 20 records."
+  query: 'https://openfda-api.preprod.fda.gov/drug/orangebook.json?search=_missing_:products.therapeutic_equivalence_codes&limit=20'
+countByType:
+  title: Count of products, by application type (N = New Drug Applications and A = Abbreviated New Drug Applications)
+  description:
+    - "This query compares the number of results which fall into the different application types. New applications are designated as `N`, while abbreviated applications are designated as `A`."
+  params:
+    - "Count the field application_type (application type)."
+  query: 'https://openfda-api.preprod.fda.gov/drug/orangebook.json?count=products.application_type'

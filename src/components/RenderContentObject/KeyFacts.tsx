@@ -33,6 +33,7 @@ const source: Record<string, Record<string, string>> = {
     'label': 'FDA SPL files',
     'ndc': 'NDC Directory',
     'enforcement': 'FDA Recall Enterprise System (RES)',
+    'orangebook': 'Approved Drug Products with Therapeutic Equivalence Evaluations (Orange Book)',
     'drugsfda': 'Drugs@FDA',
     'shortages': 'Drug Shortages'
   },
@@ -74,6 +75,7 @@ const sourceLink: any = {
     'label': '/data/spl/',
     'ndc': '/data/ndc/',
     'enforcement': '/data/res/',
+    'orangebook': '/data/orangebook/',
     'drugsfda': '/data/drugsfda/',
     'shortages': '/data/drugshortages'
   },
@@ -117,6 +119,7 @@ const timePeriod: any = {
     'label': 'The bulk of the data is from June 2009 (when labeling was first posted publicly in the SPL format) to the present. However, there are a small number of records from earlier than mid-2009. The last update was on',
     'ndc': 'Last updated on',
     'enforcement': '2004 to',
+    'orangebook': 'Content current as of:',
     'drugsfda': '1939 to',
     'shortages': '2012 to'
   },
@@ -161,6 +164,7 @@ const frequency = {
     'label': 'Weekly',
     'ndc': 'Daily',
     'enforcement': 'Weekly',
+    'orangebook': 'Daily',
     'drugsfda': 'Daily (Monday-Friday)',
     'shortages': 'Daily'
   },

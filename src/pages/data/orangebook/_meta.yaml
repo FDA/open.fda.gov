@@ -1,0 +1,30 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › Orange Book'
+crumbs:
+  - openFDA
+  - Datasets
+  - Orange Book
+title: 'Approved Drug Products with Therapeutic Equivalence Evaluations (Orange Book)'
+description: 'The publication Approved Drug Products with Therapeutic Equivalence Evaluations (commonly known as the Orange Book) identifies drug products approved on the basis of safety and effectiveness by the Food and Drug Administration (FDA) under the Federal Food, Drug, and Cosmetic Act (the Act) and related patent and exclusivity information.'
+source:
+  name: 'Orange Book'
+  nameLong: 'Orange Book'
+  link: 'https://www.fda.gov/drugs/drug-approvals-and-databases/approved-drug-products-therapeutic-equivalence-evaluations-orange-book'
+  linkDownload: 'https://www.fda.gov/media/76860/download?attachment'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+  time:
+  start:
+  current:
+  delay:
+  frequency: 'Daily'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - 'The main criterion for the inclusion of any product is that the product is the subject of an application with an approval that has not been withdrawn for safety or efficacy reasons.'
+  - 'Inclusion of products in the Orange Book is independent of any current regulatory action through administrative or judicial means against a drug product.'
+  - 'In addition, the Orange Book contains therapeutic equivalence evaluations for approved multisource prescription drug products.'
+  - 'These evaluations have been prepared to serve as public information and advice to state health agencies, prescribers, and pharmacists to promote public education in the area of drug product selection and to foster containment of health care costs.'
+  - 'Therapeutic equivalence evaluations in this publication are not official FDA actions affecting the legal status of products under the FD&C Act.'
