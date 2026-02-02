@@ -1,0 +1,16 @@
+journal223:
+  params:
+    - search for a single journal with a date of Febuary 2023
+    - limit to 5 records.
+  query: 'https://openfda-api.preprod.fda.gov/publications/peerreviewed.json?search=year:2023+month:02&limit=5'
+  description:
+    - This query searches for journals with a date of Febuary 2023 and returns 5 results
+  title: Journals from 2/2022
+pubmedid:
+  params:
+    - search for a journal with the PubMed ID 39386161
+  query: 'https://openfda-api.preprod.fda.gov/publications/peerreviewed.json?search=pubmed_id:"39386161"'
+  description:
+    - This query searches for a journal with the PubMed ID 39386161
+  title: Journal by PubMed ID
+

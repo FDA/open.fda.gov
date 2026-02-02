@@ -34,6 +34,7 @@ let endpointKeys = [
   'othernsde',
   'othersubstance',
   'otherunii',
+  'publicationspeerreviewed',
   'tobaccoproblem',
   'transparencycrl'
 ]
@@ -64,6 +65,7 @@ const catMap: Record<EndpointKey, string> = Object.freeze({
   'othernsde': 'Other › NSDE',
   'othersubstance': 'Other › Substance',
   'otherunii': 'Other › UNII',
+  'publicationspeerreviewed': 'Publications › Peer Reviewed Journals',
   'tobaccoproblem': 'Tobacco › Problem Reports',
   'transparencycrl': 'Transparency › Complete Response Letters'
 })
@@ -93,6 +95,7 @@ const endpointLinkMap: Record<EndpointKey, string> = Object.freeze({
   'othernsde': 'other/nsde',
   'othersubstance': 'other/substance',
   'otherunii': 'other/unii',
+  'publicationspeerreviewed': 'publications/peerreviewed',
   'tobaccoproblem': 'tobacco/problem',
   'transparencycrl': 'transparency/crl'
 })
