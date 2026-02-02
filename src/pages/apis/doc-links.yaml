@@ -180,6 +180,24 @@
           link: /apis/drug/drugshortages/download/
         - title: Searchable fields
           link: /apis/drug/drugshortages/searchable-fields/
+    - title: REMS SPL
+      id: drug-rems-spl
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/drug/remsspl/
+        - title: How to use the API
+          link: /apis/drug/remsspl/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/drug/remsspl/example-api-queries/
+        - title: Explore the API with an interactive chart
+          link: /apis/drug/remsspl/explore-the-api-with-an-interactive-chart/
+        - title: Understanding the API Results
+          link: /apis/drug/remsspl/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/drug/remsspl/download/
+        - title: Searchable fields
+          link: /apis/drug/remsspl/searchable-fields/
 
 - title: Device API Endpoints
   id: device-api-endpoints
