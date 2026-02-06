@@ -5,18 +5,18 @@ oneRecord:
     - limit to 1 record.
   description:
     - This query searches for all records and asks for a single one.
-  query: 'https://openfda-api.preprod.fda.gov/tobacco/researchdigitalads.json?limit=1'
+  query: 'https://api.fda.gov/tobacco/researchdigitalads.json?limit=1'
 instagramAd:
   title: Instagram stories video ad
   description:
     - This query searches for all records with a format of "Instagram stories video ad".
   params:
     - search for all records with channel_or_format equal to "Instagram stories video ad".
-  query: 'https://openfda-api.preprod.fda.gov/tobacco/researchdigitalads.json?search=channel_or_format:"Instagram stories video ad"'
+  query: 'https://api.fda.gov/tobacco/researchdigitalads.json?search=channel_or_format:"Instagram stories video ad"'
 adNumberCount:
   title: Count Records by ad_number
   description:
     - The suffix .exact is required by openFDA to count the unique full phrases in the field product. Without it, the API will count each word in that field individually.
   params:
     - count the records associated with each ad_number
-  query: 'https://openfda-api.preprod.fda.gov/tobacco/researchdigitalads.json?count=ad_number.exact'
+  query: 'https://api.fda.gov/tobacco/researchdigitalads.json?count=ad_number.exact'
