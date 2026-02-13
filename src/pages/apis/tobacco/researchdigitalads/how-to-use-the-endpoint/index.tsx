@@ -22,7 +22,7 @@ class IndexRoute extends React.Component {
 
         <h3>Some key pointers</h3>
         <ul>
-          <li>An openFDA API query always begins with the base endpoint, which in this case is: <code>https://openfda-api.preprod.fda.gov/tobacco/researchdigitalads.json</code></li>
+          <li>An openFDA API query always begins with the base endpoint, which in this case is: <code>https://api.fda.gov/tobacco/researchdigitalads.json</code></li>
           <li>Searches have a special syntax: <code>search=field:term</code></li>
           <li>Unless otherwise specified, the API will return only one matching record for a search. You can specify the number of records to be returned by using the limit parameter. The maximum limit allowed is 1000 for any single API call. If no limit is set, the API will return one matching record.</li>
         </ul>
