@@ -11479,6 +11479,4035 @@ tobacco:
           possible_values:
           type: string
     type: object
+  researchpreventionads:
+    properties:
+      ad_number:
+        description: "Ad number"
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      study_name:
+        description: "Study name"
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      full_sample:
+        type: object
+        properties:
+          exposure_type:
+            description: "Exposure type"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          product:
+            description: "Study tobacco product focus"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          exposure_group_number:
+            description: "Exposure group number"
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          control_group_number:
+            description: "Control group number"
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          cigarette_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+      gender:
+        type: object
+        properties:
+          gender:
+            description: "Gender"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          exposure_type:
+            description: "Exposure type"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          product:
+            description: "Study tobacco product focus"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          exposure_group_number:
+            description: "Exposure group number"
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          control_group_number:
+            description: "Control group number"
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          cigarette_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+      race_or_ethnicity:
+        type: object
+        properties:
+          race_or_ethnicity:
+            description: "Race or Ethnicity"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          exposure_type:
+            description: "Exposure type"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          product:
+            description: "Study tobacco product focus"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          exposure_group_number:
+            description: "Exposure group number"
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          control_group_number:
+            description: "Control group number"
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          cigarette_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+      age_group:
+        type: object
+        properties:
+          age_group:
+            description: "Age Group"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          exposure_type:
+            description: "Exposure type"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          product:
+            description: "Study tobacco product focus"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          exposure_group_number:
+            description: "Exposure group number"
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          control_group_number:
+            description: "Control group number"
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          cigarette_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+      risk_status:
+        type: object
+        properties:
+          tobacco_use_status:
+            description: "Tobacco Use Status"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          exposure_type:
+            description: "Exposure type"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          product:
+            description: "Study tobacco product focus"
+            format:
+            is_exact: true
+            possible_values:
+            type: string
+          exposure_group_number:
+            description: "Exposure group number"
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          control_group_number:
+            description: "Control group number"
+            format:
+            is_exact: false
+            possible_values:
+            type: string
+          cigarette_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          cigarette_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          vape_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_addiction_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_attitudes:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_health_consequences_beliefs:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+          smokeless_tobacco_harmful_and_potentially_harmful_constituents:
+            type: object
+            properties:
+              exposure_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              control_group:
+                type: object
+                properties:
+                  number:
+                    description: "Number"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  mean:
+                    description: "Mean"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+                  standard_deviation:
+                    description: "Standard Deviation"
+                    format:
+                    is_exact: false
+                    possible_values:
+                    type: string
+              effect_size:
+                description: "Effect Size"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lower_bound:
+                description: "Effect Size Lower Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              upper_bound:
+                description: "Effect Size Upper Bound"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+    type: object
+  researchdigitalads:
+    properties:
+      ad_number:
+        description: "The Real Cost campaign ad that was shown to participants: Ad 1, Ad 2, Ad 3, Ad 4"
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      channel_or_format:
+        description: "The channel and placement type that participant viewed as part of the experiment: Instagram reels infeed video ad, Instagram stories video ad, YouTube non-skippable preroll ad, YouTube skippable preroll ad."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      views:
+        description: "Number of participants that viewed the ad"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      playback_seconds:
+        description: "Average number of seconds the video was visible on the screen. (visible = 50% of the ad is shown on the screen)."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      view_through_rate:
+        description: "Percentage of impressions that played until the end. Note: impressions = participants"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      attentive_seconds:
+        description: "Average number of seconds the ad received attention from the participant."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      attentive_average:
+        description: "Percentage of total ad length that the ad received attention from the participant."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      attentive_vtr:
+        description: "Percentage of participants who paid attention to at least 50% of the ad and in the last 2 seconds of the ad."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      brand_recognition:
+        description: 'Have you seen an ad for any of the following brands* during this test? Please click any brand logo you remember viewing an ad from in the last few minutes. [the question listed 10–12 brands across multiple industries and the participant had to select the ones they recalled seeing during the test] This variable represents the percentage of participants who selected "The Real Cost" brand logo.'
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      ad_recognition:
+        description: "Do you remember viewing this ad? [the question listed 10–12 thumbnails and the participant had to select the ones they recalled seeing during the test] This variable represents the percentage of participants who selected The Real Cost ad."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      playback_seconds_standard_deviation:
+        description: "The standard deviation that is associated with the variable Playback Seconds. This was used in significance testing."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      attentive_seconds_standard_deviation:
+        description: "The standard deviation that is associated with the variable Attentive Seconds. This was used in significance testing."
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+    type: object
 transparency:
   crl:
     properties:

@@ -151,3 +151,11 @@ updates:
     path: /apis/cosmetic/event/
     date: 2025-09-13
     desc: "The dataset Cosmetic Adverse Events is now available."
+  - title: "New openFDA Dataset - Tobacco Prevention Ads Research"
+    path: /apis/tobacco/researchpreventionads/
+    date: 2026-02-17
+    desc: "The dataset Tobacco Prevention Ads Research is now available."
+  - title: "New openFDA Dataset - Tobacco Digital Ads Research"
+    path: /apis/tobacco/researchdigitalads/
+    date: 2026-02-17
+    desc: "The dataset Tobacco Digital Ads Research is now available."

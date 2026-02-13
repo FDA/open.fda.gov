@@ -513,6 +513,38 @@
           link: /apis/tobacco/problem/download/
         - title: Searchable fields
           link: /apis/tobacco/problem/searchable-fields/
+    - title: Prevention Ads Research
+      id: tobacco-researchpreventionads
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/tobacco/researchpreventionads/
+        - title: How to use the API
+          link: /apis/tobacco/researchpreventionads/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/tobacco/researchpreventionads/example-api-queries/
+        - title: Understanding the API Results
+          link: /apis/tobacco/researchpreventionads/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/tobacco/researchpreventionads/download/
+        - title: Searchable fields
+          link: /apis/tobacco/researchpreventionads/searchable-fields/
+    - title: Digital Ads Research
+      id: tobacco-researchdigitalads
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/tobacco/researchdigitalads/
+        - title: How to use the API
+          link: /apis/tobacco/researchdigitalads/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/tobacco/researchdigitalads/example-api-queries/
+        - title: Understanding the API Results
+          link: /apis/tobacco/researchdigitalads/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/tobacco/researchdigitalads/download/
+        - title: Searchable fields
+          link: /apis/tobacco/researchdigitalads/searchable-fields/
 
 - title: Transparency API Endpoints
   id: transparency-api-endpoints

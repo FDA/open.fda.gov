@@ -25,6 +25,8 @@ const pdfDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'othernsde': '/fields/othernsde_reference.pdf',
   'othersubstance': '/fields/othersubstance_reference.pdf',
   'tobaccoproblem': '/fields/tobaccoproblem_reference.pdf',
+  'tobaccoresearchpreventionads': '/fields/tobaccotobaccoresearchpreventionads_reference.pdf',
+  'tobaccoresearchdigitalads': '/fields/tobaccotobaccoresearchdigitalads_reference.pdf',
   'transparencycrl': '/fields/transparencycrl_reference.pdf'
 });
 
@@ -52,6 +54,8 @@ const xlsxDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'othernsde': '/fields/othernsde_reference.xlsx',
   'othersubstance': '/fields/othersubstance_reference.xlsx',
   'tobaccoproblem': '/fields/tobaccoproblem_reference.xlsx',
+  'tobaccoresearchpreventionads': '/fields/tobaccotobaccoresearchpreventionads_reference.xlsx',
+  'tobaccoresearchdigitalads': '/fields/tobaccotobaccoresearchdigitalads_reference.xlsx',
   'transparencycrl': '/fields/transparencycrl_reference.xlsx'
 });
 
@@ -79,6 +83,8 @@ const yamlDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'othernsde': '/fields/othernsde.yaml',
   'othersubstance': '/fields/othersubstance.yaml',
   'tobaccoproblem': '/fields/tobaccoproblem.yaml',
+  'tobaccoresearchpreventionads': '/fields/tobaccotobaccoresearchpreventionads.yaml',
+  'tobaccoresearchdigitalads': '/fields/tobaccotobaccoresearchdigitalads.yaml',
   'transparencycrl': '/fields/transparencycrl.yaml'
 });
 
