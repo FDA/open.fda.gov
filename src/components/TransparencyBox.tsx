@@ -1,9 +1,9 @@
 /* @flow */
 
 import React from 'react'
-import { withPrefix } from "gatsby"
 
-import { Link } from "gatsby"
+import Link from 'gatsby-link'
+
 import '../css/components/EndpointBox.scss'
 
 type NounName = 'transparency'
@@ -58,9 +58,7 @@ const TransparencyBox = (props: tPROPS) => {
 
   return (
     <section id='endpoint_box' className='marg-2 endpoint-card'>
-      <Link
-          className="ep-box"
-          to={ep_path[noun_name][endpoint_name]}>
+      <a className='ep-box' href={ep_path[noun_name][endpoint_name]}>
         <div className='ep-icon-container'>
           {icon[noun_name][endpoint_name]}
         </div>
@@ -69,7 +67,7 @@ const TransparencyBox = (props: tPROPS) => {
           <span className='marg-1 clr-black'>{description[noun_name][endpoint_name]}</span>
         </div>
         <span className='btn btn-icon-right clr-primary weight-700'>LEARN MORE<i className='fa fa-angle-right marg-l-1'/></span>
-     </Link>
+      </a>
     </section>
   )
 }
