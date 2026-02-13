@@ -5,18 +5,18 @@ oneRecord:
     - limit to 1 record.
   description:
     - This query searches for all records and asks for a single one.
-  query: 'https://api.fda.gov/tobacco/researchpreventionads.json?limit=1'
+  query: 'https://openfda-api.preprod.fda.gov/tobacco/researchpreventionads.json?limit=1'
 studyOne:
   title: Susceptible Non-Triers in TRC Cigarettes Study 1
   description:
     - This query searches for all records with a specific tobacco use status and a specific study.
   params:
     - search for all records with tobacco_use_status equal to "Susceptible Non-Trier" and study_name equal to "TRC Cigarettes Study 1".
-  query: 'https://api.fda.gov/tobacco/researchpreventionads.json?search=risk_status.tobacco_use_status:"Susceptible Non-Trier"+AND+study_name:"TRC Cigarettes Study 1"'
+  query: 'https://openfda-api.preprod.fda.gov/tobacco/researchpreventionads.json?search=risk_status.tobacco_use_status:"Susceptible Non-Trier"+AND+study_name:"TRC Cigarettes Study 1"'
 tobaccoProducts:
   title: Research Records by tobacco product
   description:
     - The suffix .exact is required by openFDA to count the unique full phrases in the field product. Without it, the API will count each word in that field individually.
   params:
     - count the number of records associated with each type of tobacco product
-  query: 'https://api.fda.gov/tobacco/researchpreventionads.json?count=product.exact'
+  query: 'https://openfda-api.preprod.fda.gov/tobacco/researchpreventionads.json?count=product.exact'
