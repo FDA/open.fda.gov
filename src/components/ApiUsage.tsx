@@ -474,6 +474,8 @@ if (!bp.mob && hasWindow) {
 
                       <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Tobacco</strong></td></tr>
                       <tr> <td>Problem Reports</td><td>{this.docCount('tobaccoproblem')}</td> </tr>
+                      <tr> <td>Prevention Ads Research</td><td>{this.docCount('tobaccoresearchpreventionads')}</td> </tr>
+                      <tr> <td>Digital Ads Research</td><td>{this.docCount('tobaccoresearchdigitalads')}</td> </tr>
 
                       <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Transparency</strong></td></tr>
                       <tr> <td>Complete Response Letters</td><td>{this.docCount('transparencycrl')}</td> </tr>
@@ -534,6 +536,8 @@ if (!bp.mob && hasWindow) {
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Tobacco</strong></td></tr>
                       <tr><td>Problem Reports</td><td>{this.downloadCount('tobaccoproblem')}</td></tr>
+                      <tr><td>Prevention Ads Research</td><td>{this.downloadCount('tobaccoresearchpreventionads')}</td></tr>
+                      <tr><td>Digital Ads Research</td><td>{this.downloadCount('tobaccoresearchdigitalads')}</td></tr>
 
                       <tr className='bg-primary-darkest clr-white'> <td colSpan={2}><strong>Transparency</strong></td></tr>
                       <tr> <td>Complete Response Letters</td><td>{this.downloadCount('transparencycrl')}</td> </tr>

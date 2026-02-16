@@ -1,0 +1,13 @@
+documentTitle: openFDA › Tobacco › Prevention Ads Research API
+name: Tobacco Prevention Ads Research
+description: "This dataset makes available the Research Manuscript: Impact Potential of FDA's Tobacco Prevention Ads on Youth Attitudes and Beliefs: Meta-Analytical Evidence from A Decade's Worth of Copy Testing"
+datasets:
+  - tobaccoresearchpreventionads
+label: Tobacco Prevention Ads Research
+title: Tobacco Prevention Ads Research
+path: /apis/tobacco/researchpreventionads
+api_path: /tobacco/researchpreventionads
+start: 20170101
+status: tobaccoresearchpreventionads
+dateConstraintKey:
+type: endpoint
