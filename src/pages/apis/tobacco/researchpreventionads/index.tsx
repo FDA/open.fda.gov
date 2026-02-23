@@ -14,9 +14,7 @@ class IndexRoute extends React.Component {
         <p><a href='https://www.safetyreporting.hhs.gov/srp2/CTP/TobaccoProductsParts.html' target='_blank' rel='noopener noreferrer'>Tobacco products</a> are made or derived from tobacco and include any associated parts that are necessary
             for their use. For example, both a pipe device and the pipe tobacco are regulated by the FDA.</p>
 
-        <p>This dataset makes available the research paper "Impact Potential of FDA's Tobacco Prevention Ads on Youth Attitudes and Beliefs:
-          Meta-Analytical Evidence from A Decade's Worth of Copy Testing Research
-          Manuscript"</p>
+        <p>This dataset makes available the research paper "Effectiveness of Youth Tobacco Prevention Ads: Meta-Analysis of a Decade's Worth of Copy Testing Data."</p>
 
         <KeyFacts
           noun_name={meta.api_path.split("/")[1]}
