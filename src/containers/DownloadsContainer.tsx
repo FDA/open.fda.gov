@@ -4,15 +4,11 @@ import React from 'react'
 import get from 'lodash/get'
 import xhrGET from '../utils/xhr'
 import { API_LINK } from '../constants/api'
+import type { DownloadsContainerState } from '../types/download.types'
 
-type tSTATE = {
-  data: Object | null | undefined;
-  showAllResults: boolean;
-};
-
-const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass {
+const DownloadsContainer = function (ComposedDownloads: React.ComponentType<any>): React.ComponentType<any> {
   class HOC extends React.Component {
-    state: tSTATE = {
+    state: DownloadsContainerState = {
       data: null,
       showAllResults: false,
     };
@@ -22,7 +18,7 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
     }
 
     _fetchDownloads () {
-      const _handleResponse = data => {
+      const _handleResponse = (data: any) => {
 
         this.setState({
           data,
@@ -46,12 +42,12 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
      * @param {Array<Object>} results [original results array]
      * @returns {Object} [map, where each year is an array]
      */
-    _getResultsByCategory (results: Array<Object>): Object {
+    _getResultsByCategory (results: Array<any>): Object {
       // handle data sorted by years
       // or data sorted by set
       // or data that is just all lumped together for some reason
       const yearRe: RegExp = /(\d{4} )|(All other data)|^(\w|\/)+/
-      const resultsByYear: Object = {}
+      const resultsByYear: { [key: string]: any } = {}
 
       for (const result of results) {
         if (result.size_mb < 0.01) {
@@ -76,7 +72,7 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
       // drug/event => results.drug.event
       const key: string = `results${api_path.split('/').join('.')}`
       // data = { results: { drug: { event: relevantData } } }
-      const results: Object = get(this.state.data, key)
+      const results: any = get(this.state.data, key)
 
       // some endpoint won't have download data
       if (typeof results !== 'object') return <span />
@@ -85,13 +81,13 @@ const DownloadsContainer = function (ComposedDownloads: ReactClass): ReactClass 
       const resultsByCat: Object = this._getResultsByCategory(results.partitions)
       // type so flow knows meta can't be undefined
       // NOT the same as this.props.meta
-      const meta: Object = get(this.state.data, 'meta')
+      const meta: any = get(this.state.data, 'meta') || {}
 
       return (
         <ComposedDownloads
-          k={this.props.k}
+          k={this.props?.k}
           api_path={api_path}
-          title={this.props.meta.title}
+          title={this.props?.meta?.title}
           allPartitions={results.partitions}
           results={resultsByCat}
           showAllResults={this.state.showAllResults}
