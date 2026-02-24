@@ -19,6 +19,8 @@ export type EndpointName =
     | 'substance'
     | 'unii'
     | 'problem'
+    | 'researchpreventionads'
+    | 'researchdigitalads'
     | 'crl'
     | 'completeresponseletters';
 

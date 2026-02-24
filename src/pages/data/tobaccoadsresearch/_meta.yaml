@@ -1,0 +1,26 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › Tobacco Ads Research'
+crumbs:
+  - openFDA
+  - Datasets
+  - Tobacco Ads Research
+title: 'Tobacco Ads Research'
+description: 'Research studies into the impacts of Tobacco advertising.'
+source:
+  name: 'Tobacco Ads Research'
+  nameLong: 'Tobacco Ads Research'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+  time:
+  start:
+  current:
+  delay:
+  frequency:
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - 'openFDa currently hosts two FDA studies into the impacts of tobacco advertising:'
+  - "Impact Potential of FDA's Tobacco Prevention Ads on Youth Attitudes and Beliefs: Meta-Analytical Evidence from A Decade's Worth of Copy Testing"
+  - 'Exploring Attention to Digital Ads'

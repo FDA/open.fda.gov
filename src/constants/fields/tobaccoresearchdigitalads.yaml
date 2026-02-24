@@ -1,0 +1,74 @@
+properties:
+  ad_number:
+    description: "The Real Cost campaign ad that was shown to participants: Ad 1, Ad 2, Ad 3, Ad 4"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  channel_or_format:
+    description: "The channel and placement type that participant viewed as part of the experiment: Instagram reels infeed video ad, Instagram stories video ad, YouTube non-skippable preroll ad, YouTube skippable preroll ad."
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  views:
+    description: "Number of participants that viewed the ad"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  playback_seconds:
+    description: "Average number of seconds the video was visible on the screen. (visible = 50% of the ad is shown on the screen)."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  view_through_rate:
+    description: "Percentage of impressions that played until the end. Note: impressions = participants"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  attentive_seconds:
+    description: "Average number of seconds the ad received attention from the participant."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  attentive_average:
+    description: "Percentage of total ad length that the ad received attention from the participant."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  attentive_vtr:
+    description: "Percentage of participants who paid attention to at least 50% of the ad and in the last 2 seconds of the ad."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  brand_recognition:
+    description: 'Have you seen an ad for any of the following brands* during this test? Please click any brand logo you remember viewing an ad from in the last few minutes. [the question listed 10–12 brands across multiple industries and the participant had to select the ones they recalled seeing during the test] This variable represents the percentage of participants who selected "The Real Cost" brand logo.'
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  ad_recognition:
+    description: "Do you remember viewing this ad? [the question listed 10–12 thumbnails and the participant had to select the ones they recalled seeing during the test] This variable represents the percentage of participants who selected The Real Cost ad."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  playback_seconds_standard_deviation:
+    description: "The standard deviation that is associated with the variable Playback Seconds. This was used in significance testing."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  attentive_seconds_standard_deviation:
+    description: "The standard deviation that is associated with the variable Attentive Seconds. This was used in significance testing."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+type: object
