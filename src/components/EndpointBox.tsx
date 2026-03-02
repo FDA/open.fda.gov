@@ -51,7 +51,8 @@ const EndpointBox = (props: endpointBoxProps) => {
       'ndc': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-database' style={{ color: "white" }} /></div>,
       'enforcement': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-rotate-left' style={{ color: "white" }} /></div>,
       'drugsfda': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-at' style={{ color: "white" }} /></div>,
-      'drugshortages': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-at' style={{ color: "white" }} /></div>
+      'drugshortages': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-at' style={{ color: "white" }} /></div>,
+      'researchcbdliverjama': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>
     },
     'other': {
       'historicaldocument': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-history" style={{ color: "white" }} /></div>,

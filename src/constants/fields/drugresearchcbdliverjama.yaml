@@ -1,0 +1,144 @@
+properties:
+  treatment:
+    description: "Type of treatment (one of CBD = “Cannabidiol”; PLB = “Placebo”)"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  primary_event_flag:
+    description: "Flag for if the participant had an event meeting criteria for the primary endpoint"
+    format:
+    is_exact: true
+    possible_values:
+    type: boolean
+  secondary_event_flag:
+    description: "Flag for if the participant had an event meeting criteria for the secondary endpoint"
+    format:
+    is_exact: true
+    possible_values:
+    type: boolean
+  discontinued_no_event:
+    description: "Flag for if the participant discontinued before the end of the study for reasons other than liver enzyme elevations (i.e., for non-liver safety, withdrawal of consent, lack of adherence, etc.)"
+    format:
+    is_exact: true
+    possible_values:
+    type: boolean
+  start_day:
+    description: "Day treatment was initiated. (Day = 1 for all participants)"
+    format:
+    is_exact: true
+    possible_values:
+    type: integer
+  end_day:
+    description: "Last day study drug was administered"
+    format:
+    is_exact: true
+    possible_values:
+    type: integer
+  sex:
+    description: "Sex of the participant (one of 'Female' or 'Male')"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  age:
+    description: "Age of the participant (unit = years)"
+    format:
+    is_exact: true
+    possible_values:
+    type: integer
+  race:
+    description: "Race of the participant (one of ‘American Indian or Alaska Native’, 'Asian', 'Black or African American', ‘Multiple’, ‘Unknown’, or 'White')"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  ethnicity:
+    description: "Ethnicity of the participant (one of 'Hispanic or Latino' or 'Not Hispanic or Latino')"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  weight:
+    description: "Weight of the participant (unit = kg)"
+    format:
+    is_exact: true
+    possible_values:
+    type: number
+  body_mass_index:
+    description: "Body mass index of the participant (unit = kg/m2)"
+    format:
+    is_exact: true
+    possible_values:
+    type: number
+  height:
+    description: "Height of the participant (unit = cm)"
+    format:
+    is_exact: true
+    possible_values:
+    type: integer
+  study_visit_days:
+    type: array
+    items:
+      type: object
+      properties:
+        study_day:
+          description: "Study visit day"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        laboratory:
+          type: array
+          items:
+            type: object
+            properties:
+              lab_test:
+                description: "Laboratory test name (one of Alkaline Phos, ALT, AST, Bilirubin Direct, Bilirubin Total, Eosinophil %, Eosinophile Absolute, GGT, INR"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              reported_lab_result:
+                description: "Reported laboratory test result/value"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              reported_lab_result_units:
+                description: "Reported laboratory test units"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+        analytye:
+          description: "Measured analyte. One of CBD, 7-OH-CBD, 7-COOH-CBD"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        concentration:
+          description: "Reported concentration with values below lower limit of quantification set to zero. (units are defined in Units)"
+          format:
+          is_exact: true
+          possible_values:
+          type: number
+        concentration_units:
+          description: "Units for the reported ‘Concentration’ variable (unit = ng/mL)"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        lower_limit_of_quantitation:
+          description: "Lower limit of quantitation for each analyte (1.95, 3.91, and 31.25 for CBD, 7-OH-CBD, and 7-COOH-CBD, respectively)"
+          format:
+          is_exact: true
+          possible_values:
+          type: number
+        lower_limit_of_quantitation_flag:
+          description: "Flag of if the concentration is below the lower limit of quantification"
+          format:
+          is_exact: true
+          possible_values:
+          type: boolean
+type: object

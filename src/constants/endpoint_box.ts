@@ -30,7 +30,8 @@ export const description: Record<NounName, Partial<Record<EndpointName, string>>
     'ndc': 'NDC directory containing information on the National Drug Code (NDC)',
     'enforcement': 'Drug product recall enforcement reports.',
     'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.',
-    'drugshortages': 'Drug Shortages can occur for many reasons, including manufacturing and quality problems, delays, and discontinuations.'
+    'drugshortages': 'Drug Shortages can occur for many reasons, including manufacturing and quality problems, delays, and discontinuations.',
+    'researchcbdliverjama': 'This dataset makes available the research paper "Cannabidiol and Liver Enzyme Level Elevations in Healthy Adults".'
 },
   'other': {
     'historicaldocument': 'FDA Press Releases, 1913-2014, in searchable format',
@@ -76,7 +77,8 @@ export const ep_title: Record<NounName, Partial<Record<EndpointName, string>>> =
     'ndc': 'NDC Directory',
     'enforcement': 'Recall enforcement reports',
     'drugsfda': 'Drugs@FDA',
-    'drugshortages': 'Drug shortages'
+    'drugshortages': 'Drug shortages',
+    'researchcbdliverjama': 'Drug CBD liver JAMA research'
   },
   'other': {
     'historicaldocument': 'Historical Documents',
@@ -132,7 +134,8 @@ export const ep_path: Record<NounName, Partial<Record<EndpointName, string>>> = 
     'ndc': '/apis/drug/ndc/',
     'enforcement': '/apis/drug/enforcement/',
     'drugsfda': '/apis/drug/drugsfda/',
-    'drugshortages': '/apis/drug/drugshortages/'
+    'drugshortages': '/apis/drug/drugshortages/',
+    'researchcbdliverjama': '/apis/drug/researchcbdliverjama/'
   },
   'other': {
     'historicaldocument': '/apis/other/historicaldocument/',

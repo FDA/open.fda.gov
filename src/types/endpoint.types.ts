@@ -14,6 +14,7 @@ export type EndpointName =
     | 'ndc'
     | 'drugsfda'
     | 'drugshortages'
+    | 'researchcbdliverjama'
     | 'historicaldocument'
     | 'nsde'
     | 'substance'

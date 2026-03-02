@@ -1,0 +1,50 @@
+{
+  "count": [
+    {
+      "meta": {
+        "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+        "terms": "https://open.fda.gov/terms/",
+        "license": "https://open.fda.gov/license/",
+        "last_updated": "2026-02-27"
+      },
+      "results": [
+        {
+          "term": "ALT",
+          "count": 201
+        },
+        {
+          "term": "AST",
+          "count": 201
+        },
+        {
+          "term": "Alkaline Phos",
+          "count": 201
+        },
+        {
+          "term": "Bilirubin, Direct",
+          "count": 201
+        },
+        {
+          "term": "Bilirubin, Total",
+          "count": 201
+        },
+        {
+          "term": "Eosinophil %",
+          "count": 201
+        },
+        {
+          "term": "Eosinophil Absolute",
+          "count": 201
+        },
+        {
+          "term": "GGT",
+          "count": 201
+        },
+        {
+          "term": "INR",
+          "count": 201
+        }
+      ]
+    }
+  ]
+}

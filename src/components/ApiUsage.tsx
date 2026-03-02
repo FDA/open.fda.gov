@@ -453,6 +453,7 @@ if (!bp.mob && hasWindow) {
                       <tr><td>Enforcement Reports</td><td>{this.docCount('drugenforcement')}</td></tr>
                       <tr><td>Drugs@FDA</td><td>{this.docCount('drugsfda')}</td></tr>
                       <tr><td>Drug Shortages</td><td>{this.docCount('drugshortages')}</td></tr>
+                      <tr><td>CBD Liver JAMA Research</td><td>{this.docCount('drugresearchcbdliverjama')}</td></tr>
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Foods</strong></td></tr>
                       <tr><td>Adverse Event Reports</td><td>{this.docCount('foodevent')}</td></tr>
@@ -514,6 +515,7 @@ if (!bp.mob && hasWindow) {
                       <tr><td>Enforcement Reports</td><td>{this.downloadCount('drugenforcement')}</td></tr>
                       <tr><td>Drugs@FDA</td><td>{this.downloadCount('drugsfda')}</td></tr>
                       <tr><td>Drug Shortages</td><td>{this.downloadCount('drugshortages')}</td></tr>
+                      <tr><td>CBD Liver JAMA Research</td><td>{this.downloadCount('drugresearchcbdliverjama')}</td></tr>
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Foods</strong></td></tr>
                       <tr><td>Adverse Event Reports</td><td>{this.downloadCount('foodevent')}</td></tr>
