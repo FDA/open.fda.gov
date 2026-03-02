@@ -5,14 +5,14 @@ oneRecord:
     - limit to 1 record.
   description:
     - This query searches for all records and asks for a single one.
-  query: 'http://54.235.185.244:8000/drug/researchcbdliverjama.json?limit=1'
+  query: 'https://openfda-api.preprod.fda.gov/drug/researchcbdliverjama.json?limit=1'
 lowBMIPlacebo:
   title: Low to Normal BMI with Placebo
   description:
     - This query searches for all records with a specific tobacco use status and a specific study.
   params:
     - search for all records with weight in the range of 1 to 25 and treatment equal to "Placebo".
-  query: 'http://54.235.185.244:8000/drug/researchcbdliverjama.json?search=body_mass_index:[1+TO+25]+AND+treatment:"Placebo"'
+  query: 'https://openfda-api.preprod.fda.gov/drug/researchcbdliverjama.json?search=body_mass_index:[1+TO+25]+AND+treatment:"Placebo"'
 countAnalytye:
   title: Records by Analytye
   description:
@@ -20,4 +20,4 @@ countAnalytye:
     - The suffix .exact is required by openFDA to count the unique full phrases in the field product. Without it, the API will count each word in that field individually.
   params:
     - count the number of records associated with each analytye
-  query: 'http://54.235.185.244:8000/drug/researchcbdliverjama.json?count=study_visit_days.analytye.exact'
+  query: 'https://openfda-api.preprod.fda.gov/drug/researchcbdliverjama.json?count=study_visit_days.analytye.exact'
