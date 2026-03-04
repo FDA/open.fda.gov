@@ -5,7 +5,7 @@ oneRecord:
     - limit to 1 record.
   description:
     - This query searches for all records and asks for a single one.
-  query: 'http://34.199.139.221:8000/tobacco/researchsmokefree.json?limit=1'
+  query: 'https://openfda-api.preprod.fda.gov/tobacco/researchsmokefree.json?limit=1'
 directTraffic:
   title: High Direct Traffic
   description:
@@ -13,11 +13,11 @@ directTraffic:
   params:
     - search for all records with direct_traffic in the range of 15,000 to 30,000.
     - Limit to 6 records.
-  query: 'http://34.199.139.221:8000/tobacco/researchsmokefree.json?search=traffic_referral_group.direct_traffic:[15000+TO+30000]&limit=6'
+  query: 'https://openfda-api.preprod.fda.gov/tobacco/researchsmokefree.json?search=traffic_referral_group.direct_traffic:[15000+TO+30000]&limit=6'
 metricCount:
   title: Count Records by metric
   description:
     - The suffix .exact is required by openFDA to count the unique full phrases in the field product. Without it, the API will count each word in that field individually.
   params:
     - count the records associated with each metric
-  query: 'http://34.199.139.221:8000/tobacco/researchsmokefree.json?count=metric.exact'
+  query: 'https://openfda-api.preprod.fda.gov/tobacco/researchsmokefree.json?count=metric.exact'
