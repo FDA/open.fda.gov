@@ -136,7 +136,7 @@ const timePeriod: any = {
     'problem': '2017 to',
     'researchpreventionads': 'Last updated',
     'researchdigitalads': 'Last updated',
-    'tobaccoadsresearch': 'Last updated'
+    'researchsmokefree': 'Last updated'
   },
   'transparency': {
     'crl': '2020-2024'
@@ -183,7 +183,7 @@ const frequency = {
     'problem': 'Quarterly',
     'researchpreventionads': 'n/a',
     'researchdigitalads': 'n/a',
-    'tobaccoadsresearch': 'n/a'
+    'researchsmokefree': 'n/a'
   },
   'transparency': {
     'crl': 'Infrequently'

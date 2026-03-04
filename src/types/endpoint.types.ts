@@ -21,7 +21,7 @@ export type EndpointName =
     | 'problem'
     | 'researchpreventionads'
     | 'researchdigitalads'
-    | 'tobaccoresearchsmokefree'
+    | 'researchsmokefree'
     | 'crl'
     | 'completeresponseletters';
 

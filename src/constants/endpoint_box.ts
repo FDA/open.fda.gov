@@ -145,7 +145,7 @@ export const ep_path: Record<NounName, Partial<Record<EndpointName, string>>> = 
   'tobacco': {
     'problem': '/apis/tobacco/problem/',
     'researchpreventionads': '/apis/tobacco/researchpreventionads/',
-    'researchdigitalads': '/apis/tobacco/researchdigitalads/'
+    'researchdigitalads': '/apis/tobacco/researchdigitalads/',
     'researchsmokefree': '/apis/tobacco/researchsmokefree/'
   },
   'transparency': {
