@@ -62,7 +62,8 @@ const EndpointBox = (props: endpointBoxProps) => {
     'tobacco': {
       'problem': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-leaf' style={{ color: "white" }} /></div>,
       'researchpreventionads': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>,
-      'researchdigitalads': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>
+      'researchdigitalads': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>,
+      'tobaccoresearchsmokefree': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>
     },
     'transparency': {
       'crl': <div className='ep-icon' style={bg_color.transparency}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>

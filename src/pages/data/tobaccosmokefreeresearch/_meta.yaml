@@ -1,0 +1,25 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › Tobacco Smokefree Research'
+crumbs:
+  - openFDA
+  - Datasets
+  - Tobacco Ads Research
+title: 'Tobacco Smokefree Research'
+description: 'Research studies into the impacts of the website teen.smokefree.gov.'
+source:
+  name: 'Tobacco Smokefree Research'
+  nameLong: 'Tobacco Smokefree Research'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+  time:
+  start:
+  current:
+  delay:
+  frequency:
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - 'openFDa currently hosts one FDA study about the website teen.smokefree.gov:'
+  - 'Amplifying Impact: The Real Cost Campaign'

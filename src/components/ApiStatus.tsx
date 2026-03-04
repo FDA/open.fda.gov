@@ -37,6 +37,7 @@ let endpointKeys = [
   'tobaccoproblem',
   'tobaccoresearchpreventionads',
   'tobaccoresearchdigitalads',
+  'tobaccoresearchsmokefree',
   'transparencycrl'
 ]
 
@@ -69,6 +70,7 @@ const catMap: Record<EndpointKey, string> = Object.freeze({
   'tobaccoproblem': 'Tobacco › Problem Reports',
   'tobaccoresearchpreventionads': 'Tobacco › Prevention Ads Research',
   'tobaccoresearchdigitalads': 'Tobacco › Digital Ads Research',
+  'tobaccoresearchsmokefree': 'Tobacco › Smokefree Research',
   'transparencycrl': 'Transparency › Complete Response Letters'
 })
 
@@ -100,6 +102,7 @@ const endpointLinkMap: Record<EndpointKey, string> = Object.freeze({
   'tobaccoproblem': 'tobacco/problem',
   'tobaccoresearchpreventionads': 'tobacco/researchpreventionads',
   'tobaccoresearchdigitalads': 'tobacco/researchdigitalads',
+  'tobaccoresearchsmokefree': 'tobacco/researchsmokefree',
   'transparencycrl': 'transparency/crl'
 })
 
