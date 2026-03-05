@@ -159,3 +159,7 @@ updates:
     path: /apis/tobacco/researchdigitalads/
     date: 2026-02-17
     desc: "The dataset Tobacco Digital Ads Research is now available."
+  - title: "New openFDA Dataset - Drug CBD Liver JAMA Research"
+    path: /apis/drug/researchcbdliverjama/
+    date: 2026-03-06
+    desc: "The dataset Drug CBD Liver JAMA Research is now available."
