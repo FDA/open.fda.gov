@@ -1,0 +1,12 @@
+documentTitle: openFDA › Drugs › CBD Liver JAMA Research
+label: Drug CBD Liver JAMA Research
+title: Drug CBD Liver JAMA Research
+description: 'This dataset makes available the research paper "Cannabidiol and Liver Enzyme Level Elevations in Healthy Adults".'
+datasets:
+  - drugresearchcbdliverjama
+path: /apis/drug/researchcbdliverjama
+api_path: /drug/researchcbdliverjama
+start: 19390101
+status: drugresearchcbdliverjama
+dateConstraintKey: submission_status_date
+type: endpoint

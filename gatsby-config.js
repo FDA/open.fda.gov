@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/drug-cbd-research`,   // <-- your subpath
   siteMetadata: {
     title: `openFDA`,
     siteUrl: `https://www.open.fda.gov`,
