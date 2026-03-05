@@ -45,7 +45,8 @@ const source: Record<string, Record<string, string>> = {
   'tobacco': {
     'problem': 'Tobacco Problem Reports',
     'researchpreventionads': 'Tobacco Ads Research',
-    'researchdigitalads': 'Tobacco Ads Research'
+    'researchdigitalads': 'Tobacco Ads Research',
+    'researchsmokefree': 'Tobacco Smokefree Research'
   },
   'transparency': {
     'crl': 'Complete Response Letters',
@@ -88,7 +89,8 @@ const sourceLink: any = {
   'tobacco': {
     'problem': '/data/tobaccoproblem/',
     'researchpreventionads': '/data/tobaccoadsresearch/',
-    'researchdigitalads': '/data/tobaccoadsresearch/'
+    'researchdigitalads': '/data/tobaccoadsresearch/',
+    'researchsmokefree': '/data/tobaccosmokefreeresearch/'
   },
   'transparency': {
   },
@@ -133,7 +135,8 @@ const timePeriod: any = {
   'tobacco': {
     'problem': '2017 to',
     'researchpreventionads': 'Last updated',
-    'researchdigitalads': 'Last updated'
+    'researchdigitalads': 'Last updated',
+    'researchsmokefree': 'Last updated'
   },
   'transparency': {
     'crl': '2020-2024'
@@ -179,7 +182,8 @@ const frequency = {
   'tobacco': {
     'problem': 'Quarterly',
     'researchpreventionads': 'n/a',
-    'researchdigitalads': 'n/a'
+    'researchdigitalads': 'n/a',
+    'researchsmokefree': 'n/a'
   },
   'transparency': {
     'crl': 'Infrequently'

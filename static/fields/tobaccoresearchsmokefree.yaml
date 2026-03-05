@@ -1,0 +1,59 @@
+properties:
+  variable:
+    description: "The variable being analyzed"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  variable_definition:
+    description: "An explanation of the indicated variable"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  metric:
+    description: "The metric used to analyze the indicated variable"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  traffic_referral_group:
+    type: object
+    properties:
+      the_real_cost_campaign:
+        description: "This group represents traffic to smokefree.gov that originated from The Real Cost campaign media assets, including The Real Cost website directly and other The Real Cost tagged content (e.g., ads)"
+        format:
+        is_exact: false
+        possible_values:
+        type: float
+      direct_traffic:
+        description: "This group represents traffic to smokefree.gov originating by accessing the website directly by entering the website URL or clicking a saved link. The direct website referral group also includes traffic for sources that Google Analytics could not identify, though it represents a relatively small portion of this group"
+        format:
+        is_exact: false
+        possible_values:
+        type: float
+      organic_traffic:
+        description: "This group represents traffic to smokefree.gov originating from organic and other search results (e.g., non-paid search engine Google search, Bing search, etc.)"
+        format:
+        is_exact: false
+        possible_values:
+        type: float
+      the_real_cost_campaign_denominator:
+        description: "This number represents the total number of single session (not including return visitors) website visits to smokefree.gov that originated from The Real Cost campaign assets over the study period. This number is listed for each variable;"
+        format:
+        is_exact: false
+        possible_values:
+        type: integer
+      direct_traffic_denominator:
+        description: "This number represents the total number of single session (not including return visitors) website visits to smokefree.gov that originated from accessing the website URL or clicking a saved link over the study period. This number is listed for each variable"
+        format:
+        is_exact: false
+        possible_values:
+        type: integer
+      organic_traffic_denominator:
+        description: "This number represents the total number of single session (not including return visitors) website visits to smokefree.gov that originated from organic searches over the study period. This number is listed for each variable"
+        format:
+        is_exact: false
+        possible_values:
+        type: integer
+type: object
