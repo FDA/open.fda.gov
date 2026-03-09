@@ -1,0 +1,38 @@
+{
+  "count": [
+    {
+      "meta": {
+        "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+        "terms": "https://open.fda.gov/terms/",
+        "license": "https://open.fda.gov/license/",
+        "last_updated": "2026-03-03"
+      },
+      "results": [
+        {
+          "term": "Number of Page Views",
+          "count": 12
+        },
+        {
+          "term": "Number of Completions",
+          "count": 6
+        },
+        {
+          "term": "Mean Number of Pages per Session",
+          "count": 1
+        },
+        {
+          "term": "Mean Session Duration",
+          "count": 1
+        },
+        {
+          "term": "Number of Downloads",
+          "count": 1
+        },
+        {
+          "term": "Number of Visits",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

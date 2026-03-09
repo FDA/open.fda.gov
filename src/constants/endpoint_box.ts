@@ -41,7 +41,8 @@ export const description: Record<NounName, Partial<Record<EndpointName, string>>
   'tobacco': {
     'problem': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.',
     'researchpreventionads': 'Impact Potential of FDA\'s Tobacco Prevention Ads on Youth Attitudes and Beliefs: Meta-Analytical Evidence from A Decade\'s Worth of Copy Testing',
-    'researchdigitalads': 'Exploring Attention to Digital Ads'
+    'researchdigitalads': 'Exploring Attention to Digital Ads',
+    'researchsmokefree': 'Amplifying Impact: The Real Cost Campaign'
   },
   'transparency': {
     'crl': 'Centralized database of Complete Response Letters (CRLs)',
@@ -87,7 +88,8 @@ export const ep_title: Record<NounName, Partial<Record<EndpointName, string>>> =
   'tobacco': {
     'problem': 'Tobacco Problem Reports',
     'researchpreventionads': 'Tobacco Prevention Ads Research',
-    'researchdigitalads': 'Tobacco Digital Ads Research'
+    'researchdigitalads': 'Tobacco Digital Ads Research',
+    'researchsmokefree': 'Tobacco Smokefree Research'
   },
   'transparency': {
     'crl': 'Complete Response Letters',
@@ -143,7 +145,8 @@ export const ep_path: Record<NounName, Partial<Record<EndpointName, string>>> = 
   'tobacco': {
     'problem': '/apis/tobacco/problem/',
     'researchpreventionads': '/apis/tobacco/researchpreventionads/',
-    'researchdigitalads': '/apis/tobacco/researchdigitalads/'
+    'researchdigitalads': '/apis/tobacco/researchdigitalads/',
+    'researchsmokefree': '/apis/tobacco/researchsmokefree/'
   },
   'transparency': {
     'crl': '/apis/transparency/completeresponseletters/'

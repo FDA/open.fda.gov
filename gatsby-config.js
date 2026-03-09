@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/smokefree`,
   siteMetadata: {
     title: `openFDA`,
     siteUrl: `https://www.open.fda.gov`,

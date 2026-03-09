@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react'
+import { withPrefix } from "gatsby"
 import '../css/components/Footer.scss'
 
 const links: Array<Object> = [
@@ -80,7 +81,7 @@ class Footer extends React.Component {
                 <img
                   alt='Go to FDA website'
                   width='180px'
-                  src='/img/gov-fda-new-white.svg'
+                  src={withPrefix("/img/gov-fda-new-white.svg")}
                 />
               </a>
             </li>
