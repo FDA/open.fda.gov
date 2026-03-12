@@ -80,11 +80,13 @@ class QueryTour extends React.Component<queryTour, queryTourState> {
 
   render (): any {
 
+    const { noun, query, endpoint } = this.props
     let queryPath = this.props.query
-    if (queryPath.startsWith('https://api.fda.gov/') ) {
-      queryPath = queryPath.replace('https://api.fda.gov/', '')
-    } else if ( queryPath.startsWith('https://api.fda.gov/') ) {
-      queryPath = queryPath.replace('https://api.fda.gov/', '')
+    if (noun && endpoint) {
+      const queryString = queryPath.startsWith('?')  ? queryPath.slice(1) : queryPath
+      queryPath = `${noun}/${endpoint}/.json?${queryString}`
+    } else {
+      queryPath = queryPath.replace(/^https:\/\/api.fda.gov\//, '')
     }
 
     const fullQuery = `${API_LINK}/${queryPath}`
