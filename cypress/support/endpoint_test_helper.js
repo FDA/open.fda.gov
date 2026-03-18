@@ -34,12 +34,17 @@ class EndpointPagesTestHelper {
     cy.get('div#doc-container>section>section').each((section) => {
       cy.wrap(section).within(() => {
         // Check the initial state
-        cy.get('textarea[aria-label="Current Query"]').scrollIntoView().should('be.visible')
+        cy.get('textarea[aria-label="Current Query"]')
+        .scrollIntoView()
+        .should('be.visible')
+        .invoke('val')
+        .should('contain', `${this.apiPath}`)
         cy.get('button[aria-label="Close result of query"]').should('not.exist')
         cy.get('pre.javascript').should('not.exist')
 
         // Now click Run Query
         cy.get('textarea[aria-label="Current Query"] + button').scrollIntoView().click({force: true})
+        cy.wait('@search-api-call').its('request.url').should('contain', this.apiPath)
         cy.get('button[aria-label="Close result of query"]').should('be.visible')
         cy.get('pre.javascript').should('be.visible')
 
@@ -141,7 +146,20 @@ class EndpointPagesTestHelper {
   _requestIdleCallback () {
     cy.window().then({
       timeout: 20000
-    }, win => new Cypress.Promise((resolve, reject) => win.requestIdleCallback(resolve)))
+    }, win => new Cypress.Promise((resolve, reject) => {
+      if (typeof win.requestIdleCallback === 'function') {
+        try {
+          win.requestIdleCallback(() => {
+            resolve()})
+          win.setTimeout(() => resolve(), 19000);
+        }
+        catch (error) {
+          reject(error)
+        }
+      }
+      win.setTimeout(() => resolve(), 0);
+    })
+    )
   }
 }
 

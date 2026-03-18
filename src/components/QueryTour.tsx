@@ -84,7 +84,7 @@ class QueryTour extends React.Component<queryTour, queryTourState> {
     let queryPath = this.props.query
     if (noun && endpoint) {
       const queryString = queryPath.startsWith('?')  ? queryPath.slice(1) : queryPath
-      queryPath = `${noun}/${endpoint}/.json?${queryString}`
+      queryPath = `${noun}/${endpoint}.json?${queryString}`
     } else {
       queryPath = queryPath.replace(/^https:\/\/api.fda.gov\//, '')
     }
