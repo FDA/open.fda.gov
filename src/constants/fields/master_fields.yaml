@@ -667,6 +667,57 @@ cosmetic:
           type: string
         type: array
     type: object
+  productlisting:
+    properties:
+      responsible_person_name:
+        description: "The manufacturer, packer, or distributor of a cosmetic product whose name appears on the label of such cosmetic product in accordance with section 609(a) of the FD&C Act or section 4(a) of the Fair Packaging and Labeling Act."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      responsible_person_duns:
+        description: "The Data Universal Numbering System (DUNS) number for the responsible person's address listed on the product label. The DUNS Number is a unique nine-digit identification number provided by Dun & Bradstreet (D&B) and is site-specific."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      business_type:
+        description: "The responsible person type of business as listed on label (i.e., manufacturer, packer, and/or distributor)."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      product_name:
+        description: "The name for the cosmetic product as such name appears on the label. This is the statement of identity as required under 21 CFR 701.11, which provides information about the type or kind of cosmetic product in the package to help the consumer understand the functional use of the product."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      category_names:
+        description: "The applicable cosmetic category or categories for the cosmetic product as listed in Appendix A of the guidance document."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      ingredients:
+        description: "A list of ingredients in the cosmetic product, including any fragrances, flavors, or colors, with each ingredient identified by the name as required under section 701.3 of title 21, Code of Federal Regulations (or any successor regulations), or by the common or usual name of the ingredient."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      fragrance_or_flavor:
+        description: "Information indicating whether the product contains fragrance, flavor, both fragrance and flavor, or neither."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      product_url:
+        description: "The webpage link for the cosmetic product."
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+    type: object
 device:
   classification:
     properties:

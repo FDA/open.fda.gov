@@ -1,0 +1,414 @@
+{
+  "count": [
+    {
+      "meta": {
+        "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+        "terms": "https://open.fda.gov/terms/",
+        "license": "https://open.fda.gov/license/",
+        "last_updated": "2015-01-01"
+      },
+      "results": [
+        {
+          "term": "(05) Fragrance preparations(05B) Perfumes(10) Manicuring preparations(10E) Nail polishes and enamels",
+          "count": 9048
+        },
+        {
+          "term": "(05) Fragrance preparations(05B) Perfumes",
+          "count": 6344
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08E) Lipsticks and lip glosses",
+          "count": 5281
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14F) Moisturizing",
+          "count": 2945
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03C) Eye shadows",
+          "count": 2917
+        },
+        {
+          "term": "(10) Manicuring preparations(10E) Nail polishes and enamels",
+          "count": 2910
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14J1) Other skin care preparations, leave-on",
+          "count": 2749
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14C1) Face and neck (excluding shaving preparations), leave-on",
+          "count": 1675
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08C1) Foundations, traditional applications",
+          "count": 1616
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08A) Blushers and rouges (all types)",
+          "count": 1444
+        },
+        {
+          "term": "(10) Manicuring preparations(10G) Other manicuring preparations",
+          "count": 1370
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03B) Eyeliners",
+          "count": 1284
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14A) Cleansing (cold creams, cleansing lotions, liquids, and pads)",
+          "count": 965
+        },
+        {
+          "term": "(12) Personal cleanliness(12A) Bath soaps and body washes",
+          "count": 912
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03F) False eyelashes",
+          "count": 905
+        },
+        {
+          "term": "(06) Hair preparations (non-coloring)(06I1) Other hair preparations, leave-on",
+          "count": 824
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08D1) Leg and body paints, traditional applications",
+          "count": 752
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08B) Face powders",
+          "count": 674
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03A) Eyebrow pencils",
+          "count": 650
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14D1) Body and hand (excluding shaving preparations), leave-on",
+          "count": 605
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03G) Mascaras",
+          "count": 576
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08H1) Other makeup preparations, traditional applications",
+          "count": 547
+        },
+        {
+          "term": "(06) Hair preparations (non-coloring)(06F2) Shampoos (non-coloring), rinse-off",
+          "count": 451
+        },
+        {
+          "term": "(05) Fragrance preparations(05D) Other fragrance preparations",
+          "count": 436
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03K) Other eye makeup preparations",
+          "count": 327
+        },
+        {
+          "term": "(05) Fragrance preparations(05D) Other fragrance preparations(14) Skin care preparations (creams, lotions, powder, and sprays)(14J1) Other skin care preparations, leave-on(17) Other preparations (i.e., those preparations that do not fit another category)",
+          "count": 312
+        },
+        {
+          "term": "(06) Hair preparations (non-coloring)(06A2) Hair conditioners, rinse-off",
+          "count": 305
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03H) Eyelash and eyebrow adhesives, glues, and sealants",
+          "count": 301
+        },
+        {
+          "term": "(17) Other preparations (i.e., those preparations that do not fit another category)",
+          "count": 299
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14C2) Face and neck (excluding shaving preparations), rinse-off",
+          "count": 281
+        },
+        {
+          "term": "(07) Hair coloring preparations(07B) Hair tints",
+          "count": 275
+        },
+        {
+          "term": "(12) Personal cleanliness(12F2) Other personal cleanliness products, rinse-off",
+          "count": 268
+        },
+        {
+          "term": "(06) Hair preparations (non-coloring)(06G) Tonics, dressings, and other hair grooming aids",
+          "count": 259
+        },
+        {
+          "term": "(07) Hair coloring preparations(07A) Hair dyes and colors (all types requiring caution statement and patch test)",
+          "count": 235
+        },
+        {
+          "term": "(12) Personal cleanliness(12F2) Other personal cleanliness products, rinse-off(14) Skin care preparations (creams, lotions, powder, and sprays)(14F) Moisturizing",
+          "count": 207
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08F1) Makeup bases, traditional applications",
+          "count": 206
+        },
+        {
+          "term": "(10) Manicuring preparations(10A) Basecoats and undercoats",
+          "count": 198
+        },
+        {
+          "term": "(02) Bath preparations(02A) Bath oils, tablets, and salts",
+          "count": 192
+        },
+        {
+          "term": "(02) Bath preparations(02D) Other bath preparations",
+          "count": 188
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03C) Eye shadows(08) Makeup preparations (not eye)(other than makeup preparations for children)(08A) Blushers and rouges (all types)",
+          "count": 186
+        },
+        {
+          "term": "(10) Manicuring preparations(10A) Basecoats and undercoats(10B) Cuticle softeners(10C) Nail creams and lotions(10D) Nail extenders(10E) Nail polishes and enamels(10F) Nail polish and enamel removers(10G) Other manicuring preparations",
+          "count": 185
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08G) Makeup fixatives",
+          "count": 181
+        },
+        {
+          "term": "(11) Oral products(11C) Other oral products",
+          "count": 181
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03F) False eyelashes(03H) Eyelash and eyebrow adhesives, glues, and sealants",
+          "count": 175
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14J2) Other skin care preparations, rinse-off",
+          "count": 172
+        },
+        {
+          "term": "(06) Hair preparations (non-coloring)(06I2) Other hair preparations, rinse-off",
+          "count": 168
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14C1) Face and neck (excluding shaving preparations), leave-on(14F) Moisturizing",
+          "count": 164
+        },
+        {
+          "term": "(05) Fragrance preparations(05A) Colognes and toilet waters",
+          "count": 159
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03I) Eyelash and eyebrow preparations (primers, conditioners, serums, fortifiers)",
+          "count": 156
+        },
+        {
+          "term": "(10) Manicuring preparations(10F) Nail polish and enamel removers",
+          "count": 154
+        },
+        {
+          "term": "(10) Manicuring preparations(10D) Nail extenders",
+          "count": 147
+        },
+        {
+          "term": "(06) Hair preparations (non-coloring)(06A1) Hair conditioners, leave-on",
+          "count": 143
+        },
+        {
+          "term": "(06) Hair preparations (non-coloring)(06E) Rinses (non-coloring)",
+          "count": 137
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14D1) Body and hand (excluding shaving preparations), leave-on(14F) Moisturizing",
+          "count": 137
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14H) Paste masks (mud packs)",
+          "count": 137
+        },
+        {
+          "term": "(12) Personal cleanliness(12B1) Deodorants (underarm), sticks, roll-ons, gels, creams, and wipes",
+          "count": 128
+        },
+        {
+          "term": "(07) Hair coloring preparations(07A) Hair dyes and colors (all types requiring caution statement and patch test)(07B) Hair tints",
+          "count": 124
+        },
+        {
+          "term": "(06) Hair preparations (non-coloring)(06B) Hair sprays (aerosol fixatives)",
+          "count": 121
+        },
+        {
+          "term": "(11) Oral products(11A) Dentifrices (aerosols, liquids, pastes, and powders)",
+          "count": 120
+        },
+        {
+          "term": "(12) Personal cleanliness(12F1) Other personal cleanliness products, leave-on",
+          "count": 118
+        },
+        {
+          "term": "(07) Hair coloring preparations(07A) Hair dyes and colors (all types requiring caution statement and patch test)(07I2) Other hair coloring preparations, rinse-off",
+          "count": 116
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14D2) Body and hand (excluding shaving preparations), rinse-off",
+          "count": 113
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14F) Moisturizing(14J1) Other skin care preparations, leave-on",
+          "count": 107
+        },
+        {
+          "term": "(15) Suntan preparations(15A) Suntan gels, creams, and liquids",
+          "count": 100
+        },
+        {
+          "term": "(07) Hair coloring preparations(07I2) Other hair coloring preparations, rinse-off",
+          "count": 98
+        },
+        {
+          "term": "(12) Personal cleanliness(12E) Disposable wipes",
+          "count": 97
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14A) Cleansing (cold creams, cleansing lotions, liquids, and pads)(14C1) Face and neck (excluding shaving preparations), leave-on(14D1) Body and hand (excluding shaving preparations), leave-on(14I) Skin fresheners",
+          "count": 83
+        },
+        {
+          "term": "(05) Fragrance preparations(05A) Colognes and toilet waters(05B) Perfumes",
+          "count": 78
+        },
+        {
+          "term": "(07) Hair coloring preparations(07D2) Hair shampoos (coloring), rinse-off",
+          "count": 77
+        },
+        {
+          "term": "(05) Fragrance preparations(05A) Colognes and toilet waters(05B) Perfumes(05D) Other fragrance preparations",
+          "count": 73
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03A) Eyebrow pencils(03B) Eyeliners(03C) Eye shadows(08) Makeup preparations (not eye)(other than makeup preparations for children)(08A) Blushers and rouges (all types)(08C1) Foundations, traditional applications(08E) Lipsticks and lip glosses(08G) Makeup fixatives",
+          "count": 72
+        },
+        {
+          "term": "(16) Tattoo preparations(16C) Other tattoo preparations",
+          "count": 72
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03A) Eyebrow pencils(03B) Eyeliners(03C) Eye shadows(08) Makeup preparations (not eye)(other than makeup preparations for children)(08A) Blushers and rouges (all types)(08B) Face powders(08E) Lipsticks and lip glosses",
+          "count": 66
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08A) Blushers and rouges (all types)(08E) Lipsticks and lip glosses",
+          "count": 65
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03D) Eye lotions",
+          "count": 64
+        },
+        {
+          "term": "(16) Tattoo preparations(16B) Temporary tattoo inks",
+          "count": 61
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14C1) Face and neck (excluding shaving preparations), leave-on(14D1) Body and hand (excluding shaving preparations), leave-on(14F) Moisturizing",
+          "count": 57
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14I) Skin fresheners",
+          "count": 57
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08B) Face powders(08C1) Foundations, traditional applications",
+          "count": 55
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03B) Eyeliners(03C) Eye shadows",
+          "count": 53
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14B) Depilatories",
+          "count": 50
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14A) Cleansing (cold creams, cleansing lotions, liquids, and pads)(14C2) Face and neck (excluding shaving preparations), rinse-off",
+          "count": 49
+        },
+        {
+          "term": "(16) Tattoo preparations(16A) Permanent tattoo inks",
+          "count": 49
+        },
+        {
+          "term": "(06) Hair preparations (non-coloring)(06C) Hair straighteners",
+          "count": 48
+        },
+        {
+          "term": "(07) Hair coloring preparations(07G) Hair bleaches",
+          "count": 48
+        },
+        {
+          "term": "(01) Baby products(01B) Lotions, oils, powders, and creams",
+          "count": 46
+        },
+        {
+          "term": "(12) Personal cleanliness(12C) Douches",
+          "count": 46
+        },
+        {
+          "term": "(02) Bath preparations(02B) Bubble baths",
+          "count": 45
+        },
+        {
+          "term": "(07) Hair coloring preparations(07C1) Hair rinses (coloring), leave-on",
+          "count": 44
+        },
+        {
+          "term": "(07) Hair coloring preparations(07C2) Hair rinses (coloring), rinse-off",
+          "count": 44
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03E) Eye makeup removers(03F) False eyelashes(03H) Eyelash and eyebrow adhesives, glues, and sealants",
+          "count": 43
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14C1) Face and neck (excluding shaving preparations), leave-on(14D1) Body and hand (excluding shaving preparations), leave-on(14J1) Other skin care preparations, leave-on",
+          "count": 43
+        },
+        {
+          "term": "(11) Oral products(11B) Mouthwashes and breath fresheners (liquids and sprays)",
+          "count": 41
+        },
+        {
+          "term": "(14) Skin care preparations (creams, lotions, powder, and sprays)(14C1) Face and neck (excluding shaving preparations), leave-on(14D1) Body and hand (excluding shaving preparations), leave-on",
+          "count": 40
+        },
+        {
+          "term": "(03) Eye makeup preparations (other than children's eye makeup preparations)(03E) Eye makeup removers",
+          "count": 39
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08C1) Foundations, traditional applications(08C2) Foundations, airbrush applications",
+          "count": 39
+        },
+        {
+          "term": "(10) Manicuring preparations(10C) Nail creams and lotions",
+          "count": 39
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08E) Lipsticks and lip glosses(14) Skin care preparations (creams, lotions, powder, and sprays)(14C1) Face and neck (excluding shaving preparations), leave-on",
+          "count": 38
+        },
+        {
+          "term": "(02) Bath preparations(02B) Bubble baths(14) Skin care preparations (creams, lotions, powder, and sprays)(14F) Moisturizing",
+          "count": 36
+        },
+        {
+          "term": "(08) Makeup preparations (not eye)(other than makeup preparations for children)(08A) Blushers and rouges (all types)(08B) Face powders",
+          "count": 36
+        }
+      ]
+    }
+  ]
+}
