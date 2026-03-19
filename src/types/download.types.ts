@@ -1,13 +1,13 @@
 
 export type DownloadProps = {
-  allPartitions: Array<Object>;
-  k: number;
-  api_path: string;
-  title: string;
-  results: Object;
-  showAllResults: boolean;
-  toggle: Function;
-  updated: string;
+  allPartitions?: Array<Object>;
+  k?: number;
+  api_path?: string;
+  title?: string;
+  results?: Object;
+  showAllResults?: boolean;
+  toggle?: Function;
+  updated?: string;
   meta?: any
 };
 

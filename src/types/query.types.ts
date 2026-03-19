@@ -6,6 +6,8 @@ export type queryTour = {
   desc: string,
   title: string,
   query: string,
+  noun?: string,
+  endpoint?: string,
   params: Array<string>,
   k: number,
   closeTour?: () => void,

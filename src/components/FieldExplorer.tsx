@@ -2,14 +2,14 @@ import React from 'react'
 import {marked} from 'marked'
 import Scrollbars from 'react-custom-scrollbars'
 import Select from 'react-select'
-//import 'react-select/dist/react-select.css'
 import Values from './RenderContentObject/Values'
 import yamlGet from '../utils/yamlGet'
 import FieldDownload from './FieldDownload'
 import FieldExplorerContainer from '../containers/FieldExplorerContainer'
 import '../css/components/FieldExplorer.scss'
+import type { fieldExplorerProps, FieldExplorerContainerProps, fieldExplorerRenderObjectProps, FieldOption } from '../types'
 
-const _renderLi = (props: { field: any; updateSelected: any; key: any; i: any; isFDA: any }) => {
+const _renderLi = (props: FieldExplorerContainerProps) => {
   const {
     field,
     updateSelected,
@@ -31,7 +31,9 @@ const _renderLi = (props: { field: any; updateSelected: any; key: any; i: any; i
   // whether field has .exact
   let isExact: boolean = false
   // keys in the selected field
-  let field_keys: Array<any> = Object.keys(field)
+  let field_keys: Array<any> = field ? Object.keys(field) : []
+
+  const divCx: string = 'col t-range-marg-t-2 marg-b-2 t-range-6'
 
   if (field) {
     desc = field.description
@@ -50,7 +52,6 @@ const _renderLi = (props: { field: any; updateSelected: any; key: any; i: any; i
     type2 = field.items.type
   }
 
-
   if (field_keys.indexOf("type") === -1 || typeof field.type !== "string") {
     return (
       render_object({
@@ -61,8 +62,6 @@ const _renderLi = (props: { field: any; updateSelected: any; key: any; i: any; i
       })
     )
   }
-
-  const divCx: string = 'col t-range-marg-t-2 marg-b-2 t-range-6'
 
   return (
     <div
@@ -139,7 +138,7 @@ const _renderLi = (props: { field: any; updateSelected: any; key: any; i: any; i
   )
 }
 
-function render_object(props: { fields: any; updateSelected: any; selectedField: any; i: any }) {
+function render_object(props: fieldExplorerRenderObjectProps) {
   const {
     fields,
     selectedField,
@@ -151,7 +150,7 @@ function render_object(props: { fields: any; updateSelected: any; selectedField:
     <div className='row marg-t-2' key={i}>
       <ul className='field-list flex-box dir-column flex-wrap marg-l-2 marg-r-2'>
         {
-          Object.keys(fields).map((v: string, k) => (
+          Object?.keys(fields).map((v: string, k) => (
             <li
               className="field-list-item"
               key={k}>
@@ -173,8 +172,6 @@ function render_object(props: { fields: any; updateSelected: any; selectedField:
   )
 }
 
-type FieldOption = { label: string; value: string };
-
 function get_fields(fields: { [x: string]: any }, prefix?: string): FieldOption[] {
   return Object.keys(fields).reduce<FieldOption[]>(function(acc, key){
     let value = fields[key];
@@ -191,16 +188,6 @@ function get_fields(fields: { [x: string]: any }, prefix?: string): FieldOption[
   }, []);
 }
 
-import { ActionMeta, SingleValue } from 'react-select';
-
-type tPROPS = {
-  k: number;
-  fields: { properties: any };
-  meta: { status: string; [key: string]: any };
-  selectedField: string;
-  updateField: (newValue: SingleValue<{ label: string; value: string }>, actionMeta: ActionMeta<{ label: string; value: string }>) => void;
-  updateSelected: Function;
-};
 
 // called by Content
 // normally _content.yaml contains string content that
@@ -210,10 +197,9 @@ type tPROPS = {
 // sometimes though we have object in _content, usually
 // for api examples or for rendering out fields for an
 // endpoint. this component handles rendering the objects
-const FieldExplorer = (props: tPROPS) => {
+const FieldExplorer = (props: fieldExplorerProps) => {
   const {
-    // key basically. can't pass key as prop
-    k,
+    k, // key basically. can't pass key as prop
     // big pre blocks (code examples) on some pages
     fields,
     meta,
@@ -222,9 +208,9 @@ const FieldExplorer = (props: tPROPS) => {
     updateSelected
   } = props
 
-  let field_names = get_fields(fields.properties)
+  let fieldNames = get_fields(fields.properties)
   // Find the selected option object based on selectedField string
-  const selectedOption = field_names.find(opt => opt.value === selectedField) || null;
+  const selectedOption = fieldNames.find(opt => opt.value === selectedField) || null;
 
   return (
     <section key={k} className="field-explorer">
@@ -232,7 +218,7 @@ const FieldExplorer = (props: tPROPS) => {
         name="form-field-name"
         aria-label="form-field-name"
         value={selectedOption}
-        options={field_names}
+        options={fieldNames}
         onChange={updateField}
         placeholder="Search the fields"
       />
