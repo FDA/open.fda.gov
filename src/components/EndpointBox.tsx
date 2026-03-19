@@ -32,7 +32,8 @@ const EndpointBox = (props: endpointBoxProps) => {
       'event': <div className='ep-icon' style={bg_color.food}><i className='fa fa-3x fa-warning' style={{ color: "white" }} /></div>
     },
     'cosmetic': {
-      'event': <div className='ep-icon' style={bg_color.cosmetic}><i className='fa fa-3x fa-warning' style={{ color: "white" }} /></div>
+      'event': <div className='ep-icon' style={bg_color.cosmetic}><i className='fa fa-3x fa-warning' style={{ color: "white" }} /></div>,
+      'productlisting': <div className='ep-icon' style={bg_color.cosmetic}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>
     },
     'device': {
       'event': <div className='ep-icon' style={bg_color.device}><i className='fa fa-3x fa-warning' style={{ color: "white" }} /></div>,
