@@ -11,7 +11,8 @@ export const description: Record<NounName, Partial<Record<EndpointName, string>>
     'event': 'Food, dietary supplement, and cosmetic adverse event reports.'
   },
   'cosmetic': {
-    'event': 'Cosmetic adverse event reports.'
+    'event': 'Cosmetic adverse event reports.',
+    'productlisting': 'Cosmetic product listing.'
   },
   'device': {
     'event': 'Reports of serious injuries, deaths, malfunctions, and other undesirable effects associated with the use of medical devices.',
@@ -58,7 +59,8 @@ export const ep_title: Record<NounName, Partial<Record<EndpointName, string>>> =
     'event': 'CAERS reports'
   },
   'cosmetic': {
-    'event': 'Adverse event reports.'
+    'event': 'Adverse event reports.',
+    'productlisting': 'Product listing.'
   },
   'device': {
     'event': 'Adverse event reports',
@@ -115,7 +117,8 @@ export const ep_path: Record<NounName, Partial<Record<EndpointName, string>>> = 
     'event': '/apis/food/event/'
   },
   'cosmetic': {
-    'event': '/apis/cosmetic/event/'
+    'event': '/apis/cosmetic/event/',
+    'productlisting': '/apis/cosmetic/productlisting/'
   },
   'device': {
     'event': '/apis/device/event/',
