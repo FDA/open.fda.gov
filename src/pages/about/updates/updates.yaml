@@ -163,7 +163,3 @@ updates:
     path: /apis/tobacco/researchsmokefree/
     date: 2026-03-11
     desc: "The dataset Tobacco Smokefree Research is now available."
-  - title: "New openFDA Dataset - Cosmetic Product Listing"
-    path: /apis/cosmetic/productlisting/
-    date: 2026-03-27
-    desc: "The dataset Cosmetic Product Listing is now available."

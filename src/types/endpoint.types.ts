@@ -23,8 +23,7 @@ export type EndpointName =
     | 'researchdigitalads'
     | 'researchsmokefree'
     | 'crl'
-    | 'completeresponseletters'
-    | 'productlisting';
+    | 'completeresponseletters';
 
 export type endpointBoxProps = {
     noun_name: NounName,

@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: 'productlisting',
   siteMetadata: {
     title: `openFDA`,
     siteUrl: `https://www.open.fda.gov`,

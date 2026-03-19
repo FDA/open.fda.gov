@@ -9,7 +9,6 @@ import SideBarContainer from '../../../containers/SideBarContainer'
 
 import animalandveterinary_event_meta from '../../apis/animalandveterinary/event/_meta.yaml'
 import cosmetic_event_meta from '../../apis/cosmetic/event/_meta.yaml'
-import cosmetic_productlisting_meta from '../../apis/cosmetic/productlisting/_meta.yaml'
 import food_enforcement_meta from '../../apis/food/enforcement/_meta.yaml'
 import food_event_meta from '../../apis/food/event/_meta.yaml'
 import drug_enforcement_meta from '../../apis/drug/enforcement/_meta.yaml'
@@ -44,7 +43,6 @@ const endpoint_list = {
   'Animal And Veterinary Event': animalandveterinary_event_meta,
   'Cosmetics': 'cosmetic_header',
   'Cosmetic Event': cosmetic_event_meta,
-  'Cosmetic Product Listing': cosmetic_productlisting_meta,
   'Food': 'food_header',
   'Food Enforcement': food_enforcement_meta,
   'Food Event': food_event_meta,

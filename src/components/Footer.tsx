@@ -81,7 +81,7 @@ class Footer extends React.Component {
                 <img
                   alt='Go to FDA website'
                   width='180px'
-                  src={withPrefix("/img/gov-fda-new-white.svg")}
+                  src={"/img/gov-fda-new-white.svg"}
                 />
               </a>
             </li>

@@ -460,7 +460,6 @@ if (!bp.mob && hasWindow) {
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Cosmetics</strong></td></tr>
                       <tr><td>Adverse Event Reports</td><td>{this.docCount('cosmeticevent')}</td></tr>
-                      <tr><td>Product Listing</td><td>{this.docCount('cosmeticproductlisting')}</td></tr>
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Devices</strong></td></tr>
                       <tr><td>Classifications</td><td>{this.docCount('deviceclass')}</td></tr>
@@ -523,7 +522,6 @@ if (!bp.mob && hasWindow) {
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Cosmetics</strong></td></tr>
                       <tr><td>Adverse Event Reports</td><td>{this.downloadCount('cosmeticevent')}</td></tr>
-                      <tr><td>Product Listing</td><td>{this.downloadCount('cosmeticproductlisting')}</td></tr>
 
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Devices</strong></td></tr>

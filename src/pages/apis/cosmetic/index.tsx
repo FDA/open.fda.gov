@@ -11,10 +11,6 @@ export default () => (
           noun_name='cosmetic'
           endpoint_name='event'
         />
-        <EndpointBox
-          noun_name='cosmetic'
-          endpoint_name='productlisting'
-        />
       </div>
     </div>
   </section>
