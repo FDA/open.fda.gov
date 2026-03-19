@@ -23,8 +23,11 @@ export const pdfDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'othernsde': '/fields/othernsde_reference.pdf',
   'othersubstance': '/fields/othersubstance_reference.pdf',
   'tobaccoproblem': '/fields/tobaccoproblem_reference.pdf',
+  'tobaccoresearchpreventionads': '/fields/tobaccoresearchpreventionads_reference.pdf',
+  'tobaccoresearchdigitalads': '/fields/tobaccoresearchdigitalads_reference.pdf',
+  'tobaccoresearchsmokefree': '/fields/tobaccoresearchsmokefree_reference.pdf',
   'transparencycrl': '/fields/transparencycrl_reference.pdf'
-});
+})
 
 export const xlsxDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'animalandveterinarydrugevent': '/fields/animalandveterinaryevent_reference.xlsx',
@@ -50,8 +53,11 @@ export const xlsxDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'othernsde': '/fields/othernsde_reference.xlsx',
   'othersubstance': '/fields/othersubstance_reference.xlsx',
   'tobaccoproblem': '/fields/tobaccoproblem_reference.xlsx',
+  'tobaccoresearchpreventionads': '/fields/tobaccoresearchpreventionads_reference.xlsx',
+  'tobaccoresearchdigitalads': '/fields/tobaccoresearchdigitalads_reference.xlsx',
+  'tobaccoresearchsmokefree': '/fields/tobaccoresearchsmokefree_reference.xlsx',
   'transparencycrl': '/fields/transparencycrl_reference.xlsx'
-});
+})
 
 export const yamlDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'animalandveterinarydrugevent': '/fields/animalandveterinaryevent.yaml',
@@ -77,5 +83,8 @@ export const yamlDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'othernsde': '/fields/othernsde.yaml',
   'othersubstance': '/fields/othersubstance.yaml',
   'tobaccoproblem': '/fields/tobaccoproblem.yaml',
+  'tobaccoresearchpreventionads': '/fields/tobaccoresearchpreventionads.yaml',
+  'tobaccoresearchdigitalads': '/fields/tobaccoresearchdigitalads.yaml',
+  'tobaccoresearchsmokefree': '/fields/tobaccoresearchsmokefree.yaml',
   'transparencycrl': '/fields/transparencycrl.yaml'
-});
+})
