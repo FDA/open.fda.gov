@@ -55,3 +55,7 @@ Any disputes arising out of this Agreement and access to or use of openFDA shall
 ### No Waiver Rights
 
 FDA’s failure to exercise or enforce any right or provision of this Agreement shall not constitute waiver of such right or provision.
+
+### GMDN® Term Code, Name and Definition
+
+GMDN® is a registered trademark of The GMDN Agency. All rights reserved. The information provided on this site includes data supplied by The GMDN Agency ("GMDN Content"), which is used under license from The GMDN Agency. Any data/information suppliers who wish to extract GMDN Content from this site in order to use it as a basis for creating and supporting commercial services such as alternative categorization, alternative GMDN Term assignment, mapping to other categorizations or ontologies, or for AI training purposes, must first obtain an appropriate license from The GMDN Agency. No such activity is permitted without a license. For more information on obtaining a license, please contact The GMDN Agency ([https://www.gmdnagency.org/contact-us/](https://www.gmdnagency.org/contact-us/)). None of the GMDN content constitutes any endorsement, advice, representation or warranty about any specific medical devices that may be described by such content; and no representation or warranty is made in relation to instructions for use, suitability for any application, treatment or condition, regulatory status, or any properties of a particular medical device.
