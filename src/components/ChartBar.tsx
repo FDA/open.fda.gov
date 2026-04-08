@@ -27,6 +27,10 @@ const _renderBars = (data: Array<BarData>, fieldValues: Object, show: number) =>
     // because sometimes we have numbers as terms
     const term: void|string = result.term || fieldValues[result.term]
 
+    if(!term || term === 'null' || term === '') {
+      return;
+    }
+
     return (
       <li
         className='pad-r-1 pad-b-2'
