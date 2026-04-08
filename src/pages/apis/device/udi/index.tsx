@@ -30,7 +30,7 @@ class IndexRoute extends React.Component {
         />
 
         <h3>Responsible use of the data</h3>
-        <p>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products. We may limit or otherwise restrict your access to the API in line with our <Link to='/terms/'>Terms of Service</Link></p>
+        <p>Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products. Please refer to our <Link to='/terms/'>Terms of Service</Link>, including access and use of the GDMN data set.</p>
       </section>
     )
   }
