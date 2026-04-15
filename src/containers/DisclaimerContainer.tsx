@@ -2,19 +2,12 @@
 /* @flow */
 
 import React from 'react'
-
-type tSTATE = {
-  showModal: boolean;
-};
-
-type HOCProps = {
-  validated: boolean;
-};
+import { DisclaimerContainerState, HOCProps } from '../types'
 
 const DisclaimerContainer = function (ComposedDisclaimer: React.ComponentType<{ showModal: boolean; setIsModal: (val: boolean) => void; validated: boolean }>): React.ComponentType<HOCProps> {
 
-  class HOC extends React.Component<HOCProps, tSTATE> {
-    state: tSTATE;
+  class HOC extends React.Component<HOCProps, DisclaimerContainerState> {
+    state: DisclaimerContainerState;
     constructor(props: HOCProps) {
       super(props);
       this.state = {

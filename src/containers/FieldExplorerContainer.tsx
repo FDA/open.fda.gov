@@ -1,18 +1,16 @@
 /* @flow */
 
 import React from 'react'
+import type { fieldExplorerContainerState } from '../types'
+import type { ComponentType } from 'react'
 
-type tSTATE = {
-  selectedField: string
-};
-
-const FieldExplorerContainer = function (ComposedFieldExplorer: ReactClass): ReactClass {
+const FieldExplorerContainer = function (ComposedFieldExplorer: ComponentType<any>): ComponentType<any> {
   class HOC extends React.Component {
-    state: tSTATE = {
+    state: fieldExplorerContainerState = {
       selectedField: 'fields'
     };
 
-    _updateField (val) {
+    _updateField (val: any) {
       if (val !== 'fields') {
         this.setState({
           selectedField: val.value,
@@ -25,7 +23,7 @@ const FieldExplorerContainer = function (ComposedFieldExplorer: ReactClass): Rea
       )
     }
 
-    _updateSelected (e) {
+    _updateSelected (e: any) {
       const title = e.target.getAttribute('title')
       if (this.state.selectedField !== title) {
         this.setState({
@@ -34,7 +32,7 @@ const FieldExplorerContainer = function (ComposedFieldExplorer: ReactClass): Rea
       }
     }
 
-    render (): React.Element {
+    render () {
       return (
         <ComposedFieldExplorer
           {...this.props}
