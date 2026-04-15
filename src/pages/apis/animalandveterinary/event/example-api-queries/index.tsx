@@ -16,6 +16,8 @@ class IndexRoute extends React.Component {
         <QueryTour
           desc={oneReport.description}
           query={oneReport.query}
+          noun="animalandveterinary"
+          endpoint="event"
           params={oneReport.params}
           title={oneReport.title}
           name={'oneReport'}

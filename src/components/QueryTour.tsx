@@ -5,6 +5,7 @@ import React from 'react'
 import Joyride, { STATUS, Step } from 'react-joyride'
 import QueryExplorer from './QueryExplorer'
 import type { queryTour, queryTourState } from '../types';
+import { API_LINK } from '../constants/api';
 
 const steps = (name: string): Step[] => [
   {
@@ -78,6 +79,18 @@ class QueryTour extends React.Component<queryTour, queryTourState> {
 
 
   render (): any {
+
+    const { noun, query, endpoint } = this.props
+    let queryPath = this.props.query
+    if (noun && endpoint) {
+      const queryString = queryPath.startsWith('?')  ? queryPath.slice(1) : queryPath
+      queryPath = `${noun}/${endpoint}.json?${queryString}`
+    } else {
+      queryPath = queryPath.replace(/^https:\/\/api.fda.gov\//, '')
+    }
+
+    const fullQuery = `${API_LINK}/${queryPath}`
+
     return (
       <section>
         <Joyride
@@ -99,7 +112,7 @@ class QueryTour extends React.Component<queryTour, queryTourState> {
           tourStart={this.handleClickStart}
           desc={this.props.desc}
           name={this.props.name}
-          originalQuery={this.props.query}
+          originalQuery={fullQuery}
           params={this.props.params}
           title={this.props.title} k={0} level={0} result={''} query={''}        
         />
