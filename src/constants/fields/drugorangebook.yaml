@@ -54,13 +54,13 @@ properties:
           is_exact: true
           possible_values:
           type: string
-        applicantion_name:
+        application_name:
           description: "Name of the Applicant for the drug product."
           format:
           is_exact: true
           possible_values:
           type: string
-        applicantion_full_name:
+        application_full_name:
           description: "The full name of the firm holding legal responsibility for the new drug application."
           format:
           is_exact: true
