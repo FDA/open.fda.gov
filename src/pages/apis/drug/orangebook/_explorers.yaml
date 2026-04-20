@@ -12,10 +12,10 @@ expiring2020:
     - "This query searches all products that have patents and exclusivities expiring in the calendar year 2020."
     - 'Date ranges are wrapped in square brackets `[]`.'
   params:
-    - "Search for all products which have `patents.expire_date` falling within 2020."
-    - "Search for all products which have `exclusivity.exclusivity_expire_date` falling within 2020."
+    - "Search for all products which have `patents.expiration_date` falling within 2020."
+    - "Search for all products which have `exclusivity.exclusivity_expiration_date` falling within 2020."
     - "Limit to 1 record."
-  query: 'https://openfda-api.preprod.fda.gov/drug/orangebook.json?search=patents.expire_date:[2020-01-01+TO+2020-12-31]+exclusivity.exclusivity_expire_date:[2020-01-01+TO+2020-12-31]'
+  query: 'https://openfda-api.preprod.fda.gov/drug/orangebook.json?search=patents.expiration_date:[2020-01-01+TO+2020-12-31]+exclusivity.exclusivity_expiration_date:[2020-01-01+TO+2020-12-31]'
 singleSource:
   title: Single source products
   description:

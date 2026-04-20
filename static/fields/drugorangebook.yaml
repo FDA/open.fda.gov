@@ -54,13 +54,13 @@ properties:
           is_exact: true
           possible_values:
           type: string
-        applicant_name:
+        applicantion_name:
           description: "Name of the Applicant for the drug product."
           format:
           is_exact: true
           possible_values:
           type: string
-        applicant_full_name:
+        applicantion_full_name:
           description: "The full name of the firm holding legal responsibility for the new drug application."
           format:
           is_exact: true
@@ -115,7 +115,7 @@ properties:
           is_exact: false
           possible_values:
           type: string
-        expire_date:
+        expiration_date:
           description: "The date the patent expires as submitted by the applicant holder including applicable extensions."
           format: date
           is_exact: false
@@ -134,19 +134,25 @@ properties:
           possible_values:
           type: boolean
         patent_use_code:
-          description: "Code to designate a use patent that covers the approved indication or use of a drug product.  May repeat for multiple applications, multiple products and multiple patents."
+          description: "A code to designate a method of use that covers the approved indication or use of a drug product."
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        patent_use_code_definition:
+          description: "The definition of the patent use code."
           format:
           is_exact: false
           possible_values:
           type: string
         patent_delist_flag:
-          description: "Sponsor has requested patent be delisted. This patent has remained listed because, under Section 505(j)(5)(D)(i) of the Act, a first applicant may retain eligibility for 180-day exclusivity based on a paragraph IV certification to this patent for a certain period. Applicants under Section 505(b)(2) are not required to certify to patents where this flag is set to Y."
+          description: "The flag is set to 'Y' when an applicant holder has requested a patent to be delisted but the patent cannot be delisted."
           format:
           is_exact: false
           possible_values:
           type: boolean
         patent_submission_date:
-          description: "The date on which the FDA receives patent information from the new drug application (NDA) holder."
+          description: "The date on which the FDA receives patent information from the applicant holder. Patent submission date data is included for patents submitted after 2013."
           format: date
           is_exact: false
           possible_values:
@@ -161,7 +167,13 @@ properties:
           is_exact: false
           possible_values:
           type: string
-        exclusivity_expire_date:
+        exclusivity_code_definition:
+          description: "The definition of the exclusivity code."
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        exclusivity_expiration_date:
           description: "The date the exclusivity expires."
           format: date
           is_exact: false
