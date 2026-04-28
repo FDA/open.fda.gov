@@ -1,0 +1,13 @@
+documentTitle: openFDA › Cosmetic › Product Listing API
+name: Cosmetic Product Listing
+description: 'This dataset provides a product listing for cosmetics.'
+datasets:
+  - cosmeticproductlisting
+label: Cosmetic Product Listing
+title: Cosmetic Product Listing
+path: /apis/cosmetic/productlisting
+api_path: /cosmetic/productlisting
+start: 20170101
+status: cosmeticproductlisting
+dateConstraintKey:
+type: endpoint
