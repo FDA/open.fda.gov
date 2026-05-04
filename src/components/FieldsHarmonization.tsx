@@ -67,10 +67,11 @@ type State = {
 }
 
 class FieldsHarmonization extends React.Component<PROPS, State> {
+  tableBodyRef: React.RefObject<HTMLDivElement>;
 
   constructor (props: PROPS) {
     super(props)
-
+    this.tableBodyRef = React.createRef() as React.RefObject<HTMLDivElement>
     const master_harmonization: Record<string, any> = props.master_harmonization
 
     const nouns: string[] = []
@@ -319,6 +320,13 @@ class FieldsHarmonization extends React.Component<PROPS, State> {
     }
   }
 
+  handleChange() {
+    const body = document.querySelector('.ReactTable .rt-tbody') as HTMLDivElement;
+    if (body) {
+      body.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  }
+
   render (): any {
 
     if (Object.keys(this.state.data as any).length === 0 && (this.state.data as any).constructor === Object) {
@@ -339,7 +347,7 @@ class FieldsHarmonization extends React.Component<PROPS, State> {
     })
 
     return (
-      <section id='fields-harmonization'>
+      <section id='fields-harmonization' ref={this.tableBodyRef}>
         <div className='noun-buttons' id='noun-buttons'>
           {
             noun_buttons
