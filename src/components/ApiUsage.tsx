@@ -7,8 +7,8 @@ import { API_LINK, API_NAME } from '../constants/api'
 import {default as $} from 'jquery'
 import '../css/components/APIUsage.scss'
 
-// Update total usage numbers with: https://api.fda.gov/usage.json?start_at=2026-05-04 - last 2026-05-04
-// Current total: 1,547 million
+// Update total usage numbers with: https://api.fda.gov/usage.json?start_at=2026-06-01 - last 2026-06-01
+// Current total: 1,627 million
 
 const nounMap = {
   drug: "Drug",
