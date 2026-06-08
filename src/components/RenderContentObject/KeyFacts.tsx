@@ -15,7 +15,8 @@ const source: Record<string, Record<string, string>> = {
     'event': 'Center for Food Safety and Applied Nutrition Adverse Event Reporting System (CAERS)'
   },
   'cosmetic': {
-    'event': 'Cosmetic Adverse Events'
+    'event': 'Cosmetic Adverse Events',
+    'productlisting': 'Cosmetic Product Listing'
   },
   'device': {
     'event': 'Manufacturer and User Facility Device Experience (MAUDE)',
@@ -105,7 +106,8 @@ const timePeriod: any = {
     'event': '2004 to'
   },
   'cosmetic': {
-    'event': '2001 to'
+    'event': '2001 to',
+    'productlisting': 'Last updated on'
   },
   'device': {
     'event': '2009 to',
@@ -152,7 +154,8 @@ const frequency = {
     'event': 'Quarterly'
   },
   'cosmetic': {
-    'event': 'Infrequently'
+    'event': 'Infrequently',
+    'productlisting': 'Infrequently'
   },
   'device': {
     'event': 'Weekly',
