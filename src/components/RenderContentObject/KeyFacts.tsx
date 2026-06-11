@@ -164,7 +164,7 @@ const frequency = {
     'label': 'Weekly',
     'ndc': 'Daily',
     'enforcement': 'Weekly',
-    'orangebook': 'Daily',
+    'orangebook': 'Monthly',
     'drugsfda': 'Daily (Monday-Friday)',
     'shortages': 'Daily'
   },
