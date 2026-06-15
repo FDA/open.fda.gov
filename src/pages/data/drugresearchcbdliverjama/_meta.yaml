@@ -21,6 +21,5 @@ provider:
   name: 'FDA'
   link: 'http://www.fda.gov/'
 additionalContent:
-  - 'openFDa currently hosts two FDA studies into the impacts of CBD on the liver:'
-  - 'Cannabidiol and Liver Enzyme Level Elevations in Healthy Adults'
-  - ''
+  - 'openFDa currently hosts one FDA study in two parts which delves into the impacts of CBD on the liver:'
+  - 'Cannabidiol and Liver Enzyme Level Elevations in Healthy Adults Part One'
