@@ -1,0 +1,158 @@
+properties:
+  participant_id:
+    description: "Participant ID"
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  exclude:
+    description: "Indicator of whether the datapoint was excluded from analysis. 0 indicates inclusion and 1 indicates exclusion. Note: One subject (16204) had detectable levels of citalopram and metabolites at predose at levels suggesting repeated administration. This participant was excluded from all analyses as a protocol violation as per I/E criteria."
+    format:
+    is_exact: false
+    possible_values:
+    type: boolean
+  age:
+    description: "Age of the participant (unit = years)."
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  sex:
+    description: "Sex of the participant, assigned at birth. One of 'Female' or 'Male'."
+    format:
+    is_exact: true
+    possible_values:
+      'Female': 'Female'
+      'Male': 'Male'
+    type: string
+  ethnicity:
+    description: "Ethnicity of the participant. One of 'Hispanic or Latino' or 'Not Hispanic or Latino'."
+    format:
+    is_exact: true
+    possible_values:
+      'Hispanic or Latino': 'Hispanic or Latino'
+      'Not Hispanic or Latino': 'Not Hispanic or Latino'
+    type: string
+  race:
+    description: "Race of the participant. One or multiple of ‘American Indian or Alaska Native’, ‘Asian', 'Black or African American', ‘Native Hawaiian or Other Pacific Islander’, 'White' or ‘Unknown’."
+    format:
+    is_exact: true
+    possible_values:
+      'American Indian or Alaska Native': 'American Indian or Alaska Native'
+      'Asian': 'Asian'
+      'Black or African American': 'Black or African American'
+      'Native Hawaiian or Other Pacific Islander': 'Native Hawaiian or Other Pacific Islander'
+      'White': 'White'
+      'Unknown': 'Unknown'
+    type: string
+  height:
+    description: "Height of the participant (unit = cm)."
+    format:
+    is_exact: false
+    possible_values:
+    type: number
+  weight:
+    description: "Weight of the participant (unit = kg)."
+    format:
+    is_exact: false
+    possible_values:
+    type: number
+  body_mass_index:
+    description: "Body mass index of the participant (unit = kg/m2)."
+    format:
+    is_exact: false
+    possible_values:
+    type: number
+  phenotype:
+    description: "Type of CYP2C19 metabolizer based on genotyping results. One of ‘Normal’, ‘Intermediate’, ‘Rapid’, or ‘Ultra-Rapid’."
+    format:
+    is_exact: false
+    possible_values:
+      'Normal': 'Normal'
+      'Intermediate': 'Intermediate'
+      'Rapid': 'Rapid'
+      'Ultra-Rapid': 'Ultra-Rapid'
+    type: string
+  rs7438135_genotype:
+    description: "Type of UGT2B7 rs7438135 variation. One of GG, AG, AA."
+    format:
+    is_exact: false
+    possible_values:
+      'GG': 'GG'
+      'AG': 'AG'
+      'AA': 'AA'
+    type: string
+  rs7668282_genotype:
+    description: "Type of UGT2B7 rs7668282 variation. One of TT, TC, CC."
+    format:
+    is_exact: false
+    possible_values:
+      'TT': 'TT'
+      'TC': 'TC'
+      'CC': 'CC'
+    type: string
+  rs7439366_genotype:
+    description: "Type of UGT2B7 rs7439366 variation. One of TT, CT, CC."
+    format:
+    is_exact: false
+    possible_values:
+      'TT': 'TT'
+      'CT': 'CT'
+      'CC': 'CC'
+    type: string
+  products:
+    type: array
+    items:
+      type: object
+      properties:
+        product:
+          description: "Administered product. One of ‘Citalopram alone’, ‘Citalopram + steady state cannabidiol’, ‘Morphine alone’, ‘Morphine + 1 dose of cannabidiol’, ‘Morphine + steady state cannabidiol’."
+          format:
+          is_exact: true
+          possible_values:
+            'Citalopram alone': 'Citalopram alone'
+            'Citalopram + steady state cannabidiol': 'Citalopram + steady state cannabidiol'
+            'Morphine alone': 'Morphine alone'
+            'Morphine + 1 dose of cannabidiol': 'Morphine + 1 dose of cannabidiol'
+            'Morphine + steady state cannabidiol': 'Morphine + steady state cannabidiol'
+          type: string
+        times:
+          type: array
+          items:
+            type: object
+            properties:
+              time:
+                description: "Nominal sampling time (unit = hours)."
+                format:
+                is_exact: false
+                possible_values:
+                type: integer
+              analytes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    analyte:
+                      description: "Measured analyte. One of Citalopram, Desmethylcitalopram, Morphine, Morphine-3-glucuronide, Morphine-6-glucuronide."
+                      format:
+                      is_exact: false
+                      possible_values:
+                        'Citalopram': 'Citalopram'
+                        'Desmethylcitalopram': 'Desmethylcitalopram'
+                        'Morphine': 'Morphine'
+                        'Morphine-3-glucuronide': 'Morphine-3-glucuronide'
+                        'Morphine-6-glucuronide': 'Morphine-6-glucuronide'
+                      type: string
+                    concentration:
+                      description: "Reported concentration with BLQ values set to zero (unit = ng/mL)."
+                      format:
+                      is_exact: false
+                      possible_values:
+                      type: number
+                    blq:
+                      description: "Denotes samples below the limit of quantitation. Limits were 0.2 ng/mL for citalopram, 0.16 ng/mL for desmethylcitalopram, 0.78 ng/mL for morphine, 3.91 ng/mL for morphine-3-glucuronide, and 1.56 ng/mL for morphine-6-glucuronide."
+                      format:
+                      is_exact: false
+                      possible_values:
+                      type: boolean
+type: object

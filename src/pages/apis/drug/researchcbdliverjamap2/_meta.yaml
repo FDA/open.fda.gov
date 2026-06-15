@@ -1,0 +1,12 @@
+documentTitle: openFDA › Drugs › CBD Liver JAMA Research Part Two
+label: Drug CBD Liver JAMA Research Part Two
+title: Drug CBD Liver JAMA Research Part Two
+description: 'This dataset makes available the research paper "".'
+datasets:
+  - drugresearchcbdliverjamap2
+path: /apis/drug/researchcbdliverjamap2
+api_path: /drug/researchcbdliverjamap2
+start: 19390101
+status: drugresearchcbdliverjamap2
+dateConstraintKey: submission_status_date
+type: endpoint

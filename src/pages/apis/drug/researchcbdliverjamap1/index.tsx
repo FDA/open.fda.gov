@@ -9,7 +9,7 @@ class IndexRoute extends React.Component {
 
     return (
       <section className='doc-content'>
-        <h2>CBD Liver JAMA Research Overview</h2>
+        <h2>CBD Liver JAMA Research Part One Overview</h2>
         <p>This dataset makes available the research paper "Cannabidiol and Liver Enzyme Level Elevations in Healthy Adults".</p>
 
         <KeyFacts

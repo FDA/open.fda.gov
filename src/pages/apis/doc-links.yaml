@@ -180,22 +180,38 @@
           link: /apis/drug/drugshortages/download/
         - title: Searchable fields
           link: /apis/drug/drugshortages/searchable-fields/
-    - title: CBD Liver JAMA Research
-      id: drug-research-cbd-liver-jama
+    - title: CBD Liver JAMA Research Part One
+      id: drug-research-cbd-liver-jama-p1
       collapse: true
       items:
         - title: Overview
-          link: /apis/drug/researchcbdliverjama/
+          link: /apis/drug/researchcbdliverjamap1/
         - title: How to use the API
-          link: /apis/drug/researchcbdliverjama/how-to-use-the-endpoint/
+          link: /apis/drug/researchcbdliverjamap1/how-to-use-the-endpoint/
         - title: Example API queries
-          link: /apis/drug/researchcbdliverjama/example-api-queries/
+          link: /apis/drug/researchcbdliverjamap1/example-api-queries/
         - title: Understanding the API Results
-          link: /apis/drug/researchcbdliverjama/understanding-the-api-results/
+          link: /apis/drug/researchcbdliverjamap1/understanding-the-api-results/
         - title: Download the dataset
-          link: /apis/drug/researchcbdliverjama/download/
+          link: /apis/drug/researchcbdliverjamap1/download/
         - title: Searchable fields
-          link: /apis/drug/researchcbdliverjama/searchable-fields/
+          link: /apis/drug/researchcbdliverjamap1/searchable-fields/
+    - title: CBD Liver JAMA Research Part Two
+      id: drug-research-cbd-liver-jama-p2
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/drug/researchcbdliverjamap2/
+        - title: How to use the API
+          link: /apis/drug/researchcbdliverjamap2/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/drug/researchcbdliverjamap2/example-api-queries/
+        - title: Understanding the API Results
+          link: /apis/drug/researchcbdliverjamap2/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/drug/researchcbdliverjamap2/download/
+        - title: Searchable fields
+          link: /apis/drug/researchcbdliverjamap2/searchable-fields/
 
 - title: Device API Endpoints
   id: device-api-endpoints

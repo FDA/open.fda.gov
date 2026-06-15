@@ -7,12 +7,12 @@ class IndexRoute extends React.Component {
   render () {
 
     const oneRecord = explorers.oneRecord
-    const lowBMIPlacebo = explorers.lowBMIPlacebo
+    const lowBMICitalopram = explorers.lowBMICitalopram
     const countAnalytye = explorers.countAnalytye
 
     return (
       <section className='doc-content'>
-        <h2>Example CBD Liver JAMA Research queries</h2>
+        <h2>Example CBD Liver JAMA Research Part Two queries</h2>
         <p>To help get you started, we have provided some query examples below. Use the Run query button to call the Application Programming Interface and get back results. You can experiment by editing the example queries in the black text box.</p>
         <QueryTour
           desc={oneRecord.description}
@@ -22,11 +22,11 @@ class IndexRoute extends React.Component {
           name={'oneRecord'}
         />
         <QueryTour
-          desc={lowBMIPlacebo.description}
-          query={lowBMIPlacebo.query}
-          params={lowBMIPlacebo.params}
-          title={lowBMIPlacebo.title}
-          name={'lowBMIPlacebo'}
+          desc={lowBMICitalopram.description}
+          query={lowBMICitalopram.query}
+          params={lowBMICitalopram.params}
+          title={lowBMICitalopram.title}
+          name={'lowBMICitalopram'}
         />
         <QueryTour
           desc={countAnalytye.description}

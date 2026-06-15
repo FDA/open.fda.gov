@@ -8,7 +8,7 @@ title: 'Drug CBD Liver JAMA Research'
 description: 'Research study into the impacts of CBD on the liver, as published in the Journal of the American Medical Association.'
 source:
   name: 'Drug CBD Liver JAMA Research'
-  nameLong: 'Drug CBD Liver JAMA Researchh'
+  nameLong: 'Drug CBD Liver JAMA Research'
 license:
   name: 'Public Domain and CC0'
   link: 'http://creativecommons.org/publicdomain/zero/1.0/'
@@ -21,5 +21,6 @@ provider:
   name: 'FDA'
   link: 'http://www.fda.gov/'
 additionalContent:
-  - 'openFDa currently hosts one FDA study into the impacts of CBD on the liver:'
+  - 'openFDa currently hosts two FDA studies into the impacts of CBD on the liver:'
   - 'Cannabidiol and Liver Enzyme Level Elevations in Healthy Adults'
+  - ''

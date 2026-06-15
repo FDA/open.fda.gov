@@ -35,7 +35,8 @@ const source: Record<string, Record<string, string>> = {
     'enforcement': 'FDA Recall Enterprise System (RES)',
     'drugsfda': 'Drugs@FDA',
     'shortages': 'Drug Shortages',
-    'researchcbdliverjama': 'CBD Liver JAMA Research'
+    'researchcbdliverjamap1': 'CBD Liver JAMA Research',
+    'researchcbdliverjamap2': 'CBD Liver JAMA Research'
   },
   'other': {
     'historicaldocument': 'Historic FDA Press Releases',
@@ -79,7 +80,8 @@ const sourceLink: any = {
     'enforcement': '/data/res/',
     'drugsfda': '/data/drugsfda/',
     'shortages': '/data/drugshortages',
-    'researchcbdliverjama': '/data/drugresearchcbdliverjama'
+    'researchcbdliverjamap1': '/data/drugresearchcbdliverjama',
+    'researchcbdliverjamap2': '/data/drugresearchcbdliverjama'
   },
   'other': {
     'historicaldocument': '/data/historicaldocument/',
@@ -125,7 +127,8 @@ const timePeriod: any = {
     'enforcement': '2004 to',
     'drugsfda': '1939 to',
     'shortages': '2012 to',
-    'researchcbdliverjama': 'Last updated'
+    'researchcbdliverjamap1': 'Last updated',
+    'researchcbdliverjamap2': 'Last updated'
   },
   'other': {
     'historicaldocument': '1913 to',
@@ -172,7 +175,8 @@ const frequency = {
     'enforcement': 'Weekly',
     'drugsfda': 'Daily (Monday-Friday)',
     'shortages': 'Daily',
-    'researchcbdliverjama': 'n/a'
+    'researchcbdliverjamap1': 'n/a',
+    'researchcbdliverjamap2': 'n/a'
   },
   'other': {
     'historicaldocument': 'Infrequently',

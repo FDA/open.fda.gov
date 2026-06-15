@@ -1,0 +1,23 @@
+oneRecord:
+  title: One Drug CBD Liver JAMA Research Part Two record
+  params:
+    - Search for all records and display one.
+    - limit to 1 record.
+  description:
+    - This query searches for all records and asks for a single one.
+  query: 'https://openfda-api.preprod.fda.gov/drug/researchcbdliverjamap2.json?limit=1'
+lowBMICitalopram:
+  title: Normal to High BMI with Citalopram alone
+  description:
+    - This query searches for all records with body mass index in the range of 1 to 25 and product equal to "Citalopram alone".
+  params:
+    - search for all records with body mass index in the range of 25 to 50 and product equal to "Citalopram alone".
+  query: 'https://openfda-api.preprod.fda.gov/drug/researchcbdliverjamap2.json?search=body_mass_index:[25+TO+50]+AND+products.product:"Citalopram alone"'
+countAnalytye:
+  title: Records by Analytye
+  description:
+    - This query searches for the count of records with each analytye.
+    - The suffix .exact is required by openFDA to count the unique full phrases in the field product. Without it, the API will count each word in that field individually.
+  params:
+    - count the number of records associated with each analytye
+  query: 'https://openfda-api.preprod.fda.gov/drug/researchcbdliverjamap2.json?count=products.times.analytye.exact'
