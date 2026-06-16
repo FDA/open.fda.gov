@@ -10,7 +10,7 @@ export const pdfDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'drugenforcement': '/fields/drugenforcement_reference.pdf',
   'drugsfda': '/fields/drugsfda_reference.pdf',
   'drugshortages': '/fields/drugshortages_reference.pdf',
-  'drugresearchcbdliverjamap1': '/fields/drugresearchcbdliverjamap2_reference.pdf',
+  'drugresearchcbdliverjamap1': '/fields/drugresearchcbdliverjamap1_reference.pdf',
   'drugresearchcbdliverjamap2': '/fields/drugresearchcbdliverjamap2_reference.pdf',
   'deviceevent': '/fields/deviceevent_reference.pdf',
   'devicerecall': '/fields/devicerecall_reference.pdf',
