@@ -33,7 +33,11 @@ export default () => (
         />
         <EndpointBox
           noun_name='drug'
-          endpoint_name='researchcbdliverjama'
+          endpoint_name='researchcbdliverjamap1'
+        />
+        <EndpointBox
+          noun_name='drug'
+          endpoint_name='researchcbdliverjamap2'
         />
       </div>
     </div>
