@@ -111,7 +111,10 @@ class DataDictionary extends React.Component<{}, DataDictionaryState> {
       'substance': 'Substance Data',
       'udi': 'UDI',
       'unii': 'UNII',
-      'crl': 'Complete Response Letters'
+      'crl': 'Complete Response Letters',
+      'researchpreventionads': 'Prevention Ads Research',
+      'researchdigitalads': 'Digital Ads Research',
+      'researchsmokefree': 'Smokefree Research'
     }
 
 

@@ -1,0 +1,13 @@
+documentTitle: openFDA › Tobacco › Digital Ads Research API
+name: Tobacco Digital Ads Research
+description: "This dataset makes available the research paper Exploring Attention to Digital Ads"
+datasets:
+  - tobaccoresearchdigitalads
+label: Tobacco Digital Ads Research
+title: Tobacco Digital Ads Research
+path: /apis/tobacco/researchdigitalads
+api_path: /tobacco/researchdigitalads
+start: 20170101
+status: tobaccoresearchdigitalads
+dateConstraintKey:
+type: endpoint

@@ -1,15 +1,10 @@
 /* @flow */
 
 import React from 'react'
+import type { sidebarContainerState as tSTATE } from '../types'
 
-type tSTATE = {
-  activeHeader: Array;
-  path: string;
-  showMobileSidebar: boolean;
-};
-
-function checkArray (arr, path) {
-  const activeHeader = []
+function checkArray(arr: any[], path: string): [boolean, Array<string>] {
+  const activeHeader: Array<string> = []
   for (let i = 0; i < arr.length; i++) {
     if (Array.isArray(arr[i].items)) {
       const header = checkObject(arr[i], path)[0]
@@ -24,9 +19,9 @@ function checkArray (arr, path) {
   return [false, activeHeader]
 }
 
-function checkObject (obj, path) {
-  const activeHeaders = []
-  const active = checkArray(obj.items, path)
+function checkObject(obj: any, path: string): Array<string> {
+  const activeHeaders: Array<string> = []
+  const active: [boolean, Array<string>] = checkArray(obj.items, path)
   const id = obj.id
   if (active[0] === true) {
     activeHeaders.push(id)
@@ -41,15 +36,15 @@ function checkObject (obj, path) {
 }
 
 
-const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClass {
-  class HOC extends React.Component {
+const DocSidebarContainer = function (ComposedDocSidebar: React.ComponentType<any>): React.ComponentType<any> {
+  class HOC extends React.Component<any, tSTATE> {
     state: tSTATE = {
       activeHeader: [],
       path: ' ',
       showMobileSidebar: false,
     }
 
-    componentDidMount () {
+    componentDidMount() {
       let activeHeaders = this.state.activeHeader
       const yaml = this.props.yaml
       const returnedHeaders = []
@@ -65,7 +60,7 @@ const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClas
       })
     }
 
-    componentWillUpdate (nextProps) {
+    componentWillUpdate(nextProps: any) {
       if (this.state.path !== window.location.pathname) {
         let activeHeaders = this.state.activeHeader
         const yaml = this.props.yaml
@@ -86,15 +81,15 @@ const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClas
       }
     }
 
-    _toggleMobileSidebar () {
+    _toggleMobileSidebar() {
       this.setState({
         showMobileSidebar: !this.state.showMobileSidebar
       })
     }
 
-    _toggleSection (e) {
+    _toggleSection(e: React.MouseEvent<HTMLElement>) {
       const activeHeader = this.state.activeHeader.slice()
-      const title = e.target.getAttribute('title')
+      const title = (e.target as HTMLElement).getAttribute('title') || ''
       if (activeHeader.indexOf(title) === -1) {
         activeHeader.push(title)
         this.setState({
@@ -108,7 +103,7 @@ const DocSidebarContainer = function (ComposedDocSidebar: ReactClass): ReactClas
       }
     }
 
-    render (): React.Element {
+    render() {
       return (
         <ComposedDocSidebar
           {...this.props}

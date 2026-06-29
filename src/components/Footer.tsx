@@ -1,6 +1,8 @@
 /* @flow */
 
 import React from 'react'
+import Link from 'gatsby-link'
+import { withPrefix } from "gatsby"
 import '../css/components/Footer.scss'
 
 const links: Array<Object> = [
@@ -43,18 +45,6 @@ const links: Array<Object> = [
   {
     txt: 'Privacy Policy',
     url: 'https://www.fda.gov/about-fda/about-website/website-policies#privacy'
-  },
-  {
-    txt: 'openFDA Terms of Service',
-    url: '/terms',
-  },
-  {
-    txt: 'License',
-    url: 'https://open.fda.gov/license'
-  },
-  {
-    txt: 'Email the openFDA team',
-    url: 'mailto:open@fda.hhs.gov',
   }
 ]
 
@@ -80,7 +70,7 @@ class Footer extends React.Component {
                 <img
                   alt='Go to FDA website'
                   width='180px'
-                  src='/img/gov-fda-new-white.svg'
+                  src={"/img/gov-fda-new-white.svg"}
                 />
               </a>
             </li>
@@ -115,6 +105,21 @@ class Footer extends React.Component {
                   </li>
                 ))
               }
+              <li className='marg-b-1'>
+                <Link className={aCx} to='/terms'>openFDA Terms of Service</Link>
+              </li>
+              <li className='marg-b-1'>
+                <Link className={aCx} to='/license'>License</Link>
+              </li>
+              <li className='marg-b-1'>
+                <a
+                  className={aCx}
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  href='mailto:open@fda.hhs.gov'>
+                  Email the openFDA team
+                </a>
+              </li>
             </ul>
           </nav>
           <div className='flex-row dir-column footer-right'>

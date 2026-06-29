@@ -2,39 +2,11 @@
 
 import React from 'react'
 import xhrGET from '../utils/xhr'
-import { Props } from 'react-select';
-import { StateManagerProps } from 'react-select/dist/declarations/src/useStateManager';
-
-type PROPS = StateManagerProps & {
-  // close the website tour function
-  closeTour?: () => void;
-  // description of query
-  desc: string;
-  // key, passed in from parent
-  k: number;
-  // what header level to use
-  level: number;
-  // query parameters
-  params: Array<string>;
-  // query result
-  result: string;
-  // query title
-  title: string;
-  originalQuery: string;
-  // query to run
-  query: string;
-  [key: string]: any;
-};
-
-type tSTATE = {
-  queryToRun: string;
-  result: string;
-  showResult: boolean;
-};
+import type { queryExplorerContainerProps, queryExplorerContainerState } from '../types';
 
 const QueryExplorerContainer = function (ComposedQueryExplorer: React.ComponentType<any>) {
-  class HOC extends React.Component<PROPS, tSTATE> {
-    static defaultProps: Partial<PROPS> = {
+  class HOC extends React.Component<queryExplorerContainerProps, queryExplorerContainerState> {
+    static defaultProps: Partial<queryExplorerContainerProps> = {
       closeTour: () => {},
       desc: '',
       k: 0,
@@ -47,13 +19,13 @@ const QueryExplorerContainer = function (ComposedQueryExplorer: React.ComponentT
     };
 
     // for flow
-    state: tSTATE = {
+    state: queryExplorerContainerState = {
       queryToRun: '',
       result: '',
       showResult: false,
     };
 
-    constructor (props: PROPS) {
+    constructor (props: queryExplorerContainerProps) {
       super(props)
       this.state.queryToRun = props.originalQuery
     }
@@ -84,12 +56,13 @@ const QueryExplorerContainer = function (ComposedQueryExplorer: React.ComponentT
     render (): React.ReactElement {
       return (
         <ComposedQueryExplorer
-        closeTour={() => {}}
-        {...this.props}
-        {...this.state}
-        fetchQuery={this._fetchQuery.bind(this)}
-        toggleQuery={this._toggleVisibility.bind(this)}
-        updateQuery={this._updateQuery.bind(this)}        />
+          closeTour={() => {}}
+          {...this.props}
+          {...this.state}
+          fetchQuery={this._fetchQuery.bind(this)}
+          toggleQuery={this._toggleVisibility.bind(this)}
+          updateQuery={this._updateQuery.bind(this)}      
+         />
       )
     }
   }

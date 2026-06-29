@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import cx from 'classnames'
 import DownloadsContainer from '../containers/DownloadsContainer'
+import type { DownloadProps } from '../types/download.types'
 
 const liCx: string = 'marg-b-1 row col grow-none t-2 d-2'
 const mbCx: string = 'clr-gray inline-block'
@@ -31,7 +32,12 @@ const _renderByLimit = (results: any, limit: any) => {
 
 const _renderByYear = (results: any, years: any) => {
   return years.sort().map((y: any, i: any) => {
-    const data: any[] = results[y]
+    let data: any[] = results[y]
+    data = data.sort((a: any, b: any) => {
+      const aA = Number(a.display_name.match(/Q(\d)/)?.[1]);
+      const bA = Number(b.display_name.match(/Q(\d)/)?.[1]);
+      return aA - bA;
+    })
 
     return (
       <li
@@ -66,18 +72,7 @@ const _renderByYear = (results: any, years: any) => {
   })
 }
 
-type tPROPS = {
-  allPartitions: Array<Object>;
-  k: number;
-  api_path: string;
-  title: string;
-  results: Object;
-  showAllResults: boolean;
-  toggle: Function;
-  updated: string;
-};
-
-const Downloads = (props: tPROPS) => {
+const Downloads = (props: DownloadProps) => {
   const {
     allPartitions,
     k,

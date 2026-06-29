@@ -6,6 +6,7 @@ import cx from 'classnames'
 
 import ARIA from '../../constants/aria'
 import RenderContentObject from '../RenderContentObject'
+import type { DownloadsMenuProps } from '../../types/download.types'
 
 /**
  * @description [semantic menu means no links. we don't leave the page]
@@ -24,13 +25,6 @@ const _scrollIntoView = (e: React.MouseEvent<HTMLButtonElement>) => {
   return el && el.scrollIntoView({
     behavior: 'smooth',
   })
-}
-
-interface DownloadsMenuProps {
-  bottomPos: number;
-  content: (string | Object)[];
-  isBottom: boolean;
-  isFixed?: boolean;
 }
 
 const DownloadsMenu = (props: DownloadsMenuProps) => {

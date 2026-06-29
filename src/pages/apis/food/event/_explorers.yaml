@@ -6,7 +6,7 @@ oneReport:
   params:
     - search for all records with receivedate between Jan 01, 2004 and Jan 1, 2016.
     - limit to 1 record.
-  query: 'https://api.fda.gov/food/event.json?search=date_started:[20040101+TO+20160101]&limit=1'
+  query: 'food/event.json?search=date_started:[20040101+TO+20160101]&limit=1'
 industry:
   title: One adverse event report involving a product from a certain industry
   description:
@@ -14,7 +14,7 @@ industry:
   params:
     - search for all records where products.industry_code (FDA industry code) contains 23 (Nuts/Edible Seed).
     - limit to 1 record.
-  query: 'https://api.fda.gov/food/event.json?search=products.industry_code:23&limit=1'
+  query: 'food/event.json?search=products.industry_code:23&limit=1'
 reaction:
   title: Count of consumer reactions
   description:
@@ -25,4 +25,4 @@ reaction:
   params:
     - search for all records where products.industry_code (FDA industry code) contains 23 (cereal prep/breakfast food).
     - limit to 1 record.
-  query: 'https://api.fda.gov/food/event.json?search=products.industry_code:23&count=reactions.exact'
+  query: 'food/event.json?search=products.industry_code:23&count=reactions.exact'

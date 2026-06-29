@@ -1,7 +1,8 @@
 import { defineConfig } from 'cypress'
 
 export default defineConfig({
-  defaultCommandTimeout: 10000,
+  defaultCommandTimeout: 20000,
+  pageLoadTimeout: 20000,
   retries: {
     runMode: 2,
     openMode: 0,

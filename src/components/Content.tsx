@@ -1,31 +1,17 @@
 /* @flow */
 
 import React from 'react'
-import {marked} from 'marked'
+import { marked } from 'marked'
 import cx from 'classnames'
 
 import RenderContentObject from './RenderContentObject'
 import InteractiveInfographic from './InteractiveInfographic'
 import InfographicContainer from '../containers/InfographicContainer'
-
-type tPROPS = {
-  content: Array<Object|string>;
-  examples: Array<Object>;
-  explorers: Object;
-  infographicDefinitions: any;
-  infographics: any;
-  fields: Object;
-  showMenu: boolean;
-  meta: { start: string;
-    api_path: string; };
-  fieldsMapped: Object;
-  fieldsFlattened: Record<string, string>;
-};
-
+import type { contentProps } from '../types'
 
 // reads in _content.yaml from ideally anywhere
 // and knows what component to render for each field
-const Content = (props: tPROPS) => {
+const Content = (props: contentProps) => {
   const {
     content,
     examples,
@@ -46,7 +32,7 @@ const Content = (props: tPROPS) => {
         maxWidth: '100%',
       }}>
       {
-        content.map((words: string|Object, i) => {
+        content?.map((words: string | Object, i) => {
           // lies, IT IS NOT WORDS
           // basically, stuff like disclaimer
           // or examples, or fields we want to render
@@ -76,7 +62,7 @@ const Content = (props: tPROPS) => {
               <InteractiveInfographic
                 infographicDefinitions={infographicDefinitions}
                 key={i}
-                meta={meta}
+                meta={meta ? { api_path: meta.api_path } : { api_path: '' }}
               />
             )
           }
@@ -86,7 +72,7 @@ const Content = (props: tPROPS) => {
               <InfographicContainer
                 infographics={infographics}
                 meta={meta}
-                fieldsFlattened={fieldsFlattened}  
+                fieldsFlattened={fieldsFlattened}
                 key={i}
               />
             )
@@ -124,7 +110,7 @@ const Content = (props: tPROPS) => {
 
           if (hasLink) {
             // array of matches, we should have at least one
-             const matches: string[] | null | undefined = typeof html === 'string' ? html.match(httpRE) : null
+            const matches: string[] | null | undefined = typeof html === 'string' ? html.match(httpRE) : null
 
             // but just to be safe
             if (matches) {
@@ -140,7 +126,7 @@ const Content = (props: tPROPS) => {
               key={i}
               className={wrapperCx}
               tabIndex={0}
-              dangerouslySetInnerHTML={{__html: finalOutput}}
+              dangerouslySetInnerHTML={{ __html: finalOutput }}
             />
           )
         })

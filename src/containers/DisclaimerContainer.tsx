@@ -2,29 +2,23 @@
 /* @flow */
 
 import React from 'react'
-
-type tSTATE = {
-  showModal: boolean;
-};
-
-type HOCProps = {
-  validated: boolean;
-};
+import { DisclaimerContainerState, HOCProps } from '../types'
 
 const DisclaimerContainer = function (ComposedDisclaimer: React.ComponentType<{ showModal: boolean; setIsModal: (val: boolean) => void; validated: boolean }>): React.ComponentType<HOCProps> {
 
-  class HOC extends React.Component<HOCProps> {
-    constructor (props: HOCProps) {
+  class HOC extends React.Component<HOCProps, DisclaimerContainerState> {
+    state: DisclaimerContainerState;
+    constructor(props: HOCProps) {
       super(props);
       this.state = {
         showModal: !this.props.validated
       };
     }
 
-    componentDidMount () {
+    componentDidMount() {
       const hasSeenDisclamer = sessionStorage.getItem('hasSeenDisclaimer')
       const validated = sessionStorage.getItem('validated') === 'true'
-      
+
       // Simplify the logic to be more responsive
       if (hasSeenDisclamer == null) {
         sessionStorage.setItem('hasSeenDisclaimer', 'true')
@@ -35,7 +29,7 @@ const DisclaimerContainer = function (ComposedDisclaimer: React.ComponentType<{ 
       }
     }
 
-    componentWillReceiveProps (nextProps: HOCProps) {
+    componentWillReceiveProps(nextProps: HOCProps) {
       if (this.props.validated !== nextProps.validated || !nextProps.validated) {
         this.setState({
           showModal: !nextProps.validated
@@ -43,20 +37,20 @@ const DisclaimerContainer = function (ComposedDisclaimer: React.ComponentType<{ 
       }
     }
 
-    _hideModal () {
+    _hideModal() {
       this.setState({
         showModal: false
       })
     }
 
-    setIsModal (val: boolean) {
+    setIsModal(val: boolean) {
       // Immediately update the modal state for better responsiveness
       this.setState({
         showModal: val
       })
     }
 
-    render (): React.ReactElement {
+    render(): React.ReactElement {
       return (
         <ComposedDisclaimer
           {...this.props}

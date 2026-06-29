@@ -44,7 +44,10 @@ const source: Record<string, Record<string, string>> = {
     'unii': 'Unique Ingredient Identifiers'
   },
   'tobacco': {
-    'problem': 'Tobacco Problem Reports'
+    'problem': 'Tobacco Problem Reports',
+    'researchpreventionads': 'Tobacco Ads Research',
+    'researchdigitalads': 'Tobacco Ads Research',
+    'researchsmokefree': 'Tobacco Smokefree Research'
   },
   'transparency': {
     'crl': 'Complete Response Letters',
@@ -86,7 +89,10 @@ const sourceLink: any = {
     'unii': '/data/unii/'
   },
   'tobacco': {
-    'problem': '/data/tobaccoproblem/'
+    'problem': '/data/tobaccoproblem/',
+    'researchpreventionads': '/data/tobaccoadsresearch/',
+    'researchdigitalads': '/data/tobaccoadsresearch/',
+    'researchsmokefree': '/data/tobaccosmokefreeresearch/'
   },
   'transparency': {
   },
@@ -130,7 +136,10 @@ const timePeriod: any = {
     'unii': '2006 to'
   },
   'tobacco': {
-    'problem': '2017 to'
+    'problem': '2017 to',
+    'researchpreventionads': 'Last updated',
+    'researchdigitalads': 'Last updated',
+    'researchsmokefree': 'Last updated'
   },
   'transparency': {
     'crl': '2020-2024'
@@ -146,7 +155,7 @@ const frequency = {
     'event': 'Quarterly'
   },
   'cosmetic': {
-    'event': 'Infrequent'
+    'event': 'Infrequently'
   },
   'device': {
     'event': 'Weekly',
@@ -175,7 +184,10 @@ const frequency = {
     'unii': 'Daily'
   },
   'tobacco': {
-    'problem': 'Quarterly'
+    'problem': 'Quarterly',
+    'researchpreventionads': 'n/a',
+    'researchdigitalads': 'n/a',
+    'researchsmokefree': 'n/a'
   },
   'transparency': {
     'crl': 'Infrequently'

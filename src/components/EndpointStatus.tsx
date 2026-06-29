@@ -3,19 +3,9 @@
 import React from 'react'
 import EndpointStatusContainer from '../containers/EndpointStatusContainer'
 import '../css/components/EndpointStatus.scss'
+import type { endpointStatusProps } from '../types'
 
-type EndpointStatusData = {
-  last_updated: string;
-  status: string;
-  documents: number;
-} | Record<string, any> | null;
-
-type tPROPS = {
-  data: EndpointStatusData | null;
-  fullPath: string;
-};
-
-const EndpointStatus = ({ data, fullPath, }: tPROPS) => {
+const EndpointStatus = ({ data, fullPath, }: endpointStatusProps) => {
   const date = data ? new Date(data.last_updated) : null;
   return (
     <section className='flex-box just-between b-b-1 bg-gray-lightest m-hide pad-b-2 pad-t-2 pad-l-4 pad-r-4'>
@@ -28,14 +18,14 @@ const EndpointStatus = ({ data, fullPath, }: tPROPS) => {
         {
           data
             ? (data.status === 'GREEN' ?
-                <span className='status-content status-content-bg bg-green-light clr-white'>
-                  <i className='fa fa-check'/> OK
-                </span>
-                :
-                <span className='status-content status-content-bg bg-red clr-white'>
-                  <i className='fa fa-close'/> DOWN
-                </span>
-              )
+              <span className='status-content status-content-bg bg-green-light clr-white'>
+                <i className='fa fa-check' /> OK
+              </span>
+              :
+              <span className='status-content status-content-bg bg-red clr-white'>
+                <i className='fa fa-close' /> DOWN
+              </span>
+            )
             : <span className='status-content'>N/A</span>
         }
       </div>

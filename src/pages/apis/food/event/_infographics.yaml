@@ -47,7 +47,7 @@
   description:
     - "Adverse reactions can include symptoms like rashes, diarrhea, or headaches, or be much more serious. Use the buttons next to the chart to see how reported reactions vary with different search criteria."
     - "There is no certainty that a reported reaction was actually caused by consumption or use of a product—this data reports associations only."
-  countParam: "consumer.age"
+  countParam: "reactions.exact"
   filters:
     - title: "All adverse event reports"
       searchParam: ""

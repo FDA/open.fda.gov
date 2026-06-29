@@ -6,7 +6,7 @@ oneCompanyMed:
   params:
     - search for all records which include the field `public_device_record_key`.
     - limit to 1 record.
-  query: 'https://api.fda.gov/device/udi.json?search=_exists_:public_device_record_key&limit=1'
+  query: 'device/udi.json?search=_exists_:public_device_record_key&limit=1'
 updated:
   title: Record in which the public version status is update.
   description:
@@ -15,4 +15,4 @@ updated:
   params:
     - search for all records with `public_version_status` that is `Update`.
     - limit to 1 record.
-  query: 'https://api.fda.gov/device/udi.json?search=public_version_status:Update&limit=1'
+  query: 'device/udi.json?search=public_version_status:Update&limit=1'

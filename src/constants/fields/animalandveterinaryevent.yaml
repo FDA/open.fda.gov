@@ -367,6 +367,12 @@ properties:
     is_exact: false
     possible_values:
     type: date
+  foreign_or_domestic:
+    description: "A flag indicating whether the product is foreign or domestic."
+    format:
+    is_exact: false
+    possible_values:
+    type: string
   outcome:
     description: "This is the medical status of the animal(s) affected in the adverse event report at the time the adverse event is reported."
     format:

@@ -1,23 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-interface StickySidebarProps {
-  className?: string;
-  enter?: string;
-  exit?: string;
-  children?: React.ReactNode;
-  sidebarFixed?: boolean;
-  toggleFixed?: (fixed: boolean) => void;
-}
+import type { StickySidebarProps } from '../types'
 
 export class StickySidebar extends React.Component<StickySidebarProps> {
-  constructor (props: StickySidebarProps) {
+  constructor(props: StickySidebarProps) {
     super(props)
 
     this.scrollListener = this.scrollListener.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     interface StickyElement extends HTMLElement {
       setAttribute(name: string, value: string): void;
       getBoundingClientRect(): DOMRect;
@@ -36,11 +28,11 @@ export class StickySidebar extends React.Component<StickySidebarProps> {
     document.addEventListener('scroll', this.scrollListener)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.removeEventListener('scroll', this.scrollListener)
   }
 
-  scrollListener () {
+  scrollListener() {
     const stickies = document.querySelectorAll('[data-sticky]')
     const top = document.documentElement.scrollTop || document.body.scrollTop
     const bottom = document.documentElement.scrollHeight || document.body.scrollHeight;
@@ -67,24 +59,24 @@ export class StickySidebar extends React.Component<StickySidebarProps> {
         if (top >= stickyEnter && top <= stickyExit) {
           sticky.classList.add('sticky-sidebar')
           !this.props.sidebarFixed &&
-          this.props.toggleFixed && this.props.toggleFixed(true)
+            this.props.toggleFixed && this.props.toggleFixed(true)
         }
         else {
           sticky.classList.remove('sticky-sidebar')
           this.props.sidebarFixed &&
-          this.props.toggleFixed && this.props.toggleFixed(false)
+            this.props.toggleFixed && this.props.toggleFixed(false)
         }
       }
       else if (sticky.classList.contains('sticky-sidebar')) {
         sticky.classList.remove('sticky-sidebar')
         this.props.sidebarFixed &&
-        this.props.toggleFixed && this.props.toggleFixed(false)
+          this.props.toggleFixed && this.props.toggleFixed(false)
       }
 
     })
   }
 
-  render () {
+  render() {
     const { className, enter, exit, children } = this.props
 
     return (

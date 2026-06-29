@@ -4,41 +4,25 @@ import cx from 'classnames'
 import ComposedDocSidebar from "../containers/DocSidebarContainer"
 import '../css/components/DocSidebar.scss'
 import { JSX } from "react/jsx-runtime"
+import { SectionLinkProps, sectionProps, BreadcrumbItem, BreadcrumbSection, BreadcrumbSubItem, docSidebarProps } from "../types"
 
-type sectionProps = {
-  id?: string;
-  title: string;
-  collapse?: boolean;
-  index?: number;
-  toggleSection: React.MouseEventHandler<HTMLHeadingElement>;
-  toggleMobileSidebar: React.MouseEventHandler<HTMLAnchorElement>;
-  activeHeader: string | any[];
-};
-
-type SectionLinkProps = {
-  title: string;
-  link?: string;
-  items: any[];
-  collapse?: boolean;
-  id: string;
-  children?: any[];
-  toggleSection: React.MouseEventHandler<HTMLSpanElement> | undefined;
-  toggleMobileSidebar: React.MouseEventHandler<HTMLAnchorElement> | undefined;
-  activeHeader: string | any[];
-  isChild?: boolean;
-  isTutorial?: boolean;
-  index?: number;
-  node?: any;
-  style?: object;
-}
-
+const itemCx = (props: any, isHeader: boolean) => cx({
+    'row': true,
+    'sidebar-item': !isHeader,
+    'sidebar-header sidebar-cross': isHeader,
+    'depth-2': !props.isChild,
+    'depth-3': props.isChild,
+  })
 
 const Section = (props: sectionProps) => {
+
   let isHeader = false
   const long_title = props.id
+
   if (props.collapse === true) {
     isHeader = true
   }
+
   return (
     <div className='pad-l-1 pad-b-2'>
       <h3 className={isHeader ? ("row sidebar-cross" + (props.activeHeader.indexOf(long_title ?? "") > -1 ? ' ' : ' collapsed')) : ' '}
@@ -47,10 +31,10 @@ const Section = (props: sectionProps) => {
         {props.title}
       </h3>
       <SectionLinks
-      items={[]}
-      {...props}
-      id={props.id ?? ""}
-      isTutorial={long_title === `Tutorial`}
+        items={[]}
+        {...props}
+        id={props.id ?? ""}
+        isTutorial={long_title === `Tutorial`}
       />
     </div>
   )
@@ -68,13 +52,14 @@ const SectionLinks = (props: SectionLinkProps) => {
           key={index}
           toggleSection={props.toggleSection}
           toggleMobileSidebar={props.toggleMobileSidebar}
-          activeHeader={props.activeHeader} isChild={undefined}        />
+          activeHeader={props.activeHeader} isChild={undefined} />
       ))}
     </ul>
   )
 }
 
 const APINavLink = (props: JSX.IntrinsicAttributes & JSX.IntrinsicClassAttributes<Link<unknown>> & Readonly<GatsbyLinkProps<unknown>>) => {
+
   const isActive = typeof window !== "undefined" ? window.location.href.endsWith(props.to) : false
   const className = isActive ? props.className + " sidebar-item-active" : props.className
 
@@ -86,6 +71,13 @@ const APINavLink = (props: JSX.IntrinsicAttributes & JSX.IntrinsicClassAttribute
 const SectionLink = (props: { children: any[]; toggleSection: React.MouseEventHandler<HTMLSpanElement> | undefined; toggleMobileSidebar: React.MouseEventHandler<HTMLAnchorElement> | undefined; activeHeader: string | any[]; node: any; isChild: any }) => {
 
   let childnodes = null
+
+  const item = props.node
+  const title = item.title
+  const link = item.link
+  let long_title = title
+  let isHeader = false
+
   if (props.children) {
     childnodes = props.children.map((childnode: { items: any }, index: any) => (
       <SectionLink
@@ -99,12 +91,6 @@ const SectionLink = (props: { children: any[]; toggleSection: React.MouseEventHa
     ))
   }
 
-  const item = props.node
-  const title = item.title
-  const link = item.link
-  let long_title = title
-
-  let isHeader = false
   if (Object.keys(item).indexOf("link") === -1) {
     isHeader = true
     long_title = item.id
@@ -112,31 +98,24 @@ const SectionLink = (props: { children: any[]; toggleSection: React.MouseEventHa
   else {
     long_title = link.split('/').slice(2, -1).join('_')
   }
-  const itemCx = cx({
-    'row': true,
-    'sidebar-item': !isHeader,
-    'sidebar-header sidebar-cross': isHeader,
-    'depth-2': !props.isChild,
-    'depth-3': props.isChild,
-  })
 
   return (
     <li>
       {Object.keys(item).indexOf("link") === -1 ? (
-        <span className={itemCx + (props.activeHeader.indexOf(long_title) > -1 ? ' ' : ' collapsed')}
+        <span className={itemCx(props, isHeader) + (props.activeHeader.indexOf(long_title) > -1 ? ' ' : ' collapsed')}
           title={long_title}
           onClick={props.toggleSection}>
           {title}
         </span>
       ) : link.charAt(0) === `#` ? (
-        <a href={link} className={itemCx} onClick={props.toggleMobileSidebar}>
+        <a href={link} className={itemCx(props, isHeader)} onClick={props.toggleMobileSidebar}>
           {title}
         </a>
       ) : (
         <APINavLink
           to={link}
           key={link}
-          className={itemCx}
+          className={itemCx(props, isHeader)}
           activeClassName='sidebar-item-active'
           onClick={props.toggleMobileSidebar}
           title={title}
@@ -150,22 +129,6 @@ const SectionLink = (props: { children: any[]; toggleSection: React.MouseEventHa
     </li>
   )
 }
-
-
-type BreadcrumbSection = {
-  items: BreadcrumbItem[];
-};
-
-type BreadcrumbItem = {
-  title?: string;
-  link?: string;
-  items?: BreadcrumbSubItem[];
-};
-
-type BreadcrumbSubItem = {
-  title?: string;
-  link?: string;
-};
 
 const DocBreadcrumbs = (props: { yaml: BreadcrumbSection[]; path: any }) => {
   let breadcrumb = "Choose a field"
@@ -191,20 +154,7 @@ const DocBreadcrumbs = (props: { yaml: BreadcrumbSection[]; path: any }) => {
   )
 }
 
-
-type tPROPS = {
-  activeHeader: string;
-  path: string;
-  isSticky: boolean;
-  style: object;
-  yaml: any[]; // Change from object to array
-  showMobileSidebar: boolean;
-  toggleSection: React.MouseEventHandler<HTMLHeadingElement>;
-  toggleMobileSidebar: () => void;
-};
-
-
-const DocSidebar = (props: tPROPS) => {
+const DocSidebar = (props: docSidebarProps) => {
   const {
     activeHeader,
     path,
@@ -222,8 +172,8 @@ const DocSidebar = (props: tPROPS) => {
   return (
     <section id='doc-sidebar'>
       <div className='doc-sidebar-mobile' onClick={() => toggleMobileSidebar()}>
-        <DocBreadcrumbs path={path} yaml={yaml}/>
-        <i className='fa fa-angle-down fa-2x'/>
+        <DocBreadcrumbs path={path} yaml={yaml} />
+        <i className='fa fa-angle-down fa-2x' />
       </div>
       <div className={sidebarCx}>
         {yaml.map((section: { title: any }, index: React.Key | null | undefined) => (

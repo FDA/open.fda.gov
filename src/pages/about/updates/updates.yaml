@@ -151,7 +151,19 @@ updates:
     path: /apis/cosmetic/event/
     date: 2025-09-13
     desc: "The dataset Cosmetic Adverse Events is now available."
+  - title: "New openFDA Dataset - Tobacco Prevention Ads Research"
+    path: /apis/tobacco/researchpreventionads/
+    date: 2026-02-17
+    desc: "The dataset Tobacco Prevention Ads Research is now available."
+  - title: "New openFDA Dataset - Tobacco Digital Ads Research"
+    path: /apis/tobacco/researchdigitalads/
+    date: 2026-02-17
+    desc: "The dataset Tobacco Digital Ads Research is now available."
+  - title: "New openFDA Dataset - Tobacco Smokefree Research"
+    path: /apis/tobacco/researchsmokefree/
+    date: 2026-03-11
+    desc: "The dataset Tobacco Smokefree Research is now available."
   - title: "New openFDA Dataset - Orange Book"
     path: /apis/drug/orangebook/
-    date: 2025-12-04
+    date: 2026-06-30
     desc: "The dataset Orange Book is now available."
