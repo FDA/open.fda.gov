@@ -104,7 +104,7 @@ context('Data Dictionary', () => {
       'COVID-19 Serology', 'Enforcement', 'Event', 'Pre-Market Approval',
       'Recall', 'Registration List', 'UDI'], '')
     changeDataCategory(3, 'Human Drug', ['Enforcement', 'Event',
-      'Label', 'NDC', 'Drugs@FDA'], 'openfda.')
+      'Label', 'NDC', 'Orange Book', 'Drugs@FDA'], 'openfda.')
     changeDataCategory(4, 'Food', ['Enforcement', 'Event'], 'meta.')
     changeDataCategory(5, 'Other', ['Historical Documents', 'NSDE', 'Substance Data', 'UNII'], '')
     changeDataCategory(6, 'Tobacco', ['Problem'], '')

@@ -55,7 +55,7 @@ context('Data Downloads', () => {
     verifyDownloads('Medical\\ Device\\ PMA', 1, 1)
     verifyDownloads('Medical\\ Device\\ Recall', 1, 2)
     verifyDownloads('Medical\\ Device\\ Registration\\ Listing', 2, 3)
-    verifyDownloads('Medical\\ Device\\ UDI', 30, 50)
+    verifyDownloads('Medical\\ Device\\ UDI', 30, 51)
     verifyDownloads('COVID-19\\ Serological\\ Testing\\ Evaluations', 1, 1)
     verifyDownloads('Tobacco\\ Problem\\ Reports', 1, 1)
     verifyDownloads('NSDE', 1, 4)
