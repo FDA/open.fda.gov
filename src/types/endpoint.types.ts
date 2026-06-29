@@ -12,6 +12,7 @@ export type EndpointName =
     | 'covid19serology'
     | 'label'
     | 'ndc'
+    | 'orangebook'
     | 'drugsfda'
     | 'drugshortages'
     | 'historicaldocument'

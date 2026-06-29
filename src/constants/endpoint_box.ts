@@ -29,6 +29,7 @@ export const description: Record<NounName, Partial<Record<EndpointName, string>>
     'label': 'Structured product information, including prescribing information, for approved drug products.',
     'ndc': 'NDC directory containing information on the National Drug Code (NDC)',
     'enforcement': 'Drug product recall enforcement reports.',
+    'orangebook': 'Approved Drug Products with Therapeutic Equivalence Evaluations (Orange Book).',
     'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.',
     'drugshortages': 'Drug Shortages can occur for many reasons, including manufacturing and quality problems, delays, and discontinuations.'
 },
@@ -76,6 +77,7 @@ export const ep_title: Record<NounName, Partial<Record<EndpointName, string>>> =
     'label': 'Product labeling',
     'ndc': 'NDC Directory',
     'enforcement': 'Recall enforcement reports',
+    'orangebook': 'Orange Book',
     'drugsfda': 'Drugs@FDA',
     'drugshortages': 'Drug shortages'
   },
@@ -133,6 +135,7 @@ export const ep_path: Record<NounName, Partial<Record<EndpointName, string>>> = 
     'label': '/apis/drug/label/',
     'ndc': '/apis/drug/ndc/',
     'enforcement': '/apis/drug/enforcement/',
+    'orangebook': '/apis/drug/orangebook/',
     'drugsfda': '/apis/drug/drugsfda/',
     'drugshortages': '/apis/drug/drugshortages/'
   },
