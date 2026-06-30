@@ -26,12 +26,13 @@ const yamlGet = function (field: any, fieldsYAML: FieldsYAML): any {
   const newPathParts: string[] = []
 
   pathParts.forEach(part => {
+    console.log("part: ", part)
     newPathParts.push(part)
     // openfda -> openfda.route -> openfda.route.exact
     let currentPath: string = newPathParts.join('.')
     // currentPath must be the absolute path to get field
     let currentResult: any = get(fieldsYAML.properties, currentPath)
-
+    console.log("current path: ", currentPath)
     if (!currentResult || !currentResult.type) return
 
     const type: string = currentResult.type.toLowerCase()
