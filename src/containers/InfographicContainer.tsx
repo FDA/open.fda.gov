@@ -163,7 +163,7 @@ class InfographicContainer extends React.Component<InfographicContainerProps, tS
    */
   _fetchQueryAndUpdate (searchParam: string, countParam: string) {
     var that = this
-    let download_url = API_LINK + '/download.json'
+    let download_url = API_LINK + that.props.meta.api_path + '.json'
     fetch(download_url)
       .then(function (res) {
         return res.json()
