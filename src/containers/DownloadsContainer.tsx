@@ -92,7 +92,7 @@ const DownloadsContainer = function (ComposedDownloads: React.ComponentType<any>
           results={resultsByCat}
           showAllResults={this.state.showAllResults}
           toggle={this._toggleDownloads.bind(this)}
-          updated={meta.last_updated}
+          updated={results.export_date}
         />
       )
     }

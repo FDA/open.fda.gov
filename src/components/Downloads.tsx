@@ -110,7 +110,7 @@ const Downloads = (props: DownloadProps) => {
             quarterly, but there may be a 3-6 month delay from the time FDA receives reports until they are posted.
           </p>
       }
-      <p>There are <strong>{allPartitions.length}</strong> files, last updated on <strong>{api_path === "/animalandveterinary/event" ? '2024-04-04' : updated}</strong>.</p>
+      <p>There are <strong>{allPartitions.length}</strong> files, last updated on <strong>{api_path === "/animalandveterinary/event" ? '2026-07-02' : updated}</strong>.</p>
       {
         allPartitions.length > 10 &&
         <button
