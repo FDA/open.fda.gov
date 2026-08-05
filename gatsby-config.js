@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/opioid-and-ssri`,
   siteMetadata: {
     title: `openFDA`,
     siteUrl: `https://www.open.fda.gov`,

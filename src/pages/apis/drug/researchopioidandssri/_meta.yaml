@@ -1,0 +1,12 @@
+documentTitle: openFDA › Drugs › Opioid and SSRI Interactions Research
+label: Opioid and SSRI Interactions Research
+title: Opioid and SSRI Interactions Research
+description: 'This dataset makes available the research paper "Opioid and SSRI Drug Interactions".'
+datasets:
+  - Opioid and SSRI Interactions Research
+path: /apis/drug/researchopioidandssri
+api_path: /drug/researchopioidandssri
+start: 20000101
+status: drugresearchopioidandssri
+dateConstraintKey: approval_date
+type: endpoint

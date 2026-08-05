@@ -15,6 +15,7 @@ export type EndpointName =
     | 'orangebook'
     | 'drugsfda'
     | 'drugshortages'
+    | 'researchopioidandssri'
     | 'historicaldocument'
     | 'nsde'
     | 'substance'

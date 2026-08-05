@@ -35,7 +35,8 @@ const source: Record<string, Record<string, string>> = {
     'enforcement': 'FDA Recall Enterprise System (RES)',
     'orangebook': 'Approved Drug Products with Therapeutic Equivalence Evaluations (Orange Book)',
     'drugsfda': 'Drugs@FDA',
-    'shortages': 'Drug Shortages'
+    'shortages': 'Drug Shortages',
+    'researchopioidandssri': 'Opioid and SSRI Interactions Research'
   },
   'other': {
     'historicaldocument': 'Historic FDA Press Releases',
@@ -80,7 +81,8 @@ const sourceLink: any = {
     'enforcement': '/data/res/',
     'orangebook': '/data/orangebook/',
     'drugsfda': '/data/drugsfda/',
-    'shortages': '/data/drugshortages'
+    'shortages': '/data/drugshortages/',
+    'researchopioidandssri': '/data/researchopioidandssri/'
   },
   'other': {
     'historicaldocument': '/data/historicaldocument/',
@@ -127,7 +129,8 @@ const timePeriod: any = {
     'enforcement': '2004 to',
     'orangebook': 'Content current as of:',
     'drugsfda': '1939 to',
-    'shortages': '2012 to'
+    'shortages': '2012 to',
+    'researchopioidandssri': 'Last updated'
   },
   'other': {
     'historicaldocument': '1913 to',
@@ -175,7 +178,8 @@ const frequency = {
     'enforcement': 'Weekly',
     'orangebook': 'Monthly',
     'drugsfda': 'Daily (Monday-Friday)',
-    'shortages': 'Daily'
+    'shortages': 'Daily',
+    'researchopioidandssri': 'Infrequently'
   },
   'other': {
     'historicaldocument': 'Infrequently',

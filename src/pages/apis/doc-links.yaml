@@ -198,6 +198,22 @@
           link: /apis/drug/drugshortages/download/
         - title: Searchable fields
           link: /apis/drug/drugshortages/searchable-fields/
+    - title: Opioid and SSRI Interactions Research
+      id: drug-research-opioid-and-ssri
+      collapse: true
+      items:
+        - title: Overview
+          link: /apis/drug/researchopioidandssri/
+        - title: How to use the API
+          link: /apis/drug/researchopioidandssri/how-to-use-the-endpoint/
+        - title: Example API queries
+          link: /apis/drug/researchopioidandssri/example-api-queries/
+        - title: Understanding the API Results
+          link: /apis/drug/researchopioidandssri/understanding-the-api-results/
+        - title: Download the dataset
+          link: /apis/drug/researchopioidandssri/download/
+        - title: Searchable fields
+          link: /apis/drug/researchopioidandssri/searchable-fields/
 
 - title: Device API Endpoints
   id: device-api-endpoints

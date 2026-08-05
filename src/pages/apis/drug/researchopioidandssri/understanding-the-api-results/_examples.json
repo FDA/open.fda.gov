@@ -1,0 +1,36 @@
+{
+  "count": {
+    "meta": {
+      "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+      "terms": "https://open.fda.gov/terms/",
+      "license": "https://open.fda.gov/license/",
+      "last_updated": "2026-07-07"
+    },
+    "results": [
+      {
+        "term": "DDE",
+        "count": 22
+      },
+      {
+        "term": "DE",
+        "count": 22
+      },
+      {
+        "term": "Escitalopram",
+        "count": 22
+      },
+      {
+        "term": "Oxycodone",
+        "count": 22
+      },
+      {
+        "term": "Oxymorphone",
+        "count": 22
+      },
+      {
+        "term": "Paroxetine",
+        "count": 22
+      }
+    ]
+  }
+}
