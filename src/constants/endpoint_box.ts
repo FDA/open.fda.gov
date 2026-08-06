@@ -31,7 +31,8 @@ export const description: Record<NounName, Partial<Record<EndpointName, string>>
     'enforcement': 'Drug product recall enforcement reports.',
     'orangebook': 'Approved Drug Products with Therapeutic Equivalence Evaluations (Orange Book).',
     'drugsfda': 'Drugs@FDA includes most of the drug products approved since 1939.',
-    'drugshortages': 'Drug Shortages can occur for many reasons, including manufacturing and quality problems, delays, and discontinuations.'
+    'drugshortages': 'Drug Shortages can occur for many reasons, including manufacturing and quality problems, delays, and discontinuations.',
+    'researchopioidandssri': 'This dataset makes available the research paper "Cannabidiol and Liver Enzyme Level Elevations in Healthy Adults".'
 },
   'other': {
     'historicaldocument': 'FDA Press Releases, 1913-2014, in searchable format',
@@ -79,7 +80,8 @@ export const ep_title: Record<NounName, Partial<Record<EndpointName, string>>> =
     'enforcement': 'Recall enforcement reports',
     'orangebook': 'Orange Book',
     'drugsfda': 'Drugs@FDA',
-    'drugshortages': 'Drug shortages'
+    'drugshortages': 'Drug shortages',
+    'researchopioidandssri': 'Opioid and SSRI Interactions Research'
   },
   'other': {
     'historicaldocument': 'Historical Documents',
@@ -137,7 +139,8 @@ export const ep_path: Record<NounName, Partial<Record<EndpointName, string>>> = 
     'enforcement': '/apis/drug/enforcement/',
     'orangebook': '/apis/drug/orangebook/',
     'drugsfda': '/apis/drug/drugsfda/',
-    'drugshortages': '/apis/drug/drugshortages/'
+    'drugshortages': '/apis/drug/drugshortages/',
+    'researchopioidandssri': '/apis/drug/researchopioidandssri/'
   },
   'other': {
     'historicaldocument': '/apis/other/historicaldocument/',

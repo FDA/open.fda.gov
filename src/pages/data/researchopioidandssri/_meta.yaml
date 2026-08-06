@@ -1,0 +1,27 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › Opioid and SSRI Interactions Research'
+crumbs:
+  - openFDA
+  - Datasets
+  - Opioid and SSRI Interactions Research
+title: 'Opioid and SSRI Interactions Research'
+description: 'Research study into drug interactions between opioids and SSRIs.'
+source:
+  name: 'Opioid and SSRI Interactions Research'
+  nameLong: 'Opioid and SSRI Interactions Research'
+  link: 'https://www.fda.gov/drugs/drug-safety-and-availability/drug-shortages'
+  linkDownload: 'https://dps.fda.gov/drugshortages'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+  time:
+  start:
+  current:
+  delay:
+  frequency: 'Infrequently'
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - 'openFDa currently hosts one FDA study which delves into the drug interactions between opioids and SSRIs:'
+  - 'Opioid and SSRI Drug Interactions'

@@ -1,0 +1,23 @@
+oneRecord:
+  title: One record
+  description:
+    - This query searches for all records and asks for a single one.
+  params:
+    - Search for all records and display one.
+    - limit to 1 record
+  query: 'drug/researchopioidandssri.json?limit=1'
+lowBMIPlacebo:
+  title: Low to Normal BMI with Placebo
+  description:
+    - This query searches for all records with body mass index in the range of 1 to 25 and treatment equal to "Placebo".
+  params:
+    - search for all records with body mass index in the range of 1 to 25 and treatment equal to "Placebo".
+  query: 'drug/researchopioidandssri.json?search=body_mass_index:[1+TO+25]+AND+drug:"Placebo"'
+countAnalytye:
+  title: Records by Analytye
+  description:
+    - This query searches for the count of records with each analytye.
+    - The suffix .exact is required by openFDA to count the unique full phrases in the field product. Without it, the API will count each word in that field individually.
+  params:
+    - count the number of records associated with each analytye
+  query: 'drug/researchopioidandssri.json?count=periods.days.times.analytes.analyte.exact'

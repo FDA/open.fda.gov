@@ -167,3 +167,7 @@ updates:
     path: /apis/drug/orangebook/
     date: 2026-06-30
     desc: "The dataset Orange Book is now available."
+  - title: "New openFDA Dataset - Opioid and SSRI Interactions Research"
+    path: /apis/drug/researchopioidandssri/
+    date: 2026-08-05
+    desc: "The dataset Opioid and SSRI Interactions Research is now available."
