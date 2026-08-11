@@ -36,6 +36,7 @@ import other_historicaldocument_meta from '../../apis/other/historicaldocument/_
 import other_nsde_meta from '../../apis/other/nsde/_meta.yaml'
 import other_substance_meta from '../../apis/other/substance/_meta.yaml'
 import other_unii_meta from '../../apis/other/unii/_meta.yaml'
+import research_covidmirnaandproteomics_meta from '../../apis/other/unii/_meta.yaml'
 
 const ComposedSidebar: ReactClass = SideBarContainer(SideBar)
 
@@ -72,6 +73,8 @@ const endpoint_list = {
   'Tobacco Smokefree Research': tobacco_researchsmokefree_meta,
   'Transparency': 'transparency_header',
   'Complete Response Letters': transparency_crl_meta,
+  'Research': 'research_header',
+  'Covid miRNA and Proteomics Research': research_covidmirnaandproteomics_meta,
   'Other': 'other_header',
   'Historical Documents': other_historicaldocument_meta,
   'NSDE': other_nsde_meta,

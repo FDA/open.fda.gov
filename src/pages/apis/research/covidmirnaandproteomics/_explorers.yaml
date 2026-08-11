@@ -1,0 +1,16 @@
+oneRecord:
+  title: One Covid miRNA and Proteomics Research record
+  params:
+    - Search for all records and display one.
+    - limit to 1 record.
+  description:
+    - This query searches for all records and asks for a single one.
+  query: 'research/covidmirnaandproteomics.json?limit=1'
+pooledSamples:
+  title:
+  description:
+    - This query searches for all records that include pooled samples.
+  params:
+    - search for all records with qc_control equal to "Pooled sample".
+    - Limit to 6 records.
+  query: 'research/covidmirnaandproteomics.json?search=qc_control:"Pooled sample"&limit=6'

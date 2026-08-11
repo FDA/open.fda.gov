@@ -18,7 +18,8 @@ const nounMap = {
   animalandveterinary: "Animal and Veterinary",
   tobacco: "Tobacco",
   transparency: "Transparency",
-  cosmetic: "Cosmetic"
+  cosmetic: "Cosmetic",
+  research: "Research"
 }
 
 // Update in pages/about/statistics/_content.yaml
@@ -481,6 +482,9 @@ if (!bp.mob && hasWindow) {
                       <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Transparency</strong></td></tr>
                       <tr> <td>Complete Response Letters</td><td>{this.docCount('transparencycrl')}</td> </tr>
 
+                      <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Research</strong></td></tr>
+                      <tr><td>Covid miRNA and Proteomics</td><td>{this.docCount('researchcovidmirnaandproteomics')}</td></tr>
+
                       <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Other</strong></td></tr>
                       <tr> <td>Historical Documents</td><td>{this.docCount('otherhistoricaldocument')}</td> </tr>
                       <tr> <td>NSDE</td><td>{this.docCount('othernsde')}</td> </tr>
@@ -524,7 +528,6 @@ if (!bp.mob && hasWindow) {
                       <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Cosmetics</strong></td></tr>
                       <tr><td>Adverse Event Reports</td><td>{this.downloadCount('cosmeticevent')}</td></tr>
 
-
                       <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Devices</strong></td></tr>
                       <tr><td>Classifications</td><td>{this.downloadCount('deviceclass')}</td></tr>
                       <tr><td>Registration and listing</td><td>{this.downloadCount('devicereglist')}</td></tr>
@@ -544,6 +547,9 @@ if (!bp.mob && hasWindow) {
 
                       <tr className='bg-primary-darkest clr-white'> <td colSpan={2}><strong>Transparency</strong></td></tr>
                       <tr> <td>Complete Response Letters</td><td>{this.downloadCount('transparencycrl')}</td> </tr>
+
+                      <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Research</strong></td></tr>
+                      <tr><td>Covid miRNA and Proteomics</td><td>{this.downloadCount('researchcovidmirnaandproteomics')}</td></tr>
 
                       <tr className='bg-primary-darkest clr-white'> <td colSpan={2}><strong>Other</strong></td></tr>
                       <tr> <td>Historical Documents</td><td>{this.downloadCount('otherhistoricaldocument')}</td> </tr>

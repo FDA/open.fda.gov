@@ -60,6 +60,9 @@ const EndpointBox = (props: endpointBoxProps) => {
       'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{ color: "white" }} /></div>,
       'unii': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-barcode" style={{ color: "white" }} /></div>
     },
+    'research': {
+      'covidmirnaandproteomics': <div className="ep-icon" style={bg_color['research']}><i className="fa fa-3x fa-book" style={{ color: "white" }} /></div>,
+    },
     'tobacco': {
       'problem': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-leaf' style={{ color: "white" }} /></div>,
       'researchpreventionads': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>,

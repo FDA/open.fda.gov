@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/covid-mirna-proteomics`,
   siteMetadata: {
     title: `openFDA`,
     siteUrl: `https://www.open.fda.gov`,
