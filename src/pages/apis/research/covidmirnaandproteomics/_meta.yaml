@@ -1,6 +1,6 @@
 documentTitle: openFDA › Research › Covid miRNA and Proteomics API
 name: Covid miRNA and Proteomics Research
-description: 'This dataset makes available the research paper "Integrated miR-omics and Proteomics Reveal the Regulatory Role of miR in Protein Networks Associated with COVID-19 Disease Progression"'
+description: 'This dataset is associated with the research paper "Integrated miR-omics and Proteomics Reveal the Regulatory Role of miR in Protein Networks Associated with COVID-19 Disease Progression"'
 datasets:
   - researchcovidmirnaandproteomics
 label: Covid miRNA and Proteomics Research
