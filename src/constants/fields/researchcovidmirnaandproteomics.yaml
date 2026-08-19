@@ -46,12 +46,18 @@ properties:
           is_exact: true
           possible_values:
           type: string
-        value:
-          description: "Value of the measured control"
+        raw_value:
+          description: "Raw value of the measured miRNA"
           format:
           is_exact: false
           possible_values:
           type: integer
+        processed_value:
+          description: "Processed value of the measured miRNA"
+          format:
+          is_exact: false
+          possible_values:
+          type: double
   housekeeping_gene_controls:
     type: array
     items:
@@ -63,12 +69,18 @@ properties:
           is_exact: true
           possible_values:
           type: string
-        value:
-          description: "Value of the measured control"
+        raw_value:
+          description: "Raw value of the measured miRNA"
           format:
           is_exact: false
           possible_values:
           type: integer
+        processed_value:
+          description: "Processed value of the measured miRNA"
+          format:
+          is_exact: false
+          possible_values:
+          type: double
   mirnas:
     type: array
     items:
@@ -80,12 +92,18 @@ properties:
           is_exact: true
           possible_values:
           type: string
-        value:
-          description: "Value of the measured miRNA"
+        raw_value:
+          description: "Raw value of the measured miRNA"
           format:
           is_exact: false
           possible_values:
           type: integer
+        processed_value:
+          description: "Processed value of the measured miRNA"
+          format:
+          is_exact: false
+          possible_values:
+          type: double
   proteins:
     type: array
     items:

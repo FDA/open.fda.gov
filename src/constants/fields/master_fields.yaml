@@ -11604,125 +11604,143 @@ other:
               link: "http://fdasis.nlm.nih.gov/srs/srs.jsp"
     type: object
 research:
-  properties:
-    sample_id:
-      description: "Unique sample IDs"
-      format:
-      is_exact: true
-      possible_values:
-      type: string
-    qc_control:
-      description: "Quality control, indicating whether the sample is an actual sample, an internal control, or a pooled sample"
-      format:
-      is_exact: true
-      possible_values:
-      type: string
-    sex:
-      description: "Sex (Female or Male)"
-      format:
-      is_exact: true
-      possible_values:
-      type: string
-    age:
-      description: "Age in years, at the time of enrollment"
-      format:
-      is_exact: true
-      type: integer
-      possible_values:
-    severity:
-      description: "Severity category (Mild, Moderate, Severe)"
-      format:
-      is_exact: false
-      possible_values:
-      type: string
-    positive_control:
-      description: "Positive control"
-      format:
-      is_exact: true
-      possible_values:
-      type: string
-    plant_gene_controls:
-      type: array
-      items:
-        type: object
-        properties:
-          name:
-            description: "Name of the measured control"
-            format:
-            is_exact: true
-            possible_values:
-            type: string
-          value:
-            description: "Value of the measured control"
-            format:
-            is_exact: false
-            possible_values:
-            type: integer
-    housekeeping_gene_controls:
-      type: array
-      items:
-        type: object
-        properties:
-          name:
-            description: "Name of the measured control"
-            format:
-            is_exact: true
-            possible_values:
-            type: string
-          value:
-            description: "Value of the measured control"
-            format:
-            is_exact: false
-            possible_values:
-            type: integer
-    mirnas:
-      type: array
-      items:
-        type: object
-        properties:
-          name:
-            description: "Name of the measured miRNA"
-            format:
-            is_exact: true
-            possible_values:
-            type: string
-          value:
-            description: "Value of the measured miRNA"
-            format:
-            is_exact: false
-            possible_values:
-            type: integer
-    proteins:
-      type: array
-      items:
-        type: object
-        properties:
-          protein_symbol:
-            description: "Symbol of the measured protein"
-            format:
-            is_exact: true
-            possible_values:
-            type: string
-          uni_prot_id:
-            description: "UniprotID"
-            format:
-            is_exact: true
-            possible_values:
-            type: string
-          olink_id:
-            description: "OlinkID"
-            format:
-            is_exact: true
-            possible_values:
-            type: string
-          value:
-            description: "Value of the measured protein"
-            format:
-            is_exact: false
-            possible_values:
-            type: float
-  type: object
-
+  covidmirnaandproteomics:
+    properties:
+      sample_id:
+        description: "Unique sample IDs"
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      qc_control:
+        description: "Quality control, indicating whether the sample is an actual sample, an internal control, or a pooled sample"
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      sex:
+        description: "Sex (Female or Male)"
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      age:
+        description: "Age in years, at the time of enrollment"
+        format:
+        is_exact: true
+        type: integer
+        possible_values:
+      severity:
+        description: "Severity category (Mild, Moderate, Severe)"
+        format:
+        is_exact: false
+        possible_values:
+        type: string
+      positive_control:
+        description: "Positive control"
+        format:
+        is_exact: true
+        possible_values:
+        type: string
+      plant_gene_controls:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              description: "Name of the measured control"
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+            raw_value:
+              description: "Raw value of the measured miRNA"
+              format:
+              is_exact: false
+              possible_values:
+              type: integer
+            processed_value:
+              description: "Processed value of the measured miRNA"
+              format:
+              is_exact: false
+              possible_values:
+              type: double
+      housekeeping_gene_controls:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              description: "Name of the measured control"
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+            raw_value:
+              description: "Raw value of the measured miRNA"
+              format:
+              is_exact: false
+              possible_values:
+              type: integer
+            processed_value:
+              description: "Processed value of the measured miRNA"
+              format:
+              is_exact: false
+              possible_values:
+              type: double
+      mirnas:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              description: "Name of the measured miRNA"
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+            raw_value:
+              description: "Raw value of the measured miRNA"
+              format:
+              is_exact: false
+              possible_values:
+              type: integer
+            processed_value:
+              description: "Processed value of the measured miRNA"
+              format:
+              is_exact: false
+              possible_values:
+              type: double
+      proteins:
+        type: array
+        items:
+          type: object
+          properties:
+            protein_symbol:
+              description: "Symbol of the measured protein"
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+            uni_prot_id:
+              description: "UniprotID"
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+            olink_id:
+              description: "OlinkID"
+              format:
+              is_exact: true
+              possible_values:
+              type: string
+            value:
+              description: "Value of the measured protein"
+              format:
+              is_exact: false
+              possible_values:
+              type: float
+    type: object
 tobacco:
   problem:
     properties:
