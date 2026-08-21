@@ -167,3 +167,7 @@ updates:
     path: /apis/drug/orangebook/
     date: 2026-06-30
     desc: "The dataset Orange Book is now available."
+  - title: "New openFDA Dataset - Covid miRNA and Proteomics Research"
+    path: /apis/research/covidmirnaandproteomics/
+    date: 2026-08-22
+    desc: "The dataset Covid miRNA and Proteomics Research is now available."
