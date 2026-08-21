@@ -39,6 +39,9 @@ export const description: Record<NounName, Partial<Record<EndpointName, string>>
     'substance': 'Substance information that is precise to the molecular level for use internally and externally (where appropriate).',
     'unii': 'Unique Ingredient Identifier list.'
   },
+  'research': {
+    'covidmirnaandproteomics': 'Covid miRNA and Proteomics Research'
+  },
   'tobacco': {
     'problem': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.',
     'researchpreventionads': 'Impact Potential of FDA\'s Tobacco Prevention Ads on Youth Attitudes and Beliefs: Meta-Analytical Evidence from A Decade\'s Worth of Copy Testing',
@@ -87,6 +90,9 @@ export const ep_title: Record<NounName, Partial<Record<EndpointName, string>>> =
     'substance': 'Substance Data',
     'unii': 'UNII'
   },
+  'research': {
+    'covidmirnaandproteomics': 'Covid miRNA and Proteomics Research'
+  },
   'tobacco': {
     'problem': 'Tobacco Problem Reports',
     'researchpreventionads': 'Tobacco Prevention Ads Research',
@@ -104,6 +110,7 @@ export const bg_color: Record<NounName, React.CSSProperties> = {
   'device': { background: "linear-gradient(to right bottom, #ff8989, #c94747)" },
   'drug': { background: "linear-gradient(to right bottom, rgb(220, 141, 188), rgb(153, 88, 163))" },
   'other': { background: "linear-gradient(to right bottom, #9cf6f6, #099db7)" },
+  'research': { background: "linear-gradient(to right bottom, #9cf6f6, #099db7)" },
   'tobacco': { background: "linear-gradient(to right bottom, #e6ccb3, #6d5843)" },
   'transparency': { background: "linear-gradient(to right bottom, rgb(241 238 237), rgb(133 133 132))" },
 }
@@ -144,6 +151,9 @@ export const ep_path: Record<NounName, Partial<Record<EndpointName, string>>> = 
     'nsde': '/apis/other/nsde/',
     'substance': '/apis/other/substance/',
     'unii': '/apis/other/unii/'
+  },
+  'research': {
+    'covidmirnaandproteomics': '/apis/research/covidmirnaandproteomics/'
   },
   'tobacco': {
     'problem': '/apis/tobacco/problem/',

@@ -87,6 +87,7 @@ class DataDictionary extends React.Component<{}, DataDictionaryState> {
       'food': 'Food',
       'cosmetic': 'Cosmetic',
       'other': 'Other',
+      'research': 'Research',
       'tobacco': 'Tobacco',
       'transparency': 'Transparency'
     }
@@ -114,7 +115,8 @@ class DataDictionary extends React.Component<{}, DataDictionaryState> {
       'crl': 'Complete Response Letters',
       'researchpreventionads': 'Prevention Ads Research',
       'researchdigitalads': 'Digital Ads Research',
-      'researchsmokefree': 'Smokefree Research'
+      'researchsmokefree': 'Smokefree Research',
+      'covidmirnaandproteomics': 'Covid miRNA and Proteomics Research'
     }
 
 

@@ -1,4 +1,4 @@
-export type NounName = 'animalandveterinary' | 'food' | 'device' | 'drug' | 'other' | 'tobacco' | 'transparency' | 'cosmetic';
+export type NounName = 'animalandveterinary' | 'food' | 'device' | 'drug' | 'other' | 'tobacco' | 'transparency' | 'cosmetic' | 'research';
 
 export type EndpointName =
     | 'event'
@@ -24,7 +24,8 @@ export type EndpointName =
     | 'researchdigitalads'
     | 'researchsmokefree'
     | 'crl'
-    | 'completeresponseletters';
+    | 'completeresponseletters'
+    | 'covidmirnaandproteomics';
 
 export type endpointBoxProps = {
     noun_name: NounName,
