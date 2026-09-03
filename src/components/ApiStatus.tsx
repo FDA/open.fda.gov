@@ -37,9 +37,10 @@ let endpointKeys = [
   'otherunii',
   'researchcovidmirnaandproteomics',
   'tobaccoproblem',
-  'tobaccoresearchpreventionads',
-  'tobaccoresearchdigitalads',
-  'tobaccoresearchsmokefree',
+  'researchtobaccopreventionads',
+  'researchtobaccodigitalads',
+  'researchtobaccosmokefree',
+  'researchtobaccoharmmenthol',
   'transparencycrl'
 ]
 
@@ -71,9 +72,10 @@ const catMap: Record<EndpointKey, string> = Object.freeze({
   'othersubstance': 'Other › Substance',
   'otherunii': 'Other › UNII',
   'tobaccoproblem': 'Tobacco › Problem Reports',
-  'tobaccoresearchpreventionads': 'Tobacco › Prevention Ads Research',
-  'tobaccoresearchdigitalads': 'Tobacco › Digital Ads Research',
-  'tobaccoresearchsmokefree': 'Tobacco › Smokefree Research',
+  'researchtobaccopreventionads': 'Research › Tobacco Prevention Ads',
+  'researchtobaccodigitalads': 'Research › Tobacco Digital Ads',
+  'researchtobaccosmokefree': 'Research › Tobacco Smokefree',
+  'researchtobaccoharmmenthol': 'Research › Tobacco Smokefree',
   'transparencycrl': 'Transparency › Complete Response Letters'
 })
 
@@ -105,9 +107,10 @@ const endpointLinkMap: Record<EndpointKey, string> = Object.freeze({
   'otherunii': 'other/unii',
   'tobaccoproblem': 'research/problem',
   'researchcovidmirnaandproteomics': 'research/covidmirnaandproteomics',
-  'tobaccoresearchpreventionads': 'tobacco/researchpreventionads',
-  'tobaccoresearchdigitalads': 'tobacco/researchdigitalads',
-  'tobaccoresearchsmokefree': 'tobacco/researchsmokefree',
+  'researchtobaccopreventionads': 'research/tobaccopreventionads',
+  'researchtobaccodigitalads': 'research/tobaccodigitalads',
+  'researchtobaccosmokefree': 'research/tobaccosmokefree',
+  'researchtobaccoharmmenthol': 'research/tobaccoharmmenthol',
   'transparencycrl': 'transparency/crl'
 })
 
