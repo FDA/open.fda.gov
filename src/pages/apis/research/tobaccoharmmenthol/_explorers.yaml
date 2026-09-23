@@ -5,7 +5,7 @@ oneRecord:
     - limit to 1 record.
   description:
     - This query searches for all records and asks for a single one.
-  query: 'https://api.fda.gov/research/tobaccoharmmenthol.json?limit=1'
+  query: 'research/tobaccoharmmenthol.json?limit=1'
 timesQuit:
   title: High Times Quit
   description:
@@ -13,11 +13,11 @@ timesQuit:
   params:
     - Search for all records with times_quit in the range of 20 to 30.
     - Limit to 6 records.
-  query: 'https://api.fda.gov/research/tobaccoharmmenthol.json?search=times_quit:[20+TO+30]]&limit=6'
+  query: 'research/tobaccoharmmenthol.json?search=times_quit:[20+TO+30]&limit=6'
 quitMethodCount:
   title: Count Records by Quit Method
   description:
     - Count each instance of a record with each response to the question about their intention to quit
   params:
     - Count the records associated with each quit_intention
-  query: 'https://api.fda.gov/research/tobaccoharmmenthol.json?count=quit_intention'
+  query: 'research/tobaccoharmmenthol.json?count=quit_intention'

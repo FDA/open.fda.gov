@@ -36,11 +36,11 @@ let endpointKeys = [
   'othersubstance',
   'otherunii',
   'researchcovidmirnaandproteomics',
-  'tobaccoproblem',
   'researchtobaccopreventionads',
   'researchtobaccodigitalads',
   'researchtobaccosmokefree',
   'researchtobaccoharmmenthol',
+  'tobaccoproblem',
   'transparencycrl'
 ]
 
