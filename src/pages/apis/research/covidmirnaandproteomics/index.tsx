@@ -11,6 +11,7 @@ class IndexRoute extends React.Component {
 
         <p>This dataset is associated with the research paper "Integrated miR-omics and Proteomics Reveal the Regulatory Role of miR in Protein Networks Associated with COVID-19 Disease Progression"</p>
 
+        <p><a href='https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2026.1796638/full'>View the research article</a></p>
         <p><a href='https://download.open.fda.gov/covid_mirna_and_proteomics_source_data.zip'>Download the source files</a></p>
 
         <h3>Responsible use of the data</h3>
