@@ -14,9 +14,10 @@ type PositionsPanelState = {
 }
 
 class PositionsPanel extends React.Component<{}, PositionsPanelState> {
-  constructor (props: Object) {
+  tableBodyRef: React.RefObject<HTMLDivElement>;
+  constructor(props: Object) {
     super(props)
-
+    this.tableBodyRef = React.createRef() as React.RefObject<HTMLDivElement>
     this.state = {
       columns: [
         {
@@ -41,7 +42,7 @@ class PositionsPanel extends React.Component<{}, PositionsPanelState> {
             }}>
               {/* <li>{row.value}</li>*/}
               {row.value.map((v: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined, idx: any) =>
-                <li key={`key-${idx}`} style={{whiteSpace: "initial"}}>• {v}</li>
+                <li key={`key-${idx}`} style={{ whiteSpace: "initial" }}>• {v}</li>
               )}
             </ol>
           )
@@ -53,12 +54,18 @@ class PositionsPanel extends React.Component<{}, PositionsPanelState> {
     this.getData = this.getData.bind(this)
   }
 
+  handleChange() {
+    const body = document.querySelector('.ReactTable .rt-tbody') as HTMLDivElement;
+    if (body) {
+      body.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  }
 
-  componentDidMount () {
+  componentDidMount() {
     this.getData()
   }
 
-  getData () {
+  getData() {
     fetch(API_LINK + '/other/historicaldocumentanalytics.json?limit=1000')
       .then(res => res.json())
       .then((json => {
@@ -82,29 +89,46 @@ class PositionsPanel extends React.Component<{}, PositionsPanelState> {
   }
 
 
-  render () {
+  render() {
     return (
-      <ReactTable
-        data={this.state.data}
-        columns={this.state.columns}
-        pageSize={this.state.pageSize}
-        pageSizeOptions={[10, 25, 50, 100, 200, 250, 500, 1000]}
-        showPagination
-        minRows={10}
-        className='table -striped -highlight'
-        filtered={this.state.filtered}
-        resized={this.state.resized}
-        onSortedChange={(sorted: any) => this.setState({ sorted })}
-        onPageChange={(page: any) => this.setState({ page })}
-        onPageSizeChange={(pageSize: any, page: any) => this.setState({ page, pageSize })}
-        onResizedChange={(resized: any) => this.setState({ resized })}
-        onFilteredChange={(filtered: any) => this.setState({ filtered })}
-        style={{
-          width: '100%',
-          height: '494px',
-          position: 'relative'
-        }}
-      />
+      <div ref={this.tableBodyRef}>
+        <ReactTable
+          data={this.state.data}
+          columns={this.state.columns}
+          pageSize={this.state.pageSize}
+          pageSizeOptions={[10, 25, 50, 100, 200, 250, 500, 1000]}
+          showPagination
+          minRows={10}
+          className='table -striped -highlight'
+          filtered={this.state.filtered}
+          resized={this.state.resized}
+          onSortedChange={(sorted: any) => {
+            this.setState({ sorted })
+            this.handleChange()
+          }}
+          onPageChange={(page: any) => {
+            this.setState({ page })
+            this.handleChange()
+          }}
+          onPageSizeChange={(pageSize: any, page: any) => {
+            this.setState({ page, pageSize })
+            this.handleChange()
+          }}
+          onResizedChange={(resized: any) => {
+            this.setState({ resized })
+            this.handleChange()
+          }}
+          onFilteredChange={(filtered: any) => {
+            this.setState({ filtered })
+            this.handleChange()
+          }}
+          style={{
+            width: '100%',
+            height: '494px',
+            position: 'relative'
+          }}
+        />
+      </div>
     )
   }
 }
