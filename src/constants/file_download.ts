@@ -24,10 +24,11 @@ export const pdfDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'othernsde': '/fields/othernsde_reference.pdf',
   'othersubstance': '/fields/othersubstance_reference.pdf',
   'researchcovidmirnaandproteomics': '/fields/researchcovidmirnaandproteomics_reference.pdf',
+  'researchtobaccopreventionads': '/fields/researchtobaccopreventionads_reference.pdf',
+  'researchtobaccodigitalads': '/fields/researchtobaccodigitalads_reference.pdf',
+  'researchtobaccosmokefree': '/fields/researchtobaccosmokefree_reference.pdf',
+  'researchtobaccoharmmenthol': '/fields/researchtobaccoharmmenthol_reference.pdf',
   'tobaccoproblem': '/fields/tobaccoproblem_reference.pdf',
-  'tobaccoresearchpreventionads': '/fields/tobaccoresearchpreventionads_reference.pdf',
-  'tobaccoresearchdigitalads': '/fields/tobaccoresearchdigitalads_reference.pdf',
-  'tobaccoresearchsmokefree': '/fields/tobaccoresearchsmokefree_reference.pdf',
   'transparencycrl': '/fields/transparencycrl_reference.pdf'
 })
 
@@ -56,10 +57,11 @@ export const xlsxDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'othernsde': '/fields/othernsde_reference.xlsx',
   'othersubstance': '/fields/othersubstance_reference.xlsx',
   'researchcovidmirnaandproteomics': '/fields/researchcovidmirnaandproteomics_reference.xlsx',
+  'researchtobaccopreventionads': '/fields/researchtobaccopreventionads_reference.xlsx',
+  'researchtobaccodigitalads': '/fields/researchtobaccodigitalads_reference.xlsx',
+  'researchtobaccosmokefree': '/fields/researchtobaccosmokefree_reference.xlsx',
+  'researchtobaccoharmmenthol': '/fields/researchtobaccoharmmenthol_reference.xlsx',
   'tobaccoproblem': '/fields/tobaccoproblem_reference.xlsx',
-  'tobaccoresearchpreventionads': '/fields/tobaccoresearchpreventionads_reference.xlsx',
-  'tobaccoresearchdigitalads': '/fields/tobaccoresearchdigitalads_reference.xlsx',
-  'tobaccoresearchsmokefree': '/fields/tobaccoresearchsmokefree_reference.xlsx',
   'transparencycrl': '/fields/transparencycrl_reference.xlsx'
 })
 
@@ -88,9 +90,10 @@ export const yamlDownloadMap: Readonly<Record<string, string>> = Object.freeze({
   'othernsde': '/fields/othernsde.yaml',
   'othersubstance': '/fields/othersubstance.yaml',
   'researchcovidmirnaandproteomics': '/fields/researchcovidmirnaandproteomics.yaml',
+  'researchtobaccopreventionads': '/fields/researchtobaccopreventionads.yaml',
+  'researchtobaccodigitalads': '/fields/researchtobaccodigitalads.yaml',
+  'researchtobaccosmokefree': '/fields/researchtobaccosmokefree.yaml',
+  'researchtobaccoharmmenthol': '/fields/researchtobaccoharmmenthol.yaml',
   'tobaccoproblem': '/fields/tobaccoproblem.yaml',
-  'tobaccoresearchpreventionads': '/fields/tobaccoresearchpreventionads.yaml',
-  'tobaccoresearchdigitalads': '/fields/tobaccoresearchdigitalads.yaml',
-  'tobaccoresearchsmokefree': '/fields/tobaccoresearchsmokefree.yaml',
   'transparencycrl': '/fields/transparencycrl.yaml'
 })

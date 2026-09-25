@@ -28,15 +28,16 @@ import device_registration_listing_meta from '../../apis/device/registrationlist
 import device_udi_meta from '../../apis/device/udi/_meta.yaml'
 import device_covid19serology_meta from '../../apis/device/covid19serology/_meta.yaml'
 import tobacco_problem_meta from '../../apis/tobacco/problem/_meta.yaml'
-import tobacco_researchpreventionads_meta from '../../apis/tobacco/researchpreventionads/_meta.yaml'
-import tobacco_researchdigitalads_meta from '../../apis/tobacco/researchdigitalads/_meta.yaml'
-import tobacco_researchsmokefree_meta from '../../apis/tobacco/researchsmokefree/_meta.yaml'
 import transparency_crl_meta from '../../apis/transparency/completeresponseletters/_meta.yaml'
 import other_historicaldocument_meta from '../../apis/other/historicaldocument/_meta.yaml'
 import other_nsde_meta from '../../apis/other/nsde/_meta.yaml'
 import other_substance_meta from '../../apis/other/substance/_meta.yaml'
 import other_unii_meta from '../../apis/other/unii/_meta.yaml'
 import research_covidmirnaandproteomics_meta from '../../apis/other/unii/_meta.yaml'
+import research_tobaccopreventionads_meta from '../../apis/research/tobaccopreventionads/_meta.yaml'
+import research_tobaccodigitalads_meta from '../../apis/research/tobaccodigitalads/_meta.yaml'
+import research_tobaccosmokefree_meta from '../../apis/research/tobaccosmokefree/_meta.yaml'
+import research_tobaccoharmmenthol_meta from '../../apis/research/tobaccoharmmenthol/_meta.yaml'
 
 const ComposedSidebar: ReactClass = SideBarContainer(SideBar)
 
@@ -68,13 +69,14 @@ const endpoint_list = {
   'COVID-19 Serological Testing Evaluations': device_covid19serology_meta,
   'Tobacco': 'tobacco_header',
   'Tobacco Problem Reports': tobacco_problem_meta,
-  'Tobacco Prevention Ads Research': tobacco_researchpreventionads_meta,
-  'Tobacco Digital Ads Research': tobacco_researchdigitalads_meta,
-  'Tobacco Smokefree Research': tobacco_researchsmokefree_meta,
   'Transparency': 'transparency_header',
   'Complete Response Letters': transparency_crl_meta,
   'Research': 'research_header',
   'Covid miRNA and Proteomics Research': research_covidmirnaandproteomics_meta,
+  'Tobacco Prevention Ads Research': research_tobaccopreventionads_meta,
+  'Tobacco Digital Ads Research': research_tobaccodigitalads_meta,
+  'Tobacco Smokefree Research': research_tobaccosmokefree_meta,
+  'Tobacco Harm Menthol Research': research_tobaccoharmmenthol_meta,
   'Other': 'other_header',
   'Historical Documents': other_historicaldocument_meta,
   'NSDE': other_nsde_meta,

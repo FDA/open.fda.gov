@@ -11,6 +11,22 @@ export default () => (
           noun_name='research'
           endpoint_name='covidmirnaandproteomics'
         />
+        <EndpointBox
+          noun_name='research'
+          endpoint_name='tobaccopreventionads'
+        />
+        <EndpointBox
+          noun_name='research'
+          endpoint_name='tobaccodigitalads'
+        />
+        <EndpointBox
+          noun_name='research'
+          endpoint_name='tobaccosmokefree'
+        />
+        <EndpointBox
+          noun_name='research'
+          endpoint_name='tobaccoharmmenthol'
+        />
       </div>
     </div>
   </section>

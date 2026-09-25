@@ -40,13 +40,14 @@ export const description: Record<NounName, Partial<Record<EndpointName, string>>
     'unii': 'Unique Ingredient Identifier list.'
   },
   'research': {
-    'covidmirnaandproteomics': 'Covid miRNA and Proteomics Research'
+    'covidmirnaandproteomics': 'Covid miRNA and Proteomics Research',
+    'tobaccopreventionads': 'Impact Potential of FDA\'s Tobacco Prevention Ads on Youth Attitudes and Beliefs: Meta-Analytical Evidence from A Decade\'s Worth of Copy Testing',
+    'tobaccodigitalads': 'Exploring Attention to Digital Ads',
+    'tobaccosmokefree': 'Amplifying Impact: The Real Cost Campaign',
+    'tobaccoharmmenthol': 'Resistant, Willing, or Stuck? A Latent Class Analysis Examining Tobacco Harm Perceptions, Barriers to Smoking Cessation, and Openness to Cessation/Harm Reduction Strategies among U.S. Adults Who Smoke Menthol Cigarettes'
   },
   'tobacco': {
-    'problem': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.',
-    'researchpreventionads': 'Impact Potential of FDA\'s Tobacco Prevention Ads on Youth Attitudes and Beliefs: Meta-Analytical Evidence from A Decade\'s Worth of Copy Testing',
-    'researchdigitalads': 'Exploring Attention to Digital Ads',
-    'researchsmokefree': 'Amplifying Impact: The Real Cost Campaign'
+    'problem': 'Reports about tobacco products that are damaged, defective, contaminated, smell or taste wrong, or cause undesirable health effects.'
   },
   'transparency': {
     'crl': 'Centralized database of Complete Response Letters (CRLs)',
@@ -91,13 +92,14 @@ export const ep_title: Record<NounName, Partial<Record<EndpointName, string>>> =
     'unii': 'UNII'
   },
   'research': {
-    'covidmirnaandproteomics': 'Covid miRNA and Proteomics Research'
+    'covidmirnaandproteomics': 'Covid miRNA and Proteomics Research',
+    'tobaccopreventionads': 'Tobacco Prevention Ads Research',
+    'tobaccodigitalads': 'Tobacco Digital Ads Research',
+    'tobaccosmokefree': 'Tobacco Smokefree Research',
+    'tobaccoharmmenthol': 'Tobacco Harm Menthol Research'
   },
   'tobacco': {
-    'problem': 'Tobacco Problem Reports',
-    'researchpreventionads': 'Tobacco Prevention Ads Research',
-    'researchdigitalads': 'Tobacco Digital Ads Research',
-    'researchsmokefree': 'Tobacco Smokefree Research'
+    'problem': 'Tobacco Problem Reports'
   },
   'transparency': {
     'crl': 'Complete Response Letters',
@@ -153,13 +155,14 @@ export const ep_path: Record<NounName, Partial<Record<EndpointName, string>>> = 
     'unii': '/apis/other/unii/'
   },
   'research': {
-    'covidmirnaandproteomics': '/apis/research/covidmirnaandproteomics/'
+    'covidmirnaandproteomics': '/apis/research/covidmirnaandproteomics/',
+    'tobaccopreventionads': '/apis/research/tobaccopreventionads/',
+    'tobaccodigitalads': '/apis/research/tobaccodigitalads/',
+    'tobaccosmokefree': '/apis/research/tobaccosmokefree/',
+    'tobaccoharmmenthol': '/apis/research/tobaccoharmmenthol/'
   },
   'tobacco': {
-    'problem': '/apis/tobacco/problem/',
-    'researchpreventionads': '/apis/tobacco/researchpreventionads/',
-    'researchdigitalads': '/apis/tobacco/researchdigitalads/',
-    'researchsmokefree': '/apis/tobacco/researchsmokefree/'
+    'problem': '/apis/tobacco/problem/'
   },
   'transparency': {
     'crl': '/apis/transparency/completeresponseletters/'

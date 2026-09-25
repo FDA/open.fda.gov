@@ -475,15 +475,16 @@ if (!bp.mob && hasWindow) {
 
                       <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Tobacco</strong></td></tr>
                       <tr> <td>Problem Reports</td><td>{this.docCount('tobaccoproblem')}</td> </tr>
-                      <tr> <td>Prevention Ads Research</td><td>{this.docCount('tobaccoresearchpreventionads')}</td> </tr>
-                      <tr> <td>Digital Ads Research</td><td>{this.docCount('tobaccoresearchdigitalads')}</td> </tr>
-                      <tr> <td>Smokefree Research</td><td>{this.docCount('tobaccoresearchsmokefree')}</td> </tr>
 
                       <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Transparency</strong></td></tr>
                       <tr> <td>Complete Response Letters</td><td>{this.docCount('transparencycrl')}</td> </tr>
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan='2'><strong>Research</strong></td></tr>
                       <tr><td>Covid miRNA and Proteomics</td><td>{this.docCount('researchcovidmirnaandproteomics')}</td></tr>
+                      <tr> <td>Tobacco Prevention Ads</td><td>{this.docCount('researchtobaccopreventionads')}</td> </tr>
+                      <tr> <td>Tobacco Digital Ads</td><td>{this.docCount('researchtobaccodigitalads')}</td> </tr>
+                      <tr> <td>Tobacco Smokefree</td><td>{this.docCount('researchtobaccosmokefree')}</td> </tr>
+                      <tr> <td>Tobacco Harm Menthol</td><td>{this.docCount('researchtobaccoharmmenthol')}</td> </tr>
 
                       <tr className='bg-primary-darkest clr-white' id='dataset-downloads-scroll-anchor'> <td colSpan={2}><strong>Other</strong></td></tr>
                       <tr> <td>Historical Documents</td><td>{this.docCount('otherhistoricaldocument')}</td> </tr>
@@ -541,15 +542,16 @@ if (!bp.mob && hasWindow) {
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Tobacco</strong></td></tr>
                       <tr><td>Problem Reports</td><td>{this.downloadCount('tobaccoproblem')}</td></tr>
-                      <tr><td>Prevention Ads Research</td><td>{this.downloadCount('tobaccoresearchpreventionads')}</td></tr>
-                      <tr><td>Digital Ads Research</td><td>{this.downloadCount('tobaccoresearchdigitalads')}</td></tr>
-                      <tr><td>Smokefree Research</td><td>{this.downloadCount('tobaccoresearchsmokefree')}</td></tr>
 
                       <tr className='bg-primary-darkest clr-white'> <td colSpan={2}><strong>Transparency</strong></td></tr>
                       <tr> <td>Complete Response Letters</td><td>{this.downloadCount('transparencycrl')}</td> </tr>
 
                       <tr className='bg-primary-darkest clr-white'><td colSpan={2}><strong>Research</strong></td></tr>
                       <tr><td>Covid miRNA and Proteomics</td><td>{this.downloadCount('researchcovidmirnaandproteomics')}</td></tr>
+                      <tr><td>Tobacco Prevention Ads</td><td>{this.downloadCount('researchtobaccopreventionads')}</td></tr>
+                      <tr><td>Tobacco Digital Ads</td><td>{this.downloadCount('researchtobaccodigitalads')}</td></tr>
+                      <tr><td>Tobacco Smokefree</td><td>{this.downloadCount('researchtobaccosmokefree')}</td></tr>
+                      <tr><td>Tobacco Harm Menthol</td><td>{this.downloadCount('researchtobaccoharmmenthol')}</td></tr>
 
                       <tr className='bg-primary-darkest clr-white'> <td colSpan={2}><strong>Other</strong></td></tr>
                       <tr> <td>Historical Documents</td><td>{this.downloadCount('otherhistoricaldocument')}</td> </tr>

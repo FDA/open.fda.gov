@@ -1,0 +1,782 @@
+properties:
+  record:
+    description: "Record number"
+    format:
+    is_exact: false
+    possible_values:
+    type: integer
+  relative_risk:
+    type: array
+    items:
+      type: object
+      properties:
+        vape:
+          description: "Perceived harm of vapes relative to cigarettes"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        smokeless:
+          description: "Perceived harm of SLT relative to cigarettes"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        menthol:
+          description: "Perceived harm of menthol relative to non-menthol cigarettes"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+  quit_method:
+    type: array
+    items:
+      type: object
+      properties:
+        nicotine_replacement:
+          description: "Past quit method: NRT"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        counseling:
+          description: "Past quit method: Counseling from health care provider"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        other_tobacco:
+          description: "Past quit method: Switched to another tobacco product"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        telephone_or_web:
+          description: "Past quit method: Telephone quit line or web-based program"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+  future_quit_method:
+    type: array
+    items:
+      type: object
+      properties:
+        nicotine_replacement:
+          description: "Future quit method: NRT"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        prescription_pill:
+          description: "Future quit method: Prescription pill"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        group:
+          description: "Future quit method: Stop-smoking clinic, class, or support group"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        counseling:
+          description: "Future quit method: Counseling from health care provider"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        switch_smokeless:
+          description: "Future quit method: Switch to smokeless tobacco"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        switch_vaping:
+          description: "Future quit method: Switch to vaping products"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        switch_pouches:
+          description: "Future quit method: Switch to nicotine pouches"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        telephone_or_web:
+          description: "Future quit method: Telephone quit line or web-based program"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+  quit_barrier:
+    type: array
+    items:
+      type: object
+      properties:
+        weight_gain:
+          description: "Quit barrier: Risk of gaining weight"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        stress:
+          description: "Quit barrier: Way I handle stress or anxiety"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        lives_with_smoker:
+          description: "Quit barrier: Lives with another smoker"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        withdrawal:
+          description: "Quit barrier: Withdrawal from nicotine"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        habits:
+          description: "Quit barrier: Smoking habits or routines"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+  current_use:
+    type: array
+    items:
+      type: object
+      properties:
+        cigarillos:
+          description: "Days used little cigars or cigarillos (past 30 days)"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        cigars:
+          description: "Days smoked large or premium cigars (past 30 days)"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        vape:
+          description: "Days used vaping products (past 30 days)"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        smokeless:
+          description: "Days used smokeless tobacco (past 30 days)"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        pouches:
+          description: "Days used nicotine pouches (past 30 days)"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+  trust_for_quit_info:
+    type: array
+    items:
+      type: object
+      properties:
+        partner:
+          description: "Trust for quit info: Spouse/partner"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        family_or_friends:
+          description: "Trust for quit info: Other family or friends"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        quitters:
+          description: "Trust for quit info: People who have successfully quit"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        doctor:
+          description: "Trust for quit info: Doctor or other provider"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        scientists:
+          description: "Trust for quit info: Scientists or researchers"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        cig_companies:
+          description: "Trust for quit info: Cigarette companies"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        vape_companies:
+          description: "Trust for quit info: Vape companies"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        gov:
+          description: "Trust for quit info: Government health agencies"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        state:
+          description: "Trust for quit info: State or local health orgs"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        religious_org:
+          description: "Trust for quit info: Religious organizations"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+  community_involvement:
+    type: array
+    items:
+      type: object
+      properties:
+        religious:
+          description: "Community involvement: Religious entity"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        civic:
+          description: "Community involvement: Local rotary or civic group"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        wellness:
+          description: "Community involvement: Gym or wellness group"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        volunteer:
+          description: "Community involvement: Volunteer group"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        hobby:
+          description: "Community involvement: Special interest or hobby group"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        school:
+          description: "Community involvement: School-based organization"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        municipality:
+          description: "Community involvement: Local municipality or govt"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        none:
+          description: "Community involvement: None of the above"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+  tobacco_ad_exposure:
+    type: array
+    items:
+      type: object
+      properties:
+        retail:
+          description: "Tobacco ad exposure: Gas stations or retail stores"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        billboards:
+          description: "Tobacco ad exposure: Billboards"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        newspapers_magazines:
+          description: "Tobacco ad exposure: Newspapers or magazines"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        radio:
+          description: "Tobacco ad exposure: Radio"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        television:
+          description: "Tobacco ad exposure: Television"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        events:
+          description: "Tobacco ad exposure: Events"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        nightlife:
+          description: "Tobacco ad exposure: Nightclubs, bars, or music concerts"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        websites:
+          description: "Tobacco ad exposure: Websites"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        social_media:
+          description: "Tobacco ad exposure: Social media"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+  switching_intent_vaping:
+    type: array
+    items:
+      type: object
+      properties:
+        gradual:
+          description: "Switching intent: Plan to gradually switch to vapes"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        full_replacement:
+          description: "Switching intent: Plan to use vapes as full cigarette replacement"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        next_six_months:
+          description: "Switching intent: Intend to switch to vapes in next 6 months"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+  switching_intent_smokeless:
+    type: array
+    items:
+      type: object
+      properties:
+        gradual:
+          description: "Switching intent: Plan to gradually switch to smokeless tobacco"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        full_replacement:
+          description: "Switching intent: Plan to use smokeless tobacco as full cigarette replacement"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        next_six_months:
+          description: "Switching intent: Intend to switch to smokeless tobacco in next 6 months"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+  relative_addiction_menthol:
+    description: "Perceived addictiveness of menthol to non-menthol"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  nicotine_causes:
+    description: "Nicotine causes most smoking-related cancer"
+    format:
+    is_exact: true
+    possible_values:
+    type: string
+  quit_intentions:
+    description: "Intentions to quit smoking cigarette"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  quit_ever:
+    description: "Ever stopped smoking for 1+ day to quit"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  times_quit:
+    description: "Times stopped smoking 1+ day (past 12 months)"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  reason_vape:
+    description: "Primary reason for current vape use (among those who currently vape)"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  reason_smokeless:
+    description: "Primary reason for current SLT use (among those who currently use SLT)"
+    format:
+    is_exact: false
+    possible_values:
+    type: string
+  analytic_variables:
+    type: array
+    items:
+      type: object
+      properties:
+        relative_risk:
+          type: array
+          items:
+            type: object
+            properties:
+              vape:
+                description: "Perceived harm of vapes relative to cigarettes"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              smokeless:
+                description: "Perceived harm of SLT relative to cigarettes"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              menthol:
+                description: "Perceived harm of menthol relative to non-menthol cigarettes"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+        quit_method:
+          type: array
+          items:
+            type: object
+            properties:
+              evidenced_based:
+                description: "Open to evidence-based quit strategy"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              used_vape_or_smokeless:
+                description: "Open to switching to lower-harm product"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+        future_quit_method:
+          type: array
+          items:
+            type: object
+            properties:
+              fda_approved:
+                description: "Open to FDA-approved cessation method"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              evidenced_based:
+                description: "Open to evidence-based quit strategy"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              used_vape_or_smokeless:
+                description: "Open to switching to lower-harm product"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+        quit_barrier:
+          type: array
+          items:
+            type: object
+            properties:
+              weight_gain:
+                description: "Quit barrier: Risk of gaining weight"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              stress:
+                description: "Quit barrier: Way I handle stress or anxiety"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              lives_with_smoker:
+                description: "Quit barrier: Lives with another smoker"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              withdrawal:
+                description: "Quit barrier: Withdrawal from nicotine"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              habits:
+                description: "Quit barrier: Smoking habits or routines"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+        current_use:
+          type: array
+          items:
+            type: object
+            properties:
+              vape:
+                description: "Days used vaping products (past 30 days)"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              smokeless:
+                description: "Days used smokeless tobacco (past 30 days)"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+              pouches:
+                description: "Days used nicotine pouches (past 30 days)"
+                format:
+                is_exact: false
+                possible_values:
+                type: string
+        trust_for_quit_info:
+          type: array
+          items:
+            type: object
+            properties:
+              partner:
+                description: "Trust for quit info: Spouse/partner"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              family_or_friends:
+                description: "Trust for quit info: Other family or friends"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              quitters:
+                description: "Trust for quit info: People who have successfully quit"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              doctor:
+                description: "Trust for quit info: Doctor or other provider"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              scientists:
+                description: "Trust for quit info: Scientists or researchers"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              cig_companies:
+                description: "Trust for quit info: Cigarette companies"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              vape_companies:
+                description: "Trust for quit info: Vape companies"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              gov:
+                description: "Trust for quit info: Government health agencies"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              state:
+                description: "Trust for quit info: State or local health orgs"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              religious_org:
+                description: "Trust for quit info: Religious organizations"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+        community_involvement:
+          type: array
+          items:
+            type: object
+            properties:
+              religious:
+                description: "Community involvement: Religious entity"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              civic:
+                description: "Community involvement: Local rotary or civic group"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              wellness:
+                description: "Community involvement: Gym or wellness group"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              volunteer:
+                description: "Community involvement: Volunteer group"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              hobby:
+                description: "Community involvement: Special interest or hobby group"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              school:
+                description: "Community involvement: School-based organization"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              municipality:
+                description: "Community involvement: Local municipality or govt"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+              none:
+                description: "Community involvement: None of the above"
+                format:
+                is_exact: true
+                possible_values:
+                type: string
+        sex:
+          description: "Sex (2-level)"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        age_group:
+          description: "Age group (4-level)"
+          format:
+          is_exact: false
+          possible_values:
+          type: integer
+        race_or_ethnicity:
+          description: "Race/ethnicity (4-level)"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        sexual_orientation:
+          description: "Sexual Orientation (2-level)"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        educational_attainment:
+          description: "Educational attainment (4-level)"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        subjective_income_adequacy:
+          description: "Subjective income adequacy (reverse coded)"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        relative_addiction_menthol:
+          description: "Menthol cigs perceived equally/less addictive"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        nicotine_causes:
+          description: "Believes nicotine causes most smoking cancer"
+          format:
+          is_exact: true
+          possible_values:
+          type: string
+        couse_combustibles:
+          description: "Co-use: Combustible tobacco, cigars/LCCs"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        couse_noncombust:
+          description: "Co-use: Non-combustible tobacco, e-cigs/SLT"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        quit_attempts:
+          description: "1+ quit attempts in past 12 months"
+          format:
+          is_exact: false
+          possible_values:
+          type: string
+        tobacco_ad_exposure:
+          description: "Tobacco advertising exposure index"
+          format:
+          is_exact: flase
+          possible_values:
+          type: integer
+        switch_vape:
+          description: "Intentions to switch to e-cigarettes scale"
+          format:
+          is_exact: false
+          possible_values:
+          type: number
+        switch_smokeless:
+          description: "Intentions to switch to smokeless tobacco scale"
+          format:
+          is_exact: false
+          possible_values:
+          type: number
+        predicted_class_membership:
+          description: "Latent class: Predicted class membership"
+          format:
+          is_exact: false
+          possible_values:
+          type: integer
+type: object
