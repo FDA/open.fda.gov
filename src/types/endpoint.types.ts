@@ -20,9 +20,10 @@ export type EndpointName =
     | 'substance'
     | 'unii'
     | 'problem'
-    | 'researchpreventionads'
-    | 'researchdigitalads'
-    | 'researchsmokefree'
+    | 'tobaccopreventionads'
+    | 'tobaccodigitalads'
+    | 'tobaccosmokefree'
+    | 'tobaccoharmmenthol'
     | 'crl'
     | 'completeresponseletters'
     | 'covidmirnaandproteomics';

@@ -1,0 +1,13 @@
+documentTitle: openFDA › Research › Tobacco Harm Menthol Research API
+name: Tobacco Harm Menthol Research
+description: 'This dataset makes available the research paper "Resistant, Willing, or Stuck? A Latent Class Analysis Examining Tobacco Harm Perceptions, Barriers to Smoking Cessation, and Openness to Cessation/Harm Reduction Strategies among U.S. Adults Who Smoke Menthol Cigarettes"'
+datasets:
+  - researchtobaccoharmmenthol
+label: Tobacco Harm Menthol Research
+title: Tobacco Harm Menthol Research
+path: /apis/research/tobaccoharmmenthol
+api_path: /research/tobaccoharmmenthol
+start: 20170101
+status: researchtobaccoharmmenthol
+dateConstraintKey:
+type: endpoint

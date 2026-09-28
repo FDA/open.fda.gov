@@ -1,0 +1,13 @@
+documentTitle: openFDA › Research › Tobacco Smokefree API
+name: Tobacco Smokefree Research
+description: 'This dataset makes available the research paper "Amplifying Impact: The Real Cost Campaign"'
+datasets:
+  - researchtobaccosmokefree
+label: Tobacco Smokefree Research
+title: Tobacco Smokefree Research
+path: /apis/research/tobaccosmokefree
+api_path: /research/tobaccosmokefree
+start: 20170101
+status: researchtobaccosmokefree
+dateConstraintKey:
+type: endpoint

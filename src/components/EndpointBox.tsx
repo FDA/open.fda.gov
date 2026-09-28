@@ -55,19 +55,20 @@ const EndpointBox = (props: endpointBoxProps) => {
       'orangebook': <div className='ep-icon' style={bg_color.drug}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>
     },
     'other': {
-      'historicaldocument': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-history" style={{ color: "white" }} /></div>,
-      'nsde': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-database" style={{ color: "white" }} /></div>,
-      'substance': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-flask" style={{ color: "white" }} /></div>,
-      'unii': <div className="ep-icon" style={bg_color['other']}><i className="fa fa-3x fa-barcode" style={{ color: "white" }} /></div>
+      'historicaldocument': <div className="ep-icon" style={bg_color.other}><i className="fa fa-3x fa-history" style={{ color: "white" }} /></div>,
+      'nsde': <div className="ep-icon" style={bg_color.other}><i className="fa fa-3x fa-database" style={{ color: "white" }} /></div>,
+      'substance': <div className="ep-icon" style={bg_color.other}><i className="fa fa-3x fa-flask" style={{ color: "white" }} /></div>,
+      'unii': <div className="ep-icon" style={bg_color.other}><i className="fa fa-3x fa-barcode" style={{ color: "white" }} /></div>
     },
     'research': {
-      'covidmirnaandproteomics': <div className="ep-icon" style={bg_color['research']}><i className="fa fa-3x fa-book" style={{ color: "white" }} /></div>,
+      'covidmirnaandproteomics': <div className="ep-icon" style={bg_color.research}><i className="fa fa-3x fa-book" style={{ color: "white" }} /></div>,
+      'tobaccopreventionads': <div className='ep-icon' style={bg_color.research}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>,
+      'tobaccodigitalads': <div className='ep-icon' style={bg_color.research}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>,
+      'tobaccosmokefree': <div className='ep-icon' style={bg_color.research}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>,
+      'tobaccoharmmenthol': <div className='ep-icon' style={bg_color.research}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>
     },
     'tobacco': {
-      'problem': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-leaf' style={{ color: "white" }} /></div>,
-      'researchpreventionads': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>,
-      'researchdigitalads': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>,
-      'researchsmokefree': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>
+      'problem': <div className='ep-icon' style={bg_color.tobacco}><i className='fa fa-3x fa-leaf' style={{ color: "white" }} /></div>
     },
     'transparency': {
       'crl': <div className='ep-icon' style={bg_color.transparency}><i className='fa fa-3x fa-book' style={{ color: "white" }} /></div>
