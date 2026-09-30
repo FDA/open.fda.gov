@@ -23,7 +23,7 @@ export default () => (
           <section className='marg-b-3 clearfix'>
             <ResearchDatasetDownloads
               datasetTitle='mSphere'
-              datasetLink='https://download.test.open.fda.gov/scientific/mSphere_raw_data.zip'
+              datasetLink='https://download.open.fda.gov/scientific/mSphere_raw_data.zip'
               dataFile='mSphere_raw_data.zip'
               description='insert description here'
               publisher='insert publisher name here'
