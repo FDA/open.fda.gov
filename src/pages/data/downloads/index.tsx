@@ -97,24 +97,16 @@ const downloads_list = Object.keys(endpoint_list).map((key: string, i: number) =
 })
 
 export default () => (
-  <section>
-    <Hero
-      label='Endpoint Downloads'
-      title='Downloads'
-      htmlDescription='true'
-      description='This page provides all available endpoint downloads.'
+  <section className='relative row content-wrapper'>
+
+    <ComposedSidebar
+      downloads={Object.keys(endpoint_list)}
     />
-    <section className='container t-marg-t-3 marg-b-3 relative row content-wrapper'>
 
-      <ComposedSidebar
-        downloads={Object.keys(endpoint_list)}
-      />
-
-      <div className='float-r ref-content' style={{ maxWidth: '100%'}}>
-        <ul id='downloads'>
-          {downloads_list}
-        </ul>
-      </div>
-    </section>
+    <div className='float-r ref-content' style={{ paddingTop: '24px', maxWidth: '100%' }}>
+      <ul id='downloads'>
+        {downloads_list}
+      </ul>
+    </div>
   </section>
 )
