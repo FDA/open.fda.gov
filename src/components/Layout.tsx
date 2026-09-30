@@ -36,7 +36,7 @@ const Layout = (props: LayoutProps) => {
     down: 'sticky-scroll-down',
     up: 'sticky-scroll-up'
   }
-  const hasSidebar = props.location.pathname.slice(0, 6) === `/apis/` || props.location.pathname.slice(0, 9) === `/msphere`
+  const hasSidebar = props.location.pathname.slice(0, 6) === `/apis/` || props.location.pathname.slice(0, 14) === `/msphere/apis/`
   return (
     <DocumentTitle title='openFDA' key='openFDA'>
       <div>
