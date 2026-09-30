@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: `/msphere`,
   siteMetadata: {
     title: `openFDA`,
     siteUrl: `https://www.open.fda.gov`,
