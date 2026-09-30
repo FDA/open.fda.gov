@@ -6,6 +6,7 @@ import '../css/components/KeyFacts.scss'
 interface DownloadsProps {
   datasetTitle: string,
   datasetLink: string,
+  dataFile: string,
   description: string,
   publisher: string,
   pubArticle: string,
@@ -46,7 +47,7 @@ class ResearchDatasetDownloads extends React.Component<DownloadsProps> {
           <li>
             <i className='fa fa-database'/>
             <div className='label'>Dataset Download:</div>
-            <div className='value'><a>{this.props.datasetLink}</a></div>
+            <div className='value'><a href={this.props.datasetLink}>{this.props.dataFile}</a></div>
           </li>
         </ul>
       </section>

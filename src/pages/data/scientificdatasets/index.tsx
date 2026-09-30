@@ -24,6 +24,7 @@ export default () => (
             <ResearchDatasetDownloads
               datasetTitle='mSphere'
               datasetLink='https://download.test.open.fda.gov/scientific/mSphere_raw_data.zip'
+              dataFile='mSphere_raw_data.zip'
               description='insert description here'
               publisher='insert publisher name here'
               pubArticle='insert article name here'
