@@ -7,6 +7,7 @@ import CustomMenu from './CustomMenu'
 import ReferenceMenu from './ReferenceMenu'
 import DownloadsMenu from './DownloadsMenu'
 import type {tMenu} from '../../constants/types/menu'
+import ResearchDatasetsMenu from "./ResearchDatasetsMenu"
 
 type tPROPS = {
   bottom: boolean;
@@ -49,6 +50,8 @@ const SideBar: React.FC<tPROPS & tSTATE> = (props) => {
     className,
     // data for rendering downloads menu
     downloads,
+    // data for rendering scientific datasets menu
+    researchDatasets,
     // is the sidebar sticky
     fixed,
     // menu data for rendering infographic menu
@@ -65,7 +68,7 @@ const SideBar: React.FC<tPROPS & tSTATE> = (props) => {
   })
 
   const wrapCx = cx({
-    'relative col sb m-marg-t-3 m-marg-b-2': true,
+    'Sticky relative col sb': true,
     [className]: !!className,
   })
 
@@ -100,6 +103,15 @@ const SideBar: React.FC<tPROPS & tSTATE> = (props) => {
           <DownloadsMenu
             bottomPos={bottomPos}
             content={downloads}
+            isFixed={fixed}
+            isBottom={bottom}
+          />
+        }
+        {
+          researchDatasets &&
+          <ResearchDatasetsMenu
+            bottomPos={bottomPos}
+            content={researchDatasets}
             isFixed={fixed}
             isBottom={bottom}
           />

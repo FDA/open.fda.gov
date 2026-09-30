@@ -1,11 +1,8 @@
 /* @flow */
 
 import React from 'react'
-import marked from 'marked'
 import cx from 'classnames'
 
-import ARIA from '../../constants/aria'
-import RenderContentObject from '../RenderContentObject'
 import type { DownloadsMenuProps } from '../../types/download.types'
 
 /**
@@ -52,21 +49,10 @@ const DownloadsMenu = (props: DownloadsMenuProps) => {
       }}>
       {
         content.map((c: string|Object, i: number) => {
-          let header: number = 0
-          if (c === 'Animal and Veterinary' || c === 'Food' || c === 'Cosmetics' || c === 'Human Drug' || c === 'Medical Device' || c === 'Tobacco' || c === 'Transparency' || c === 'Other') {
-            header = 1
-          }
-
-          const btnCx = cx({
-            'menu-item row': true,
-            'depth-2': header === 0,
-            'weight-600': header === 1
-          })
-
           return (
             <button
               key={i}
-              className={btnCx}
+              className='menu-item row weight-600'
               onClick={_scrollIntoView}
               dangerouslySetInnerHTML={{__html: c}}
             />
