@@ -1,10 +1,10 @@
 type: endpoint
 documentTitle: openFDA › Food › Adverse events API
-label: HFCS reports
-title: HFCS Reports
-description: An adverse event is submitted to the FDA to report adverse health effects and product complaints about foods and dietary supplements.
+label: CAERS reports
+title: CAERS Reports
+description: An adverse event is submitted to the FDA to report adverse health effects and product complaints about foods, dietary supplements, and cosmetics.
 datasets:
-  - HFCS
+  - CAERS
 path: /apis/food/event
 api_path: /food/event
 start: 20040101

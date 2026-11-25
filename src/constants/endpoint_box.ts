@@ -8,7 +8,7 @@ export const description: Record<NounName, Partial<Record<EndpointName, string>>
   },
   'food': {
     'enforcement': 'Food product recall enforcement reports.',
-    'event': 'Food and dietary supplement adverse event reports.'
+    'event': 'Food, dietary supplement, and cosmetic adverse event reports.'
   },
   'cosmetic': {
     'event': 'Cosmetic adverse event reports.'
@@ -60,7 +60,7 @@ export const ep_title: Record<NounName, Partial<Record<EndpointName, string>>> =
   },
   'food': {
     'enforcement': 'Recall enforcement reports',
-    'event': 'HFCS reports'
+    'event': 'CAERS reports'
   },
   'cosmetic': {
     'event': 'Adverse event reports.'

@@ -12,7 +12,7 @@ const source: Record<string, Record<string, string>> = {
   },
   'food': {
     'enforcement': 'FDA Recall Enterprise System (RES)',
-    'event': 'Human Foods Complaint System (HFCS)'
+    'event': 'Center for Food Safety and Applied Nutrition Adverse Event Reporting System (CAERS)'
   },
   'cosmetic': {
     'event': 'Cosmetic Adverse Events'
@@ -57,7 +57,7 @@ const sourceLink: any = {
   },
   'food': {
     'enforcement': '/data/res/',
-    'event': '/data/hfcs/'
+    'event': '/data/caers/'
   },
   'cosmetic': {
   },
