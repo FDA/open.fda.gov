@@ -1,0 +1,25 @@
+type: dataset
+documentTitle: 'openFDA › Datasets › HFCS'
+crumbs:
+  - openFDA
+  - Datasets
+  - HFCS
+title: 'Human Foods Complaint System'
+description: 'The Human Foods Complaint System (HFCS) is a database that contains information on food and dietary supplement adverse events submitted to FDA.'
+source:
+  name: 'HFCS'
+  nameLong: 'Human Foods Complaint System'
+  link: 'https://www.fda.gov/food/compliance-enforcement-food/human-foods-complaint-system-hfcs'
+license:
+  name: 'Public Domain and CC0'
+  link: 'http://creativecommons.org/publicdomain/zero/1.0/'
+time:
+  start: 'Q1 2014'
+  current:
+  delay:
+  frequency:
+provider:
+  name: 'FDA'
+  link: 'http://www.fda.gov/'
+additionalContent:
+  - "The Human Foods Complaint System (HFCS) is a database that contains information on food and dietary supplement adverse events submitted to FDA. The database is designed to support the FDA's post-marketing safety surveillance program for foods and dietary supplements."
