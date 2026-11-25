@@ -1,7 +1,7 @@
-- title: "Adverse food, dietary supplement, and cosmetic event reports since 2004"
+- title: "Adverse food and dietary supplements event reports since 2004"
   short: "Reports over time"
   description:
-    - "This is the openFDA API endpoint for adverse food, dietary supplement, and cosmetic product events. An adverse event is submitted to the FDA to report adverse health effects and product complaints about food, dietary supplements, and cosmetics."
+    - "This is the openFDA API endpoint for adverse food and dietary supplements product events. An adverse event is submitted to the FDA to report adverse health effects and product complaints about food and dietary supplements."
   countParam: "date_created"
   filters:
     - title: "All adverse event reports"
@@ -28,20 +28,6 @@
       searchParam: "reactions:alopecia"
   filterByDate: false
   type: Bar
-- title: "What outcomes are frequently reported?"
-  short: "Reported outcomes"
-  description:
-    - "An adverse event may involve many reactions—like a rash, diarrhea, or more serious reactions. The ultimate outcome may be relatively benign—a non-serious injury—or it could be as serious as permanent impairment or death."
-  countParam: "outcomes.exact"
-  filters:
-    - title: "All adverse event reports"
-      searchParam: ""
-    - title: "Product brand name includes the word *cheese*"
-      searchParam: 'products.name_brand:"cheese"'
-    - title: "Involving a cosmetic product"
-      searchParam: "products.industry_code:53"
-  filterByDate: false
-  type: Bar
 - title: "What adverse reactions are frequently reported?"
   short: "Reported reactions"
   description:
@@ -53,8 +39,6 @@
       searchParam: ""
     - title: "Product brand name includes the word *cheese*"
       searchParam: 'products.name_brand:"cheese"'
-    - title: "Involving a cosmetic product"
-      searchParam: "products.industry_code:53"
     - title: "Involving a dietary supplement product"
       searchParam: "products.industry_code:54"
   filterByDate: false
